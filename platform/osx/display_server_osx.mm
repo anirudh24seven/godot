@@ -1,32 +1,7 @@
-/*************************************************************************/
+
 /*  display_server_osx.mm                                                */
-/*************************************************************************/
-/*                       This file is part of:                           */
-/*                           GODOT ENGINE                                */
-/*                      https://godotengine.org                          */
-/*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
-/*                                                                       */
-/* Permission is hereby granted, free of charge, to any person obtaining */
-/* a copy of this software and associated documentation files (the       */
-/* "Software"), to deal in the Software without restriction, including   */
-/* without limitation the rights to use, copy, modify, merge, publish,   */
-/* distribute, sublicense, and/or sell copies of the Software, and to    */
-/* permit persons to whom the Software is furnished to do so, subject to */
-/* the following conditions:                                             */
-/*                                                                       */
-/* The above copyright notice and this permission notice shall be        */
-/* included in all copies or substantial portions of the Software.       */
-/*                                                                       */
-/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
-/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
-/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
-/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
-/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
-/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
-/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
-/*************************************************************************/
+
+
 
 #include "display_server_osx.h"
 
@@ -101,9 +76,9 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 	return [NSCursor arrowCursor];
 }
 
-/*************************************************************************/
+
 /* GodotApplication                                                      */
-/*************************************************************************/
+
 
 @interface GodotApplication : NSApplication
 @end
@@ -141,9 +116,9 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 
 @end
 
-/*************************************************************************/
+
 /* GlobalMenuItem                                                       */
-/*************************************************************************/
+
 
 @interface GlobalMenuItem : NSObject {
 @public
@@ -157,9 +132,9 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 @implementation GlobalMenuItem
 @end
 
-/*************************************************************************/
+
 /* GodotApplicationDelegate                                              */
-/*************************************************************************/
+
 
 @interface GodotApplicationDelegate : NSObject
 - (void)forceUnbundledWindowActivationHackStep1;
@@ -274,9 +249,9 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 
 @end
 
-/*************************************************************************/
+
 /* GodotWindowDelegate                                                   */
-/*************************************************************************/
+
 
 @interface GodotWindowDelegate : NSObject {
 	DisplayServerOSX::WindowID window_id;
@@ -511,9 +486,9 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 
 @end
 
-/*************************************************************************/
+
 /* GodotContentView                                                      */
-/*************************************************************************/
+
 
 @interface GodotContentView : NSView <NSTextInputClient> {
 	DisplayServerOSX::WindowID window_id;
@@ -1520,9 +1495,9 @@ inline void sendPanEvent(DisplayServer::WindowID window_id, double dx, double dy
 
 @end
 
-/*************************************************************************/
+
 /* GodotWindow                                                           */
-/*************************************************************************/
+
 
 @interface GodotWindow : NSWindow {
 }
@@ -1557,9 +1532,9 @@ inline void sendPanEvent(DisplayServer::WindowID window_id, double dx, double dy
 
 @end
 
-/*************************************************************************/
+
 /* DisplayServerOSX                                                      */
-/*************************************************************************/
+
 
 bool DisplayServerOSX::has_feature(Feature p_feature) const {
 	switch (p_feature) {
