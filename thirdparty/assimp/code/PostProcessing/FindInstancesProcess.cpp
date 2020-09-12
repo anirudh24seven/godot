@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -44,7 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /** @file  FindInstancesProcess.cpp
  *  @brief Implementation of the aiProcess_FindInstances postprocessing step
 */
-
 
 #include "FindInstancesProcess.h"
 #include <memory>

@@ -1,8 +1,6 @@
 
 /*  transform_2d.cpp                                                     */
 
-
-
 #include "transform_2d.h"
 
 void Transform2D::invert() {

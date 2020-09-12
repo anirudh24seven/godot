@@ -1,8 +1,6 @@
 
 /*  test_gui.h                                                           */
 
-
-
 #ifndef TEST_GUI_H
 #define TEST_GUI_H
 

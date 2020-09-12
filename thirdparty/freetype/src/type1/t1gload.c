@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include "t1gload.h"
 #include FT_INTERNAL_CALC_H
@@ -28,8 +27,7 @@
 
 #include "t1errors.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -38,8 +36,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  t1gload
 
-
-  static FT_Error
+static FT_Error
   T1_Parse_Glyph_And_Get_Char_String( T1_Decoder  decoder,
                                       FT_UInt     glyph_index,
                                       FT_Data*    char_string,
@@ -62,8 +59,7 @@
     PS_Driver  driver = (PS_Driver)FT_FACE_DRIVER( face );
 #endif
 
-
-    decoder->font_matrix = type1->font_matrix;
+decoder->font_matrix = type1->font_matrix;
     decoder->font_offset = type1->font_offset;
 
 #ifdef FT_CONFIG_OPTION_INCREMENTAL
@@ -104,8 +100,7 @@
       {
         CFF_SubFontRec  subfont;
 
-
-        psaux->ps_decoder_init( &psdecoder, decoder, TRUE );
+psaux->ps_decoder_init( &psdecoder, decoder, TRUE );
 
         psaux->t1_make_subfont( FT_FACE( face ),
                                 &face->type1.private_dict, &subfont );
@@ -142,8 +137,7 @@
     {
       FT_Incremental_MetricsRec  metrics;
 
-
-      metrics.bearing_x = FIXED_TO_INT( decoder->builder.left_bearing.x );
+metrics.bearing_x = FIXED_TO_INT( decoder->builder.left_bearing.x );
       metrics.bearing_y = 0;
       metrics.advance   = FIXED_TO_INT( decoder->builder.advance.x );
       metrics.advance_v = FIXED_TO_INT( decoder->builder.advance.y );
@@ -161,8 +155,7 @@
     return error;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   T1_Parse_Glyph( T1_Decoder  decoder,
                   FT_UInt     glyph_index )
   {
@@ -172,15 +165,13 @@
                                 decoder, glyph_index, &glyph_data,
                                 &force_scaling );
 
-
 #ifdef FT_CONFIG_OPTION_INCREMENTAL
 
     if ( !error )
     {
       T1_Face  face = (T1_Face)decoder->builder.face;
 
-
-      if ( face->root.internal->incremental_interface )
+if ( face->root.internal->incremental_interface )
         face->root.internal->incremental_interface->funcs->free_glyph_data(
           face->root.internal->incremental_interface->object,
           &glyph_data );
@@ -191,11 +182,7 @@
     return error;
   }
 
-
-
-
-
-  /**********                                                      *********/
+/**********                                                      *********/
   /**********            COMPUTE THE MAXIMUM ADVANCE WIDTH         *********/
   /**********                                                      *********/
   /**********    The following code is in charge of computing      *********/
@@ -205,11 +192,7 @@
   /**********    operator.                                         *********/
   /**********                                                      *********/
 
-
-
-
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T1_Compute_Max_Advance( T1_Face  face,
                           FT_Pos*  max_advance )
   {
@@ -219,8 +202,7 @@
     T1_Font        type1 = &face->type1;
     PSAux_Service  psaux = (PSAux_Service)face->psaux;
 
-
-    FT_ASSERT( ( face->len_buildchar == 0 ) == ( face->buildchar == NULL ) );
+FT_ASSERT( ( face->len_buildchar == 0 ) == ( face->buildchar == NULL ) );
 
     *max_advance = 0;
 
@@ -272,8 +254,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T1_Get_Advances( FT_Face    t1face,        /* T1_Face */
                    FT_UInt    first,
                    FT_UInt    count,
@@ -287,8 +268,7 @@
     FT_UInt        nn;
     FT_Error       error;
 
-
-    FT_TRACE5(( "T1_Get_Advances:\n" ));
+FT_TRACE5(( "T1_Get_Advances:\n" ));
 
     if ( load_flags & FT_LOAD_VERTICAL_LAYOUT )
     {
@@ -343,8 +323,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T1_Load_Glyph( FT_GlyphSlot  t1glyph,          /* T1_GlyphSlot */
                  FT_Size       t1size,           /* T1_Size      */
                  FT_UInt       glyph_index,
@@ -368,7 +347,6 @@
 #ifdef FT_CONFIG_OPTION_INCREMENTAL
     FT_Bool                 glyph_data_loaded = 0;
 #endif
-
 
 #ifdef FT_CONFIG_OPTION_INCREMENTAL
     if ( glyph_index >= (FT_UInt)face->root.num_glyphs &&
@@ -467,8 +445,7 @@
       {
         FT_Slot_Internal  internal = t1glyph->internal;
 
-
-        t1glyph->metrics.horiBearingX =
+t1glyph->metrics.horiBearingX =
           FIXED_TO_INT( decoder.builder.left_bearing.x );
         t1glyph->metrics.horiAdvance  =
           FIXED_TO_INT( decoder.builder.advance.x );
@@ -482,8 +459,7 @@
         FT_BBox            cbox;
         FT_Glyph_Metrics*  metrics = &t1glyph->metrics;
 
-
-        /* copy the _unscaled_ advance width */
+/* copy the _unscaled_ advance width */
         metrics->horiAdvance =
           FIXED_TO_INT( decoder.builder.advance.x );
         t1glyph->linearHoriAdvance =
@@ -543,8 +519,7 @@
           FT_Fixed     x_scale = glyph->x_scale;
           FT_Fixed     y_scale = glyph->y_scale;
 
-
-          /* First of all, scale the points, if we are not hinting */
+/* First of all, scale the points, if we are not hinting */
           if ( !hinting || !decoder.builder.hints_funcs )
             for ( n = cur->n_points; n > 0; n--, vec++ )
             {
@@ -580,8 +555,7 @@
       t1glyph->control_len  = glyph_data.length;
     }
 
-
-  Exit:
+Exit:
 
 #ifdef FT_CONFIG_OPTION_INCREMENTAL
     if ( glyph_data_loaded && face->root.internal->incremental_interface )
@@ -602,6 +576,5 @@
 
     return error;
   }
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  bindings_generator.cpp                                               */
 
-
-
 #include "bindings_generator.h"
 
 #if defined(DEBUG_METHODS_ENABLED) && defined(TOOLS_ENABLED)

@@ -1,8 +1,6 @@
 
 /*  rendering_device.h                                                   */
 
-
-
 #ifndef RENDERING_DEVICE_H
 #define RENDERING_DEVICE_H
 

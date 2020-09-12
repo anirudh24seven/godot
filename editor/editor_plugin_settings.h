@@ -1,8 +1,6 @@
 
 /*  editor_plugin_settings.h                                             */
 
-
-
 #ifndef EDITORPLUGINSETTINGS_H
 #define EDITORPLUGINSETTINGS_H
 

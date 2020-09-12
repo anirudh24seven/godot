@@ -1,8 +1,6 @@
 
 /*  rect2.h                                                              */
 
-
-
 #ifndef RECT2_H
 #define RECT2_H
 

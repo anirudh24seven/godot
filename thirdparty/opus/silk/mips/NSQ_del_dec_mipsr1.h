@@ -310,8 +310,7 @@ static inline void silk_noise_shape_quantizer_del_dec(
                 exc_Q14 = -exc_Q14;
             }
 
-
-            /* Add predictions */
+/* Add predictions */
             LPC_exc_Q14 = silk_ADD32( exc_Q14, LTP_pred_Q14 );
             xq_Q14      = silk_ADD32( LPC_exc_Q14, LPC_pred_Q14 );
 

@@ -1,8 +1,6 @@
 
 /*  reference_rect.cpp                                                   */
 
-
-
 #include "reference_rect.h"
 
 #include "core/engine.h"

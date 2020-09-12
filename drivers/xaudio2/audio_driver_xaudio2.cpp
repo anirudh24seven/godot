@@ -1,8 +1,6 @@
 
 /*  audio_driver_xaudio2.cpp                                             */
 
-
-
 #include "audio_driver_xaudio2.h"
 
 #include "core/os/os.h"

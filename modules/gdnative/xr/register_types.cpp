@@ -1,8 +1,6 @@
 
 /*  register_types.cpp                                                   */
 
-
-
 #include "register_types.h"
 #include "xr_interface_gdnative.h"
 

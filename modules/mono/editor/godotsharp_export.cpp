@@ -1,8 +1,6 @@
 
 /*  godotsharp_export.cpp                                                */
 
-
-
 #include "godotsharp_export.h"
 
 #include <mono/metadata/image.h>

@@ -10,14 +10,10 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
-    EXPORT  |vpx_push_neon|
+EXPORT  |vpx_push_neon|
     EXPORT  |vpx_pop_neon|
 
-    
-    
-
-    AREA |.text|, CODE, READONLY, ALIGN=2
+AREA |.text|, CODE, READONLY, ALIGN=2
 
 |vpx_push_neon| PROC
     vst1.i64            {d8, d9, d10, d11}, [r0]!

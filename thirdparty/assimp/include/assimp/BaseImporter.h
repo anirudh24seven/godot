@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -72,7 +71,6 @@ class IOStream;
 // utility to do char4 to uint32 in a portable manner
 #define AI_MAKE_MAGIC(string) ((uint32_t)((string[0] << 24) + \
     (string[1] << 16) + (string[2] << 8) + string[3]))
-
 
 // ---------------------------------------------------------------------------
 /** FOR IMPORTER PLUGINS ONLY: The BaseImporter defines a common interface
@@ -227,9 +225,7 @@ protected:
     double importerScale = 1.0;
     double fileScale = 1.0;
 
-
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Imports the given file into the given scene structure. The
      * function is expected to throw an ImportErrorException if there is
      * an error. If it terminates normally, the data in aiScene is
@@ -412,8 +408,6 @@ protected:
     /// Currently set progress handler.
     ProgressHandler* m_progress;
 };
-
-
 
 } // end of namespace Assimp
 

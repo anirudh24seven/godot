@@ -1,8 +1,6 @@
 
 /*  environment.cpp                                                      */
 
-
-
 #include "environment.h"
 
 #include "core/project_settings.h"

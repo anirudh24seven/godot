@@ -8,14 +8,12 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
 extern sym(vp8_bilinear_filters_x86_8)
 
 %define BLOCK_HEIGHT_WIDTH 4
 %define VP8_FILTER_WEIGHT 128
 %define VP8_FILTER_SHIFT  7
-
 
 ;/************************************************************************************
 ; Notes: filter_block1d_h6 applies a 6 tap filter horizontally to the input pixels. The
@@ -80,8 +78,7 @@ sym(vp8_filter_block1d8_h6_sse2):
         psrldq      xmm5,       2                           ; xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03 02 01 00
         pmullw      xmm4,       XMMWORD PTR [rdx+16]        ; x[-1] * H[-1]; Tap 2
 
-
-        punpcklbw   xmm5,       xmm0                        ; xx07 xx06 xx05 xx04 xx03 xx02 xx01 xx00
+punpcklbw   xmm5,       xmm0                        ; xx07 xx06 xx05 xx04 xx03 xx02 xx01 xx00
         psrldq      xmm6,       3                           ; xx xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03 02 01
 
         pmullw      xmm5,       [rdx+32]                    ; x[ 0] * H[ 0]; Tap 3
@@ -94,14 +91,12 @@ sym(vp8_filter_block1d8_h6_sse2):
         punpcklbw   xmm7,       xmm0                        ; xx09 xx08 xx07 xx06 xx05 xx04 xx03 xx02
         psrldq      xmm1,       5                           ; xx xx xx xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03
 
-
-        pmullw      xmm7,       [rdx+64]                    ; x[ 2] * h[ 2] ; Tap 5
+pmullw      xmm7,       [rdx+64]                    ; x[ 2] * h[ 2] ; Tap 5
 
         punpcklbw   xmm1,       xmm0                        ; xx0a xx09 xx08 xx07 xx06 xx05 xx04 xx03
         pmullw      xmm1,       [rdx+80]                    ; x[ 3] * h[ 3] ; Tap 6
 
-
-        paddsw      xmm4,       xmm7
+paddsw      xmm4,       xmm7
         paddsw      xmm4,       xmm5
 
         paddsw      xmm4,       xmm3
@@ -135,7 +130,6 @@ sym(vp8_filter_block1d8_h6_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_filter_block1d16_h6_sse2
 ;(
@@ -205,8 +199,7 @@ sym(vp8_filter_block1d16_h6_sse2):
         psrldq      xmm5,       2                           ; xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03 02 01 00
         pmullw      xmm4,       XMMWORD PTR [rdx+16]        ; x[-1] * H[-1]; Tap 2
 
-
-        punpcklbw   xmm5,       xmm0                        ; xx07 xx06 xx05 xx04 xx03 xx02 xx01 xx00
+punpcklbw   xmm5,       xmm0                        ; xx07 xx06 xx05 xx04 xx03 xx02 xx01 xx00
         psrldq      xmm6,       3                           ; xx xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03 02 01
 
         pmullw      xmm5,       [rdx+32]                    ; x[ 0] * H[ 0]; Tap 3
@@ -219,8 +212,7 @@ sym(vp8_filter_block1d16_h6_sse2):
         punpcklbw   xmm7,       xmm0                        ; xx09 xx08 xx07 xx06 xx05 xx04 xx03 xx02
         psrldq      xmm1,       5                           ; xx xx xx xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03
 
-
-        pmullw      xmm7,       [rdx+64]                    ; x[ 2] * h[ 2] ; Tap 5
+pmullw      xmm7,       [rdx+64]                    ; x[ 2] * h[ 2] ; Tap 5
 
         punpcklbw   xmm1,       xmm0                        ; xx0a xx09 xx08 xx07 xx06 xx05 xx04 xx03
         pmullw      xmm1,       [rdx+80]                    ; x[ 3] * h[ 3] ; Tap 6
@@ -258,8 +250,7 @@ sym(vp8_filter_block1d16_h6_sse2):
         psrldq      xmm5,       2                           ; xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03 02 01 00
         pmullw      xmm4,       XMMWORD PTR [rdx+16]        ; x[-1] * H[-1]; Tap 2
 
-
-        punpcklbw   xmm5,       xmm0                        ; xx07 xx06 xx05 xx04 xx03 xx02 xx01 xx00
+punpcklbw   xmm5,       xmm0                        ; xx07 xx06 xx05 xx04 xx03 xx02 xx01 xx00
         psrldq      xmm6,       3                           ; xx xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03 02 01
 
         pmullw      xmm5,       [rdx+32]                    ; x[ 0] * H[ 0]; Tap 3
@@ -277,8 +268,7 @@ sym(vp8_filter_block1d16_h6_sse2):
         punpcklbw   xmm2,       xmm0                        ; xx0a xx09 xx08 xx07 xx06 xx05 xx04 xx03
         pmullw      xmm2,       [rdx+80]                    ; x[ 3] * h[ 3] ; Tap 6
 
-
-        paddsw      xmm4,       xmm7
+paddsw      xmm4,       xmm7
         paddsw      xmm4,       xmm5
 
         paddsw      xmm4,       xmm3
@@ -312,7 +302,6 @@ sym(vp8_filter_block1d16_h6_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_filter_block1d8_v6_sse2
 ;(
@@ -407,7 +396,6 @@ sym(vp8_filter_block1d8_v6_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_filter_block1d16_v6_sse2
 ;(
@@ -523,7 +511,6 @@ sym(vp8_filter_block1d16_v6_sse2):
     pop         rbp
     ret
 
-
 ;void vp8_filter_block1d8_h6_only_sse2
 ;(
 ;    unsigned char  *src_ptr,
@@ -581,8 +568,7 @@ sym(vp8_filter_block1d8_h6_only_sse2):
         psrldq      xmm5,       2                           ; xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03 02 01 00
         pmullw      xmm4,       XMMWORD PTR [rdx+16]        ; x[-1] * H[-1]; Tap 2
 
-
-        punpcklbw   xmm5,       xmm0                        ; xx07 xx06 xx05 xx04 xx03 xx02 xx01 xx00
+punpcklbw   xmm5,       xmm0                        ; xx07 xx06 xx05 xx04 xx03 xx02 xx01 xx00
         psrldq      xmm6,       3                           ; xx xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03 02 01
 
         pmullw      xmm5,       [rdx+32]                    ; x[ 0] * H[ 0]; Tap 3
@@ -595,14 +581,12 @@ sym(vp8_filter_block1d8_h6_only_sse2):
         punpcklbw   xmm7,       xmm0                        ; xx09 xx08 xx07 xx06 xx05 xx04 xx03 xx02
         psrldq      xmm1,       5                           ; xx xx xx xx xx 0d 0c 0b 0a 09 08 07 06 05 04 03
 
-
-        pmullw      xmm7,       [rdx+64]                    ; x[ 2] * h[ 2] ; Tap 5
+pmullw      xmm7,       [rdx+64]                    ; x[ 2] * h[ 2] ; Tap 5
 
         punpcklbw   xmm1,       xmm0                        ; xx0a xx09 xx08 xx07 xx06 xx05 xx04 xx03
         pmullw      xmm1,       [rdx+80]                    ; x[ 3] * h[ 3] ; Tap 6
 
-
-        paddsw      xmm4,       xmm7
+paddsw      xmm4,       xmm7
         paddsw      xmm4,       xmm5
 
         paddsw      xmm4,       xmm3
@@ -635,7 +619,6 @@ sym(vp8_filter_block1d8_h6_only_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_filter_block1d16_h6_only_sse2
 ;(
@@ -801,7 +784,6 @@ sym(vp8_filter_block1d16_h6_only_sse2):
     pop         rbp
     ret
 
-
 ;void vp8_filter_block1d8_v6_only_sse2
 ;(
 ;    unsigned char *src_ptr,
@@ -895,7 +877,6 @@ sym(vp8_filter_block1d8_v6_only_sse2):
     pop         rbp
     ret
 
-
 ;void vp8_unpack_block1d16_h6_sse2
 ;(
 ;    unsigned char  *src_ptr,
@@ -951,7 +932,6 @@ sym(vp8_unpack_block1d16_h6_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_bilinear_predict16x16_sse2
 ;(
@@ -1221,7 +1201,6 @@ sym(vp8_bilinear_predict16x16_sse2):
     pop         rbp
     ret
 
-
 ;void vp8_bilinear_predict8x8_sse2
 ;(
 ;    unsigned char  *src_ptr,
@@ -1364,7 +1343,6 @@ sym(vp8_bilinear_predict8x8_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 SECTION_RODATA
 align 16

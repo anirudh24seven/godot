@@ -1,8 +1,6 @@
 
 /*  skeleton_2d_editor_plugin.h                                          */
 
-
-
 #ifndef SKELETON_2D_EDITOR_PLUGIN_H
 #define SKELETON_2D_EDITOR_PLUGIN_H
 

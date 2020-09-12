@@ -15,7 +15,6 @@
  *
  */
 
-
 #include "afglobal.h"
 #include "afloader.h"
 #include "afhints.h"
@@ -24,8 +23,7 @@
 
 #include FT_INTERNAL_CALC_H
 
-
-  /* Initialize glyph loader. */
+/* Initialize glyph loader. */
 
   FT_LOCAL_DEF( void )
   af_loader_init( AF_Loader      loader,
@@ -36,8 +34,7 @@
     loader->hints = hints;
   }
 
-
-  /* Reset glyph loader and compute globals if necessary. */
+/* Reset glyph loader and compute globals if necessary. */
 
   FT_LOCAL_DEF( FT_Error )
   af_loader_reset( AF_Loader  loader,
@@ -46,8 +43,7 @@
   {
     FT_Error  error = FT_Err_Ok;
 
-
-    loader->face    = face;
+loader->face    = face;
     loader->globals = (AF_FaceGlobals)face->autohint.data;
 
     if ( !loader->globals )
@@ -65,8 +61,7 @@
     return error;
   }
 
-
-  /* Finalize glyph loader. */
+/* Finalize glyph loader. */
 
   FT_LOCAL_DEF( void )
   af_loader_done( AF_Loader  loader )
@@ -76,7 +71,6 @@
     loader->hints   = NULL;
   }
 
-
 #define af_intToFixed( i ) \
           ( (FT_Fixed)( (FT_UInt32)(i) << 16 ) )
 #define af_fixedToInt( x ) \
@@ -84,8 +78,7 @@
 #define af_floatToFixed( f ) \
           ( (FT_Fixed)( (f) * 65536.0 + 0.5 ) )
 
-
-  static FT_Error
+static FT_Error
   af_loader_embolden_glyph_in_slot( AF_Loader        loader,
                                     FT_Face          face,
                                     AF_StyleMetrics  style_metrics )
@@ -109,8 +102,7 @@
 
     FT_Matrix  scale_down_matrix = { 0x10000L, 0, 0, 0x10000L };
 
-
-    /* Skip stem darkening for broken fonts. */
+/* Skip stem darkening for broken fonts. */
     if ( !face->units_per_EM )
     {
       error = FT_ERR( Corrupted_Font_Header );
@@ -140,8 +132,7 @@
     {
       FT_Fixed  darken_by_font_units_x, darken_x;
 
-
-      darken_by_font_units_x =
+darken_by_font_units_x =
         af_intToFixed( af_loader_compute_darkening( loader,
                                                     face,
                                                     stdVW ) );
@@ -159,8 +150,7 @@
     {
       FT_Fixed  darken_by_font_units_y, darken_y;
 
-
-      darken_by_font_units_y =
+darken_by_font_units_y =
         af_intToFixed( af_loader_compute_darkening( loader,
                                                     face,
                                                     stdHW ) );
@@ -206,8 +196,7 @@
     return error;
   }
 
-
-  /* Load the glyph at index into the current slot of a face and hint it. */
+/* Load the glyph at index into the current slot of a face and hint it. */
 
   FT_LOCAL_DEF( FT_Error )
   af_loader_load_glyph( AF_Loader  loader,
@@ -231,8 +220,7 @@
     AF_StyleClass          style_class;
     AF_WritingSystemClass  writing_system_class;
 
-
-    if ( !size )
+if ( !size )
       return FT_THROW( Invalid_Size_Handle );
 
     FT_ZERO( &scaler );
@@ -251,8 +239,7 @@
       {
         FT_Size_Metrics*  size_metrics = &size_internal->autohint_metrics;
 
-
-        /* set metrics to integer values and adjust scaling accordingly; */
+/* set metrics to integer values and adjust scaling accordingly; */
         /* this is the same setup as with TrueType fonts, cf. function   */
         /* `tt_size_reset' in file `ttobjs.c'                            */
         size_metrics->ascender  = FT_PIX_ROUND(
@@ -388,8 +375,7 @@
     {
       FT_Matrix  inverse;
 
-
-      loader->trans_matrix = slot_internal->glyph_matrix;
+loader->trans_matrix = slot_internal->glyph_matrix;
       loader->trans_delta  = slot_internal->glyph_delta;
 
       inverse = loader->trans_matrix;
@@ -437,8 +423,7 @@
       {
         AF_AxisHints  axis  = &hints->axis[AF_DIMENSION_HORZ];
 
-
-        if ( axis->num_edges > 1 && AF_HINTS_DO_ADVANCE( hints ) )
+if ( axis->num_edges > 1 && AF_HINTS_DO_ADVANCE( hints ) )
         {
           AF_Edge  edge1 = axis->edges;         /* leftmost edge  */
           AF_Edge  edge2 = edge1 +
@@ -454,8 +439,7 @@
           FT_Pos  pp1x_uh = new_lsb    - old_lsb;
           FT_Pos  pp2x_uh = edge2->pos + old_rsb;
 
-
-          /* prefer too much space over too little space */
+/* prefer too much space over too little space */
           /* for very small sizes                        */
 
           if ( old_lsb < 24 )
@@ -481,8 +465,7 @@
           FT_Pos  pp1x = loader->pp1.x;
           FT_Pos  pp2x = loader->pp2.x;
 
-
-          loader->pp1.x = FT_PIX_ROUND( pp1x + hints->xmin_delta );
+loader->pp1.x = FT_PIX_ROUND( pp1x + hints->xmin_delta );
           loader->pp2.x = FT_PIX_ROUND( pp2x + hints->xmax_delta );
 
           slot->lsb_delta = loader->pp1.x - pp1x;
@@ -496,8 +479,7 @@
         FT_Pos  pp1x = loader->pp1.x;
         FT_Pos  pp2x = loader->pp2.x;
 
-
-        loader->pp1.x = FT_PIX_ROUND( pp1x );
+loader->pp1.x = FT_PIX_ROUND( pp1x );
         loader->pp2.x = FT_PIX_ROUND( pp2x );
 
         slot->lsb_delta = loader->pp1.x - pp1x;
@@ -516,8 +498,7 @@
       FT_BBox    bbox;
       FT_Vector  vvector;
 
-
-      vvector.x = slot->metrics.vertBearingX - slot->metrics.horiBearingX;
+vvector.x = slot->metrics.vertBearingX - slot->metrics.horiBearingX;
       vvector.y = slot->metrics.vertBearingY - slot->metrics.horiBearingY;
       vvector.x = FT_MulFix( vvector.x, style_metrics->scaler.x_scale );
       vvector.y = FT_MulFix( vvector.y, style_metrics->scaler.y_scale );
@@ -586,8 +567,7 @@
     return error;
   }
 
-
-  /*
+/*
    * Compute amount of font units the face should be emboldened by, in
    * analogy to the CFF driver's `cf2_computeDarkening' function.  See there
    * for details of the algorithm.
@@ -607,8 +587,7 @@
     FT_Int     log_base_2;
     FT_Int     x1, y1, x2, y2, x3, y3, x4, y4;
 
-
-    ppem         = FT_MAX( af_intToFixed( 4 ),
+ppem         = FT_MAX( af_intToFixed( 4 ),
                            af_intToFixed( face->size->metrics.x_ppem ) );
     units_per_EM = face->units_per_EM;
 
@@ -662,8 +641,7 @@
       FT_Int  x      = stem_width_per_1000 -
                        FT_DivFix( af_intToFixed( x1 ), ppem );
 
-
-      if ( !xdelta )
+if ( !xdelta )
         goto Try_x3;
 
       darken_amount = FT_MulDiv( x, ydelta, xdelta ) +
@@ -679,8 +657,7 @@
         FT_Int  x      = stem_width_per_1000 -
                          FT_DivFix( af_intToFixed( x2 ), ppem );
 
-
-        if ( !xdelta )
+if ( !xdelta )
           goto Try_x4;
 
         darken_amount = FT_MulDiv( x, ydelta, xdelta ) +
@@ -697,8 +674,7 @@
         FT_Int  x      = stem_width_per_1000 -
                          FT_DivFix( af_intToFixed( x3 ), ppem );
 
-
-        if ( !xdelta )
+if ( !xdelta )
           goto Use_y4;
 
         darken_amount = FT_MulDiv( x, ydelta, xdelta ) +
@@ -715,6 +691,5 @@
     /* Convert darken_amount from per 1000 em to true character space. */
     return af_fixedToInt( FT_DivFix( darken_amount, em_ratio ) );
   }
-
 
 /* END */

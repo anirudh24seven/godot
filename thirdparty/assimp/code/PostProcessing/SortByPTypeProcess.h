@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -52,7 +51,6 @@ class SortByPTypeProcessTest;
 
 namespace Assimp    {
 
-
 // ---------------------------------------------------------------------------
 /** SortByPTypeProcess: Sorts meshes by the types of primitives they contain.
  *  A mesh with 5 lines, 3 points and 145 triangles would be split in 3
@@ -75,7 +73,6 @@ public:
 private:
     int mConfigRemoveMeshes;
 };
-
 
 } // end of namespace Assimp
 

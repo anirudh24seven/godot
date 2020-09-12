@@ -1,8 +1,6 @@
 
 /*  editor_file_dialog.cpp                                               */
 
-
-
 #include "editor_file_dialog.h"
 
 #include "core/os/file_access.h"

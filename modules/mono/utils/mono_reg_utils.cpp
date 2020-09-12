@@ -1,8 +1,6 @@
 
 /*  mono_reg_utils.cpp                                                   */
 
-
-
 #include "mono_reg_utils.h"
 #include "core/os/dir_access.h"
 

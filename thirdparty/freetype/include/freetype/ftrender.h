@@ -15,28 +15,23 @@
  *
  */
 
-
 #ifndef FTRENDER_H_
 #define FTRENDER_H_
-
 
 #include <ft2build.h>
 #include FT_MODULE_H
 #include FT_GLYPH_H
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   module_management
    *
    */
 
-
-  /* create a new glyph object */
+/* create a new glyph object */
   typedef FT_Error
   (*FT_Glyph_InitFunc)( FT_Glyph      glyph,
                         FT_GlyphSlot  slot );
@@ -70,8 +65,7 @@ FT_BEGIN_HEADER
 #define FT_Glyph_Copy_Func       FT_Glyph_CopyFunc
 #define FT_Glyph_Prepare_Func    FT_Glyph_PrepareFunc
 
-
-  struct  FT_Glyph_Class_
+struct  FT_Glyph_Class_
   {
     FT_Long                 glyph_size;
     FT_Glyph_Format         glyph_format;
@@ -84,8 +78,7 @@ FT_BEGIN_HEADER
     FT_Glyph_PrepareFunc    glyph_prepare;
   };
 
-
-  typedef FT_Error
+typedef FT_Error
   (*FT_Renderer_RenderFunc)( FT_Renderer       renderer,
                              FT_GlyphSlot      slot,
                              FT_Render_Mode    mode,
@@ -97,14 +90,12 @@ FT_BEGIN_HEADER
                                 const FT_Matrix*  matrix,
                                 const FT_Vector*  delta );
 
-
-  typedef void
+typedef void
   (*FT_Renderer_GetCBoxFunc)( FT_Renderer   renderer,
                               FT_GlyphSlot  slot,
                               FT_BBox*      cbox );
 
-
-  typedef FT_Error
+typedef FT_Error
   (*FT_Renderer_SetModeFunc)( FT_Renderer  renderer,
                               FT_ULong     mode_tag,
                               FT_Pointer   mode_ptr );
@@ -115,8 +106,7 @@ FT_BEGIN_HEADER
 #define FTRenderer_getCBox  FT_Renderer_GetCBoxFunc
 #define FTRenderer_setMode  FT_Renderer_SetModeFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_Renderer_Class
@@ -163,8 +153,7 @@ FT_BEGIN_HEADER
 
   } FT_Renderer_Class;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Get_Renderer
@@ -193,8 +182,7 @@ FT_BEGIN_HEADER
   FT_Get_Renderer( FT_Library       library,
                    FT_Glyph_Format  format );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Set_Renderer
@@ -236,10 +224,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTRENDER_H_ */
-
 
 /* END */

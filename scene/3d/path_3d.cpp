@@ -1,8 +1,6 @@
 
 /*  path_3d.cpp                                                          */
 
-
-
 #include "path_3d.h"
 
 #include "core/engine.h"

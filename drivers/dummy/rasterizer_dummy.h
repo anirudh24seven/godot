@@ -1,8 +1,6 @@
 
 /*  rasterizer_dummy.h                                                   */
 
-
-
 #ifndef RASTERIZER_DUMMY_H
 #define RASTERIZER_DUMMY_H
 

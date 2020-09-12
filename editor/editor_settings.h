@@ -1,8 +1,6 @@
 
 /*  editor_settings.h                                                    */
 
-
-
 #ifndef EDITOR_SETTINGS_H
 #define EDITOR_SETTINGS_H
 

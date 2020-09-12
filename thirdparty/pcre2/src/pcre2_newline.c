@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 /* This module contains internal functions for testing newlines when more than
 one kind of newline is to be recognized. When a newline is found, its length is
 returned. In principle, we could implement several newline "types", each
@@ -47,14 +46,11 @@ only NLTYPE_FIXED, which gets handled without these functions, NLTYPE_ANYCRLF,
 and NLTYPE_ANY. The full list of Unicode newline characters is taken from
 http://unicode.org/unicode/reports/tr18/. */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include "pcre2_internal.h"
-
-
 
 /*************************************************
 *      Check for newline at given position       *
@@ -143,8 +139,6 @@ else switch(c)
   return FALSE;
   }
 }
-
-
 
 /*************************************************
 *     Check for newline at previous position     *

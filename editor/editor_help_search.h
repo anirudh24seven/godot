@@ -1,8 +1,6 @@
 
 /*  editor_help_search.h                                                 */
 
-
-
 #ifndef EDITOR_HELP_SEARCH_H
 #define EDITOR_HELP_SEARCH_H
 

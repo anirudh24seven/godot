@@ -27,7 +27,6 @@ subject to the following restrictions:
 #define counter32_t volatile __global int*
 #endif
 
-
 typedef unsigned int u32;
 typedef unsigned short u16;
 typedef unsigned char u8;
@@ -46,7 +45,6 @@ typedef unsigned char u8;
 #define AtomCmpxhg(x, cmp, value) atom_cmpxchg( &(x), cmp, value )
 #define AtomXhg(x, value) atom_xchg ( &(x), value )
 
-
 #define SELECT_UINT4( b, a, condition ) select( b,a,condition )
 
 #define make_float4 (float4)
@@ -56,18 +54,12 @@ typedef unsigned char u8;
 #define make_uint2 (uint2)
 #define make_int2 (int2)
 
-
 #define max2 max
 #define min2 min
 
-
 #define WG_SIZE 64
 
-
-
-
-
-typedef struct 
+typedef struct
 {
 	int m_n;
 	int m_start;
@@ -87,7 +79,6 @@ typedef struct
 #define RING_SIZE 1024
 #define RING_SIZE_MASK (RING_SIZE-1)
 #define CHECK_SIZE (WG_SIZE)
-
 
 #define GET_RING_CAPACITY (RING_SIZE - ldsRingEnd)
 #define RING_END ldsTmp
@@ -146,9 +137,7 @@ __kernel void CreateBatches( __global const struct b3Contact4Data* gConstraints,
 		ldsStackEnd = 0;
 		ldsDstEnd = m_start;
 	}
-	
-	
-	
+
 //	while(1)
 //was 250
 	int ie=0;
@@ -329,25 +318,4 @@ __kernel void CreateBatches( __global const struct b3Contact4Data* gConstraints,
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

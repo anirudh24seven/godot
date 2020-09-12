@@ -1,8 +1,6 @@
 
 /*  shape_bullet.cpp                                                     */
 
-
-
 #include "shape_bullet.h"
 
 #include "btRayShape.h"

@@ -1,8 +1,6 @@
 
 /*  video_stream_webm.h                                                  */
 
-
-
 #ifndef VIDEO_STREAM_WEBM_H
 #define VIDEO_STREAM_WEBM_H
 

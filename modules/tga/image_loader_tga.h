@@ -1,8 +1,6 @@
 
 /*  image_loader_tga.h                                                   */
 
-
-
 #ifndef IMAGE_LOADER_TGA_H
 #define IMAGE_LOADER_TGA_H
 

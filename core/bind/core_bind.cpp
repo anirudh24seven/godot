@@ -1,8 +1,6 @@
 
 /*  core_bind.cpp                                                        */
 
-
-
 #include "core_bind.h"
 
 #include "core/crypto/crypto_core.h"

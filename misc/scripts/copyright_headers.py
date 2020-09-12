@@ -7,7 +7,6 @@ header = """\
 
 /*  $filename                                                            */
 
-
 """
 
 fname = sys.argv[1]

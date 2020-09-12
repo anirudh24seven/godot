@@ -1,8 +1,6 @@
 
 /*  callable_method_pointer.h                                            */
 
-
-
 #ifndef CALLABLE_METHOD_POINTER_H
 #define CALLABLE_METHOD_POINTER_H
 

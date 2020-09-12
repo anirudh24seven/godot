@@ -123,5 +123,4 @@ public:
     
 };
 
-
 #endif /* btCorotated_h */

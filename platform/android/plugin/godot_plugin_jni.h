@@ -1,8 +1,6 @@
 
 /*  godot_plugin_jni.h                                                   */
 
-
-
 #ifndef GODOT_PLUGIN_JNI_H
 #define GODOT_PLUGIN_JNI_H
 

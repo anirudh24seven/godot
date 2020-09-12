@@ -1,8 +1,6 @@
 
 /*  managed_type.cpp                                                     */
 
-
-
 #include "managed_type.h"
 
 #include "gd_mono.h"

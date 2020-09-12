@@ -543,8 +543,7 @@ void mdct_forward(mdct_lookup *init, DATA_TYPE *in, DATA_TYPE *out){
     x1 +=4;
   }
 
-
-  mdct_butterflies(init,w+n2,n2);
+mdct_butterflies(init,w+n2,n2);
   mdct_bitreverse(init,w);
 
   /* roatate + window */

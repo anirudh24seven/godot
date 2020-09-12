@@ -1,8 +1,6 @@
 
 /*  resource_format_binary.h                                             */
 
-
-
 #ifndef RESOURCE_FORMAT_BINARY_H
 #define RESOURCE_FORMAT_BINARY_H
 

@@ -1,8 +1,6 @@
 
 /*  java_class_wrapper.cpp                                               */
 
-
-
 #include "api/java_class_wrapper.h"
 #include "string_android.h"
 #include "thread_jandroid.h"

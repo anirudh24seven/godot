@@ -2,14 +2,11 @@ import os
 import platform
 import sys
 
-
 def is_active():
     return True
 
-
 def get_name():
     return "LinuxBSD"
-
 
 def can_build():
 
@@ -52,7 +49,6 @@ def can_build():
 
     return True
 
-
 def get_opts():
     from SCons.Variables import BoolVariable, EnumVariable
 
@@ -74,11 +70,9 @@ def get_opts():
         BoolVariable("execinfo", "Use libexecinfo on systems where glibc is not available", False),
     ]
 
-
 def get_flags():
 
     return []
-
 
 def configure(env):
 

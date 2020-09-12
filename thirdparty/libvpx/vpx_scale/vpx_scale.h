@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VPX_SCALE_VPX_SCALE_H_
 #define VPX_SCALE_VPX_SCALE_H_
 

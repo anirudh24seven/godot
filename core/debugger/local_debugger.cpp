@@ -1,8 +1,6 @@
 
 /*  local_debugger.cpp                                                   */
 
-
-
 #include "local_debugger.h"
 
 #include "core/debugger/script_debugger.h"

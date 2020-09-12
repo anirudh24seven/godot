@@ -1,8 +1,6 @@
 
 /*  collision_object_3d_sw.h                                             */
 
-
-
 #ifndef COLLISION_OBJECT_SW_H
 #define COLLISION_OBJECT_SW_H
 

@@ -1,8 +1,6 @@
 
 /*  light_3d.h                                                           */
 
-
-
 #ifndef LIGHT_3D_H
 #define LIGHT_3D_H
 

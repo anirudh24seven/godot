@@ -1,8 +1,6 @@
 
 /*  godot_linuxbsd.cpp                                                   */
 
-
-
 #include <limits.h>
 #include <locale.h>
 #include <stdlib.h>

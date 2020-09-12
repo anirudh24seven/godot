@@ -1,8 +1,6 @@
 
 /*  command_queue_mt.h                                                   */
 
-
-
 #ifndef COMMAND_QUEUE_MT_H
 #define COMMAND_QUEUE_MT_H
 

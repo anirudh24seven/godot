@@ -1,8 +1,6 @@
 
 /*  resource_saver_png.h                                                 */
 
-
-
 #ifndef RESOURCE_SAVER_PNG_H
 #define RESOURCE_SAVER_PNG_H
 

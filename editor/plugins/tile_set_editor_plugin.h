@@ -1,8 +1,6 @@
 
 /*  tile_set_editor_plugin.h                                             */
 
-
-
 #ifndef TILE_SET_EDITOR_PLUGIN_H
 #define TILE_SET_EDITOR_PLUGIN_H
 

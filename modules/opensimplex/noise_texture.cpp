@@ -1,8 +1,6 @@
 
 /*  noise_texture.cpp                                                    */
 
-
-
 #include "noise_texture.h"
 
 #include "core/core_string_names.h"

@@ -126,7 +126,6 @@ typedef struct {
     opus_int                    prev_decode_only_middle;
 } silk_encoder;
 
-
 #ifdef __cplusplus
 }
 #endif

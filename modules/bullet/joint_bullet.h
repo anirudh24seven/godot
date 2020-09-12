@@ -1,8 +1,6 @@
 
 /*  joint_bullet.h                                                       */
 
-
-
 #ifndef JOINT_BULLET_H
 #define JOINT_BULLET_H
 

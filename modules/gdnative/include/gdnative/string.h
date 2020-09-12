@@ -1,8 +1,6 @@
 
 /*  string.h                                                             */
 
-
-
 #ifndef GODOT_STRING_H
 #define GODOT_STRING_H
 

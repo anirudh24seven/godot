@@ -1,8 +1,6 @@
 
 /*  context_egl_uwp.cpp                                                  */
 
-
-
 #include "context_egl_uwp.h"
 
 #include "EGL/eglext.h"

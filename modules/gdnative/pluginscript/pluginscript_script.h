@@ -1,8 +1,6 @@
 
 /*  pluginscript_script.h                                                */
 
-
-
 #ifndef PLUGINSCRIPT_SCRIPT_H
 #define PLUGINSCRIPT_SCRIPT_H
 

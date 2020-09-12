@@ -1,8 +1,6 @@
 
 /*  rendering_server_raster.h                                            */
 
-
-
 #ifndef RENDERING_SERVER_RASTER_H
 #define RENDERING_SERVER_RASTER_H
 

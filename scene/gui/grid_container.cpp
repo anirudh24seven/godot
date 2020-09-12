@@ -1,8 +1,6 @@
 
 /*  grid_container.cpp                                                   */
 
-
-
 #include "grid_container.h"
 
 void GridContainer::_notification(int p_what) {

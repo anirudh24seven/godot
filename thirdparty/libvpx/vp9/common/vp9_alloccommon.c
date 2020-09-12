@@ -119,7 +119,6 @@ void vp9_free_context_buffers(VP9_COMMON *cm) {
   cm->lf.lfm = NULL;
 }
 
-
 int vp9_alloc_loop_filter(VP9_COMMON *cm) {
   vpx_free(cm->lf.lfm);
   // Each lfm holds bit masks for all the 8x8 blocks in a 64x64 region.  The

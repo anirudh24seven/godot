@@ -1,8 +1,6 @@
 
 /*  vulkan_context_osx.mm                                                */
 
-
-
 #include "vulkan_context_osx.h"
 #include <vulkan/vulkan_macos.h>
 

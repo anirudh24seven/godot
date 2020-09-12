@@ -1,8 +1,6 @@
 
 /*  vset.h                                                               */
 
-
-
 #ifndef VSET_H
 #define VSET_H
 

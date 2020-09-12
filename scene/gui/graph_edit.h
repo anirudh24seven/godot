@@ -1,8 +1,6 @@
 
 /*  graph_edit.h                                                         */
 
-
-
 #ifndef GRAPH_EDIT_H
 #define GRAPH_EDIT_H
 

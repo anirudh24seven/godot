@@ -23,7 +23,6 @@ subject to the following restrictions:
 
 #define mymake_float4 (float4)
 
-
 __inline float dot3F4(float4 a, float4 b)
 {
 	float4 a1 = mymake_float4(a.xyz,0.f);
@@ -31,9 +30,7 @@ __inline float dot3F4(float4 a, float4 b)
 	return dot(a1, b1);
 }
 
-
 typedef float4 Quaternion;
-
 
 typedef struct
 {
@@ -45,10 +42,6 @@ float4 mtMul1(Matrix3x3 a, float4 b);
 
 __inline
 float4 mtMul3(float4 a, Matrix3x3 b);
-
-
-
-
 
 __inline
 float4 mtMul1(Matrix3x3 a, float4 b)
@@ -75,14 +68,11 @@ float4 mtMul3(float4 a, Matrix3x3 b)
 	return ans;
 }
 
-
-
 typedef struct
 {
 	Matrix3x3 m_invInertiaWorld;
 	Matrix3x3 m_initInvInertia;
 } BodyInertia;
-
 
 typedef struct
 {
@@ -151,8 +141,7 @@ typedef struct
 	float		m_rhsPenetration;
 	int			m_originalConstraint;
 
-
-	int	m_overrideNumSolverIterations;
+int	m_overrideNumSolverIterations;
     int			m_frictionIndex;
 	int m_solverBodyIdA;
 	int m_solverBodyIdB;
@@ -167,12 +156,7 @@ typedef struct
 	int m_batchId;
 } b3BatchConstraint;
 
-
-
-
-
-
-typedef struct 
+typedef struct
 {
 	int				m_constraintType;
 	int				m_rbA;
@@ -187,7 +171,6 @@ typedef struct
 	int m_padding[3];
 } b3GpuGenericConstraint;
 
-
 /*b3Transform	getWorldTransform(b3RigidBodyCL* rb)
 {
 	b3Transform newTrans;
@@ -195,9 +178,6 @@ typedef struct
 	newTrans.setRotation(rb->m_quat);
 	return newTrans;
 }*/
-
-
-
 
 __inline
 float4 cross3(float4 a, float4 b)
@@ -212,7 +192,6 @@ float4 fastNormalize4(float4 v)
 	return fast_normalize(v);
 }
 
-
 __inline
 Quaternion qtMul(Quaternion a, Quaternion b);
 
@@ -224,9 +203,6 @@ float4 qtRotate(Quaternion q, float4 vec);
 
 __inline
 Quaternion qtInvert(Quaternion q);
-
-
-
 
 __inline
 Quaternion qtMul(Quaternion a, Quaternion b)
@@ -262,13 +238,11 @@ Quaternion qtInvert(Quaternion q)
 	return (Quaternion)(-q.xyz, q.w);
 }
 
-
 __inline void internalApplyImpulse(__global b3GpuSolverBody* body,  float4 linearComponent, float4 angularComponent,float impulseMagnitude)
 {
 	body->m_deltaLinearVelocity += linearComponent*impulseMagnitude*body->m_linearFactor;
 	body->m_deltaAngularVelocity += angularComponent*(impulseMagnitude*body->m_angularFactor);
 }
-
 
 void resolveSingleConstraintRowGeneric(__global b3GpuSolverBody* body1, __global b3GpuSolverBody* body2, __global b3SolverConstraint* c)
 {
@@ -369,8 +343,6 @@ __kernel void breakViolatedConstraintsKernel(__global b3GpuGenericConstraint* co
 	}
 }
 
-
-
 __kernel void getInfo1Kernel(__global unsigned int* infos, __global b3GpuGenericConstraint* constraints, int numConstraints)
 {
 	int i = get_global_id(0);
@@ -416,9 +388,6 @@ __kernel void initBatchConstraintsKernel(__global unsigned int* numConstraintRow
 	batchConstraints[i].m_originalConstraintIndex = i;
 
 }
-
-
-
 
 typedef struct
 {
@@ -476,14 +445,12 @@ typedef struct
 	float	m_damping;
 } b3GpuConstraintInfo2;
 
-
 void	getSkewSymmetricMatrix(float4 vecIn, __global float4* v0,__global float4* v1,__global float4* v2)
 {
 	*v0 = (float4)(0.		,-vecIn.z		,vecIn.y,0.f);
 	*v1 = (float4)(vecIn.z	,0.			,-vecIn.x,0.f);
 	*v2 = (float4)(-vecIn.y	,vecIn.x	,0.f,0.f);
 }
-
 
 void getInfo2Point2Point(__global b3GpuGenericConstraint* constraint,b3GpuConstraintInfo2* info,__global b3RigidBodyCL* bodies)
 {
@@ -493,9 +460,7 @@ void getInfo2Point2Point(__global b3GpuGenericConstraint* constraint,b3GpuConstr
 	float4 posB = bodies[constraint->m_rbB].m_pos;
 	Quaternion rotB = bodies[constraint->m_rbB].m_quat;
 
-
-
-		// anchor points in global coordinates with respect to body PORs.
+// anchor points in global coordinates with respect to body PORs.
    
     // set jacobian
     info->m_J1linearAxis[0] = 1;
@@ -587,8 +552,6 @@ void calculateDiffAxisAngleQuaternion( Quaternion orn0,Quaternion orn1a,float4* 
 		*axis /= sqrt(len);
 }
 
-
-
 void getInfo2FixedOrientation(__global b3GpuGenericConstraint* constraint,b3GpuConstraintInfo2* info,__global b3RigidBodyCL* bodies, int start_row)
 {
 	Quaternion worldOrnA = bodies[constraint->m_rbA].m_quat;
@@ -623,10 +586,8 @@ void getInfo2FixedOrientation(__global b3GpuGenericConstraint* constraint,b3GpuC
     {
         info->m_constraintError[(3+j)*info->rowskip] = k * resultPtr[j];
     }
-	
 
 }
-
 
 __kernel void writeBackVelocitiesKernel(__global b3RigidBodyCL* bodies,__global b3GpuSolverBody* solverBodies,int numBodies)
 {
@@ -647,8 +608,7 @@ __kernel void writeBackVelocitiesKernel(__global b3RigidBodyCL* bodies,__global 
 	}
 }
 
-
-__kernel void getInfo2Kernel(__global b3SolverConstraint* solverConstraintRows, 
+__kernel void getInfo2Kernel(__global b3SolverConstraint* solverConstraintRows,
 							__global unsigned int* infos, 
 							__global unsigned int* constraintRowOffsets, 
 							__global b3GpuGenericConstraint* constraints, 
@@ -683,8 +643,7 @@ __kernel void getInfo2Kernel(__global b3SolverConstraint* solverConstraintRows,
 	__global b3GpuSolverBody* bodyAPtr = &solverBodies[solverBodyIdA];
 	__global b3GpuSolverBody* bodyBPtr = &solverBodies[solverBodyIdB];
 
-
-	if (rbA->m_invMass)
+if (rbA->m_invMass)
 	{
 		batchConstraints[i].m_bodyAPtrAndSignBit = solverBodyIdA;
 	} else
@@ -710,8 +669,7 @@ __kernel void getInfo2Kernel(__global b3SolverConstraint* solverConstraintRows,
 //		if (overrideNumSolverIterations>m_maxOverrideNumSolverIterations)
 	//		m_maxOverrideNumSolverIterations = overrideNumSolverIterations;
 
-
-		int j;
+int j;
 		for ( j=0;j<info1;j++)
 		{
 //			memset(&currentConstraintRow[j],0,sizeof(b3SolverConstraint));
@@ -756,10 +714,7 @@ __kernel void getInfo2Kernel(__global b3SolverConstraint* solverConstraintRows,
 
 		int rowskip = sizeof(b3SolverConstraint)/sizeof(float);//check this
 
-		
-
-
-		b3GpuConstraintInfo2 info2;
+b3GpuConstraintInfo2 info2;
 		info2.fps = 1.f/timeStep;
 		info2.erp = globalErp;
 		info2.m_J1linearAxisFloat4 = &currentConstraintRow->m_contactNormal;
@@ -853,8 +808,7 @@ __kernel void getInfo2Kernel(__global b3SolverConstraint* solverConstraintRows,
 				}
 			}
 
-
-			///fix rhs
+///fix rhs
 			///todo: add force/torque accelerators
 			{
 				float rel_vel;

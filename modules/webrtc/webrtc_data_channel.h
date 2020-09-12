@@ -1,8 +1,6 @@
 
 /*  webrtc_data_channel.h                                                */
 
-
-
 #ifndef WEBRTC_DATA_CHANNEL_H
 #define WEBRTC_DATA_CHANNEL_H
 

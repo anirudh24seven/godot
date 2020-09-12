@@ -1,8 +1,6 @@
 
 /*  editor_inspector.h                                                   */
 
-
-
 #ifndef EDITOR_INSPECTOR_H
 #define EDITOR_INSPECTOR_H
 

@@ -1,8 +1,6 @@
 
 /*  webrtc_peer_connection_js.cpp                                        */
 
-
-
 #ifdef JAVASCRIPT_ENABLED
 
 #include "webrtc_peer_connection_js.h"

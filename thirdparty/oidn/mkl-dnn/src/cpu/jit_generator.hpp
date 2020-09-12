@@ -708,8 +708,7 @@ public:
         vpackuswb(x1, x2, op);
     }
 
-
-    void mul_by_const(const Xbyak::Reg &out,
+void mul_by_const(const Xbyak::Reg &out,
             const Xbyak::Reg64 &tmp, int value) {
         // Generates a shift + add sequence for multiplicating contents of the
         // out register by a known JIT-time value. Clobbers the tmp register.

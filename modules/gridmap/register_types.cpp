@@ -1,8 +1,6 @@
 
 /*  register_types.cpp                                                   */
 
-
-
 #include "register_types.h"
 #ifndef _3D_DISABLED
 #include "core/class_db.h"

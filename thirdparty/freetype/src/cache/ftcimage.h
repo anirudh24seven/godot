@@ -15,8 +15,7 @@
  *
  */
 
-
- /*
+/*
   * FTC_ICache is an _abstract_ cache used to store a single FT_Glyph
   * image per cache node.
   *
@@ -24,17 +23,14 @@
   * see FTC_ImageCache in `src/cache/ftbasic.c'.
   */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Each image cache really manages FT_Glyph objects.
    *
    */
 
-
 #ifndef FTCIMAGE_H_
 #define FTCIMAGE_H_
-
 
 #include <ft2build.h>
 #include FT_CACHE_H
@@ -42,8 +38,7 @@
 
 FT_BEGIN_HEADER
 
-
-  /* the FT_Glyph image node type - we store only 1 glyph per node */
+/* the FT_Glyph image node type - we store only 1 glyph per node */
   typedef struct  FTC_INodeRec_
   {
     FTC_GNodeRec  gnode;
@@ -75,8 +70,7 @@ FT_BEGIN_HEADER
 #define FTC_CACHE_IFAMILY_CLASS( x ) \
           FTC_IFAMILY_CLASS( FTC_CACHE_GCACHE_CLASS(x)->family_class )
 
-
-  /* can be used as a @FTC_Node_FreeFunc */
+/* can be used as a @FTC_Node_FreeFunc */
   FT_LOCAL( void )
   FTC_INode_Free( FTC_INode  inode,
                   FTC_Cache  cache );
@@ -96,12 +90,10 @@ FT_BEGIN_HEADER
   FTC_INode_Weight( FTC_INode  inode );
 #endif
 
-
- /* */
+/* */
 
 FT_END_HEADER
 
 #endif /* FTCIMAGE_H_ */
-
 
 /* END */

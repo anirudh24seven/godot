@@ -25,8 +25,7 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-
-  /*
+/*
    * This is a complete re-implementation of the LZW file reader,
    * since the old one was incredibly badly written, using
    * 400 KByte of heap memory before decompressing anything.
@@ -46,8 +45,7 @@
 #define LZW_BLOCK_MASK    0x80
 #define LZW_MASK( n )     ( ( 1U << (n) ) - 1U )
 
-
-  typedef enum  FT_LzwPhase_
+typedef enum  FT_LzwPhase_
   {
     FT_LZW_PHASE_START = 0,
     FT_LZW_PHASE_CODE,
@@ -56,8 +54,7 @@
 
   } FT_LzwPhase;
 
-
-  /*
+/*
    * state of LZW decompressor
    *
    * small technical note
@@ -146,20 +143,17 @@
 
   } FT_LzwStateRec, *FT_LzwState;
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   ft_lzwstate_init( FT_LzwState  state,
                     FT_Stream    source );
 
   FT_LOCAL( void )
   ft_lzwstate_done( FT_LzwState  state );
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   ft_lzwstate_reset( FT_LzwState  state );
 
-
-  FT_LOCAL( FT_ULong )
+FT_LOCAL( FT_ULong )
   ft_lzwstate_io( FT_LzwState  state,
                   FT_Byte*     buffer,
                   FT_ULong     out_size );
@@ -167,6 +161,5 @@
 /* */
 
 #endif /* FTZOPEN_H_ */
-
 
 /* END */

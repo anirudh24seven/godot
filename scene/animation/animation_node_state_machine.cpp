@@ -1,8 +1,6 @@
 
 /*  animation_node_state_machine.cpp                                     */
 
-
-
 #include "animation_node_state_machine.h"
 
 /////////////////////////////////////////////////

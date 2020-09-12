@@ -1,8 +1,6 @@
 
 /*  triangle_mesh.cpp                                                    */
 
-
-
 #include "triangle_mesh.h"
 
 #include "core/sort_array.h"

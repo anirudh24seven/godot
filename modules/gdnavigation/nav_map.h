@@ -1,8 +1,6 @@
 
 /*  nav_map.h                                                            */
 
-
-
 #ifndef RVO_SPACE_H
 #define RVO_SPACE_H
 

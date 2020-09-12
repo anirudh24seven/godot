@@ -90,7 +90,6 @@ thirdparty_include_dirs = [
 ]
 thirdparty_include_dirs = [thirdparty_dir + file for file in thirdparty_include_dirs]
 
-
 env_oidn.Prepend(CPPPATH=thirdparty_include_dirs)
 env_oidn.Append(
     CPPDEFINES=[

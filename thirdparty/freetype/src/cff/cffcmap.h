@@ -15,7 +15,6 @@
  *
  */
 
-
 #ifndef CFFCMAP_H_
 #define CFFCMAP_H_
 
@@ -23,16 +22,11 @@
 
 FT_BEGIN_HEADER
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****          TYPE1 STANDARD (AND EXPERT) ENCODING CMAPS           *****/
   /*****                                                               *****/
 
-
-
-  /* standard (and expert) encoding cmaps */
+/* standard (and expert) encoding cmaps */
   typedef struct CFF_CMapStdRec_*  CFF_CMapStd;
 
   typedef struct  CFF_CMapStdRec_
@@ -42,26 +36,18 @@ FT_BEGIN_HEADER
 
   } CFF_CMapStdRec;
 
+FT_DECLARE_CMAP_CLASS(cff_cmap_encoding_class_rec)
 
-  FT_DECLARE_CMAP_CLASS(cff_cmap_encoding_class_rec)
-
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****               CFF SYNTHETIC UNICODE ENCODING CMAP             *****/
   /*****                                                               *****/
 
-
-
-  /* unicode (synthetic) cmaps */
+/* unicode (synthetic) cmaps */
 
   FT_DECLARE_CMAP_CLASS(cff_cmap_unicode_class_rec)
-
 
 FT_END_HEADER
 
 #endif /* CFFCMAP_H_ */
-
 
 /* END */

@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_TREECODER_H_
 #define VP8_COMMON_TREECODER_H_
 
@@ -17,7 +16,6 @@ extern "C" {
 #endif
 
 typedef unsigned char vp8bc_index_t; /* probability index */
-
 
 typedef unsigned char vp8_prob;
 
@@ -34,10 +32,7 @@ typedef const bool_coder_spec c_bool_coder_spec;
 typedef const bool_writer c_bool_writer;
 typedef const bool_reader c_bool_reader;
 
-
-
 # define vp8_complement( x) (255 - x)
-
 
 /* We build coding trees compactly in arrays.
    Each node of the tree is a pair of vp8_tree_indices.
@@ -47,7 +42,6 @@ typedef const bool_reader c_bool_reader;
    Nonnegative indices are always even;  processing begins at node 0. */
 
 typedef const vp8_tree_index vp8_tree[], *vp8_tree_p;
-
 
 typedef const struct vp8_token_struct
 {
@@ -60,7 +54,6 @@ typedef const struct vp8_token_struct
 void vp8_tokens_from_tree(struct vp8_token_struct *, vp8_tree);
 void vp8_tokens_from_tree_offset(struct vp8_token_struct *, vp8_tree,
                                  int offset);
-
 
 /* Convert array of token occurrence counts into a table of probabilities
    for the associated binary encoding tree.  Also writes count of branches
@@ -89,7 +82,6 @@ void vp8bc_tree_probs_from_distribution(
     const unsigned int num_events[ /* n */ ],
     c_bool_coder_spec *s
 );
-
 
 #ifdef __cplusplus
 }  // extern "C"

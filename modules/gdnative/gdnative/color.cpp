@@ -1,8 +1,6 @@
 
 /*  color.cpp                                                            */
 
-
-
 #include "gdnative/color.h"
 
 #include "core/color.h"

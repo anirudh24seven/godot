@@ -24,12 +24,10 @@
  *
  */
 
-
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -38,35 +36,24 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvopbd
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      Data and Types                           *****/
   /*****                                                               *****/
 
-
-
-  typedef struct  GXV_opbd_DataRec_
+typedef struct  GXV_opbd_DataRec_
   {
     FT_UShort  format;
     FT_UShort  valueOffset_min;
 
   } GXV_opbd_DataRec, *GXV_opbd_Data;
 
-
 #define GXV_OPBD_DATA( FIELD )  GXV_TABLE_DATA( opbd, FIELD )
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      UTILITY FUNCTIONS                        *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   gxv_opbd_LookupValue_validate( FT_UShort            glyph,
                                  GXV_LookupValueCPtr  value_p,
                                  GXV_Validator        gxvalid )
@@ -77,8 +64,7 @@
     FT_Short   delta_value;
     int        i;
 
-
-    if ( value_p->u < GXV_OPBD_DATA( valueOffset_min ) )
+if ( value_p->u < GXV_OPBD_DATA( valueOffset_min ) )
       GXV_OPBD_DATA( valueOffset_min ) = value_p->u;
 
     for ( i = 0; i < 4; i++ )
@@ -98,8 +84,7 @@
     }
   }
 
-
-  /*
+/*
     opbd ---------------------+
                               |
     +===============+         |
@@ -149,16 +134,11 @@
     return value;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                         opbd TABLE                            *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   gxv_opbd_validate( FT_Bytes      table,
                      FT_Face       face,
                      FT_Validator  ftvalid )
@@ -172,8 +152,7 @@
 
     FT_ULong  version;
 
-
-    gxvalid->root       = ftvalid;
+gxvalid->root       = ftvalid;
     gxvalid->table_data = opbd;
     gxvalid->face       = face;
 
@@ -181,13 +160,11 @@
     GXV_INIT;
     GXV_OPBD_DATA( valueOffset_min ) = 0xFFFFU;
 
-
-    GXV_LIMIT_CHECK( 4 + 2 );
+GXV_LIMIT_CHECK( 4 + 2 );
     version                 = FT_NEXT_ULONG( p );
     GXV_OPBD_DATA( format ) = FT_NEXT_USHORT( p );
 
-
-    /* only 0x00010000 is defined (1996) */
+/* only 0x00010000 is defined (1996) */
     GXV_TRACE(( "(version=0x%08x)\n", version ));
     if ( 0x00010000UL != version )
       FT_INVALID_FORMAT;
@@ -213,6 +190,5 @@
 
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

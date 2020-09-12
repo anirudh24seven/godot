@@ -1,8 +1,6 @@
 
 /*  concave_polygon_shape_3d.h                                           */
 
-
-
 #ifndef CONCAVE_POLYGON_SHAPE_3D_H
 #define CONCAVE_POLYGON_SHAPE_3D_H
 

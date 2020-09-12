@@ -1,8 +1,6 @@
 
 /*  test_gdscript.cpp                                                    */
 
-
-
 #include "test_gdscript.h"
 
 #include "core/os/file_access.h"

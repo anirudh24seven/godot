@@ -1,8 +1,6 @@
 
 /*  collision_solver_2d_sw.cpp                                           */
 
-
-
 #include "collision_solver_2d_sw.h"
 #include "collision_solver_2d_sat.h"
 

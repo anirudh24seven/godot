@@ -1,8 +1,6 @@
 
 /*  editor_layouts_dialog.cpp                                            */
 
-
-
 #include "editor_layouts_dialog.h"
 
 #include "core/class_db.h"

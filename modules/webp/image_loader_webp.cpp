@@ -1,8 +1,6 @@
 
 /*  image_loader_webp.cpp                                                */
 
-
-
 #include "image_loader_webp.h"
 
 #include "core/io/marshalls.h"

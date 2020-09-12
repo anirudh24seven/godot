@@ -1,8 +1,6 @@
 
 /*  image_loader_png.cpp                                                 */
 
-
-
 #include "image_loader_png.h"
 
 #include "core/os/os.h"

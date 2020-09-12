@@ -20,7 +20,6 @@
 
 /***** residue backends *********************************************/
 
-
 static const vorbis_info_residue0 _residue_44_low_un={
   0,-1, -1, 8,-1,-1,
   {0},

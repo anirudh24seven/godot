@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef PLUGINSCRIPT_REGISTER_TYPES_H
 #define PLUGINSCRIPT_REGISTER_TYPES_H
 

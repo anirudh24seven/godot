@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -51,8 +50,6 @@ POSSIBILITY OF SUCH DAMAGE.
   (PCRE2_SUBSTITUTE_EXTENDED|PCRE2_SUBSTITUTE_GLOBAL| \
    PCRE2_SUBSTITUTE_OVERFLOW_LENGTH|PCRE2_SUBSTITUTE_UNKNOWN_UNSET| \
    PCRE2_SUBSTITUTE_UNSET_EMPTY)
-
-
 
 /*************************************************
 *           Find end of substitute text          *
@@ -160,8 +157,6 @@ EXIT:
 *ptrptr = ptr;
 return rc;
 }
-
-
 
 /*************************************************
 *              Match and substitute              *

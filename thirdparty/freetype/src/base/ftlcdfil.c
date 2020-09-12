@@ -15,14 +15,12 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 
 #include FT_LCD_FILTER_H
 #include FT_IMAGE_H
 #include FT_INTERNAL_OBJECTS_H
-
 
 #ifdef FT_CONFIG_OPTION_SUBPIXEL_RENDERING
 
@@ -31,8 +29,7 @@
 
 #define FT_SHIFTCLAMP( x )  ( x >>= 8, (FT_Byte)( x > 255 ? 255 : x ) )
 
-
-  /* add padding according to filter weights */
+/* add padding according to filter weights */
   FT_BASE_DEF (void)
   ft_lcd_padding( FT_BBox*        cbox,
                   FT_GlyphSlot    slot,
@@ -41,8 +38,7 @@
     FT_Byte*                 lcd_weights;
     FT_Bitmap_LcdFilterFunc  lcd_filter_func;
 
-
-    /* Per-face LCD filtering takes priority if set up. */
+/* Per-face LCD filtering takes priority if set up. */
     if ( slot->face && slot->face->internal->lcd_filter_func )
     {
       lcd_weights     = slot->face->internal->lcd_weights;
@@ -73,8 +69,7 @@
     }
   }
 
-
-  /* FIR filter used by the default and light filters */
+/* FIR filter used by the default and light filters */
   FT_BASE_DEF( void )
   ft_lcd_filter_fir( FT_Bitmap*           bitmap,
                      FT_LcdFiveTapFilter  weights )
@@ -85,8 +80,7 @@
     FT_Byte*  origin = bitmap->buffer;
     FT_Byte   mode   = bitmap->pixel_mode;
 
-
-    /* take care of bitmap flow */
+/* take care of bitmap flow */
     if ( pitch > 0 && height > 0 )
       origin += pitch * (FT_Int)( height - 1 );
 
@@ -95,8 +89,7 @@
     {
       FT_Byte*  line = origin;
 
-
-      /* `fir' must be at least 32 bit wide, since the sum of */
+/* `fir' must be at least 32 bit wide, since the sum of */
       /* the values in `weights' can exceed 0xFF              */
 
       for ( ; height > 0; height--, line -= pitch )
@@ -104,8 +97,7 @@
         FT_UInt  fir[5];
         FT_UInt  val, xx;
 
-
-        val    = line[0];
+val    = line[0];
         fir[2] = weights[2] * val;
         fir[3] = weights[3] * val;
         fir[4] = weights[4] * val;
@@ -138,15 +130,13 @@
     {
       FT_Byte*  column = origin;
 
-
-      for ( ; width > 0; width--, column++ )
+for ( ; width > 0; width--, column++ )
       {
         FT_Byte*  col = column;
         FT_UInt   fir[5];
         FT_UInt   val, yy;
 
-
-        val    = col[0];
+val    = col[0];
         fir[2] = weights[2] * val;
         fir[3] = weights[3] * val;
         fir[4] = weights[4] * val;
@@ -177,7 +167,6 @@
     }
   }
 
-
 #ifdef USE_LEGACY
 
   /* intra-pixel filter used by the legacy filter */
@@ -200,8 +189,7 @@
 
     FT_UNUSED( weights );
 
-
-    /* take care of bitmap flow */
+/* take care of bitmap flow */
     if ( pitch > 0 && height > 0 )
       origin += pitch * (FT_Int)( height - 1 );
 
@@ -210,19 +198,16 @@
     {
       FT_Byte*  line = origin;
 
-
-      for ( ; height > 0; height--, line -= pitch )
+for ( ; height > 0; height--, line -= pitch )
       {
         FT_UInt  xx;
 
-
-        for ( xx = 0; xx < width; xx += 3 )
+for ( xx = 0; xx < width; xx += 3 )
         {
           FT_UInt  r, g, b;
           FT_UInt  p;
 
-
-          p  = line[xx];
+p  = line[xx];
           r  = filters[0][0] * p;
           g  = filters[0][1] * p;
           b  = filters[0][2] * p;
@@ -247,19 +232,16 @@
     {
       FT_Byte*  column = origin;
 
-
-      for ( ; width > 0; width--, column++ )
+for ( ; width > 0; width--, column++ )
       {
         FT_Byte*  col = column - 2 * pitch;
 
-
-        for ( ; height > 0; height -= 3, col -= 3 * pitch )
+for ( ; height > 0; height -= 3, col -= 3 * pitch )
         {
           FT_UInt  r, g, b;
           FT_UInt  p;
 
-
-          p  = col[0];
+p  = col[0];
           r  = filters[0][0] * p;
           g  = filters[0][1] * p;
           b  = filters[0][2] * p;
@@ -284,8 +266,7 @@
 
 #endif /* USE_LEGACY */
 
-
-  /* documentation in ftlcdfil.h */
+/* documentation in ftlcdfil.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Library_SetLcdFilterWeights( FT_Library      library,
@@ -303,8 +284,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* documentation in ftlcdfil.h */
+/* documentation in ftlcdfil.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Library_SetLcdFilter( FT_Library    library,
@@ -315,8 +295,7 @@
     static const FT_LcdFiveTapFilter  light_weights =
                    { 0x00, 0x55, 0x56, 0x55, 0x00 };
 
-
-    if ( !library )
+if ( !library )
       return FT_THROW( Invalid_Library_Handle );
 
     switch ( filter )
@@ -355,8 +334,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_EXPORT_DEF( FT_Error )
+FT_EXPORT_DEF( FT_Error )
   FT_Library_SetLcdGeometry( FT_Library  library,
                              FT_Vector*  sub )
   {
@@ -392,8 +370,7 @@
     }
   }
 
-
-  FT_EXPORT_DEF( FT_Error )
+FT_EXPORT_DEF( FT_Error )
   FT_Library_SetLcdFilterWeights( FT_Library      library,
                                   unsigned char  *weights )
   {
@@ -403,8 +380,7 @@
     return FT_THROW( Unimplemented_Feature );
   }
 
-
-  FT_EXPORT_DEF( FT_Error )
+FT_EXPORT_DEF( FT_Error )
   FT_Library_SetLcdFilter( FT_Library    library,
                            FT_LcdFilter  filter )
   {
@@ -414,8 +390,7 @@
     return FT_THROW( Unimplemented_Feature );
   }
 
-
-  /* documentation in ftlcdfil.h */
+/* documentation in ftlcdfil.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Library_SetLcdGeometry( FT_Library  library,
@@ -433,6 +408,5 @@
   }
 
 #endif /* !FT_CONFIG_OPTION_SUBPIXEL_RENDERING */
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  curve_editor_plugin.h                                                */
 
-
-
 #ifndef CURVE_EDITOR_PLUGIN_H
 #define CURVE_EDITOR_PLUGIN_H
 

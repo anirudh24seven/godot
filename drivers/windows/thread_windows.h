@@ -1,8 +1,6 @@
 
 /*  thread_windows.h                                                     */
 
-
-
 #ifndef THREAD_WINDOWS_H
 #define THREAD_WINDOWS_H
 

@@ -160,7 +160,6 @@ static void ConvertARGBToUV_NEON(const uint32_t* argb, uint8_t* u, uint8_t* v,
   }
 }
 
-
 //------------------------------------------------------------------------------
 
 extern void WebPInitConvertARGBToYUVNEON(void);

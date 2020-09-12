@@ -1,8 +1,6 @@
 
 /*  editor_debugger_inspector.cpp                                        */
 
-
-
 #include "editor_debugger_inspector.h"
 
 #include "core/debugger/debugger_marshalls.h"

@@ -78,8 +78,7 @@ void vp8_short_idct4x4llm_c(short *input, unsigned char *pred_ptr,
         temp2 = (ip[3] * sinpi8sqrt2) >> 16;
         d1 = temp1 + temp2;
 
-
-        op[0] = (a1 + d1 + 4) >> 3;
+op[0] = (a1 + d1 + 4) >> 3;
         op[3] = (a1 - d1 + 4) >> 3;
 
         op[1] = (b1 + c1 + 4) >> 3;

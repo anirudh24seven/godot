@@ -1,8 +1,6 @@
 
 /*  mesh_instance_2d.cpp                                                 */
 
-
-
 #include "mesh_instance_2d.h"
 
 void MeshInstance2D::_notification(int p_what) {

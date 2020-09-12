@@ -1,8 +1,6 @@
 
 /*  sort_array.h                                                         */
 
-
-
 #ifndef SORT_ARRAY_H
 #define SORT_ARRAY_H
 

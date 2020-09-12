@@ -19,15 +19,11 @@
 #include "encint.h"
 #include "modedec.h"
 
-
-
 typedef struct oc_fr_state           oc_fr_state;
 typedef struct oc_qii_state          oc_qii_state;
 typedef struct oc_enc_pipeline_state oc_enc_pipeline_state;
 typedef struct oc_rd_metric          oc_rd_metric;
 typedef struct oc_mode_choice        oc_mode_choice;
-
-
 
 /*There are 8 possible schemes used to encode macro block modes.
   Schemes 0-6 use a maximally-skewed Huffman code to code each of the modes.
@@ -61,8 +57,6 @@ static const unsigned char OC_MODE_RANKS[7][OC_NMODES]={
   {0,1,2,3,4,5,6,7}
 };
 
-
-
 /*Initialize the mode scheme chooser.
   This need only be called once per encoder.*/
 void oc_mode_scheme_chooser_init(oc_mode_scheme_chooser *_chooser){
@@ -86,7 +80,6 @@ static void oc_mode_scheme_chooser_reset(oc_mode_scheme_chooser *_chooser){
     _chooser->scheme0_list[si]=_chooser->scheme0_ranks[si]=si;
   }
 }
-
 
 /*This is the real purpose of this data structure: not actually selecting a
    mode scheme, but estimating the cost of coding a given mode given all the
@@ -193,8 +186,6 @@ static void oc_mode_scheme_chooser_update(oc_mode_scheme_chooser *_chooser,
   }
 }
 
-
-
 /*The number of bits required to encode a super block run.
   _run_count: The desired run count; must be positive and less than 4130.*/
 static int oc_sb_run_bits(int _run_count){
@@ -208,8 +199,6 @@ static int oc_sb_run_bits(int _run_count){
 static int oc_block_run_bits(int _run_count){
   return OC_BLOCK_RUN_CODE_NBITS[_run_count-1];
 }
-
-
 
 /*State to track coded block flags and their bit cost.*/
 struct oc_fr_state{
@@ -225,8 +214,6 @@ struct oc_fr_state{
   signed int b_coded:2;
 };
 
-
-
 static void oc_fr_state_init(oc_fr_state *_fr){
   _fr->bits=0;
   _fr->sb_partial_count=0;
@@ -239,7 +226,6 @@ static void oc_fr_state_init(oc_fr_state *_fr){
   _fr->b_coded_prev=-1;
   _fr->b_coded=-1;
 }
-
 
 static void oc_fr_state_advance_sb(oc_fr_state *_fr,
  int _sb_partial,int _sb_full){
@@ -393,8 +379,6 @@ static int oc_fr_cost4(const oc_fr_state *_pre,const oc_fr_state *_post){
   return (int)(_post->bits-tmp.bits);
 }
 
-
-
 struct oc_qii_state{
   ptrdiff_t  bits;
   unsigned   qi01_count:14;
@@ -403,8 +387,6 @@ struct oc_qii_state{
   signed int qi12:2;
 };
 
-
-
 static void oc_qii_state_init(oc_qii_state *_qs){
   _qs->bits=0;
   _qs->qi01_count=0;
@@ -412,7 +394,6 @@ static void oc_qii_state_init(oc_qii_state *_qs){
   _qs->qi12_count=0;
   _qs->qi12=-1;
 }
-
 
 static void oc_qii_state_advance(oc_qii_state *_qd,
  const oc_qii_state *_qs,int _qii){
@@ -456,8 +437,6 @@ static void oc_qii_state_advance(oc_qii_state *_qd,
   _qd->qi12_count=qi12_count;
 }
 
-
-
 /*Temporary encoder state for the analysis pipeline.*/
 struct oc_enc_pipeline_state{
   int                 bounding_values[256];
@@ -491,7 +470,6 @@ struct oc_enc_pipeline_state{
   /*Whether or not the loop filter is enabled.*/
   int                 loop_filter;
 };
-
 
 static void oc_enc_pipeline_init(oc_enc_ctx *_enc,oc_enc_pipeline_state *_pipe){
   ptrdiff_t *coded_fragis;
@@ -621,8 +599,6 @@ static void oc_enc_pipeline_finish_mcu_plane(oc_enc_ctx *_enc,
    (_pipe->fragy_end[_pli]-_edelay<<3)-(_edelay<<1));
 }
 
-
-
 /*Cost information about the coded blocks in a MB.*/
 struct oc_rd_metric{
   int uncoded_ac_ssd;
@@ -630,8 +606,6 @@ struct oc_rd_metric{
   int ac_bits;
   int dc_flag;
 };
-
-
 
 static int oc_enc_block_transform_quantize(oc_enc_ctx *_enc,
  oc_enc_pipeline_state *_pipe,int _pli,ptrdiff_t _fragi,int _overhead_bits,
@@ -1305,8 +1279,6 @@ void oc_enc_analyze_intra(oc_enc_ctx *_enc,int _recode){
   _enc->state.ntotal_coded_fragis=_enc->state.nfrags;
 }
 
-
-
 /*Cost information about a MB mode.*/
 struct oc_mode_choice{
   unsigned      cost;
@@ -1315,8 +1287,6 @@ struct oc_mode_choice{
   unsigned      overhead;
   unsigned char qii[12];
 };
-
-
 
 static void oc_mode_set_cost(oc_mode_choice *_modec,int _lambda){
   _modec->cost=OC_MODE_RD_COST(_modec->ssd,
@@ -2360,8 +2330,6 @@ static void oc_enc_mode_metrics_update(oc_enc_ctx *_enc,int _qi){
   }
 }
 
-
-
 /*The following token skipping code used to also be used in the decoder (and
    even at one point other places in the encoder).
   However, it was obsoleted by other optimizations, and is now only used here.
@@ -2471,8 +2439,6 @@ static const oc_token_skip_func OC_TOKEN_SKIP_TABLE[TH_NDCT_TOKENS]={
 static ptrdiff_t oc_dct_token_skip(int _token,int _extra_bits){
   return (*OC_TOKEN_SKIP_TABLE[_token])(_token,_extra_bits);
 }
-
-
 
 void oc_enc_mode_metrics_collect(oc_enc_ctx *_enc){
   static const unsigned char OC_ZZI_HUFF_OFFSET[64]={

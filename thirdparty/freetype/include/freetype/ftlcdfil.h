@@ -16,7 +16,6 @@
  *
  */
 
-
 #ifndef FTLCDFIL_H_
 #define FTLCDFIL_H_
 
@@ -29,7 +28,6 @@
 #error "Please fix the directory search order for header files"
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
-
 
 FT_BEGIN_HEADER
 
@@ -123,8 +121,7 @@ FT_BEGIN_HEADER
    *   color with the red channel of the background pixel.
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   FT_LcdFilter
@@ -170,8 +167,7 @@ FT_BEGIN_HEADER
 
   } FT_LcdFilter;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Library_SetLcdFilter
@@ -213,8 +209,7 @@ FT_BEGIN_HEADER
   FT_Library_SetLcdFilter( FT_Library    library,
                            FT_LcdFilter  filter );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Library_SetLcdFilterWeights
@@ -251,8 +246,7 @@ FT_BEGIN_HEADER
   FT_Library_SetLcdFilterWeights( FT_Library      library,
                                   unsigned char  *weights );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_LcdFiveTapFilter
@@ -269,8 +263,7 @@ FT_BEGIN_HEADER
 
   typedef FT_Byte  FT_LcdFiveTapFilter[FT_LCD_FILTER_FIVE_TAPS];
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Library_SetLcdGeometry
@@ -319,10 +312,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTLCDFIL_H_ */
-
 
 /* END */

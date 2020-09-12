@@ -1,8 +1,6 @@
 
 /*  rasterizer_effects_rd.cpp                                            */
 
-
-
 #include "rasterizer_effects_rd.h"
 
 #include "core/os/os.h"

@@ -1,8 +1,6 @@
 
 /*  proximity_group_3d.cpp                                               */
 
-
-
 #include "proximity_group_3d.h"
 
 #include "core/math/math_funcs.h"

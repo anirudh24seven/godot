@@ -1,8 +1,6 @@
 
 /*  nativescript.cpp                                                     */
 
-
-
 #include "nativescript.h"
 
 #include <stdint.h>

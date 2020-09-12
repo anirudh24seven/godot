@@ -1,8 +1,6 @@
 
 /*  audio_stream_player_3d.cpp                                           */
 
-
-
 #include "audio_stream_player_3d.h"
 
 #include "core/engine.h"

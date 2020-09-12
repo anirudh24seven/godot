@@ -1,8 +1,6 @@
 
 /*  gd_mono_property.h                                                   */
 
-
-
 #ifndef GD_MONO_PROPERTY_H
 #define GD_MONO_PROPERTY_H
 

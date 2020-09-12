@@ -66,4 +66,3 @@ const opus_uint8 silk_pitch_contour_10_ms_NB_iCDF[3] = {
        113,     63,      0
 };
 
-

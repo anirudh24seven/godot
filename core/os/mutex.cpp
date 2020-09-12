@@ -1,8 +1,6 @@
 
 /*  mutex.cpp                                                            */
 
-
-
 #include "mutex.h"
 
 static Mutex _global_mutex;

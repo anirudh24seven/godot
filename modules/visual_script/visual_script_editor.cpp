@@ -1,8 +1,6 @@
 
 /*  visual_script_editor.cpp                                             */
 
-
-
 #include "visual_script_editor.h"
 
 #include "core/input/input.h"

@@ -1088,7 +1088,6 @@ static void opus_copy_channel_in_short(
 #endif
 }
 
-
 #ifdef FIXED_POINT
 int opus_multistream_encode(
     OpusMSEncoder *st,

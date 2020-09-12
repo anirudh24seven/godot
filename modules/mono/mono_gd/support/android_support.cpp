@@ -1,8 +1,6 @@
 
 /*  android_support.cpp                                                  */
 
-
-
 #include "android_support.h"
 
 #if defined(ANDROID_ENABLED)

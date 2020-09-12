@@ -1,8 +1,6 @@
 
 /*  label.cpp                                                            */
 
-
-
 #include "label.h"
 
 #include "core/print_string.h"

@@ -1,8 +1,6 @@
 
 /*  eq.h                                                                 */
 
-
-
 // Author: reduzio@gmail.com (C) 2006
 
 #ifndef EQ_FILTER_H

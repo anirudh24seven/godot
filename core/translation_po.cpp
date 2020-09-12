@@ -1,8 +1,6 @@
 
 /*  translation_po.cpp                                                   */
 
-
-
 #include "translation_po.h"
 
 #include "core/os/file_access.h"

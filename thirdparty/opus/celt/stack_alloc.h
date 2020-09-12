@@ -159,7 +159,6 @@ extern char *global_stack_top;
 
 #endif /* VAR_ARRAYS */
 
-
 #ifdef ENABLE_VALGRIND
 
 #include <valgrind/memcheck.h>
@@ -179,6 +178,5 @@ static OPUS_INLINE int _opus_false(void) {return 0;}
 #define OPUS_FPRINTF (void)
 
 #endif
-
 
 #endif /* STACK_ALLOC_H */

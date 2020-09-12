@@ -1,8 +1,6 @@
 
 /*  ios_support.mm                                                       */
 
-
-
 #include "ios_support.h"
 
 #if defined(IPHONE_ENABLED)

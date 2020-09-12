@@ -16,7 +16,6 @@
 #include "vpx_dsp/vpx_filter.h"
 #include "vpx_ports/mem.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif

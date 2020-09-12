@@ -1,8 +1,6 @@
 
 /*  navigation_mesh.cpp                                                  */
 
-
-
 #include "navigation_mesh.h"
 
 void NavigationMesh::create_from_mesh(const Ref<Mesh> &p_mesh) {

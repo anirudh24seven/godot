@@ -15,17 +15,14 @@
  *
  */
 
-
 #ifndef SVGLDICT_H_
 #define SVGLDICT_H_
 
 #include FT_INTERNAL_SERVICE_H
 
-
 FT_BEGIN_HEADER
 
-
-  /*
+/*
    * A service used to retrieve glyph names, as well as to find the index of
    * a given glyph name in a font.
    *
@@ -33,8 +30,7 @@ FT_BEGIN_HEADER
 
 #define FT_SERVICE_ID_GLYPH_DICT  "glyph-dict"
 
-
-  typedef FT_Error
+typedef FT_Error
   (*FT_GlyphDict_GetNameFunc)( FT_Face     face,
                                FT_UInt     glyph_index,
                                FT_Pointer  buffer,
@@ -44,13 +40,11 @@ FT_BEGIN_HEADER
   (*FT_GlyphDict_NameIndexFunc)( FT_Face           face,
                                  const FT_String*  glyph_name );
 
-
-  FT_DEFINE_SERVICE( GlyphDict )
+FT_DEFINE_SERVICE( GlyphDict )
   {
     FT_GlyphDict_GetNameFunc    get_name;
     FT_GlyphDict_NameIndexFunc  name_index;  /* optional */
   };
-
 
 #define FT_DEFINE_SERVICE_GLYPHDICTREC( class_,                        \
                                         get_name_,                     \
@@ -62,11 +56,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
-
 #endif /* SVGLDICT_H_ */
-
 
 /* END */

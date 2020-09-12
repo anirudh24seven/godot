@@ -1,8 +1,6 @@
 
 /*  physics_server_2d_sw.h                                               */
 
-
-
 #ifndef PHYSICS_2D_SERVER_SW
 #define PHYSICS_2D_SERVER_SW
 

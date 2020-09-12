@@ -1,8 +1,6 @@
 
 /*  step_2d_sw.h                                                         */
 
-
-
 #ifndef STEP_2D_SW_H
 #define STEP_2D_SW_H
 

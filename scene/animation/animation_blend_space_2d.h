@@ -1,8 +1,6 @@
 
 /*  animation_blend_space_2d.h                                           */
 
-
-
 #ifndef ANIMATION_BLEND_SPACE_2D_H
 #define ANIMATION_BLEND_SPACE_2D_H
 

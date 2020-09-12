@@ -1,8 +1,6 @@
 
 /*  editor_vcs_interface.h                                               */
 
-
-
 #ifndef EDITOR_VCS_INTERFACE_H
 #define EDITOR_VCS_INTERFACE_H
 

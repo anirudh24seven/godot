@@ -1,8 +1,6 @@
 
 /*  Dictionary.java                                                      */
 
-
-
 package org.godotengine.godot;
 
 import java.util.HashMap;

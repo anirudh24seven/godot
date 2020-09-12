@@ -13,8 +13,7 @@
 		tool
 		extends EditorTranslationParserPlugin
 
-
-		func parse_file(path, msgids, msgids_context_plural):
+func parse_file(path, msgids, msgids_context_plural):
 		    var file = File.new()
 		    file.open(path, File.READ)
 		    var text = file.get_as_text()
@@ -23,8 +22,7 @@
 		        msgids.append(s)
 		        #print("Extracted string: " + s)
 
-
-		func get_recognized_extensions():
+func get_recognized_extensions():
 		    return ["csv"]
 		[/codeblock]
 		To add a translatable string associated with context or plural, add it to [code]msgids_context_plural[/code]:
@@ -44,8 +42,7 @@
 		    var text = res.get_source_code()
 		    # Parsing logic.
 
-
-		func get_recognized_extensions():
+func get_recognized_extensions():
 		    return ["gd"]
 		[/codeblock]
 	</description>

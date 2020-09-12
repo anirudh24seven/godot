@@ -1,8 +1,6 @@
 
 /*  scene_debugger.h                                                     */
 
-
-
 #ifndef SCENE_DEBUGGER_H
 #define SCENE_DEBUGGER_H
 

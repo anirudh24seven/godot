@@ -1,8 +1,6 @@
 
 /*  surface_tool.cpp                                                     */
 
-
-
 #include "surface_tool.h"
 
 #include "core/method_bind_ext.gen.inc"

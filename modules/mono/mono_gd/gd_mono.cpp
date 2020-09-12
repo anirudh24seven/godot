@@ -1,8 +1,6 @@
 
 /*  gd_mono.cpp                                                          */
 
-
-
 #include "gd_mono.h"
 
 #include <mono/metadata/environment.h>

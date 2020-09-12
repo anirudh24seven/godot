@@ -20,8 +20,6 @@
 #include <limits.h>
 #include "apiwrapper.h"
 
-
-
 const char *theora_version_string(void){
   return th_version_string();
 }

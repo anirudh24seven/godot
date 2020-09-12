@@ -294,8 +294,7 @@ void jit_avx512_core_fp32_wino_conv_2x3_dst_trans_t::generate() {
             vsubps(vreg_out(x+2), vreg_tmp(1), vreg_stg(x+2 * 3));
         }
 
-
-        if (jcp.with_bias) {
+if (jcp.with_bias) {
             auto bias_addr = ptr [ reg_ptr_bias ];
             vmovups(vreg_bias, bias_addr);
         }

@@ -1,8 +1,6 @@
 
 /*  grid_map.h                                                           */
 
-
-
 #ifndef GRID_MAP_H
 #define GRID_MAP_H
 

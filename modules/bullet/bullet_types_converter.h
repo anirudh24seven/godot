@@ -1,8 +1,6 @@
 
 /*  bullet_types_converter.h                                             */
 
-
-
 #ifndef BULLET_TYPES_CONVERTER_H
 #define BULLET_TYPES_CONVERTER_H
 

@@ -1,8 +1,6 @@
 
 /*  visibility_notifier_2d.cpp                                           */
 
-
-
 #include "visibility_notifier_2d.h"
 
 #include "core/engine.h"

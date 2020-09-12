@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include <limits.h>
 #include <string.h>
 
@@ -78,7 +77,6 @@ void vp8_copy_mem8x4_c(
     }
 
 }
-
 
 void vp8_build_inter_predictors_b(BLOCKD *d, int pitch, unsigned char *base_pre, int pre_stride, vp8_subpix_fn_t sppf)
 {
@@ -158,7 +156,6 @@ static void build_inter_predictors_b(BLOCKD *d, unsigned char *dst, int dst_stri
         }
     }
 }
-
 
 /*encoder only*/
 void vp8_build_inter16x16_predictors_mbuv(MACROBLOCKD *x)
@@ -266,7 +263,6 @@ void vp8_build_inter4x4_predictors_mbuv(MACROBLOCKD *x)
         }
     }
 }
-
 
 /*encoder only*/
 void vp8_build_inter16x16_predictors_mby(MACROBLOCKD *x,

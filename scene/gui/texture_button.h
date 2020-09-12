@@ -1,8 +1,6 @@
 
 /*  texture_button.h                                                     */
 
-
-
 #ifndef TEXTURE_BUTTON_H
 #define TEXTURE_BUTTON_H
 

@@ -37,7 +37,6 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "mips/prefilter_FIX_mipsr1.h"
 #endif
 
-
 #if !defined(OVERRIDE_silk_warped_LPC_analysis_filter_FIX)
 #define silk_warped_LPC_analysis_filter_FIX(state, res_Q2, coef_Q13, input, lambda_Q16, length, order, arch) \
     ((void)(arch),silk_warped_LPC_analysis_filter_FIX_c(state, res_Q2, coef_Q13, input, lambda_Q16, length, order))

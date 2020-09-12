@@ -1,8 +1,6 @@
 
 /*  panel_container.h                                                    */
 
-
-
 #ifndef PANEL_CONTAINER_H
 #define PANEL_CONTAINER_H
 

@@ -1,8 +1,6 @@
 
 /*  midi_driver.cpp                                                      */
 
-
-
 #include "midi_driver.h"
 
 #include "core/input/input.h"

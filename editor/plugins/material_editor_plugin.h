@@ -1,8 +1,6 @@
 
 /*  material_editor_plugin.h                                             */
 
-
-
 #ifndef MATERIAL_EDITOR_PLUGIN_H
 #define MATERIAL_EDITOR_PLUGIN_H
 

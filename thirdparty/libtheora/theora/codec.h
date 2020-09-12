@@ -67,8 +67,6 @@
 extern "C" {
 #endif
 
-
-
 /**\name Return codes*/
 /*@{*/
 /**An invalid pointer was provided.*/
@@ -128,8 +126,6 @@ typedef enum{
   /**The total number of currently defined pixel formats.*/
   TH_PF_NFORMATS
 }th_pixel_fmt;
-
-
 
 /**A buffer for a single color plane in an uncompressed image.
  * This contains the image data in a left-to-right, top-down format.
@@ -332,8 +328,6 @@ typedef struct th_comment{
   char  *vendor;
 }th_comment;
 
-
-
 /**A single base matrix.*/
 typedef unsigned char th_quant_base[64];
 
@@ -417,8 +411,6 @@ typedef struct{
   th_quant_ranges qi_ranges[2][3];
 }th_quant_info;
 
-
-
 /**The number of Huffman tables used by Theora.*/
 #define TH_NHUFFMAN_TABLES (80)
 /**The number of DCT token values in each table.*/
@@ -443,8 +435,6 @@ typedef struct{
    * This must be between 0 and 32, inclusive.*/
   int          nbits;
 }th_huff_code;
-
-
 
 /**\defgroup basefuncs Functions Shared by Encode and Decode*/
 /*@{*/
@@ -508,7 +498,6 @@ extern int th_packet_isheader(ogg_packet *_op);
  * \retval -1 The packet is not a video data packet.*/
 extern int th_packet_iskeyframe(ogg_packet *_op);
 /*@}*/
-
 
 /**\name Functions for manipulating header data*/
 /*@{*/
@@ -581,8 +570,6 @@ extern int th_comment_query_count(th_comment *_tc,char *_tag);
 extern void th_comment_clear(th_comment *_tc);
 /*@}*/
 /*@}*/
-
-
 
 #if defined(__cplusplus)
 }

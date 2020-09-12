@@ -15,12 +15,10 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_TRUETYPE_TAGS_H
 
-
-  /*
+/*
    * Return tag from index in the order given in WOFF2 specification.
    *
    * See
@@ -99,12 +97,10 @@
       FT_MAKE_TAG('S', 'i', 'l', 'l'),  /*  62 */
     };
 
-
-    if ( index > 62 )
+if ( index > 62 )
       return 0;
 
     return known_tags[index];
   }
-
 
 /* END */

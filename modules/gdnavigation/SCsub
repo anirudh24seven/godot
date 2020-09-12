@@ -29,7 +29,6 @@ if env["builtin_recast"]:
     env_thirdparty.disable_warnings()
     env_thirdparty.add_source_files(env.modules_sources, thirdparty_sources)
 
-
 # RVO Thirdparty source files
 if env["builtin_rvo2"]:
     thirdparty_dir = "#thirdparty/rvo2"
@@ -44,7 +43,6 @@ if env["builtin_rvo2"]:
     env_thirdparty = env_navigation.Clone()
     env_thirdparty.disable_warnings()
     env_thirdparty.add_source_files(env.modules_sources, thirdparty_sources)
-
 
 # Godot source files
 env_navigation.add_source_files(env.modules_sources, "*.cpp")

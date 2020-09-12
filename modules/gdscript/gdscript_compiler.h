@@ -1,8 +1,6 @@
 
 /*  gdscript_compiler.h                                                  */
 
-
-
 #ifndef GDSCRIPT_COMPILER_H
 #define GDSCRIPT_COMPILER_H
 

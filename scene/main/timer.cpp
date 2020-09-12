@@ -1,8 +1,6 @@
 
 /*  timer.cpp                                                            */
 
-
-
 #include "timer.h"
 
 #include "core/engine.h"

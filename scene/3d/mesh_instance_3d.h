@@ -1,8 +1,6 @@
 
 /*  mesh_instance_3d.h                                                   */
 
-
-
 #ifndef MESH_INSTANCE_H
 #define MESH_INSTANCE_H
 

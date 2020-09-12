@@ -4525,8 +4525,7 @@ namespace {
         return *this;
     }
 
-
-    XmlWriter::ScopedElement::~ScopedElement() {
+XmlWriter::ScopedElement::~ScopedElement() {
         if( m_writer )
             m_writer->endElement();
     }

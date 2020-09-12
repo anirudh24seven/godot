@@ -58,8 +58,6 @@
 #  define OC_ALIGN16(expr) expr
 # endif
 
-
-
 typedef struct oc_sb_flags              oc_sb_flags;
 typedef struct oc_border_info           oc_border_info;
 typedef struct oc_fragment              oc_fragment;
@@ -68,8 +66,6 @@ typedef struct oc_base_opt_vtable       oc_base_opt_vtable;
 typedef struct oc_base_opt_data         oc_base_opt_data;
 typedef struct oc_state_dispatch_vtable oc_state_dispatch_vtable;
 typedef struct oc_theora_state          oc_theora_state;
-
-
 
 /*This library's version.*/
 # define OC_VENDOR_STRING "Xiph.Org libtheora 1.1 20090822 (Thusnelda)"
@@ -151,8 +147,6 @@ typedef struct oc_theora_state          oc_theora_state;
 /*No more packets to emit/read.*/
 #define OC_PACKET_DONE        (INT_MAX)
 
-
-
 /*Super blocks are 32x32 segments of pixels in a single color plane indexed
    in image order.
   Internally, super blocks are broken up into four quadrants, each of which
@@ -180,8 +174,6 @@ typedef struct oc_theora_state          oc_theora_state;
   These "extra" macro blocks are just an artifact of our internal data layout,
    and not part of the coded stream; they are flagged with a negative MB mode.*/
 
-
-
 /*A single quadrant of the map from a super block to fragment numbers.*/
 typedef ptrdiff_t       oc_sb_map_quad[4];
 /*A map from a super block to fragment numbers.*/
@@ -193,16 +185,12 @@ typedef oc_mb_map_plane oc_mb_map[3];
 /*A motion vector.*/
 typedef signed char     oc_mv[2];
 
-
-
 /*Super block information.*/
 struct oc_sb_flags{
   unsigned char coded_fully:1;
   unsigned char coded_partially:1;
   unsigned char quad_valid:4;
 };
-
-
 
 /*Information about a fragment which intersects the border of the displayable
    region.
@@ -215,8 +203,6 @@ struct oc_border_info{
     This is always positive, and always less than 64.*/
   int         npixels;
 };
-
-
 
 /*Fragment information.*/
 struct oc_fragment{
@@ -244,8 +230,6 @@ struct oc_fragment{
   signed int dc:16;
 };
 
-
-
 /*A description of each fragment plane.*/
 struct oc_fragment_plane{
   /*The number of fragments in the horizontal direction.*/
@@ -265,8 +249,6 @@ struct oc_fragment_plane{
   /*The total number of super blocks in the plane.*/
   unsigned  nsbs;
 };
-
-
 
 /*The shared (encoder and decoder) functions that have accelerated variants.*/
 struct oc_base_opt_vtable{
@@ -294,7 +276,6 @@ struct oc_base_opt_vtable{
 struct oc_base_opt_data{
   const unsigned char *dct_fzig_zag;
 };
-
 
 /*State information common to both the encoder and decoder.*/
 struct oc_theora_state{
@@ -381,8 +362,6 @@ struct oc_theora_state{
   unsigned char       loop_filter_limits[64];
 };
 
-
-
 /*The function type used to fill in the chroma plane motion vectors for a
    macro block when 4 different motion vectors are specified in the luma
    plane.
@@ -391,8 +370,6 @@ struct oc_theora_state{
            prediction.
   _lbmvs: The luma block-level motion vectors.*/
 typedef void (*oc_set_chroma_mvs_func)(oc_mv _cbmvs[4],const oc_mv _lbmvs[4]);
-
-
 
 /*A map from the index in the zig zag scan to the coefficient number in a
    block.*/
@@ -413,8 +390,6 @@ extern const unsigned char OC_MB_MAP_NIDXS[TH_PF_NFORMATS];
    macro block when 4 different motion vectors are specified in the luma
    plane.*/
 extern const oc_set_chroma_mvs_func OC_SET_CHROMA_MVS_TABLE[TH_PF_NFORMATS];
-
-
 
 int oc_ilog(unsigned _v);
 void **oc_malloc_2d(size_t _height,size_t _width,size_t _sz);
@@ -497,7 +472,6 @@ typedef ogg_int64_t (*oc_state_granule_frame_func)(theora_state *_th,
  ogg_int64_t _granulepos);
 typedef double (*oc_state_granule_time_func)(theora_state *_th,
  ogg_int64_t _granulepos);
-
 
 struct oc_state_dispatch_vtable{
   oc_state_clear_func         clear;

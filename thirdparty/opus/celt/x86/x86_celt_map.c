@@ -148,7 +148,6 @@ void (*const COMB_FILTER_CONST_IMPL[OPUS_ARCHMASK + 1])(
   MAY_HAVE_SSE(comb_filter_const)
 };
 
-
 #endif
 
 #endif

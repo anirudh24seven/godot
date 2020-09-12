@@ -1,8 +1,6 @@
 
 /*  box_container.h                                                      */
 
-
-
 #ifndef BOX_CONTAINER_H
 #define BOX_CONTAINER_H
 

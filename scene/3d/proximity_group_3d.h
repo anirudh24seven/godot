@@ -1,8 +1,6 @@
 
 /*  proximity_group_3d.h                                                 */
 
-
-
 #ifndef PROXIMITY_GROUP_H
 #define PROXIMITY_GROUP_H
 

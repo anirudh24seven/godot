@@ -1,8 +1,6 @@
 
 /*  gdscript_language_server.h                                           */
 
-
-
 #ifndef GDSCRIPT_LANGUAGE_SERVER_H
 #define GDSCRIPT_LANGUAGE_SERVER_H
 

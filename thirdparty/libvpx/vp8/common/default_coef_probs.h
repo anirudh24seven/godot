@@ -17,7 +17,6 @@ extern "C" {
 
 /*Generated file, included by entropy.c*/
 
-
 static const vp8_prob default_coef_probs [BLOCK_TYPES]
                                          [COEF_BANDS]
                                          [PREV_COEF_CONTEXTS]

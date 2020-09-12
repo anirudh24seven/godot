@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef THEORA_REGISTER_TYPES_H
 #define THEORA_REGISTER_TYPES_H
 

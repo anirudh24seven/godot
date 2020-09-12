@@ -17,8 +17,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * `CPAL' table specification:
    *
@@ -26,25 +25,21 @@
    *
    */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_STREAM_H
 #include FT_TRUETYPE_TAGS_H
 #include FT_COLOR_H
 
-
 #ifdef TT_CONFIG_OPTION_COLOR_LAYERS
 
 #include "ttcpal.h"
 
-
-  /* NOTE: These are the table sizes calculated through the specs. */
+/* NOTE: These are the table sizes calculated through the specs. */
 #define CPAL_V0_HEADER_BASE_SIZE  12
 #define COLOR_SIZE                 4
 
-
-  /* all data from `CPAL' not covered in FT_Palette_Data */
+/* all data from `CPAL' not covered in FT_Palette_Data */
   typedef struct Cpal_
   {
     FT_UShort  version;        /* Table version number (0 or 1 supported). */
@@ -60,8 +55,7 @@
 
   } Cpal;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -70,8 +64,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  ttcpal
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   tt_face_load_cpal( TT_Face    face,
                      FT_Stream  stream )
   {
@@ -86,8 +79,7 @@
     FT_ULong  colors_offset;
     FT_ULong  table_size;
 
-
-    error = face->goto_table( face, TTAG_CPAL, stream, &table_size );
+error = face->goto_table( face, TTAG_CPAL, stream, &table_size );
     if ( error )
       goto NoCpal;
 
@@ -134,8 +126,7 @@
       FT_UShort*  limit;
       FT_UShort*  q;
 
-
-      if ( CPAL_V0_HEADER_BASE_SIZE             +
+if ( CPAL_V0_HEADER_BASE_SIZE             +
            face->palette_data.num_palettes * 2U +
            3U * 4                               > table_size )
         goto InvalidTable;
@@ -240,8 +231,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   tt_face_free_cpal( TT_Face  face )
   {
     FT_Stream  stream = face->root.stream;
@@ -249,16 +239,14 @@
 
     Cpal*  cpal = (Cpal*)face->cpal;
 
-
-    if ( cpal )
+if ( cpal )
     {
       FT_FRAME_RELEASE( cpal->table );
       FT_FREE( cpal );
     }
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   tt_face_palette_set( TT_Face  face,
                        FT_UInt  palette_index )
   {
@@ -272,8 +260,7 @@
 
     FT_UShort  color_index;
 
-
-    if ( !cpal || palette_index >= face->palette_data.num_palettes )
+if ( !cpal || palette_index >= face->palette_data.num_palettes )
       return FT_THROW( Invalid_Argument );
 
     offset      = cpal->color_indices + 2 * palette_index;
@@ -299,7 +286,6 @@
 
     return FT_Err_Ok;
   }
-
 
 #else /* !TT_CONFIG_OPTION_COLOR_LAYERS */
 

@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef HDR_REGISTER_TYPES_H
 #define HDR_REGISTER_TYPES_H
 

@@ -240,7 +240,6 @@
 #include "mbedtls/xtea.h"
 #endif
 
-
 void mbedtls_strerror( int ret, char *buf, size_t buflen )
 {
     size_t len;

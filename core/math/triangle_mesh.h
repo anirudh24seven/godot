@@ -1,8 +1,6 @@
 
 /*  triangle_mesh.h                                                      */
 
-
-
 #ifndef TRIANGLE_MESH_H
 #define TRIANGLE_MESH_H
 

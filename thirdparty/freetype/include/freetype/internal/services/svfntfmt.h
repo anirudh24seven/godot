@@ -15,17 +15,14 @@
  *
  */
 
-
 #ifndef SVFNTFMT_H_
 #define SVFNTFMT_H_
 
 #include FT_INTERNAL_SERVICE_H
 
-
 FT_BEGIN_HEADER
 
-
-  /*
+/*
    * A trivial service used to return the name of a face's font driver,
    * according to the XFree86 nomenclature.  Note that the service data is a
    * simple constant string pointer.
@@ -45,11 +42,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
-
 #endif /* SVFNTFMT_H_ */
-
 
 /* END */

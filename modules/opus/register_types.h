@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef OPUS_REGISTER_TYPES_H
 #define OPUS_REGISTER_TYPES_H
 

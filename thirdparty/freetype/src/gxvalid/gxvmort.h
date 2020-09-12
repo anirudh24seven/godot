@@ -24,7 +24,6 @@
  *
  */
 
-
 #ifndef GXVMORT_H_
 #define GXVMORT_H_
 
@@ -33,8 +32,7 @@
 
 #include FT_SFNT_NAMES_H
 
-
-  typedef struct  GXV_mort_featureRec_
+typedef struct  GXV_mort_featureRec_
   {
     FT_UShort  featureType;
     FT_UShort  featureSetting;
@@ -51,8 +49,7 @@
             (f).enableFlags    == 0x00000000UL || \
             (f).disableFlags   == 0x00000000UL )
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   gxv_mort_featurearray_validate( FT_Bytes       table,
                                   FT_Bytes       limit,
                                   FT_ULong       nFeatureFlags,
@@ -87,8 +84,6 @@
                                     FT_Bytes       limit,
                                     GXV_Validator  gxvalid );
 
-
 #endif /* GXVMORT_H_ */
-
 
 /* END */

@@ -42,8 +42,7 @@ inline unsigned int HsiehHash (const char * data, int len) {
         hash  += hash >> 11;
     }
 
-
-    /* Force "avalanching" of final 127 bits */
+/* Force "avalanching" of final 127 bits */
     hash ^= hash << 3;
     hash += hash >> 5;
     hash ^= hash << 4;

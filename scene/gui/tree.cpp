@@ -1,8 +1,6 @@
 
 /*  tree.cpp                                                             */
 
-
-
 #include "tree.h"
 
 #include "core/input/input.h"

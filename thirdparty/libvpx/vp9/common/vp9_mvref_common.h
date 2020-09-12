@@ -142,7 +142,6 @@ static INLINE int_mv get_sub_block_mv(const MODE_INFO *candidate, int which_mv,
           : candidate->mv[which_mv];
 }
 
-
 // Performs mv sign inversion if indicated by the reference frame combination.
 static INLINE int_mv scale_mv(const MODE_INFO *mi, int ref,
                               const MV_REFERENCE_FRAME this_ref_frame,
@@ -186,7 +185,6 @@ static INLINE int_mv scale_mv(const MODE_INFO *mi, int ref,
                         refmv_count, mv_ref_list, Done); \
     } \
   } while (0)
-
 
 // Checks that the given mi_row, mi_col and search point
 // are inside the borders of the tile.

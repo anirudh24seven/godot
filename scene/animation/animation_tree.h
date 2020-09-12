@@ -1,8 +1,6 @@
 
 /*  animation_tree.h                                                     */
 
-
-
 #ifndef ANIMATION_GRAPH_PLAYER_H
 #define ANIMATION_GRAPH_PLAYER_H
 

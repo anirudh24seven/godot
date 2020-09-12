@@ -1,8 +1,6 @@
 
 /*  gdscript_language_protocol.cpp                                       */
 
-
-
 #include "gdscript_language_protocol.h"
 
 #include "core/io/json.h"

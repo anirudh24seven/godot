@@ -1,8 +1,6 @@
 
 /*  nine_patch_rect.cpp                                                  */
 
-
-
 #include "nine_patch_rect.h"
 
 #include "servers/rendering_server.h"

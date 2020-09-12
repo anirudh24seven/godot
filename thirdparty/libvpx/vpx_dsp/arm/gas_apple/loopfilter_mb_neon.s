@@ -464,8 +464,7 @@ _vpx_wide_mbfilter_neon:
     vshr.s8     d30, d30, #3                @ filter2 >>= 3
     vshr.s8     d29, d29, #3                @ filter1 >>= 3
 
-
-    vqadd.s8    d24, d24, d30               @ op0 = clamp(ps0 + filter2)
+vqadd.s8    d24, d24, d30               @ op0 = clamp(ps0 + filter2)
     vqsub.s8    d23, d23, d29               @ oq0 = clamp(qs0 - filter1)
 
      @ outer tap adjustments: ++filter1 >> 1

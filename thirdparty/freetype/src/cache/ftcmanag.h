@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * A cache manager is in charge of the following:
    *
@@ -43,42 +42,26 @@
    *
    */
 
-
-
-
-
-
-
-  /*********                                                       *********/
+/*********                                                       *********/
   /*********             WARNING, THIS IS BETA CODE.               *********/
   /*********                                                       *********/
 
-
-
-
-
-
-
 #ifndef FTCMANAG_H_
 #define FTCMANAG_H_
-
 
 #include <ft2build.h>
 #include FT_CACHE_H
 #include "ftcmru.h"
 #include "ftccache.h"
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Section:
    *   cache_subsystem
    *
    */
-
 
 #define FTC_MAX_FACES_DEFAULT  2
 #define FTC_MAX_SIZES_DEFAULT  4
@@ -87,8 +70,7 @@ FT_BEGIN_HEADER
   /* maximum number of caches registered in a single manager */
 #define FTC_MAX_CACHES         16
 
-
-  typedef struct  FTC_ManagerRec_
+typedef struct  FTC_ManagerRec_
   {
     FT_Library          library;
     FT_Memory           memory;
@@ -109,8 +91,7 @@ FT_BEGIN_HEADER
 
   } FTC_ManagerRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   FTC_Manager_Compress
@@ -135,16 +116,14 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   FTC_Manager_Compress( FTC_Manager  manager );
 
-
-  /* try to flush `count' old nodes from the cache; return the number
+/* try to flush `count' old nodes from the cache; return the number
    * of really flushed nodes
    */
   FT_LOCAL( FT_UInt )
   FTC_Manager_FlushN( FTC_Manager  manager,
                       FT_UInt      count );
 
-
-  /* this must be used internally for the moment */
+/* this must be used internally for the moment */
   FT_LOCAL( FT_Error )
   FTC_Manager_RegisterCache( FTC_Manager      manager,
                              FTC_CacheClass   clazz,
@@ -171,6 +150,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* FTCMANAG_H_ */
-
 
 /* END */

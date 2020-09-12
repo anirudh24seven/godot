@@ -1,8 +1,6 @@
 
 /*  emws_client.cpp                                                      */
 
-
-
 #ifdef JAVASCRIPT_ENABLED
 
 #include "emws_client.h"

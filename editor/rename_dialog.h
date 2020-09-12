@@ -1,8 +1,6 @@
 
 /*  rename_dialog.h                                                      */
 
-
-
 #ifndef RENAME_DIALOG_H
 #define RENAME_DIALOG_H
 

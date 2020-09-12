@@ -1,8 +1,6 @@
 
 /*  aabb.h                                                               */
 
-
-
 #ifndef AABB_H
 #define AABB_H
 

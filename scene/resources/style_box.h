@@ -1,8 +1,6 @@
 
 /*  style_box.h                                                          */
 
-
-
 #ifndef STYLE_BOX_H
 #define STYLE_BOX_H
 

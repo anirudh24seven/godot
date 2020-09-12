@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -154,8 +152,7 @@ public:
      */
     ~Importer();
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Registers a new loader.
      *
      * @param pImp Importer to be added. The Importer instance takes
@@ -635,7 +632,6 @@ protected:
     // Just because we don't want you to know how we're hacking around.
     ImporterPimpl* pimpl;
 }; //! class Importer
-
 
 // ----------------------------------------------------------------------------
 // For compatibility, the interface of some functions taking a std::string was

@@ -1,8 +1,6 @@
 
 /*  script_text_editor.h                                                 */
 
-
-
 #ifndef SCRIPT_TEXT_EDITOR_H
 #define SCRIPT_TEXT_EDITOR_H
 

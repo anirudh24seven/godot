@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef LIGHTMAPPER_RD_REGISTER_TYPES_H
 #define LIGHTMAPPER_RD_REGISTER_TYPES_H
 

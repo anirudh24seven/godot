@@ -15,10 +15,8 @@
  *
  */
 
-
 #ifndef OTVALID_H_
 #define OTVALID_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -28,11 +26,9 @@
 #include FT_INTERNAL_VALIDATE_H
 #include FT_INTERNAL_STREAM_H
 
-
 FT_BEGIN_HEADER
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   otv_BASE_validate( FT_Bytes      table,
                      FT_Validator  valid );
 
@@ -69,10 +65,8 @@ FT_BEGIN_HEADER
                      FT_UInt       glyph_count,
                      FT_Validator  ftvalid );
 
-
 FT_END_HEADER
 
 #endif /* OTVALID_H_ */
-
 
 /* END */

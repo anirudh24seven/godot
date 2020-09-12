@@ -1,8 +1,6 @@
 
 /*  texture_region_editor_plugin.h                                       */
 
-
-
 #ifndef TEXTURE_REGION_EDITOR_PLUGIN_H
 #define TEXTURE_REGION_EDITOR_PLUGIN_H
 

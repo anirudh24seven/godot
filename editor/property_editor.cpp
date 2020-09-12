@@ -1,8 +1,6 @@
 
 /*  property_editor.cpp                                                  */
 
-
-
 #include "property_editor.h"
 
 #include "core/class_db.h"

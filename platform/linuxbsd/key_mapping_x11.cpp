@@ -1,8 +1,6 @@
 
 /*  key_mapping_x11.cpp                                                  */
 
-
-
 #include "key_mapping_x11.h"
 
 /***** SCAN CODE CONVERSION ******/

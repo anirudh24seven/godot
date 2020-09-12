@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 
@@ -23,8 +22,7 @@
 #include FT_IMAGE_H
 #include FT_INTERNAL_OBJECTS_H
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -33,12 +31,10 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  bitmap
 
-
-  static
+static
   const FT_Bitmap  null_bitmap = { 0, 0, 0, NULL, 0, 0, 0, NULL };
 
-
-  /* documentation is in ftbitmap.h */
+/* documentation is in ftbitmap.h */
 
   FT_EXPORT_DEF( void )
   FT_Bitmap_Init( FT_Bitmap  *abitmap )
@@ -47,8 +43,7 @@
       *abitmap = null_bitmap;
   }
 
-
-  /* deprecated function name; retained for ABI compatibility */
+/* deprecated function name; retained for ABI compatibility */
 
   FT_EXPORT_DEF( void )
   FT_Bitmap_New( FT_Bitmap  *abitmap )
@@ -57,8 +52,7 @@
       *abitmap = null_bitmap;
   }
 
-
-  /* documentation is in ftbitmap.h */
+/* documentation is in ftbitmap.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Bitmap_Copy( FT_Library        library,
@@ -73,8 +67,7 @@
 
     FT_Int  source_pitch_sign, target_pitch_sign;
 
-
-    if ( !library )
+if ( !library )
       return FT_THROW( Invalid_Library_Handle );
 
     if ( !source || !target )
@@ -107,8 +100,7 @@
       FT_Int    target_pitch = target->pitch;
       FT_ULong  target_size;
 
-
-      if ( target_pitch < 0 )
+if ( target_pitch < 0 )
         target_pitch = -target_pitch;
       target_size = (FT_ULong)target_pitch * target->rows;
 
@@ -122,8 +114,7 @@
     {
       unsigned char *p;
 
-
-      p = target->buffer;
+p = target->buffer;
       *target = *source;
       target->buffer = p;
 
@@ -136,8 +127,7 @@
         FT_Byte*  s = source->buffer;
         FT_Byte*  t = target->buffer;
 
-
-        t += (FT_ULong)pitch * ( target->rows - 1 );
+t += (FT_ULong)pitch * ( target->rows - 1 );
 
         for ( i = target->rows; i > 0; i-- )
         {
@@ -152,8 +142,7 @@
     return error;
   }
 
-
-  /* Enlarge `bitmap' horizontally and vertically by `xpixels' */
+/* Enlarge `bitmap' horizontally and vertically by `xpixels' */
   /* and `ypixels', respectively.                              */
 
   static FT_Error
@@ -169,8 +158,7 @@
     FT_UInt         width, height;
     unsigned char*  buffer = NULL;
 
-
-    width  = bitmap->width;
+width  = bitmap->width;
     height = bitmap->rows;
     pitch  = (unsigned int)FT_ABS( bitmap->pitch );
 
@@ -205,8 +193,7 @@
       FT_UInt  bit_width = pitch * 8;
       FT_UInt  bit_last  = ( width + xpixels ) * bpp;
 
-
-      if ( bit_last < bit_width )
+if ( bit_last < bit_width )
       {
         FT_Byte*  line  = bitmap->buffer + ( bit_last >> 3 );
         FT_Byte*  end   = bitmap->buffer + pitch;
@@ -214,13 +201,11 @@
         FT_UInt   mask  = 0xFF00U >> shift;
         FT_UInt   count = height;
 
-
-        for ( ; count > 0; count--, line += pitch, end += pitch )
+for ( ; count > 0; count--, line += pitch, end += pitch )
         {
           FT_Byte*  write = line;
 
-
-          if ( shift > 0 )
+if ( shift > 0 )
           {
             write[0] = (FT_Byte)( write[0] & mask );
             write++;
@@ -249,8 +234,7 @@
       unsigned char*  limit = bitmap->buffer + pitch * bitmap->rows;
       unsigned int    delta = new_pitch - len;
 
-
-      FT_MEM_ZERO( out, new_pitch * ypixels );
+FT_MEM_ZERO( out, new_pitch * ypixels );
       out += new_pitch * ypixels;
 
       while ( in < limit )
@@ -275,8 +259,7 @@
       unsigned char*  limit = bitmap->buffer + pitch * bitmap->rows;
       unsigned int    delta = new_pitch - len;
 
-
-      while ( in < limit )
+while ( in < limit )
       {
         FT_MEM_COPY( out, in, len );
         in  += pitch;
@@ -301,8 +284,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* documentation is in ftbitmap.h */
+/* documentation is in ftbitmap.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Bitmap_Embolden( FT_Library  library,
@@ -316,8 +298,7 @@
     FT_UInt         y;
     FT_Int          xstr, ystr;
 
-
-    if ( !library )
+if ( !library )
       return FT_THROW( Invalid_Library_Handle );
 
     if ( !bitmap || !bitmap->buffer )
@@ -342,8 +323,7 @@
       {
         FT_Bitmap  tmp;
 
-
-        /* convert to 8bpp */
+/* convert to 8bpp */
         FT_Bitmap_Init( &tmp );
         error = FT_Bitmap_Convert( library, bitmap, &tmp, 1 );
         if ( error )
@@ -400,8 +380,7 @@
       {
         unsigned char  tmp;
 
-
-        tmp = p[x];
+tmp = p[x];
         for ( i = 1; i <= xstr; i++ )
         {
           if ( bitmap->pixel_mode == FT_PIXEL_MODE_MONO )
@@ -448,8 +427,7 @@
       {
         unsigned char*  q;
 
-
-        q = p - bitmap->pitch * x;
+q = p - bitmap->pitch * x;
         for ( i = 0; i < pitch; i++ )
           q[i] |= p[i];
       }
@@ -463,15 +441,13 @@
     return FT_Err_Ok;
   }
 
-
-  static FT_Byte
+static FT_Byte
   ft_gray_for_premultiplied_srgb_bgra( const FT_Byte*  bgra )
   {
     FT_UInt  a = bgra[3];
     FT_UInt  l;
 
-
-    /* Short-circuit transparent color to avoid division by zero. */
+/* Short-circuit transparent color to avoid division by zero. */
     if ( !a )
       return 0;
 
@@ -509,8 +485,7 @@
     return (FT_Byte)( a - l / a );
   }
 
-
-  /* documentation is in ftbitmap.h */
+/* documentation is in ftbitmap.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Bitmap_Convert( FT_Library        library,
@@ -524,8 +499,7 @@
     FT_Byte*  s;
     FT_Byte*  t;
 
-
-    if ( !library )
+if ( !library )
       return FT_THROW( Invalid_Library_Handle );
 
     if ( !source || !target )
@@ -546,8 +520,7 @@
         FT_Int    pad, old_target_pitch, target_pitch;
         FT_ULong  old_size;
 
-
-        old_target_pitch = target->pitch;
+old_target_pitch = target->pitch;
         if ( old_target_pitch < 0 )
           old_target_pitch = -old_target_pitch;
 
@@ -598,8 +571,7 @@
       {
         FT_UInt  i;
 
-
-        target->num_grays = 2;
+target->num_grays = 2;
 
         for ( i = source->rows; i > 0; i-- )
         {
@@ -607,14 +579,12 @@
           FT_Byte*  tt = t;
           FT_UInt   j;
 
-
-          /* get the full bytes */
+/* get the full bytes */
           for ( j = source->width >> 3; j > 0; j-- )
           {
             FT_Int  val = ss[0]; /* avoid a byte->int cast on each line */
 
-
-            tt[0] = (FT_Byte)( ( val & 0x80 ) >> 7 );
+tt[0] = (FT_Byte)( ( val & 0x80 ) >> 7 );
             tt[1] = (FT_Byte)( ( val & 0x40 ) >> 6 );
             tt[2] = (FT_Byte)( ( val & 0x20 ) >> 5 );
             tt[3] = (FT_Byte)( ( val & 0x10 ) >> 4 );
@@ -633,8 +603,7 @@
           {
             FT_Int  val = *ss;
 
-
-            for ( ; j > 0; j-- )
+for ( ; j > 0; j-- )
             {
               tt[0] = (FT_Byte)( ( val & 0x80 ) >> 7);
               val <<= 1;
@@ -648,16 +617,14 @@
       }
       break;
 
-
-    case FT_PIXEL_MODE_GRAY:
+case FT_PIXEL_MODE_GRAY:
     case FT_PIXEL_MODE_LCD:
     case FT_PIXEL_MODE_LCD_V:
       {
         FT_UInt  width = source->width;
         FT_UInt  i;
 
-
-        target->num_grays = 256;
+target->num_grays = 256;
 
         for ( i = source->rows; i > 0; i-- )
         {
@@ -669,13 +636,11 @@
       }
       break;
 
-
-    case FT_PIXEL_MODE_GRAY2:
+case FT_PIXEL_MODE_GRAY2:
       {
         FT_UInt  i;
 
-
-        target->num_grays = 4;
+target->num_grays = 4;
 
         for ( i = source->rows; i > 0; i-- )
         {
@@ -683,14 +648,12 @@
           FT_Byte*  tt = t;
           FT_UInt   j;
 
-
-          /* get the full bytes */
+/* get the full bytes */
           for ( j = source->width >> 2; j > 0; j-- )
           {
             FT_Int  val = ss[0];
 
-
-            tt[0] = (FT_Byte)( ( val & 0xC0 ) >> 6 );
+tt[0] = (FT_Byte)( ( val & 0xC0 ) >> 6 );
             tt[1] = (FT_Byte)( ( val & 0x30 ) >> 4 );
             tt[2] = (FT_Byte)( ( val & 0x0C ) >> 2 );
             tt[3] = (FT_Byte)( ( val & 0x03 ) );
@@ -704,8 +667,7 @@
           {
             FT_Int  val = ss[0];
 
-
-            for ( ; j > 0; j-- )
+for ( ; j > 0; j-- )
             {
               tt[0]  = (FT_Byte)( ( val & 0xC0 ) >> 6 );
               val  <<= 2;
@@ -719,13 +681,11 @@
       }
       break;
 
-
-    case FT_PIXEL_MODE_GRAY4:
+case FT_PIXEL_MODE_GRAY4:
       {
         FT_UInt  i;
 
-
-        target->num_grays = 16;
+target->num_grays = 16;
 
         for ( i = source->rows; i > 0; i-- )
         {
@@ -733,14 +693,12 @@
           FT_Byte*  tt = t;
           FT_UInt   j;
 
-
-          /* get the full bytes */
+/* get the full bytes */
           for ( j = source->width >> 1; j > 0; j-- )
           {
             FT_Int  val = ss[0];
 
-
-            tt[0] = (FT_Byte)( ( val & 0xF0 ) >> 4 );
+tt[0] = (FT_Byte)( ( val & 0xF0 ) >> 4 );
             tt[1] = (FT_Byte)( ( val & 0x0F ) );
 
             ss += 1;
@@ -756,13 +714,11 @@
       }
       break;
 
-
-    case FT_PIXEL_MODE_BGRA:
+case FT_PIXEL_MODE_BGRA:
       {
         FT_UInt  i;
 
-
-        target->num_grays = 256;
+target->num_grays = 256;
 
         for ( i = source->rows; i > 0; i-- )
         {
@@ -770,8 +726,7 @@
           FT_Byte*  tt = t;
           FT_UInt   j;
 
-
-          for ( j = source->width; j > 0; j-- )
+for ( j = source->width; j > 0; j-- )
           {
             tt[0] = ft_gray_for_premultiplied_srgb_bgra( ss );
 
@@ -792,8 +747,7 @@
     return error;
   }
 
-
-  /* documentation is in ftbitmap.h */
+/* documentation is in ftbitmap.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Bitmap_Blend( FT_Library        library,
@@ -822,8 +776,7 @@
     unsigned int  final_rows, final_width;
     long          x, y;
 
-
-    if ( !library || !target || !source_ || !atarget_offset )
+if ( !library || !target || !source_ || !atarget_offset )
       return FT_THROW( Invalid_Argument );
 
     memory = library->memory;
@@ -975,8 +928,7 @@
 
       unsigned char*  buffer = NULL;
 
-
-      pitch = target->pitch;
+pitch = target->pitch;
 
       if ( pitch < 0 )
         pitch = -pitch;
@@ -1016,8 +968,7 @@
         unsigned char*  limit_p =
           p + pitch * (int)target->rows;
 
-
-        while ( p < limit_p )
+while ( p < limit_p )
         {
           FT_MEM_COPY( q, p, pitch );
 
@@ -1075,15 +1026,13 @@
       unsigned char*  limit_p =
         p + source->pitch * (int)source->rows;
 
-
-      while ( p < limit_p )
+while ( p < limit_p )
       {
         unsigned char*  r       = p;
         unsigned char*  s       = q;
         unsigned char*  limit_r = r + source->width;
 
-
-        while ( r < limit_r )
+while ( r < limit_r )
         {
           int  aa = *r++;
           int  fa = color.alpha * aa / 255;
@@ -1099,8 +1048,7 @@
           int  br = s[2];
           int  ba = s[3];
 
-
-          *s++ = (unsigned char)( bb * ba2 / 255 + fb );
+*s++ = (unsigned char)( bb * ba2 / 255 + fb );
           *s++ = (unsigned char)( bg * ba2 / 255 + fg );
           *s++ = (unsigned char)( br * ba2 / 255 + fr );
           *s++ = (unsigned char)( ba * ba2 / 255 + fa );
@@ -1124,8 +1072,7 @@
     return error;
   }
 
-
-  /* documentation is in ftbitmap.h */
+/* documentation is in ftbitmap.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_GlyphSlot_Own_Bitmap( FT_GlyphSlot  slot )
@@ -1136,8 +1083,7 @@
       FT_Bitmap  bitmap;
       FT_Error   error;
 
-
-      FT_Bitmap_Init( &bitmap );
+FT_Bitmap_Init( &bitmap );
       error = FT_Bitmap_Copy( slot->library, &slot->bitmap, &bitmap );
       if ( error )
         return error;
@@ -1149,8 +1095,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* documentation is in ftbitmap.h */
+/* documentation is in ftbitmap.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Bitmap_Done( FT_Library  library,
@@ -1158,8 +1103,7 @@
   {
     FT_Memory  memory;
 
-
-    if ( !library )
+if ( !library )
       return FT_THROW( Invalid_Library_Handle );
 
     if ( !bitmap )
@@ -1172,6 +1116,5 @@
 
     return FT_Err_Ok;
   }
-
 
 /* END */

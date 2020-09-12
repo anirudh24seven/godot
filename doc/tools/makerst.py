@@ -14,11 +14,9 @@ GODOT_DOCS_PATTERN = re.compile(
     r"^http(?:s)?://docs\.godotengine\.org/(?:[a-zA-Z0-9.\-_]*)/(?:[a-zA-Z0-9.\-_]*)/(.*)\.html(#.*)?$"
 )
 
-
 def print_error(error, state):  # type: (str, State) -> None
     print("ERROR: {}".format(error))
     state.errored = True
-
 
 class TypeName:
     def __init__(self, type_name, enum=None):  # type: (str, Optional[str]) -> None
@@ -37,7 +35,6 @@ class TypeName:
     def from_element(cls, element):  # type: (ET.Element) -> "TypeName"
         return cls(element.attrib["type"], element.get("enum"))
 
-
 class PropertyDef:
     def __init__(
         self, name, type_name, setter, getter, text, default_value, overridden
@@ -50,20 +47,17 @@ class PropertyDef:
         self.default_value = default_value
         self.overridden = overridden
 
-
 class ParameterDef:
     def __init__(self, name, type_name, default_value):  # type: (str, TypeName, Optional[str]) -> None
         self.name = name
         self.type_name = type_name
         self.default_value = default_value
 
-
 class SignalDef:
     def __init__(self, name, parameters, description):  # type: (str, List[ParameterDef], Optional[str]) -> None
         self.name = name
         self.parameters = parameters
         self.description = description
-
 
 class MethodDef:
     def __init__(
@@ -75,26 +69,22 @@ class MethodDef:
         self.description = description
         self.qualifiers = qualifiers
 
-
 class ConstantDef:
     def __init__(self, name, value, text):  # type: (str, str, Optional[str]) -> None
         self.name = name
         self.value = value
         self.text = text
 
-
 class EnumDef:
     def __init__(self, name):  # type: (str) -> None
         self.name = name
         self.values = OrderedDict()  # type: OrderedDict[str, ConstantDef]
-
 
 class ThemeItemDef:
     def __init__(self, name, type_name, default_value):  # type: (str, TypeName, Optional[str]) -> None
         self.name = name
         self.type_name = type_name
         self.default_value = default_value
-
 
 class ClassDef:
     def __init__(self, name):  # type: (str) -> None
@@ -109,7 +99,6 @@ class ClassDef:
         self.description = None  # type: Optional[str]
         self.theme_items = None  # type: Optional[OrderedDict[str, List[ThemeItemDef]]]
         self.tutorials = []  # type: List[str]
-
 
 class State:
     def __init__(self):  # type: () -> None
@@ -258,7 +247,6 @@ class State:
     def sort_classes(self):  # type: () -> None
         self.classes = OrderedDict(sorted(self.classes.items(), key=lambda t: t[0]))
 
-
 def parse_arguments(root):  # type: (ET.Element) -> List[ParameterDef]
     param_elements = root.findall("argument")
     params = [None] * len(param_elements)  # type: Any
@@ -273,7 +261,6 @@ def parse_arguments(root):  # type: (ET.Element) -> List[ParameterDef]
     cast = params  # type: List[ParameterDef]
 
     return cast
-
 
 def main():  # type: () -> None
     parser = argparse.ArgumentParser()
@@ -352,7 +339,6 @@ def main():  # type: () -> None
     else:
         print("Errors were found in the class reference XML. Please check the messages above.")
         exit(1)
-
 
 def make_rst_class(class_def, state, dry_run, output_dir):  # type: (ClassDef, State, bool, str) -> None
     class_name = class_def.name
@@ -567,7 +553,6 @@ def make_rst_class(class_def, state, dry_run, output_dir):  # type: (ClassDef, S
 
     f.write(make_footer())
 
-
 def escape_rst(text, until_pos=-1):  # type: (str) -> str
     # Escape \ character, otherwise it ends up as an escape character in rst
     pos = 0
@@ -600,7 +585,6 @@ def escape_rst(text, until_pos=-1):  # type: (str) -> str
             pos += 1
 
     return text
-
 
 def format_codeblock(code_type, post_text, indent_level, state):  # types: str, str, int, state
     end_pos = post_text.find("[/" + code_type + "]")
@@ -637,7 +621,6 @@ def format_codeblock(code_type, post_text, indent_level, state):  # types: str, 
             code_text = code_text[:code_pos] + "\n    " + code_text[code_pos + to_skip + 1 :]
             code_pos += 5 - to_skip
     return ["\n[" + code_type + "]" + code_text + post_text, len("\n[" + code_type + "]" + code_text)]
-
 
 def rstize_text(text, state):  # type: (str, State) -> str
     # Linebreak + tabs in the XML should become two line breaks unless in a "codeblock"
@@ -914,7 +897,6 @@ def rstize_text(text, state):  # type: (str, State) -> str
 
     return text
 
-
 def format_table(f, data, remove_empty_columns=False):  # type: (TextIO, Iterable[Tuple[str, ...]]) -> None
     if len(data) == 0:
         return
@@ -945,7 +927,6 @@ def format_table(f, data, remove_empty_columns=False):  # type: (TextIO, Iterabl
         f.write(sep)
     f.write("\n")
 
-
 def make_type(klass, state):  # type: (str, State) -> str
     link_type = klass
     if link_type.endswith("[]"):  # Typed array, strip [] to link to contained type.
@@ -954,7 +935,6 @@ def make_type(klass, state):  # type: (str, State) -> str
         return ":ref:`{}<class_{}>`".format(klass, link_type)
     print_error("Unresolved type '{}', file: {}".format(klass, state.current_class), state)
     return klass
-
 
 def make_enum(t, state):  # type: (str, State) -> str
     p = t.find(".")
@@ -982,7 +962,6 @@ def make_enum(t, state):  # type: (str, State) -> str
         print_error("Unresolved enum '{}', file: {}".format(t, state.current_class), state)
 
     return t
-
 
 def make_method_signature(
     class_def, method_def, make_ref, state
@@ -1029,10 +1008,8 @@ def make_method_signature(
 
     return ret_type, out
 
-
 def make_heading(title, underline):  # type: (str, str) -> str
     return title + "\n" + (underline * len(title)) + "\n\n"
-
 
 def make_footer():  # type: () -> str
     # Generate reusable abbreviation substitutions.
@@ -1044,7 +1021,6 @@ def make_footer():  # type: () -> str
         ".. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`"
     )
     # fmt: on
-
 
 def make_url(link):  # type: (str) -> str
     match = GODOT_DOCS_PATTERN.search(link)
@@ -1065,7 +1041,6 @@ def make_url(link):  # type: (str) -> str
         # External link, for example:
         # `http://enet.bespin.org/usergroup0.html`
         return "`" + link + " <" + link + ">`_"
-
 
 if __name__ == "__main__":
     main()

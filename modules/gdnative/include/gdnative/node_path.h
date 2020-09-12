@@ -1,8 +1,6 @@
 
 /*  node_path.h                                                          */
 
-
-
 #ifndef GODOT_NODE_PATH_H
 #define GODOT_NODE_PATH_H
 

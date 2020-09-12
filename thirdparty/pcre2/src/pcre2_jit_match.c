@@ -59,7 +59,6 @@ return executable_func(arguments);
 
 #endif
 
-
 /*************************************************
 *              Do a JIT pattern match            *
 *************************************************/
@@ -151,12 +150,10 @@ else
   jit_stack = NULL;
   }
 
-
 max_oveccount = functions->top_bracket;
 if (oveccount > max_oveccount)
   oveccount = max_oveccount;
 arguments.oveccount = oveccount << 1;
-
 
 convert_executable_func.executable_func = functions->executable_funcs[index];
 if (jit_stack != NULL)

@@ -1,8 +1,6 @@
 
 /*  VkSurfaceView.kt                                                     */
 
-
-
 @file:JvmName("VkSurfaceView")
 package org.godotengine.godot.vulkan
 

@@ -1,8 +1,6 @@
 
 /*  root_motion_view.h                                                   */
 
-
-
 #ifndef ROOT_MOTION_VIEW_H
 #define ROOT_MOTION_VIEW_H
 

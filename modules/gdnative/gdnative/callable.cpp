@@ -1,8 +1,6 @@
 
 /*  callable.cpp                                                         */
 
-
-
 #include "gdnative/callable.h"
 
 #include "core/callable.h"

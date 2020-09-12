@@ -191,7 +191,6 @@ static int IsKeyFrame(const WebPIterator* const curr,
   }
 }
 
-
 // Blend a single channel of 'src' over 'dst', given their alpha channel values.
 // 'src' and 'dst' are assumed to be NOT pre-multiplied by alpha.
 static uint8_t BlendChannelNonPremult(uint32_t src, uint8_t src_a,

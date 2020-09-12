@@ -1,8 +1,6 @@
 
 /*  collision_shape_2d.cpp                                               */
 
-
-
 #include "collision_shape_2d.h"
 
 #include "collision_object_2d.h"

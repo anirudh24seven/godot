@@ -1,8 +1,6 @@
 
 /*  GLUtils.java                                                         */
 
-
-
 package org.godotengine.godot.utils;
 
 import android.util.Log;

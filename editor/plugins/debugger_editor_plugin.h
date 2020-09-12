@@ -1,8 +1,6 @@
 
 /*  debugger_editor_plugin.h                                             */
 
-
-
 #ifndef DEBUGGER_EDITOR_PLUGIN_H
 #define DEBUGGER_EDITOR_PLUGIN_H
 

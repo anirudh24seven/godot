@@ -1,8 +1,6 @@
 
 /*  image_loader.cpp                                                     */
 
-
-
 #include "image_loader.h"
 
 #include "core/print_string.h"

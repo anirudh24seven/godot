@@ -179,8 +179,7 @@ int mbedtls_internal_md4_process( mbedtls_md4_context *ctx,
         (a) = S((a),(s));                        \
     } while( 0 )
 
-
-    P( A, B, C, D, X[ 0],  3 );
+P( A, B, C, D, X[ 0],  3 );
     P( D, A, B, C, X[ 1],  7 );
     P( C, D, A, B, X[ 2], 11 );
     P( B, C, D, A, X[ 3], 19 );
@@ -372,8 +371,7 @@ int mbedtls_md4_finish_ret( mbedtls_md4_context *ctx,
     if( ( ret = mbedtls_md4_update_ret( ctx, msglen, 8 ) ) != 0 )
         return( ret );
 
-
-    PUT_UINT32_LE( ctx->state[0], output,  0 );
+PUT_UINT32_LE( ctx->state[0], output,  0 );
     PUT_UINT32_LE( ctx->state[1], output,  4 );
     PUT_UINT32_LE( ctx->state[2], output,  8 );
     PUT_UINT32_LE( ctx->state[3], output, 12 );

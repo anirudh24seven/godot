@@ -1,8 +1,6 @@
 
 /*  ip_unix.h                                                            */
 
-
-
 #ifndef IP_UNIX_H
 #define IP_UNIX_H
 

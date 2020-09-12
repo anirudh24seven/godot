@@ -1,8 +1,6 @@
 
 /*  audio_driver_coreaudio.h                                             */
 
-
-
 #ifdef COREAUDIO_ENABLED
 
 #ifndef AUDIO_DRIVER_COREAUDIO_H

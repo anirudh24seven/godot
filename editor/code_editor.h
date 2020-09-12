@@ -1,8 +1,6 @@
 
 /*  code_editor.h                                                        */
 
-
-
 #ifndef CODE_EDITOR_H
 #define CODE_EDITOR_H
 

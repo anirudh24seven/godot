@@ -25,7 +25,6 @@ def generate_compressed_config(config_src, output_dir):
 
 #include "core/io/compression.h"
 
-
 namespace {
 
 // config

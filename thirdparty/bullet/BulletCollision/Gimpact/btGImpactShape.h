@@ -1,5 +1,5 @@
 /*! \file btGImpactShape.h
-\author Francisco Len Nßjera
+\author Francisco Len Nï¿½jera
 */
 /*
 This source file is part of GIMPACT Library.
@@ -8,7 +8,6 @@ For the latest info, see http://gimpact.sourceforge.net/
 
 Copyright (c) 2007 Francisco Leon Najera. C.C. 80087371.
 email: projectileman@yahoo.com
-
 
 This software is provided 'as-is', without any express or implied warranty.
 In no event will the authors be held liable for any damages arising from the use of this software.

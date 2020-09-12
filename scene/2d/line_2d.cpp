@@ -1,8 +1,6 @@
 
 /*  line_2d.cpp                                                          */
 
-
-
 #include "line_2d.h"
 
 #include "core/core_string_names.h"

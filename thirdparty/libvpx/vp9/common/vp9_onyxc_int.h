@@ -55,7 +55,6 @@ extern const struct {
   PARTITION_CONTEXT left;
 } partition_context_lookup[BLOCK_SIZES];
 
-
 typedef enum {
   SINGLE_REFERENCE      = 0,
   COMPOUND_REFERENCE    = 1,

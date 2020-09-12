@@ -24,7 +24,6 @@
 #ifndef __MIKKTSPACE_H__
 #define __MIKKTSPACE_H__
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -57,7 +56,6 @@ extern "C" {
  * XNormal which is a tool for baking normal maps allows you to write your own tangent space plugin
  * and also quad triangulator plugin.
  */
-
 
 typedef int tbool;
 typedef struct SMikkTSpaceContext SMikkTSpaceContext;
@@ -112,7 +110,6 @@ struct SMikkTSpaceContext
 // these are both thread safe!
 tbool genTangSpaceDefault(const SMikkTSpaceContext * pContext);	// Default (recommended) fAngularThreshold is 180 degrees (which means threshold disabled)
 tbool genTangSpace(const SMikkTSpaceContext * pContext, const float fAngularThreshold);
-
 
 // To avoid visual errors (distortions/unwanted hard edges in lighting), when using sampled normal maps, the
 // normal map sampler must use the exact inverse of the pixel shader transformation.

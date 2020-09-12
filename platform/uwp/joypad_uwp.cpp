@@ -1,8 +1,6 @@
 
 /*  joypad_uwp.cpp                                                       */
 
-
-
 #include "joypad_uwp.h"
 #include "core/os/os.h"
 

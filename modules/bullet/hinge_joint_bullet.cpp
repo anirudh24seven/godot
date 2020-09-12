@@ -1,8 +1,6 @@
 
 /*  hinge_joint_bullet.cpp                                               */
 
-
-
 #include "hinge_joint_bullet.h"
 
 #include "bullet_types_converter.h"

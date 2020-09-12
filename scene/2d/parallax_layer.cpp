@@ -1,8 +1,6 @@
 
 /*  parallax_layer.cpp                                                   */
 
-
-
 #include "parallax_layer.h"
 
 #include "core/engine.h"

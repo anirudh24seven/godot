@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "vpx_config.h"
 #include "vp8_rtcd.h"
 #include "vpx_ports/mem.h"
@@ -115,7 +114,6 @@ extern void vp8_filter_block1d8_v6_only_sse2
     const short   *vp8_filter
 );
 
-
 #if HAVE_MMX
 void vp8_sixtap_predict4x4_mmx
 (
@@ -136,7 +134,6 @@ void vp8_sixtap_predict4x4_mmx
 
 }
 
-
 void vp8_sixtap_predict16x16_mmx
 (
     unsigned char  *src_ptr,
@@ -152,8 +149,7 @@ void vp8_sixtap_predict16x16_mmx
 
     const short *HFilter, *VFilter;
 
-
-    HFilter = vp8_six_tap_mmx[xoffset];
+HFilter = vp8_six_tap_mmx[xoffset];
 
     vp8_filter_block1d_h6_mmx(src_ptr - (2 * src_pixels_per_line),    FData2,   src_pixels_per_line, 1, 21, 32, HFilter);
     vp8_filter_block1d_h6_mmx(src_ptr - (2 * src_pixels_per_line) + 4,  FData2 + 4, src_pixels_per_line, 1, 21, 32, HFilter);
@@ -167,7 +163,6 @@ void vp8_sixtap_predict16x16_mmx
     vp8_filter_block1dc_v6_mmx(FData2 + 44, dst_ptr + 12, dst_pitch, 32, 16 , 16, 16, VFilter);
 
 }
-
 
 void vp8_sixtap_predict8x8_mmx
 (
@@ -194,7 +189,6 @@ void vp8_sixtap_predict8x8_mmx
 
 }
 
-
 void vp8_sixtap_predict8x4_mmx
 (
     unsigned char  *src_ptr,
@@ -220,8 +214,6 @@ void vp8_sixtap_predict8x4_mmx
 
 }
 
-
-
 void vp8_bilinear_predict16x16_mmx
 (
     unsigned char  *src_ptr,
@@ -238,7 +230,6 @@ void vp8_bilinear_predict16x16_mmx
     vp8_bilinear_predict8x8_mmx(src_ptr + 8 * src_pixels_per_line + 8, src_pixels_per_line, xoffset, yoffset, dst_ptr + dst_pitch * 8 + 8, dst_pitch);
 }
 #endif
-
 
 #if HAVE_SSE2
 void vp8_sixtap_predict16x16_sse2
@@ -281,7 +272,6 @@ void vp8_sixtap_predict16x16_sse2
     }
 }
 
-
 void vp8_sixtap_predict8x8_sse2
 (
     unsigned char  *src_ptr,
@@ -318,7 +308,6 @@ void vp8_sixtap_predict8x8_sse2
         vp8_filter_block1d8_v6_only_sse2(src_ptr - (2 * src_pixels_per_line), src_pixels_per_line, dst_ptr, dst_pitch, 8, VFilter);
     }
 }
-
 
 void vp8_sixtap_predict8x4_sse2
 (
@@ -516,7 +505,6 @@ void vp8_sixtap_predict8x8_ssse3
         }
     }
 }
-
 
 void vp8_sixtap_predict8x4_ssse3
 (

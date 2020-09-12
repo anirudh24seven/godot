@@ -1,8 +1,6 @@
 
 /*  GodotRenderView.java                                                 */
 
-
-
 package org.godotengine.godot;
 
 import org.godotengine.godot.input.GodotInputHandler;

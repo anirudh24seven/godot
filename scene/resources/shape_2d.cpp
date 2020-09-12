@@ -1,8 +1,6 @@
 
 /*  shape_2d.cpp                                                         */
 
-
-
 #include "shape_2d.h"
 #include "servers/physics_server_2d.h"
 RID Shape2D::get_rid() const {

@@ -1,8 +1,6 @@
 
 /*  jni_utils.h                                                          */
 
-
-
 #ifndef JNI_UTILS_H
 #define JNI_UTILS_H
 

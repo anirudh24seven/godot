@@ -42,11 +42,9 @@ POSSIBILITY OF SUCH DAMAGE.
 class. It is used by pcre2_auto_possessify() and by both pcre2_match() and
 pcre2_def_match(). */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
-
 
 #include "pcre2_internal.h"
 

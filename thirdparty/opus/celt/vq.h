@@ -41,7 +41,6 @@
 #include "mips/vq_mipsr1.h"
 #endif
 
-
 /** Algebraic pulse-vector quantiser. The signal x is replaced by the sum of
   * the pitch and a combination of pulses such that its norm is still equal
   * to 1. This is the function that will typically require the most CPU.

@@ -1,8 +1,6 @@
 
 /*  context_gl_x11.cpp                                                   */
 
-
-
 #include "context_gl_x11.h"
 
 #ifdef X11_ENABLED

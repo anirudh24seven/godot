@@ -1,8 +1,6 @@
 
 /*  editor_import_plugin.h                                               */
 
-
-
 #ifndef EDITOR_IMPORT_PLUGIN_H
 #define EDITOR_IMPORT_PLUGIN_H
 

@@ -1,8 +1,6 @@
 
 /*  navigation_mesh_generator.h                                          */
 
-
-
 #ifndef NAVIGATION_MESH_GENERATOR_H
 #define NAVIGATION_MESH_GENERATOR_H
 

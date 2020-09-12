@@ -44,14 +44,11 @@ pcre2_def_match(). However, it is called only when Unicode support is being
 compiled. Nevertheless, we provide a dummy function when there is no Unicode
 support, because some compilers do not like functionless source files. */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
-
 #include "pcre2_internal.h"
-
 
 /* Dummy function */
 
@@ -69,7 +66,6 @@ PRIV(extuni)(uint32_t c, PCRE2_SPTR eptr, PCRE2_SPTR start_subject,
 return NULL;
 }
 #else
-
 
 /*************************************************
 *      Match an extended grapheme sequence       *

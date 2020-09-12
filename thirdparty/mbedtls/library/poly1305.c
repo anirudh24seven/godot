@@ -118,7 +118,6 @@ static inline uint64_t mul64( uint32_t a, uint32_t b )
 }
 #endif
 
-
 /**
  * \brief                   Process blocks with Poly1305.
  *

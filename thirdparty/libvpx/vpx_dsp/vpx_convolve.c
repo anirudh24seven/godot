@@ -477,7 +477,6 @@ static void highbd_convolve(const uint8_t *src, ptrdiff_t src_stride,
                        w, h, bd);
 }
 
-
 void vpx_highbd_convolve8_horiz_c(const uint8_t *src, ptrdiff_t src_stride,
                                   uint8_t *dst, ptrdiff_t dst_stride,
                                   const int16_t *filter_x, int x_step_q4,

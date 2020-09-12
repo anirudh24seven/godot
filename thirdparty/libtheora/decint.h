@@ -33,16 +33,12 @@ typedef struct th_dec_ctx    oc_dec_ctx;
 /*Next packet to read: Data packet.*/
 #define OC_PACKET_DATA (0)
 
-
-
 struct th_setup_info{
   /*The Huffman codes.*/
   oc_huff_node      *huff_tables[TH_NHUFFMAN_TABLES];
   /*The quantization parameters.*/
   th_quant_info  qinfo;
 };
-
-
 
 struct th_dec_ctx{
   /*Shared encoder/decoder state.*/

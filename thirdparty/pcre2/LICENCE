@@ -15,7 +15,6 @@ included in the distribution is a just-in-time compiler that can be used to
 optimize pattern matching. This is an optional feature that can be omitted when
 the library is built.
 
-
 THE BASIC LIBRARY FUNCTIONS
 ---------------------------
 
@@ -29,7 +28,6 @@ Cambridge, England.
 Copyright (c) 1997-2019 University of Cambridge
 All rights reserved.
 
-
 PCRE2 JUST-IN-TIME COMPILATION SUPPORT
 --------------------------------------
 
@@ -40,7 +38,6 @@ Email domain:     freemail.hu
 Copyright(c) 2010-2019 Zoltan Herczeg
 All rights reserved.
 
-
 STACK-LESS JUST-IN-TIME COMPILER
 --------------------------------
 
@@ -50,7 +47,6 @@ Email domain:     freemail.hu
 
 Copyright(c) 2009-2019 Zoltan Herczeg
 All rights reserved.
-
 
 THE "BSD" LICENCE
 -----------------
@@ -80,7 +76,6 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
-
 
 EXEMPTION FOR BINARY LIBRARY-LIKE PACKAGES
 ------------------------------------------

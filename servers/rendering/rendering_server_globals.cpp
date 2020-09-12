@@ -1,8 +1,6 @@
 
 /*  rendering_server_globals.cpp                                         */
 
-
-
 #include "rendering_server_globals.h"
 
 RasterizerStorage *RenderingServerGlobals::storage = nullptr;

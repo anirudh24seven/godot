@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -714,7 +712,6 @@ const aiScene* Importer::ReadFile( const char* _pFile, unsigned int pFlags)
     return pimpl->mScene;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // Apply post-processing to the currently bound scene
 const aiScene* Importer::ApplyPostProcessing(unsigned int pFlags)
@@ -910,7 +907,6 @@ const aiImporterDesc* Importer::GetImporterInfo(size_t index) const
     return pimpl->mImporter[index]->GetInfo();
 }
 
-
 // ------------------------------------------------------------------------------------------------
 BaseImporter* Importer::GetImporter (size_t index) const
 {
@@ -1083,8 +1079,7 @@ void Importer::GetMemoryRequirements(aiMemoryInfo& in) const
     if (!pimpl->mScene)
         return;
 
-
-    in.total = sizeof(aiScene);
+in.total = sizeof(aiScene);
 
     // add all meshes
     for (unsigned int i = 0; i < mScene->mNumMeshes;++i)

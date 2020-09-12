@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef ENET_REGISTER_TYPES_H
 #define ENET_REGISTER_TYPES_H
 

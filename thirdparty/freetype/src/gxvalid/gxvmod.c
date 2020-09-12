@@ -24,7 +24,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_TRUETYPE_TABLES_H
 #include FT_TRUETYPE_TAGS_H
@@ -36,8 +35,7 @@
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -46,8 +44,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvmodule
 
-
-  static FT_Error
+static FT_Error
   gxv_load_table( FT_Face             face,
                   FT_Tag              tag,
                   FT_Byte* volatile*  table,
@@ -56,8 +53,7 @@
     FT_Error   error;
     FT_Memory  memory = FT_FACE_MEMORY( face );
 
-
-    error = FT_Load_Sfnt_Table( face, tag, 0, NULL, table_len );
+error = FT_Load_Sfnt_Table( face, tag, 0, NULL, table_len );
     if ( FT_ERR_EQ( error, Table_Missing ) )
       return FT_Err_Ok;
     if ( error )
@@ -71,7 +67,6 @@
   Exit:
     return error;
   }
-
 
 #define GXV_TABLE_DECL( _sfnt )                     \
           FT_Byte* volatile  _sfnt          = NULL; \
@@ -103,8 +98,7 @@
           if ( FT_VALIDATE_ ## _sfnt ## _INDEX < table_count )        \
             tables[FT_VALIDATE_ ## _sfnt ## _INDEX] = (FT_Bytes)_sfnt
 
-
-  static FT_Error
+static FT_Error
   gxv_validate( FT_Face   face,
                 FT_UInt   gx_flags,
                 FT_Bytes  tables[FT_VALIDATE_GX_LENGTH],
@@ -117,8 +111,7 @@
 
     FT_UInt  i;
 
-
-    GXV_TABLE_DECL( feat );
+GXV_TABLE_DECL( feat );
     GXV_TABLE_DECL( bsln );
     GXV_TABLE_DECL( trak );
     GXV_TABLE_DECL( just );
@@ -186,8 +179,7 @@
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   classic_kern_validate( FT_Face    face,
                          FT_UInt    ckern_flags,
                          FT_Bytes*  ckern_table )
@@ -203,8 +195,7 @@
     FT_Error volatile         error;
     FT_ValidatorRec volatile  valid;
 
-
-    *ckern_table = NULL;
+*ckern_table = NULL;
 
     error = gxv_load_table( face, TTAG_kern, &ckern, &len_ckern );
     if ( error )
@@ -231,22 +222,19 @@
     return error;
   }
 
-
-  static
+static
   const FT_Service_GXvalidateRec  gxvalid_interface =
   {
     gxv_validate              /* validate */
   };
 
-
-  static
+static
   const FT_Service_CKERNvalidateRec  ckernvalid_interface =
   {
     classic_kern_validate     /* validate */
   };
 
-
-  static
+static
   const FT_ServiceDescRec  gxvalid_services[] =
   {
     { FT_SERVICE_ID_GX_VALIDATE,          &gxvalid_interface },
@@ -254,8 +242,7 @@
     { NULL, NULL }
   };
 
-
-  static FT_Pointer
+static FT_Pointer
   gxvalid_get_service( FT_Module    module,
                        const char*  service_id )
   {
@@ -264,8 +251,7 @@
     return ft_service_list_lookup( gxvalid_services, service_id );
   }
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const FT_Module_Class  gxv_module_class =
   {
     0,
@@ -280,6 +266,5 @@
     (FT_Module_Destructor) NULL,                /* module_done   */
     (FT_Module_Requester)  gxvalid_get_service  /* get_interface */
   };
-
 
 /* END */

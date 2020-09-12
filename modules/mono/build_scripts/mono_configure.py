@@ -8,7 +8,6 @@ from SCons.Script import Dir, Environment
 if os.name == "nt":
     from . import mono_reg_utils as monoreg
 
-
 android_arch_dirs = {
     "armv7": "armeabi-v7a",
     "arm64v8": "arm64-v8a",
@@ -16,14 +15,12 @@ android_arch_dirs = {
     "x86_64": "x86_64",
 }
 
-
 def get_android_out_dir(env):
     return os.path.join(
         Dir("#platform/android/java/lib/libs").abspath,
         "release" if env["target"] == "release" else "debug",
         android_arch_dirs[env["android_arch"]],
     )
-
 
 def find_name_in_dir_files(directory, names, prefixes=[""], extensions=[""]):
     for extension in extensions:
@@ -35,7 +32,6 @@ def find_name_in_dir_files(directory, names, prefixes=[""], extensions=[""]):
                     return curname
     return ""
 
-
 def find_file_in_dir(directory, names, prefixes=[""], extensions=[""]):
     for extension in extensions:
         if extension and not extension.startswith("."):
@@ -46,7 +42,6 @@ def find_file_in_dir(directory, names, prefixes=[""], extensions=[""]):
                 if os.path.isfile(os.path.join(directory, filename)):
                     return filename
     return ""
-
 
 def copy_file(src_dir, dst_dir, src_name, dst_name=""):
     from shutil import copy
@@ -62,18 +57,14 @@ def copy_file(src_dir, dst_dir, src_name, dst_name=""):
     else:
         copy(src_path, dst_dir)
 
-
 def is_desktop(platform):
     return platform in ["windows", "osx", "linuxbsd", "server", "uwp", "haiku"]
-
 
 def is_unix_like(platform):
     return platform in ["osx", "linuxbsd", "server", "android", "haiku", "iphone"]
 
-
 def module_supports_tools_on(platform):
     return platform not in ["android", "javascript", "iphone"]
-
 
 def find_wasm_src_dir(mono_root):
     hint_dirs = [
@@ -84,7 +75,6 @@ def find_wasm_src_dir(mono_root):
         if os.path.isfile(os.path.join(hint_dir, "driver.c")):
             return hint_dir
     return ""
-
 
 def configure(env, env_mono):
     bits = env["bits"]
@@ -401,7 +391,6 @@ def configure(env, env_mono):
         else:
             print("Ignoring option: 'copy_mono_root'; only available for builds with 'tools' enabled.")
 
-
 def make_template_dir(env, mono_root):
     from shutil import rmtree
 
@@ -430,7 +419,6 @@ def make_template_dir(env, mono_root):
     # Copy the required shared libraries
 
     copy_mono_shared_libs(env, mono_root, template_mono_root_dir)
-
 
 def copy_mono_root_files(env, mono_root):
     from glob import glob
@@ -473,7 +461,6 @@ def copy_mono_root_files(env, mono_root):
     for assembly in glob(os.path.join(mono_framework_facades_dir, "*.dll")):
         copy(assembly, editor_mono_framework_facades_dir)
 
-
 def copy_mono_etc_dir(mono_root, target_mono_config_dir, platform):
     from distutils.dir_util import copy_tree
     from glob import glob
@@ -506,7 +493,6 @@ def copy_mono_etc_dir(mono_root, target_mono_config_dir, platform):
     for file in glob(os.path.join(mono_etc_dir, "*")):
         if os.path.isfile(file):
             copy(file, target_mono_config_dir)
-
 
 def copy_mono_shared_libs(env, mono_root, target_mono_root_dir):
     from shutil import copy
@@ -567,7 +553,6 @@ def copy_mono_shared_libs(env, mono_root, target_mono_root_dir):
 
         for lib_file_name in lib_file_names:
             copy_if_exists(os.path.join(mono_root, "lib", lib_file_name), target_mono_lib_dir)
-
 
 def pkgconfig_try_find_mono_root(mono_lib_names, sharedlib_ext):
     tmpenv = Environment()

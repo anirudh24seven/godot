@@ -128,7 +128,6 @@ static const vp8_prob Pcat5[] = { 180, 157, 141, 134, 130};
 static const vp8_prob Pcat6[] =
 { 254, 254, 243, 230, 196, 177, 153, 140, 133, 130, 129};
 
-
 /* tree index tables generated with:
 
     void init_bit_tree(vp8_tree_index *p, int n)

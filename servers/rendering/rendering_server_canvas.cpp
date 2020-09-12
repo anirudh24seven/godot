@@ -1,8 +1,6 @@
 
 /*  rendering_server_canvas.cpp                                          */
 
-
-
 #include "rendering_server_canvas.h"
 
 #include "core/math/geometry_2d.h"

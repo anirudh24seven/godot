@@ -1,8 +1,6 @@
 
 /*  net_socket_android.h                                                 */
 
-
-
 #ifndef NET_SOCKET_ANDROID_H
 #define NET_SOCKET_ANDROID_H
 

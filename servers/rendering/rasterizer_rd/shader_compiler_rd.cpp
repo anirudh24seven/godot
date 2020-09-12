@@ -1,8 +1,6 @@
 
 /*  shader_compiler_rd.cpp                                               */
 
-
-
 #include "shader_compiler_rd.h"
 
 #include "core/os/os.h"

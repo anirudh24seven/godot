@@ -1,8 +1,6 @@
 
 /*  material_editor_plugin.cpp                                           */
 
-
-
 #include "material_editor_plugin.h"
 
 #include "editor/editor_scale.h"

@@ -1,8 +1,6 @@
 
 /*  editor_sectioned_inspector.h                                         */
 
-
-
 #ifndef EDITOR_SECTIONED_INSPECTOR_H
 #define EDITOR_SECTIONED_INSPECTOR_H
 

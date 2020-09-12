@@ -16,12 +16,10 @@
  *
  */
 
-
 #ifndef AFDUMMY_H_
 #define AFDUMMY_H_
 
 #include "aftypes.h"
-
 
 FT_BEGIN_HEADER
 
@@ -33,8 +31,6 @@ FT_BEGIN_HEADER
 
 FT_END_HEADER
 
-
 #endif /* AFDUMMY_H_ */
-
 
 /* END */

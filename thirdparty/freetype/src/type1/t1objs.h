@@ -15,26 +15,21 @@
  *
  */
 
-
 #ifndef T1OBJS_H_
 #define T1OBJS_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_OBJECTS_H
 #include FT_CONFIG_CONFIG_H
 #include FT_INTERNAL_TYPE1_TYPES_H
 
-
 FT_BEGIN_HEADER
 
-
-  /* The following structures must be defined by the hinter */
+/* The following structures must be defined by the hinter */
   typedef struct T1_Size_Hints_   T1_Size_Hints;
   typedef struct T1_Glyph_Hints_  T1_Glyph_Hints;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   T1_Size
@@ -44,8 +39,7 @@ FT_BEGIN_HEADER
    */
   typedef struct T1_SizeRec_*  T1_Size;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   T1_GlyphSlot
@@ -55,8 +49,7 @@ FT_BEGIN_HEADER
    */
   typedef struct T1_GlyphSlotRec_*  T1_GlyphSlot;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   T1_CharMap
@@ -71,15 +64,13 @@ FT_BEGIN_HEADER
    */
   typedef struct T1_CharMapRec_*   T1_CharMap;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                 HERE BEGINS THE TYPE1 SPECIFIC STUFF
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   T1_SizeRec
@@ -93,8 +84,7 @@ FT_BEGIN_HEADER
 
   } T1_SizeRec;
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   T1_Size_Done( FT_Size  size );
 
   FT_LOCAL( FT_Error )
@@ -104,8 +94,7 @@ FT_BEGIN_HEADER
   FT_LOCAL( FT_Error )
   T1_Size_Init( FT_Size  size );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   T1_GlyphSlotRec
@@ -128,8 +117,7 @@ FT_BEGIN_HEADER
 
   } T1_GlyphSlotRec;
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   T1_Face_Init( FT_Stream      stream,
                 FT_Face        face,
                 FT_Int         face_index,
@@ -151,10 +139,8 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   T1_Driver_Done( FT_Module  driver );
 
-
 FT_END_HEADER
 
 #endif /* T1OBJS_H_ */
-
 
 /* END */

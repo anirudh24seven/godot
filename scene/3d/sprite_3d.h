@@ -1,8 +1,6 @@
 
 /*  sprite_3d.h                                                          */
 
-
-
 #ifndef SPRITE_3D_H
 #define SPRITE_3D_H
 

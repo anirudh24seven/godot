@@ -1,8 +1,6 @@
 
 /*  texture_rect.cpp                                                     */
 
-
-
 #include "texture_rect.h"
 #include "core/core_string_names.h"
 #include "servers/rendering_server.h"

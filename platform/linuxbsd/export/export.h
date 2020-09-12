@@ -1,8 +1,6 @@
 
 /*  export.h                                                             */
 
-
-
 #ifndef LINUXBSD_EXPORT_H
 #define LINUXBSD_EXPORT_H
 

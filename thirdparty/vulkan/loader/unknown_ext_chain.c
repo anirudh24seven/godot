@@ -61,7 +61,6 @@
            disp->ext_dispatch.dev_ext[num](device);                               \
        }
 
-
 // Instantiations of the trampoline
 PhysDevExtTramp(0)
 PhysDevExtTramp(1)

@@ -1,8 +1,6 @@
 
 /*  canvas_modulate.h                                                    */
 
-
-
 #ifndef CANVASMODULATE_H
 #define CANVASMODULATE_H
 

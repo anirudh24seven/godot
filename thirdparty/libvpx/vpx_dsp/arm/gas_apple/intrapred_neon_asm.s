@@ -508,8 +508,7 @@ loop_16x16_neon:
     vst1.64             {d2,d3}, [r0], r1
     vst1.64             {d22,d23}, [r0], r1
 
-
-    vadd.s16            q1, q0, q2
+vadd.s16            q1, q0, q2
     vadd.s16            q0, q0, q3
     vadd.s16            q11, q8, q2
     vadd.s16            q8, q8, q3

@@ -36,5 +36,4 @@ namespace Etc
 		return 10.0f * log10f(1.0f / a_fMSE);
 	}
 
-
 }

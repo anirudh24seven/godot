@@ -105,8 +105,7 @@ void jit_uni_pooling_fwd_t<isa>::execute_forward_3d(const data_t *src,
             nstl::max(0, od*jpp.stride_d - jpp.f_pad + jpp.kd - jpp.id) -
             nstl::max(0, jpp.f_pad - od*jpp.stride_d));
 
-
-        (*kernel_)(&arg);
+(*kernel_)(&arg);
     };
 
     parallel_nd(jpp.mb, jpp.nb_c, jpp.od,
@@ -248,7 +247,6 @@ void jit_uni_pooling_bwd_t<isa>::execute_backward_3d(const data_t *diff_dst,
         }
     }
 }
-
 
 template struct jit_uni_pooling_fwd_t<sse42>;
 template struct jit_uni_pooling_bwd_t<sse42>;

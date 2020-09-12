@@ -1983,8 +1983,7 @@ bool TProgram::linkStage(EShLanguage stage, EShMessages messages)
                                                 firstIntermediate->getVersion(),
                                                 firstIntermediate->getProfile());
 
-
-        // The new TIntermediate must use the same origin as the original TIntermediates.
+// The new TIntermediate must use the same origin as the original TIntermediates.
         // Otherwise linking will fail due to different coordinate systems.
         if (firstIntermediate->getOriginUpperLeft()) {
             intermediate[stage]->setOriginUpperLeft();

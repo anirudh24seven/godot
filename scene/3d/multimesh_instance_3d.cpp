@@ -1,8 +1,6 @@
 
 /*  multimesh_instance_3d.cpp                                            */
 
-
-
 #include "multimesh_instance_3d.h"
 
 void MultiMeshInstance3D::_bind_methods() {

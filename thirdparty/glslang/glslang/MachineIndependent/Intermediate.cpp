@@ -1875,7 +1875,6 @@ static bool canSignedIntTypeRepresentAllUnsignedValues(TBasicType sintType, TBas
     }
 }
 
-
 static TBasicType getCorrespondingUnsignedType(TBasicType type)
 {
 #ifdef GLSLANG_WEB
@@ -3952,6 +3951,5 @@ const char* TIntermediate::getResourceName(TResourceType res)
         return nullptr;
     }
 }
-
 
 } // end namespace glslang

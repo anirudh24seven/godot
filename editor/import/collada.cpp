@@ -1,8 +1,6 @@
 
 /*  collada.cpp                                                          */
 
-
-
 #include "collada.h"
 
 #include <stdio.h>

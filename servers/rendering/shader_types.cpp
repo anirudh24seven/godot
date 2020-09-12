@@ -1,8 +1,6 @@
 
 /*  shader_types.cpp                                                     */
 
-
-
 #include "shader_types.h"
 
 const Map<StringName, ShaderLanguage::FunctionInfo> &ShaderTypes::get_functions(RS::ShaderMode p_mode) {

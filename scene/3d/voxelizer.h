@@ -1,8 +1,6 @@
 
 /*  voxelizer.h                                                          */
 
-
-
 #ifndef VOXEL_LIGHT_BAKER_H
 #define VOXEL_LIGHT_BAKER_H
 

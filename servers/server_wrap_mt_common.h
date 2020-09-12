@@ -1,8 +1,6 @@
 
 /*  server_wrap_mt_common.h                                              */
 
-
-
 #define FUNC0R(m_r, m_type)                                                     \
 	virtual m_r m_type() {                                                      \
 		if (Thread::get_caller_id() != server_thread) {                         \

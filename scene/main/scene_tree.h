@@ -1,8 +1,6 @@
 
 /*  scene_tree.h                                                         */
 
-
-
 #ifndef SCENE_MAIN_LOOP_H
 #define SCENE_MAIN_LOOP_H
 

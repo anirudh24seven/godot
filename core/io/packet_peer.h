@@ -1,8 +1,6 @@
 
 /*  packet_peer.h                                                        */
 
-
-
 #ifndef PACKET_PEER_H
 #define PACKET_PEER_H
 

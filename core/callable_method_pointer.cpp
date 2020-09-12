@@ -1,8 +1,6 @@
 
 /*  callable_method_pointer.cpp                                          */
 
-
-
 #include "callable_method_pointer.h"
 
 bool CallableCustomMethodPointerBase::compare_equal(const CallableCustom *p_a, const CallableCustom *p_b) {

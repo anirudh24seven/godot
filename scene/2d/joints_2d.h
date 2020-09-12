@@ -1,8 +1,6 @@
 
 /*  joints_2d.h                                                          */
 
-
-
 #ifndef JOINTS_2D_H
 #define JOINTS_2D_H
 

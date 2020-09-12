@@ -1,8 +1,6 @@
 
 /*  remote_debugger_peer.cpp                                             */
 
-
-
 #include "remote_debugger_peer.h"
 
 #include "core/io/marshalls.h"

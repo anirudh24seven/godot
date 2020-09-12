@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -101,15 +100,13 @@ public:
         unsigned int pElementOffset,
         bool pFinalize = true);
 
-
-    // ------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------
     /** Same as #Fill(), except the method appends to existing data in the #SpatialSort. */
     void Append( const aiVector3D* pPositions, unsigned int pNumPositions,
         unsigned int pElementOffset,
         bool pFinalize = true);
 
-
-    // ------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------
     /** Finalize the spatial hash data structure. This can be useful after
      *  multiple calls to #Append() with the pFinalize parameter set to false.
      *  This is finally required before one of #FindPositions() and #GenerateMappingTable()

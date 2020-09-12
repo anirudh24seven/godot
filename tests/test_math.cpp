@@ -1,8 +1,6 @@
 
 /*  test_math.cpp                                                        */
 
-
-
 #include "test_math.h"
 
 #include "core/math/basis.h"

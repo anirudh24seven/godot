@@ -1,8 +1,6 @@
 
 /*  register_scene_types.h                                               */
 
-
-
 #ifndef REGISTER_SCENE_TYPES_H
 #define REGISTER_SCENE_TYPES_H
 

@@ -1,8 +1,6 @@
 
 /*  collision_shape_3d.cpp                                               */
 
-
-
 #include "collision_shape_3d.h"
 
 #include "core/math/quick_hull.h"

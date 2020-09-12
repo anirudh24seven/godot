@@ -1,8 +1,6 @@
 
 /*  listener_3d.h                                                        */
 
-
-
 #ifndef LISTENER_3D_H
 #define LISTENER_3D_H
 

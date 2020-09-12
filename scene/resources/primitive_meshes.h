@@ -1,8 +1,6 @@
 
 /*  primitive_meshes.h                                                   */
 
-
-
 #ifndef PRIMITIVE_MESHES_H
 #define PRIMITIVE_MESHES_H
 

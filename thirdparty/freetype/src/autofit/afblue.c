@@ -18,11 +18,9 @@
  *
  */
 
-
 #include "aftypes.h"
 
-
-  FT_LOCAL_ARRAY_DEF( char )
+FT_LOCAL_ARRAY_DEF( char )
   af_blue_strings[] =
   {
     /* */
@@ -447,8 +445,7 @@
 
   };
 
-
-  /* stringsets are specific to styles */
+/* stringsets are specific to styles */
   FT_LOCAL_ARRAY_DEF( AF_Blue_StringRec )
   af_blue_stringsets[] =
   {
@@ -751,6 +748,5 @@
 #endif /* AF_CONFIG_OPTION_CJK                */
 
   };
-
 
 /* END */

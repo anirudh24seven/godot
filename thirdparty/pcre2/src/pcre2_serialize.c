@@ -41,11 +41,9 @@ POSSIBILITY OF SUCH DAMAGE.
 /* This module contains functions for serializing and deserializing
 a sequence of compiled codes. */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
-
 
 #include "pcre2_internal.h"
 
@@ -61,8 +59,6 @@ character width. */
 
 #define SERIALIZED_DATA_CONFIG \
   (sizeof(PCRE2_UCHAR) | ((sizeof(void*)) << 8) | ((sizeof(PCRE2_SIZE)) << 16))
-
-
 
 /*************************************************
 *           Serialize compiled patterns          *
@@ -153,7 +149,6 @@ for (i = 0; i < number_of_codes; i++)
 *serialized_size = total_size;
 return number_of_codes;
 }
-
 
 /*************************************************
 *          Deserialize compiled patterns         *
@@ -250,7 +245,6 @@ for (i = 0; i < number_of_codes; i++)
 return number_of_codes;
 }
 
-
 /*************************************************
 *    Get the number of serialized patterns       *
 *************************************************/
@@ -267,7 +261,6 @@ if (data->config != SERIALIZED_DATA_CONFIG) return PCRE2_ERROR_BADMODE;
 
 return data->number_of_codes;
 }
-
 
 /*************************************************
 *            Free the allocated stream           *

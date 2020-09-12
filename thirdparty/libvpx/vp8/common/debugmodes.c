@@ -8,10 +8,8 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include <stdio.h>
 #include "blockd.h"
-
 
 void vp8_print_modes_and_motion_vectors(MODE_INFO *mi, int rows, int cols, int frame)
 {
@@ -126,8 +124,7 @@ void vp8_print_modes_and_motion_vectors(MODE_INFO *mi, int rows, int cols, int f
 
     fprintf(mvs, "\n");
 
-
-    /* print out the block modes */
+/* print out the block modes */
     fprintf(mvs, "MVs for Frame %d\n", frame);
     {
         int b_row;
@@ -150,6 +147,5 @@ void vp8_print_modes_and_motion_vectors(MODE_INFO *mi, int rows, int cols, int f
     }
     fprintf(mvs, "\n");
 
-
-    fclose(mvs);
+fclose(mvs);
 }

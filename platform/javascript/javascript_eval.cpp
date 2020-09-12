@@ -1,8 +1,6 @@
 
 /*  javascript_eval.cpp                                                  */
 
-
-
 #ifdef JAVASCRIPT_EVAL_ENABLED
 
 #include "api/javascript_eval.h"

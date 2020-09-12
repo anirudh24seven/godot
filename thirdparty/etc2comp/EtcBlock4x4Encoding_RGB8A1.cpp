@@ -118,8 +118,7 @@ namespace Etc
 														ErrorMetric a_errormetric)
 	{
 
-
-		InitFromEncodingBits_ETC1(a_pblockParent,
+InitFromEncodingBits_ETC1(a_pblockParent,
 			a_paucEncodingBits,
 			a_pafrgbaSource,
 			a_errormetric);
@@ -411,8 +410,7 @@ namespace Etc
 
 	}
 
-
-	// ----------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------
 	// perform a single encoding iteration
 	// replace the encoding if a better encoding was found
 	// subsequent iterations generally take longer for each iteration
@@ -1055,9 +1053,8 @@ namespace Etc
 				}
 			}
 		}
-		
 
-		// add up all of the pixel errors
+// add up all of the pixel errors
 		float fBlockError = 0.0f;
 		for (unsigned int uiPixel = 0; uiPixel < PIXELS; uiPixel++)
 		{
@@ -1300,8 +1297,7 @@ namespace Etc
 		afrgbaDecodedPixel[2] = ColorFloatRGBA();;
 		afrgbaDecodedPixel[3] = (m_frgbaColor2 - fDistance).ClampRGB();
 
-
-		// try each selector
+// try each selector
 		for (unsigned int uiPixel = 0; uiPixel < PIXELS; uiPixel++)
 		{
 			unsigned int uiMinSelector = 0;
@@ -1326,9 +1322,8 @@ namespace Etc
 				}
 			}
 		}
-		
 
-		// add up all of the pixel errors
+// add up all of the pixel errors
 		float fBlockError = 0.0f;
 		for (unsigned int uiPixel = 0; uiPixel < PIXELS; uiPixel++)
 		{

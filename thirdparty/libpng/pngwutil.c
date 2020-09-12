@@ -2365,7 +2365,6 @@ png_do_write_interlace(png_row_infop row_info, png_bytep row, int pass)
 }
 #endif
 
-
 /* This filters the row, chooses which filter to use, if it has not already
  * been specified by the application, and then writes the row out with the
  * chosen filter.
@@ -2692,8 +2691,7 @@ png_write_find_filter(png_structrp png_ptr, png_row_infop row_info)
     *       (i.e., ~ root-mean-square approach)
     */
 
-
-   /* We don't need to test the 'no filter' case if this is the only filter
+/* We don't need to test the 'no filter' case if this is the only filter
     * that has been chosen, as it doesn't actually do anything to the data.
     */
    best_row = png_ptr->row_buf;
@@ -2840,7 +2838,6 @@ png_write_find_filter(png_structrp png_ptr, png_row_infop row_info)
 
 #endif /* WRITE_FILTER */
 }
-
 
 /* Do the actual writing of a previously filtered row. */
 static void

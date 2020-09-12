@@ -1,8 +1,6 @@
 
 /*  file_dialog.h                                                        */
 
-
-
 #ifndef FILE_DIALOG_H
 #define FILE_DIALOG_H
 

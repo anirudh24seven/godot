@@ -24,7 +24,6 @@
  *
  */
 
-
 #ifndef GXVALID_H_
 #define GXVALID_H_
 
@@ -36,23 +35,19 @@
 #include FT_INTERNAL_VALIDATE_H
 #include FT_INTERNAL_STREAM_H
 
-
 FT_BEGIN_HEADER
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   gxv_feat_validate( FT_Bytes      table,
                      FT_Face       face,
                      FT_Validator  valid );
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   gxv_bsln_validate( FT_Bytes      table,
                      FT_Face       face,
                      FT_Validator  valid );
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   gxv_trak_validate( FT_Bytes      table,
                      FT_Face       face,
                      FT_Validator  valid );
@@ -98,11 +93,8 @@ FT_BEGIN_HEADER
                      FT_Face       face,
                      FT_Validator  valid );
 
-
 FT_END_HEADER
 
-
 #endif /* GXVALID_H_ */
-
 
 /* END */

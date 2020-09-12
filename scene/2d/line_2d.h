@@ -1,8 +1,6 @@
 
 /*  line_2d.h                                                            */
 
-
-
 #ifndef LINE2D_H
 #define LINE2D_H
 

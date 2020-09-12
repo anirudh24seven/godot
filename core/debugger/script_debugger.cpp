@@ -1,8 +1,6 @@
 
 /*  script_debugger.cpp                                                  */
 
-
-
 #include "script_debugger.h"
 
 #include "core/debugger/engine_debugger.h"

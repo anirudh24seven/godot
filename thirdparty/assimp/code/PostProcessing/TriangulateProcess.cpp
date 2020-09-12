@@ -347,8 +347,7 @@ bool TriangulateProcess::TriangulateMesh( aiMesh* pMesh)
                 *(loc+::ai_snprintf(loc, POLY_GRID_XPAD,"%i",i)) = ' ';
             }
 
-
-            for(size_t y = 0; y < POLY_GRID_Y; ++y) {
+for(size_t y = 0; y < POLY_GRID_Y; ++y) {
                 grid[y][POLY_GRID_X+POLY_GRID_XPAD-1] = '\0';
                 fprintf(fout,"%s\n",grid[y]);
             }

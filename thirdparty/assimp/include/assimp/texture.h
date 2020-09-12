@@ -218,7 +218,6 @@ struct aiTexture {
 #endif
 };
 
-
 #ifdef __cplusplus
 }
 #endif

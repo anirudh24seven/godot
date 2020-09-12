@@ -1,8 +1,6 @@
 
 /*  resource_importer_ogg_vorbis.h                                       */
 
-
-
 #ifndef RESOURCEIMPORTEROGGVORBIS_H
 #define RESOURCEIMPORTEROGGVORBIS_H
 

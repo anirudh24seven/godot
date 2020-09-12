@@ -1,8 +1,6 @@
 
 /*  scroll_container.h                                                   */
 
-
-
 #ifndef SCROLL_CONTAINER_H
 #define SCROLL_CONTAINER_H
 

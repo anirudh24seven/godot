@@ -1,8 +1,6 @@
 
 /*  canvas_item.cpp                                                      */
 
-
-
 #include "canvas_item.h"
 
 #include "core/input/input.h"

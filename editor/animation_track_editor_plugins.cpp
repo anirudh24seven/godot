@@ -1,8 +1,6 @@
 
 /*  animation_track_editor_plugins.cpp                                   */
 
-
-
 #include "animation_track_editor_plugins.h"
 
 #include "editor/audio_stream_preview.h"

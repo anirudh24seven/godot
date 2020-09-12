@@ -1,8 +1,6 @@
 
 /*  error_macros.cpp                                                     */
 
-
-
 #include "error_macros.h"
 
 #include "core/io/logger.h"

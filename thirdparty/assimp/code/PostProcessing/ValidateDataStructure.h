@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -91,15 +90,13 @@ protected:
      * @param msg Format string for sprintf().*/
     AI_WONT_RETURN void ReportError(const char* msg,...) AI_WONT_RETURN_SUFFIX;
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Report a validation warning. This won't throw an exception,
      *  control will return to the caller.
      * @param msg Format string for sprintf().*/
     void ReportWarning(const char* msg,...);
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Validates a mesh
      * @param pMesh Input mesh*/
     void Validate( const aiMesh* pMesh);
@@ -188,9 +185,6 @@ private:
 
     aiScene* mScene;
 };
-
-
-
 
 } // end of namespace Assimp
 

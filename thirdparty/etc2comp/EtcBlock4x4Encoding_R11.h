@@ -77,10 +77,7 @@ namespace Etc
 		void CalculateR11(unsigned int a_uiSelectorsUsed, 
 							float a_fBaseRadius, float a_fMultiplierRadius);
 
-		
-
-	
-		inline float DecodePixelRed(float a_fBase, float a_fMultiplier,
+inline float DecodePixelRed(float a_fBase, float a_fMultiplier,
 			unsigned int a_uiTableIndex, unsigned int a_uiSelector)
 		{
 			float fMultiplier = a_fMultiplier;
@@ -113,8 +110,7 @@ namespace Etc
 		unsigned int m_uiRedModifierTableIndex;
 		unsigned int m_auiRedSelectors[PIXELS];
 
-		
-	};
+};
 
 	// ----------------------------------------------------------------------------------------------------
 	//

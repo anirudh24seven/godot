@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #if CONFIG_DEBUG
 #include <assert.h>
 #endif
@@ -104,7 +103,6 @@ static void branch_counts(
     while (++t < n);
 
 }
-
 
 void vp8_tree_probs_from_distribution(
     int n,                      /* n = size of alphabet */

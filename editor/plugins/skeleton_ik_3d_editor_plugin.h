@@ -1,8 +1,6 @@
 
 /*  skeleton_ik_3d_editor_plugin.h                                       */
 
-
-
 #ifndef SKELETON_IK_3D_EDITOR_PLUGIN_H
 #define SKELETON_IK_3D_EDITOR_PLUGIN_H
 

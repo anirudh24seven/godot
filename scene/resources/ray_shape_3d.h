@@ -1,8 +1,6 @@
 
 /*  ray_shape_3d.h                                                       */
 
-
-
 #ifndef RAY_SHAPE_H
 #define RAY_SHAPE_H
 #include "scene/resources/shape_3d.h"

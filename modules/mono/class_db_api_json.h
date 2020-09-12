@@ -1,8 +1,6 @@
 
 /*  class_db_api_json.h                                                  */
 
-
-
 #ifndef CLASS_DB_API_JSON_H
 #define CLASS_DB_API_JSON_H
 

@@ -1,8 +1,6 @@
 
 /*  separator.cpp                                                        */
 
-
-
 #include "separator.h"
 
 Size2 Separator::get_minimum_size() const {

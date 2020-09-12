@@ -1,8 +1,6 @@
 
 /*  gdscript_translation_parser_plugin.h                                 */
 
-
-
 #ifndef GDSCRIPT_TRANSLATION_PARSER_PLUGIN_H
 #define GDSCRIPT_TRANSLATION_PARSER_PLUGIN_H
 

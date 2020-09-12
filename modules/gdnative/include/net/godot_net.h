@@ -1,8 +1,6 @@
 
 /*  godot_net.h                                                          */
 
-
-
 #ifndef GODOT_NATIVENET_H
 #define GODOT_NATIVENET_H
 

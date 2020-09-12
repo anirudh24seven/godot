@@ -1,8 +1,6 @@
 
 /*  editor_properties_array_dict.h                                       */
 
-
-
 #ifndef EDITOR_PROPERTIES_ARRAY_DICT_H
 #define EDITOR_PROPERTIES_ARRAY_DICT_H
 

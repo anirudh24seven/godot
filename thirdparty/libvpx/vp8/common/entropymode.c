@@ -48,8 +48,6 @@ const vp8_prob vp8_sub_mv_ref_prob2 [SUBMVREF_COUNT][VP8_SUBMVREFS-1] =
     { 208, 1  , 1  }
 };
 
-
-
 const vp8_mbsplit vp8_mbsplits [VP8_NUMMBSPLITS] =
 {
     {
@@ -81,7 +79,6 @@ const vp8_mbsplit vp8_mbsplits [VP8_NUMMBSPLITS] =
 const int vp8_mbsplit_count [VP8_NUMMBSPLITS] = { 2, 2, 4, 16};
 
 const vp8_prob vp8_mbsplit_probs [VP8_NUMMBSPLITS-1] = { 110, 111, 150};
-
 
 /* Array indices are identical to previously-existing INTRAMODECONTEXTNODES. */
 

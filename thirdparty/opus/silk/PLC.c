@@ -50,7 +50,6 @@ static OPUS_INLINE void silk_PLC_conceal(
     int                                 arch                /* I  Run-time architecture */
 );
 
-
 void silk_PLC_Reset(
     silk_decoder_state                  *psDec              /* I/O Decoder state        */
 )

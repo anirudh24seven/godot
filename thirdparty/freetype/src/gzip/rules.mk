@@ -2,7 +2,6 @@
 # FreeType 2 GZip support configuration rules
 #
 
-
 # Copyright (C) 2002-2020 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
@@ -12,11 +11,9 @@
 # indicate that you have read the license and understand and accept it
 # fully.
 
-
 # gzip driver directory
 #
 GZIP_DIR := $(SRC_DIR)/gzip
-
 
 # compilation flags for the driver
 #
@@ -30,7 +27,6 @@ else
                         $(INCLUDE_FLAGS) \
                         $(FT_CFLAGS)
 endif
-
 
 # gzip support sources
 #
@@ -55,29 +51,24 @@ GZIP_DRV_SRCS := $(GZIP_DIR)/adler32.c  \
                  $(GZIP_DIR)/zutil.c    \
                  $(GZIP_DIR)/zutil.h
 
-
 # gzip driver object(s)
 #
 #   GZIP_DRV_OBJ is used during both `single' and `multi' builds
 #
 GZIP_DRV_OBJ := $(OBJ_DIR)/ftgzip.$O
 
-
 # gzip main source file
 #
 GZIP_DRV_SRC := $(GZIP_DIR)/ftgzip.c
-
 
 # gzip support - object
 #
 $(GZIP_DRV_OBJ): $(GZIP_DRV_SRC) $(GZIP_DRV_SRCS) $(FREETYPE_H)
 	$(GZIP_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $(GZIP_DRV_SRC))
 
-
 # update main driver object lists
 #
 DRV_OBJS_S += $(GZIP_DRV_OBJ)
 DRV_OBJS_M += $(GZIP_DRV_OBJ)
-
 
 # EOF

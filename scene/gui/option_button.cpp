@@ -1,8 +1,6 @@
 
 /*  option_button.cpp                                                    */
 
-
-
 #include "option_button.h"
 
 #include "core/print_string.h"

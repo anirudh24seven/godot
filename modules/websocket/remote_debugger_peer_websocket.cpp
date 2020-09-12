@@ -1,8 +1,6 @@
 
 /*  remote_debugger_peer_websocket.cpp                                   */
 
-
-
 #include "remote_debugger_peer_websocket.h"
 
 #include "core/project_settings.h"

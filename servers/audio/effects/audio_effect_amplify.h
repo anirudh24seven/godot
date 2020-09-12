@@ -1,8 +1,6 @@
 
 /*  audio_effect_amplify.h                                               */
 
-
-
 #ifndef AUDIOEFFECTAMPLIFY_H
 #define AUDIOEFFECTAMPLIFY_H
 

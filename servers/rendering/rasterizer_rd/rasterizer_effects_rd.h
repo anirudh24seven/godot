@@ -1,8 +1,6 @@
 
 /*  rasterizer_effects_rd.h                                              */
 
-
-
 #ifndef RASTERIZER_EFFECTS_RD_H
 #define RASTERIZER_EFFECTS_RD_H
 

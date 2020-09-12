@@ -1,8 +1,6 @@
 
 /*  editor_preview_plugins.h                                             */
 
-
-
 #ifndef EDITORPREVIEWPLUGINS_H
 #define EDITORPREVIEWPLUGINS_H
 

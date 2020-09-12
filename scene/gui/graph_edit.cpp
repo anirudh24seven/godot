@@ -1,8 +1,6 @@
 
 /*  graph_edit.cpp                                                       */
 
-
-
 #include "graph_edit.h"
 
 #include "core/input/input.h"

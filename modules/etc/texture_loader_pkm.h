@@ -1,8 +1,6 @@
 
 /*  texture_loader_pkm.h                                                 */
 
-
-
 #ifndef TEXTURE_LOADER_PKM_H
 #define TEXTURE_LOADER_PKM_H
 

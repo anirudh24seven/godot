@@ -1,8 +1,6 @@
 
 /*  broad_phase_3d_basic.cpp                                             */
 
-
-
 #include "broad_phase_3d_basic.h"
 #include "core/list.h"
 #include "core/print_string.h"

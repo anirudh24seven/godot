@@ -1,8 +1,6 @@
 
 /*  resource_importer_scene.h                                            */
 
-
-
 #ifndef RESOURCEIMPORTERSCENE_H
 #define RESOURCEIMPORTERSCENE_H
 

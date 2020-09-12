@@ -1,8 +1,6 @@
 
 /*  tile_map.cpp                                                         */
 
-
-
 #include "tile_map.h"
 
 #include "collision_object_2d.h"

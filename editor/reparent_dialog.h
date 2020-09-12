@@ -1,8 +1,6 @@
 
 /*  reparent_dialog.h                                                    */
 
-
-
 #ifndef REPARENT_DIALOG_H
 #define REPARENT_DIALOG_H
 

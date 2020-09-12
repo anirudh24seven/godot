@@ -777,7 +777,6 @@ static OPUS_INLINE opus_val16 SIG2WORD16_generic(celt_sig x)
 }
 #define SIG2WORD16(x) (SIG2WORD16_generic(x))
 
-
 #undef PRINT_MIPS
 #define PRINT_MIPS(file) do {fprintf (file, "total complexity = %llu MIPS\n", celt_mips);} while (0);
 

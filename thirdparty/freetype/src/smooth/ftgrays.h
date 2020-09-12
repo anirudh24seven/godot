@@ -15,14 +15,12 @@
  *
  */
 
-
 #ifndef FTGRAYS_H_
 #define FTGRAYS_H_
 
 #ifdef __cplusplus
   extern "C" {
 #endif
-
 
 #ifdef STANDALONE_
 #include "ftimage.h"
@@ -31,8 +29,7 @@
 #include FT_IMAGE_H
 #endif
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * To make ftgrays.h independent from configuration files we check
    * whether FT_EXPORT_VAR has been defined already.
@@ -46,12 +43,10 @@
 
   FT_EXPORT_VAR( const FT_Raster_Funcs )  ft_grays_raster;
 
-
 #ifdef __cplusplus
   }
 #endif
 
 #endif /* FTGRAYS_H_ */
-
 
 /* END */

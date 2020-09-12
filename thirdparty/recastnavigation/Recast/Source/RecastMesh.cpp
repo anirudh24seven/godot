@@ -122,7 +122,6 @@ static bool buildMeshAdjacency(unsigned short* polys, const int npolys,
 	return true;
 }
 
-
 static const int VERTEX_BUCKET_COUNT = (1<<12);
 
 inline int computeVertexHash(int x, int y, int z)
@@ -289,7 +288,6 @@ static bool diagonal(int i, int j, int n, const int* verts, int* indices)
 	return inCone(i, j, n, verts, indices) && diagonalie(i, j, n, verts, indices);
 }
 
-
 static bool diagonalieLoose(int i, int j, int n, const int* verts, int* indices)
 {
 	const int* d0 = &verts[(indices[i] & 0x0fffffff) * 4];
@@ -334,7 +332,6 @@ static bool diagonalLoose(int i, int j, int n, const int* verts, int* indices)
 {
 	return inConeLoose(i, j, n, verts, indices) && diagonalieLoose(i, j, n, verts, indices);
 }
-
 
 static int triangulate(int n, const int* verts, int* indices, int* tris)
 {
@@ -546,7 +543,6 @@ static void mergePolyVerts(unsigned short* pa, unsigned short* pb, int ea, int e
 	
 	memcpy(pa, tmp, sizeof(unsigned short)*nvp);
 }
-
 
 static void pushFront(int v, int* arr, int& an)
 {
@@ -1224,9 +1220,8 @@ bool rcBuildPolyMesh(rcContext* ctx, rcContourSet& cset, const int nvp, rcPolyMe
 			}
 		}
 	}
-	
-	
-	// Remove edge vertices.
+
+// Remove edge vertices.
 	for (int i = 0; i < mesh.nverts; ++i)
 	{
 		if (vflags[i])

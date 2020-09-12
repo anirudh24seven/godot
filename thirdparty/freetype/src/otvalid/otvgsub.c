@@ -15,12 +15,10 @@
  *
  */
 
-
 #include "otvalid.h"
 #include "otvcommn.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -29,16 +27,11 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  otvgsub
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                  GSUB LOOKUP TYPE 1                           *****/
   /*****                                                               *****/
 
-
-
-  /* uses otvalid->glyph_count */
+/* uses otvalid->glyph_count */
 
   static void
   otv_SingleSubst_validate( FT_Bytes       table,
@@ -47,8 +40,7 @@
     FT_Bytes  p = table;
     FT_UInt   SubstFormat;
 
-
-    OTV_NAME_ENTER( "SingleSubst" );
+OTV_NAME_ENTER( "SingleSubst" );
 
     OTV_LIMIT_CHECK( 2 );
     SubstFormat = FT_NEXT_USHORT( p );
@@ -63,8 +55,7 @@
         FT_Int    DeltaGlyphID;
         FT_Long   idx;
 
-
-        OTV_LIMIT_CHECK( 4 );
+OTV_LIMIT_CHECK( 4 );
         Coverage     = table + FT_NEXT_USHORT( p );
         DeltaGlyphID = FT_NEXT_SHORT( p );
 
@@ -84,8 +75,7 @@
       {
         FT_UInt  Coverage, GlyphCount;
 
-
-        OTV_LIMIT_CHECK( 4 );
+OTV_LIMIT_CHECK( 4 );
         Coverage   = FT_NEXT_USHORT( p );
         GlyphCount = FT_NEXT_USHORT( p );
 
@@ -111,16 +101,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                  GSUB LOOKUP TYPE 2                           *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra1 (glyph count) */
+/* sets otvalid->extra1 (glyph count) */
 
   static void
   otv_MultipleSubst_validate( FT_Bytes       table,
@@ -129,8 +114,7 @@
     FT_Bytes  p = table;
     FT_UInt   SubstFormat;
 
-
-    OTV_NAME_ENTER( "MultipleSubst" );
+OTV_NAME_ENTER( "MultipleSubst" );
 
     OTV_LIMIT_CHECK( 2 );
     SubstFormat = FT_NEXT_USHORT( p );
@@ -152,16 +136,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    GSUB LOOKUP TYPE 3                         *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra1 (glyph count) */
+/* sets otvalid->extra1 (glyph count) */
 
   static void
   otv_AlternateSubst_validate( FT_Bytes       table,
@@ -170,8 +149,7 @@
     FT_Bytes  p = table;
     FT_UInt   SubstFormat;
 
-
-    OTV_NAME_ENTER( "AlternateSubst" );
+OTV_NAME_ENTER( "AlternateSubst" );
 
     OTV_LIMIT_CHECK( 2 );
     SubstFormat = FT_NEXT_USHORT( p );
@@ -193,14 +171,9 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    GSUB LOOKUP TYPE 4                         *****/
   /*****                                                               *****/
-
-
 
 #define LigatureFunc  otv_Ligature_validate
 
@@ -213,8 +186,7 @@
     FT_Bytes  p = table;
     FT_UInt   LigatureGlyph, CompCount;
 
-
-    OTV_ENTER;
+OTV_ENTER;
 
     OTV_LIMIT_CHECK( 4 );
     LigatureGlyph = FT_NEXT_USHORT( p );
@@ -237,16 +209,14 @@
     OTV_EXIT;
   }
 
-
-  static void
+static void
   otv_LigatureSubst_validate( FT_Bytes       table,
                               OTV_Validator  otvalid )
   {
     FT_Bytes  p = table;
     FT_UInt   SubstFormat;
 
-
-    OTV_NAME_ENTER( "LigatureSubst" );
+OTV_NAME_ENTER( "LigatureSubst" );
 
     OTV_LIMIT_CHECK( 2 );
     SubstFormat = FT_NEXT_USHORT( p );
@@ -267,16 +237,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                  GSUB LOOKUP TYPE 5                           *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra1 (lookup count) */
+/* sets otvalid->extra1 (lookup count) */
 
   static void
   otv_ContextSubst_validate( FT_Bytes       table,
@@ -285,8 +250,7 @@
     FT_Bytes  p = table;
     FT_UInt   SubstFormat;
 
-
-    OTV_NAME_ENTER( "ContextSubst" );
+OTV_NAME_ENTER( "ContextSubst" );
 
     OTV_LIMIT_CHECK( 2 );
     SubstFormat = FT_NEXT_USHORT( p );
@@ -326,16 +290,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    GSUB LOOKUP TYPE 6                         *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra1 (lookup count)            */
+/* sets otvalid->extra1 (lookup count)            */
 
   static void
   otv_ChainContextSubst_validate( FT_Bytes       table,
@@ -344,8 +303,7 @@
     FT_Bytes  p = table;
     FT_UInt   SubstFormat;
 
-
-    OTV_NAME_ENTER( "ChainContextSubst" );
+OTV_NAME_ENTER( "ChainContextSubst" );
 
     OTV_LIMIT_CHECK( 2 );
     SubstFormat = FT_NEXT_USHORT( p );
@@ -387,16 +345,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    GSUB LOOKUP TYPE 7                         *****/
   /*****                                                               *****/
 
-
-
-  /* uses otvalid->type_funcs */
+/* uses otvalid->type_funcs */
 
   static void
   otv_ExtensionSubst_validate( FT_Bytes       table,
@@ -405,8 +358,7 @@
     FT_Bytes  p = table;
     FT_UInt   SubstFormat;
 
-
-    OTV_NAME_ENTER( "ExtensionSubst" );
+OTV_NAME_ENTER( "ExtensionSubst" );
 
     OTV_LIMIT_CHECK( 2 );
     SubstFormat = FT_NEXT_USHORT( p );
@@ -421,8 +373,7 @@
         FT_ULong           ExtensionOffset;
         OTV_Validate_Func  validate;
 
-
-        OTV_LIMIT_CHECK( 6 );
+OTV_LIMIT_CHECK( 6 );
         ExtensionLookupType = FT_NEXT_USHORT( p );
         ExtensionOffset     = FT_NEXT_ULONG( p );
 
@@ -443,16 +394,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    GSUB LOOKUP TYPE 8                         *****/
   /*****                                                               *****/
 
-
-
-  /* uses otvalid->glyph_count */
+/* uses otvalid->glyph_count */
 
   static void
   otv_ReverseChainSingleSubst_validate( FT_Bytes       table,
@@ -462,8 +408,7 @@
     FT_UInt   SubstFormat;
     FT_UInt   BacktrackGlyphCount, LookaheadGlyphCount, GlyphCount;
 
-
-    OTV_NAME_ENTER( "ReverseChainSingleSubst" );
+OTV_NAME_ENTER( "ReverseChainSingleSubst" );
 
     OTV_LIMIT_CHECK( 2 );
     SubstFormat = FT_NEXT_USHORT( p );
@@ -518,8 +463,7 @@
     OTV_EXIT;
   }
 
-
-  static const OTV_Validate_Func  otv_gsub_validate_funcs[8] =
+static const OTV_Validate_Func  otv_gsub_validate_funcs[8] =
   {
     otv_SingleSubst_validate,
     otv_MultipleSubst_validate,
@@ -531,16 +475,11 @@
     otv_ReverseChainSingleSubst_validate
   };
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          GSUB TABLE                           *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->type_count  */
+/* sets otvalid->type_count  */
   /* sets otvalid->type_funcs  */
   /* sets otvalid->glyph_count */
 
@@ -558,8 +497,7 @@
 
     OTV_OPTIONAL_TABLE32( featureVariations );
 
-
-    otvalid->root = ftvalid;
+otvalid->root = ftvalid;
 
     FT_TRACE3(( "validating GSUB table\n" ));
     OTV_INIT;
@@ -612,6 +550,5 @@
 
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

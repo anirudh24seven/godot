@@ -1,8 +1,6 @@
 
 /*  viewport.cpp                                                         */
 
-
-
 #include "viewport.h"
 
 #include "core/core_string_names.h"

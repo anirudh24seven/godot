@@ -1,8 +1,6 @@
 
 /*  upnp.h                                                               */
 
-
-
 #ifndef GODOT_UPNP_H
 #define GODOT_UPNP_H
 

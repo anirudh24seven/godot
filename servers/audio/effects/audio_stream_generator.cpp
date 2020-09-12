@@ -1,8 +1,6 @@
 
 /*  audio_stream_generator.cpp                                           */
 
-
-
 #include "audio_stream_generator.h"
 
 void AudioStreamGenerator::set_mix_rate(float p_mix_rate) {

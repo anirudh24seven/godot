@@ -1,8 +1,6 @@
 
 /*  resource_importer_csv_translation.cpp                                */
 
-
-
 #include "resource_importer_csv_translation.h"
 
 #include "core/compressed_translation.h"

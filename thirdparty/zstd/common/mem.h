@@ -21,7 +21,6 @@ extern "C" {
 #include <stddef.h>     /* size_t, ptrdiff_t */
 #include <string.h>     /* memcpy */
 
-
 /*-****************************************
 *  Compiler specifics
 ******************************************/
@@ -120,7 +119,6 @@ void __asan_poison_memory_region(void const volatile *addr, size_t size);
 void __asan_unpoison_memory_region(void const volatile *addr, size_t size);
 #endif
 
-
 /*-**************************************************************
 *  Basic Types
 *****************************************************************/
@@ -154,7 +152,6 @@ void __asan_unpoison_memory_region(void const volatile *addr, size_t size);
   typedef unsigned long long  U64;
   typedef   signed long long  S64;
 #endif
-
 
 /*-**************************************************************
 *  Memory I/O
@@ -444,7 +441,6 @@ MEM_STATIC void MEM_writeBEST(void* memPtr, size_t val)
     else
         MEM_writeBE64(memPtr, (U64)val);
 }
-
 
 #if defined (__cplusplus)
 }

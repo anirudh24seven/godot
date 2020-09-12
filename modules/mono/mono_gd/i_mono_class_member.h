@@ -1,8 +1,6 @@
 
 /*  i_mono_class_member.h                                                */
 
-
-
 #ifndef I_MONO_CLASS_MEMBER_H
 #define I_MONO_CLASS_MEMBER_H
 

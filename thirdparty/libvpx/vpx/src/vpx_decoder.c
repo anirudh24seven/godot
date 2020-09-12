@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 /*!\file
  * \brief Provides the high level interface to wrap decoder algorithms.
  *
@@ -63,7 +62,6 @@ vpx_codec_err_t vpx_codec_dec_init_ver(vpx_codec_ctx_t      *ctx,
   return SAVE_STATUS(ctx, res);
 }
 
-
 vpx_codec_err_t vpx_codec_peek_stream_info(vpx_codec_iface_t       *iface,
                                            const uint8_t         *data,
                                            unsigned int           data_sz,
@@ -84,7 +82,6 @@ vpx_codec_err_t vpx_codec_peek_stream_info(vpx_codec_iface_t       *iface,
   return res;
 }
 
-
 vpx_codec_err_t vpx_codec_get_stream_info(vpx_codec_ctx_t         *ctx,
                                           vpx_codec_stream_info_t *si) {
   vpx_codec_err_t res;
@@ -103,7 +100,6 @@ vpx_codec_err_t vpx_codec_get_stream_info(vpx_codec_ctx_t         *ctx,
 
   return SAVE_STATUS(ctx, res);
 }
-
 
 vpx_codec_err_t vpx_codec_decode(vpx_codec_ctx_t    *ctx,
                                  const uint8_t        *data,
@@ -138,7 +134,6 @@ vpx_image_t *vpx_codec_get_frame(vpx_codec_ctx_t  *ctx,
   return img;
 }
 
-
 vpx_codec_err_t vpx_codec_register_put_frame_cb(vpx_codec_ctx_t             *ctx,
                                                 vpx_codec_put_frame_cb_fn_t  cb,
                                                 void                      *user_priv) {
@@ -157,7 +152,6 @@ vpx_codec_err_t vpx_codec_register_put_frame_cb(vpx_codec_ctx_t             *ctx
 
   return SAVE_STATUS(ctx, res);
 }
-
 
 vpx_codec_err_t vpx_codec_register_put_slice_cb(vpx_codec_ctx_t             *ctx,
                                                 vpx_codec_put_slice_cb_fn_t  cb,

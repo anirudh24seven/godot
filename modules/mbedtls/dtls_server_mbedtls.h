@@ -1,8 +1,6 @@
 
 /*  dtls_server_mbedtls.h                                                */
 
-
-
 #ifndef MBED_DTLS_SERVER_H
 #define MBED_DTLS_SERVER_H
 

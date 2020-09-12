@@ -1,8 +1,6 @@
 
 /*  shape_3d.h                                                           */
 
-
-
 #ifndef SHAPE_3D_H
 #define SHAPE_3D_H
 

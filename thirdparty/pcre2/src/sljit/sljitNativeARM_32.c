@@ -1804,7 +1804,6 @@ SLJIT_API_FUNC_ATTRIBUTE sljit_s32 sljit_emit_op_custom(struct sljit_compiler *c
 /*  Floating point operators                                             */
 /* --------------------------------------------------------------------- */
 
-
 #define FPU_LOAD (1 << 20)
 #define EMIT_FPU_DATA_TRANSFER(inst, add, base, freg, offs) \
 	((inst) | ((add) << 23) | (reg_map[base] << 16) | (freg_map[freg] << 12) | (offs))

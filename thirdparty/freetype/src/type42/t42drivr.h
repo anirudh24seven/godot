@@ -15,14 +15,11 @@
  *
  */
 
-
 #ifndef T42DRIVR_H_
 #define T42DRIVR_H_
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DRIVER_H
-
 
 FT_BEGIN_HEADER
 
@@ -30,8 +27,6 @@ FT_BEGIN_HEADER
 
 FT_END_HEADER
 
-
 #endif /* T42DRIVR_H_ */
-
 
 /* END */

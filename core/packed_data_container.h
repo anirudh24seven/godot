@@ -1,8 +1,6 @@
 
 /*  packed_data_container.h                                              */
 
-
-
 #ifndef PACKED_DATA_CONTAINER_H
 #define PACKED_DATA_CONTAINER_H
 

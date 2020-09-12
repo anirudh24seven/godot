@@ -10,7 +10,6 @@
 	#define counter32_t volatile __global int*
 #endif
 
-
 __kernel void   mprPenetrationKernel( __global int4* pairs,
 																					__global const b3RigidBodyData_t* rigidBodies, 
 																					__global const b3Collidable_t* collidables,
@@ -35,16 +34,14 @@ __kernel void   mprPenetrationKernel( __global int4* pairs,
 	
 		int shapeIndexA = collidables[collidableIndexA].m_shapeIndex;
 		int shapeIndexB = collidables[collidableIndexB].m_shapeIndex;
-		
-		
-		//once the broadphase avoids static-static pairs, we can remove this test
+
+//once the broadphase avoids static-static pairs, we can remove this test
 		if ((rigidBodies[bodyIndexA].m_invMass==0) &&(rigidBodies[bodyIndexB].m_invMass==0))
 		{
 			return;
 		}
-		
 
-		if ((collidables[collidableIndexA].m_shapeType!=SHAPE_CONVEX_HULL) ||(collidables[collidableIndexB].m_shapeType!=SHAPE_CONVEX_HULL))
+if ((collidables[collidableIndexA].m_shapeType!=SHAPE_CONVEX_HULL) ||(collidables[collidableIndexB].m_shapeType!=SHAPE_CONVEX_HULL))
 		{
 			return;
 		}
@@ -53,14 +50,9 @@ __kernel void   mprPenetrationKernel( __global int4* pairs,
 		b3Float4 dirOut;
 		b3Float4 posOut;
 
+int res = b3MprPenetration(pairIndex, bodyIndexA, bodyIndexB,rigidBodies,convexShapes,collidables,vertices,separatingNormals,hasSeparatingAxis,&depthOut, &dirOut, &posOut);
 
-		int res = b3MprPenetration(pairIndex, bodyIndexA, bodyIndexB,rigidBodies,convexShapes,collidables,vertices,separatingNormals,hasSeparatingAxis,&depthOut, &dirOut, &posOut);
-		
-		
-		
-		
-
-		if (res==0)
+if (res==0)
 		{
 			//add a contact
 
@@ -100,9 +92,6 @@ float dot3F4(float4 a, float4 b)
 	return dot(a1, b1);
 }
 
-
-
-
 __inline
 float4 cross3(float4 a, float4 b)
 {
@@ -141,15 +130,13 @@ float4 transform(const float4* p, const float4* translation, const Quaternion* o
 	return qtRotate( *orientation, *p ) + (*translation);
 }
 
-
 __inline
 float4 qtInvRotate(const Quaternion q, float4 vec)
 {
 	return qtRotate( qtInvert( q ), vec );
 }
 
-
-inline void project(__global const b3ConvexPolyhedronData_t* hull,  const float4 pos, const float4 orn, 
+inline void project(__global const b3ConvexPolyhedronData_t* hull,  const float4 pos, const float4 orn,
 const float4* dir, __global const float4* vertices, float* min, float* max)
 {
 	min[0] = FLT_MAX;
@@ -176,8 +163,7 @@ const float4* dir, __global const float4* vertices, float* min, float* max)
 	max[0] += offset;
 }
 
-
-bool findSeparatingAxisUnitSphere(	__global const b3ConvexPolyhedronData_t* hullA, __global const b3ConvexPolyhedronData_t* hullB, 
+bool findSeparatingAxisUnitSphere(	__global const b3ConvexPolyhedronData_t* hullA, __global const b3ConvexPolyhedronData_t* hullB,
 	const float4 posA1,
 	const float4 ornA,
 	const float4 posB1,
@@ -231,17 +217,14 @@ bool findSeparatingAxisUnitSphere(	__global const b3ConvexPolyhedronData_t* hull
 		}
 	}
 
-	
-	if((dot3F4(-DeltaC2,*sep))>0.0f)
+if((dot3F4(-DeltaC2,*sep))>0.0f)
 	{
 		*sep = -(*sep);
 	}
 	return true;
 }
 
-
-
-__kernel void   findSeparatingAxisUnitSphereKernel( __global const int4* pairs, 
+__kernel void   findSeparatingAxisUnitSphereKernel( __global const int4* pairs,
 																					__global const b3RigidBodyData_t* rigidBodies, 
 																					__global const b3Collidable_t* collidables,
 																					__global const b3ConvexPolyhedronData_t* convexShapes, 
@@ -271,9 +254,8 @@ __kernel void   findSeparatingAxisUnitSphereKernel( __global const int4* pairs,
 		
 			int shapeIndexA = collidables[collidableIndexA].m_shapeIndex;
 			int shapeIndexB = collidables[collidableIndexB].m_shapeIndex;
-			
-			
-			int numFacesA = convexShapes[shapeIndexA].m_numFaces;
+
+int numFacesA = convexShapes[shapeIndexA].m_numFaces;
 	
 			float dmin = dmins[i];
 	

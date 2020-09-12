@@ -1,8 +1,6 @@
 
 /*  camera_feed.h                                                        */
 
-
-
 #ifndef CAMERA_FEED_H
 #define CAMERA_FEED_H
 

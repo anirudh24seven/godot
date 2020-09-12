@@ -1,8 +1,6 @@
 
 /*  logger.cpp                                                           */
 
-
-
 #include "logger.h"
 
 #include "core/os/dir_access.h"

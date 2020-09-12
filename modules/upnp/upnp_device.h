@@ -1,8 +1,6 @@
 
 /*  upnp_device.h                                                        */
 
-
-
 #ifndef GODOT_UPNP_DEVICE_H
 #define GODOT_UPNP_DEVICE_H
 

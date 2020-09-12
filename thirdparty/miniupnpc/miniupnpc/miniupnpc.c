@@ -52,7 +52,6 @@
 #define MAXHOSTNAMELEN 64
 #endif
 
-
 #include "miniupnpc.h"
 #include "minissdpc.h"
 #include "miniwget.h"
@@ -542,7 +541,6 @@ UPNPIGD_IsConnected(struct UPNPUrls * urls, struct IGDdatas * data)
 	else
 		return 0;
 }
-
 
 /* UPNP_GetValidIGD() :
  * return values :

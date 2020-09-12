@@ -1,8 +1,6 @@
 
 /*  SignalInfo.java                                                      */
 
-
-
 package org.godotengine.godot.plugin;
 
 import android.text.TextUtils;

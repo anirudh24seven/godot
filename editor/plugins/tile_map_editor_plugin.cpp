@@ -1,8 +1,6 @@
 
 /*  tile_map_editor_plugin.cpp                                           */
 
-
-
 #include "tile_map_editor_plugin.h"
 
 #include "canvas_item_editor_plugin.h"

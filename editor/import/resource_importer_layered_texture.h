@@ -1,12 +1,7 @@
 
 /*  resource_importer_layered_texture.h                                  */
 
-
-
-
 /*  resource_importer_layered_texture.h                                  */
-
-
 
 #ifndef RESOURCE_IMPORTER_LAYERED_TEXTURE_H
 #define RESOURCE_IMPORTER_LAYERED_TEXTURE_H

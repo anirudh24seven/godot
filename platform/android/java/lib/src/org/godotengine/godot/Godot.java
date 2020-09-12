@@ -1,8 +1,6 @@
 
 /*  Godot.java                                                           */
 
-
-
 package org.godotengine.godot;
 
 import static android.content.Context.MODE_PRIVATE;

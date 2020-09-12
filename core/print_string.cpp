@@ -1,8 +1,6 @@
 
 /*  print_string.cpp                                                     */
 
-
-
 #include "print_string.h"
 
 #include "core/os/os.h"

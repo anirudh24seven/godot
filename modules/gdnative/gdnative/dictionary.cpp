@@ -1,8 +1,6 @@
 
 /*  dictionary.cpp                                                       */
 
-
-
 #include "gdnative/dictionary.h"
 
 #include "core/variant.h"

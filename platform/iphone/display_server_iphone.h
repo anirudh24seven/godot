@@ -1,8 +1,6 @@
 
 /*  display_server_iphone.h                                              */
 
-
-
 #ifndef display_server_iphone_h
 #define display_server_iphone_h
 

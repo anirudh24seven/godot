@@ -1,8 +1,6 @@
 
 /*  detect_prime_x11.cpp                                                 */
 
-
-
 #ifdef X11_ENABLED
 #if defined(OPENGL_ENABLED)
 

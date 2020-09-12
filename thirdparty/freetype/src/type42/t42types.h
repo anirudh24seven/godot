@@ -15,10 +15,8 @@
  *
  */
 
-
 #ifndef T42TYPES_H_
 #define T42TYPES_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -26,11 +24,9 @@
 #include FT_INTERNAL_TYPE1_TYPES_H
 #include FT_INTERNAL_POSTSCRIPT_HINTS_H
 
-
 FT_BEGIN_HEADER
 
-
-  typedef struct  T42_FaceRec_
+typedef struct  T42_FaceRec_
   {
     FT_FaceRec      root;
     T1_FontRec      type1;
@@ -48,10 +44,8 @@ FT_BEGIN_HEADER
 
   } T42_FaceRec, *T42_Face;
 
-
 FT_END_HEADER
 
 #endif /* T42TYPES_H_ */
-
 
 /* END */

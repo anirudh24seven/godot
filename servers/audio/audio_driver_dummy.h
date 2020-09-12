@@ -1,8 +1,6 @@
 
 /*  audio_driver_dummy.h                                                 */
 
-
-
 #ifndef AUDIO_DRIVER_DUMMY_H
 #define AUDIO_DRIVER_DUMMY_H
 

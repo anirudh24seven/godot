@@ -1,8 +1,6 @@
 
 /*  editor_feature_profile.h                                             */
 
-
-
 #ifndef EDITOR_FEATURE_PROFILE_H
 #define EDITOR_FEATURE_PROFILE_H
 

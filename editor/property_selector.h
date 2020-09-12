@@ -1,8 +1,6 @@
 
 /*  property_selector.h                                                  */
 
-
-
 #ifndef PROPERTYSELECTOR_H
 #define PROPERTYSELECTOR_H
 

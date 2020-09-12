@@ -13,7 +13,6 @@ subject to the following restrictions:
 */
 //Originally written by Takahiro Harada
 
-
 #pragma OPENCL EXTENSION cl_amd_printf : enable
 #pragma OPENCL EXTENSION cl_khr_local_int32_base_atomics : enable
 
@@ -43,7 +42,6 @@ typedef struct
 	int m_n;
 	int m_padding[2];
 } ConstBuffer;
-
 
 __kernel
 __attribute__((reqd_work_group_size(64,1,1)))

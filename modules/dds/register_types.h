@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef DDS_REGISTER_TYPES_H
 #define DDS_REGISTER_TYPES_H
 

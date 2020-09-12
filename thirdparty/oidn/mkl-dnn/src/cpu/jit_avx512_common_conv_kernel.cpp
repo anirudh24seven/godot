@@ -585,8 +585,7 @@ void _jit_avx512_common_conv_fwd_kernel<Vmm>::compute_loop_fma(int ur_w,
     assert(reg_inp_prf == reg_long_offt);
     if (max_input_offset > INT_MAX) push(reg_inp_prf);
 
-
-    if (jcp.ndims == 5) {
+if (jcp.ndims == 5) {
         push(reg_out_prf);
         push(reg_out);
 
@@ -696,8 +695,7 @@ void _jit_avx512_common_conv_fwd_kernel<Vmm>::compute_loop_fma(int ur_w,
         jg(kh_label, T_NEAR);
     }
 
-
-    if (jcp.ndims == 5) {
+if (jcp.ndims == 5) {
         add(aux_reg_inp_d,
                 typesize * (jcp.dilate_d + 1) * jcp.ih * jcp.iw * inp_mul);
         add(aux_reg_ker_d, typesize * jcp.kw * jcp.kh * jcp.oc_block
@@ -733,8 +731,7 @@ void _jit_avx512_common_conv_fwd_kernel<Vmm>::compute_loop_fma_core(int ur_w,
     int shift_input_ptr = jcp.typesize_in * (jcp.dilate_h + 1) * jcp.iw
         * inp_mul;
 
-
-    auto input_offset = [=](int oi, int ic, int ki) {
+auto input_offset = [=](int oi, int ic, int ki) {
         return (size_t)jcp.typesize_in
                 * ((size_t)(ki * (jcp.dilate_w + 1) + oi * stride_w - pad_l)
                 * inp_mul + (size_t)ic
@@ -1439,8 +1436,7 @@ status_t jit_avx512_common_conv_fwd_kernel::init_conf(
         return res_ow_block;
     };
 
-
-    if (jcp.ver == ver_fma && mayiuse(avx512_core)) {
+if (jcp.ver == ver_fma && mayiuse(avx512_core)) {
         int try_nb_oc_blocking = 2;
         unsigned int ker_inp_size = typesize * div_up(jcp.iw, jcp.stride_w)
             * jcp.ic_block * jcp.kh * jcp.kd;
@@ -3769,8 +3765,7 @@ bool jit_avx512_common_conv_bwd_weights_kernel_f32::compute_full_spat_loop() {
             sub(reg_inp, reg_ihs);
             sub(reg_out, reg_ohs);
 
-
-            L(kh_loop_end);
+L(kh_loop_end);
             add(reg_kh, 1);
             cmp(reg_kh, jcp.kh);
             jl(kh_loop);

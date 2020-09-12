@@ -1,8 +1,6 @@
 
 /*  light_occluder_2d.cpp                                                */
 
-
-
 #include "light_occluder_2d.h"
 #include "core/math/geometry_2d.h"
 

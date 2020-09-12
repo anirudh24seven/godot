@@ -1,8 +1,6 @@
 
 /*  multimesh_editor_plugin.cpp                                          */
 
-
-
 #include "multimesh_editor_plugin.h"
 
 #include "node_3d_editor_plugin.h"

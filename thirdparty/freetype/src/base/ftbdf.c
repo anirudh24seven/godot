@@ -15,15 +15,13 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 
 #include FT_INTERNAL_OBJECTS_H
 #include FT_SERVICE_BDF_H
 
-
-  /* documentation is in ftbdf.h */
+/* documentation is in ftbdf.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Get_BDF_Charset_ID( FT_Face       face,
@@ -36,8 +34,7 @@
 
     FT_Service_BDF  service;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     FT_FACE_FIND_SERVICE( face, service, BDF );
@@ -56,8 +53,7 @@
     return error;
   }
 
-
-  /* documentation is in ftbdf.h */
+/* documentation is in ftbdf.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Get_BDF_Property( FT_Face           face,
@@ -68,8 +64,7 @@
 
     FT_Service_BDF  service;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     if ( !aproperty )
@@ -86,6 +81,5 @@
 
     return error;
   }
-
 
 /* END */

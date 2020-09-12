@@ -1,8 +1,6 @@
 
 /*  register_types.cpp                                                   */
 
-
-
 #include "register_types.h"
 
 // Dummy module as libvorbis is needed by other modules (theora ...)

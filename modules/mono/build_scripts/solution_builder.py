@@ -1,8 +1,6 @@
 import os
 
-
 verbose = False
-
 
 def find_dotnet_cli():
     import os.path
@@ -24,7 +22,6 @@ def find_dotnet_cli():
             hint_path = os.path.join(hint_dir, "dotnet")
             if os.path.isfile(hint_path) and os.access(hint_path, os.X_OK):
                 return hint_path
-
 
 def find_msbuild_unix():
     import os.path
@@ -53,7 +50,6 @@ def find_msbuild_unix():
             return hint_path + ".exe"
 
     return None
-
 
 def find_msbuild_windows(env):
     from .mono_reg_utils import find_mono_root_dir, find_msbuild_tools_path_reg
@@ -84,7 +80,6 @@ def find_msbuild_windows(env):
 
     return None
 
-
 def run_command(command, args, env_override=None, name=None):
     def cmd_args_to_str(cmd_args):
         return " ".join([arg if not " " in arg else '"%s"' % arg for arg in cmd_args])
@@ -106,7 +101,6 @@ def run_command(command, args, env_override=None, name=None):
             subprocess.check_call(args, env=env_override)
     except subprocess.CalledProcessError as e:
         raise RuntimeError("'%s' exited with error code: %s" % (name, e.returncode))
-
 
 def build_solution(env, solution_path, build_config, extra_msbuild_args=[]):
     global verbose

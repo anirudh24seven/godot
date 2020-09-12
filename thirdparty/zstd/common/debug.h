@@ -32,7 +32,6 @@
    - Source repository : https://github.com/Cyan4973/FiniteStateEntropy
 ****************************************************************** */
 
-
 /*
  * The purpose of this header is to enable debug functions.
  * They regroup assert(), DEBUGLOG() and RAWLOG() for run-time,
@@ -56,12 +55,10 @@
 extern "C" {
 #endif
 
-
 /* static assert is triggered at compile time, leaving no runtime artefact.
  * static assert only works with compile-time constants.
  * Also, this variant can only be used inside a function. */
 #define DEBUG_STATIC_ASSERT(c) (void)sizeof(char[(c) ? 1 : -1])
-
 
 /* DEBUGLEVEL is expected to be defined externally,
  * typically through compiler command line.
@@ -70,7 +67,6 @@ extern "C" {
 #  define DEBUGLEVEL 0
 #endif
 
-
 /* DEBUGFILE can be defined externally,
  * typically through compiler command line.
  * note : currently useless.
@@ -78,7 +74,6 @@ extern "C" {
 #ifndef DEBUGFILE
 #  define DEBUGFILE stderr
 #endif
-
 
 /* recommended values for DEBUGLEVEL :
  * 0 : release mode, no debug, all run-time checks disabled
@@ -125,7 +120,6 @@ extern int g_debuglevel; /* the variable is only declared,
 #  define RAWLOG(l, ...)      {}    /* disabled */
 #  define DEBUGLOG(l, ...)    {}    /* disabled */
 #endif
-
 
 #if defined (__cplusplus)
 }

@@ -1,8 +1,6 @@
 
 /*  animation_blend_space_2d_editor.cpp                                  */
 
-
-
 #include "animation_blend_space_2d_editor.h"
 
 #include "core/input/input.h"

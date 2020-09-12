@@ -1,8 +1,6 @@
 
 /*  global_constants.cpp                                                 */
 
-
-
 #include "global_constants.h"
 
 #include "core/input/input_event.h"

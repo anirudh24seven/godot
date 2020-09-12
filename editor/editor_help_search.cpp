@@ -1,8 +1,6 @@
 
 /*  editor_help_search.cpp                                               */
 
-
-
 #include "editor_help_search.h"
 
 #include "core/os/keyboard.h"

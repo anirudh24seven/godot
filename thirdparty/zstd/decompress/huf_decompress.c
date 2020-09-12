@@ -56,7 +56,6 @@
 #error "Cannot force the use of the X1 and X2 decoders at the same time!"
 #endif
 
-
 /* **************************************************************
 *  Error Management
 ****************************************************************/
@@ -65,13 +64,11 @@
 #define CHECK_F(f) { size_t const err_ = (f); if (HUF_isError(err_)) return err_; }
 #endif
 
-
 /* **************************************************************
 *  Byte alignment for workSpace management
 ****************************************************************/
 #define HUF_ALIGN(x, a)         HUF_ALIGN_MASK((x), (a) - 1)
 #define HUF_ALIGN_MASK(x, mask) (((x) + (mask)) & ~(mask))
-
 
 /* **************************************************************
 *  BMI2 Variant Wrappers
@@ -117,7 +114,6 @@
 
 #endif
 
-
 /*-***************************/
 /*  generic DTableDesc       */
 /*-***************************/
@@ -129,7 +125,6 @@ static DTableDesc HUF_getDTableDesc(const HUF_DTable* table)
     memcpy(&dtd, table, sizeof(dtd));
     return dtd;
 }
-
 
 #ifndef HUF_FORCE_DECOMPRESS_X2
 
@@ -364,7 +359,6 @@ HUF_decompress4X1_usingDTable_internal_body(
     }
 }
 
-
 typedef size_t (*HUF_decompress_usingDTable_t)(void *dst, size_t dstSize,
                                                const void *cSrc,
                                                size_t cSrcSize,
@@ -372,8 +366,6 @@ typedef size_t (*HUF_decompress_usingDTable_t)(void *dst, size_t dstSize,
 
 HUF_DGEN(HUF_decompress1X1_usingDTable_internal)
 HUF_DGEN(HUF_decompress4X1_usingDTable_internal)
-
-
 
 size_t HUF_decompress1X1_usingDTable(
           void* dst,  size_t dstSize,
@@ -398,7 +390,6 @@ size_t HUF_decompress1X1_DCtx_wksp(HUF_DTable* DCtx, void* dst, size_t dstSize,
 
     return HUF_decompress1X1_usingDTable_internal(dst, dstSize, ip, cSrcSize, DCtx, /* bmi2 */ 0);
 }
-
 
 size_t HUF_decompress1X1_DCtx(HUF_DTable* DCtx, void* dst, size_t dstSize,
                               const void* cSrc, size_t cSrcSize)
@@ -446,7 +437,6 @@ size_t HUF_decompress4X1_DCtx_wksp(HUF_DTable* dctx, void* dst, size_t dstSize,
     return HUF_decompress4X1_DCtx_wksp_bmi2(dctx, dst, dstSize, cSrc, cSrcSize, workSpace, wkspSize, 0);
 }
 
-
 size_t HUF_decompress4X1_DCtx (HUF_DTable* dctx, void* dst, size_t dstSize, const void* cSrc, size_t cSrcSize)
 {
     U32 workSpace[HUF_DECOMPRESS_WORKSPACE_SIZE_U32];
@@ -461,7 +451,6 @@ size_t HUF_decompress4X1 (void* dst, size_t dstSize, const void* cSrc, size_t cS
 
 #endif /* HUF_FORCE_DECOMPRESS_X2 */
 
-
 #ifndef HUF_FORCE_DECOMPRESS_X1
 
 /* *************************/
@@ -472,7 +461,6 @@ typedef struct { U16 sequence; BYTE nbBits; BYTE length; } HUF_DEltX2;  /* doubl
 typedef struct { BYTE symbol; BYTE weight; } sortedSymbol_t;
 typedef U32 rankValCol_t[HUF_TABLELOG_MAX + 1];
 typedef rankValCol_t rankVal_t[HUF_TABLELOG_MAX];
-
 
 /* HUF_fillDTableX2Level2() :
  * `rankValOrigin` must be a table of at least (HUF_TABLELOG_MAX + 1) U32 */
@@ -515,7 +503,6 @@ static void HUF_fillDTableX2Level2(HUF_DEltX2* DTable, U32 sizeLog, const U32 co
             rankVal[weight] += length;
     }   }
 }
-
 
 static void HUF_fillDTableX2(HUF_DEltX2* DTable, const U32 targetLog,
                            const sortedSymbol_t* sortedList, const U32 sortedListSize,
@@ -666,7 +653,6 @@ size_t HUF_readDTableX2(HUF_DTable* DTable, const void* src, size_t srcSize)
                                workSpace, sizeof(workSpace));
 }
 
-
 FORCE_INLINE_TEMPLATE U32
 HUF_decodeSymbolX2(void* op, BIT_DStream_t* DStream, const HUF_DEltX2* dt, const U32 dtLog)
 {
@@ -756,7 +742,6 @@ HUF_decompress1X2_usingDTable_internal_body(
     /* decoded size */
     return dstSize;
 }
-
 
 FORCE_INLINE_TEMPLATE size_t
 HUF_decompress4X2_usingDTable_internal_body(
@@ -875,7 +860,6 @@ size_t HUF_decompress1X2_DCtx_wksp(HUF_DTable* DCtx, void* dst, size_t dstSize,
     return HUF_decompress1X2_usingDTable_internal(dst, dstSize, ip, cSrcSize, DCtx, /* bmi2 */ 0);
 }
 
-
 size_t HUF_decompress1X2_DCtx(HUF_DTable* DCtx, void* dst, size_t dstSize,
                               const void* cSrc, size_t cSrcSize)
 {
@@ -922,7 +906,6 @@ size_t HUF_decompress4X2_DCtx_wksp(HUF_DTable* dctx, void* dst, size_t dstSize,
     return HUF_decompress4X2_DCtx_wksp_bmi2(dctx, dst, dstSize, cSrc, cSrcSize, workSpace, wkspSize, /* bmi2 */ 0);
 }
 
-
 size_t HUF_decompress4X2_DCtx(HUF_DTable* dctx, void* dst, size_t dstSize,
                               const void* cSrc, size_t cSrcSize)
 {
@@ -938,7 +921,6 @@ size_t HUF_decompress4X2 (void* dst, size_t dstSize, const void* cSrc, size_t cS
 }
 
 #endif /* HUF_FORCE_DECOMPRESS_X1 */
-
 
 /* ***********************************/
 /* Universal decompression selectors */
@@ -981,7 +963,6 @@ size_t HUF_decompress4X_usingDTable(void* dst, size_t maxDstSize,
                            HUF_decompress4X1_usingDTable_internal(dst, maxDstSize, cSrc, cSrcSize, DTable, /* bmi2 */ 0);
 #endif
 }
-
 
 #if !defined(HUF_FORCE_DECOMPRESS_X1) && !defined(HUF_FORCE_DECOMPRESS_X2)
 typedef struct { U32 tableTime; U32 decode256Time; } algo_time_t;
@@ -1035,7 +1016,6 @@ U32 HUF_selectDecoder (size_t dstSize, size_t cSrcSize)
     }
 #endif
 }
-
 
 typedef size_t (*decompressionAlgo)(void* dst, size_t dstSize, const void* cSrc, size_t cSrcSize);
 
@@ -1096,7 +1076,6 @@ size_t HUF_decompress4X_hufOnly(HUF_DTable* dctx, void* dst, size_t dstSize, con
     return HUF_decompress4X_hufOnly_wksp(dctx, dst, dstSize, cSrc, cSrcSize,
                                          workSpace, sizeof(workSpace));
 }
-
 
 size_t HUF_decompress4X_hufOnly_wksp(HUF_DTable* dctx, void* dst,
                                      size_t dstSize, const void* cSrc,
@@ -1161,7 +1140,6 @@ size_t HUF_decompress1X_DCtx(HUF_DTable* dctx, void* dst, size_t dstSize,
     return HUF_decompress1X_DCtx_wksp(dctx, dst, dstSize, cSrc, cSrcSize,
                                       workSpace, sizeof(workSpace));
 }
-
 
 size_t HUF_decompress1X_usingDTable_bmi2(void* dst, size_t maxDstSize, const void* cSrc, size_t cSrcSize, const HUF_DTable* DTable, int bmi2)
 {

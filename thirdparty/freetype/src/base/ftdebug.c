@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This component contains various macros and functions used to ease the
    * debugging of the FreeType engine.  Its main purpose is in assertion
@@ -40,11 +39,9 @@
    *
    */
 
-
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_INTERNAL_DEBUG_H
-
 
 #ifdef FT_DEBUG_LEVEL_ERROR
 
@@ -56,14 +53,12 @@
   {
     va_list  ap;
 
-
-    va_start( ap, fmt );
+va_start( ap, fmt );
     vfprintf( stderr, fmt, ap );
     va_end( ap );
   }
 
-
-  /* documentation is in ftdebug.h */
+/* documentation is in ftdebug.h */
 
   FT_BASE_DEF( void )
   FT_Panic( const char*  fmt,
@@ -71,16 +66,14 @@
   {
     va_list  ap;
 
-
-    va_start( ap, fmt );
+va_start( ap, fmt );
     vfprintf( stderr, fmt, ap );
     va_end( ap );
 
     exit( EXIT_FAILURE );
   }
 
-
-  /* documentation is in ftdebug.h */
+/* documentation is in ftdebug.h */
 
   FT_BASE_DEF( int )
   FT_Throw( FT_Error     error,
@@ -106,8 +99,6 @@
 
 #endif /* FT_DEBUG_LEVEL_ERROR */
 
-
-
 #ifdef FT_DEBUG_LEVEL_TRACE
 
   /* array of trace levels, initialized to 0; */
@@ -132,8 +123,7 @@
 
 #undef FT_TRACE_DEF
 
-
-  /* documentation is in ftdebug.h */
+/* documentation is in ftdebug.h */
 
   FT_BASE_DEF( FT_Int )
   FT_Trace_Get_Count( void )
@@ -141,23 +131,20 @@
     return trace_count;
   }
 
-
-  /* documentation is in ftdebug.h */
+/* documentation is in ftdebug.h */
 
   FT_BASE_DEF( const char * )
   FT_Trace_Get_Name( FT_Int  idx )
   {
     int  max = FT_Trace_Get_Count();
 
-
-    if ( idx < max )
+if ( idx < max )
       return ft_trace_toggles[idx];
     else
       return NULL;
   }
 
-
-  /* documentation is in ftdebug.h */
+/* documentation is in ftdebug.h */
 
   FT_BASE_DEF( void )
   FT_Trace_Disable( void )
@@ -165,8 +152,7 @@
     ft_trace_levels = ft_trace_levels_disabled;
   }
 
-
-  /* documentation is in ftdebug.h */
+/* documentation is in ftdebug.h */
 
   FT_BASE_DEF( void )
   FT_Trace_Enable( void )
@@ -174,8 +160,7 @@
     ft_trace_levels = ft_trace_levels_enabled;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Initialize the tracing sub-system.  This is done by retrieving the
    * value of the `FT2_DEBUG' environment variable.  It must be a list of
@@ -198,14 +183,12 @@
   {
     const char*  ft2_debug = ft_getenv( "FT2_DEBUG" );
 
-
-    if ( ft2_debug )
+if ( ft2_debug )
     {
       const char*  p = ft2_debug;
       const char*  q;
 
-
-      for ( ; *p; p++ )
+for ( ; *p; p++ )
       {
         /* skip leading whitespace and separators */
         if ( *p == ' ' || *p == '\t' || *p == ',' || *p == ';' || *p == '=' )
@@ -224,13 +207,11 @@
           FT_Int  n, i, len = (FT_Int)( p - q );
           FT_Int  level = -1, found = -1;
 
-
-          for ( n = 0; n < trace_count; n++ )
+for ( n = 0; n < trace_count; n++ )
           {
             const char*  toggle = ft_trace_toggles[n];
 
-
-            for ( i = 0; i < len; i++ )
+for ( i = 0; i < len; i++ )
             {
               if ( toggle[i] != q[i] )
                 break;
@@ -270,25 +251,21 @@
     ft_trace_levels = ft_trace_levels_enabled;
   }
 
-
 #else  /* !FT_DEBUG_LEVEL_TRACE */
 
-
-  FT_BASE_DEF( void )
+FT_BASE_DEF( void )
   ft_debug_init( void )
   {
     /* nothing */
   }
 
-
-  FT_BASE_DEF( FT_Int )
+FT_BASE_DEF( FT_Int )
   FT_Trace_Get_Count( void )
   {
     return 0;
   }
 
-
-  FT_BASE_DEF( const char * )
+FT_BASE_DEF( const char * )
   FT_Trace_Get_Name( FT_Int  idx )
   {
     FT_UNUSED( idx );
@@ -296,15 +273,13 @@
     return NULL;
   }
 
-
-  FT_BASE_DEF( void )
+FT_BASE_DEF( void )
   FT_Trace_Disable( void )
   {
     /* nothing */
   }
 
-
-  /* documentation is in ftdebug.h */
+/* documentation is in ftdebug.h */
 
   FT_BASE_DEF( void )
   FT_Trace_Enable( void )
@@ -312,8 +287,6 @@
     /* nothing */
   }
 
-
 #endif /* !FT_DEBUG_LEVEL_TRACE */
-
 
 /* END */

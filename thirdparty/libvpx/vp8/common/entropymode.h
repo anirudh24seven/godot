@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_ENTROPYMODE_H_
 #define VP8_COMMON_ENTROPYMODE_H_
 
@@ -42,9 +41,7 @@ extern int vp8_mv_cont(const int_mv *l, const int_mv *a);
 #define SUBMVREF_COUNT 5
 extern const vp8_prob vp8_sub_mv_ref_prob2 [SUBMVREF_COUNT][VP8_SUBMVREFS-1];
 
-
 extern const unsigned int vp8_kf_default_bmode_counts [VP8_BINTRAMODES] [VP8_BINTRAMODES] [VP8_BINTRAMODES];
-
 
 extern const vp8_tree_index vp8_bmode_tree[];
 

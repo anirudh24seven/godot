@@ -948,7 +948,6 @@ static int _ov_open2(OggVorbis_File *vf){
   return 0;
 }
 
-
 /* clear out the OggVorbis_File struct */
 int ov_clear(OggVorbis_File *vf){
   if(vf){
@@ -1015,7 +1014,6 @@ int ov_fopen(const char *path,OggVorbis_File *vf){
   if(ret) fclose(f);
   return ret;
 }
-
 
 /* cheap hack for game usage where downsampling is desirable; there's
    no need for SRC as we can just do it cheaply in libvorbis. */
@@ -2107,8 +2105,6 @@ long ov_read(OggVorbis_File *vf,char *buffer,int length,
                    in, just guaranteed to fit.
 
             *section) set to the logical bitstream number */
-
-
 
 long ov_read_float(OggVorbis_File *vf,float ***pcm_channels,int length,
                    int *bitstream){

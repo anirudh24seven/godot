@@ -1042,7 +1042,6 @@ android_cpuInit(void)
         g_cpuFeatures |= ANDROID_CPU_X86_FEATURE_SHA_NI;
     }
 
-
 #endif
 #if defined( __mips__)
     {   /* MIPS and MIPS64 */
@@ -1063,7 +1062,6 @@ android_cpuInit(void)
     free(cpuinfo);
 }
 
-
 AndroidCpuFamily
 android_getCpuFamily(void)
 {
@@ -1071,14 +1069,12 @@ android_getCpuFamily(void)
     return g_cpuFamily;
 }
 
-
 uint64_t
 android_getCpuFeatures(void)
 {
     pthread_once(&g_once, android_cpuInit);
     return g_cpuFeatures;
 }
-
 
 int
 android_getCpuCount(void)

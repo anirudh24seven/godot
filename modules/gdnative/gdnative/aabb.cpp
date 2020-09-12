@@ -1,8 +1,6 @@
 
 /*  aabb.cpp                                                             */
 
-
-
 #include "gdnative/aabb.h"
 
 #include "core/math/aabb.h"

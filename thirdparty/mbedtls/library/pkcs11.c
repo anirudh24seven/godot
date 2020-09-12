@@ -121,7 +121,6 @@ cleanup:
     return( ret );
 }
 
-
 int mbedtls_pkcs11_priv_key_bind( mbedtls_pkcs11_context *priv_key,
         pkcs11h_certificate_t pkcs11_cert )
 {

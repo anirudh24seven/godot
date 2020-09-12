@@ -1,8 +1,6 @@
 
 /*  export_template_manager.h                                            */
 
-
-
 #ifndef EXPORT_TEMPLATE_MANAGER_H
 #define EXPORT_TEMPLATE_MANAGER_H
 

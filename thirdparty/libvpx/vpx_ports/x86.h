@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VPX_PORTS_X86_H_
 #define VPX_PORTS_X86_H_
 #include <stdlib.h>
@@ -319,7 +318,6 @@ x87_set_double_precision(void) {
   x87_set_control_word((mode&~0x300) | 0x200);
   return mode;
 }
-
 
 extern void vpx_reset_mmx_state(void);
 

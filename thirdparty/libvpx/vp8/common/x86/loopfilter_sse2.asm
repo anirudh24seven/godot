@@ -8,7 +8,6 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
 %define _t0 0
 %define _t1 _t0 + 16
@@ -375,7 +374,6 @@ sym(vp8_loop_filter_horizontal_edge_uv_sse2):
     pop         rbp
     ret
 
-
 %macro MB_FILTER_AND_WRITEBACK 1
         movdqa      xmm3,                   [GLOBAL(t80)]
 %if %1 == 0
@@ -552,7 +550,6 @@ sym(vp8_loop_filter_horizontal_edge_uv_sse2):
 
 %endmacro
 
-
 ;void vp8_mbloop_filter_horizontal_edge_sse2
 ;(
 ;    unsigned char *src_ptr,
@@ -596,7 +593,6 @@ sym(vp8_mbloop_filter_horizontal_edge_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_mbloop_filter_horizontal_edge_uv_sse2
 ;(
@@ -646,7 +642,6 @@ sym(vp8_mbloop_filter_horizontal_edge_uv_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 %macro TRANSPOSE_16X8 2
         movq        xmm4,               [rsi]           ; xx xx xx xx xx xx xx xx 07 06 05 04 03 02 01 00
@@ -1133,7 +1128,6 @@ sym(vp8_loop_filter_vertical_edge_uv_sse2):
         movhps      [rdi+2*rcx],        xmm4
 %endmacro
 
-
 ;void vp8_mbloop_filter_vertical_edge_sse2
 ;(
 ;    unsigned char *src_ptr,
@@ -1183,8 +1177,7 @@ sym(vp8_mbloop_filter_vertical_edge_sse2):
 
         MBV_WRITEBACK_1
 
-
-        lea         rsi,                [rsi+rax*8]
+lea         rsi,                [rsi+rax*8]
         lea         rdi,                [rdi+rax*8]
         MBV_WRITEBACK_2
 
@@ -1198,7 +1191,6 @@ sym(vp8_mbloop_filter_vertical_edge_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_mbloop_filter_vertical_edge_uv_sse2
 ;(
@@ -1262,7 +1254,6 @@ sym(vp8_mbloop_filter_vertical_edge_uv_sse2):
     pop         rbp
     ret
 
-
 ;void vp8_loop_filter_simple_horizontal_edge_sse2
 ;(
 ;    unsigned char *src_ptr,
@@ -1316,8 +1307,7 @@ sym(vp8_loop_filter_simple_horizontal_edge_sse2):
         pxor        xmm7, xmm7
         pcmpeqb     xmm5, xmm7
 
-
-        ; start work on filters
+; start work on filters
         pxor        xmm2, xmm4     ; p1 offset to convert to signed values
         pxor        xmm3, xmm4     ; q1 offset to convert to signed values
         psubsb      xmm2, xmm3              ; p1 - q1
@@ -1366,7 +1356,6 @@ sym(vp8_loop_filter_simple_horizontal_edge_sse2):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_loop_filter_simple_vertical_edge_sse2
 ;(

@@ -180,8 +180,7 @@ void TParseContext::setLimits(const TBuiltInResource& r)
                      ! limits.generalVariableIndexing ||
                      ! limits.generalVaryingIndexing;
 
-
-    // "Each binding point tracks its own current default offset for
+// "Each binding point tracks its own current default offset for
     // inheritance of subsequent variables using the same binding. The initial state of compilation is that all
     // binding points have an offset of 0."
     atomicUintOffsets = new int[resources.maxAtomicCounterBindings];
@@ -1668,8 +1667,7 @@ void TParseContext::memorySemanticsCheck(const TSourceLoc& loc, const TFunction&
     const int gl_StorageSemanticsImage    = 0x800;
     const int gl_StorageSemanticsOutput   = 0x1000;
 
-
-    unsigned int semantics = 0, storageClassSemantics = 0;
+unsigned int semantics = 0, storageClassSemantics = 0;
     unsigned int semantics2 = 0, storageClassSemantics2 = 0;
 
     // Grab the semantics and storage class semantics from the operands, based on opcode

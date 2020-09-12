@@ -1,8 +1,6 @@
 
 /*  editor_vcs_interface.cpp                                             */
 
-
-
 #include "editor_vcs_interface.h"
 
 EditorVCSInterface *EditorVCSInterface::singleton = nullptr;

@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include <stdlib.h>
 #include "loopfilter.h"
 #include "onyxc_int.h"
@@ -21,7 +20,6 @@ static signed char vp8_signed_char_clamp(int t)
     t = (t > 127 ? 127 : t);
     return (signed char) t;
 }
-
 
 /* should we apply any filter at all ( 11111111 yes, 00000000 no) */
 static signed char vp8_filter_mask(uc limit, uc blimit,
@@ -186,8 +184,7 @@ static void vp8_mbfilter(signed char mask, uc hev,
     qs0 = vp8_signed_char_clamp(qs0 - Filter1);
     ps0 = vp8_signed_char_clamp(ps0 + Filter2);
 
-
-    /* only apply wider filter if not high edge variance */
+/* only apply wider filter if not high edge variance */
     filter_value &= ~hev;
     Filter2 = filter_value;
 
@@ -246,7 +243,6 @@ void vp8_mbloop_filter_horizontal_edge_c
     while (++i < count * 8);
 
 }
-
 
 void vp8_mbloop_filter_vertical_edge_c
 (

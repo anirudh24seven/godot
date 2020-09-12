@@ -42,9 +42,6 @@ struct OpusMSDecoder {
    /* Decoder states go here */
 };
 
-
-
-
 /* DECODER */
 
 opus_int32 opus_multistream_decoder_get_size(int nb_streams, int nb_coupled_streams)
@@ -105,7 +102,6 @@ int opus_multistream_decoder_init(
    }
    return OPUS_OK;
 }
-
 
 OpusMSDecoder *opus_multistream_decoder_create(
       opus_int32 Fs,
@@ -359,8 +355,6 @@ static void opus_copy_channel_out_short(
    }
 }
 
-
-
 #ifdef FIXED_POINT
 int opus_multistream_decode(
       OpusMSDecoder *st,
@@ -529,7 +523,6 @@ bad_arg:
    va_end(ap);
    return OPUS_BAD_ARG;
 }
-
 
 void opus_multistream_decoder_destroy(OpusMSDecoder *st)
 {

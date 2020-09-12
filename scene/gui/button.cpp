@@ -1,8 +1,6 @@
 
 /*  button.cpp                                                           */
 
-
-
 #include "button.h"
 
 #include "core/translation.h"

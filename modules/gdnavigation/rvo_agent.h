@@ -1,8 +1,6 @@
 
 /*  rvo_agent.h                                                          */
 
-
-
 #ifndef RVO_AGENT_H
 #define RVO_AGENT_H
 

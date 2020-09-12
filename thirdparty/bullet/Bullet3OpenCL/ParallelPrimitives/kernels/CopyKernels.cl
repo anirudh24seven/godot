@@ -36,8 +36,6 @@ typedef struct
 	int m_padding[3];
 } ConstBuffer;
 
-
-
 __kernel
 __attribute__((reqd_work_group_size(64,1,1)))
 void Copy1F4Kernel(__global float4* dst, __global float4* src, 

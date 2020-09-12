@@ -1,8 +1,6 @@
 
 /*  os_linuxbsd.h                                                        */
 
-
-
 #ifndef OS_LINUXBSD_H
 #define OS_LINUXBSD_H
 

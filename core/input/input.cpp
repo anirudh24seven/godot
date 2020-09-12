@@ -1,8 +1,6 @@
 
 /*  input.cpp                                                            */
 
-
-
 #include "input.h"
 
 #include "core/input/default_controller_mappings.h"

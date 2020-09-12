@@ -1,8 +1,6 @@
 
 /*  gd_mono_log.h                                                        */
 
-
-
 #ifndef GD_MONO_LOG_H
 #define GD_MONO_LOG_H
 

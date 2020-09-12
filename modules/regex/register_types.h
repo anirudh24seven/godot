@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef REGEX_REGISTER_TYPES_H
 #define REGEX_REGISTER_TYPES_H
 

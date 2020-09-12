@@ -1,8 +1,6 @@
 
 /*  vulkan_context_win.cpp                                               */
 
-
-
 #include "vulkan_context_win.h"
 #include <vulkan/vulkan_win32.h>
 

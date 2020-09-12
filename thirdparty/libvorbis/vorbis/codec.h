@@ -146,7 +146,6 @@ typedef struct vorbis_comment{
 
 } vorbis_comment;
 
-
 /* libvorbis encodes in two abstraction layers; first we perform DSP
    and produce a packet (see docs/analysis.txt).  The packet is then
    coded into a framed OggSquish bitstream by the second layer (see

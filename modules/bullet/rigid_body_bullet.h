@@ -1,8 +1,6 @@
 
 /*  rigid_body_bullet.h                                                  */
 
-
-
 #ifndef BODYBULLET_H
 #define BODYBULLET_H
 

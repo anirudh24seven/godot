@@ -1,8 +1,6 @@
 
 /*  light_2d.cpp                                                         */
 
-
-
 #include "light_2d.h"
 
 #include "core/engine.h"

@@ -169,8 +169,7 @@ public:
 #endif
 		$ifret _set_returns(true); $
 
-
-	}
+}
 };
 
 template<class T $ifret ,class R$ $ifargs ,$ $arg, class P@$>
@@ -189,7 +188,6 @@ MethodBind* create_method_bind($ifret R$ $ifnoret void$ (T::*p_method)($arg, P@$
 }
 #endif
 """
-
 
 template_typed_free_func = """
 #ifdef TYPED_METHOD_BIND
@@ -279,7 +277,6 @@ MethodBind* create_method_bind($ifret R$ $ifnoret void$ (*p_method)($ifconst con
 #endif
 """
 
-
 def make_version(template, nargs, argmax, const, ret):
 
     intext = template
@@ -338,7 +335,6 @@ def make_version(template, nargs, argmax, const, ret):
 
     return outtext
 
-
 def run(target, source, env):
 
     versions = 15
@@ -382,7 +378,6 @@ def run(target, source, env):
 
     with open(target[2], "w") as f:
         f.write(text_free_func)
-
 
 if __name__ == "__main__":
     from platform_methods import subprocess_main

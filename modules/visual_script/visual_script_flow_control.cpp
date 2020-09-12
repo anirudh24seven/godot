@@ -1,8 +1,6 @@
 
 /*  visual_script_flow_control.cpp                                       */
 
-
-
 #include "visual_script_flow_control.h"
 
 #include "core/io/resource_loader.h"

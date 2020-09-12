@@ -15,28 +15,19 @@
  *
  */
 
-
 #ifndef PSHGLOB_H_
 #define PSHGLOB_H_
-
 
 #include FT_FREETYPE_H
 #include FT_INTERNAL_POSTSCRIPT_HINTS_H
 
-
 FT_BEGIN_HEADER
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    GLOBAL HINTS INTERNALS                     *****/
   /*****                                                               *****/
 
-
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @constant:
    *   PS_GLOBALS_MAX_BLUE_ZONES
@@ -47,8 +38,7 @@ FT_BEGIN_HEADER
    */
 #define PS_GLOBALS_MAX_BLUE_ZONES  16
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @constant:
    *   PS_GLOBALS_MAX_STD_WIDTHS
@@ -59,8 +49,7 @@ FT_BEGIN_HEADER
    */
 #define PS_GLOBALS_MAX_STD_WIDTHS  16
 
-
-  /* standard and snap width */
+/* standard and snap width */
   typedef struct  PSH_WidthRec_
   {
     FT_Int  org;
@@ -69,8 +58,7 @@ FT_BEGIN_HEADER
 
   } PSH_WidthRec, *PSH_Width;
 
-
-  /* standard and snap widths table */
+/* standard and snap widths table */
   typedef struct  PSH_WidthsRec_
   {
     FT_UInt       count;
@@ -78,8 +66,7 @@ FT_BEGIN_HEADER
 
   } PSH_WidthsRec, *PSH_Widths;
 
-
-  typedef struct  PSH_DimensionRec_
+typedef struct  PSH_DimensionRec_
   {
     PSH_WidthsRec  stdw;
     FT_Fixed       scale_mult;
@@ -87,8 +74,7 @@ FT_BEGIN_HEADER
 
   } PSH_DimensionRec, *PSH_Dimension;
 
-
-  /* blue zone descriptor */
+/* blue zone descriptor */
   typedef struct  PSH_Blue_ZoneRec_
   {
     FT_Int  org_ref;
@@ -103,16 +89,14 @@ FT_BEGIN_HEADER
 
   } PSH_Blue_ZoneRec, *PSH_Blue_Zone;
 
-
-  typedef struct  PSH_Blue_TableRec_
+typedef struct  PSH_Blue_TableRec_
   {
     FT_UInt           count;
     PSH_Blue_ZoneRec  zones[PS_GLOBALS_MAX_BLUE_ZONES];
 
   } PSH_Blue_TableRec, *PSH_Blue_Table;
 
-
-  /* blue zones table */
+/* blue zones table */
   typedef struct  PSH_BluesRec_
   {
     PSH_Blue_TableRec  normal_top;
@@ -128,8 +112,7 @@ FT_BEGIN_HEADER
 
   } PSH_BluesRec, *PSH_Blues;
 
-
-  /* font globals.                                         */
+/* font globals.                                         */
   /* dimension 0 => X coordinates + vertical hints/stems   */
   /* dimension 1 => Y coordinates + horizontal hints/stems */
   typedef struct  PSH_GlobalsRec_
@@ -140,13 +123,11 @@ FT_BEGIN_HEADER
 
   } PSH_GlobalsRec;
 
-
 #define PSH_BLUE_ALIGN_NONE  0
 #define PSH_BLUE_ALIGN_TOP   1
 #define PSH_BLUE_ALIGN_BOT   2
 
-
-  typedef struct  PSH_AlignmentRec_
+typedef struct  PSH_AlignmentRec_
   {
     int     align;
     FT_Pos  align_top;
@@ -154,10 +135,8 @@ FT_BEGIN_HEADER
 
   } PSH_AlignmentRec, *PSH_Alignment;
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   psh_globals_funcs_init( PSH_Globals_FuncsRec*  funcs );
-
 
 #if 0
   /* snap a stem width to fitter coordinates.  `org_width' is in font */
@@ -186,11 +165,8 @@ FT_BEGIN_HEADER
   extern PSH_Globals  ps_debug_globals;
 #endif
 
-
 FT_END_HEADER
 
-
 #endif /* PSHGLOB_H_ */
-
 
 /* END */

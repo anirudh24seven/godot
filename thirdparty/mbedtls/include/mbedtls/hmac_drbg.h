@@ -424,7 +424,6 @@ int mbedtls_hmac_drbg_write_seed_file( mbedtls_hmac_drbg_context *ctx, const cha
 int mbedtls_hmac_drbg_update_seed_file( mbedtls_hmac_drbg_context *ctx, const char *path );
 #endif /* MBEDTLS_FS_IO */
 
-
 #if defined(MBEDTLS_SELF_TEST)
 /**
  * \brief               The HMAC_DRBG Checkup routine.

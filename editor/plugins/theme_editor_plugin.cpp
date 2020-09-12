@@ -1,8 +1,6 @@
 
 /*  theme_editor_plugin.cpp                                              */
 
-
-
 #include "theme_editor_plugin.h"
 
 #include "core/os/file_access.h"

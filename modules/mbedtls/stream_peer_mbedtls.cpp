@@ -1,8 +1,6 @@
 
 /*  stream_peer_mbedtls.cpp                                              */
 
-
-
 #include "stream_peer_mbedtls.h"
 
 #include "core/io/stream_peer_tcp.h"

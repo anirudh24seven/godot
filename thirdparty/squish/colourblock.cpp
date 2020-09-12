@@ -232,5 +232,4 @@ void DecompressColourBc5( u8* rgba, void const* block)
 }
 // -- GODOT end --
 
-
 } // namespace squish

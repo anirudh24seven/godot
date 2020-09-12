@@ -1,8 +1,6 @@
 
 /*  register_types.cpp                                                   */
 
-
-
 #include "register_types.h"
 
 #ifdef TOOLS_ENABLED

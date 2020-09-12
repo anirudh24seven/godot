@@ -31,12 +31,10 @@ in this Software without prior written authorization from The Open Group.
 
 /* Modified for use with FreeType */
 
-
 #include <ft2build.h>
 #include "pcfutil.h"
 
-
-  /*
+/*
    * Invert bit order within each BYTE of an array.
    */
 
@@ -48,8 +46,7 @@ in this Software without prior written authorization from The Open Group.
     {
       unsigned int  val = *buf;
 
-
-      val = ( ( val >> 1 ) & 0x55 ) | ( ( val << 1 ) & 0xAA );
+val = ( ( val >> 1 ) & 0x55 ) | ( ( val << 1 ) & 0xAA );
       val = ( ( val >> 2 ) & 0x33 ) | ( ( val << 2 ) & 0xCC );
       val = ( ( val >> 4 ) & 0x0F ) | ( ( val << 4 ) & 0xF0 );
 
@@ -57,8 +54,7 @@ in this Software without prior written authorization from The Open Group.
     }
   }
 
-
-  /*
+/*
    * Invert byte order within each 16-bits of an array.
    */
 
@@ -70,8 +66,7 @@ in this Software without prior written authorization from The Open Group.
     {
       unsigned char  c;
 
-
-      c      = buf[0];
+c      = buf[0];
       buf[0] = buf[1];
       buf[1] = c;
     }
@@ -89,8 +84,7 @@ in this Software without prior written authorization from The Open Group.
     {
       unsigned char  c;
 
-
-      c      = buf[0];
+c      = buf[0];
       buf[0] = buf[3];
       buf[3] = c;
 
@@ -99,6 +93,5 @@ in this Software without prior written authorization from The Open Group.
       buf[2] = c;
     }
   }
-
 
 /* END */

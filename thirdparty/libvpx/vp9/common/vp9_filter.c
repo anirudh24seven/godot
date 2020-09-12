@@ -95,7 +95,6 @@ DECLARE_ALIGNED(256, static const InterpKernel,
   { 0, -3,  1,  38, 64, 32, -1, -3}
 };
 
-
 const InterpKernel *vp9_filter_kernels[4] = {
   sub_pel_filters_8,
   sub_pel_filters_8lp,

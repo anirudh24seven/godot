@@ -1,8 +1,6 @@
 
 /*  open_simplex_noise.h                                                 */
 
-
-
 #ifndef OPEN_SIMPLEX_NOISE_H
 #define OPEN_SIMPLEX_NOISE_H
 

@@ -1,8 +1,6 @@
 
 /*  concave_polygon_shape_2d.cpp                                         */
 
-
-
 #include "concave_polygon_shape_2d.h"
 
 #include "core/math/geometry_2d.h"

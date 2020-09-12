@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef JPG_REGISTER_TYPES_H
 #define JPG_REGISTER_TYPES_H
 

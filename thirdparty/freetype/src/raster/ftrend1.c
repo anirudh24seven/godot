@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_OBJECTS_H
@@ -25,8 +24,7 @@
 
 #include "rasterrs.h"
 
-
-  /* initialize renderer -- init its raster */
+/* initialize renderer -- init its raster */
   static FT_Error
   ft_raster1_init( FT_Renderer  render )
   {
@@ -35,8 +33,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* set render-specific mode */
+/* set render-specific mode */
   static FT_Error
   ft_raster1_set_mode( FT_Renderer  render,
                        FT_ULong     mode_tag,
@@ -48,8 +45,7 @@
                                                          data );
   }
 
-
-  /* transform a given glyph image */
+/* transform a given glyph image */
   static FT_Error
   ft_raster1_transform( FT_Renderer       render,
                         FT_GlyphSlot      slot,
@@ -58,8 +54,7 @@
   {
     FT_Error error = FT_Err_Ok;
 
-
-    if ( slot->format != render->glyph_format )
+if ( slot->format != render->glyph_format )
     {
       error = FT_THROW( Invalid_Argument );
       goto Exit;
@@ -75,8 +70,7 @@
     return error;
   }
 
-
-  /* return the glyph's control box */
+/* return the glyph's control box */
   static void
   ft_raster1_get_cbox( FT_Renderer   render,
                        FT_GlyphSlot  slot,
@@ -88,8 +82,7 @@
       FT_Outline_Get_CBox( &slot->outline, cbox );
   }
 
-
-  /* convert a slot's glyph image into a bitmap */
+/* convert a slot's glyph image into a bitmap */
   static FT_Error
   ft_raster1_render( FT_Renderer       render,
                      FT_GlyphSlot      slot,
@@ -105,8 +98,7 @@
 
     FT_Raster_Params  params;
 
-
-    /* check glyph image format */
+/* check glyph image format */
     if ( slot->format != render->glyph_format )
     {
       error = FT_THROW( Invalid_Argument );
@@ -176,8 +168,7 @@
     return error;
   }
 
-
-  FT_DEFINE_RENDERER(
+FT_DEFINE_RENDERER(
     ft_raster1_renderer_class,
 
       FT_MODULE_RENDERER,
@@ -202,6 +193,5 @@
 
     (FT_Raster_Funcs*)&ft_standard_raster             /* raster_class    */
   )
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  audio_effect_compressor.h                                            */
 
-
-
 #ifndef AUDIOEFFECTCOMPRESSOR_H
 #define AUDIOEFFECTCOMPRESSOR_H
 

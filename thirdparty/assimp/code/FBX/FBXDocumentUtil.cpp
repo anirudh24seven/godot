@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -52,7 +51,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "FBXDocumentUtil.h"
 #include "FBXProperties.h"
 
-
 namespace Assimp {
 namespace FBX {
 namespace Util {
@@ -72,7 +70,6 @@ void DOMError(const std::string& message, const Element* element /*= NULL*/)
     }
     throw DeadlyImportError("FBX-DOM " + message);
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // print warning, do return
@@ -94,7 +91,6 @@ void DOMWarning(const std::string& message, const Element* element /*= NULL*/)
         ASSIMP_LOG_WARN("FBX-DOM: " + message);
     }
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // fetch a property table and the corresponding property template

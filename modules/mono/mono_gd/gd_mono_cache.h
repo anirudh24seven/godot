@@ -1,8 +1,6 @@
 
 /*  gd_mono_cache.h                                                      */
 
-
-
 #ifndef GD_MONO_CACHE_H
 #define GD_MONO_CACHE_H
 

@@ -2105,8 +2105,7 @@ void computeContactCompoundCompound(int pairIndex,
 
 					int shapeIndexA = collidables[childColIndexA].m_shapeIndex;
 
-
-			bool foundSepAxis = findSeparatingAxis(hullA,hullB,
+bool foundSepAxis = findSeparatingAxis(hullA,hullB,
 							posA,
 							ornA,
 							posB,
@@ -2122,9 +2121,8 @@ void computeContactCompoundCompound(int pairIndex,
 	/*
 	if (foundSepAxis)
 	{
-		
-		
-		contactIndex = clipHullHullSingle(
+
+contactIndex = clipHullHullSingle(
 			bodyIndexA, bodyIndexB,
 						   posA,ornA,
 						   posB,ornB,

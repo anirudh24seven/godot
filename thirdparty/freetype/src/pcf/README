@@ -3,7 +3,6 @@
                        Francesco Zappa Nardelli
                   <francesco.zappa.nardelli@ens.fr>
 
-
 Introduction
 ************
 
@@ -19,14 +18,12 @@ Information on the PCF font format can only be worked out from
 Many good bitmap fonts in bdf format come with XFree86: they can be
 compiled into the pcf format using the `bdftopcf' utility.
 
-
 Supported hardware
 ******************
 
 The driver has been tested on linux/x86 and sunos5.5/sparc.  In both
 cases the compiler was gcc.  When back in Paris, I will test it also
 on linux/alpha.
-
 
 Encodings
 *********
@@ -36,7 +33,6 @@ Use `FT_Get_BDF_Charset_ID' to access the encoding and registry.
 The driver always exports `ft_encoding_none' as face->charmap.encoding.
 FT_Get_Char_Index() behavior is unmodified, that is, it converts the ULong
 value given as argument into the corresponding glyph number.
-
 
 Known problems
 **************
@@ -62,7 +58,6 @@ ink_metrics.
 
 - too many english grammar errors in the readme file :-(
 
-
 License
 *******
 
@@ -86,7 +81,6 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 
 Credits
 *******

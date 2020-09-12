@@ -1,8 +1,6 @@
 
 /*  editor_file_server.h                                                 */
 
-
-
 #ifndef EDITOR_FILE_SERVER_H
 #define EDITOR_FILE_SERVER_H
 

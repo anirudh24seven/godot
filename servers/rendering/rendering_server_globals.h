@@ -1,8 +1,6 @@
 
 /*  rendering_server_globals.h                                           */
 
-
-
 #ifndef RENDERING_SERVER_GLOBALS_H
 #define RENDERING_SERVER_GLOBALS_H
 

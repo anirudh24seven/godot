@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -125,8 +124,7 @@ void ScaleProcess::Execute( aiScene* pScene ) {
             vertex *= mScale;
         }
 
-
-        // bone placement / scaling
+// bone placement / scaling
         for( unsigned int boneID = 0; boneID < mesh->mNumBones; boneID++)
         {
             // Reconstruct matrix by transform rather than by scale 
@@ -151,8 +149,7 @@ void ScaleProcess::Execute( aiScene* pScene ) {
             bone->mOffsetMatrix = translation * RotMatrix * scaling;
         }
 
-
-        // animation mesh processing
+// animation mesh processing
         // convert by position rather than scale.
         for( unsigned int animMeshID = 0; animMeshID < mesh->mNumAnimMeshes; animMeshID++)
         {

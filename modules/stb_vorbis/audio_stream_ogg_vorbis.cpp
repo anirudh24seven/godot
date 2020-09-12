@@ -1,8 +1,6 @@
 
 /*  audio_stream_ogg_vorbis.cpp                                          */
 
-
-
 #include "audio_stream_ogg_vorbis.h"
 
 #include "core/os/file_access.h"

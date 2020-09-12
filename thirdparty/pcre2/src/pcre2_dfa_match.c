@@ -38,12 +38,10 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 /* This module contains the external function pcre2_dfa_match(), which is an
 alternative matching function that uses a sort of DFA algorithm (not a true
 FSM). This is NOT Perl-compatible, but it has advantages in certain
 applications. */
-
 
 /* NOTE ABOUT PERFORMANCE: A user of this function sent some code that improved
 the performance of his patterns greatly. I could not use it as it stood, as it
@@ -71,7 +69,6 @@ only once - I suspect this was the cause of the problems with the tests.)
 Overall, I concluded that the gains in some cases did not outweigh the losses
 in others, so I abandoned this code. */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -88,7 +85,6 @@ in others, so I abandoned this code. */
    PCRE2_PARTIAL_SOFT|PCRE2_DFA_SHORTEST|PCRE2_DFA_RESTART| \
    PCRE2_COPY_MATCHED_SUBJECT)
 
-
 /*************************************************
 *      Code parameters and static tables         *
 *************************************************/
@@ -103,7 +99,6 @@ never stored, so we push them well clear of the normal opcodes. */
 #define OP_ANYNL_EXTRA      340
 #define OP_HSPACE_EXTRA     360
 #define OP_VSPACE_EXTRA     380
-
 
 /* This table identifies those opcodes that are followed immediately by a
 character that is to be tested in some way. This makes it possible to
@@ -286,7 +281,6 @@ static const uint8_t toptable2[] = {
   1, 1                            /* OP_ANY, OP_ALLANY */
 };
 
-
 /* Structure for holding data about a particular state, which is in effect the
 current data for an active path through the match tree. It must consist
 entirely of ints because the working vector we are passed, and which we put
@@ -299,7 +293,6 @@ typedef struct stateblock {
 } stateblock;
 
 #define INTS_PER_STATEBLOCK  (int)(sizeof(stateblock)/sizeof(int))
-
 
 /* Before version 10.32 the recursive calls of internal_dfa_match() were passed
 local working space and output vectors that were created on the stack. This has
@@ -328,8 +321,6 @@ typedef struct RWS_anchor {
 } RWS_anchor;
 
 #define RWS_ANCHOR_SIZE (sizeof(RWS_anchor)/sizeof(int))
-
-
 
 /*************************************************
 *               Process a callout                *
@@ -389,8 +380,6 @@ else
 return (mb->callout)(cb, mb->callout_data);
 }
 
-
-
 /*************************************************
 *         Expand local workspace memory          *
 *************************************************/
@@ -447,8 +436,6 @@ new->free = new->size - RWS_ANCHOR_SIZE;
 *rwsptr = new;
 return 0;
 }
-
-
 
 /*************************************************
 *     Match a Regular Expression - DFA engine    *
@@ -833,8 +820,7 @@ for (;;)
       d = NOTACHAR;     /* if these variables are not set. */
       }
 
-
-    /* Now process the individual opcodes */
+/* Now process the individual opcodes */
 
     switch (codevalue)
       {
@@ -980,7 +966,6 @@ for (;;)
       case OP_SOM:
       if (ptr == start_subject + start_offset) { ADD_ACTIVE(state_offset + 1, 0); }
       break;
-
 
 /* ========================================================================== */
       /* These opcodes inspect the next subject character, and sometimes
@@ -1155,8 +1140,7 @@ for (;;)
         }
       break;
 
-
-      /*-----------------------------------------------------------------*/
+/*-----------------------------------------------------------------*/
       /* Check the next character by Unicode property. We will get here only
       if the support is in the binary; otherwise a compile-time error occurs.
       */
@@ -1250,8 +1234,6 @@ for (;;)
         }
       break;
 #endif
-
-
 
 /* ========================================================================== */
       /* These opcodes likewise inspect the subject character, but have an
@@ -2211,7 +2193,6 @@ for (;;)
         }
       break;
 
-
 #ifdef SUPPORT_UNICODE
       /*-----------------------------------------------------------------*/
       /* This is a tricky one because it can match more than one character.
@@ -2551,7 +2532,6 @@ for (;;)
           }
         }
       break;
-
 
 /* ========================================================================== */
       /* These are the class-handling opcodes */
@@ -3130,7 +3110,6 @@ for (;;)
         }
       break;
 
-
 /* ========================================================================== */
       /* Handle callouts */
 
@@ -3145,7 +3124,6 @@ for (;;)
           { ADD_ACTIVE(state_offset + (int)callout_length, 0); }
         }
       break;
-
 
 /* ========================================================================== */
       default:        /* Unsupported opcode */
@@ -3208,8 +3186,6 @@ if (match_count >= 0 &&
 
 return match_count;
 }
-
-
 
 /*************************************************
 *     Match a pattern using the DFA algorithm    *

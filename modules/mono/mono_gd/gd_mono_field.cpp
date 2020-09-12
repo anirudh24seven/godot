@@ -1,8 +1,6 @@
 
 /*  gd_mono_field.cpp                                                    */
 
-
-
 #include "gd_mono_field.h"
 
 #include <mono/metadata/attrdefs.h>

@@ -1,8 +1,6 @@
 
 /*  crypto_core.h                                                        */
 
-
-
 #ifndef CRYPTO_CORE_H
 #define CRYPTO_CORE_H
 

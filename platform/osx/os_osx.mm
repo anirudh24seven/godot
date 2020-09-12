@@ -1,8 +1,6 @@
 
 /*  os_osx.mm                                                            */
 
-
-
 #include "os_osx.h"
 
 #include "core/version_generated.gen.h"
@@ -16,9 +14,7 @@
 #include <mach-o/dyld.h>
 #include <os/log.h>
 
-
 /* OSXTerminalLogger                                                     */
-
 
 class OSXTerminalLogger : public StdLogger {
 public:
@@ -67,9 +63,7 @@ public:
 	}
 };
 
-
 /* OS_OSX                                                                */
-
 
 String OS_OSX::get_unique_id() const {
 	static String serial_number;

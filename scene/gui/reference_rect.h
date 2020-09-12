@@ -1,8 +1,6 @@
 
 /*  reference_rect.h                                                     */
 
-
-
 #ifndef REFERENCE_RECT_H
 #define REFERENCE_RECT_H
 

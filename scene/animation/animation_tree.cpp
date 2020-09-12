@@ -1,8 +1,6 @@
 
 /*  animation_tree.cpp                                                   */
 
-
-
 #include "animation_tree.h"
 
 #include "animation_blend_tree.h"

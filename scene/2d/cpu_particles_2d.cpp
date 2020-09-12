@@ -1,8 +1,6 @@
 
 /*  cpu_particles_2d.cpp                                                 */
 
-
-
 #include "cpu_particles_2d.h"
 
 #include "core/core_string_names.h"

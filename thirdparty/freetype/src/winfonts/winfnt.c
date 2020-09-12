@@ -17,7 +17,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_WINFONTS_H
 #include FT_INTERNAL_DEBUG_H
@@ -39,8 +38,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  winfnt
 
-
-  static const FT_Frame_Field  winmz_header_fields[] =
+static const FT_Frame_Field  winmz_header_fields[] =
   {
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  WinMZ_HeaderRec
@@ -184,16 +182,14 @@
     FT_FRAME_END
   };
 
-
-  static void
+static void
   fnt_font_done( FNT_Face face )
   {
     FT_Memory  memory = FT_FACE( face )->memory;
     FT_Stream  stream = FT_FACE( face )->stream;
     FNT_Font   font   = face->font;
 
-
-    if ( !font )
+if ( !font )
       return;
 
     if ( font->fnt_frame )
@@ -204,8 +200,7 @@
     face->font = NULL;
   }
 
-
-  static FT_Error
+static FT_Error
   fnt_font_load( FNT_Font   font,
                  FT_Stream  stream )
   {
@@ -214,8 +209,7 @@
     FT_Bool           new_format;
     FT_UInt           size;
 
-
-    /* first of all, read the FNT header */
+/* first of all, read the FNT header */
     if ( FT_STREAM_SEEK( font->offset )                        ||
          FT_STREAM_READ_FIELDS( winfnt_header_fields, header ) )
       goto Exit;
@@ -266,8 +260,7 @@
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   fnt_face_get_dll_font( FNT_Face  face,
                          FT_Int    face_instance_index )
   {
@@ -277,8 +270,7 @@
     WinMZ_HeaderRec  mz_header;
     FT_Long          face_index;
 
-
-    face->font = NULL;
+face->font = NULL;
 
     face_index = FT_ABS( face_instance_index ) & 0xFFFF;
 
@@ -293,8 +285,7 @@
       /* yes, now look for an NE header in the file */
       WinNE_HeaderRec  ne_header;
 
-
-      FT_TRACE2(( "MZ signature found\n" ));
+FT_TRACE2(( "MZ signature found\n" ));
 
       if ( FT_STREAM_SEEK( mz_header.lfanew )                       ||
            FT_STREAM_READ_FIELDS( winne_header_fields, &ne_header ) )
@@ -310,8 +301,7 @@
         FT_UShort  font_count  = 0;
         FT_ULong   font_offset = 0;
 
-
-        FT_TRACE2(( "NE signature found\n" ));
+FT_TRACE2(( "NE signature found\n" ));
 
         if ( FT_STREAM_SEEK( res_offset )                    ||
              FT_FRAME_ENTER( ne_header.rname_tab_offset -
@@ -334,13 +324,11 @@
           goto Exit1;
         }
 
-
-        for (;;)
+for (;;)
         {
           FT_UShort  type_id, count;
 
-
-          type_id = FT_GET_USHORT_LE();
+type_id = FT_GET_USHORT_LE();
           if ( !type_id )
             break;
 
@@ -413,8 +401,7 @@
         FT_ULong   root_dir_offset, name_dir_offset, lang_dir_offset;
         FT_UShort  i, j, k;
 
-
-        FT_TRACE2(( "PE signature found\n" ));
+FT_TRACE2(( "PE signature found\n" ));
 
         if ( FT_STREAM_SEEK( mz_header.lfanew )                           ||
              FT_STREAM_READ_FIELDS( winpe32_header_fields, &pe32_header ) )
@@ -603,8 +590,7 @@
     goto Exit;
   }
 
-
-  typedef struct  FNT_CMapRec_
+typedef struct  FNT_CMapRec_
   {
     FT_CMapRec  cmap;
     FT_UInt32   first;
@@ -612,8 +598,7 @@
 
   } FNT_CMapRec, *FNT_CMap;
 
-
-  static FT_Error
+static FT_Error
   fnt_cmap_init( FNT_CMap    cmap,
                  FT_Pointer  pointer )
   {
@@ -622,22 +607,19 @@
 
     FT_UNUSED( pointer );
 
-
-    cmap->first = (FT_UInt32)  font->header.first_char;
+cmap->first = (FT_UInt32)  font->header.first_char;
     cmap->count = (FT_UInt32)( font->header.last_char - cmap->first + 1 );
 
     return 0;
   }
 
-
-  static FT_UInt
+static FT_UInt
   fnt_cmap_char_index( FNT_CMap   cmap,
                        FT_UInt32  char_code )
   {
     FT_UInt  gindex = 0;
 
-
-    char_code -= cmap->first;
+char_code -= cmap->first;
     if ( char_code < cmap->count )
       /* we artificially increase the glyph index; */
       /* FNT_Load_Glyph reverts to the right one   */
@@ -645,8 +627,7 @@
     return gindex;
   }
 
-
-  static FT_UInt32
+static FT_UInt32
   fnt_cmap_char_next( FNT_CMap    cmap,
                       FT_UInt32  *pchar_code )
   {
@@ -654,8 +635,7 @@
     FT_UInt32  result = 0;
     FT_UInt32  char_code = *pchar_code + 1;
 
-
-    if ( char_code <= cmap->first )
+if ( char_code <= cmap->first )
     {
       result = cmap->first;
       gindex = 1;
@@ -674,8 +654,7 @@
     return gindex;
   }
 
-
-  static const FT_CMap_ClassRec  fnt_cmap_class_rec =
+static const FT_CMap_ClassRec  fnt_cmap_class_rec =
   {
     sizeof ( FNT_CMapRec ),
 
@@ -689,15 +668,13 @@
 
   static FT_CMap_Class const  fnt_cmap_class = &fnt_cmap_class_rec;
 
-
-  static void
+static void
   FNT_Face_Done( FT_Face  fntface )       /* FNT_Face */
   {
     FNT_Face   face = (FNT_Face)fntface;
     FT_Memory  memory;
 
-
-    if ( !face )
+if ( !face )
       return;
 
     memory = FT_FACE_MEMORY( face );
@@ -708,8 +685,7 @@
     fntface->num_fixed_sizes = 0;
   }
 
-
-  static FT_Error
+static FT_Error
   FNT_Face_Init( FT_Stream      stream,
                  FT_Face        fntface,        /* FNT_Face */
                  FT_Int         face_instance_index,
@@ -724,8 +700,7 @@
     FT_UNUSED( num_params );
     FT_UNUSED( params );
 
-
-    FT_TRACE2(( "Windows FNT driver\n" ));
+FT_TRACE2(( "Windows FNT driver\n" ));
 
     face_index = FT_ABS( face_instance_index ) & 0xFFFF;
 
@@ -778,8 +753,7 @@
       FNT_Font  font = face->font;
       FT_ULong  family_size;
 
-
-      root->face_index = face_index;
+root->face_index = face_index;
 
       root->face_flags |= FT_FACE_FLAG_FIXED_SIZES |
                           FT_FACE_FLAG_HORIZONTAL;
@@ -803,8 +777,7 @@
         FT_Bitmap_Size*  bsize = root->available_sizes;
         FT_UShort        x_res, y_res;
 
-
-        bsize->width  = (FT_Short)font->header.avg_width;
+bsize->width  = (FT_Short)font->header.avg_width;
         bsize->height = (FT_Short)( font->header.pixel_height +
                                     font->header.external_leading );
         bsize->size   = font->header.nominal_point_size << 6;
@@ -843,8 +816,7 @@
       {
         FT_CharMapRec  charmap;
 
-
-        charmap.encoding    = FT_ENCODING_NONE;
+charmap.encoding    = FT_ENCODING_NONE;
         /* initial platform/encoding should indicate unset status? */
         charmap.platform_id = TT_PLATFORM_APPLE_UNICODE;
         charmap.encoding_id = TT_APPLE_ID_DEFAULT;
@@ -925,8 +897,7 @@
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   FNT_Size_Select( FT_Size   size,
                    FT_ULong  strike_index )
   {
@@ -935,8 +906,7 @@
 
     FT_UNUSED( strike_index );
 
-
-    FT_Select_Metrics( size->face, 0 );
+FT_Select_Metrics( size->face, 0 );
 
     size->metrics.ascender    = header->ascent * 64;
     size->metrics.descender   = -( header->pixel_height -
@@ -946,8 +916,7 @@
     return FT_Err_Ok;
   }
 
-
-  static FT_Error
+static FT_Error
   FNT_Size_Request( FT_Size          size,
                     FT_Size_Request  req )
   {
@@ -957,8 +926,7 @@
     FT_Error          error   = FT_ERR( Invalid_Pixel_Size );
     FT_Long           height;
 
-
-    height = FT_REQUEST_HEIGHT( req );
+height = FT_REQUEST_HEIGHT( req );
     height = ( height + 32 ) >> 6;
 
     switch ( req->type )
@@ -984,8 +952,7 @@
       return FNT_Size_Select( size, 0 );
   }
 
-
-  static FT_Error
+static FT_Error
   FNT_Load_Glyph( FT_GlyphSlot  slot,
                   FT_Size       size,
                   FT_UInt       glyph_index,
@@ -1000,8 +967,7 @@
     FT_ULong    offset;
     FT_Bool     new_format;
 
-
-    if ( !face )
+if ( !face )
     {
       error = FT_THROW( Invalid_Face_Handle );
       goto Exit;
@@ -1083,8 +1049,7 @@
       FT_Byte*   column;
       FT_Byte*   write;
 
-
-      bitmap->pitch = (int)pitch;
+bitmap->pitch = (int)pitch;
       if ( !pitch                                                 ||
            offset + pitch * bitmap->rows > font->header.file_size )
       {
@@ -1104,8 +1069,7 @@
       {
         FT_Byte*  limit = p + bitmap->rows;
 
-
-        for ( write = column; p < limit; p++, write += bitmap->pitch )
+for ( write = column; p < limit; p++, write += bitmap->pitch )
           *write = *p;
       }
 
@@ -1116,21 +1080,18 @@
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   winfnt_get_header( FT_Face               face,
                      FT_WinFNT_HeaderRec  *aheader )
   {
     FNT_Font  font = ((FNT_Face)face)->font;
 
-
-    *aheader = font->header;
+*aheader = font->header;
 
     return 0;
   }
 
-
-  static const FT_Service_WinFntRec  winfnt_service_rec =
+static const FT_Service_WinFntRec  winfnt_service_rec =
   {
     winfnt_get_header       /* get_header */
   };
@@ -1147,8 +1108,7 @@
     { NULL, NULL }
   };
 
-
-  static FT_Module_Interface
+static FT_Module_Interface
   winfnt_get_service( FT_Module         module,
                       const FT_String*  service_id )
   {
@@ -1157,10 +1117,7 @@
     return ft_service_list_lookup( winfnt_services, service_id );
   }
 
-
-
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const FT_Driver_ClassRec  winfnt_driver_class =
   {
     {
@@ -1199,6 +1156,5 @@
     FNT_Size_Request,           /* FT_Size_RequestFunc  request_size */
     FNT_Size_Select             /* FT_Size_SelectFunc   select_size  */
   };
-
 
 /* END */

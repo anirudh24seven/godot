@@ -15,10 +15,8 @@
  *
  */
 
-
 #ifndef TTCMAP_H_
 #define TTCMAP_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_TRUETYPE_TYPES_H
@@ -26,7 +24,6 @@
 #include FT_SERVICE_TT_CMAP_H
 
 FT_BEGIN_HEADER
-
 
 #define TT_CMAP_FLAG_UNSORTED     1
 #define TT_CMAP_FLAG_OVERLAPPING  2
@@ -41,8 +38,7 @@ FT_BEGIN_HEADER
 
   typedef const struct TT_CMap_ClassRec_*  TT_CMap_Class;
 
-
-  typedef FT_Error
+typedef FT_Error
   (*TT_CMap_ValidateFunc)( FT_Byte*      data,
                            FT_Validator  valid );
 
@@ -54,7 +50,6 @@ FT_BEGIN_HEADER
     TT_CMap_Info_GetFunc  get_cmap_info;
 
   } TT_CMap_ClassRec;
-
 
 #define FT_DEFINE_TT_CMAP( class_,             \
                            size_,              \
@@ -90,20 +85,17 @@ FT_BEGIN_HEADER
     get_cmap_info_                             \
   };
 
-
-  typedef struct  TT_ValidatorRec_
+typedef struct  TT_ValidatorRec_
   {
     FT_ValidatorRec  validator;
     FT_UInt          num_glyphs;
 
   } TT_ValidatorRec, *TT_Validator;
 
-
 #define TT_VALIDATOR( x )          ( (TT_Validator)( x ) )
 #define TT_VALID_GLYPH_COUNT( x )  TT_VALIDATOR( x )->num_glyphs
 
-
-  FT_CALLBACK_TABLE const TT_CMap_ClassRec  tt_cmap_unicode_class_rec;
+FT_CALLBACK_TABLE const TT_CMap_ClassRec  tt_cmap_unicode_class_rec;
 
   FT_LOCAL( FT_Error )
   tt_face_build_cmaps( TT_Face  face );
@@ -113,10 +105,8 @@ FT_BEGIN_HEADER
   tt_get_cmap_info( FT_CharMap    charmap,
                     TT_CMapInfo  *cmap_info );
 
-
 FT_END_HEADER
 
 #endif /* TTCMAP_H_ */
-
 
 /* END */

@@ -51,7 +51,6 @@
 #include "celt_lpc.h"
 #include "vq.h"
 
-
 /** Encoder state
  @brief Encoder state
  */
@@ -220,7 +219,6 @@ void opus_custom_encoder_destroy(CELTEncoder *st)
    opus_free(st);
 }
 #endif /* CUSTOM_MODES */
-
 
 static int transient_analysis(const opus_val32 * OPUS_RESTRICT in, int len, int C,
                               opus_val16 *tf_estimate, int *tf_chan)
@@ -458,7 +456,6 @@ static void compute_mdcts(const CELTMode *mode, int shortBlocks, celt_sig * OPUS
    }
 }
 
-
 void celt_preemphasis(const opus_val16 * OPUS_RESTRICT pcmp, celt_sig * OPUS_RESTRICT inp,
                         int N, int CC, int upsample, const opus_val16 *coef, celt_sig *mem, int clip)
 {
@@ -531,8 +528,6 @@ void celt_preemphasis(const opus_val16 * OPUS_RESTRICT pcmp, celt_sig * OPUS_RES
    }
    *mem = m;
 }
-
-
 
 static opus_val32 l1_metric(const celt_norm *tmp, int N, int LM, opus_val16 bias)
 {
@@ -749,7 +744,6 @@ static void tf_encode(int start, int end, int isTransient, int *tf_res, int LM, 
       tf_res[i] = tf_select_table[LM][4*isTransient+2*tf_select+tf_res[i]];
    /*for(i=0;i<end;i++)printf("%d ", isTransient ? tf_res[i] : LM+tf_res[i]);printf("\n");*/
 }
-
 
 static int alloc_trim_analysis(const CELTMode *m, const celt_norm *X,
       const opus_val16 *bandLogE, int end, int LM, int C, int N0,
@@ -1061,7 +1055,6 @@ static opus_val16 dynalloc_analysis(const opus_val16 *bandLogE, const opus_val16
    return maxDepth;
 }
 
-
 static int run_prefilter(CELTEncoder *st, celt_sig *in, celt_sig *prefilter_mem, int CC, int N,
       int prefilter_tapset, int *pitch, opus_val16 *gain, int *qgain, int enabled, int nbAvailableBytes)
 {
@@ -1084,8 +1077,7 @@ static int run_prefilter(CELTEncoder *st, celt_sig *in, celt_sig *prefilter_mem,
    pre[0] = _pre;
    pre[1] = _pre + (N+COMBFILTER_MAXPERIOD);
 
-
-   c=0; do {
+c=0; do {
       OPUS_COPY(pre[c], prefilter_mem+c*COMBFILTER_MAXPERIOD, COMBFILTER_MAXPERIOD);
       OPUS_COPY(pre[c]+COMBFILTER_MAXPERIOD, in+c*(N+overlap)+overlap, N);
    } while (++c<CC);
@@ -1552,9 +1544,7 @@ int celt_encode_with_ec(CELTEncoder * OPUS_RESTRICT st, const opus_val16 * pcm, 
                   mode->preemph, st->preemph_memE+c, need_clip);
    } while (++c<CC);
 
-
-
-   /* Find pitch period and gain */
+/* Find pitch period and gain */
    {
       int enabled;
       int qg;
@@ -2158,7 +2148,6 @@ int celt_encode_with_ec(CELTEncoder * OPUS_RESTRICT st, const opus_val16 * pcm, 
    else
       return nbCompressedBytes;
 }
-
 
 #ifdef CUSTOM_MODES
 

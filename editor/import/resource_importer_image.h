@@ -1,8 +1,6 @@
 
 /*  resource_importer_image.h                                            */
 
-
-
 #ifndef RESOURCE_IMPORTER_IMAGE_H
 #define RESOURCE_IMPORTER_IMAGE_H
 

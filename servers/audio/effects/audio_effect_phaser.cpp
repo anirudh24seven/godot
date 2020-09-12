@@ -1,8 +1,6 @@
 
 /*  audio_effect_phaser.cpp                                              */
 
-
-
 #include "audio_effect_phaser.h"
 #include "core/math/math_funcs.h"
 #include "servers/audio_server.h"

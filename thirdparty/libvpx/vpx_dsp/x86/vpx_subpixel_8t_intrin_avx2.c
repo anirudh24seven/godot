@@ -180,8 +180,7 @@ static void vpx_filter_block1d16_h8_avx2(const uint8_t *src_ptr,
     srcRegFilt32b2_1 = _mm256_adds_epi16(srcRegFilt32b2_1,
                        _mm256_max_epi16(srcRegFilt32b3, srcRegFilt32b2));
 
-
-    srcRegFilt32b1_1 = _mm256_adds_epi16(srcRegFilt32b1_1, addFilterReg64);
+srcRegFilt32b1_1 = _mm256_adds_epi16(srcRegFilt32b1_1, addFilterReg64);
 
     srcRegFilt32b2_1 = _mm256_adds_epi16(srcRegFilt32b2_1, addFilterReg64);
 
@@ -287,8 +286,7 @@ static void vpx_filter_block1d16_h8_avx2(const uint8_t *src_ptr,
     srcRegFilt2_1 = _mm_adds_epi16(srcRegFilt2_1,
                     _mm_max_epi16(srcRegFilt3, srcRegFilt2));
 
-
-    srcRegFilt1_1 = _mm_adds_epi16(srcRegFilt1_1,
+srcRegFilt1_1 = _mm_adds_epi16(srcRegFilt1_1,
                     _mm256_castsi256_si128(addFilterReg64));
 
     srcRegFilt2_1 = _mm_adds_epi16(srcRegFilt2_1,
@@ -399,8 +397,7 @@ static void vpx_filter_block1d16_v8_avx2(const uint8_t *src_ptr,
   // save
   srcReg32b5 = _mm256_unpackhi_epi8(srcReg32b5, srcReg32b6);
 
-
-  for (i = output_height; i > 1; i-=2) {
+for (i = output_height; i > 1; i-=2) {
      // load the last 2 loads of 16 bytes and have every two
      // consecutive loads in the same 256 bit register
      srcReg32b8 = _mm256_castsi128_si256(
@@ -509,8 +506,7 @@ static void vpx_filter_block1d16_v8_avx2(const uint8_t *src_ptr,
     srcRegFilt1 = _mm_adds_epi16(srcRegFilt1, srcRegFilt4);
     srcRegFilt3 = _mm_adds_epi16(srcRegFilt3, srcRegFilt7);
 
-
-    // multiply 2 adjacent elements with the filter and add the result
+// multiply 2 adjacent elements with the filter and add the result
     srcRegFilt4 = _mm_maddubs_epi16(_mm256_castsi256_si128(srcReg32b11),
                   _mm256_castsi256_si128(secondFilters));
     srcRegFilt5 = _mm_maddubs_epi16(_mm256_castsi256_si128(srcReg32b3),
@@ -534,8 +530,7 @@ static void vpx_filter_block1d16_v8_avx2(const uint8_t *src_ptr,
     srcRegFilt3 = _mm_adds_epi16(srcRegFilt3,
                   _mm_max_epi16(srcRegFilt5, srcRegFilt7));
 
-
-    srcRegFilt1 = _mm_adds_epi16(srcRegFilt1,
+srcRegFilt1 = _mm_adds_epi16(srcRegFilt1,
                   _mm256_castsi256_si128(addFilterReg64));
     srcRegFilt3 = _mm_adds_epi16(srcRegFilt3,
                   _mm256_castsi256_si128(addFilterReg64));

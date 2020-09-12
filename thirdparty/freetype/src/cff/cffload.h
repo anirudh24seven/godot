@@ -15,24 +15,20 @@
  *
  */
 
-
 #ifndef CFFLOAD_H_
 #define CFFLOAD_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_CFF_TYPES_H
 #include "cffparse.h"
 #include FT_INTERNAL_CFF_OBJECTS_TYPES_H  /* for CFF_Face */
 
-
 FT_BEGIN_HEADER
 
   FT_LOCAL( FT_UShort )
   cff_get_standard_encoding( FT_UInt  charcode );
 
-
-  FT_LOCAL( FT_String* )
+FT_LOCAL( FT_String* )
   cff_index_get_string( CFF_Font  font,
                         FT_UInt   element );
 
@@ -40,8 +36,7 @@ FT_BEGIN_HEADER
   cff_index_get_sid_string( CFF_Font  font,
                             FT_UInt   sid );
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cff_index_access_element( CFF_Index  idx,
                             FT_UInt    element,
                             FT_Byte**  pbytes,
@@ -55,13 +50,11 @@ FT_BEGIN_HEADER
   cff_index_get_name( CFF_Font  font,
                       FT_UInt   element );
 
-
-  FT_LOCAL( FT_UInt )
+FT_LOCAL( FT_UInt )
   cff_charset_cid_to_gindex( CFF_Charset  charset,
                              FT_UInt      cid );
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cff_font_load( FT_Library  library,
                  FT_Stream   stream,
                  FT_Int      face_index,
@@ -73,8 +66,7 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   cff_font_done( CFF_Font  font );
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cff_load_private_dict( CFF_Font     font,
                          CFF_SubFont  subfont,
                          FT_UInt      lenNDV,
@@ -116,10 +108,8 @@ FT_BEGIN_HEADER
   cff_done_blend( CFF_Face  face );
 #endif
 
-
 FT_END_HEADER
 
 #endif /* CFFLOAD_H_ */
-
 
 /* END */

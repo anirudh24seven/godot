@@ -1,8 +1,6 @@
 
 /*  geometry_2d.cpp                                                      */
 
-
-
 #include "geometry_2d.h"
 
 #include "thirdparty/misc/clipper.hpp"

@@ -1,8 +1,6 @@
 
 /*  sky.cpp                                                              */
 
-
-
 #include "sky.h"
 
 #include "core/io/image_loader.h"

@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -105,7 +103,6 @@ ASSIMP_API void aiCopyScene(const aiScene* pIn, aiScene** pOut)
     ScenePriv(*pOut)->mIsCopy = true;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 ASSIMP_API void aiFreeScene(const C_STRUCT aiScene* pIn)
 {
@@ -114,13 +111,11 @@ ASSIMP_API void aiFreeScene(const C_STRUCT aiScene* pIn)
     delete pIn;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 ASSIMP_API aiReturn aiExportScene( const aiScene* pScene, const char* pFormatId, const char* pFileName, unsigned int pPreprocessing )
 {
     return ::aiExportSceneEx(pScene,pFormatId,pFileName,NULL,pPreprocessing);
 }
-
 
 // ------------------------------------------------------------------------------------------------
 ASSIMP_API aiReturn aiExportSceneEx( const aiScene* pScene, const char* pFormatId, const char* pFileName, aiFileIO* pIO, unsigned int pPreprocessing )
@@ -132,7 +127,6 @@ ASSIMP_API aiReturn aiExportSceneEx( const aiScene* pScene, const char* pFormatI
     }
     return exp.Export(pScene,pFormatId,pFileName,pPreprocessing);
 }
-
 
 // ------------------------------------------------------------------------------------------------
 ASSIMP_API const C_STRUCT aiExportDataBlob* aiExportSceneToBlob( const aiScene* pScene, const char* pFormatId, unsigned int pPreprocessing  )

@@ -28,8 +28,6 @@
 extern "C" {
 #endif
 
-
-
 /**\name th_encode_ctl() codes
  * \anchor encctlcodes
  * These are the available request codes for th_encode_ctl().
@@ -335,7 +333,6 @@ extern "C" {
 
 /*@}*/
 
-
 /**\name TH_ENCCTL_SET_RATE_FLAGS flags
  * \anchor ratectlflags
  * These are the flags available for use with #TH_ENCCTL_SET_RATE_FLAGS.*/
@@ -361,16 +358,12 @@ extern "C" {
 #define TH_RATECTL_CAP_UNDERFLOW (0x4)
 /*@}*/
 
-
-
 /**The quantization parameters used by VP3.*/
 extern const th_quant_info TH_VP31_QUANT_INFO;
 
 /**The Huffman tables used by VP3.*/
 extern const th_huff_code
  TH_VP31_HUFF_CODES[TH_NHUFFMAN_TABLES][TH_NDCT_TOKENS];
-
-
 
 /**\name Encoder state
    The following data structure is opaque, and its contents are not publicly
@@ -381,8 +374,6 @@ extern const th_huff_code
 /**The encoder context.*/
 typedef struct th_enc_ctx    th_enc_ctx;
 /*@}*/
-
-
 
 /**\defgroup encfuncs Functions for Encoding*/
 /*@{*/
@@ -476,8 +467,6 @@ extern int th_encode_packetout(th_enc_ctx *_enc,int _last,ogg_packet *_op);
 extern void th_encode_free(th_enc_ctx *_enc);
 /*@}*/
 /*@}*/
-
-
 
 #if defined(__cplusplus)
 }

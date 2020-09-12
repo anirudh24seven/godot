@@ -679,4 +679,3 @@ typedef struct VkLayerDispatchTable_ {
     PFN_vkResetQueryPoolEXT ResetQueryPoolEXT;
 } VkLayerDispatchTable;
 
-

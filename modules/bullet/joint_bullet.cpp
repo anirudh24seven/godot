@@ -1,8 +1,6 @@
 
 /*  joint_bullet.cpp                                                     */
 
-
-
 #include "joint_bullet.h"
 
 #include "space_bullet.h"

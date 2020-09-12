@@ -1,8 +1,6 @@
 
 /*  skin.cpp                                                             */
 
-
-
 #include "skin.h"
 
 void Skin::set_bind_count(int p_size) {

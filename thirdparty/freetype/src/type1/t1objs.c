@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_CALC_H
 #include FT_INTERNAL_DEBUG_H
@@ -35,8 +34,7 @@
 #include FT_SERVICE_POSTSCRIPT_CMAPS_H
 #include FT_INTERNAL_POSTSCRIPT_AUX_H
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -45,42 +43,36 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  t1objs
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                           SIZE FUNCTIONS
    *
    */
 
-
-  static PSH_Globals_Funcs
+static PSH_Globals_Funcs
   T1_Size_Get_Globals_Funcs( T1_Size  size )
   {
     T1_Face           face     = (T1_Face)size->root.face;
     PSHinter_Service  pshinter = (PSHinter_Service)face->pshinter;
     FT_Module         module;
 
-
-    module = FT_Get_Module( size->root.face->driver->root.library,
+module = FT_Get_Module( size->root.face->driver->root.library,
                             "pshinter" );
     return ( module && pshinter && pshinter->get_globals_funcs )
            ? pshinter->get_globals_funcs( module )
            : 0;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   T1_Size_Done( FT_Size  t1size )          /* T1_Size */
   {
     T1_Size  size = (T1_Size)t1size;
 
-
-    if ( t1size->internal->module_data )
+if ( t1size->internal->module_data )
     {
       PSH_Globals_Funcs  funcs;
 
-
-      funcs = T1_Size_Get_Globals_Funcs( size );
+funcs = T1_Size_Get_Globals_Funcs( size );
       if ( funcs )
         funcs->destroy( (PSH_Globals)t1size->internal->module_data );
 
@@ -88,22 +80,19 @@
     }
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T1_Size_Init( FT_Size  t1size )      /* T1_Size */
   {
     T1_Size            size  = (T1_Size)t1size;
     FT_Error           error = FT_Err_Ok;
     PSH_Globals_Funcs  funcs = T1_Size_Get_Globals_Funcs( size );
 
-
-    if ( funcs )
+if ( funcs )
     {
       PSH_Globals  globals;
       T1_Face      face = (T1_Face)size->root.face;
 
-
-      error = funcs->create( size->root.face->memory,
+error = funcs->create( size->root.face->memory,
                              &face->type1.private_dict, &globals );
       if ( !error )
         t1size->internal->module_data = globals;
@@ -112,16 +101,14 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T1_Size_Request( FT_Size          t1size,     /* T1_Size */
                    FT_Size_Request  req )
   {
     T1_Size            size  = (T1_Size)t1size;
     PSH_Globals_Funcs  funcs = T1_Size_Get_Globals_Funcs( size );
 
-
-    FT_Request_Metrics( size->root.face, req );
+FT_Request_Metrics( size->root.face, req );
 
     if ( funcs )
       funcs->set_scale( (PSH_Globals)t1size->internal->module_data,
@@ -132,8 +119,7 @@
     return FT_Err_Ok;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                           SLOT  FUNCTIONS
    *
@@ -145,30 +131,26 @@
     slot->internal->glyph_hints = NULL;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T1_GlyphSlot_Init( FT_GlyphSlot  slot )
   {
     T1_Face           face;
     PSHinter_Service  pshinter;
 
-
-    face     = (T1_Face)slot->face;
+face     = (T1_Face)slot->face;
     pshinter = (PSHinter_Service)face->pshinter;
 
     if ( pshinter )
     {
       FT_Module  module;
 
-
-      module = FT_Get_Module( slot->face->driver->root.library,
+module = FT_Get_Module( slot->face->driver->root.library,
                               "pshinter" );
       if ( module )
       {
         T1_Hints_Funcs  funcs;
 
-
-        funcs = pshinter->get_t1_funcs( module );
+funcs = pshinter->get_t1_funcs( module );
         slot->internal->glyph_hints = (void*)funcs;
       }
     }
@@ -176,15 +158,13 @@
     return 0;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                           FACE  FUNCTIONS
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   T1_Face_Done
@@ -203,8 +183,7 @@
     FT_Memory  memory;
     T1_Font    type1;
 
-
-    if ( !face )
+if ( !face )
       return;
 
     memory = face->root.memory;
@@ -230,8 +209,7 @@
     {
       PS_FontInfo  info = &type1->font_info;
 
-
-      FT_FREE( info->version );
+FT_FREE( info->version );
       FT_FREE( info->notice );
       FT_FREE( info->full_name );
       FT_FREE( info->family_name );
@@ -274,8 +252,7 @@
     face->root.style_name  = NULL;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   T1_Face_Init
@@ -321,8 +298,7 @@
     FT_UNUSED( params );
     FT_UNUSED( stream );
 
-
-    face->root.num_faces = 1;
+face->root.num_faces = 1;
 
     FT_FACE_FIND_GLOBAL_SERVICE( face, psnames, POSTSCRIPT_CMAPS );
     face->psnames = psnames;
@@ -371,8 +347,7 @@
     {
       FT_Face  root = (FT_Face)&face->root;
 
-
-      root->num_glyphs = type1->num_glyphs;
+root->num_glyphs = type1->num_glyphs;
       root->face_index = 0;
 
       root->face_flags |= FT_FACE_FLAG_SCALABLE    |
@@ -402,13 +377,11 @@
         char*  full   = info->full_name;
         char*  family = root->family_name;
 
-
-        if ( full )
+if ( full )
         {
           FT_Bool  the_same = TRUE;
 
-
-          while ( *full )
+while ( *full )
           {
             if ( *full == *family )
             {
@@ -490,8 +463,7 @@
       {
         FT_Pos  max_advance;
 
-
-        error = T1_Compute_Max_Advance( face, &max_advance );
+error = T1_Compute_Max_Advance( face, &max_advance );
 
         /* in case of error, keep the standard width */
         if ( !error )
@@ -509,15 +481,13 @@
     {
       FT_Face  root = &face->root;
 
-
-      if ( psnames )
+if ( psnames )
       {
         FT_CharMapRec    charmap;
         T1_CMap_Classes  cmap_classes = psaux->t1_cmap_classes;
         FT_CMap_Class    clazz;
 
-
-        charmap.face = root;
+charmap.face = root;
 
         /* first of all, try to synthesize a Unicode charmap */
         charmap.platform_id = TT_PLATFORM_MICROSOFT;
@@ -574,8 +544,7 @@
     return error;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   T1_Driver_Init
@@ -597,8 +566,7 @@
 
     FT_UInt32  seed;
 
-
-    /* set default property values, cf. `ftt1drv.h' */
+/* set default property values, cf. `ftt1drv.h' */
 #ifdef T1_CONFIG_OPTION_OLD_ENGINE
     driver->hinting_engine = FT_HINTING_FREETYPE;
 #else
@@ -631,8 +599,7 @@
     return FT_Err_Ok;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   T1_Driver_Done
@@ -649,6 +616,5 @@
   {
     FT_UNUSED( driver );
   }
-
 
 /* END */

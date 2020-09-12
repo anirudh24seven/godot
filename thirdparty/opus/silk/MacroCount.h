@@ -158,7 +158,6 @@ static OPUS_INLINE opus_int32 silk_SMLATT(opus_int32 a32, opus_int32 b32, opus_i
     return ret;
 }
 
-
 /* multiply-accumulate macros that allow overflow in the addition (ie, no asserts in debug mode)*/
 #undef    silk_MLA_ovflw
 #define silk_MLA_ovflw silk_MLA
@@ -480,7 +479,6 @@ static OPUS_INLINE opus_int32 silk_abs_int32(opus_int32 a){
     return silk_abs(a);
 }
 
-
 #undef silk_min
 static silk_min(a, b){
     ops_count += 1;
@@ -672,7 +670,6 @@ static OPUS_INLINE opus_int64 silk_max_64(opus_int64 a, opus_int64 b)
     return (((a) > (b)) ? (a) : (b));
 }
 
-
 #undef silk_LIMIT_int
 static OPUS_INLINE opus_int silk_LIMIT_int(opus_int a, opus_int limit1, opus_int limit2)
 {
@@ -696,7 +693,6 @@ static OPUS_INLINE opus_int16 silk_LIMIT_16(opus_int16 a, opus_int16 limit1, opu
 
 return(ret);
 }
-
 
 #undef silk_LIMIT_32
 static OPUS_INLINE opus_int silk_LIMIT_32(opus_int32 a, opus_int32 limit1, opus_int32 limit2)

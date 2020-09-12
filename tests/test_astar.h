@@ -1,8 +1,6 @@
 
 /*  test_astar.h                                                         */
 
-
-
 #ifndef TEST_ASTAR_H
 #define TEST_ASTAR_H
 

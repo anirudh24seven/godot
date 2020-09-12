@@ -1,8 +1,6 @@
 
 /*  file_access_jandroid.cpp                                             */
 
-
-
 #include "file_access_jandroid.h"
 #include "core/os/os.h"
 #include "thread_jandroid.h"

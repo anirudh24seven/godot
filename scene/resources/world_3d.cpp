@@ -1,8 +1,6 @@
 
 /*  world_3d.cpp                                                         */
 
-
-
 #include "world_3d.h"
 
 #include "core/math/camera_matrix.h"

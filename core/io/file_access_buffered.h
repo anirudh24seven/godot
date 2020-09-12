@@ -1,8 +1,6 @@
 
 /*  file_access_buffered.h                                               */
 
-
-
 #ifndef FILE_ACCESS_BUFFERED_H
 #define FILE_ACCESS_BUFFERED_H
 

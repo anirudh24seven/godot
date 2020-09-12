@@ -1,8 +1,6 @@
 
 /*  transform2d.cpp                                                      */
 
-
-
 #include "gdnative/transform2d.h"
 
 #include "core/math/transform_2d.h"

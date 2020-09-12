@@ -15,21 +15,17 @@
  *
  */
 
-
 #ifndef SVCFFTL_H_
 #define SVCFFTL_H_
 
 #include FT_INTERNAL_SERVICE_H
 #include FT_INTERNAL_CFF_TYPES_H
 
-
 FT_BEGIN_HEADER
-
 
 #define FT_SERVICE_ID_CFF_LOAD  "cff-load"
 
-
-  typedef FT_UShort
+typedef FT_UShort
   (*FT_Get_Standard_Encoding_Func)( FT_UInt  charcode );
 
   typedef FT_Error
@@ -54,8 +50,7 @@ FT_BEGIN_HEADER
                                  FT_UInt    lenNDV,
                                  FT_Fixed*  NDV );
 
-
-  FT_DEFINE_SERVICE( CFFLoad )
+FT_DEFINE_SERVICE( CFFLoad )
   {
     FT_Get_Standard_Encoding_Func  get_standard_encoding;
     FT_Load_Private_Dict_Func      load_private_dict;
@@ -63,7 +58,6 @@ FT_BEGIN_HEADER
     FT_Blend_Check_Vector_Func     blend_check_vector;
     FT_Blend_Build_Vector_Func     blend_build_vector;
   };
-
 
 #define FT_DEFINE_SERVICE_CFFLOADREC( class_,                  \
                                       get_standard_encoding_,  \
@@ -80,11 +74,8 @@ FT_BEGIN_HEADER
     blend_build_vector_                                        \
   };
 
-
 FT_END_HEADER
 
-
 #endif
-
 
 /* END */

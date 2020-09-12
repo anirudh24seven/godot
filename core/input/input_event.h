@@ -1,8 +1,6 @@
 
 /*  input_event.h                                                        */
 
-
-
 #ifndef INPUT_EVENT_H
 #define INPUT_EVENT_H
 

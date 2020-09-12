@@ -1880,8 +1880,7 @@ public:
         }
     }
 
-
-    void updateTypeParameters(const TType& type)
+void updateTypeParameters(const TType& type)
     {
         // For when we may already be sharing existing array descriptors,
         // keeping the pointers the same, just updating the contents.
@@ -1918,9 +1917,7 @@ public:
         }
     }
 
-
-
-    const char* getBasicString() const
+const char* getBasicString() const
     {
         return TType::getBasicString(basicType);
     }
@@ -2346,8 +2343,7 @@ public:
         return rv;
     }
 
-
-    // See if two types match in all ways (just the actual type, not qualification)
+// See if two types match in all ways (just the actual type, not qualification)
     bool operator==(const TType& right) const
     {
         return sameElementType(right) && sameArrayness(right) && sameTypeParameters(right);
@@ -2414,8 +2410,7 @@ protected:
             typeName = NewPoolTString(copyOf.typeName->c_str());
     }
 
-
-    void buildMangledName(TString&) const;
+void buildMangledName(TString&) const;
 
     TBasicType basicType : 8;
     int vectorSize       : 4;  // 1 means either scalar or 1-component vector; see vector1 to disambiguate.

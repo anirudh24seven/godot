@@ -1,8 +1,6 @@
 
 /*  mesh_instance_3d_editor_plugin.h                                     */
 
-
-
 #ifndef MESH_INSTANCE_EDITOR_PLUGIN_H
 #define MESH_INSTANCE_EDITOR_PLUGIN_H
 

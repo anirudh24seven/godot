@@ -1,8 +1,6 @@
 
 /*  rw_lock_windows.cpp                                                  */
 
-
-
 #if defined(WINDOWS_ENABLED)
 
 #include "rw_lock_windows.h"

@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -126,8 +125,7 @@ public:
         Update( f * 0.5f + 0.5f );
     }
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** @brief Progress callback for export steps.
      *  @param numberOfSteps The number of total processing
      *   steps

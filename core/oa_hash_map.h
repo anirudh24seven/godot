@@ -1,8 +1,6 @@
 
 /*  oa_hash_map.h                                                        */
 
-
-
 #ifndef OA_HASH_MAP_H
 #define OA_HASH_MAP_H
 

@@ -1,8 +1,6 @@
 
 /*  light_cluster_builder.h                                              */
 
-
-
 #ifndef LIGHT_CLUSTER_BUILDER_H
 #define LIGHT_CLUSTER_BUILDER_H
 

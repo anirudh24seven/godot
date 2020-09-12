@@ -34,8 +34,7 @@ namespace GodotTools.Internals
         public static string DataMonoBinDir => internal_DataMonoBinDir();
         #endregion
 
-
-        #region Internal
+#region Internal
 
         [MethodImpl(MethodImplOptions.InternalCall)]
         private static extern string internal_ResDataDir();

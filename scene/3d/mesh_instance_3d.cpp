@@ -1,8 +1,6 @@
 
 /*  mesh_instance_3d.cpp                                                 */
 
-
-
 #include "mesh_instance_3d.h"
 
 #include "collision_shape_3d.h"

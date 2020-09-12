@@ -1,8 +1,6 @@
 
 /*  GodotApp.java                                                        */
 
-
-
 package com.godot.game;
 
 import org.godotengine.godot.FullScreenGodotApp;

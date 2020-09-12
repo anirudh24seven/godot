@@ -1,8 +1,6 @@
 
 /*  rw_lock_posix.cpp                                                    */
 
-
-
 #if defined(UNIX_ENABLED) || defined(PTHREAD_ENABLED)
 
 #include "rw_lock_posix.h"

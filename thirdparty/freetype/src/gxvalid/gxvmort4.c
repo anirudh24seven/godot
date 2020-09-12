@@ -25,11 +25,9 @@
  *
  */
 
-
 #include "gxvmort.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -38,8 +36,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvmort
 
-
-  static void
+static void
   gxv_mort_subtable_type4_lookupval_validate( FT_UShort            glyph,
                                               GXV_LookupValueCPtr  value_p,
                                               GXV_Validator        gxvalid )
@@ -101,16 +98,14 @@
     return value;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   gxv_mort_subtable_type4_validate( FT_Bytes       table,
                                     FT_Bytes       limit,
                                     GXV_Validator  gxvalid )
   {
     FT_Bytes  p = table;
 
-
-    GXV_NAME_ENTER( "mort chain subtable type4 "
+GXV_NAME_ENTER( "mort chain subtable type4 "
                     "(Non-Contextual Glyph Substitution)" );
 
     gxvalid->lookupval_sign   = GXV_LOOKUPVALUE_UNSIGNED;
@@ -121,6 +116,5 @@
 
     GXV_EXIT;
   }
-
 
 /* END */

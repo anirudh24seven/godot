@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef REGISTER_BULLET_TYPES_H
 #define REGISTER_BULLET_TYPES_H
 

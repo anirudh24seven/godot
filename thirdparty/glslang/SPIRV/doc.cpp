@@ -2297,8 +2297,7 @@ void Parameterize()
     InstructionDesc[OpSwitch].operands.push(OperandId, "'Default'");
     InstructionDesc[OpSwitch].operands.push(OperandVariableLiteralId, "'Target'");
 
-
-    InstructionDesc[OpReturnValue].operands.push(OperandId, "'Value'");
+InstructionDesc[OpReturnValue].operands.push(OperandId, "'Value'");
 
     InstructionDesc[OpLifetimeStart].operands.push(OperandId, "'Pointer'");
     InstructionDesc[OpLifetimeStart].operands.push(OperandLiteralNumber, "'Size'");

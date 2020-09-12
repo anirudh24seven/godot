@@ -15,20 +15,16 @@
  *
  */
 
-
 #ifndef TTOBJS_H_
 #define TTOBJS_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_OBJECTS_H
 #include FT_INTERNAL_TRUETYPE_TYPES_H
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   TT_Driver
@@ -38,8 +34,7 @@ FT_BEGIN_HEADER
    */
   typedef struct TT_DriverRec_*  TT_Driver;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   TT_GlyphSlot
@@ -53,8 +48,7 @@ FT_BEGIN_HEADER
    */
   typedef FT_GlyphSlot  TT_GlyphSlot;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Struct:
    *   TT_GraphicsState
@@ -97,7 +91,6 @@ FT_BEGIN_HEADER
 
   } TT_GraphicsState;
 
-
 #ifdef TT_USE_BYTECODE_INTERPRETER
 
   FT_LOCAL( void )
@@ -111,9 +104,7 @@ FT_BEGIN_HEADER
 
 #endif /* TT_USE_BYTECODE_INTERPRETER */
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * EXECUTION SUBTABLES
    *
@@ -121,11 +112,9 @@ FT_BEGIN_HEADER
    *
    */
 
-
 #define TT_MAX_CODE_RANGES  3
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * There can only be 3 active code ranges at once:
    *   - the Font Program
@@ -141,8 +130,7 @@ FT_BEGIN_HEADER
 
   } TT_CodeRange_Tag;
 
-
-  typedef struct  TT_CodeRange_
+typedef struct  TT_CodeRange_
   {
     FT_Byte*  base;
     FT_Long   size;
@@ -151,8 +139,7 @@ FT_BEGIN_HEADER
 
   typedef TT_CodeRange  TT_CodeRangeTable[TT_MAX_CODE_RANGES];
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Defines a function/instruction definition record.
    */
@@ -168,8 +155,7 @@ FT_BEGIN_HEADER
 
   } TT_DefRecord, *TT_DefArray;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Subglyph transformation record.
    */
@@ -181,8 +167,7 @@ FT_BEGIN_HEADER
 
   } TT_Transform;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * A note regarding non-squared pixels:
    *
@@ -243,8 +228,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Metrics used by the TrueType size and context objects.
    */
@@ -267,8 +251,7 @@ FT_BEGIN_HEADER
 
   } TT_Size_Metrics;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TrueType size class.
    */
@@ -323,8 +306,7 @@ FT_BEGIN_HEADER
 
   } TT_SizeRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TrueType driver class.
    */
@@ -338,8 +320,7 @@ FT_BEGIN_HEADER
 
   } TT_DriverRec;
 
-
-  /* Note: All of the functions below (except tt_size_reset()) are used    */
+/* Note: All of the functions below (except tt_size_reset()) are used    */
   /* as function pointers in a FT_Driver_ClassRec.  Therefore their        */
   /* parameters are of types FT_Face, FT_Size, etc., rather than TT_Face,  */
   /* TT_Size, etc., so that the compiler can confirm that the types and    */
@@ -347,8 +328,7 @@ FT_BEGIN_HEADER
   /* cast to their TT_xxx counterparts inside the functions since FreeType */
   /* will always use the TT driver to create them.                         */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Face functions
    */
@@ -362,8 +342,7 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   tt_face_done( FT_Face  ttface );          /* TT_Face */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Size functions
    */
@@ -393,8 +372,7 @@ FT_BEGIN_HEADER
   tt_size_reset( TT_Size  size,
                  FT_Bool  only_height );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Driver functions
    */
@@ -404,22 +382,18 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   tt_driver_done( FT_Module  ttdriver );    /* TT_Driver */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Slot functions
    */
   FT_LOCAL( FT_Error )
   tt_slot_init( FT_GlyphSlot  slot );
 
-
-  /* auxiliary */
+/* auxiliary */
 #define IS_HINTED( flags )  ( ( flags & FT_LOAD_NO_HINTING ) == 0 )
-
 
 FT_END_HEADER
 
 #endif /* TTOBJS_H_ */
-
 
 /* END */

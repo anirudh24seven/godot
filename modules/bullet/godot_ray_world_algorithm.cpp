@@ -1,8 +1,6 @@
 
 /*  godot_ray_world_algorithm.cpp                                        */
 
-
-
 #include "godot_ray_world_algorithm.h"
 
 #include "btRayShape.h"

@@ -1,8 +1,6 @@
 
 /*  editor_asset_installer.h                                             */
 
-
-
 #ifndef EDITORASSETINSTALLER_H
 #define EDITORASSETINSTALLER_H
 

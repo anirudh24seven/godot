@@ -1,8 +1,6 @@
 
 /*  a_star.cpp                                                           */
 
-
-
 #include "a_star.h"
 
 #include "core/math/geometry_3d.h"

@@ -1,8 +1,6 @@
 
 /*  editor_spin_slider.h                                                 */
 
-
-
 #ifndef EDITOR_SPIN_SLIDER_H
 #define EDITOR_SPIN_SLIDER_H
 

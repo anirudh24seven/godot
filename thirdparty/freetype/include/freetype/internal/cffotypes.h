@@ -15,7 +15,6 @@
  *
  */
 
-
 #ifndef CFFOTYPES_H_
 #define CFFOTYPES_H_
 
@@ -26,14 +25,11 @@
 #include FT_SERVICE_POSTSCRIPT_CMAPS_H
 #include FT_INTERNAL_POSTSCRIPT_HINTS_H
 
-
 FT_BEGIN_HEADER
 
+typedef TT_Face  CFF_Face;
 
-  typedef TT_Face  CFF_Face;
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   CFF_Size
@@ -48,8 +44,7 @@ FT_BEGIN_HEADER
 
   } CFF_SizeRec, *CFF_Size;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   CFF_GlyphSlot
@@ -69,8 +64,7 @@ FT_BEGIN_HEADER
 
   } CFF_GlyphSlotRec, *CFF_GlyphSlot;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   CFF_Internal
@@ -85,8 +79,7 @@ FT_BEGIN_HEADER
 
   } CFF_InternalRec, *CFF_Internal;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Subglyph transformation record.
    */
@@ -98,11 +91,8 @@ FT_BEGIN_HEADER
 
   } CFF_Transform;
 
-
 FT_END_HEADER
 
-
 #endif /* CFFOTYPES_H_ */
-
 
 /* END */

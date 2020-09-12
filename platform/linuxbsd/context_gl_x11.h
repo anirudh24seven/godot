@@ -1,8 +1,6 @@
 
 /*  context_gl_x11.h                                                     */
 
-
-
 #ifndef CONTEXT_GL_X11_H
 #define CONTEXT_GL_X11_H
 

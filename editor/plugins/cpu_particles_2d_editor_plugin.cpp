@@ -1,8 +1,6 @@
 
 /*  cpu_particles_2d_editor_plugin.cpp                                   */
 
-
-
 #include "cpu_particles_2d_editor_plugin.h"
 
 #include "canvas_item_editor_plugin.h"

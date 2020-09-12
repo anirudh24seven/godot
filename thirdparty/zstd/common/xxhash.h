@@ -71,13 +71,11 @@ extern "C" {
 #ifndef XXHASH_H_5627135585666179
 #define XXHASH_H_5627135585666179 1
 
-
 /* ****************************
 *  Definitions
 ******************************/
 #include <stddef.h>   /* size_t */
 typedef enum { XXH_OK=0, XXH_ERROR } XXH_errorcode;
-
 
 /* ****************************
 *  API modifier
@@ -143,7 +141,6 @@ regular symbol name will be automatically translated by this header.
 #  define XXH64_hashFromCanonical XXH_NAME2(XXH_NAMESPACE, XXH64_hashFromCanonical)
 #endif
 
-
 /* *************************************
 *  Version
 ***************************************/
@@ -152,7 +149,6 @@ regular symbol name will be automatically translated by this header.
 #define XXH_VERSION_RELEASE  2
 #define XXH_VERSION_NUMBER  (XXH_VERSION_MAJOR *100*100 + XXH_VERSION_MINOR *100 + XXH_VERSION_RELEASE)
 XXH_PUBLIC_API unsigned XXH_versionNumber (void);
-
 
 /* ****************************
 *  Simple Hash Functions
@@ -175,7 +171,6 @@ XXH64() :
     This function runs 2x faster on 64-bits systems, but slower on 32-bits systems (see benchmark).
 */
 
-
 /* ****************************
 *  Streaming Hash Functions
 ******************************/
@@ -189,7 +184,6 @@ XXH_PUBLIC_API XXH_errorcode  XXH32_freeState(XXH32_state_t* statePtr);
 
 XXH_PUBLIC_API XXH64_state_t* XXH64_createState(void);
 XXH_PUBLIC_API XXH_errorcode  XXH64_freeState(XXH64_state_t* statePtr);
-
 
 /* hash streaming */
 
@@ -223,7 +217,6 @@ and generate some new hashes later on, by calling again XXH*_digest().
 When done, free XXH state space if it was allocated dynamically.
 */
 
-
 /* **************************
 *  Utils
 ****************************/
@@ -233,7 +226,6 @@ When done, free XXH state space if it was allocated dynamically.
 
 XXH_PUBLIC_API void XXH32_copyState(XXH32_state_t* restrict dst_state, const XXH32_state_t* restrict src_state);
 XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* restrict dst_state, const XXH64_state_t* restrict src_state);
-
 
 /* **************************
 *  Canonical representation
@@ -253,8 +245,6 @@ XXH_PUBLIC_API XXH32_hash_t XXH32_hashFromCanonical(const XXH32_canonical_t* src
 XXH_PUBLIC_API XXH64_hash_t XXH64_hashFromCanonical(const XXH64_canonical_t* src);
 
 #endif /* XXHASH_H_5627135585666179 */
-
-
 
 /* ================================================================================================
    This section contains definitions which are not guaranteed to remain stable.
@@ -292,13 +282,11 @@ XXH_PUBLIC_API XXH64_hash_t XXH64_hashFromCanonical(const XXH64_canonical_t* src
        unsigned reserved[2];          /* never read nor write, will be removed in a future version */
    };   /* typedef'd to XXH64_state_t */
 
-
 #  ifdef XXH_PRIVATE_API
 #    include "xxhash.c"   /* include xxhash functions as `static`, for inlining */
 #  endif
 
 #endif /* XXH_STATIC_LINKING_ONLY && XXH_STATIC_H_3543687687345 */
-
 
 #if defined (__cplusplus)
 }

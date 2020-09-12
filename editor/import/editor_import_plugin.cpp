@@ -1,8 +1,6 @@
 
 /*  editor_import_plugin.cpp                                             */
 
-
-
 #include "editor_import_plugin.h"
 #include "core/script_language.h"
 

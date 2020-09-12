@@ -1,8 +1,6 @@
 
 /*  rendering_device_vulkan.h                                            */
 
-
-
 #ifndef RENDERING_DEVICE_VULKAN_H
 #define RENDERING_DEVICE_VULKAN_H
 

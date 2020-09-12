@@ -1,8 +1,6 @@
 
 /*  skeleton_ik_3d_editor_plugin.cpp                                     */
 
-
-
 #include "skeleton_ik_3d_editor_plugin.h"
 
 #include "scene/3d/skeleton_ik_3d.h"

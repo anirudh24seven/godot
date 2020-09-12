@@ -26,8 +26,7 @@ namespace GodotTools.Utils
             System.IO.Directory.Delete(path.GlobalizePath(), recursive);
         }
 
-
-        public static string[] GetDirectories(string path, string searchPattern, SearchOption searchOption)
+public static string[] GetDirectories(string path, string searchPattern, SearchOption searchOption)
         {
             return System.IO.Directory.GetDirectories(path.GlobalizePath(), searchPattern, searchOption);
         }

@@ -1,8 +1,6 @@
 
 /*  polygon_2d.cpp                                                       */
 
-
-
 #include "polygon_2d.h"
 
 #include "core/math/geometry_2d.h"

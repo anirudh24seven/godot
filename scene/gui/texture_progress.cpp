@@ -1,8 +1,6 @@
 
 /*  texture_progress.cpp                                                 */
 
-
-
 #include "texture_progress.h"
 
 #include "core/engine.h"

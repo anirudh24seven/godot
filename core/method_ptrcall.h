@@ -1,8 +1,6 @@
 
 /*  method_ptrcall.h                                                     */
 
-
-
 #ifndef METHOD_PTRCALL_H
 #define METHOD_PTRCALL_H
 

@@ -1,8 +1,6 @@
 
 /*  gdscript_parser.h                                                    */
 
-
-
 #ifndef GDSCRIPT_PARSER_H
 #define GDSCRIPT_PARSER_H
 

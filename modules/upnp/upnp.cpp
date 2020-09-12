@@ -1,8 +1,6 @@
 
 /*  upnp.cpp                                                             */
 
-
-
 #include "upnp.h"
 
 #include <miniupnpc/miniwget.h>

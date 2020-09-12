@@ -2192,8 +2192,7 @@ static const mbedtls_ssl_ciphersuite_t ciphersuite_definitions[] =
 
 #endif /* MBEDTLS_ARIA_C */
 
-
-    { 0, "",
+{ 0, "",
       MBEDTLS_CIPHER_NONE, MBEDTLS_MD_NONE, MBEDTLS_KEY_EXCHANGE_NONE,
       0, 0, 0, 0, 0 }
 };

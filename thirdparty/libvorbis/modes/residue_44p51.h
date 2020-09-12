@@ -279,7 +279,6 @@ static const static_bookblock _resbook_44p_l9={
    }
 };
 
-
 static const vorbis_info_mapping0 _map_nominal_51[2]={
   {2, {0,0,0,0,0,1}, {0,2}, {0,2}, 4,{0,3,0,0},{2,4,1,3}},
   {2, {0,0,0,0,0,1}, {1,2}, {1,2}, 4,{0,3,0,0},{2,4,1,3}}
@@ -393,7 +392,6 @@ static const vorbis_residue_template _res_44p51_6[]={
    &_huff_book__44p6_lfe,&_huff_book__44p6_lfe,
    &_resbook_44p_l6,&_resbook_44p_l6}
 };
-
 
 static const vorbis_residue_template _res_44p51_7[]={
   {2,0,15,  &_residue_44p_hi,

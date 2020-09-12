@@ -46,7 +46,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #include "pcre2_internal.h"
 
-
 /*************************************************
 *                Check script run                *
 *************************************************/

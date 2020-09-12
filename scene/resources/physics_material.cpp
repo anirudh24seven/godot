@@ -1,8 +1,6 @@
 
 /*  physics_material.cpp                                                 */
 
-
-
 #include "physics_material.h"
 
 void PhysicsMaterial::_bind_methods() {

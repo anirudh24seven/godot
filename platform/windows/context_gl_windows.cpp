@@ -1,8 +1,6 @@
 
 /*  context_gl_windows.cpp                                               */
 
-
-
 #if defined(OPENGL_ENABLED) || defined(GLES_ENABLED)
 
 // Author: Juan Linietsky <reduzio@gmail.com>, (C) 2008

@@ -112,8 +112,7 @@ public:
             TReflection::TMapIndexToReflection &ioItems =
                 input ? reflection.indexToPipeInput : reflection.indexToPipeOutput;
 
-
-            TReflection::TNameToIndex &ioMapper =
+TReflection::TNameToIndex &ioMapper =
                 input ? reflection.pipeInNameToIndex : reflection.pipeOutNameToIndex;
 
             if (reflection.options & EShReflectionUnwrapIOBlocks) {

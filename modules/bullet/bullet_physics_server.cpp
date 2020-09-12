@@ -1,8 +1,6 @@
 
 /*  bullet_physics_server.cpp                                            */
 
-
-
 #include "bullet_physics_server.h"
 
 #include "bullet_utilities.h"

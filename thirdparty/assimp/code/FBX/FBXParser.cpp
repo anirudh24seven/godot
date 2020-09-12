@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -85,8 +84,7 @@ namespace {
         throw DeadlyImportError("FBX-Parser " + message);
     }
 
-
-    // ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
     void ParseError(const std::string& message, TokenPtr token)
     {
         if(token) {
@@ -336,7 +334,6 @@ size_t ParseTokenAsDim(const Token& t, const char*& err_out)
     return id;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 float ParseTokenAsFloat(const Token& t, const char*& err_out)
 {
@@ -375,7 +372,6 @@ float ParseTokenAsFloat(const Token& t, const char*& err_out)
     return fast_atof(temp);
 }
 
-
 // ------------------------------------------------------------------------------------------------
 int ParseTokenAsInt(const Token& t, const char*& err_out)
 {
@@ -410,7 +406,6 @@ int ParseTokenAsInt(const Token& t, const char*& err_out)
 
     return intval;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 int64_t ParseTokenAsInt64(const Token& t, const char*& err_out)
@@ -490,7 +485,6 @@ std::string ParseTokenAsString(const Token& t, const char*& err_out)
     return std::string(s+1,length-2);
 }
 
-
 namespace {
 
 // ------------------------------------------------------------------------------------------------
@@ -512,7 +506,6 @@ void ReadBinaryDataArrayHead(const char*& data, const char* end, char& type, uin
     count = len;
     data += 5;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // read binary data array, assume cursor points to the 'compression mode' field (i.e. behind the header)
@@ -599,7 +592,6 @@ void ReadBinaryDataArray(char type, uint32_t count, const char*& data, const cha
 }
 
 } // !anon
-
 
 // ------------------------------------------------------------------------------------------------
 // read an array of float3 tuples
@@ -688,7 +680,6 @@ void ParseVectorDataArray(std::vector<aiVector3D>& out, const Element& el)
     }
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // read an array of color4 tuples
 void ParseVectorDataArray(std::vector<aiColor4D>& out, const Element& el)
@@ -767,7 +758,6 @@ void ParseVectorDataArray(std::vector<aiColor4D>& out, const Element& el)
     }
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // read an array of float2 tuples
 void ParseVectorDataArray(std::vector<aiVector2D>& out, const Element& el)
@@ -843,7 +833,6 @@ void ParseVectorDataArray(std::vector<aiVector2D>& out, const Element& el)
     }
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // read an array of ints
 void ParseVectorDataArray(std::vector<int>& out, const Element& el)
@@ -900,7 +889,6 @@ void ParseVectorDataArray(std::vector<int>& out, const Element& el)
         out.push_back(ival);
     }
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // read an array of floats
@@ -1026,7 +1014,6 @@ void ParseVectorDataArray(std::vector<unsigned int>& out, const Element& el)
         out.push_back(static_cast<unsigned int>(ival));
     }
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // read an array of uint64_ts
@@ -1156,8 +1143,7 @@ aiMatrix4x4 ReadMatrix(const Element& element)
 
     aiMatrix4x4 result;
 
-
-    result.a1 = values[0];
+result.a1 = values[0];
     result.a2 = values[1];
     result.a3 = values[2];
     result.a4 = values[3];
@@ -1180,7 +1166,6 @@ aiMatrix4x4 ReadMatrix(const Element& element)
     result.Transpose();
     return result;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // wrapper around ParseTokenAsString() with ParseError handling
@@ -1214,7 +1199,6 @@ const Element& GetRequiredElement(const Scope& sc, const std::string& index, con
     return *el;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // extract required compound scope
 const Scope& GetRequiredScope(const Element& el)
@@ -1226,7 +1210,6 @@ const Scope& GetRequiredScope(const Element& el)
 
     return *s;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // get token at a particular index
@@ -1240,7 +1223,6 @@ const Token& GetRequiredToken(const Element& el, unsigned int index)
     return *t[index];
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // wrapper around ParseTokenAsID() with ParseError handling
 uint64_t ParseTokenAsID(const Token& t)
@@ -1253,7 +1235,6 @@ uint64_t ParseTokenAsID(const Token& t)
     return i;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // wrapper around ParseTokenAsDim() with ParseError handling
 size_t ParseTokenAsDim(const Token& t)
@@ -1265,7 +1246,6 @@ size_t ParseTokenAsDim(const Token& t)
     }
     return i;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // wrapper around ParseTokenAsFloat() with ParseError handling

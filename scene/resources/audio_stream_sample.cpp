@@ -1,8 +1,6 @@
 
 /*  audio_stream_sample.cpp                                              */
 
-
-
 #include "audio_stream_sample.h"
 
 #include "core/io/marshalls.h"

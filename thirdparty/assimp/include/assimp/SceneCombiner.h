@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -338,8 +337,7 @@ public:
     static void AttachToGraph (aiNode* attach,
         std::vector<NodeAttachmentInfo>& srcList);
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Get a deep copy of a scene
      *
      *  @param dest Receives a pointer to the destination scene
@@ -347,8 +345,7 @@ public:
      */
     static void CopyScene(aiScene** dest,const aiScene* source,bool allocate = true);
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Get a flat copy of a scene
      *
      *  Only the first hierarchy layer is copied. All pointer members of
@@ -360,8 +357,7 @@ public:
      */
     static void CopySceneFlat(aiScene** dest,const aiScene* source);
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Get a deep copy of a mesh
      *
      *  @param dest Receives a pointer to the destination mesh
@@ -384,7 +380,6 @@ public:
     // recursive, of course
     static void Copy     (aiNode** dest, const aiNode* src);
 
-
 private:
 
     // -------------------------------------------------------------------
@@ -398,8 +393,7 @@ private:
     // Add node identifiers to a hashing set
     static void AddNodeHashes(aiNode* node, std::set<unsigned int>& hashes);
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     // Search for duplicate names
     static bool FindNameMatch(const aiString& name,
         std::vector<SceneHelper>& input, unsigned int cur);

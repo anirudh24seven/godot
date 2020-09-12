@@ -1,8 +1,6 @@
 
 /*  display_layer.h                                                      */
 
-
-
 #import <OpenGLES/EAGLDrawable.h>
 #import <QuartzCore/QuartzCore.h>
 

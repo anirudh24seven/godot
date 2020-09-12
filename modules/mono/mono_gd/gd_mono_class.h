@@ -1,8 +1,6 @@
 
 /*  gd_mono_class.h                                                      */
 
-
-
 #ifndef GD_MONO_CLASS_H
 #define GD_MONO_CLASS_H
 

@@ -1,8 +1,6 @@
 
 /*  view_controller.mm                                                   */
 
-
-
 #import "view_controller.h"
 #include "core/project_settings.h"
 #include "display_server_iphone.h"

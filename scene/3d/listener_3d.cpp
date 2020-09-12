@@ -1,8 +1,6 @@
 
 /*  listener_3d.cpp                                                      */
 
-
-
 #include "listener_3d.h"
 
 #include "scene/resources/mesh.h"

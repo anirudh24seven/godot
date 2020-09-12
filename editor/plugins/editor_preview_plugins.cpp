@@ -1,8 +1,6 @@
 
 /*  editor_preview_plugins.cpp                                           */
 
-
-
 #include "editor_preview_plugins.h"
 
 #include "core/io/file_access_memory.h"

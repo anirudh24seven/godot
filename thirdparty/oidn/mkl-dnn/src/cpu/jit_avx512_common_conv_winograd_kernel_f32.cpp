@@ -293,8 +293,7 @@ void _jit_avx512_common_conv_winograd_data_kernel_f32::gemm_loop_generate(
                 }
             }
 
-
-            auto store_output = [=](bool output_is_aligned) {
+auto store_output = [=](bool output_is_aligned) {
                 for (int tile = 0; tile < jcp.dimN_reg_block; tile++) {
                     Zmm zmm(jcp.zmm_start + tile);
                     if (output_is_aligned
@@ -423,7 +422,6 @@ status_t _jit_avx512_common_conv_winograd_data_kernel_f32::init_conf_common(
 
     return status::success;
 }
-
 
 status_t set_wsched_DATA_W_S_G_D_avx512_common(jit_conv_winograd_conf_t &jcp) {
 

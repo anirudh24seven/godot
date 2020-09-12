@@ -1,8 +1,6 @@
 
 /*  joypad_iphone.mm                                                     */
 
-
-
 #import "joypad_iphone.h"
 #include "core/project_settings.h"
 #include "drivers/coreaudio/audio_driver_coreaudio.h"

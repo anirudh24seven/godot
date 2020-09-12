@@ -307,8 +307,7 @@ public:
 	//
 	btMatrix3x3 localFrameToWorld(int i, const btMatrix3x3 &local_frame) const;
 
-
-	//
+//
 	// set external forces and torques. Note all external forces/torques are given in the WORLD frame.
 	//
 
@@ -652,8 +651,6 @@ public:
 		const btVector3 &bottom_in,    // bottom part of input vector
 		btVector3 &top_out,         // top part of output vector
 		btVector3 &bottom_out);      // bottom part of output vector
-
-
 
 private:
 	btMultiBody(const btMultiBody &);     // not implemented

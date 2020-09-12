@@ -1,8 +1,6 @@
 
 /*  gd_mono_internals.h                                                  */
 
-
-
 #ifndef GD_MONO_INTERNALS_H
 #define GD_MONO_INTERNALS_H
 

@@ -15,20 +15,17 @@
  *
  */
 
-
 #ifndef SVKERN_H_
 #define SVKERN_H_
 
 #include FT_INTERNAL_SERVICE_H
 #include FT_TRUETYPE_TABLES_H
 
-
 FT_BEGIN_HEADER
 
 #define FT_SERVICE_ID_KERNING  "kerning"
 
-
-  typedef FT_Error
+typedef FT_Error
   (*FT_Kerning_TrackGetFunc)( FT_Face    face,
                               FT_Fixed   point_size,
                               FT_Int     degree,
@@ -41,11 +38,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
-
 #endif /* SVKERN_H_ */
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  texture_loader_dummy.cpp                                             */
 
-
-
 #include "texture_loader_dummy.h"
 
 #include "core/os/file_access.h"

@@ -1,8 +1,6 @@
 
 /*  resource_importer_texture.h                                          */
 
-
-
 #ifndef RESOURCEIMPORTTEXTURE_H
 #define RESOURCEIMPORTTEXTURE_H
 

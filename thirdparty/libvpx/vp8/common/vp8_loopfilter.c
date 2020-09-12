@@ -8,13 +8,11 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "vpx_config.h"
 #include "vp8_rtcd.h"
 #include "loopfilter.h"
 #include "onyxc_int.h"
 #include "vpx_mem/vpx_mem.h"
-
 
 static void lf_init_lut(loop_filter_info_n *lfi)
 {
@@ -192,7 +190,6 @@ void vp8_loop_filter_frame_init(VP8_COMMON *cm,
         }
     }
 }
-
 
 void vp8_loop_filter_row_normal(VP8_COMMON *cm, MODE_INFO *mode_info_context,
                          int mb_row, int post_ystride, int post_uvstride,

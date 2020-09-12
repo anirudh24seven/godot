@@ -1,8 +1,6 @@
 
 /*  arkit_session_delegate.mm                                            */
 
-
-
 #include "arkit_session_delegate.h"
 #include "arkit_interface.h"
 

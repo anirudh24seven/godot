@@ -94,8 +94,6 @@ extern int vorbis_book_besterror(codebook *book,float *a,int step,int addmul);
 extern long vorbis_book_codeword(codebook *book,int entry);
 extern long vorbis_book_codelen(codebook *book,int entry);
 
-
-
 extern int vorbis_staticbook_pack(const static_codebook *c,oggpack_buffer *b);
 extern static_codebook *vorbis_staticbook_unpack(oggpack_buffer *b);
 
@@ -111,7 +109,5 @@ extern long vorbis_book_decodev_add(codebook *book, float *a,
 extern long vorbis_book_decodevv_add(codebook *book, float **a,
                                      long off,int ch,
                                     oggpack_buffer *b,int n);
-
-
 
 #endif

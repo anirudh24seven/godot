@@ -2221,8 +2221,7 @@ int mbedtls_aes_self_test( int verbose )
             aes_tests = aes_test_xts_ct32[u];
         }
 
-
-        ret = mbedtls_aes_crypt_xts( &ctx_xts, mode, len, data_unit,
+ret = mbedtls_aes_crypt_xts( &ctx_xts, mode, len, data_unit,
                                      buf, buf );
         if( ret != 0 )
             goto exit;

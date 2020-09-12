@@ -1,8 +1,6 @@
 
 /*  camera_effects.cpp                                                   */
 
-
-
 #include "camera_effects.h"
 
 #include "servers/rendering_server.h"

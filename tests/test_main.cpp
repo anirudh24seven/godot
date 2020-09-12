@@ -1,8 +1,6 @@
 
 /*  test_main.cpp                                                        */
 
-
-
 #include "test_main.h"
 
 #include "core/list.h"

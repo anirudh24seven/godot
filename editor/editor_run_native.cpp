@@ -1,8 +1,6 @@
 
 /*  editor_run_native.cpp                                                */
 
-
-
 #include "editor_run_native.h"
 
 #include "editor_export.h"

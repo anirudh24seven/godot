@@ -1,8 +1,6 @@
 
 /*  godot_collision_dispatcher.h                                         */
 
-
-
 #ifndef GODOT_COLLISION_DISPATCHER_H
 #define GODOT_COLLISION_DISPATCHER_H
 

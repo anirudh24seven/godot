@@ -36,7 +36,6 @@ using namespace mkldnn::impl::utils;
     ? (f).blk_off(n, c, w) \
     : (f).blk_off(n, c, h, w))
 
-
 namespace {
 template <typename T, typename U>
 void balance2D(U nthr, U ithr, T ny, T &ny_start, T &ny_end,
@@ -277,7 +276,6 @@ execute_forward_thr(const int ithr, const int nthr, const src_data_t *src,
         assert(!"unsupported loop order");
     }
 }
-
 
 template struct jit_avx512_common_1x1_convolution_fwd_t<data_type::f32>;
 /* convolution backward wtr data */

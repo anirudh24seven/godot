@@ -1,8 +1,6 @@
 
 /*  path_2d.cpp                                                          */
 
-
-
 #include "path_2d.h"
 
 #include "core/engine.h"

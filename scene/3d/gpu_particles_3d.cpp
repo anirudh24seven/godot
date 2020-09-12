@@ -1,8 +1,6 @@
 
 /*  gpu_particles_3d.cpp                                                 */
 
-
-
 #include "gpu_particles_3d.h"
 
 #include "core/os/os.h"

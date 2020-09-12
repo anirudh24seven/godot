@@ -14,16 +14,10 @@ bool searchIncremental3dSapOnGpu = true;
 #define B3_BROADPHASE_SAP_PATH "src/Bullet3OpenCL/BroadphaseCollision/kernels/sap.cl"
 
 /*
-	
- 
-	
-	
-	
- 
-	b3OpenCLArray<int> m_pairCount;
- 
- 
-	b3OpenCLArray<b3SapAabb>	m_allAabbsGPU;
+
+b3OpenCLArray<int> m_pairCount;
+
+b3OpenCLArray<b3SapAabb>	m_allAabbsGPU;
 	b3AlignedObjectArray<b3SapAabb>	m_allAabbsCPU;
  
 	virtual b3OpenCLArray<b3SapAabb>&	getAllAabbsGPU()
@@ -44,9 +38,8 @@ bool searchIncremental3dSapOnGpu = true;
  
 	b3OpenCLArray<int>	m_largeAabbsMappingGPU;
 	b3AlignedObjectArray<int> m_largeAabbsMappingCPU;
- 
-	
-	b3OpenCLArray<b3Int4>		m_overlappingPairs;
+
+b3OpenCLArray<b3Int4>		m_overlappingPairs;
  
 	//temporary gpu work memory
 	b3OpenCLArray<b3SortData>	m_gpuSmallSortData;
@@ -486,8 +479,7 @@ void b3GpuSapBroadphase::calculateOverlappingPairsHostIncremental3Sap()
 			m_sortedAxisGPU1prev.copyFromHost(m_sortedAxisCPU[1][1-m_currentBuffer]);
 			m_sortedAxisGPU2prev.copyFromHost(m_sortedAxisCPU[2][1-m_currentBuffer]);
 
-		
-			m_addedHostPairsGPU.resize(maxCapacity);
+m_addedHostPairsGPU.resize(maxCapacity);
 			m_removedHostPairsGPU.resize(maxCapacity);
 
 			m_addedCountGPU.resize(0);
@@ -513,8 +505,7 @@ void b3GpuSapBroadphase::calculateOverlappingPairsHostIncremental3Sap()
 			launcher.setBuffer(m_sortedAxisGPU1prev.getBufferCL());
 			launcher.setBuffer(m_sortedAxisGPU2prev.getBufferCL());
 
-		
-			launcher.setBuffer(m_addedHostPairsGPU.getBufferCL());
+launcher.setBuffer(m_addedHostPairsGPU.getBufferCL());
 			launcher.setBuffer(m_removedHostPairsGPU.getBufferCL());
 			launcher.setBuffer(m_addedCountGPU.getBufferCL());
 			launcher.setBuffer(m_removedCountGPU.getBufferCL());
@@ -538,9 +529,7 @@ void b3GpuSapBroadphase::calculateOverlappingPairsHostIncremental3Sap()
 
 		}
 
-
-
-	} 
+}
 	else
 	*/
 	{

@@ -1,8 +1,6 @@
 
 /*  string_buffer.h                                                      */
 
-
-
 #ifndef STRING_BUFFER_H
 #define STRING_BUFFER_H
 

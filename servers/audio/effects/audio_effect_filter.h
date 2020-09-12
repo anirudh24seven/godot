@@ -1,8 +1,6 @@
 
 /*  audio_effect_filter.h                                                */
 
-
-
 #ifndef AUDIOEFFECTFILTER_H
 #define AUDIOEFFECTFILTER_H
 

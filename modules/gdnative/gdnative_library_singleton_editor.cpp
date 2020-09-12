@@ -1,8 +1,6 @@
 
 /*  gdnative_library_singleton_editor.cpp                                */
 
-
-
 #ifdef TOOLS_ENABLED
 #include "gdnative_library_singleton_editor.h"
 #include "gdnative.h"

@@ -1,8 +1,6 @@
 
 /*  main_timer_sync.cpp                                                  */
 
-
-
 #include "main_timer_sync.h"
 
 void MainFrameTime::clamp_idle(float min_idle_step, float max_idle_step) {

@@ -92,7 +92,6 @@ static void once(void (*func)(void))
     return;
 }
 
-
 #elif CONFIG_MULTITHREAD && defined(__OS2__)
 #define INCL_DOS
 #include <os2.h>
@@ -119,7 +118,6 @@ static void once(void (*func)(void))
     DosExitCritSec();
 }
 
-
 #elif CONFIG_MULTITHREAD && HAVE_PTHREAD_H
 #include <pthread.h>
 static void once(void (*func)(void))
@@ -127,7 +125,6 @@ static void once(void (*func)(void))
     static pthread_once_t lock = PTHREAD_ONCE_INIT;
     pthread_once(&lock, func);
 }
-
 
 #else
 /* No-op version that performs no synchronization. *_rtcd() is idempotent,

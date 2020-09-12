@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include "ftcmanag.h"
 #include FT_INTERNAL_OBJECTS_H
@@ -27,7 +26,6 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  cache
 
-
 #define FTC_HASH_MAX_LOAD  2
 #define FTC_HASH_MIN_LOAD  1
 #define FTC_HASH_SUB_LOAD  ( FTC_HASH_MAX_LOAD - FTC_HASH_MIN_LOAD )
@@ -35,42 +33,33 @@
   /* this one _must_ be a power of 2! */
 #define FTC_HASH_INITIAL_SIZE  8
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                   CACHE NODE DEFINITIONS                      *****/
   /*****                                                               *****/
 
-
-
-  /* add a new node to the head of the manager's circular MRU list */
+/* add a new node to the head of the manager's circular MRU list */
   static void
   ftc_node_mru_link( FTC_Node     node,
                      FTC_Manager  manager )
   {
     void  *nl = &manager->nodes_list;
 
-
-    FTC_MruNode_Prepend( (FTC_MruNode*)nl,
+FTC_MruNode_Prepend( (FTC_MruNode*)nl,
                          (FTC_MruNode)node );
     manager->num_nodes++;
   }
 
-
-  /* remove a node from the manager's MRU list */
+/* remove a node from the manager's MRU list */
   static void
   ftc_node_mru_unlink( FTC_Node     node,
                        FTC_Manager  manager )
   {
     void  *nl = &manager->nodes_list;
 
-
-    FTC_MruNode_Remove( (FTC_MruNode*)nl,
+FTC_MruNode_Remove( (FTC_MruNode*)nl,
                         (FTC_MruNode)node );
     manager->num_nodes--;
   }
-
 
 #ifndef FTC_INLINE
 
@@ -83,8 +72,7 @@
                     (FTC_MruNode)node );
   }
 
-
-  /* get a top bucket for specified hash from cache,
+/* get a top bucket for specified hash from cache,
    * body for FTC_NODE_TOP_FOR_HASH( cache, hash )
    */
   FT_LOCAL_DEF( FTC_Node* )
@@ -94,8 +82,7 @@
     FTC_Node*  pnode;
     FT_Offset  idx;
 
-
-    idx = hash & cache->mask;
+idx = hash & cache->mask;
     if ( idx < cache->p )
       idx = hash & ( 2 * cache->mask + 1 );
     pnode = cache->buckets + idx;
@@ -104,8 +91,7 @@
 
 #endif /* !FTC_INLINE */
 
-
-  /* Note that this function cannot fail.  If we cannot re-size the
+/* Note that this function cannot fail.  If we cannot re-size the
    * buckets array appropriately, we simply degrade the hash table's
    * performance!
    */
@@ -119,14 +105,12 @@
       FT_UFast  mask  = cache->mask;
       FT_UFast  count = mask + p + 1;    /* number of buckets */
 
-
-      /* do we need to shrink the buckets array? */
+/* do we need to shrink the buckets array? */
       if ( cache->slack < 0 )
       {
         FTC_Node  new_list = NULL;
 
-
-        /* try to expand the buckets array _before_ splitting
+/* try to expand the buckets array _before_ splitting
          * the bucket lists
          */
         if ( p >= mask )
@@ -134,8 +118,7 @@
           FT_Memory  memory = cache->memory;
           FT_Error   error;
 
-
-          /* if we can't expand the array, leave immediately */
+/* if we can't expand the array, leave immediately */
           if ( FT_RENEW_ARRAY( cache->buckets,
                                ( mask + 1 ) * 2, ( mask + 1 ) * 4 ) )
             break;
@@ -179,8 +162,7 @@
         FT_UFast   old_index = p + mask;
         FTC_Node*  pold;
 
-
-        if ( old_index + 1 <= FTC_HASH_INITIAL_SIZE )
+if ( old_index + 1 <= FTC_HASH_INITIAL_SIZE )
           break;
 
         if ( p == 0 )
@@ -188,8 +170,7 @@
           FT_Memory  memory = cache->memory;
           FT_Error   error;
 
-
-          /* if we can't shrink the array, leave immediately */
+/* if we can't shrink the array, leave immediately */
           if ( FT_RENEW_ARRAY( cache->buckets,
                                ( mask + 1 ) * 2, mask + 1 ) )
             break;
@@ -218,21 +199,18 @@
     }
   }
 
-
-  /* remove a node from its cache's hash table */
+/* remove a node from its cache's hash table */
   static void
   ftc_node_hash_unlink( FTC_Node   node0,
                         FTC_Cache  cache )
   {
     FTC_Node  *pnode = FTC_NODE_TOP_FOR_HASH( cache, node0->hash );
 
-
-    for (;;)
+for (;;)
     {
       FTC_Node  node = *pnode;
 
-
-      if ( !node )
+if ( !node )
       {
         FT_TRACE0(( "ftc_node_hash_unlink: unknown node\n" ));
         return;
@@ -251,30 +229,26 @@
     ftc_cache_resize( cache );
   }
 
-
-  /* add a node to the `top' of its cache's hash table */
+/* add a node to the `top' of its cache's hash table */
   static void
   ftc_node_hash_link( FTC_Node   node,
                       FTC_Cache  cache )
   {
     FTC_Node  *pnode = FTC_NODE_TOP_FOR_HASH( cache, node->hash );
 
-
-    node->link = *pnode;
+node->link = *pnode;
     *pnode     = node;
 
     cache->slack--;
     ftc_cache_resize( cache );
   }
 
-
-  /* remove a node from the cache manager */
+/* remove a node from the cache manager */
   FT_LOCAL_DEF( void )
   ftc_node_destroy( FTC_Node     node,
                     FTC_Manager  manager )
   {
     FTC_Cache  cache;
-
 
 #ifdef FT_DEBUG_ERROR
     /* find node's cache */
@@ -314,31 +288,23 @@
 #endif
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    ABSTRACT CACHE CLASS                       *****/
   /*****                                                               *****/
 
-
-
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   FTC_Cache_Init( FTC_Cache  cache )
   {
     return ftc_cache_init( cache );
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   ftc_cache_init( FTC_Cache  cache )
   {
     FT_Memory  memory = cache->memory;
     FT_Error   error;
 
-
-    cache->p     = 0;
+cache->p     = 0;
     cache->mask  = FTC_HASH_INITIAL_SIZE - 1;
     cache->slack = FTC_HASH_INITIAL_SIZE * FTC_HASH_MAX_LOAD;
 
@@ -346,8 +312,7 @@
     return error;
   }
 
-
-  static void
+static void
   FTC_Cache_Clear( FTC_Cache  cache )
   {
     if ( cache && cache->buckets )
@@ -356,15 +321,13 @@
       FT_UFast     i;
       FT_UFast     count;
 
-
-      count = cache->p + cache->mask + 1;
+count = cache->p + cache->mask + 1;
 
       for ( i = 0; i < count; i++ )
       {
         FTC_Node  *pnode = cache->buckets + i, next, node = *pnode;
 
-
-        while ( node )
+while ( node )
         {
           next        = node->link;
           node->link  = NULL;
@@ -384,16 +347,14 @@
     }
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   ftc_cache_done( FTC_Cache  cache )
   {
     if ( cache->memory )
     {
       FT_Memory  memory = cache->memory;
 
-
-      FTC_Cache_Clear( cache );
+FTC_Cache_Clear( cache );
 
       FT_FREE( cache->buckets );
       cache->mask  = 0;
@@ -404,15 +365,13 @@
     }
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   FTC_Cache_Done( FTC_Cache  cache )
   {
     ftc_cache_done( cache );
   }
 
-
-  static void
+static void
   ftc_cache_add( FTC_Cache  cache,
                  FT_Offset  hash,
                  FTC_Node   node )
@@ -427,8 +386,7 @@
     {
       FTC_Manager  manager = cache->manager;
 
-
-      manager->cur_weight += cache->clazz.node_weight( node, cache );
+manager->cur_weight += cache->clazz.node_weight( node, cache );
 
       if ( manager->cur_weight >= manager->max_weight )
       {
@@ -439,8 +397,7 @@
     }
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   FTC_Cache_NewNode( FTC_Cache   cache,
                      FT_Offset   hash,
                      FT_Pointer  query,
@@ -449,8 +406,7 @@
     FT_Error  error;
     FTC_Node  node;
 
-
-    /*
+/*
      * We use the FTC_CACHE_TRYLOOP macros to support out-of-memory
      * errors (OOM) correctly, i.e., by flushing the cache progressively
      * in order to make more room.
@@ -476,7 +432,6 @@
     return error;
   }
 
-
 #ifndef FTC_INLINE
 
   FT_LOCAL_DEF( FT_Error )
@@ -493,8 +448,7 @@
 
     FTC_Node_CompareFunc  compare = cache->clazz.node_compare;
 
-
-    if ( !cache || !anode )
+if ( !cache || !anode )
       return FT_THROW( Invalid_Argument );
 
     /* Go to the `top' node of the list sharing same masked hash */
@@ -545,8 +499,7 @@
     {
       FTC_Manager  manager = cache->manager;
 
-
-      if ( node != manager->nodes_list )
+if ( node != manager->nodes_list )
         ftc_node_mru_up( node, manager );
     }
     *anode = node;
@@ -559,8 +512,7 @@
 
 #endif /* !FTC_INLINE */
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   FTC_Cache_RemoveFaceID( FTC_Cache   cache,
                           FTC_FaceID  face_id )
   {
@@ -568,21 +520,18 @@
     FTC_Manager  manager = cache->manager;
     FTC_Node     frees   = NULL;
 
-
-    count = cache->p + cache->mask + 1;
+count = cache->p + cache->mask + 1;
     for ( i = 0; i < count; i++ )
     {
       FTC_Node*  bucket = cache->buckets + i;
       FTC_Node*  pnode  = bucket;
 
-
-      for (;;)
+for (;;)
       {
         FTC_Node  node = *pnode;
         FT_Bool   list_changed = FALSE;
 
-
-        if ( !node )
+if ( !node )
           break;
 
         if ( cache->clazz.node_remove_faceid( node, face_id,
@@ -602,8 +551,7 @@
     {
       FTC_Node  node;
 
-
-      node  = frees;
+node  = frees;
       frees = node->link;
 
       manager->cur_weight -= cache->clazz.node_weight( node, cache );
@@ -616,6 +564,5 @@
 
     ftc_cache_resize( cache );
   }
-
 
 /* END */

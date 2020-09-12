@@ -1,8 +1,6 @@
 
 /*  capsule_shape_2d.h                                                   */
 
-
-
 #ifndef CAPSULE_SHAPE_2D_H
 #define CAPSULE_SHAPE_2D_H
 

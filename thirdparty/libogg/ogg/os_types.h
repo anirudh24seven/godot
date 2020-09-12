@@ -110,7 +110,6 @@
    typedef long long ogg_int64_t;
    typedef unsigned long long ogg_uint64_t;
 
-
 #elif defined (DJGPP)
 
    /* DJGPP */

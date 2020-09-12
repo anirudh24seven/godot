@@ -1,8 +1,6 @@
 
 /*  VkThread.kt                                                          */
 
-
-
 @file:JvmName("VkThread")
 package org.godotengine.godot.vulkan
 

@@ -1,8 +1,6 @@
 
 /*  audio_stream_preview.h                                               */
 
-
-
 #ifndef AUDIO_STREAM_PREVIEW_H
 #define AUDIO_STREAM_PREVIEW_H
 

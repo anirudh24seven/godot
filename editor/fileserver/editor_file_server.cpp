@@ -1,8 +1,6 @@
 
 /*  editor_file_server.cpp                                               */
 
-
-
 #include "editor_file_server.h"
 
 #include "../editor_settings.h"

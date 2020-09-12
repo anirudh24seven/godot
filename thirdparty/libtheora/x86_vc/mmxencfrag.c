@@ -564,7 +564,6 @@ unsigned oc_enc_frag_satd_thresh_mmxext(const unsigned char *_src,
   return oc_int_frag_satd_thresh_mmxext(_src,_ystride,_ref,_ystride,_thresh);
 }
 
-
 /*Our internal implementation of frag_copy2 takes an extra stride parameter so
    we can share code with oc_enc_frag_satd2_thresh_mmxext().*/
 static void oc_int_frag_copy2_mmxext(unsigned char *_dst,int _dst_ystride,

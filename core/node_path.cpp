@@ -1,8 +1,6 @@
 
 /*  node_path.cpp                                                        */
 
-
-
 #include "node_path.h"
 
 #include "core/print_string.h"

@@ -1,8 +1,6 @@
 
 /*  visual_script_func_nodes.h                                           */
 
-
-
 #ifndef VISUAL_SCRIPT_FUNC_NODES_H
 #define VISUAL_SCRIPT_FUNC_NODES_H
 

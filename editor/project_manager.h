@@ -1,8 +1,6 @@
 
 /*  project_manager.h                                                    */
 
-
-
 #ifndef PROJECT_MANAGER_H
 #define PROJECT_MANAGER_H
 

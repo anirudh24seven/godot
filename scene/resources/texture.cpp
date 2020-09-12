@@ -1,8 +1,6 @@
 
 /*  texture.cpp                                                          */
 
-
-
 #include "texture.h"
 
 #include "core/core_string_names.h"

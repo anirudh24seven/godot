@@ -1,8 +1,6 @@
 
 /*  thread_dummy.cpp                                                     */
 
-
-
 #include "thread_dummy.h"
 
 #include "core/os/memory.h"

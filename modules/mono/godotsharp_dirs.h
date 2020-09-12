@@ -1,8 +1,6 @@
 
 /*  godotsharp_dirs.h                                                    */
 
-
-
 #ifndef GODOTSHARP_DIRS_H
 #define GODOTSHARP_DIRS_H
 

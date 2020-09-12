@@ -1,8 +1,6 @@
 
 /*  os_osx.h                                                             */
 
-
-
 #ifndef OS_OSX_H
 #define OS_OSX_H
 

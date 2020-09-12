@@ -1,8 +1,6 @@
 
 /*  mobile_vr_interface.h                                                */
 
-
-
 #ifndef MOBILE_VR_INTERFACE_H
 #define MOBILE_VR_INTERFACE_H
 

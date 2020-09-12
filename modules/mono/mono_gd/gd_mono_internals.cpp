@@ -1,8 +1,6 @@
 
 /*  gd_mono_internals.cpp                                                */
 
-
-
 #include "gd_mono_internals.h"
 
 #include "../csharp_script.h"

@@ -1,8 +1,6 @@
 
 /*  godot_view_gesture_recognizer.m                                      */
 
-
-
 #import "godot_view_gesture_recognizer.h"
 
 // Using same delay interval that is used for `UIScrollView`

@@ -1,8 +1,6 @@
 
 /*  gd_mono_field.h                                                      */
 
-
-
 #ifndef GDMONOFIELD_H
 #define GDMONOFIELD_H
 

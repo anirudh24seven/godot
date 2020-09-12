@@ -2,7 +2,6 @@
 # FreeType 2 PSaux driver configuration rules
 #
 
-
 # Copyright (C) 1996-2020 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
@@ -12,11 +11,9 @@
 # indicate that you have read the license and understand and accept it
 # fully.
 
-
 # PSAUX driver directory
 #
 PSAUX_DIR := $(SRC_DIR)/psaux
-
 
 # compilation flags for the driver
 #
@@ -24,7 +21,6 @@ PSAUX_COMPILE := $(CC) $(ANSIFLAGS)                              \
                        $I$(subst /,$(COMPILER_SEP),$(PSAUX_DIR)) \
                        $(INCLUDE_FLAGS)                          \
                        $(FT_CFLAGS)
-
 
 # PSAUX driver sources (i.e., C files)
 #
@@ -53,7 +49,6 @@ PSAUX_DRV_H := $(PSAUX_DRV_SRC:%c=%h)  \
                $(PSAUX_DIR)/psglue.h  \
                $(PSAUX_DIR)/pstypes.h
 
-
 # PSAUX driver object(s)
 #
 #   PSAUX_DRV_OBJ_M is used during `multi' builds.
@@ -66,24 +61,20 @@ PSAUX_DRV_OBJ_S := $(OBJ_DIR)/psaux.$O
 #
 PSAUX_DRV_SRC_S := $(PSAUX_DIR)/psaux.c
 
-
 # PSAUX driver - single object
 #
 $(PSAUX_DRV_OBJ_S): $(PSAUX_DRV_SRC_S) $(PSAUX_DRV_SRC) \
                    $(FREETYPE_H) $(PSAUX_DRV_H)
 	$(PSAUX_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $(PSAUX_DRV_SRC_S))
 
-
 # PSAUX driver - multiple objects
 #
 $(OBJ_DIR)/%.$O: $(PSAUX_DIR)/%.c $(FREETYPE_H) $(PSAUX_DRV_H)
 	$(PSAUX_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $<)
 
-
 # update main driver object lists
 #
 DRV_OBJS_S += $(PSAUX_DRV_OBJ_S)
 DRV_OBJS_M += $(PSAUX_DRV_OBJ_M)
-
 
 # EOF

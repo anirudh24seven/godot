@@ -1,8 +1,6 @@
 
 /*  dialogs.cpp                                                          */
 
-
-
 #include "dialogs.h"
 
 #include "core/os/keyboard.h"

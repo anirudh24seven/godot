@@ -1,8 +1,6 @@
 
 /*  shader_editor_plugin.h                                               */
 
-
-
 #ifndef SHADER_EDITOR_PLUGIN_H
 #define SHADER_EDITOR_PLUGIN_H
 

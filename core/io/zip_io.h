@@ -1,8 +1,6 @@
 
 /*  zip_io.h                                                             */
 
-
-
 #ifndef ZIP_IO_H
 #define ZIP_IO_H
 

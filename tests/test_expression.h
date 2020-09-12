@@ -1,8 +1,6 @@
 
 /*  test_expression.h                                                    */
 
-
-
 #ifndef TEST_EXPRESSION_H
 #define TEST_EXPRESSION_H
 

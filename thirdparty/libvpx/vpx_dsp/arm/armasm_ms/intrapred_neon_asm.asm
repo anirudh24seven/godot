@@ -22,10 +22,8 @@
     EXPORT  |vpx_tm_predictor_8x8_neon|
     EXPORT  |vpx_tm_predictor_16x16_neon|
     EXPORT  |vpx_tm_predictor_32x32_neon|
-    
-    
 
-    AREA |.text|, CODE, READONLY, ALIGN=2
+AREA |.text|, CODE, READONLY, ALIGN=2
 
 ;void vpx_v_predictor_4x4_neon(uint8_t *dst, ptrdiff_t y_stride,
 ;                              const uint8_t *above,
@@ -489,8 +487,7 @@ loop_16x16_neon
     vst1.64             {d2,d3}, [r0], r1
     vst1.64             {d22,d23}, [r0], r1
 
-
-    vadd.s16            q1, q0, q2
+vadd.s16            q1, q0, q2
     vadd.s16            q0, q0, q3
     vadd.s16            q11, q8, q2
     vadd.s16            q8, q8, q3

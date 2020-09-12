@@ -1,7 +1,6 @@
 
 /*  godot.h                                                              */
 
-
 /**
  @file  godot.h
  @brief ENet Godot header

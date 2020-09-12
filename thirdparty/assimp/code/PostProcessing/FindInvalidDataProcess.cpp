@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -43,8 +41,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /** @file Defines a post processing step to search an importer's output
     for data that is obviously invalid  */
-
-
 
 #ifndef ASSIMP_BUILD_NO_FINDINVALIDDATA_PROCESS
 
@@ -145,8 +141,7 @@ void FindInvalidDataProcess::Execute( aiScene* pScene) {
         ProcessAnimation( pScene->mAnimations[a]);
     }
 
-
-    if (out)    {
+if (out)    {
         if ( real != pScene->mNumMeshes)    {
             if (!real) {
                 throw DeadlyImportError("No meshes remaining");

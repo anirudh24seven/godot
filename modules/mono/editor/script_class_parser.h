@@ -1,8 +1,6 @@
 
 /*  script_class_parser.h                                                */
 
-
-
 #ifndef SCRIPT_CLASS_PARSER_H
 #define SCRIPT_CLASS_PARSER_H
 

@@ -1,8 +1,6 @@
 
 /*  video_stream.h                                                       */
 
-
-
 #ifndef VIDEO_STREAM_H
 #define VIDEO_STREAM_H
 

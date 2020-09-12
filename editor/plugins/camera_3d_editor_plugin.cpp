@@ -1,8 +1,6 @@
 
 /*  camera_3d_editor_plugin.cpp                                          */
 
-
-
 #include "camera_3d_editor_plugin.h"
 
 #include "node_3d_editor_plugin.h"
@@ -82,8 +80,7 @@ Camera3DEditorPlugin::Camera3DEditorPlugin(EditorNode *p_node) {
 	camera_editor->set_margin(MARGIN_TOP,0);
 	camera_editor->set_margin(MARGIN_BOTTOM,10);
 
-
-	camera_editor->hide();
+camera_editor->hide();
 */
 }
 

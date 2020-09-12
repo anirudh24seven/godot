@@ -1,8 +1,6 @@
 
 /*  editor_help.h                                                        */
 
-
-
 #ifndef EDITOR_HELP_H
 #define EDITOR_HELP_H
 

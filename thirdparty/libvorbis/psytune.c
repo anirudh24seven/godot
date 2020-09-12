@@ -181,7 +181,6 @@ static vorbis_info_floor1 _floor_set0={1,
                                         20,600,
                                         960};
 
-
 static vorbis_info_mapping0 mapping_info={1,{0,1},{0},{0},{0},0, 1, {0},{1}};
 static codec_setup_info codec_setup0={ {0,0},
                                        1,1,1,1,1,0,1,
@@ -476,8 +475,7 @@ int main(int argc,char *argv[]){
 
         analysis("out",frameno+i,out[i],framesize/2,0,0);
 
-
-      }
+}
 
       /* write data.  Use the part of buffer we're about to shift out */
       for(i=0;i<2;i++){

@@ -1,8 +1,6 @@
 
 /*  editor_atlas_packer.h                                                */
 
-
-
 #ifndef EDITOR_ATLAS_PACKER_H
 #define EDITOR_ATLAS_PACKER_H
 

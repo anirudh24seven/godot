@@ -1,8 +1,6 @@
 
 /*  vector3i.cpp                                                         */
 
-
-
 #include "vector3i.h"
 
 void Vector3i::set_axis(int p_axis, int32_t p_value) {

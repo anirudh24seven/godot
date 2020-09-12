@@ -9,7 +9,6 @@ import subprocess
 
 JSON_SERIALIZABLE_TYPES = (bool, int, float, str)
 
-
 def run_in_subprocess(builder_function):
     @functools.wraps(builder_function)
     def wrapper(target, source, env):
@@ -68,7 +67,6 @@ def run_in_subprocess(builder_function):
             )
 
     return wrapper
-
 
 def subprocess_main(namespace):
 

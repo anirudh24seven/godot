@@ -1,8 +1,6 @@
 
 /*  audio_stream_preview.cpp                                             */
 
-
-
 #include "audio_stream_preview.h"
 
 /////////////////////

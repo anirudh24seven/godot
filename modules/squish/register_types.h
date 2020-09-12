@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef SQUISH_REGISTER_TYPES_H
 #define SQUISH_REGISTER_TYPES_H
 

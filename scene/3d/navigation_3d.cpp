@@ -1,8 +1,6 @@
 
 /*  navigation_3d.cpp                                                    */
 
-
-
 #include "navigation_3d.h"
 
 #include "servers/navigation_server_3d.h"

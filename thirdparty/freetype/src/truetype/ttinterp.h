@@ -15,18 +15,15 @@
  *
  */
 
-
 #ifndef TTINTERP_H_
 #define TTINTERP_H_
 
 #include <ft2build.h>
 #include "ttobjs.h"
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Rounding mode constants.
    */
@@ -39,8 +36,7 @@ FT_BEGIN_HEADER
 #define TT_Round_Super           6
 #define TT_Round_Super_45        7
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Function types used by the interpreter, depending on various modes
    * (e.g. the rounding mode, whether to render a vertical or horizontal
@@ -83,8 +79,7 @@ FT_BEGIN_HEADER
                       FT_ULong        idx,
                       FT_F26Dot6      value );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This structure defines a call record, used to manage function calls.
    */
@@ -97,7 +92,6 @@ FT_BEGIN_HEADER
     TT_DefRecord  *Def; /* either FDEF or IDEF */
 
   } TT_CallRec, *TT_CallStack;
-
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY
 
@@ -119,8 +113,7 @@ FT_BEGIN_HEADER
 
   } SPH_TweakRule;
 
-
-  typedef struct  SPH_ScaleRule_
+typedef struct  SPH_ScaleRule_
   {
     const char      family[SPH_MAX_NAME_SIZE];
     const FT_UInt   ppem;
@@ -130,8 +123,7 @@ FT_BEGIN_HEADER
 
   } SPH_ScaleRule;
 
-
-  typedef struct  SPH_Font_Class_
+typedef struct  SPH_Font_Class_
   {
     const char  name[SPH_MAX_NAME_SIZE];
     const char  member[SPH_MAX_CLASS_MEMBERS][SPH_MAX_NAME_SIZE];
@@ -140,8 +132,7 @@ FT_BEGIN_HEADER
 
 #endif /* TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The main structure for the interpreter which collects all necessary
    * variables and states.
@@ -434,9 +425,7 @@ FT_BEGIN_HEADER
 
   } TT_ExecContextRec;
 
-
-  extern const TT_GraphicsState  tt_default_graphics_state;
-
+extern const TT_GraphicsState  tt_default_graphics_state;
 
 #ifdef TT_USE_BYTECODE_INTERPRETER
   FT_LOCAL( void )
@@ -454,8 +443,7 @@ FT_BEGIN_HEADER
   TT_Clear_CodeRange( TT_ExecContext  exec,
                       FT_Int          range );
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   Update_Max( FT_Memory  memory,
               FT_ULong*  size,
               FT_ULong   multiplier,
@@ -463,8 +451,7 @@ FT_BEGIN_HEADER
               FT_ULong   new_max );
 #endif /* TT_USE_BYTECODE_INTERPRETER */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   TT_New_Context
@@ -488,7 +475,6 @@ FT_BEGIN_HEADER
   FT_EXPORT( TT_ExecContext )
   TT_New_Context( TT_Driver  driver );
 
-
 #ifdef TT_USE_BYTECODE_INTERPRETER
   FT_LOCAL( void )
   TT_Done_Context( TT_ExecContext  exec );
@@ -506,8 +492,7 @@ FT_BEGIN_HEADER
   TT_Run_Context( TT_ExecContext  exec );
 #endif /* TT_USE_BYTECODE_INTERPRETER */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   TT_RunIns
@@ -532,10 +517,8 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Error )
   TT_RunIns( TT_ExecContext  exec );
 
-
 FT_END_HEADER
 
 #endif /* TTINTERP_H_ */
-
 
 /* END */

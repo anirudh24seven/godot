@@ -1,8 +1,6 @@
 
 /*  groups_editor.cpp                                                    */
 
-
-
 #include "groups_editor.h"
 
 #include "editor/scene_tree_editor.h"

@@ -311,7 +311,6 @@ int mbedtls_pem_read_buffer( mbedtls_pem_context *ctx, const char *header, const
         if( *s1 == '\n' ) s1++;
         else return( MBEDTLS_ERR_PEM_INVALID_DATA );
 
-
 #if defined(MBEDTLS_DES_C)
         if( s2 - s1 >= 23 && memcmp( s1, "DEK-Info: DES-EDE3-CBC,", 23 ) == 0 )
         {

@@ -26,7 +26,6 @@
 #include "RecastAlloc.h"
 #include "RecastAssert.h"
 
-
 static const unsigned RC_UNSET_HEIGHT = 0xffff;
 
 struct rcHeightPatch
@@ -36,7 +35,6 @@ struct rcHeightPatch
 	unsigned short* data;
 	int xmin, ymin, width, height;
 };
-
 
 inline float vdot2(const float* a, const float* b)
 {
@@ -199,7 +197,6 @@ static float distToPoly(int nvert, const float* verts, const float* p)
 	return c ? -dmin : dmin;
 }
 
-
 static unsigned short getHeight(const float fx, const float fy, const float fz,
 								const float /*cs*/, const float ics, const float ch,
 								const int radius, const rcHeightPatch& hp)
@@ -279,7 +276,6 @@ static unsigned short getHeight(const float fx, const float fy, const float fz,
 	}
 	return h;
 }
-
 
 enum EdgeValues
 {
@@ -623,7 +619,6 @@ static void triangulateHull(const int /*nverts*/, const float* verts, const int 
 		}
 	}
 }
-
 
 inline float getJitterX(const int i)
 {
@@ -1011,7 +1006,6 @@ static void seedArrayWithPolyCenter(rcContext* ctx, const rcCompactHeightfield& 
 	const rcCompactSpan& cs = chf.spans[ci];
 	hp.data[cx-hp.xmin+(cy-hp.ymin)*hp.width] = cs.y;
 }
-
 
 static void push3(rcIntArray& queue, int v1, int v2, int v3)
 {

@@ -1,8 +1,6 @@
 
 /*  godot_ray_world_algorithm.h                                          */
 
-
-
 #ifndef GODOT_RAY_WORLD_ALGORITHM_H
 #define GODOT_RAY_WORLD_ALGORITHM_H
 

@@ -1,8 +1,6 @@
 
 /*  copymem.h                                                            */
 
-
-
 #ifndef COPYMEM_H
 #define COPYMEM_H
 

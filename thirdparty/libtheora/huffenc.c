@@ -3,8 +3,6 @@
 #include <ogg/ogg.h>
 #include "huffenc.h"
 
-
-
 /*The default Huffman codes used for VP3.1.*/
 const th_huff_code TH_VP31_HUFF_CODES[TH_NHUFFMAN_TABLES][TH_NDCT_TOKENS]={
   {
@@ -809,8 +807,6 @@ const th_huff_code TH_VP31_HUFF_CODES[TH_NHUFFMAN_TABLES][TH_NDCT_TOKENS]={
   }
 };
 
-
-
 /*A description of a Huffman code value used when encoding the tree.*/
 typedef struct{
   /*The bit pattern, left-shifted so that the MSB of all patterns is
@@ -821,8 +817,6 @@ typedef struct{
   /*The token this bit pattern represents.*/
   int          token;
 }oc_huff_entry;
-
-
 
 /*Compares two oc_huff_entry structures by their bit patterns.
   _c1: The first entry to compare.

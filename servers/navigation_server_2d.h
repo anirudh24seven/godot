@@ -1,8 +1,6 @@
 
 /*  navigation_server_2d.h                                               */
 
-
-
 /**
 	@author AndreaCatania
 */

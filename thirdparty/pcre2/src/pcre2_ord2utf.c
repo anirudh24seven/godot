@@ -38,17 +38,14 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 /* This file contains a function that converts a Unicode character code point
 into a UTF string. The behaviour is different for each code unit width. */
-
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include "pcre2_internal.h"
-
 
 /* If SUPPORT_UNICODE is not defined, this function will never be called.
 Supply a dummy function because some compilers do not like empty source
@@ -63,7 +60,6 @@ PRIV(ord2utf)(uint32_t cvalue, PCRE2_UCHAR *buffer)
 return 0;
 }
 #else  /* SUPPORT_UNICODE */
-
 
 /*************************************************
 *          Convert code point to UTF             *

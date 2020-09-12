@@ -1,8 +1,6 @@
 
 /*  back_buffer_copy.cpp                                                 */
 
-
-
 #include "back_buffer_copy.h"
 
 void BackBufferCopy::_update_copy_mode() {

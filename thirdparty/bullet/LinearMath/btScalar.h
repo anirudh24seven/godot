@@ -41,7 +41,6 @@ inline int btIsDoublePrecision()
   #endif
 }
 
-
 // The following macro "BT_NOT_EMPTY_FILE" can be put into a file
 // in order suppress the MS Visual C++ Linker warning 4221
 //
@@ -205,12 +204,10 @@ inline int btIsDoublePrecision()
 			//btFullAssert is optional, slows down a lot
 			#define btFullAssert(x)
 
-
-			#define btLikely(_c)   __builtin_expect((_c), 1)
+#define btLikely(_c)   __builtin_expect((_c), 1)
 			#define btUnlikely(_c) __builtin_expect((_c), 0)
-		
 
-		#else//USE_LIBSPE2
+#else//USE_LIBSPE2
 	//non-windows systems
 
 			#if (defined (__APPLE__) && (!defined (BT_USE_DOUBLE_PRECISION)))
@@ -304,7 +301,6 @@ inline int btIsDoublePrecision()
 	#endif	//__CELLOS_LV2__
 #endif//_WIN32
 
-
 ///The btScalar type abstracts floating point numbers, to easily switch between double and single floating point precision.
 #if defined(BT_USE_DOUBLE_PRECISION)
 	typedef double btScalar;
@@ -338,9 +334,7 @@ inline int btIsDoublePrecision()
 			}
 		#endif
 
-
-
-	//use this, in case there are clashes (such as xnamath.h)
+//use this, in case there are clashes (such as xnamath.h)
 	#ifndef BT_NO_SIMD_OPERATOR_OVERLOADS
 	inline __m128 operator+(const __m128 A, const __m128 B)
 	{

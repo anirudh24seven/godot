@@ -1,8 +1,6 @@
 
 /*  remote_transform_3d.cpp                                              */
 
-
-
 #include "remote_transform_3d.h"
 
 void RemoteTransform3D::_update_cache() {

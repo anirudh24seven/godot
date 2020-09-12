@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef OGG_REGISTER_TYPES_H
 #define OGG_REGISTER_TYPES_H
 

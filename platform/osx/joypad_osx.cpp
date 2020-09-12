@@ -1,8 +1,6 @@
 
 /*  joypad_osx.cpp                                                       */
 
-
-
 #include "joypad_osx.h"
 
 #include <machine/endian.h>

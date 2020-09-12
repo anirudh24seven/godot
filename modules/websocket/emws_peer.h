@@ -1,8 +1,6 @@
 
 /*  emws_peer.h                                                          */
 
-
-
 #ifndef EMWSPEER_H
 #define EMWSPEER_H
 

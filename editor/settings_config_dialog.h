@@ -1,8 +1,6 @@
 
 /*  settings_config_dialog.h                                             */
 
-
-
 #ifndef SETTINGS_CONFIG_DIALOG_H
 #define SETTINGS_CONFIG_DIALOG_H
 

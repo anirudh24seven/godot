@@ -1,8 +1,6 @@
 
 /*  item_list.h                                                          */
 
-
-
 #ifndef ITEMLIST_H
 #define ITEMLIST_H
 

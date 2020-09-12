@@ -1,8 +1,6 @@
 
 /*  nav_utils.h                                                          */
 
-
-
 #ifndef NAV_UTILS_H
 #define NAV_UTILS_H
 

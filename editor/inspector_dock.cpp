@@ -1,8 +1,6 @@
 
 /*  inspector_dock.cpp                                                   */
 
-
-
 #include "inspector_dock.h"
 
 #include "editor/editor_node.h"

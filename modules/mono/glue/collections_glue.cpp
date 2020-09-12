@@ -1,8 +1,6 @@
 
 /*  collections_glue.cpp                                                 */
 
-
-
 #ifdef MONO_GLUE_ENABLED
 
 #include <mono/metadata/exception.h>

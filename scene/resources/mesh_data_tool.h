@@ -1,8 +1,6 @@
 
 /*  mesh_data_tool.h                                                     */
 
-
-
 #ifndef MESH_DATA_TOOL_H
 #define MESH_DATA_TOOL_H
 

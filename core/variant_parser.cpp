@@ -1,8 +1,6 @@
 
 /*  variant_parser.cpp                                                   */
 
-
-
 #include "variant_parser.h"
 
 #include "core/input/input_event.h"

@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -43,13 +42,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /// @file DeboneProcess.cpp
 /** Implementation of the DeboneProcess post processing step */
 
-
-
 // internal headers of the post-processing framework
 #include "ProcessHelper.h"
 #include "DeboneProcess.h"
 #include <stdio.h>
-
 
 using namespace Assimp;
 

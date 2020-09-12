@@ -1,8 +1,6 @@
 
 /*  text_file.h                                                          */
 
-
-
 #ifndef TEXTFILE_H
 #define TEXTFILE_H
 

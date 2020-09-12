@@ -1,8 +1,6 @@
 
 /*  resource_format_binary.cpp                                           */
 
-
-
 #include "resource_format_binary.h"
 
 #include "core/image.h"

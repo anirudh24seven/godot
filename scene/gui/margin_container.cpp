@@ -1,8 +1,6 @@
 
 /*  margin_container.cpp                                                 */
 
-
-
 #include "margin_container.h"
 
 Size2 MarginContainer::get_minimum_size() const {

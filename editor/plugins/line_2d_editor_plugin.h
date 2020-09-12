@@ -1,8 +1,6 @@
 
 /*  line_2d_editor_plugin.h                                              */
 
-
-
 #ifndef LINE_2D_EDITOR_PLUGIN_H
 #define LINE_2D_EDITOR_PLUGIN_H
 

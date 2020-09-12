@@ -15,14 +15,11 @@
  *
  */
 
-
 #ifndef T42PARSE_H_
 #define T42PARSE_H_
 
-
 #include "t42objs.h"
 #include FT_INTERNAL_POSTSCRIPT_AUX_H
-
 
 FT_BEGIN_HEADER
 
@@ -38,8 +35,7 @@ FT_BEGIN_HEADER
 
   } T42_ParserRec, *T42_Parser;
 
-
-  typedef struct  T42_Loader_
+typedef struct  T42_Loader_
   {
     T42_ParserRec  parser;          /* parser used to read the stream */
 
@@ -54,8 +50,7 @@ FT_BEGIN_HEADER
 
   } T42_LoaderRec, *T42_Loader;
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   t42_parser_init( T42_Parser     parser,
                    FT_Stream      stream,
                    FT_Memory      memory,
@@ -64,28 +59,23 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   t42_parser_done( T42_Parser  parser );
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   t42_parse_dict( T42_Face    face,
                   T42_Loader  loader,
                   FT_Byte*    base,
                   FT_Long     size );
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   t42_loader_init( T42_Loader  loader,
                    T42_Face    face );
 
   FT_LOCAL( void )
   t42_loader_done( T42_Loader  loader );
 
-
- /* */
+/* */
 
 FT_END_HEADER
 
-
 #endif /* T42PARSE_H_ */
-
 
 /* END */

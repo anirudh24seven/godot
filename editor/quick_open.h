@@ -1,8 +1,6 @@
 
 /*  quick_open.h                                                         */
 
-
-
 #ifndef EDITOR_QUICK_OPEN_H
 #define EDITOR_QUICK_OPEN_H
 

@@ -20,24 +20,19 @@
  * Information-technology Promotion Agency, Japan.
  */
 
-
 #ifndef FTRFORK_H_
 #define FTRFORK_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_OBJECTS_H
 
-
 FT_BEGIN_HEADER
 
-
-  /* Number of guessing rules supported in `FT_Raccess_Guess'.            */
+/* Number of guessing rules supported in `FT_Raccess_Guess'.            */
   /* Don't forget to increment the number if you add a new guessing rule. */
 #define FT_RACCESS_N_RULES  9
 
-
-  /* A structure to describe a reference in a resource by its resource ID */
+/* A structure to describe a reference in a resource by its resource ID */
   /* and internal offset.  The `POST' resource expects to be concatenated */
   /* by the order of resource IDs instead of its appearance in the file.  */
 
@@ -47,7 +42,6 @@ FT_BEGIN_HEADER
     FT_Long   offset;
 
   } FT_RFork_Ref;
-
 
 #ifdef FT_CONFIG_OPTION_GUESSING_EMBEDDED_RFORK
   typedef FT_Error
@@ -80,7 +74,6 @@ FT_BEGIN_HEADER
     FT_RFork_Rule          type;
   } ft_raccess_guess_rec;
 
-
 #define CONST_FT_RFORK_RULE_ARRAY_BEGIN( name, type )  \
           static const type name[] = {
 #define CONST_FT_RFORK_RULE_ARRAY_ENTRY( func_suffix, type_suffix )  \
@@ -91,8 +84,7 @@ FT_BEGIN_HEADER
 
 #endif /* FT_CONFIG_OPTION_GUESSING_EMBEDDED_RFORK */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Raccess_Guess
@@ -139,8 +131,7 @@ FT_BEGIN_HEADER
                     FT_Long*    offsets,
                     FT_Error*   errors );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Raccess_Get_HeaderInfo
@@ -178,8 +169,7 @@ FT_BEGIN_HEADER
                              FT_Long    *map_offset,
                              FT_Long    *rdata_pos );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Raccess_Get_DataOffsets
@@ -237,10 +227,8 @@ FT_BEGIN_HEADER
                               FT_Long   **offsets,
                               FT_Long    *count );
 
-
 FT_END_HEADER
 
 #endif /* FTRFORK_H_ */
-
 
 /* END */

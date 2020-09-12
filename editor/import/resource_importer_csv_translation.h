@@ -1,8 +1,6 @@
 
 /*  resource_importer_csv_translation.h                                  */
 
-
-
 #ifndef RESOURCEIMPORTERCSVTRANSLATION_H
 #define RESOURCEIMPORTERCSVTRANSLATION_H
 

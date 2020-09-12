@@ -1,8 +1,6 @@
 
 /*  animation_cache.h                                                    */
 
-
-
 #ifndef ANIMATION_CACHE_H
 #define ANIMATION_CACHE_H
 

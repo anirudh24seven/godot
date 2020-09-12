@@ -1,8 +1,6 @@
 
 /*  visual_script_expression.cpp                                         */
 
-
-
 #include "visual_script_expression.h"
 
 bool VisualScriptExpression::_set(const StringName &p_name, const Variant &p_value) {

@@ -1,8 +1,6 @@
 
 /*  gradient_edit.h                                                      */
 
-
-
 #ifndef GRADIENT_EDIT_H
 #define GRADIENT_EDIT_H
 

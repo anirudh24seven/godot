@@ -1,8 +1,6 @@
 
 /*  crypto.cpp                                                           */
 
-
-
 #include "crypto.h"
 
 #include "core/engine.h"

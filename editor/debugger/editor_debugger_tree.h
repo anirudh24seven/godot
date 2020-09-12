@@ -1,8 +1,6 @@
 
 /*  editor_debugger_tree.h                                               */
 
-
-
 #include "scene/gui/tree.h"
 
 #ifndef EDITOR_DEBUGGER_TREE_H

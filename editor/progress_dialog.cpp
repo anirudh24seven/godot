@@ -1,8 +1,6 @@
 
 /*  progress_dialog.cpp                                                  */
 
-
-
 #include "progress_dialog.h"
 
 #include "core/message_queue.h"

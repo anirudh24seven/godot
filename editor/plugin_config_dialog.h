@@ -1,8 +1,6 @@
 
 /*  plugin_config_dialog.h                                               */
 
-
-
 #ifndef PLUGIN_CONFIG_DIALOG_H
 #define PLUGIN_CONFIG_DIALOG_H
 

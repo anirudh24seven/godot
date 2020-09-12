@@ -1,8 +1,6 @@
 
 /*  nativescript.h                                                       */
 
-
-
 #ifndef NATIVE_SCRIPT_H
 #define NATIVE_SCRIPT_H
 

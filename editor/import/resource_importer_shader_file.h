@@ -1,8 +1,6 @@
 
 /*  resource_importer_shader_file.h                                      */
 
-
-
 #ifndef RESOURCE_IMPORTER_SHADER_FILE_H
 #define RESOURCE_IMPORTER_SHADER_FILE_H
 

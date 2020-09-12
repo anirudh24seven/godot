@@ -1,8 +1,6 @@
 
 /*  os_iphone.h                                                          */
 
-
-
 #ifdef IPHONE_ENABLED
 
 #ifndef OS_IPHONE_H

@@ -1,8 +1,6 @@
 
 /*  compression.cpp                                                      */
 
-
-
 #include "compression.h"
 
 #include "core/io/zip_io.h"

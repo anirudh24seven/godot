@@ -35,19 +35,15 @@
  *
  */
 
-
 #ifndef PSINTRP_H_
 #define PSINTRP_H_
-
 
 #include "psft.h"
 #include "pshints.h"
 
-
 FT_BEGIN_HEADER
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   cf2_hintmask_init( CF2_HintMask  hintmask,
                      FT_Error*     error );
   FT_LOCAL( FT_Bool )
@@ -73,11 +69,8 @@ FT_BEGIN_HEADER
                           CF2_Fixed             curY,
                           CF2_Fixed*            width );
 
-
 FT_END_HEADER
 
-
 #endif /* PSINTRP_H_ */
-
 
 /* END */

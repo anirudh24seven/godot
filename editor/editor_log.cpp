@@ -1,8 +1,6 @@
 
 /*  editor_log.cpp                                                       */
 
-
-
 #include "editor_log.h"
 
 #include "core/os/keyboard.h"

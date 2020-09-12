@@ -83,7 +83,6 @@
     ret
 %endmacro
 
-
 ;void vp8_copy32xn_sse3(
 ;    unsigned char *src_ptr,
 ;    int  src_stride,

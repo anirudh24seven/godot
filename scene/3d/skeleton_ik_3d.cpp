@@ -1,8 +1,6 @@
 
 /*  skeleton_ik_3d.cpp                                                   */
 
-
-
 /**
  * @author AndreaCatania
  */

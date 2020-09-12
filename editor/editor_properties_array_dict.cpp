@@ -1,8 +1,6 @@
 
 /*  editor_properties_array_dict.cpp                                     */
 
-
-
 #include "editor_properties_array_dict.h"
 
 #include "core/io/marshalls.h"

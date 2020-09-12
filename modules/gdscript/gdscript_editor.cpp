@@ -1,8 +1,6 @@
 
 /*  gdscript_editor.cpp                                                  */
 
-
-
 #include "gdscript.h"
 
 #include "core/engine.h"

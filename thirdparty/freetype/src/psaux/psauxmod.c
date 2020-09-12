@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include "psauxmod.h"
 #include "psobjs.h"
@@ -28,8 +27,7 @@
 #include "afmparse.h"
 #endif
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const PS_Table_FuncsRec  ps_table_funcs =
   {
     ps_table_new,     /* init    */
@@ -38,8 +36,7 @@
     ps_table_release  /* release */
   };
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const PS_Parser_FuncsRec  ps_parser_funcs =
   {
     ps_parser_init,             /* init             */
@@ -60,16 +57,14 @@
     ps_parser_load_field_table  /* load_field_table */
   };
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const PS_Builder_FuncsRec  ps_builder_funcs =
   {
     ps_builder_init,          /* init */
     ps_builder_done           /* done */
   };
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const T1_Builder_FuncsRec  t1_builder_funcs =
   {
     t1_builder_init,          /* init */
@@ -83,8 +78,7 @@
     t1_builder_close_contour  /* close_contour */
   };
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const T1_Decoder_FuncsRec  t1_decoder_funcs =
   {
     t1_decoder_init,               /* init                  */
@@ -97,7 +91,6 @@
     cf2_decoder_parse_charstrings  /* parse_charstrings     */
   };
 
-
 #ifndef T1_CONFIG_OPTION_NO_AFM
   FT_CALLBACK_TABLE_DEF
   const AFM_Parser_FuncsRec  afm_parser_funcs =
@@ -108,8 +101,7 @@
   };
 #endif
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const T1_CMap_ClassesRec  t1_cmap_classes =
   {
     &t1_cmap_standard_class_rec,
@@ -118,8 +110,7 @@
     &t1_cmap_unicode_class_rec
   };
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const CFF_Builder_FuncsRec  cff_builder_funcs =
   {
     cff_builder_init,          /* init */
@@ -133,8 +124,7 @@
     cff_builder_close_contour  /* close_contour */
   };
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const CFF_Decoder_FuncsRec  cff_decoder_funcs =
   {
     cff_decoder_init,              /* init    */
@@ -146,8 +136,7 @@
     cf2_decoder_parse_charstrings  /* parse_charstrings     */
   };
 
-
-  static
+static
   const PSAux_Interface  psaux_interface =
   {
     &ps_table_funcs,
@@ -170,8 +159,7 @@
     &cff_decoder_funcs,
   };
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const FT_Module_Class  psaux_module_class =
   {
     0,
@@ -186,6 +174,5 @@
     (FT_Module_Destructor) NULL,  /* module_done   */
     (FT_Module_Requester)  NULL   /* get_interface */
   };
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  webrtc_peer_connection_gdnative.cpp                                  */
 
-
-
 #ifdef WEBRTC_GDNATIVE_ENABLED
 
 #include "webrtc_peer_connection_gdnative.h"

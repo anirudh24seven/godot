@@ -125,8 +125,7 @@ struct jit_uni_lrn_fwd_kernel_f32 : public jit_generator {
     void within_body_sse42(
         int hoff, int Hoff, int woff, int Woff, int stride, prop_kind_t pk);
 
-
-    void nchw_body(int tail, int HW, prop_kind_t pk,
+void nchw_body(int tail, int HW, prop_kind_t pk,
         Xbyak::Ymm ymask,
         Xbyak::Ymm ya,
         Xbyak::Ymm yb,

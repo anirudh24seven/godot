@@ -1,8 +1,6 @@
 
 /*  scene_tree_dock.h                                                    */
 
-
-
 #ifndef SCENE_TREE_DOCK_H
 #define SCENE_TREE_DOCK_H
 

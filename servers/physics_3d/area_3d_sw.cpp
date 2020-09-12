@@ -1,8 +1,6 @@
 
 /*  area_3d_sw.cpp                                                       */
 
-
-
 #include "area_3d_sw.h"
 #include "body_3d_sw.h"
 #include "space_3d_sw.h"

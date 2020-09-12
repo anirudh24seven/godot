@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "vpx_config.h"
 #include "vp8_rtcd.h"
 #include "./vpx_scale_rtcd.h"
@@ -124,7 +123,6 @@ static void decode_macroblock(VP8D_COMP *pbi, MACROBLOCKD *xd,
     if (xd->segmentation_enabled)
         vp8_mb_init_dequantizer(pbi, xd);
 
-
 #if CONFIG_ERROR_CONCEALMENT
 
     if(pbi->ec_active)
@@ -223,7 +221,6 @@ static void decode_macroblock(VP8D_COMP *pbi, MACROBLOCKD *xd,
     {
         vp8_build_inter_predictors_mb(xd);
     }
-
 
 #if CONFIG_ERROR_CONCEALMENT
     if (corruption_detected)
@@ -326,8 +323,7 @@ static void yv12_extend_frame_top_c(YV12_BUFFER_CONFIG *ybf)
         dest_ptr1 += plane_stride;
     }
 
-
-    /***********/
+/***********/
     /* U Plane */
     /***********/
     plane_stride = ybf->uv_stride;
@@ -382,8 +378,7 @@ static void yv12_extend_frame_bottom_c(YV12_BUFFER_CONFIG *ybf)
         dest_ptr2 += plane_stride;
     }
 
-
-    /***********/
+/***********/
     /* U Plane */
     /***********/
     plane_stride = ybf->uv_stride;
@@ -818,7 +813,6 @@ static unsigned int read_available_partition_size(
     return partition_size;
 }
 
-
 static void setup_token_decoder(VP8D_COMP *pbi,
                                 const unsigned char* token_part_sizes)
 {
@@ -906,7 +900,6 @@ static void setup_token_decoder(VP8D_COMP *pbi,
         pbi->decoding_thread_count = num_token_partitions - 1;
 #endif
 }
-
 
 static void init_frame(VP8D_COMP *pbi)
 {
@@ -1042,8 +1035,7 @@ int vp8_decode_frame(VP8D_COMP *pbi)
 
         vp8_setup_version(pc);
 
-
-        if (pc->frame_type == KEY_FRAME)
+if (pc->frame_type == KEY_FRAME)
         {
             /* vet via sync code */
             /* When error concealment is enabled we should only check the sync
@@ -1262,8 +1254,7 @@ int vp8_decode_frame(VP8D_COMP *pbi)
             pc->copy_buffer_to_arf = 0;
 #endif
 
-
-        pc->ref_frame_sign_bias[GOLDEN_FRAME] = vp8_read_bit(bc);
+pc->ref_frame_sign_bias[GOLDEN_FRAME] = vp8_read_bit(bc);
         pc->ref_frame_sign_bias[ALTREF_FRAME] = vp8_read_bit(bc);
     }
 

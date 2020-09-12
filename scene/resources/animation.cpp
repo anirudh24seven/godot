@@ -1,8 +1,6 @@
 
 /*  animation.cpp                                                        */
 
-
-
 #include "animation.h"
 #include "scene/scene_string_names.h"
 
@@ -703,8 +701,7 @@ int Animation::_insert_pos(float p_time, T& p_keys) {
 
 	while(true) {
 
-
-		if (idx==0 || p_keys[idx-1].time < p_time) {
+if (idx==0 || p_keys[idx-1].time < p_time) {
 			//condition for insertion.
 			p_keys.insert(idx,T());
 			return idx;

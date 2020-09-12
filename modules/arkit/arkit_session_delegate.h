@@ -1,8 +1,6 @@
 
 /*  arkit_session_delegate.h                                             */
 
-
-
 #ifndef ARKIT_SESSION_DELEGATE_H
 #define ARKIT_SESSION_DELEGATE_H
 

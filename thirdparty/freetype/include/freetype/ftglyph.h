@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This file contains the definition of several convenience functions that
    * can be used by client applications to easily retrieve glyph bitmaps and
@@ -28,10 +27,8 @@
    *
    */
 
-
 #ifndef FTGLYPH_H_
 #define FTGLYPH_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -42,11 +39,9 @@
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   glyph_management
@@ -65,12 +60,10 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /* forward declaration to a private type */
+/* forward declaration to a private type */
   typedef struct FT_Glyph_Class_  FT_Glyph_Class;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_Glyph
@@ -87,8 +80,7 @@ FT_BEGIN_HEADER
    */
   typedef struct FT_GlyphRec_*  FT_Glyph;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_GlyphRec
@@ -119,8 +111,7 @@ FT_BEGIN_HEADER
 
   } FT_GlyphRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_BitmapGlyph
@@ -131,8 +122,7 @@ FT_BEGIN_HEADER
    */
   typedef struct FT_BitmapGlyphRec_*  FT_BitmapGlyph;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_BitmapGlyphRec
@@ -174,8 +164,7 @@ FT_BEGIN_HEADER
 
   } FT_BitmapGlyphRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_OutlineGlyph
@@ -186,8 +175,7 @@ FT_BEGIN_HEADER
    */
   typedef struct FT_OutlineGlyphRec_*  FT_OutlineGlyph;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_OutlineGlyphRec
@@ -222,8 +210,7 @@ FT_BEGIN_HEADER
 
   } FT_OutlineGlyphRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_New_Glyph
@@ -254,8 +241,7 @@ FT_BEGIN_HEADER
                 FT_Glyph_Format  format,
                 FT_Glyph         *aglyph );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Get_Glyph
@@ -284,8 +270,7 @@ FT_BEGIN_HEADER
   FT_Get_Glyph( FT_GlyphSlot  slot,
                 FT_Glyph     *aglyph );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Glyph_Copy
@@ -309,8 +294,7 @@ FT_BEGIN_HEADER
   FT_Glyph_Copy( FT_Glyph   source,
                  FT_Glyph  *target );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Glyph_Transform
@@ -342,8 +326,7 @@ FT_BEGIN_HEADER
                       FT_Matrix*  matrix,
                       FT_Vector*  delta );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   FT_Glyph_BBox_Mode
@@ -377,8 +360,7 @@ FT_BEGIN_HEADER
 
   } FT_Glyph_BBox_Mode;
 
-
-  /* these constants are deprecated; use the corresponding */
+/* these constants are deprecated; use the corresponding */
   /* `FT_Glyph_BBox_Mode` values instead                   */
 #define ft_glyph_bbox_unscaled   FT_GLYPH_BBOX_UNSCALED
 #define ft_glyph_bbox_subpixels  FT_GLYPH_BBOX_SUBPIXELS
@@ -386,8 +368,7 @@ FT_BEGIN_HEADER
 #define ft_glyph_bbox_truncate   FT_GLYPH_BBOX_TRUNCATE
 #define ft_glyph_bbox_pixels     FT_GLYPH_BBOX_PIXELS
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Glyph_Get_CBox
@@ -464,8 +445,7 @@ FT_BEGIN_HEADER
                      FT_UInt   bbox_mode,
                      FT_BBox  *acbox );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Glyph_To_Bitmap
@@ -575,8 +555,7 @@ FT_BEGIN_HEADER
                       FT_Vector*      origin,
                       FT_Bool         destroy );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Done_Glyph
@@ -593,8 +572,7 @@ FT_BEGIN_HEADER
 
   /* */
 
-
-  /* other helpful functions */
+/* other helpful functions */
 
   /**************************************************************************
    *
@@ -603,8 +581,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Matrix_Multiply
@@ -630,8 +607,7 @@ FT_BEGIN_HEADER
   FT_Matrix_Multiply( const FT_Matrix*  a,
                       FT_Matrix*        b );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Matrix_Invert
@@ -651,14 +627,11 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTGLYPH_H_ */
 
-
 /* END */
-
 
 /* Local Variables: */
 /* coding: utf-8    */

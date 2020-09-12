@@ -1,8 +1,6 @@
 
 /*  webrtc_peer_connection.h                                             */
 
-
-
 #ifndef WEBRTC_PEER_CONNECTION_H
 #define WEBRTC_PEER_CONNECTION_H
 

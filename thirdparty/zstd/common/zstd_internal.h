@@ -44,7 +44,6 @@ extern "C" {
 #define FSE_isError  ERR_isError
 #define HUF_isError  ERR_isError
 
-
 /*-*************************************
 *  shared macros
 ***************************************/
@@ -96,7 +95,6 @@ extern "C" {
       return err_code; \
     } \
   } while(0);
-
 
 /*-*************************************
 *  Common constants
@@ -187,7 +185,6 @@ static const S16 OF_defaultNorm[DefaultMaxOff+1] = { 1, 1, 1, 1, 1, 1, 2, 2,
 #define OF_DEFAULTNORMLOG 5  /* for static allocation */
 static const U32 OF_defaultNormLog = OF_DEFAULTNORMLOG;
 
-
 /*-*******************************************
 *  Shared functions to include for inlining
 *********************************************/
@@ -247,7 +244,6 @@ void ZSTD_wildcopy(void* dst, const void* src, ptrdiff_t length, ZSTD_overlap_e 
     }
 }
 
-
 /*-*******************************************
 *  Private declarations
 *********************************************/
@@ -290,7 +286,6 @@ void* ZSTD_malloc(size_t size, ZSTD_customMem customMem);
 void* ZSTD_calloc(size_t size, ZSTD_customMem customMem);
 void ZSTD_free(void* ptr, ZSTD_customMem customMem);
 
-
 MEM_STATIC U32 ZSTD_highbit32(U32 val)   /* compress, dictBuilder, decodeCorpus */
 {
     assert(val != 0);
@@ -316,13 +311,11 @@ MEM_STATIC U32 ZSTD_highbit32(U32 val)   /* compress, dictBuilder, decodeCorpus 
     }
 }
 
-
 /* ZSTD_invalidateRepCodes() :
  * ensures next compression will not use repcodes from previous block.
  * Note : only works with regular variant;
  *        do not use with extDict variant ! */
 void ZSTD_invalidateRepCodes(ZSTD_CCtx* cctx);   /* zstdmt, adaptive_compression (shouldn't get this definition from here) */
-
 
 typedef struct {
     blockType_e blockType;
@@ -341,7 +334,6 @@ size_t ZSTD_getcBlockSize(const void* src, size_t srcSize,
 /* Used by: decompress, fullbench (does not get its definition from here) */
 size_t ZSTD_decodeSeqHeaders(ZSTD_DCtx* dctx, int* nbSeqPtr,
                        const void* src, size_t srcSize);
-
 
 #if defined (__cplusplus)
 }

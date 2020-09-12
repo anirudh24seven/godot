@@ -1,8 +1,6 @@
 
 /*  mesh_instance_3d_editor_plugin.cpp                                   */
 
-
-
 #include "mesh_instance_3d_editor_plugin.h"
 
 #include "editor/editor_scale.h"

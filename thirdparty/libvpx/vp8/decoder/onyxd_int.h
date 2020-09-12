@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_DECODER_ONYXD_INT_H_
 #define VP8_DECODER_ONYXD_INT_H_
 
@@ -37,7 +36,6 @@ typedef struct
 {
     MACROBLOCKD  mbd;
 } MB_ROW_DEC;
-
 
 typedef struct
 {

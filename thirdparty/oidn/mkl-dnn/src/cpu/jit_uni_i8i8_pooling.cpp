@@ -436,7 +436,6 @@ void jit_uni_i8i8_pooling_fwd_ker_t<avx512_core>::store_dst_avg_op(int jj, int l
     }
 }
 
-
 template <cpu_isa_t isa>
 void jit_uni_i8i8_pooling_fwd_ker_t<isa>::store_dst(int jj, int ll,
         int c_tail) {
@@ -506,7 +505,6 @@ void jit_uni_i8i8_pooling_fwd_ker_t<avx512_core>::compute_max_op(const int jj)
     else
         vpblendmb(vreg_dst(jj) | k_cmp_mask, vreg_dst(jj), vreg_src(jj));
 }
-
 
 template <cpu_isa_t isa>
 void jit_uni_i8i8_pooling_fwd_ker_t<isa>::compute_max_step(int ur_c, int c_tail)

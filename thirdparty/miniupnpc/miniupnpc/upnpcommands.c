@@ -283,7 +283,6 @@ UPNP_GetLinkLayerMaxBitRates(const char * controlURL,
 	return ret;
 }
 
-
 /* UPNP_GetExternalIPAddress() call the corresponding UPNP method.
  * if the third arg is not null the value is copied to it.
  * at least 16 bytes must be available

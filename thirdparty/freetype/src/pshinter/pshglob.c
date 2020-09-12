@@ -16,7 +16,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_INTERNAL_OBJECTS_H
@@ -27,17 +26,11 @@
   PSH_Globals  ps_debug_globals = NULL;
 #endif
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                       STANDARD WIDTHS                         *****/
   /*****                                                               *****/
 
-
-
-
-  /* scale the widths/heights table */
+/* scale the widths/heights table */
   static void
   psh_globals_scale_widths( PSH_Globals  globals,
                             FT_UInt      direction )
@@ -49,8 +42,7 @@
     PSH_Width      stand = width;               /* standard width/height */
     FT_Fixed       scale = dim->scale_mult;
 
-
-    if ( count > 0 )
+if ( count > 0 )
     {
       width->cur = FT_MulFix( width->org, scale );
       width->fit = FT_PIX_ROUND( width->cur );
@@ -62,8 +54,7 @@
       {
         FT_Pos  w, dist;
 
-
-        w    = FT_MulFix( width->org, scale );
+w    = FT_MulFix( width->org, scale );
         dist = w - stand->cur;
 
         if ( dist < 0 )
@@ -78,7 +69,6 @@
     }
   }
 
-
 #if 0
 
   /* org_width is in font units, result in device pixels, 26.6 format */
@@ -91,14 +81,12 @@
     FT_Pos   best      = 64 + 32 + 2;
     FT_Pos   reference = width;
 
-
-    for ( n = 0; n < dimension->stdw.count; n++ )
+for ( n = 0; n < dimension->stdw.count; n++ )
     {
       FT_Pos  w;
       FT_Pos  dist;
 
-
-      w = dimension->stdw.widths[n].cur;
+w = dimension->stdw.widths[n].cur;
       dist = width - w;
       if ( dist < 0 )
         dist = -dist;
@@ -127,16 +115,11 @@
 
 #endif /* 0 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                       BLUE ZONES                              *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   psh_blues_set_zones_0( PSH_Blues       target,
                          FT_Bool         is_others,
                          FT_UInt         read_count,
@@ -150,16 +133,14 @@
 
     FT_UNUSED( target );
 
-
-    for ( ; read_count > 1; read_count -= 2 )
+for ( ; read_count > 1; read_count -= 2 )
     {
       FT_Int         reference, delta;
       FT_UInt        count;
       PSH_Blue_Zone  zones, zone;
       FT_Bool        top;
 
-
-      /* read blue zone entry, and select target top/bottom zone */
+/* read blue zone entry, and select target top/bottom zone */
       top = 0;
       if ( first || is_others )
       {
@@ -191,8 +172,7 @@
         {
           FT_Int  delta0 = zone->org_delta;
 
-
-          /* we have two zones on the same reference position -- */
+/* we have two zones on the same reference position -- */
           /* only keep the largest one                           */
           if ( delta < 0 )
           {
@@ -227,8 +207,7 @@
     bot_table->count = count_bot;
   }
 
-
-  /* Re-read blue zones from the original fonts and store them into our */
+/* Re-read blue zones from the original fonts and store them into our */
   /* private structure.  This function re-orders, sanitizes, and        */
   /* fuzz-expands the zones as well.                                    */
   static void
@@ -243,8 +222,7 @@
     PSH_Blue_Table  top_table, bot_table;
     FT_UInt         count_top, count_bot;
 
-
-    if ( family )
+if ( family )
     {
       top_table = &target->family_top;
       bot_table = &target->family_bottom;
@@ -274,13 +252,11 @@
     {
       PSH_Blue_Zone  zone = top_table->zones;
 
-
-      for ( count = count_top; count > 0; count--, zone++ )
+for ( count = count_top; count > 0; count--, zone++ )
       {
         FT_Int  delta;
 
-
-        if ( count > 1 )
+if ( count > 1 )
         {
           delta = zone[1].org_ref - zone[0].org_ref;
           if ( zone->org_delta > delta )
@@ -297,13 +273,11 @@
     {
       PSH_Blue_Zone  zone = bot_table->zones;
 
-
-      for ( count = count_bot; count > 0; count--, zone++ )
+for ( count = count_bot; count > 0; count--, zone++ )
       {
         FT_Int  delta;
 
-
-        if ( count > 1 )
+if ( count > 1 )
         {
           delta = zone[0].org_ref - zone[1].org_ref;
           if ( zone->org_delta < delta )
@@ -320,8 +294,7 @@
       FT_Int         dim, top, bot, delta;
       PSH_Blue_Zone  zone;
 
-
-      zone  = top_table->zones;
+zone  = top_table->zones;
       count = count_top;
 
       for ( dim = 1; dim >= 0; dim-- )
@@ -361,8 +334,7 @@
     }
   }
 
-
-  /* reset the blues table when the device transform changes */
+/* reset the blues table when the device transform changes */
   static void
   psh_blues_scale_zones( PSH_Blues  blues,
                          FT_Fixed   scale,
@@ -420,8 +392,7 @@
     {
       FT_Int  threshold = blues->blue_shift;
 
-
-      while ( threshold > 0 && FT_MulFix( threshold, scale ) > 32 )
+while ( threshold > 0 && FT_MulFix( threshold, scale ) > 32 )
         threshold--;
 
       blues->blue_threshold = threshold;
@@ -431,8 +402,7 @@
     {
       PSH_Blue_Zone  zone;
 
-
-      switch ( num )
+switch ( num )
       {
       case 0:
         table = &blues->normal_top;
@@ -477,8 +447,7 @@
       FT_UInt         count1, count2;
       PSH_Blue_Table  normal, family;
 
-
-      switch ( num )
+switch ( num )
       {
       case 0:
         normal = &blues->normal_top;
@@ -504,8 +473,7 @@
         {
           FT_Pos  Delta;
 
-
-          Delta = zone1->org_ref - zone2->org_ref;
+Delta = zone1->org_ref - zone2->org_ref;
           if ( Delta < 0 )
             Delta = -Delta;
 
@@ -522,8 +490,7 @@
     }
   }
 
-
-  /* calculate the maximum height of given blue zones */
+/* calculate the maximum height of given blue zones */
   static FT_Short
   psh_calc_max_height( FT_UInt          num,
                        const FT_Short*  values,
@@ -531,21 +498,18 @@
   {
     FT_UInt  count;
 
-
-    for ( count = 0; count < num; count += 2 )
+for ( count = 0; count < num; count += 2 )
     {
       FT_Short  cur_height = values[count + 1] - values[count];
 
-
-      if ( cur_height > cur_max )
+if ( cur_height > cur_max )
         cur_max = cur_height;
     }
 
     return cur_max;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   psh_blues_snap_stem( PSH_Blues      blues,
                        FT_Int         stem_top,
                        FT_Int         stem_bot,
@@ -557,8 +521,7 @@
     PSH_Blue_Zone   zone;
     FT_Int          no_shoots;
 
-
-    alignment->align = PSH_BLUE_ALIGN_NONE;
+alignment->align = PSH_BLUE_ALIGN_NONE;
 
     no_shoots = blues->no_overshoots;
 
@@ -607,24 +570,18 @@
     }
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                        GLOBAL HINTS                           *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   psh_globals_destroy( PSH_Globals  globals )
   {
     if ( globals )
     {
       FT_Memory  memory;
 
-
-      memory = globals->memory;
+memory = globals->memory;
       globals->dimension[0].stdw.count = 0;
       globals->dimension[1].stdw.count = 0;
 
@@ -641,8 +598,7 @@
     }
   }
 
-
-  static FT_Error
+static FT_Error
   psh_globals_new( FT_Memory     memory,
                    T1_Private*   priv,
                    PSH_Globals  *aglobals )
@@ -650,22 +606,19 @@
     PSH_Globals  globals = NULL;
     FT_Error     error;
 
-
-    if ( !FT_NEW( globals ) )
+if ( !FT_NEW( globals ) )
     {
       FT_UInt    count;
       FT_Short*  read;
 
-
-      globals->memory = memory;
+globals->memory = memory;
 
       /* copy standard widths */
       {
         PSH_Dimension  dim   = &globals->dimension[1];
         PSH_Width      write = dim->stdw.widths;
 
-
-        write->org = priv->standard_width[0];
+write->org = priv->standard_width[0];
         write++;
 
         read = priv->snap_widths;
@@ -684,8 +637,7 @@
         PSH_Dimension  dim = &globals->dimension[0];
         PSH_Width      write = dim->stdw.widths;
 
-
-        write->org = priv->standard_height[0];
+write->org = priv->standard_height[0];
         write++;
         read = priv->snap_heights;
         for ( count = priv->num_snap_heights; count > 0; count-- )
@@ -712,8 +664,7 @@
         FT_Fixed  max_scale;
         FT_Short  max_height = 1;
 
-
-        max_height = psh_calc_max_height( priv->num_blue_values,
+max_height = psh_calc_max_height( priv->num_blue_values,
                                           priv->blue_values,
                                           max_height );
         max_height = psh_calc_max_height( priv->num_other_blues,
@@ -750,8 +701,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   psh_globals_set_scale( PSH_Globals  globals,
                          FT_Fixed     x_scale,
                          FT_Fixed     y_scale,
@@ -760,8 +710,7 @@
   {
     PSH_Dimension  dim;
 
-
-    dim = &globals->dimension[0];
+dim = &globals->dimension[0];
     if ( x_scale != dim->scale_mult  ||
          x_delta != dim->scale_delta )
     {
@@ -783,14 +732,12 @@
     }
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   psh_globals_funcs_init( PSH_Globals_FuncsRec*  funcs )
   {
     funcs->create    = psh_globals_new;
     funcs->set_scale = psh_globals_set_scale;
     funcs->destroy   = psh_globals_destroy;
   }
-
 
 /* END */

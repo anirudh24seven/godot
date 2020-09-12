@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "findnearmv.h"
 
 const unsigned char vp8_mbsplit_offset[4][16] = {
@@ -136,7 +135,6 @@ void vp8_find_near_mvs
     nearby->as_int = near_mvs[CNT_NEAR].as_int;
 }
 
-
 static void invert_and_clamp_mvs(int_mv *inv, int_mv *src, MACROBLOCKD *xd)
 {
     inv->as_mv.row = src->as_mv.row * -1;
@@ -144,7 +142,6 @@ static void invert_and_clamp_mvs(int_mv *inv, int_mv *src, MACROBLOCKD *xd)
     vp8_clamp_mv2(inv, xd);
     vp8_clamp_mv2(src, xd);
 }
-
 
 int vp8_find_near_mvs_bias
 (
@@ -177,7 +174,6 @@ int vp8_find_near_mvs_bias
 
     return sign_bias;
 }
-
 
 vp8_prob *vp8_mv_ref_probs(
     vp8_prob p[VP8_MVREFS-1], const int near_mv_ref_ct[4]

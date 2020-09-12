@@ -1,8 +1,6 @@
 
 /*  area_pair_2d_sw.h                                                    */
 
-
-
 #ifndef AREA_PAIR_2D_SW_H
 #define AREA_PAIR_2D_SW_H
 

@@ -29,7 +29,6 @@ Call internalStepSimulation multiple times, to achieve 240Hz (4 steps of 60Hz).
    Make sure contact constraints are not violated in step b by performing velocity projections as in the paper by Baraff and Witkin https://www.cs.cmu.edu/~baraff/papers/sig98.pdf. Dynamic frictions are treated as a force and added to the rhs of the CG solve, whereas static frictions are treated as constraints similar to contact.
 4. Position is updated via x_{n+1} = x_n + dt * v_{n+1}.
 
-
 The algorithm also closely resembles the one in http://physbam.stanford.edu/~fedkiw/papers/stanford2008-03.pdf
  */
 
@@ -438,8 +437,7 @@ void btDeformableMultiBodyDynamicsWorld::sortConstraints()
     }
     m_sortedMultiBodyConstraints.quickSort(btSortMultiBodyConstraintOnIslandPredicate());
 }
-    
-    
+
 void btDeformableMultiBodyDynamicsWorld::solveContactConstraints()
 {
     // process constraints on each island
@@ -542,7 +540,6 @@ void btDeformableMultiBodyDynamicsWorld::reinitialize(btScalar timeStep)
         
 }
 
-
 void btDeformableMultiBodyDynamicsWorld::debugDrawWorld()
 {
 
@@ -557,7 +554,6 @@ void btDeformableMultiBodyDynamicsWorld::debugDrawWorld()
 		}
 	}
 
-	
 }
 
 void btDeformableMultiBodyDynamicsWorld::applyRigidBodyGravity(btScalar timeStep)
@@ -737,7 +733,6 @@ void btDeformableMultiBodyDynamicsWorld::removeCollisionObject(btCollisionObject
     else
         btDiscreteDynamicsWorld::removeCollisionObject(collisionObject);
 }
-
 
 int btDeformableMultiBodyDynamicsWorld::stepSimulation(btScalar timeStep, int maxSubSteps, btScalar fixedTimeStep)
 {

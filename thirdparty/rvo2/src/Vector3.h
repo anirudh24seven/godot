@@ -259,8 +259,7 @@ namespace RVO {
 		float val_[3];
 	};
 
-
-	/**
+/**
 	 * \relates  Vector3
 	 * \brief    Computes the scalar multiplication of the specified three-dimensional vector with the specified scalar value.
 	 * \param    scalar  The scalar value with which the scalar multiplication should be computed.

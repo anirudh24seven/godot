@@ -1,8 +1,6 @@
 
 /*  csg_shape.cpp                                                        */
 
-
-
 #include "csg_shape.h"
 #include "core/math/geometry_2d.h"
 #include "scene/3d/path_3d.h"

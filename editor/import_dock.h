@@ -1,8 +1,6 @@
 
 /*  import_dock.h                                                        */
 
-
-
 #ifndef IMPORTDOCK_H
 #define IMPORTDOCK_H
 

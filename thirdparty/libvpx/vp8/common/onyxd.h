@@ -8,10 +8,8 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_ONYXD_H_
 #define VP8_COMMON_ONYXD_H_
-
 
 /* Create/destroy static data structures. */
 #ifdef __cplusplus
@@ -58,6 +56,5 @@ extern "C"
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif  // VP8_COMMON_ONYXD_H_

@@ -1,8 +1,6 @@
 
 /*  translation.h                                                        */
 
-
-
 #ifndef TRANSLATION_H
 #define TRANSLATION_H
 

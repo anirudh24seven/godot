@@ -58,7 +58,6 @@
 #include "mips/celt_mipsr1.h"
 #endif
 
-
 int resampling_factor(opus_int32 rate)
 {
    int ret;
@@ -251,7 +250,6 @@ const signed char tf_select_table[4][8] = {
       {0, -2, 0, -3,    3, 0, 1,-1},
 };
 
-
 void init_caps(const CELTMode *m,int *cap,int LM,int C)
 {
    int i;
@@ -262,8 +260,6 @@ void init_caps(const CELTMode *m,int *cap,int LM,int C)
       cap[i] = (m->cache.caps[m->nbEBands*(2*LM+C-1)+i]+64)*C*N>>2;
    }
 }
-
-
 
 const char *opus_strerror(int error)
 {

@@ -1,8 +1,6 @@
 
 /*  visual_script_builtin_funcs.cpp                                      */
 
-
-
 #include "visual_script_builtin_funcs.h"
 
 #include "core/class_db.h"

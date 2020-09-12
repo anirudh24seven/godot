@@ -1,8 +1,6 @@
 
 /*  height_map_shape_3d.h                                                */
 
-
-
 #ifndef HEIGHT_MAP_SHAPE_H
 #define HEIGHT_MAP_SHAPE_H
 

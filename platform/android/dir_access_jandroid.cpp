@@ -1,8 +1,6 @@
 
 /*  dir_access_jandroid.cpp                                              */
 
-
-
 #include "dir_access_jandroid.h"
 #include "core/print_string.h"
 #include "file_access_jandroid.h"

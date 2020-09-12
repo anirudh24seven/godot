@@ -60,5 +60,4 @@ const vpx_tree_index vp9_segment_tree[TREE_SIZE(MAX_SEGMENTS)] = {
   0, -1, -2, -3, -4, -5, -6, -7
 };
 
-
 // TBD? Functions to read and write segment data with range / validity checking

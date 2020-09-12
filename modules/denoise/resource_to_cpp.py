@@ -64,7 +64,6 @@ def generate(in_path, out_path):
         for scope in reversed(scopes):
             out_file.write("} // namespace %s\n" % scope)
 
-
 def tza_to_cpp(target, source, env):
     for x in zip(source, target):
         generate(str(x[0]), str(x[1]))

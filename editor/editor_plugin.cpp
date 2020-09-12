@@ -1,8 +1,6 @@
 
 /*  editor_plugin.cpp                                                    */
 
-
-
 #include "editor_plugin.h"
 
 #include "editor/editor_export.h"

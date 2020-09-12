@@ -1,8 +1,6 @@
 
 /*  light_occluder_2d_editor_plugin.h                                    */
 
-
-
 #ifndef LIGHT_OCCLUDER_2D_EDITOR_PLUGIN_H
 #define LIGHT_OCCLUDER_2D_EDITOR_PLUGIN_H
 

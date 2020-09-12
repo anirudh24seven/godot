@@ -1,8 +1,6 @@
 
 /*  file_access_memory.cpp                                               */
 
-
-
 #include "file_access_memory.h"
 
 #include "core/map.h"

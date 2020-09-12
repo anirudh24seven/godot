@@ -1,8 +1,6 @@
 
 /*  image_saver_tinyexr.h                                                */
 
-
-
 #ifndef IMAGE_SAVER_TINYEXR_H
 #define IMAGE_SAVER_TINYEXR_H
 

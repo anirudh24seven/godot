@@ -16,10 +16,8 @@
  *
  */
 
-
 #ifndef FTOUTLN_H_
 #define FTOUTLN_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -30,11 +28,9 @@
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   outline_processing
@@ -81,8 +77,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Decompose
@@ -125,8 +120,7 @@ FT_BEGIN_HEADER
                         const FT_Outline_Funcs*  func_interface,
                         void*                    user );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_New
@@ -165,8 +159,7 @@ FT_BEGIN_HEADER
                   FT_Int       numContours,
                   FT_Outline  *anoutline );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Done
@@ -192,8 +185,7 @@ FT_BEGIN_HEADER
   FT_Outline_Done( FT_Library   library,
                    FT_Outline*  outline );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Check
@@ -215,8 +207,7 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Error )
   FT_Outline_Check( FT_Outline*  outline );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Get_CBox
@@ -248,8 +239,7 @@ FT_BEGIN_HEADER
   FT_Outline_Get_CBox( const FT_Outline*  outline,
                        FT_BBox           *acbox );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Translate
@@ -273,8 +263,7 @@ FT_BEGIN_HEADER
                         FT_Pos             xOffset,
                         FT_Pos             yOffset );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Copy
@@ -299,8 +288,7 @@ FT_BEGIN_HEADER
   FT_Outline_Copy( const FT_Outline*  source,
                    FT_Outline        *target );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Transform
@@ -325,8 +313,7 @@ FT_BEGIN_HEADER
   FT_Outline_Transform( const FT_Outline*  outline,
                         const FT_Matrix*   matrix );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Embolden
@@ -375,8 +362,7 @@ FT_BEGIN_HEADER
   FT_Outline_Embolden( FT_Outline*  outline,
                        FT_Pos       strength );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_EmboldenXY
@@ -394,8 +380,7 @@ FT_BEGIN_HEADER
                          FT_Pos       xstrength,
                          FT_Pos       ystrength );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Reverse
@@ -418,8 +403,7 @@ FT_BEGIN_HEADER
   FT_EXPORT( void )
   FT_Outline_Reverse( FT_Outline*  outline );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Get_Bitmap
@@ -458,8 +442,7 @@ FT_BEGIN_HEADER
                          FT_Outline*       outline,
                          const FT_Bitmap  *abitmap );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Render
@@ -502,8 +485,7 @@ FT_BEGIN_HEADER
                      FT_Outline*        outline,
                      FT_Raster_Params*  params );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   FT_Orientation
@@ -548,8 +530,7 @@ FT_BEGIN_HEADER
 
   } FT_Orientation;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Get_Orientation
@@ -576,17 +557,13 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Orientation )
   FT_Outline_Get_Orientation( FT_Outline*  outline );
 
-
-  /* */
-
+/* */
 
 FT_END_HEADER
 
 #endif /* FTOUTLN_H_ */
 
-
 /* END */
-
 
 /* Local Variables: */
 /* coding: utf-8    */

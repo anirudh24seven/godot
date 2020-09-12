@@ -1,8 +1,6 @@
 
 /*  panel_container.cpp                                                  */
 
-
-
 #include "panel_container.h"
 
 Size2 PanelContainer::get_minimum_size() const {

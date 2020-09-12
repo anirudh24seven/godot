@@ -1,8 +1,6 @@
 
 /*  open_simplex_noise.cpp                                               */
 
-
-
 #include "open_simplex_noise.h"
 
 #include "core/core_string_names.h"

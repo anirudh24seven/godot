@@ -15,7 +15,6 @@
  *
  */
 
-
 #ifndef AFMODULE_H_
 #define AFMODULE_H_
 
@@ -23,11 +22,9 @@
 #include FT_INTERNAL_OBJECTS_H
 #include FT_MODULE_H
 
-
 FT_BEGIN_HEADER
 
-
-  /*
+/*
    * This is the `extended' FT_Module structure that holds the
    * autofitter's global data.
    */
@@ -46,13 +43,10 @@ FT_BEGIN_HEADER
 
   } AF_ModuleRec, *AF_Module;
 
-
 FT_DECLARE_MODULE( autofit_module_class )
-
 
 FT_END_HEADER
 
 #endif /* AFMODULE_H_ */
-
 
 /* END */

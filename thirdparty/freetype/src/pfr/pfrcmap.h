@@ -15,14 +15,12 @@
  *
  */
 
-
 #ifndef PFRCMAP_H_
 #define PFRCMAP_H_
 
 #include <ft2build.h>
 #include FT_INTERNAL_OBJECTS_H
 #include "pfrtypes.h"
-
 
 FT_BEGIN_HEADER
 
@@ -34,13 +32,10 @@ FT_BEGIN_HEADER
 
   } PFR_CMapRec, *PFR_CMap;
 
-
-  FT_CALLBACK_TABLE const FT_CMap_ClassRec  pfr_cmap_class_rec;
+FT_CALLBACK_TABLE const FT_CMap_ClassRec  pfr_cmap_class_rec;
 
 FT_END_HEADER
 
-
 #endif /* PFRCMAP_H_ */
-
 
 /* END */

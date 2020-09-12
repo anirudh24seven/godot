@@ -100,7 +100,6 @@ static WEBP_TSAN_IGNORE_FUNCTION void InitTables(void) {
   }
 }
 
-
 //------------------------------------------------------------------------------
 // Transforms (Paragraph 14.4)
 

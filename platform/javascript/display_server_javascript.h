@@ -1,8 +1,6 @@
 
 /*  display_server_javascript.h                                          */
 
-
-
 #ifndef DISPLAY_SERVER_JAVASCRIPT_H
 #define DISPLAY_SERVER_JAVASCRIPT_H
 

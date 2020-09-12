@@ -1,8 +1,6 @@
 
 /*  array.cpp                                                            */
 
-
-
 #include "array.h"
 
 #include "container_type_validate.h"

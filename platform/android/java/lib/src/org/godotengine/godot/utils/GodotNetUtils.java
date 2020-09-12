@@ -1,8 +1,6 @@
 
 /*  GodotNetUtils.java                                                   */
 
-
-
 package org.godotengine.godot.utils;
 
 import android.app.Activity;

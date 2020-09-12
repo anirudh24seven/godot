@@ -5,7 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2018, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -60,7 +59,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef AI_CONFIG_H_INC
 #define AI_CONFIG_H_INC
 
-
 // ###########################################################################
 // LIBRARY SETTINGS
 // General, global settings
@@ -79,7 +77,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define AI_CONFIG_GLOB_MEASURE_TIME  \
     "GLOB_MEASURE_TIME"
 
-
 // ---------------------------------------------------------------------------
 /** @brief Global setting to disable generation of skeleton dummy meshes
  *
@@ -90,8 +87,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // ---------------------------------------------------------------------------
 #define AI_CONFIG_IMPORT_NO_SKELETON_MESHES \
     "IMPORT_NO_SKELETON_MESHES"
-
-
 
 # if 0 // not implemented yet
 // ---------------------------------------------------------------------------
@@ -118,7 +113,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Various stuff to fine-tune the behavior of a specific post processing step.
 // ###########################################################################
 
-
 // ---------------------------------------------------------------------------
 /** @brief Maximum bone count per mesh for the SplitbyBoneCount step.
  *
@@ -131,12 +125,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define AI_CONFIG_PP_SBBC_MAX_BONES \
     "PP_SBBC_MAX_BONES"
 
-
 // default limit for bone count
 #if (!defined AI_SBBC_DEFAULT_MAX_BONES)
 #   define AI_SBBC_DEFAULT_MAX_BONES        60
 #endif
-
 
 // ---------------------------------------------------------------------------
 /** @brief  Specifies the maximum angle that may be between two vertex tangents
@@ -173,7 +165,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #define AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE \
     "PP_GSN_MAX_SMOOTHING_ANGLE"
-
 
 // ---------------------------------------------------------------------------
 /** @brief Sets the colormap (= palette) to be used to decode embedded
@@ -445,8 +436,7 @@ enum aiComponent
      * be generated, so aiScene::mNumMaterials will be 1. */
     aiComponent_MATERIALS = 0x800,
 
-
-    /** This value is not used. It is just there to force the
+/** This value is not used. It is just there to force the
      *  compiler to map this enum to a 32 Bit integer. */
 #ifndef SWIG
     _aiComponent_Force32Bit = 0x9fffffff
@@ -541,12 +531,10 @@ enum aiComponent
 #define AI_CONFIG_FAVOUR_SPEED              \
  "FAVOUR_SPEED"
 
-
 // ###########################################################################
 // IMPORTER SETTINGS
 // Various stuff to fine-tune the behaviour of specific importer plugins.
 // ###########################################################################
-
 
 // ---------------------------------------------------------------------------
 /** @brief Set whether the fbx importer will merge all geometry layers present
@@ -665,7 +653,6 @@ enum aiComponent
  */
 #define AI_CONFIG_IMPORT_REMOVE_EMPTY_BONES \
     "AI_CONFIG_IMPORT_REMOVE_EMPTY_BONES"
-
 
 // ---------------------------------------------------------------------------
 /** @brief  Set wether the FBX importer shall convert the unit from cm to m.
@@ -1004,7 +991,6 @@ enum aiComponent
 #if (!defined AI_CONFIG_APP_SCALE_KEY)
 #   define AI_CONFIG_APP_SCALE_KEY 1.0
 #endif // AI_CONFIG_APP_SCALE_KEY
-
 
 // ---------- All the Build/Compile-time defines ------------
 

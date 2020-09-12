@@ -1,8 +1,6 @@
 
 /*  thread.cpp                                                           */
 
-
-
 #include "thread.h"
 
 Thread *(*Thread::create_func)(ThreadCreateCallback, void *, const Settings &) = nullptr;

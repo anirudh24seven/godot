@@ -1,8 +1,6 @@
 
 /*  in_app_store.h                                                       */
 
-
-
 #ifdef STOREKIT_ENABLED
 
 #ifndef IN_APP_STORE_H

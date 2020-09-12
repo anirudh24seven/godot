@@ -1,8 +1,6 @@
 
 /*  arguments_vector.h                                                   */
 
-
-
 #ifndef ARGUMENTS_VECTOR_H
 #define ARGUMENTS_VECTOR_H
 

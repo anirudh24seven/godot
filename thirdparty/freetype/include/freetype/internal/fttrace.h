@@ -15,8 +15,7 @@
  *
  */
 
-
-  /* definitions of trace levels for FreeType 2 */
+/* definitions of trace levels for FreeType 2 */
 
   /* the first level must always be `trace_any' */
 FT_TRACE_DEF( any )

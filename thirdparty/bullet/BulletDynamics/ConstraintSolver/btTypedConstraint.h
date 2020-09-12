@@ -377,8 +377,6 @@ struct	btTypedConstraintFloatData
 	
 };
 
-
-
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
 
 #define BT_BACKWARDS_COMPATIBLE_SERIALIZATION

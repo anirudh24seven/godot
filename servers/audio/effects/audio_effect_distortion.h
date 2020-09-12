@@ -1,8 +1,6 @@
 
 /*  audio_effect_distortion.h                                            */
 
-
-
 #ifndef AUDIOEFFECTDISTORTION_H
 #define AUDIOEFFECTDISTORTION_H
 

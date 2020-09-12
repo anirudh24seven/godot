@@ -1,8 +1,6 @@
 
 /*  sprite_2d_editor_plugin.h                                            */
 
-
-
 #ifndef SPRITE_EDITOR_PLUGIN_H
 #define SPRITE_EDITOR_PLUGIN_H
 

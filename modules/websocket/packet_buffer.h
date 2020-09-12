@@ -1,8 +1,6 @@
 
 /*  packet_buffer.h                                                      */
 
-
-
 #ifndef PACKET_BUFFER_H
 #define PACKET_BUFFER_H
 

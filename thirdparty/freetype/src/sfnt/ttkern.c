@@ -16,7 +16,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_STREAM_H
@@ -25,8 +24,7 @@
 
 #include "sferrors.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -35,12 +33,10 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  ttkern
 
-
 #undef  TT_KERN_INDEX
 #define TT_KERN_INDEX( g1, g2 )  ( ( (FT_ULong)(g1) << 16 ) | (g2) )
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   tt_face_load_kern( TT_Face    face,
                      FT_Stream  stream )
   {
@@ -51,8 +47,7 @@
     FT_UInt    nn, num_tables;
     FT_UInt32  avail = 0, ordered = 0;
 
-
-    /* the kern table is optional; exit silently if it is missing */
+/* the kern table is optional; exit silently if it is missing */
     error = face->goto_table( face, TTAG_kern, stream, &table_size );
     if ( error )
       goto Exit;
@@ -89,8 +84,7 @@
       FT_Byte*   p_next;
       FT_UInt32  mask = (FT_UInt32)1UL << nn;
 
-
-      if ( p + 6 > p_limit )
+if ( p + 6 > p_limit )
         break;
 
       p_next = p;
@@ -135,16 +129,14 @@
         FT_ULong  count;
         FT_ULong  old_pair;
 
-
-        old_pair = FT_NEXT_ULONG( p );
+old_pair = FT_NEXT_ULONG( p );
         p       += 2;
 
         for ( count = num_pairs - 1; count > 0; count-- )
         {
           FT_UInt32  cur_pair;
 
-
-          cur_pair = FT_NEXT_ULONG( p );
+cur_pair = FT_NEXT_ULONG( p );
           if ( cur_pair <= old_pair )
             break;
 
@@ -168,22 +160,19 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   tt_face_done_kern( TT_Face  face )
   {
     FT_Stream  stream = face->root.stream;
 
-
-    FT_FRAME_RELEASE( face->kern_table );
+FT_FRAME_RELEASE( face->kern_table );
     face->kern_table_size = 0;
     face->num_kern_tables = 0;
     face->kern_avail_bits = 0;
     face->kern_order_bits = 0;
   }
 
-
-  FT_LOCAL_DEF( FT_Int )
+FT_LOCAL_DEF( FT_Int )
   tt_face_get_kerning( TT_Face  face,
                        FT_UInt  left_glyph,
                        FT_UInt  right_glyph )
@@ -193,8 +182,7 @@
     FT_Byte*  p       = face->kern_table;
     FT_Byte*  p_limit = p + face->kern_table_size;
 
-
-    p   += 4;
+p   += 4;
     mask = 0x0001;
 
     for ( count = face->num_kern_tables;
@@ -211,8 +199,7 @@
 
       FT_UNUSED( version );
 
-
-      next = base + length;
+next = base + length;
 
       if ( next > p_limit )  /* handle broken table */
         next = p_limit;
@@ -234,21 +221,18 @@
         {
           FT_ULong  key0 = TT_KERN_INDEX( left_glyph, right_glyph );
 
-
-          if ( face->kern_order_bits & mask )   /* binary search */
+if ( face->kern_order_bits & mask )   /* binary search */
           {
             FT_UInt   min = 0;
             FT_UInt   max = num_pairs;
 
-
-            while ( min < max )
+while ( min < max )
             {
               FT_UInt   mid = ( min + max ) >> 1;
               FT_Byte*  q   = p + 6 * mid;
               FT_ULong  key;
 
-
-              key = FT_NEXT_ULONG( q );
+key = FT_NEXT_ULONG( q );
 
               if ( key == key0 )
               {
@@ -265,13 +249,11 @@
           {
             FT_UInt  count2;
 
-
-            for ( count2 = num_pairs; count2 > 0; count2-- )
+for ( count2 = num_pairs; count2 > 0; count2-- )
             {
               FT_ULong  key = FT_NEXT_ULONG( p );
 
-
-              if ( key == key0 )
+if ( key == key0 )
               {
                 value = FT_PEEK_SHORT( p );
                 goto Found;

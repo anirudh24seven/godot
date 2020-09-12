@@ -683,7 +683,6 @@ MBEDTLS_DEPRECATED void mbedtls_aes_decrypt( mbedtls_aes_context *ctx,
 #undef MBEDTLS_DEPRECATED
 #endif /* !MBEDTLS_DEPRECATED_REMOVED */
 
-
 #if defined(MBEDTLS_SELF_TEST)
 /**
  * \brief          Checkup routine.

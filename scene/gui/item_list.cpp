@@ -1,8 +1,6 @@
 
 /*  item_list.cpp                                                        */
 
-
-
 #include "item_list.h"
 #include "core/os/os.h"
 #include "core/project_settings.h"

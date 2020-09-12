@@ -1,8 +1,6 @@
 
 /*  mesh_editor_plugin.h                                                 */
 
-
-
 #ifndef MESH_EDITOR_PLUGIN_H
 #define MESH_EDITOR_PLUGIN_H
 

@@ -19,7 +19,6 @@
 #define USE_TABLES_FOR_ALPHA_MULT 0   // ALTERNATE_CODE
 #endif
 
-
 // -----------------------------------------------------------------------------
 
 #define MFIX 24    // 24bit fixed-point arithmetic

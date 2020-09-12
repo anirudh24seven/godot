@@ -1,8 +1,6 @@
 
 /*  editor_debugger_server.h                                             */
 
-
-
 #ifndef EDITOR_DEBUGGER_CONNECTION_H
 #define EDITOR_DEBUGGER_CONNECTION_H
 

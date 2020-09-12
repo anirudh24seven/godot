@@ -1,8 +1,6 @@
 
 /*  audio_effect_eq.cpp                                                  */
 
-
-
 #include "audio_effect_eq.h"
 #include "servers/audio_server.h"
 

@@ -1,8 +1,6 @@
 
 /*  app_delegate.h                                                       */
 
-
-
 #import <UIKit/UIKit.h>
 
 @class ViewController;

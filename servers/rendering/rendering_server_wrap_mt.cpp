@@ -1,8 +1,6 @@
 
 /*  rendering_server_wrap_mt.cpp                                         */
 
-
-
 #include "rendering_server_wrap_mt.h"
 #include "core/os/os.h"
 #include "core/project_settings.h"

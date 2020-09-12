@@ -1,8 +1,6 @@
 
 /*  test_color.h                                                         */
 
-
-
 #ifndef TEST_COLOR_H
 #define TEST_COLOR_H
 

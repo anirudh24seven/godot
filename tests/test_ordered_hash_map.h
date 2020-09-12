@@ -1,8 +1,6 @@
 
 /*  test_ordered_hash_map.h                                              */
 
-
-
 #ifndef TEST_ORDERED_HASH_MAP_H
 #define TEST_ORDERED_HASH_MAP_H
 

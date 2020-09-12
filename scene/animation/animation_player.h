@@ -1,8 +1,6 @@
 
 /*  animation_player.h                                                   */
 
-
-
 #ifndef ANIMATION_PLAYER_H
 #define ANIMATION_PLAYER_H
 

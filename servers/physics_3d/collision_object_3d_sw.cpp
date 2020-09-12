@@ -1,8 +1,6 @@
 
 /*  collision_object_3d_sw.cpp                                           */
 
-
-
 #include "collision_object_3d_sw.h"
 #include "servers/physics_3d/physics_server_3d_sw.h"
 #include "space_3d_sw.h"

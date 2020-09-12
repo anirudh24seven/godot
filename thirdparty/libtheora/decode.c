@@ -27,7 +27,6 @@
 # include <cairo.h>
 #endif
 
-
 /*No post-processing.*/
 #define OC_PP_LEVEL_DISABLED  (0)
 /*Keep track of DC qi for each block only.*/
@@ -46,8 +45,6 @@
 #define OC_PP_LEVEL_SDERINGC  (7)
 /*Maximum valid post-processing level.*/
 #define OC_PP_LEVEL_MAX       (7)
-
-
 
 /*The mode alphabets for the various mode coding schemes.
   Scheme 0 uses a custom alphabet, which is not stored in this table.*/
@@ -91,7 +88,6 @@ static const unsigned char OC_MODE_ALPHABETS[7][OC_NMODES]={
     OC_MODE_INTER_MV_FOUR
   }
 };
-
 
 /*The original DCT tokens are extended and reordered during the construction of
    the Huffman tables.
@@ -294,8 +290,6 @@ static const ogg_int32_t OC_DCT_CODE_WORD[92]={
   OC_DCT_CW_PACK( 7, 0,  0,0),
 };
 
-
-
 static int oc_sb_run_unpack(oc_pack_buf *_opb){
   long bits;
   int ret;
@@ -359,8 +353,6 @@ static int oc_block_run_unpack(oc_pack_buf *_opb){
   bits2=oc_pack_read(_opb,2);
   return 15+((bits&3)<<2)+bits2;
 }
-
-
 
 static int oc_dec_init(oc_dec_ctx *_dec,const th_info *_info,
  const th_setup_info *_setup){
@@ -434,7 +426,6 @@ static void oc_dec_clear(oc_dec_ctx *_dec){
   oc_huff_trees_clear(_dec->huff_tables);
   oc_state_clear(&_dec->state);
 }
-
 
 static int oc_dec_frame_header_unpack(oc_dec_ctx *_dec){
   long val;
@@ -658,8 +649,6 @@ static void oc_dec_coded_flags_unpack(oc_dec_ctx *_dec){
     If it's not, we should issue a warning of some kind.*/
 }
 
-
-
 typedef int (*oc_mode_unpack_func)(oc_pack_buf *_opb);
 
 static int oc_vlc_mode_unpack(oc_pack_buf *_opb){
@@ -725,8 +714,6 @@ static void oc_dec_mb_modes_unpack(oc_dec_ctx *_dec){
     }
   }
 }
-
-
 
 typedef int (*oc_mv_comp_unpack_func)(oc_pack_buf *_opb);
 
@@ -959,8 +946,6 @@ static void oc_dec_block_qis_unpack(oc_dec_ctx *_dec){
   }
 }
 
-
-
 /*Unpacks the DC coefficient tokens.
   Unlike when unpacking the AC coefficient tokens, we actually need to decode
    the DC coefficient values now so that we can do DC prediction.
@@ -1179,7 +1164,6 @@ static void oc_dec_residual_tokens_unpack(oc_dec_ctx *_dec){
     If neither of these conditions holds, then a warning should be issued.*/
 }
 
-
 static int oc_dec_postprocess_init(oc_dec_ctx *_dec){
   /*pp_level 0: disabled; free any memory used and return*/
   if(_dec->pp_level<=OC_PP_LEVEL_DISABLED){
@@ -1300,8 +1284,6 @@ static int oc_dec_postprocess_init(oc_dec_ctx *_dec){
   return 0;
 }
 
-
-
 typedef struct{
   int                 bounding_values[256];
   ptrdiff_t           ti[3][64];
@@ -1318,8 +1300,6 @@ typedef struct{
   int                 loop_filter;
   int                 pp_level;
 }oc_dec_pipeline_state;
-
-
 
 /*Initialize the main decoding pipeline.*/
 static void oc_dec_pipeline_init(oc_dec_ctx *_dec,
@@ -1947,8 +1927,6 @@ static void oc_dec_dering_frag_rows(oc_dec_ctx *_dec,th_img_plane *_img,
     idata+=ystride<<3;
   }
 }
-
-
 
 th_dec_ctx *th_decode_alloc(const th_info *_info,const th_setup_info *_setup){
   oc_dec_ctx *dec;

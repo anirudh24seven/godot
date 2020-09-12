@@ -1,8 +1,6 @@
 
 /*  resource_importer.h                                                  */
 
-
-
 #ifndef RESOURCE_IMPORTER_H
 #define RESOURCE_IMPORTER_H
 

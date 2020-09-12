@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef GDNATIVE_REGISTER_TYPES_H
 #define GDNATIVE_REGISTER_TYPES_H
 

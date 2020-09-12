@@ -1,8 +1,6 @@
 
 /*  thread_windows.cpp                                                   */
 
-
-
 #include "thread_windows.h"
 
 #if defined(WINDOWS_ENABLED) && !defined(UWP_ENABLED)

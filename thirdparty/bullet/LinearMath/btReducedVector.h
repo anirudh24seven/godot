@@ -21,7 +21,6 @@ inline bool operator<(const TwoInts& A, const TwoInts& B)
     return A.b < B.b;
 }
 
-
 // A helper vector type used for CG projections
 class btReducedVector
 {
@@ -252,9 +251,8 @@ public:
         }
         printf("\n");
     }
-    
-    
-    void sort()
+
+void sort()
     {
         std::vector<TwoInts> tuples;
         for (int i = 0; i < m_indices.size(); ++i)

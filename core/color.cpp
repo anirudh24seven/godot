@@ -1,8 +1,6 @@
 
 /*  color.cpp                                                            */
 
-
-
 #include "color.h"
 
 #include "core/color_names.inc"

@@ -1,8 +1,6 @@
 
 /*  ucaps.h                                                              */
 
-
-
 #ifndef UCAPS_H
 #define UCAPS_H
 

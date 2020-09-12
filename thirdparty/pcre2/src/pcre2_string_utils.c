@@ -42,13 +42,11 @@ POSSIBILITY OF SUCH DAMAGE.
 of strings. These are used instead of strcmp() etc because the standard
 functions work only on 8-bit data. */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include "pcre2_internal.h"
-
 
 /*************************************************
 *    Emulated memmove() for systems without it   *
@@ -85,7 +83,6 @@ else
 }
 #endif   /* not VPCOMPAT && not HAVE_MEMMOVE */
 
-
 /*************************************************
 *    Compare two zero-terminated PCRE2 strings   *
 *************************************************/
@@ -110,7 +107,6 @@ while (*str1 != '\0' || *str2 != '\0')
   }
 return 0;
 }
-
 
 /*************************************************
 *  Compare zero-terminated PCRE2 & 8-bit strings *
@@ -139,7 +135,6 @@ while (*str1 != '\0' || *str2 != '\0')
 return 0;
 }
 
-
 /*************************************************
 *    Compare two PCRE2 strings, given a length   *
 *************************************************/
@@ -165,7 +160,6 @@ for (; len > 0; len--)
   }
 return 0;
 }
-
 
 /*************************************************
 * Compare PCRE2 string to 8-bit string by length *
@@ -195,7 +189,6 @@ for (; len > 0; len--)
 return 0;
 }
 
-
 /*************************************************
 *        Find the length of a PCRE2 string       *
 *************************************************/
@@ -212,7 +205,6 @@ PCRE2_SIZE c = 0;
 while (*str++ != 0) c++;
 return c;
 }
-
 
 /*************************************************
 * Copy 8-bit 0-terminated string to PCRE2 string *

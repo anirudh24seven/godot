@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -117,7 +116,6 @@ Token::Token(const char* sbegin, const char* send, TokenType type, size_t offset
     ai_assert(send >= sbegin);
 }
 
-
 namespace {
 
 // ------------------------------------------------------------------------------------------------
@@ -127,7 +125,6 @@ AI_WONT_RETURN void TokenizeError(const std::string& message, size_t offset)
 {
     throw DeadlyImportError(Util::AddOffset("FBX-Tokenize",message,offset));
 }
-
 
 // ------------------------------------------------------------------------------------------------
 size_t Offset(const char* begin, const char* cursor) {
@@ -336,7 +333,6 @@ void ReadData(const char*& sbegin_out, const char*& send_out, const char* input,
     // the type code is contained in the returned range
     send_out = cursor;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 bool ReadScope(TokenList& output_tokens, const char* input, const char*& cursor, const char* end, bool const is64bits)

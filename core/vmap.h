@@ -1,8 +1,6 @@
 
 /*  vmap.h                                                               */
 
-
-
 #ifndef VMAP_H
 #define VMAP_H
 

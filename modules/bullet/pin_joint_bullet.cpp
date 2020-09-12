@@ -1,8 +1,6 @@
 
 /*  pin_joint_bullet.cpp                                                 */
 
-
-
 #include "pin_joint_bullet.h"
 
 #include "bullet_types_converter.h"

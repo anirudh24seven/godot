@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_SYNTHESIS_H
 #include FT_INTERNAL_DEBUG_H
@@ -23,8 +22,7 @@
 #include FT_OUTLINE_H
 #include FT_BITMAP_H
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -33,16 +31,11 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  synth
 
-
-
-
-  /****                                                                 ****/
+/****                                                                 ****/
   /****   EXPERIMENTAL OBLIQUING SUPPORT                                ****/
   /****                                                                 ****/
 
-
-
-  /* documentation is in ftsynth.h */
+/* documentation is in ftsynth.h */
 
   FT_EXPORT_DEF( void )
   FT_GlyphSlot_Oblique( FT_GlyphSlot  slot )
@@ -50,8 +43,7 @@
     FT_Matrix    transform;
     FT_Outline*  outline;
 
-
-    if ( !slot )
+if ( !slot )
       return;
 
     outline = &slot->outline;
@@ -74,17 +66,11 @@
     FT_Outline_Transform( outline, &transform );
   }
 
-
-
-
-  /****                                                                 ****/
+/****                                                                 ****/
   /****   EXPERIMENTAL EMBOLDENING SUPPORT                              ****/
   /****                                                                 ****/
 
-
-
-
-  /* documentation is in ftsynth.h */
+/* documentation is in ftsynth.h */
 
   FT_EXPORT_DEF( void )
   FT_GlyphSlot_Embolden( FT_GlyphSlot  slot )
@@ -94,8 +80,7 @@
     FT_Error    error;
     FT_Pos      xstr, ystr;
 
-
-    if ( !slot )
+if ( !slot )
       return;
 
     library = slot->library;
@@ -158,6 +143,5 @@
     if ( slot->format == FT_GLYPH_FORMAT_BITMAP )
       slot->bitmap_top += (FT_Int)( ystr >> 6 );
   }
-
 
 /* END */

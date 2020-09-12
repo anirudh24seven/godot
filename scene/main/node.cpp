@@ -1,8 +1,6 @@
 
 /*  node.cpp                                                             */
 
-
-
 #include "node.h"
 
 #include "core/core_string_names.h"

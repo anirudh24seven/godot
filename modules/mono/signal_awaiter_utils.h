@@ -1,8 +1,6 @@
 
 /*  signal_awaiter_utils.h                                               */
 
-
-
 #ifndef SIGNAL_AWAITER_UTILS_H
 #define SIGNAL_AWAITER_UTILS_H
 

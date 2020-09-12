@@ -38,27 +38,22 @@
    *
    */
 
-
 #ifndef FTHASH_H_
 #define FTHASH_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-
 FT_BEGIN_HEADER
 
-
-  typedef union  FT_Hashkey_
+typedef union  FT_Hashkey_
   {
     FT_Int       num;
     const char*  str;
 
   } FT_Hashkey;
 
-
-  typedef struct  FT_HashnodeRec_
+typedef struct  FT_HashnodeRec_
   {
     FT_Hashkey  key;
     size_t      data;
@@ -67,16 +62,14 @@ FT_BEGIN_HEADER
 
   typedef struct FT_HashnodeRec_  *FT_Hashnode;
 
-
-  typedef FT_ULong
+typedef FT_ULong
   (*FT_Hash_LookupFunc)( FT_Hashkey*  key );
 
   typedef FT_Bool
   (*FT_Hash_CompareFunc)( FT_Hashkey*  a,
                           FT_Hashkey*  b );
 
-
-  typedef struct  FT_HashRec_
+typedef struct  FT_HashRec_
   {
     FT_UInt  limit;
     FT_UInt  size;
@@ -91,8 +84,7 @@ FT_BEGIN_HEADER
 
   typedef struct FT_HashRec_  *FT_Hash;
 
-
-  FT_Error
+FT_Error
   ft_hash_str_init( FT_Hash    hash,
                     FT_Memory  memory );
 
@@ -126,11 +118,8 @@ FT_BEGIN_HEADER
   ft_hash_num_lookup( FT_Int   num,
                       FT_Hash  hash );
 
-
 FT_END_HEADER
 
-
 #endif /* FTHASH_H_ */
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  physics_server_3d.cpp                                                */
 
-
-
 #include "physics_server_3d.h"
 
 #include "core/method_bind_ext.gen.inc"

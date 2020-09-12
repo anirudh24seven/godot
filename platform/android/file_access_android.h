@@ -1,8 +1,6 @@
 
 /*  file_access_android.h                                                */
 
-
-
 #ifndef FILE_ACCESS_ANDROID_H
 #define FILE_ACCESS_ANDROID_H
 

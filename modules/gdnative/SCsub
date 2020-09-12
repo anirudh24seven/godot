@@ -21,7 +21,6 @@ SConscript("xr/SCsub")
 SConscript("pluginscript/SCsub")
 SConscript("videodecoder/SCsub")
 
-
 import gdnative_builders
 
 _, gensource = env_gdnative.CommandNoCache(

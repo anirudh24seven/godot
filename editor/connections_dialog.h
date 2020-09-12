@@ -1,8 +1,6 @@
 
 /*  connections_dialog.h                                                 */
 
-
-
 /**
 @author Juan Linietsky <reduzio@gmail.com>
 */

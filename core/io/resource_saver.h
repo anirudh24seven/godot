@@ -1,8 +1,6 @@
 
 /*  resource_saver.h                                                     */
 
-
-
 #ifndef RESOURCE_SAVER_H
 #define RESOURCE_SAVER_H
 

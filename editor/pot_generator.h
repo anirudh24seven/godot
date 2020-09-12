@@ -1,8 +1,6 @@
 
 /*  pot_generator.h                                                      */
 
-
-
 #ifndef POT_GENERATOR_H
 #define POT_GENERATOR_H
 

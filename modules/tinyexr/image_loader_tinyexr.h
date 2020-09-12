@@ -1,8 +1,6 @@
 
 /*  image_loader_tinyexr.h                                               */
 
-
-
 #ifndef IMAGE_LOADER_TINYEXR_H
 #define IMAGE_LOADER_TINYEXR_H
 

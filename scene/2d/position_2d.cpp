@@ -1,8 +1,6 @@
 
 /*  position_2d.cpp                                                      */
 
-
-
 #include "position_2d.h"
 
 #include "core/engine.h"

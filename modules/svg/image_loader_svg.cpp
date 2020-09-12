@@ -1,8 +1,6 @@
 
 /*  image_loader_svg.cpp                                                 */
 
-
-
 #include "image_loader_svg.h"
 
 #include <nanosvg.h>

@@ -1,8 +1,6 @@
 
 /*  vector3i.h                                                           */
 
-
-
 #ifndef VECTOR3I_H
 #define VECTOR3I_H
 

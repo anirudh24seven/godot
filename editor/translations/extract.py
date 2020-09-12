@@ -6,7 +6,6 @@ import shutil
 import subprocess
 import sys
 
-
 line_nb = False
 
 for arg in sys.argv[1:]:
@@ -16,10 +15,8 @@ for arg in sys.argv[1:]:
     else:
         os.sys.exit("Non supported argument '" + arg + "'. Aborting.")
 
-
 if not os.path.exists("editor"):
     os.sys.exit("ERROR: This script should be started from the root of the git repo.")
-
 
 matches = []
 for root, dirnames, filenames in os.walk("."):
@@ -29,7 +26,6 @@ for root, dirnames, filenames in os.walk("."):
     for filename in fnmatch.filter(filenames, "*.h"):
         matches.append(os.path.join(root, filename))
 matches.sort()
-
 
 unique_str = []
 unique_loc = {}
@@ -52,7 +48,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\\n"
 """
 
-
 def _write_message(msgctx, msg, msg_plural, location):
     global main_po
     main_po += "\n#: " + location + "\n"
@@ -66,7 +61,6 @@ def _write_message(msgctx, msg, msg_plural, location):
     else:
         main_po += 'msgstr ""\n'
 
-
 def _add_additional_location(msgctx, msg, location):
     global main_po
     # Add additional location to previous occurrence
@@ -79,7 +73,6 @@ def _add_additional_location(msgctx, msg, location):
     if msg_pos == -1:
         print("Someone apparently thought writing Python was as easy as GDScript. Ping Akien.")
     main_po = main_po[:msg_pos] + " " + location + main_po[msg_pos:]
-
 
 def process_file(f, fname):
 
@@ -162,7 +155,6 @@ def process_file(f, fname):
                     unique_loc[msg].append(location)
         l = f.readline()
         lc += 1
-
 
 print("Updating the editor.pot template...")
 

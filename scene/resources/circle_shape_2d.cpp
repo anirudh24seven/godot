@@ -1,8 +1,6 @@
 
 /*  circle_shape_2d.cpp                                                  */
 
-
-
 #include "circle_shape_2d.h"
 
 #include "servers/physics_server_2d.h"

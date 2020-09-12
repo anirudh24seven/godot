@@ -85,7 +85,6 @@ typedef struct
 	int m_unused2;
 } btGpuChildShape;
 
-
 typedef struct
 {
 	float4 m_pos;
@@ -115,7 +114,6 @@ typedef struct
 	};
 } btAabbCL;
 
-
 int testQuantizedAabbAgainstQuantizedAabb(
 								const unsigned short int* aabbMin1,
 								const unsigned short int* aabbMax1,
@@ -142,7 +140,6 @@ int testQuantizedAabbAgainstQuantizedAabb(
 	//return overlap;
 }
 
-
 void quantizeWithClamp(unsigned short* out, float4 point2,int isMax, float4 bvhAabbMin, float4 bvhAabbMax, float4 bvhQuantization)
 {
 	float4 clampedPoint = max(point2,bvhAabbMin);
@@ -162,7 +159,6 @@ void quantizeWithClamp(unsigned short* out, float4 point2,int isMax, float4 bvhA
 	}
 
 }
-
 
 // work-in-progress
 __kernel void   bvhTraversalKernel( __global const int4* pairs, 
@@ -211,9 +207,8 @@ __kernel void   bvhTraversalKernel( __global const int4* pairs,
 	int numSubtreeHeaders = bvhInfo.m_numSubTrees;
 	__global const btBvhSubtreeInfo* subtreeHeaders = &subtreeHeadersRoot[bvhInfo.m_subTreeOffset];
 	__global const btQuantizedBvhNode* quantizedNodes = &quantizedNodesRoot[bvhInfo.m_nodeOffset];
-	
 
-	unsigned short int quantizedQueryAabbMin[3];
+unsigned short int quantizedQueryAabbMin[3];
 	unsigned short int quantizedQueryAabbMax[3];
 	quantizeWithClamp(quantizedQueryAabbMin,aabbs[bodyIndexB].m_min,false,bvhAabbMin, bvhAabbMax,bvhQuantization);
 	quantizeWithClamp(quantizedQueryAabbMax,aabbs[bodyIndexB].m_max,true ,bvhAabbMin, bvhAabbMax,bvhQuantization);

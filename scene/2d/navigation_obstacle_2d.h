@@ -1,8 +1,6 @@
 
 /*  navigation_obstacle_2d.h                                             */
 
-
-
 #ifndef NAVIGATION_OBSTACLE_2D_H
 #define NAVIGATION_OBSTACLE_2D_H
 

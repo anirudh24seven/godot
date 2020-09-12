@@ -1,8 +1,6 @@
 
 /*  basis.h                                                              */
 
-
-
 #ifndef BASIS_H
 #define BASIS_H
 

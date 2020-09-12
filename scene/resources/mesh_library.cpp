@@ -1,8 +1,6 @@
 
 /*  mesh_library.cpp                                                     */
 
-
-
 #include "mesh_library.h"
 
 bool MeshLibrary::_set(const StringName &p_name, const Variant &p_value) {

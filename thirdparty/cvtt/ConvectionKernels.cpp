@@ -2541,8 +2541,7 @@ namespace cvtt
             }
         };
 
-
-		struct UnpackingVector
+struct UnpackingVector
 		{
 			uint32_t m_vector[4];
 
@@ -3088,8 +3087,7 @@ namespace cvtt
             bool m_isUniform;
         };
 
-
-        template<int TVectorSize>
+template<int TVectorSize>
         class IndexSelectorHDR : public IndexSelector<TVectorSize>
         {
         public:
@@ -3807,8 +3805,7 @@ namespace cvtt
                 }
             }
 
-
-            static void TrySinglePlane(uint32_t flags, const MUInt15 pixels[16][4], const MFloat floatPixels[16][4], const float channelWeights[4], int numTweakRounds, int numRefineRounds, WorkInfo& work, const ParallelMath::RoundTowardNearestForScope *rtn)
+static void TrySinglePlane(uint32_t flags, const MUInt15 pixels[16][4], const MFloat floatPixels[16][4], const float channelWeights[4], int numTweakRounds, int numRefineRounds, WorkInfo& work, const ParallelMath::RoundTowardNearestForScope *rtn)
             {
                 if (numRefineRounds < 1)
                     numRefineRounds = 1;
@@ -4501,8 +4498,7 @@ namespace cvtt
                                     else
                                         CompressEndpoints5(rgbEP, alphaEP, rtn);
 
-
-                                    IndexSelector<1> alphaIndexSelector;
+IndexSelector<1> alphaIndexSelector;
                                     IndexSelector<3> rgbIndexSelector;
 
                                     {
@@ -5868,8 +5864,7 @@ namespace cvtt
                     (*pCodedValue) |= pv.Unpack(1) << desc[i].m_uBit;
                 }
 
-
-                uint16_t modeID = modeInfo.m_modeID;
+uint16_t modeID = modeInfo.m_modeID;
 
                 int fixupIndex1 = 0;
                 int indexBits = 4;
@@ -6966,8 +6961,7 @@ namespace cvtt
                         assert(ep1 >= -127 && ep1 <= 127);
                     }
 
-
-                    bool swapEndpoints = (isFullRange != 0) != (ep0 > ep1);
+bool swapEndpoints = (isFullRange != 0) != (ep0 > ep1);
 
                     if (swapEndpoints)
                         std::swap(ep0, ep1);

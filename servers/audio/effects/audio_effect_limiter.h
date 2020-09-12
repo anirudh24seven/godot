@@ -1,8 +1,6 @@
 
 /*  audio_effect_limiter.h                                               */
 
-
-
 #ifndef AUDIO_EFFECT_LIMITER_H
 #define AUDIO_EFFECT_LIMITER_H
 

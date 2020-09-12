@@ -1,8 +1,6 @@
 
 /*  packed_scene_translation_parser_plugin.cpp                           */
 
-
-
 #include "packed_scene_translation_parser_plugin.h"
 
 #include "core/io/resource_loader.h"

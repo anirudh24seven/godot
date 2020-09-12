@@ -1,8 +1,6 @@
 
 /*  icloud.h                                                             */
 
-
-
 #ifdef ICLOUD_ENABLED
 
 #ifndef ICLOUD_H

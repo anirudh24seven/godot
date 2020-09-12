@@ -1,8 +1,6 @@
 
 /*  PermissionsUtil.java                                                 */
 
-
-
 package org.godotengine.godot.utils;
 
 import android.Manifest;

@@ -1,8 +1,6 @@
 
 /*  eq.cpp                                                               */
 
-
-
 // Author: reduzio@gmail.com (C) 2006
 
 #include "eq.h"

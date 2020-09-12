@@ -1,8 +1,6 @@
 
 /*  rid.h                                                                */
 
-
-
 #ifndef RID_H
 #define RID_H
 

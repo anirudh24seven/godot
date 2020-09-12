@@ -1,8 +1,6 @@
 
 /*  mesh.cpp                                                             */
 
-
-
 #include "mesh.h"
 
 #include "core/pair.h"
@@ -183,8 +181,7 @@ Vector<Face3> Mesh::get_faces() const {
 		Face3* facesw = faces.ptrw();
 		Face3 *facesptr=facesw.ptr();
 
-
-		for (int i=0;i<len/3;i++) {
+for (int i=0;i<len/3;i++) {
 
 			Face3 face;
 

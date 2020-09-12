@@ -1,8 +1,6 @@
 
 /*  vulkan_context_android.h                                             */
 
-
-
 #ifndef VULKAN_CONTEXT_ANDROID_H
 #define VULKAN_CONTEXT_ANDROID_H
 

@@ -550,7 +550,6 @@ RemovePinhole(struct UPNPUrls * urls,
 	printf("UPNP_DeletePinhole() returned : %d\n", r);
 }
 
-
 /* sample upnp client program */
 int main(int argc, char ** argv)
 {

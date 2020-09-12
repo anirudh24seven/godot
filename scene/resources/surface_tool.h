@@ -1,8 +1,6 @@
 
 /*  surface_tool.h                                                       */
 
-
-
 #ifndef SURFACE_TOOL_H
 #define SURFACE_TOOL_H
 

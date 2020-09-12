@@ -1065,7 +1065,6 @@ static unsigned quant_partition(struct band_ctx *ctx, celt_norm *X,
    return cm;
 }
 
-
 /* This function is responsible for encoding and decoding a band for the mono case. */
 static unsigned quant_band(struct band_ctx *ctx, celt_norm *X,
       int N, int b, int B, celt_norm *lowband,
@@ -1196,7 +1195,6 @@ static unsigned quant_band(struct band_ctx *ctx, celt_norm *X,
    }
    return cm;
 }
-
 
 /* This function is responsible for encoding and decoding a band for the stereo case. */
 static unsigned quant_band_stereo(struct band_ctx *ctx, celt_norm *X, celt_norm *Y,
@@ -1343,8 +1341,7 @@ static unsigned quant_band_stereo(struct band_ctx *ctx, celt_norm *X, celt_norm 
       }
    }
 
-
-   /* This code is used by the decoder and by the resynthesis-enabled encoder */
+/* This code is used by the decoder and by the resynthesis-enabled encoder */
    if (resynth)
    {
       if (N!=2)
@@ -1358,7 +1355,6 @@ static unsigned quant_band_stereo(struct band_ctx *ctx, celt_norm *X, celt_norm 
    }
    return cm;
 }
-
 
 void quant_all_bands(int encode, const CELTMode *m, int start, int end,
       celt_norm *X_, celt_norm *Y_, unsigned char *collapse_masks,

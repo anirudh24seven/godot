@@ -1,8 +1,6 @@
 
 /*  random_number_generator.h                                            */
 
-
-
 #ifndef RANDOM_NUMBER_GENERATOR_H
 #define RANDOM_NUMBER_GENERATOR_H
 

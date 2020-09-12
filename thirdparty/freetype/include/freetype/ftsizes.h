@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Typical application would normally not need to use these functions.
    * However, they have been placed in a public API for the rare cases where
@@ -24,10 +23,8 @@
    *
    */
 
-
 #ifndef FTSIZES_H_
 #define FTSIZES_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -38,11 +35,9 @@
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   sizes_management
@@ -71,8 +66,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_New_Size
@@ -100,8 +94,7 @@ FT_BEGIN_HEADER
   FT_New_Size( FT_Face   face,
                FT_Size*  size );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Done_Size
@@ -120,8 +113,7 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Error )
   FT_Done_Size( FT_Size  size );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Activate_Size
@@ -151,10 +143,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTSIZES_H_ */
-
 
 /* END */

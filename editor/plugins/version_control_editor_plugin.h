@@ -1,8 +1,6 @@
 
 /*  version_control_editor_plugin.h                                      */
 
-
-
 #ifndef VERSION_CONTROL_EDITOR_PLUGIN_H
 #define VERSION_CONTROL_EDITOR_PLUGIN_H
 

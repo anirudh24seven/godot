@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_STREAM_H
@@ -26,8 +25,7 @@
 
 #include "pfrerror.h"
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   pfr_get_kerning( FT_Face     pfrface,     /* PFR_Face */
                    FT_UInt     left,
                    FT_UInt     right,
@@ -36,8 +34,7 @@
     PFR_Face     face = (PFR_Face)pfrface;
     PFR_PhyFont  phys = &face->phy_font;
 
-
-    (void)pfr_face_get_kerning( pfrface, left, right, avector );
+(void)pfr_face_get_kerning( pfrface, left, right, avector );
 
     /* convert from metrics to outline units when necessary */
     if ( phys->outline_resolution != phys->metrics_resolution )
@@ -56,8 +53,7 @@
     return FT_Err_Ok;
   }
 
-
-  /*
+/*
    * PFR METRICS SERVICE
    *
    */
@@ -70,8 +66,7 @@
     PFR_Face  face  = (PFR_Face)pfrface;
     FT_Error  error = FT_ERR( Invalid_Argument );
 
-
-    *anadvance = 0;
+*anadvance = 0;
 
     if ( !gindex )
       goto Exit;
@@ -82,8 +77,7 @@
     {
       PFR_PhyFont  phys = &face->phy_font;
 
-
-      if ( gindex < phys->num_chars )
+if ( gindex < phys->num_chars )
       {
         *anadvance = phys->chars[gindex].advance;
         error      = FT_Err_Ok;
@@ -94,8 +88,7 @@
     return error;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   pfr_get_metrics( FT_Face    pfrface,      /* PFR_Face */
                    FT_UInt   *anoutline_resolution,
                    FT_UInt   *ametrics_resolution,
@@ -107,8 +100,7 @@
     FT_Fixed     x_scale, y_scale;
     FT_Size      size = face->root.size;
 
-
-    if ( anoutline_resolution )
+if ( anoutline_resolution )
       *anoutline_resolution = phys->outline_resolution;
 
     if ( ametrics_resolution )
@@ -135,8 +127,7 @@
     return FT_Err_Ok;
   }
 
-
-  static
+static
   const FT_Service_PfrMetricsRec  pfr_metrics_service_rec =
   {
     pfr_get_metrics,          /* get_metrics */
@@ -144,8 +135,7 @@
     pfr_get_advance           /* get_advance */
   };
 
-
-  /*
+/*
    * SERVICE LIST
    *
    */
@@ -157,8 +147,7 @@
     { NULL, NULL }
   };
 
-
-  FT_CALLBACK_DEF( FT_Module_Interface )
+FT_CALLBACK_DEF( FT_Module_Interface )
   pfr_get_service( FT_Module         module,
                    const FT_String*  service_id )
   {
@@ -167,8 +156,7 @@
     return ft_service_list_lookup( pfr_services, service_id );
   }
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const FT_Driver_ClassRec  pfr_driver_class =
   {
     {
@@ -208,6 +196,5 @@
     NULL,                       /* FT_Size_RequestFunc  request_size */
     NULL,                       /* FT_Size_SelectFunc   select_size  */
   };
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  asset_library_editor_plugin.h                                        */
 
-
-
 #ifndef ASSET_LIBRARY_EDITOR_PLUGIN_H
 #define ASSET_LIBRARY_EDITOR_PLUGIN_H
 

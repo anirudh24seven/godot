@@ -15,21 +15,17 @@
  *
  */
 
-
 #ifndef CIDPARSE_H_
 #define CIDPARSE_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_TYPE1_TYPES_H
 #include FT_INTERNAL_STREAM_H
 #include FT_INTERNAL_POSTSCRIPT_AUX_H
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Struct:
    *   CID_Parser
@@ -83,8 +79,7 @@ FT_BEGIN_HEADER
 
   } CID_Parser;
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cid_parser_new( CID_Parser*    parser,
                   FT_Stream      stream,
                   FT_Memory      memory,
@@ -93,8 +88,7 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   cid_parser_done( CID_Parser*  parser );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                           PARSING ROUTINES
    *
@@ -122,10 +116,8 @@ FT_BEGIN_HEADER
 #define cid_parser_load_field_table( p, f, o )                       \
           (p)->root.funcs.load_field_table( &(p)->root, f, o, 0, 0 )
 
-
 FT_END_HEADER
 
 #endif /* CIDPARSE_H_ */
-
 
 /* END */

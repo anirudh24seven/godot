@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -135,8 +134,7 @@ public:
         AddProperty(name,(Base*)new TStaticData<T>(in));
     }
 
-
-    //! Get a heap property
+//! Get a heap property
     template <typename T>
     bool GetProperty( const char* name, T*& out ) const
     {
@@ -198,7 +196,6 @@ private:
 
 #endif
 
-
 #define AI_SPP_SPATIAL_SORT "$Spat"
 
 // ---------------------------------------------------------------------------
@@ -258,8 +255,7 @@ public:
     */
     virtual void Execute( aiScene* pScene) = 0;
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Assign a new SharedPostProcessInfo to the step. This object
      *  allows multiple postprocess steps to share data.
      * @param sh May be NULL
@@ -283,7 +279,6 @@ protected:
     /** Currently active progress handler */
     ProgressHandler* progress;
 };
-
 
 } // end of namespace Assimp
 

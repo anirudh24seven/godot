@@ -1,8 +1,6 @@
 
 /*  test_oa_hash_map.h                                                   */
 
-
-
 #ifndef TEST_OA_HASH_MAP_H
 #define TEST_OA_HASH_MAP_H
 

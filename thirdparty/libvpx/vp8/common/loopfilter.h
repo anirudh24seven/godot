@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_LOOPFILTER_H_
 #define VP8_COMMON_LOOPFILTER_H_
 
@@ -58,7 +57,6 @@ typedef struct loop_filter_info
     const unsigned char * lim;
     const unsigned char * hev_thr;
 } loop_filter_info;
-
 
 typedef void loop_filter_uvfunction
 (

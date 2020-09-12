@@ -1,8 +1,6 @@
 
 /*  register_platform_apis.h                                             */
 
-
-
 #ifndef REGISTER_APIS_H
 #define REGISTER_APIS_H
 

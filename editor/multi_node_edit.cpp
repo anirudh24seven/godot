@@ -1,8 +1,6 @@
 
 /*  multi_node_edit.cpp                                                  */
 
-
-
 #include "multi_node_edit.h"
 
 #include "core/math/math_fieldwise.h"

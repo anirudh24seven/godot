@@ -1,8 +1,6 @@
 
 /*  cpu_particles_3d_editor_plugin.cpp                                   */
 
-
-
 #include "cpu_particles_3d_editor_plugin.h"
 
 #include "editor/plugins/node_3d_editor_plugin.h"

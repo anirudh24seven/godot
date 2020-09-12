@@ -1,8 +1,6 @@
 
 /*  run_settings_dialog.h                                                */
 
-
-
 #ifndef RUN_SETTINGS_DIALOG_H
 #define RUN_SETTINGS_DIALOG_H
 

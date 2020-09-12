@@ -1,8 +1,6 @@
 
 /*  editor_resource_preview.h                                            */
 
-
-
 #ifndef EDITORRESOURCEPREVIEW_H
 #define EDITORRESOURCEPREVIEW_H
 

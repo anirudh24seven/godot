@@ -1,8 +1,6 @@
 
 /*  test_render.h                                                        */
 
-
-
 #ifndef TEST_RENDER_H
 #define TEST_RENDER_H
 

@@ -135,9 +135,7 @@ int vorbis_bitrate_addblock(vorbis_block *vb){
     this_bits=oggpack_bytes(vbi->packetblob[choice])*8;
   }
 
-
-
-  /* enforce min(if used) on the current floater (if used) */
+/* enforce min(if used) on the current floater (if used) */
   if(bm->min_bitsper>0){
     /* do we need to force the bitrate up? */
     if(this_bits<min_target_bits){

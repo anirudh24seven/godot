@@ -1,8 +1,6 @@
 
 /*  aabb.h                                                               */
 
-
-
 #ifndef GODOT_AABB_H
 #define GODOT_AABB_H
 

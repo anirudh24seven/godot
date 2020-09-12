@@ -98,8 +98,7 @@ extern "C" {
    * They represent the base case functionality expected of all decoders.
    */
 
-
-  /*!\brief Initialization Configurations
+/*!\brief Initialization Configurations
    *
    * This structure is used to pass init time configuration options to the
    * decoder.
@@ -110,8 +109,7 @@ extern "C" {
     unsigned int h;      /**< Height */
   } vpx_codec_dec_cfg_t; /**< alias for struct vpx_codec_dec_cfg */
 
-
-  /*!\brief Initialize a decoder instance
+/*!\brief Initialize a decoder instance
    *
    * Initializes a decoder context using the given interface. Applications
    * should call the vpx_codec_dec_init convenience macro instead of this
@@ -146,8 +144,7 @@ extern "C" {
 #define vpx_codec_dec_init(ctx, iface, cfg, flags) \
   vpx_codec_dec_init_ver(ctx, iface, cfg, flags, VPX_DECODER_ABI_VERSION)
 
-
-  /*!\brief Parse stream info from a buffer
+/*!\brief Parse stream info from a buffer
    *
    * Performs high level parsing of the bitstream. Construction of a decoder
    * context is not necessary. Can be used to determine if the bitstream is
@@ -169,8 +166,7 @@ extern "C" {
                                              unsigned int             data_sz,
                                              vpx_codec_stream_info_t *si);
 
-
-  /*!\brief Return information about the current stream.
+/*!\brief Return information about the current stream.
    *
    * Returns information about the stream that has been parsed during decoding.
    *
@@ -186,8 +182,7 @@ extern "C" {
   vpx_codec_err_t vpx_codec_get_stream_info(vpx_codec_ctx_t         *ctx,
                                             vpx_codec_stream_info_t *si);
 
-
-  /*!\brief Decode data
+/*!\brief Decode data
    *
    * Processes a buffer of coded data. If the processing results in a new
    * decoded frame becoming available, PUT_SLICE and PUT_FRAME events may be
@@ -223,8 +218,7 @@ extern "C" {
                                    void               *user_priv,
                                    long                deadline);
 
-
-  /*!\brief Decoded frames iterator
+/*!\brief Decoded frames iterator
    *
    * Iterates over a list of the frames available for display. The iterator
    * storage should be initialized to NULL to start the iteration. Iteration is
@@ -242,8 +236,7 @@ extern "C" {
   vpx_image_t *vpx_codec_get_frame(vpx_codec_ctx_t  *ctx,
                                    vpx_codec_iter_t *iter);
 
-
-  /*!\defgroup cap_put_frame Frame-Based Decoding Functions
+/*!\defgroup cap_put_frame Frame-Based Decoding Functions
    *
    * The following functions are required to be implemented for all decoders
    * that advertise the VPX_CODEC_CAP_PUT_FRAME capability. Calling these functions
@@ -260,8 +253,7 @@ extern "C" {
   typedef void (*vpx_codec_put_frame_cb_fn_t)(void        *user_priv,
                                               const vpx_image_t *img);
 
-
-  /*!\brief Register for notification of frame completion.
+/*!\brief Register for notification of frame completion.
    *
    * Registers a given function to be called when a decoded frame is
    * available.
@@ -280,8 +272,7 @@ extern "C" {
                                                   vpx_codec_put_frame_cb_fn_t  cb,
                                                   void                        *user_priv);
 
-
-  /*!@} - end defgroup cap_put_frame */
+/*!@} - end defgroup cap_put_frame */
 
   /*!\defgroup cap_put_slice Slice-Based Decoding Functions
    *
@@ -302,8 +293,7 @@ extern "C" {
                                               const vpx_image_rect_t *valid,
                                               const vpx_image_rect_t *update);
 
-
-  /*!\brief Register for notification of slice completion.
+/*!\brief Register for notification of slice completion.
    *
    * Registers a given function to be called when a decoded slice is
    * available.
@@ -322,8 +312,7 @@ extern "C" {
                                                   vpx_codec_put_slice_cb_fn_t  cb,
                                                   void                        *user_priv);
 
-
-  /*!@} - end defgroup cap_put_slice*/
+/*!@} - end defgroup cap_put_slice*/
 
   /*!\defgroup cap_external_frame_buffer External Frame Buffer Functions
    *

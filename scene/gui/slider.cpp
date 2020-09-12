@@ -1,8 +1,6 @@
 
 /*  slider.cpp                                                           */
 
-
-
 #include "slider.h"
 #include "core/os/keyboard.h"
 

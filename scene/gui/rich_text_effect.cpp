@@ -1,8 +1,6 @@
 
 /*  rich_text_effect.cpp                                                 */
 
-
-
 #include "rich_text_effect.h"
 
 #include "core/script_language.h"

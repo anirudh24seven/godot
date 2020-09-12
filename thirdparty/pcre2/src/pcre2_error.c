@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -272,7 +271,6 @@ static const unsigned char match_error_texts[] =
   "internal error - duplicate substitution match\0"
   "PCRE2_MATCH_INVALID_UTF is not supported for DFA matching\0"
   ;
-
 
 /*************************************************
 *            Return error message                *

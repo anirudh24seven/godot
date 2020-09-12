@@ -476,7 +476,6 @@ void FBXExporter::WriteReferences ()
     n.Dump(outfile, binary, 0);
 }
 
-
 // ---------------------------------------------------------------
 // some internal helper functions used for writing the definitions
 // (before any actual data is written)
@@ -947,7 +946,6 @@ void FBXExporter::WriteDefinitions ()
     for (auto &n : object_nodes) { defs.AddChild(n); }
     defs.Dump(outfile, binary, 0);
 }
-
 
 // -------------------------------------------------------------------
 // some internal helper functions used for writing the objects section
@@ -1897,8 +1895,7 @@ void FBXExporter::WriteObjects ()
 
             sdnode.AddChild("Transform", tr);
 
-
-            sdnode.AddChild("TransformLink", bone_xform);
+sdnode.AddChild("TransformLink", bone_xform);
             // note: this means we ALWAYS rely on the mesh node transform
             // being unchanged from the time the skeleton was bound.
             // there's not really any way around this at the moment.
@@ -2479,7 +2476,6 @@ void FBXExporter::WriteModelNodes(
     }
 }
 
-
 void FBXExporter::WriteAnimationCurveNode(
     StreamWriterLE& outstream,
     int64_t uid,
@@ -2502,7 +2498,6 @@ void FBXExporter::WriteAnimationCurveNode(
     // connect to bone
     this->connections.emplace_back("C", "OP", uid, node_uid, property_name);
 }
-
 
 void FBXExporter::WriteAnimationCurve(
     StreamWriterLE& outstream,
@@ -2531,7 +2526,6 @@ void FBXExporter::WriteAnimationCurve(
         "C", "OP", curve_uid, curvenode_uid, property_link
     );
 }
-
 
 void FBXExporter::WriteConnections ()
 {

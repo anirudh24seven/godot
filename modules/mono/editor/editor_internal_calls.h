@@ -1,8 +1,6 @@
 
 /*  editor_internal_calls.h                                              */
 
-
-
 #ifndef EDITOR_INTERNAL_CALL_H
 #define EDITOR_INTERNAL_CALL_H
 

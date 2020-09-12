@@ -1,8 +1,6 @@
 
 /*  view_controller.h                                                    */
 
-
-
 #import <GameKit/GameKit.h>
 #import <UIKit/UIKit.h>
 

@@ -12,13 +12,11 @@
 #include "hist.h"
 #include "zstd_opt.h"
 
-
 #define ZSTD_LITFREQ_ADD    2   /* scaling factor for litFreq, so that frequencies adapt faster to new stats */
 #define ZSTD_FREQ_DIV       4   /* log factor when using previous stats to init next stats */
 #define ZSTD_MAX_PRICE     (1<<30)
 
 #define ZSTD_PREDEF_THRESHOLD 1024   /* if srcSize < ZSTD_PREDEF_THRESHOLD, symbols' cost is assumed static, directly determined by pre-defined distributions */
-
 
 /*-*************************************
 *  Price functions for optimal parser
@@ -77,7 +75,6 @@ static void ZSTD_setBasePrices(optState_t* optPtr, int optLevel)
     optPtr->matchLengthSumBasePrice = WEIGHT(optPtr->matchLengthSum, optLevel);
     optPtr->offCodeSumBasePrice = WEIGHT(optPtr->offCodeSum, optLevel);
 }
-
 
 /* ZSTD_downscaleStat() :
  * reduce all elements in table by a factor 2^(ZSTD_FREQ_DIV+malus)
@@ -352,7 +349,6 @@ static void ZSTD_updateStats(optState_t* const optPtr,
     }
 }
 
-
 /* ZSTD_readMINMATCH() :
  * function safe only for comparisons
  * assumption : memPtr must be at least 4 bytes before end of buffer */
@@ -368,7 +364,6 @@ MEM_STATIC U32 ZSTD_readMINMATCH(const void* memPtr, U32 length)
                 return MEM_read32(memPtr)>>8;
     }
 }
-
 
 /* Update hashTable3 up to ip (excluded)
    Assumption : always within prefix (i.e. not within extDict) */
@@ -392,7 +387,6 @@ static U32 ZSTD_insertAndFindFirstIndexHash3 (ZSTD_matchState_t* ms,
     *nextToUpdate3 = target;
     return hashTable3[hash3];
 }
-
 
 /*-*************************************
 *  Binary Tree search
@@ -769,7 +763,6 @@ U32 ZSTD_insertBtAndGetAllMatches (
     return mnum;
 }
 
-
 FORCE_INLINE_TEMPLATE U32 ZSTD_BtGetAllMatches (
                         ZSTD_match_t* matches,   /* store result (match found, increasing size) in this table */
                         ZSTD_matchState_t* ms,
@@ -794,7 +787,6 @@ FORCE_INLINE_TEMPLATE U32 ZSTD_BtGetAllMatches (
     case 6 : return ZSTD_insertBtAndGetAllMatches(matches, ms, nextToUpdate3, ip, iHighLimit, dictMode, rep, ll0, lengthToBeat, 6);
     }
 }
-
 
 /*-*******************************
 *  Optimal parser
@@ -823,7 +815,6 @@ static repcodes_t ZSTD_updateRep(U32 const rep[3], U32 const offset, U32 const l
     }
     return newReps;
 }
-
 
 static U32 ZSTD_totalLen(ZSTD_optimal_t sol)
 {
@@ -1111,7 +1102,6 @@ _shortestPath:   /* cur, last_pos, best_mlen, best_off have to be set */
     return (size_t)(iend - anchor);
 }
 
-
 size_t ZSTD_compressBlock_btopt(
         ZSTD_matchState_t* ms, seqStore_t* seqStore, U32 rep[ZSTD_REP_NUM],
         const void* src, size_t srcSize)
@@ -1119,7 +1109,6 @@ size_t ZSTD_compressBlock_btopt(
     DEBUGLOG(5, "ZSTD_compressBlock_btopt");
     return ZSTD_compressBlock_opt_generic(ms, seqStore, rep, src, srcSize, 0 /*optLevel*/, ZSTD_noDict);
 }
-
 
 /* used in 2-pass strategy */
 static U32 ZSTD_upscaleStat(unsigned* table, U32 lastEltIndex, int bonus)

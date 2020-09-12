@@ -1,8 +1,7 @@
 /* Copyright (c) 2011 Khaled Mamou (kmamou at gmail dot com)
  All rights reserved.
- 
- 
- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
  
  1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
  
@@ -28,7 +27,6 @@
 #ifdef _MSC_VER
 #pragma warning(disable:4458 4100)
 #endif
-
 
 namespace VHACD {
 /********************************************************/

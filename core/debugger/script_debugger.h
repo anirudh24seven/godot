@@ -1,8 +1,6 @@
 
 /*  script_debugger.h                                                    */
 
-
-
 #ifndef SCRIPT_DEBUGGER_H
 #define SCRIPT_DEBUGGER_H
 

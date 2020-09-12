@@ -1,8 +1,6 @@
 
 /*  rect2.cpp                                                            */
 
-
-
 #include "gdnative/rect2.h"
 
 #include "core/math/transform_2d.h"

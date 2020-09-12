@@ -36,8 +36,7 @@ REAL fm_getDeterminant(const REAL matrix[16])
   REAL p1[3];
   REAL p2[3];
 
-
-	p0[0] = matrix[0*4+0];
+p0[0] = matrix[0*4+0];
 	p0[1] = matrix[0*4+1];
 	p0[2] = matrix[0*4+2];
 
@@ -218,8 +217,7 @@ void fm_getAABB(uint32_t vcount,const REAL *points,uint32_t pstride,REAL *bmin,R
 	bmax[1] = points[1];
 	bmax[2] = points[2];
 
-
-  for (uint32_t i=1; i<vcount; i++)
+for (uint32_t i=1; i<vcount; i++)
   {
 	source+=pstride;
 	const REAL *p = (const REAL *) source;
@@ -296,7 +294,6 @@ void fm_quatToMatrix(const REAL *quat,REAL *matrix) // convert quaterinion rotat
 
 }
 
-
 void fm_quatRotate(const REAL *quat,const REAL *v,REAL *r) // rotate a vector directly by a quaternion.
 {
   REAL left[4];
@@ -311,7 +308,6 @@ void fm_quatRotate(const REAL *quat,const REAL *v,REAL *r) // rotate a vector di
 	r[2] = (left[3]*-quat[2]) + (quat[3]*left[2]) + (left[0]*-quat[1]) - (-quat[0]*left[1]);
 
 }
-
 
 void fm_getTranslation(const REAL *matrix,REAL *t)
 {
@@ -369,12 +365,10 @@ void fm_matrixToQuat(const REAL *matrix,REAL *quat) // convert the 3x3 portion o
 //	fm_normalizeQuat(quat);
 }
 
-
 REAL fm_sphereVolume(REAL radius) // return's the volume of a sphere of this radius (4/3 PI * R cubed )
 {
 	return (4.0f / 3.0f ) * FM_PI * radius * radius * radius;
 }
-
 
 REAL fm_cylinderVolume(REAL radius,REAL h)
 {
@@ -430,7 +424,6 @@ void  fm_rotate(const REAL matrix[16],const REAL v[3],REAL t[3]) // rotate and t
   }
 }
 
-
 REAL fm_distance(const REAL *p1,const REAL *p2)
 {
 	REAL dx = p1[0] - p2[0];
@@ -449,7 +442,6 @@ REAL fm_distanceSquared(const REAL *p1,const REAL *p2)
 	return dx*dx + dy*dy + dz *dz;
 }
 
-
 REAL fm_distanceSquaredXZ(const REAL *p1,const REAL *p2)
 {
 	REAL dx = p1[0] - p2[0];
@@ -457,7 +449,6 @@ REAL fm_distanceSquaredXZ(const REAL *p1,const REAL *p2)
 
 	return dx*dx +  dz *dz;
 }
-
 
 REAL fm_computePlane(const REAL *A,const REAL *B,const REAL *C,REAL *n) // returns D
 {
@@ -488,8 +479,7 @@ REAL fm_computePlane(const REAL *A,const REAL *B,const REAL *C,REAL *n) // retur
 	REAL y = vw_y * mag;
 	REAL z = vw_z * mag;
 
-
-	REAL D = 0.0f - ((x*A[0])+(y*A[1])+(z*A[2]));
+REAL D = 0.0f - ((x*A[0])+(y*A[1])+(z*A[2]));
 
   n[0] = x;
   n[1] = y;
@@ -540,8 +530,7 @@ bool  fm_computeWindingOrder(const REAL *p1,const REAL *p2,const REAL *p3) // re
 
   REAL d = fm_dot( cross, ref );
 
-
-  if ( d <= 0 )
+if ( d <= 0 )
 	ret = false;
   else
 	ret = true;
@@ -568,7 +557,6 @@ REAL fm_normalize(REAL *n) // normalize this vector
 
   return dist;
 }
-
 
 void  fm_matrixMultiply(const REAL *pA,const REAL *pB,REAL *pM)
 {
@@ -614,7 +602,6 @@ void  fm_matrixMultiply(const REAL *pA,const REAL *pB,REAL *pM)
   pM[14] = o;
   pM[15] = p;
 
-
 #else
 	memset(pM, 0, sizeof(REAL)*16);
 	for(int32_t i=0; i<4; i++ )
@@ -623,7 +610,6 @@ void  fm_matrixMultiply(const REAL *pA,const REAL *pB,REAL *pM)
 				pM[4*i+j] +=  pA[4*i+k] * pB[4*k+j];
 #endif
 }
-
 
 void  fm_eulerToQuatDX(REAL x,REAL y,REAL z,REAL *quat) // convert euler angles to quaternion using the fucked up DirectX method
 {
@@ -649,14 +635,12 @@ void  fm_eulerToMatrixDX(REAL x,REAL y,REAL z,REAL *matrix) // convert euler ang
   matrix[2*4+2] = (REAL)(cos(x)*cos(y));
 }
 
-
 void  fm_scale(REAL x,REAL y,REAL z,REAL *fscale) // apply scale to the matrix.
 {
   fscale[0*4+0] = x;
   fscale[1*4+1] = y;
   fscale[2*4+2] = z;
 }
-
 
 void  fm_composeTransform(const REAL *position,const REAL *quat,const REAL *scale,REAL *matrix)
 {
@@ -677,7 +661,6 @@ void  fm_composeTransform(const REAL *position,const REAL *quat,const REAL *scal
   matrix[13] = position[1];
   matrix[14] = position[2];
 }
-
 
 void  fm_setTranslation(const REAL *translation,REAL *matrix)
 {
@@ -720,7 +703,6 @@ Output, REAL ENORM0_3D, the Euclidean norm of (P1-P0).
 
   return value;
 }
-
 
 static REAL triangle_area_3d ( REAL x1, REAL y1, REAL z1, REAL x2,REAL y2, REAL z2, REAL x3, REAL y3, REAL z3 )
 
@@ -790,7 +772,6 @@ static REAL triangle_area_3d ( REAL x1, REAL y1, REAL z1, REAL x2,REAL y2, REAL 
   return area;
 }
 
-
 REAL fm_computeArea(const REAL *p1,const REAL *p2,const REAL *p3)
 {
   REAL ret = 0;
@@ -799,7 +780,6 @@ REAL fm_computeArea(const REAL *p1,const REAL *p2,const REAL *p3)
 
   return ret;
 }
-
 
 void  fm_lerp(const REAL *p1,const REAL *p2,REAL *dest,REAL lerpValue)
 {
@@ -817,7 +797,6 @@ bool fm_pointTestXZ(const REAL *p,const REAL *i,const REAL *j)
 
   return ret;
 };
-
 
 bool  fm_insideTriangleXZ(const REAL *p,const REAL *p1,const REAL *p2,const REAL *p3)
 {
@@ -843,7 +822,6 @@ bool  fm_insideAABB(const REAL *pos,const REAL *bmin,const REAL *bmax)
 
   return ret;
 }
-
 
 uint32_t fm_clipTestPoint(const REAL *bmin,const REAL *bmax,const REAL *pos)
 {
@@ -940,14 +918,11 @@ bool intersect(const REAL *si,const REAL *ei,const REAL *bmin,const REAL *bmax,R
   return true;
 }
 
-
-
 bool fm_lineTestAABB(const REAL *p1,const REAL *p2,const REAL *bmin,const REAL *bmax,REAL &time)
 {
   bool sect = intersect(p1,p2,bmin,bmax,&time);
   return sect;
 }
-
 
 bool fm_lineTestAABBXZ(const REAL *p1,const REAL *p2,const REAL *bmin,const REAL *bmax,REAL &time)
 {
@@ -992,13 +967,11 @@ REAL fm_solveY(const REAL *plane,REAL x,REAL z) // solve for Y given this plane 
   return y;
 }
 
-
 REAL fm_solveZ(const REAL *plane,REAL x,REAL y) // solve for Y given this plane equation and the other two components.
 {
   REAL z = (x*plane[0]+y*plane[1]+plane[3]) / -plane[2];
   return z;
 }
-
 
 void  fm_getAABBCenter(const REAL *bmin,const REAL *bmax,REAL *center)
 {
@@ -1022,7 +995,6 @@ FM_Axis fm_getDominantAxis(const REAL normal[3])
 
   return ret;
 }
-
 
 bool fm_lineSphereIntersect(const REAL *center,REAL radius,const REAL *p1,const REAL *p2,REAL *intersect)
 {
@@ -1083,8 +1055,7 @@ bool fm_raySphereIntersect(const REAL *center,REAL radius,const REAL *pos,const 
   V[1]  = dir[1];
   V[2]  = dir[2];
 
-
-  REAL dist2   = E0[0]*E0[0] + E0[1]*E0[1] + E0[2] * E0[2];
+REAL dist2   = E0[0]*E0[0] + E0[1]*E0[1] + E0[2] * E0[2];
   REAL radius2 = radius*radius; // radius squared..
 
   // Bug Fix For Gem, if origin is *inside* the sphere, invert the
@@ -1096,8 +1067,7 @@ bool fm_raySphereIntersect(const REAL *center,REAL radius,const REAL *pos,const 
 	V[2]*=-1;
   }
 
-
-	REAL v = DOT(E0,V);
+REAL v = DOT(E0,V);
 
 	REAL disc = radius2 - (dist2 - v*v);
 
@@ -1119,7 +1089,6 @@ bool fm_raySphereIntersect(const REAL *center,REAL radius,const REAL *pos,const 
 
 	return ret;
 }
-
 
 void fm_catmullRom(REAL *out_vector,const REAL *p1,const REAL *p2,const REAL *p3,const REAL *p4, const REAL s)
 {
@@ -1158,7 +1127,6 @@ bool  fm_insideAABB(const REAL *obmin,const REAL *obmax,const REAL *tbmin,const 
 
   return ret;
 }
-
 
 // Reference, from Stan Melax in Game Gems I
 //  Quaternion q;
@@ -1212,7 +1180,6 @@ void fm_rotationArc(const REAL *v0,const REAL *v1,REAL *quat)
 	  quat[3] = s * 0.5f;
   }
 }
-
 
 REAL fm_distancePointLineSegment(const REAL *Point,const REAL *LineStart,const REAL *LineEnd,REAL *intersection,LineSegmentType &type,REAL epsilon)
 {
@@ -1283,7 +1250,6 @@ REAL fm_distancePointLineSegment(const REAL *Point,const REAL *LineStart,const R
   return ret;
 }
 
-
 #ifndef BEST_FIT_PLANE_H
 
 #define BEST_FIT_PLANE_H
@@ -1292,8 +1258,7 @@ template <class Type> class Eigen
 {
 public:
 
-
-  void DecrSortEigenStuff(void)
+void DecrSortEigenStuff(void)
   {
 	Tridiagonal(); //diagonalize the matrix.
 	QLAlgorithm(); //
@@ -1464,8 +1429,7 @@ public:
 	}
   }
 
-
-  void GuaranteeRotation(void)
+void GuaranteeRotation(void)
   {
 	if (!m_bIsRotation)
 	{
@@ -1537,8 +1501,7 @@ bool fm_computeBestFitPlane(uint32_t vcount,
   center[1] = kOrigin[1];
   center[2] = kOrigin[2];
 
-
-  REAL fSumXX=0;
+REAL fSumXX=0;
   REAL fSumXY=0;
   REAL fSumXZ=0;
 
@@ -1546,8 +1509,7 @@ bool fm_computeBestFitPlane(uint32_t vcount,
   REAL fSumYZ=0;
   REAL fSumZZ=0;
 
-
-  {
+{
 	const char *source  = (const char *) points;
 	const char *wsource = (const char *) weights;
 
@@ -1579,8 +1541,7 @@ bool fm_computeBestFitPlane(uint32_t vcount,
 	  fSumYZ+= kDiff[1] * kDiff[2];
 	  fSumZZ+= kDiff[2] * kDiff[2];
 
-
-	  source+=vstride;
+source+=vstride;
 	}
   }
 
@@ -1627,7 +1588,6 @@ bool fm_computeBestFitPlane(uint32_t vcount,
   return ret;
 }
 
-
 bool fm_colinear(const REAL a1[3],const REAL a2[3],const REAL b1[3],const REAL b2[3],REAL epsilon)  // true if these two line segments are co-linear.
 {
   bool ret = false;
@@ -1653,8 +1613,7 @@ bool fm_colinear(const REAL a1[3],const REAL a2[3],const REAL b1[3],const REAL b
 	ret = true;
   }
 
-
-  return ret;
+return ret;
 }
 
 bool fm_colinear(const REAL *p1,const REAL *p2,const REAL *p3,REAL epsilon)
@@ -1682,8 +1641,7 @@ bool fm_colinear(const REAL *p1,const REAL *p2,const REAL *p3,REAL epsilon)
 	ret = true;
   }
 
-
-  return ret;
+return ret;
 }
 
 void  fm_initMinMax(const REAL *p,REAL *bmin,REAL *bmax)
@@ -1774,10 +1732,6 @@ IntersectResult fm_intersectLineSegments2dTime(const REAL *a1,const REAL *a2,con
 
 //**** Plane Triangle Intersection
 
-
-
-
-
 // assumes that the points are on opposite sides of the plane!
 bool fm_intersectPointPlane(const REAL *p1,const REAL *p2,REAL *split,const REAL *plane)
 {
@@ -1827,8 +1781,6 @@ PlaneTriResult fm_getSidePlane(const REAL *p,const REAL *plane,REAL epsilon)
 
   return ret;
 }
-
-
 
 #ifndef PLANE_TRIANGLE_INTERSECTION_H
 
@@ -1888,8 +1840,7 @@ public:
 	mVertices[2].set(p3);
   }
 
-
-  int32_t NumVertices(void) const { return mVcount; };
+int32_t NumVertices(void) const { return mVcount; };
 
   const point<Type>& Vertex(int32_t index)
   {
@@ -1897,8 +1848,7 @@ public:
 	return mVertices[index];
   };
 
-
-  void set(const point<Type> *pts,int32_t count)
+void set(const point<Type> *pts,int32_t count)
   {
 	for (int32_t i=0; i<count; i++)
 	{
@@ -1907,8 +1857,7 @@ public:
 	mVcount = count;
   }
 
-
-  void Split_Polygon(polygon<Type> *poly,plane<Type> *part, polygon<Type> &front, polygon<Type> &back)
+void Split_Polygon(polygon<Type> *poly,plane<Type> *part, polygon<Type> &front, polygon<Type> &back)
   {
 	int32_t   count = poly->NumVertices ();
 	int32_t   out_c = 0, in_c = 0;
@@ -1954,8 +1903,6 @@ public:
   point<Type>   mVertices[MAXPTS];
 };
 
-
-
 #endif
 
 static inline void add(const REAL *p,REAL *dest,uint32_t tstride,uint32_t &pcount)
@@ -1969,7 +1916,6 @@ static inline void add(const REAL *p,REAL *dest,uint32_t tstride,uint32_t &pcoun
   pcount++;
 	assert( pcount <= 4 );
 }
-
 
 PlaneTriResult fm_planeTriIntersection(const REAL *_plane,    // the plane equation in Ax+By+Cz+D format
 									const REAL *triangle, // the source triangle.
@@ -1991,8 +1937,7 @@ PlaneTriResult fm_planeTriIntersection(const REAL *_plane,    // the plane equat
   const REAL *p2     = (const REAL *) (tsource+tstride);
   const REAL *p3     = (const REAL *) (tsource+tstride*2);
 
-
-  PlaneTriResult r1   = fm_getSidePlane(p1,_plane,epsilon); // compute the side of the plane each vertex is on
+PlaneTriResult r1   = fm_getSidePlane(p1,_plane,epsilon); // compute the side of the plane each vertex is on
   PlaneTriResult r2   = fm_getSidePlane(p2,_plane,epsilon);
   PlaneTriResult r3   = fm_getSidePlane(p3,_plane,epsilon);
 
@@ -2039,8 +1984,7 @@ PlaneTriResult fm_planeTriIntersection(const REAL *_plane,    // the plane equat
 	return r1; // if all three points are on the same side of the plane return result
   }
 
-
-  polygon<REAL> pi(p1,p2,p3);
+polygon<REAL> pi(p1,p2,p3);
   polygon<REAL>  pfront,pback;
 
   plane<REAL>    part(_plane);
@@ -2068,8 +2012,7 @@ PlaneTriResult fm_planeTriIntersection(const REAL *_plane,    // the plane equat
   if ( bcount == 0 && fcount )
 	ret = PTR_FRONT;
 
-
-  return ret;
+return ret;
 }
 
 // computes the OBB for this set of points relative to this transform matrix.
@@ -2192,8 +2135,7 @@ void fm_computeBestFitABB(uint32_t vcount,const REAL *points,uint32_t pstride,RE
 	cp+=pstride;
 	}
 
-
-	sides[0] = bmax[0] - bmin[0];
+sides[0] = bmax[0] - bmin[0];
 	sides[1] = bmax[1] - bmin[1];
 	sides[2] = bmax[2] - bmin[2];
 
@@ -2202,7 +2144,6 @@ void fm_computeBestFitABB(uint32_t vcount,const REAL *points,uint32_t pstride,RE
 	pos[2] = bmin[2]+sides[2]*0.5f;
 
 }
-
 
 void fm_planeToMatrix(const REAL *plane,REAL *matrix) // convert a plane equation to a 4x4 rotation matrix
 {
@@ -2232,7 +2173,6 @@ void fm_eulerMatrix(REAL ax,REAL ay,REAL az,REAL *matrix) // convert euler (in r
   fm_eulerToQuat(ax,ay,az,quat);
   fm_quatToMatrix(quat,matrix);
 }
-
 
 //**********************************************************
 //**********************************************************
@@ -2298,8 +2238,7 @@ public:
   {
   }
 
-
-  void addDouble(KdTreeNode *node,Axes dim,const KdTreeInterface *iface)
+void addDouble(KdTreeNode *node,Axes dim,const KdTreeInterface *iface)
   {
 	const double *nodePosition = iface->getPositionDouble( node->mIndex );
 	const double *position     = iface->getPositionDouble( mIndex );
@@ -2357,8 +2296,7 @@ public:
 
   }
 
-
-  void addFloat(KdTreeNode *node,Axes dim,const KdTreeInterface *iface)
+void addFloat(KdTreeNode *node,Axes dim,const KdTreeInterface *iface)
   {
 	const float *nodePosition = iface->getPositionFloat( node->mIndex );
 	const float *position     = iface->getPositionFloat( mIndex );
@@ -2416,8 +2354,7 @@ public:
 
   }
 
-
-  uint32_t getIndex(void) const { return mIndex; };
+uint32_t getIndex(void) const { return mIndex; };
 
   void search(Axes axis,const double *pos,double radius,uint32_t &count,uint32_t maxObjects,KdTreeFindNode *found,const KdTreeInterface *iface)
   {
@@ -2549,8 +2486,7 @@ public:
 	  }
 	}
 
-
-	if ( search1 )
+if ( search1 )
 		search1->search( axis, pos,radius, count, maxObjects, found, iface);
 
 	if ( search2 )
@@ -2688,8 +2624,7 @@ public:
 	  }
 	}
 
-
-	if ( search1 )
+if ( search1 )
 		search1->search( axis, pos,radius, count, maxObjects, found, iface);
 
 	if ( search2 )
@@ -2709,7 +2644,6 @@ private:
   KdTreeNode     *mLeft;
   KdTreeNode     *mRight;
 };
-
 
 #define MAX_BUNDLE_SIZE 1024  // 1024 nodes at a time, to minimize memory allocation and guarantee that pointers are persistent.
 
@@ -2740,7 +2674,6 @@ public:
   uint32_t             mIndex;
   KdTreeNode         mNodes[MAX_BUNDLE_SIZE];
 };
-
 
 typedef std::vector< double > DoubleVector;
 typedef std::vector< float >  FloatVector;
@@ -2966,8 +2899,7 @@ public:
 
   }
 
-
-  double snapToGrid(double p)
+double snapToGrid(double p)
   {
 	double m = fmod(p,mDoubleGranularity);
 	p-=m;
@@ -3019,8 +2951,7 @@ public:
 	  ret = mKdTree.add(p[0],p[1],p[2]);
 	}
 
-
-	return ret;
+return ret;
   }
 
   uint32_t    getIndex(const double *_p,bool &newPos)  // get index for a vector double
@@ -3061,8 +2992,7 @@ public:
 	  ret = mKdTree.add(p[0],p[1],p[2]);
 	}
 
-
-	return ret;
+return ret;
   }
 
   const float *   getVerticesFloat(void) const
@@ -3124,13 +3054,11 @@ public:
 	return mUseDouble;
   }
 
-
-  bool            saveAsObj(const char *fname,uint32_t tcount,uint32_t *indices)
+bool            saveAsObj(const char *fname,uint32_t tcount,uint32_t *indices)
   {
 	bool ret = false;
 
-
-	FILE *fph = fopen(fname,"wb");
+FILE *fph = fopen(fname,"wb");
 	if ( fph )
 	{
 	  ret = true;
@@ -3196,7 +3124,6 @@ void          fm_releaseVertexIndex(fm_VertexIndex *vindex)
 
 #endif   // END OF VERTEX WELDING CODE
 
-
 REAL fm_computeBestFitAABB(uint32_t vcount,const REAL *points,uint32_t pstride,REAL *bmin,REAL *bmax) // returns the diagonal distance
 {
 
@@ -3210,8 +3137,7 @@ REAL fm_computeBestFitAABB(uint32_t vcount,const REAL *points,uint32_t pstride,R
 	bmax[1] = points[1];
 	bmax[2] = points[2];
 
-
-  for (uint32_t i=1; i<vcount; i++)
+for (uint32_t i=1; i<vcount; i++)
   {
 	source+=pstride;
 	const REAL *p = (const REAL *) source;
@@ -3234,15 +3160,11 @@ REAL fm_computeBestFitAABB(uint32_t vcount,const REAL *points,uint32_t pstride,R
 
 }
 
-
-
 /* a = b - c */
 #define vector(a,b,c) \
 	(a)[0] = (b)[0] - (c)[0];	\
 	(a)[1] = (b)[1] - (c)[1];	\
 	(a)[2] = (b)[2] - (c)[2];
-
-
 
 #define innerProduct(v,q) \
 		((v)[0] * (q)[0] + \
@@ -3253,7 +3175,6 @@ REAL fm_computeBestFitAABB(uint32_t vcount,const REAL *points,uint32_t pstride,R
 	(a)[0] = (b)[1] * (c)[2] - (c)[1] * (b)[2]; \
 	(a)[1] = (b)[2] * (c)[0] - (c)[2] * (b)[0]; \
 	(a)[2] = (b)[0] * (c)[1] - (c)[0] * (b)[1];
-
 
 bool fm_lineIntersectsTriangle(const REAL *rayStart,const REAL *rayEnd,const REAL *p1,const REAL *p2,const REAL *p3,REAL *sect)
 {
@@ -3270,8 +3191,7 @@ bool fm_lineIntersectsTriangle(const REAL *rayStart,const REAL *rayEnd,const REA
   dir[1]*=r;
   dir[2]*=r;
 
-
-  REAL t;
+REAL t;
 
 	bool ret = fm_rayIntersectsTriangle(rayStart, dir, p1, p2, p3, t );
 
@@ -3291,8 +3211,6 @@ bool fm_lineIntersectsTriangle(const REAL *rayStart,const REAL *rayEnd,const REA
 
   return ret;
 }
-
-
 
 bool fm_rayIntersectsTriangle(const REAL *p,const REAL *d,const REAL *v0,const REAL *v1,const REAL *v2,REAL &t)
 {
@@ -3328,12 +3246,10 @@ bool fm_rayIntersectsTriangle(const REAL *p,const REAL *d,const REAL *v0,const R
 		 return (false);
 }
 
-
 inline REAL det(const REAL *p1,const REAL *p2,const REAL *p3)
 {
   return  p1[0]*p2[1]*p3[2] + p2[0]*p3[1]*p1[2] + p3[0]*p1[1]*p2[2] -p1[0]*p3[1]*p2[2] - p2[0]*p1[1]*p3[2] - p3[0]*p2[1]*p1[2];
 }
-
 
 REAL  fm_computeMeshVolume(const REAL *vertices,uint32_t tcount,const uint32_t *indices)
 {
@@ -3353,14 +3269,12 @@ REAL  fm_computeMeshVolume(const REAL *vertices,uint32_t tcount,const uint32_t *
 	return volume;
 }
 
-
 const REAL * fm_getPoint(const REAL *points,uint32_t pstride,uint32_t index)
 {
   const uint8_t *scan = (const uint8_t *)points;
   scan+=(index*pstride);
   return (REAL *)scan;
 }
-
 
 bool fm_insideTriangle(REAL Ax, REAL Ay,
 					  REAL Bx, REAL By,
@@ -3385,7 +3299,6 @@ bool fm_insideTriangle(REAL Ax, REAL Ay,
   return ((aCROSSbp >= 0.0f) && (bCROSScp >= 0.0f) && (cCROSSap >= 0.0f));
 }
 
-
 REAL fm_areaPolygon2d(uint32_t pcount,const REAL *points,uint32_t pstride)
 {
   int32_t n = (int32_t)pcount;
@@ -3399,7 +3312,6 @@ REAL fm_areaPolygon2d(uint32_t pcount,const REAL *points,uint32_t pstride)
   }
   return A*0.5f;
 }
-
 
 bool  fm_pointInsidePolygon2d(uint32_t pcount,const REAL *points,uint32_t pstride,const REAL *point,uint32_t xindex,uint32_t yindex)
 {
@@ -3433,13 +3345,11 @@ bool  fm_pointInsidePolygon2d(uint32_t pcount,const REAL *points,uint32_t pstrid
   return oddNodes ? true : false;
 }
 
-
 uint32_t fm_consolidatePolygon(uint32_t pcount,const REAL *points,uint32_t pstride,REAL *_dest,REAL epsilon) // collapses co-linear edges.
 {
   uint32_t ret = 0;
 
-
-  if ( pcount >= 3 )
+if ( pcount >= 3 )
   {
 	const REAL *prev = fm_getPoint(points,pstride,pcount-1);
 	const REAL *current = points;
@@ -3470,7 +3380,6 @@ uint32_t fm_consolidatePolygon(uint32_t pcount,const REAL *points,uint32_t pstri
 
   return ret;
 }
-
 
 #ifndef RECT3D_TEMPLATE
 
@@ -3586,13 +3495,11 @@ bool fm_computeSplitPlane(uint32_t vcount,
   bmin[1] = -bmax[1];
   bmin[2] = -bmax[2];
 
-
-  REAL dx = sides[0];
+REAL dx = sides[0];
   REAL dy = sides[1];
   REAL dz = sides[2];
 
-
-	uint32_t axis = 0;
+uint32_t axis = 0;
 
 	if ( dy > dx )
 	{
@@ -3618,8 +3525,7 @@ bool fm_computeSplitPlane(uint32_t vcount,
 
   splitRect(axis,b,b1,b2,p1);
 
-
-  switch ( axis )
+switch ( axis )
   {
 	case 0:
 	  p2[1] = bmin[1];
@@ -3712,7 +3618,6 @@ void fm_subtract(const REAL *A,const REAL *B,REAL *diff) // compute A-B and stor
   diff[2] = A[2]-B[2];
 }
 
-
 void  fm_multiplyTransform(const REAL *pA,const REAL *pB,REAL *pM)
 {
 
@@ -3765,7 +3670,6 @@ void fm_copy3(const REAL *source,REAL *dest)
   dest[1] = source[1];
   dest[2] = source[2];
 }
-
 
 uint32_t  fm_copyUniqueVertices(uint32_t vcount,const REAL *input_vertices,REAL *output_vertices,uint32_t tcount,const uint32_t *input_indices,uint32_t *output_indices)
 {
@@ -3842,7 +3746,6 @@ bool    fm_isMeshCoplanar(uint32_t tcount,const uint32_t *indices,const REAL *ve
   return ret;
 }
 
-
 bool fm_samePlane(const REAL p1[4],const REAL p2[4],REAL normalEpsilon,REAL dEpsilon,bool doubleSided)
 {
   bool ret = false;
@@ -3871,7 +3774,6 @@ bool fm_samePlane(const REAL p1[4],const REAL p2[4],REAL normalEpsilon,REAL dEps
 #endif
   return ret;
 }
-
 
 void  fm_initMinMax(REAL bmin[3],REAL bmax[3])
 {
@@ -3947,8 +3849,7 @@ public:
 	  float *vertices = (float *)malloc(sizeof(float)*vcount*3);
 	  memcpy(vertices,mVertices->getVerticesFloat(),sizeof(float)*vcount*3);
 
-
-	  for (uint32_t i=0; i<tcount; i++)
+for (uint32_t i=0; i<tcount; i++)
 	  {
 		uint32_t i1 = *indices++;
 		uint32_t i2 = *indices++;
@@ -3967,8 +3868,7 @@ public:
 	outcount = (uint32_t)(mIndices.size()/3);
 	ret = &mIndices[0];
 
-
-	return ret;
+return ret;
   }
 
   void tesselate(const float *p1,const float *p2,const float *p3,uint32_t recurse)
@@ -4135,7 +4035,6 @@ void           fm_releaseTesselate(fm_Tesselate *t)
 
 #endif
 
-
 #ifndef RAY_ABB_INTERSECT
 
 #define RAY_ABB_INTERSECT
@@ -4262,7 +4161,6 @@ void    fm_OBBtoAABB(const float /*obmin*/[3],const float /*obmax*/[3],const flo
   assert(0); // not yet implemented.
 }
 
-
 const REAL * computePos(uint32_t index,const REAL *vertices,uint32_t vstride)
 {
   const char *tmp = (const char *)vertices;
@@ -4321,8 +4219,7 @@ void fm_computeMeanNormals(uint32_t vcount,       // the number of vertices
 	computeNormal(i3,normals,nstride,normal);
   }
 
-
-  // Normalize the accumulated normals
+// Normalize the accumulated normals
   dest = (char *)normals;
   for (uint32_t i=0; i<vcount; i++)
   {
@@ -4334,7 +4231,6 @@ void fm_computeMeanNormals(uint32_t vcount,       // the number of vertices
 }
 
 #endif
-
 
 #define BIGNUMBER 100000000.0  		/* hundred million */
 
@@ -4351,7 +4247,6 @@ static inline void Copy(REAL *dest,const REAL *source)
 	dest[1] = source[1];
 	dest[2] = source[2];
 }
-
 
 REAL  fm_computeBestFitSphere(uint32_t vcount,const REAL *points,uint32_t pstride,REAL *center)
 {
@@ -4432,8 +4327,7 @@ REAL  fm_computeBestFitSphere(uint32_t vcount,const REAL *points,uint32_t pstrid
 		Copy(dia2,zmax);
 	}
 
-
-	/* dia1,dia2 is a diameter of initial sphere */
+/* dia1,dia2 is a diameter of initial sphere */
 	/* calc initial center */
 	center[0] = (dia1[0]+dia2[0])*0.5f;
 	center[1] = (dia1[1]+dia2[1])*0.5f;
@@ -4477,7 +4371,6 @@ REAL  fm_computeBestFitSphere(uint32_t vcount,const REAL *points,uint32_t pstrid
 	}
 	return radius;
 }
-
 
 void fm_computeBestFitCapsule(uint32_t vcount,const REAL *points,uint32_t pstride,REAL &radius,REAL &height,REAL matrix[16],bool bruteForce)
 {
@@ -4582,7 +4475,6 @@ void fm_computeBestFitCapsule(uint32_t vcount,const REAL *points,uint32_t pstrid
   radius = (REAL)sqrt(maxDist);
   height = (maxLen*2)-(radius*2);
 }
-
 
 //************* Triangulation
 
@@ -4735,7 +4627,6 @@ public:
 	{
 		return &mInputPoints[index].x;
 	}
-
 
 private:
 	double                  mEpsilon;
@@ -5098,7 +4989,6 @@ bool fm_isValidTriangle(const REAL *p1,const REAL *p2,const REAL *p3,REAL epsilo
   return ret;
 }
 
-
 void  fm_multiplyQuat(const REAL *left,const REAL *right,REAL *quat)
 {
 	REAL a,b,c,d;
@@ -5199,7 +5089,6 @@ bool  fm_computeCentroid(uint32_t vcount,     // number of input data points
 	return ret;
 }
 
-
 #ifndef TEMPLATE_VEC3
 #define TEMPLATE_VEC3
 template <class Type> class Vec3
@@ -5275,6 +5164,5 @@ REAL  fm_normalizeQuat(REAL n[4]) // normalize this quat
 
 	return dist;
 }
-
 
 }; // end of namespace

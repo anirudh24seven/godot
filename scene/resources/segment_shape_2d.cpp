@@ -1,8 +1,6 @@
 
 /*  segment_shape_2d.cpp                                                 */
 
-
-
 #include "segment_shape_2d.h"
 
 #include "core/math/geometry_2d.h"

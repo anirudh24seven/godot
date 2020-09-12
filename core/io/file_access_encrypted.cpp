@@ -1,8 +1,6 @@
 
 /*  file_access_encrypted.cpp                                            */
 
-
-
 #include "file_access_encrypted.h"
 
 #include "core/crypto/crypto_core.h"

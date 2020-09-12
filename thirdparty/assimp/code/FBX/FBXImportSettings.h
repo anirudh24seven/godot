@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -70,8 +69,7 @@ struct ImportSettings
         // empty
     }
 
-
-    /** enable strict mode:
+/** enable strict mode:
      *   - only accept fbx 2012, 2013 files
      *   - on the slightest error, give up.
      *
@@ -94,8 +92,7 @@ struct ImportSettings
      *  This bit is ignored unless readMaterials=true*/
     bool readAllMaterials;
 
-
-    /** import materials (true) or skip them and assign a default
+/** import materials (true) or skip them and assign a default
      *  material. The default value is true.*/
     bool readMaterials;
 
@@ -155,7 +152,6 @@ struct ImportSettings
     */
     bool convertToMeters;
 };
-
 
 } // !FBX
 } // !Assimp

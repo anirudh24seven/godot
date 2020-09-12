@@ -1,8 +1,6 @@
 
 /*  vehicle_body_3d.h                                                    */
 
-
-
 #ifndef VEHICLE_BODY_H
 #define VEHICLE_BODY_H
 

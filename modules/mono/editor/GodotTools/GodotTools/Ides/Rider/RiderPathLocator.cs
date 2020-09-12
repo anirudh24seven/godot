@@ -159,8 +159,7 @@ namespace GodotTools.Ides.Rider
             return string.Empty;
         }
 
-
-        private static string GetToolboxRiderRootPath(string localAppData)
+private static string GetToolboxRiderRootPath(string localAppData)
         {
             var toolboxPath = Path.Combine(localAppData, @"JetBrains/Toolbox");
             var settingsJson = Path.Combine(toolboxPath, ".settings.json");

@@ -1,8 +1,6 @@
 
 /*  XRMode.java                                                          */
 
-
-
 package org.godotengine.godot.xr;
 
 /**

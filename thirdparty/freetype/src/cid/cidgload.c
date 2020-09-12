@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include "cidload.h"
 #include "cidgload.h"
@@ -30,8 +29,7 @@
 
 #include "ciderrs.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -40,8 +38,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  cidgload
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   cid_load_glyph( T1_Decoder  decoder,
                   FT_UInt     glyph_index )
   {
@@ -63,8 +60,7 @@
                                    face->root.internal->incremental_interface;
 #endif
 
-
-    FT_TRACE1(( "cid_load_glyph: glyph index %d\n", glyph_index ));
+FT_TRACE1(( "cid_load_glyph: glyph index %d\n", glyph_index ));
 
 #ifdef FT_CONFIG_OPTION_INCREMENTAL
 
@@ -74,8 +70,7 @@
     {
       FT_Data  glyph_data;
 
-
-      error = inc->funcs->get_glyph_data( inc->object,
+error = inc->funcs->get_glyph_data( inc->object,
                                           glyph_index, &glyph_data );
       if ( error )
         goto Exit;
@@ -108,8 +103,7 @@
       FT_UInt   entry_len = (FT_UInt)( cid->fd_bytes + cid->gd_bytes );
       FT_ULong  off1, off2;
 
-
-      if ( FT_STREAM_SEEK( cid->data_offset + cid->cidmap_offset +
+if ( FT_STREAM_SEEK( cid->data_offset + cid->cidmap_offset +
                            glyph_index * entry_len )               ||
            FT_FRAME_ENTER( 2 * entry_len )                         )
         goto Exit;
@@ -146,8 +140,7 @@
       CID_Subrs     cid_subrs = face->subrs + fd_select;
       FT_UInt       cs_offset;
 
-
-      /* Set up subrs */
+/* Set up subrs */
       decoder->num_subrs  = cid_subrs->num_subrs;
       decoder->subrs      = cid_subrs->code;
       decoder->subrs_len  = 0;
@@ -196,8 +189,7 @@
         PS_Decoder      psdecoder;
         CFF_SubFontRec  subfont;
 
-
-        psaux->ps_decoder_init( &psdecoder, decoder, TRUE );
+psaux->ps_decoder_init( &psdecoder, decoder, TRUE );
 
         psaux->t1_make_subfont( FT_FACE( face ),
                                 &dict->private_dict,
@@ -235,8 +227,7 @@
     {
       FT_Incremental_MetricsRec  metrics;
 
-
-      metrics.bearing_x = FIXED_TO_INT( decoder->builder.left_bearing.x );
+metrics.bearing_x = FIXED_TO_INT( decoder->builder.left_bearing.x );
       metrics.bearing_y = 0;
       metrics.advance   = FIXED_TO_INT( decoder->builder.advance.x );
       metrics.advance_v = FIXED_TO_INT( decoder->builder.advance.y );
@@ -259,14 +250,9 @@
     return error;
   }
 
-
 #if 0
 
-
-
-
-
-  /**********                                                      *********/
+/**********                                                      *********/
   /**********                                                      *********/
   /**********            COMPUTE THE MAXIMUM ADVANCE WIDTH         *********/
   /**********                                                      *********/
@@ -277,11 +263,7 @@
   /**********    operator.                                         *********/
   /**********                                                      *********/
 
-
-
-
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   cid_face_compute_max_advance( CID_Face  face,
                                 FT_Int*   max_advance )
   {
@@ -291,8 +273,7 @@
 
     PSAux_Service  psaux = (PSAux_Service)face->psaux;
 
-
-    *max_advance = 0;
+*max_advance = 0;
 
     /* Initialize load decoder */
     error = psaux->t1_decoder_funcs->init( &decoder,
@@ -329,11 +310,9 @@
     return FT_Err_Ok;
   }
 
-
 #endif /* 0 */
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   cid_slot_load_glyph( FT_GlyphSlot  cidglyph,      /* CID_GlyphSlot */
                        FT_Size       cidsize,       /* CID_Size      */
                        FT_UInt       glyph_index,
@@ -351,8 +330,7 @@
     FT_Vector      font_offset;
     FT_Bool        must_finish_decoder = FALSE;
 
-
-    if ( glyph_index >= (FT_UInt)face->root.num_glyphs )
+if ( glyph_index >= (FT_UInt)face->root.num_glyphs )
     {
       error = FT_THROW( Invalid_Argument );
       goto Exit;
@@ -423,8 +401,7 @@
     {
       FT_Slot_Internal  internal = cidglyph->internal;
 
-
-      cidglyph->metrics.horiBearingX =
+cidglyph->metrics.horiBearingX =
         FIXED_TO_INT( decoder.builder.left_bearing.x );
       cidglyph->metrics.horiAdvance =
         FIXED_TO_INT( decoder.builder.advance.x );
@@ -438,8 +415,7 @@
       FT_BBox            cbox;
       FT_Glyph_Metrics*  metrics = &cidglyph->metrics;
 
-
-      /* copy the _unscaled_ advance width */
+/* copy the _unscaled_ advance width */
       metrics->horiAdvance =
         FIXED_TO_INT( decoder.builder.advance.x );
       cidglyph->linearHoriAdvance =
@@ -487,8 +463,7 @@
         FT_Fixed     x_scale = glyph->x_scale;
         FT_Fixed     y_scale = glyph->y_scale;
 
-
-        /* First of all, scale the points */
+/* First of all, scale the points */
         if ( !hinting || !decoder.builder.hints_funcs )
           for ( n = cur->n_points; n > 0; n--, vec++ )
           {
@@ -525,6 +500,5 @@
 
     return error;
   }
-
 
 /* END */

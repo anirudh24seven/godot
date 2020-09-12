@@ -127,8 +127,7 @@ static void kf_bfly5(
       for ( u=0; u<m; ++u ) {
          scratch[0] = *Fout0;
 
-
-         C_MUL(scratch[1] ,*Fout1, tw[u*fstride]);
+C_MUL(scratch[1] ,*Fout1, tw[u*fstride]);
          C_MUL(scratch[2] ,*Fout2, tw[2*u*fstride]);
          C_MUL(scratch[3] ,*Fout3, tw[3*u*fstride]);
          C_MUL(scratch[4] ,*Fout4, tw[4*u*fstride]);
@@ -162,6 +161,5 @@ static void kf_bfly5(
       }
    }
 }
-
 
 #endif /* KISS_FFT_MIPSR1_H */

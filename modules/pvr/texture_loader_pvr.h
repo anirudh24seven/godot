@@ -1,8 +1,6 @@
 
 /*  texture_loader_pvr.h                                                 */
 
-
-
 #ifndef TEXTURE_LOADER_PVR_H
 #define TEXTURE_LOADER_PVR_H
 

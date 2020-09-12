@@ -1,8 +1,6 @@
 
 /*  display_server_android.h                                             */
 
-
-
 #ifndef DISPLAY_SERVER_ANDROID_H
 #define DISPLAY_SERVER_ANDROID_H
 

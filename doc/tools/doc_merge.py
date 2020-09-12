@@ -4,7 +4,6 @@
 import sys
 import xml.etree.ElementTree as ET
 
-
 tree = ET.parse(sys.argv[1])
 old_doc = tree.getroot()
 
@@ -16,14 +15,12 @@ tab = 0
 
 old_classes = {}
 
-
 def write_string(_f, text, newline=True):
     for t in range(tab):
         _f.write("\t")
     _f.write(text)
     if newline:
         _f.write("\n")
-
 
 def escape(ret):
     ret = ret.replace("&", "&amp;")
@@ -33,27 +30,22 @@ def escape(ret):
     ret = ret.replace('"', "&quot;")
     return ret
 
-
 def inc_tab():
     global tab
     tab += 1
-
 
 def dec_tab():
     global tab
     tab -= 1
 
-
 write_string(f, '<?xml version="1.0" encoding="UTF-8" ?>')
 write_string(f, '<doc version="' + new_doc.attrib["version"] + '">')
-
 
 def get_tag(node, name):
     tag = ""
     if name in node.attrib:
         tag = " " + name + '="' + escape(node.attrib[name]) + '" '
     return tag
-
 
 def find_method_descr(old_class, name):
 
@@ -67,7 +59,6 @@ def find_method_descr(old_class, name):
 
     return None
 
-
 def find_signal_descr(old_class, name):
 
     signals = old_class.find("signals")
@@ -80,7 +71,6 @@ def find_signal_descr(old_class, name):
 
     return None
 
-
 def find_constant_descr(old_class, name):
 
     if old_class is None:
@@ -92,7 +82,6 @@ def find_constant_descr(old_class, name):
                 if m.text.strip() != "":
                     return m.text
     return None
-
 
 def write_class(c):
     class_name = c.attrib["name"]
@@ -227,7 +216,6 @@ def write_class(c):
 
     dec_tab()
     write_string(f, "</class>")
-
 
 for c in list(old_doc):
     old_classes[c.attrib["name"]] = c

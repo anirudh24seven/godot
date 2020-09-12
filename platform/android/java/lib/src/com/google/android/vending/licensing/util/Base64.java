@@ -353,11 +353,9 @@ public class Base64 {
     return outBuff;
   }
 
+/* ********  D E C O D I N G   M E T H O D S  ******** */
 
-  /* ********  D E C O D I N G   M E T H O D S  ******** */
-
-
-  /**
+/**
    * Decodes four bytes from array <var>source</var>
    * and writes the resulting bytes (up to three of them)
    * to <var>destination</var>.
@@ -415,8 +413,7 @@ public class Base64 {
     }
   } // end decodeToBytes
 
-
-  /**
+/**
    * Decodes data from Base64 notation.
    *
    * @param s the string to decode (decoded in default encoding)

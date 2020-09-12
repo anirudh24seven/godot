@@ -1,8 +1,6 @@
 
 /*  text_edit.h                                                          */
 
-
-
 #ifndef TEXT_EDIT_H
 #define TEXT_EDIT_H
 

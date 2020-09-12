@@ -1,8 +1,6 @@
 
 /*  file_access_memory.h                                                 */
 
-
-
 #ifndef FILE_ACCESS_MEMORY_H
 #define FILE_ACCESS_MEMORY_H
 

@@ -1,8 +1,6 @@
 
 /*  xr_server.cpp                                                        */
 
-
-
 #include "xr_server.h"
 #include "core/project_settings.h"
 #include "xr/xr_interface.h"

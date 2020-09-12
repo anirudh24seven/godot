@@ -1,8 +1,6 @@
 
 /*  array_property_edit.h                                                */
 
-
-
 #ifndef ARRAY_PROPERTY_EDIT_H
 #define ARRAY_PROPERTY_EDIT_H
 

@@ -1,8 +1,6 @@
 
 /*  thread_jandroid.cpp                                                  */
 
-
-
 #include "thread_jandroid.h"
 
 #include "core/os/memory.h"

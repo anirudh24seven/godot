@@ -1,8 +1,6 @@
 
 /*  xr_server.h                                                          */
 
-
-
 #ifndef XR_SERVER_H
 #define XR_SERVER_H
 

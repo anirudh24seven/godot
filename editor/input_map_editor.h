@@ -1,8 +1,6 @@
 
 /*  input_map_editor.h                                                   */
 
-
-
 #ifndef INPUT_MAP_EDITOR_H
 #define INPUT_MAP_EDITOR_H
 

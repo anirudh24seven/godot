@@ -1,8 +1,6 @@
 
 /*  nav_region.h                                                         */
 
-
-
 #ifndef NAV_REGION_H
 #define NAV_REGION_H
 

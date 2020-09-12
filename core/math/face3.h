@@ -1,8 +1,6 @@
 
 /*  face3.h                                                              */
 
-
-
 #ifndef FACE3_H
 #define FACE3_H
 

@@ -1,8 +1,6 @@
 
 /*  y_sort.cpp                                                           */
 
-
-
 #include "y_sort.h"
 
 void YSort::set_sort_enabled(bool p_enabled) {

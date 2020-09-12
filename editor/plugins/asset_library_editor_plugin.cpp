@@ -1,8 +1,6 @@
 
 /*  asset_library_editor_plugin.cpp                                      */
 
-
-
 #include "asset_library_editor_plugin.h"
 
 #include "core/input/input.h"

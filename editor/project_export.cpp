@@ -1,8 +1,6 @@
 
 /*  project_export.cpp                                                   */
 
-
-
 #include "project_export.h"
 
 #include "core/compressed_translation.h"

@@ -37,7 +37,6 @@
 #include "float_cast.h"
 #include "os_support.h"
 
-
 int validate_layout(const ChannelLayout *layout)
 {
    int i, max_channel;
@@ -52,7 +51,6 @@ int validate_layout(const ChannelLayout *layout)
    }
    return 1;
 }
-
 
 int get_left_channel(const ChannelLayout *layout, int stream_id, int prev)
 {

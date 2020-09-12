@@ -1,8 +1,6 @@
 
 /*  texture_loader_pvr.cpp                                               */
 
-
-
 #include "texture_loader_pvr.h"
 #include "PvrTcEncoder.h"
 #include "RgbaBitmap.h"

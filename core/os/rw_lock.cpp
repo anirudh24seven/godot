@@ -1,8 +1,6 @@
 
 /*  rw_lock.cpp                                                          */
 
-
-
 #include "rw_lock.h"
 
 #include "core/error_macros.h"

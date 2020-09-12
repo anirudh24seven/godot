@@ -1,8 +1,6 @@
 
 /*  godot_view.mm                                                        */
 
-
-
 #import "godot_view.h"
 #include "core/os/keyboard.h"
 #include "core/ustring.h"

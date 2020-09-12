@@ -17,8 +17,6 @@
 #include "encint.h"
 #include "dct.h"
 
-
-
 /*Performs a forward 8 point Type-II DCT transform.
   The output is scaled by a factor of 2 from the orthonormal version of the
    transform.
@@ -155,14 +153,10 @@ void oc_enc_fdct8x8_c(ogg_int16_t _y[64],const ogg_int16_t _x[64]){
   for(i=0;i<64;i++)_y[i]=w[i]+2>>2;
 }
 
-
-
 /*This does not seem to outperform simple LFE border padding before MC.
   It yields higher PSNR, but much higher bitrate usage.*/
 #if 0
 typedef struct oc_extension_info oc_extension_info;
-
-
 
 /*Information needed to pad boundary blocks.
   We multiply each row/column by an extension matrix that fills in the padding
@@ -192,7 +186,6 @@ struct oc_extension_info{
      coefficients to be forced to zero.*/
   unsigned char             ci[8];
 };
-
 
 /*The number of shapes we need.*/
 #define OC_NSHAPES   (35)
@@ -293,8 +286,6 @@ static const oc_extension_info OC_EXTENSION_INFO[OC_NSHAPES]={
   {0x04,1,OC_EXT_ROWS+  0,{2,7,6,5,4,3,1,0},{0,7,6,5,4,3,2,1}},
   {0x02,1,OC_EXT_ROWS+  0,{1,7,6,5,4,3,2,0},{0,7,6,5,4,3,2,1}}
 };
-
-
 
 /*Pads a single column of a partial block and then performs a forward Type-II
    DCT on the result.

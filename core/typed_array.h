@@ -1,8 +1,6 @@
 
 /*  typed_array.h                                                        */
 
-
-
 #ifndef TYPED_ARRAY_H
 #define TYPED_ARRAY_H
 

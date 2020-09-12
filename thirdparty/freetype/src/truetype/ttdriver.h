@@ -15,14 +15,11 @@
  *
  */
 
-
 #ifndef TTDRIVER_H_
 #define TTDRIVER_H_
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DRIVER_H
-
 
 FT_BEGIN_HEADER
 
@@ -31,6 +28,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* TTDRIVER_H_ */
-
 
 /* END */

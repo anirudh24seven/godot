@@ -226,7 +226,6 @@ typedef struct {
     opus_int8                    pulses_LBRR[ MAX_FRAMES_PER_PACKET ][ MAX_FRAME_LENGTH ];
 } silk_encoder_state;
 
-
 /* Struct for Packet Loss Concealment */
 typedef struct {
     opus_int32                  pitchL_Q8;                          /* Pitch lag to use for voiced concealment                          */
@@ -318,7 +317,6 @@ typedef struct {
     opus_int16                  LTPCoef_Q14[ LTP_ORDER * MAX_NB_SUBFR ];
     opus_int                    LTP_scale_Q14;
 } silk_decoder_control;
-
 
 #ifdef __cplusplus
 }

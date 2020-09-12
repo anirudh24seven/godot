@@ -1,8 +1,6 @@
 
 /*  option_button.h                                                      */
 
-
-
 #ifndef OPTION_BUTTON_H
 #define OPTION_BUTTON_H
 

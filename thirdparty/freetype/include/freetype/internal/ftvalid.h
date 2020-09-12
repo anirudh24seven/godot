@@ -15,34 +15,24 @@
  *
  */
 
-
 #ifndef FTVALID_H_
 #define FTVALID_H_
 
 #include <ft2build.h>
 #include FT_CONFIG_STANDARD_LIBRARY_H   /* for ft_setjmp and ft_longjmp */
 
-
 FT_BEGIN_HEADER
 
-
-
-
-
-  /****                                                                 ****/
+/****                                                                 ****/
   /****                                                                 ****/
   /****                    V A L I D A T I O N                          ****/
   /****                                                                 ****/
   /****                                                                 ****/
 
-
-
-
-  /* handle to a validation object */
+/* handle to a validation object */
   typedef struct FT_ValidatorRec_ volatile*  FT_Validator;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * There are three distinct validation levels defined here:
    *
@@ -75,7 +65,6 @@ FT_BEGIN_HEADER
 
   } FT_ValidationLevel;
 
-
 #if defined( _MSC_VER )      /* Visual C++ (and Intel C++) */
   /* We disable the warning `structure was padded due to   */
   /* __declspec(align())' in order to compile cleanly with */
@@ -102,8 +91,7 @@ FT_BEGIN_HEADER
 
 #define FT_VALIDATOR( x )  ( (FT_Validator)( x ) )
 
-
-  FT_BASE( void )
+FT_BASE( void )
   ft_validator_init( FT_Validator        valid,
                      const FT_Byte*      base,
                      const FT_Byte*      limit,
@@ -122,8 +110,7 @@ FT_BEGIN_HEADER
   ft_validator_error( FT_Validator  valid,
                       FT_Error      error );
 
-
-  /* Calls ft_validate_error.  Assumes that the `valid' local variable */
+/* Calls ft_validate_error.  Assumes that the `valid' local variable */
   /* holds a pointer to the current validator object.                  */
   /*                                                                   */
 #define FT_INVALID( _error )  FT_INVALID_( _error )
@@ -150,10 +137,8 @@ FT_BEGIN_HEADER
 #define FT_INVALID_DATA \
           FT_INVALID( Invalid_Table )
 
-
 FT_END_HEADER
 
 #endif /* FTVALID_H_ */
-
 
 /* END */

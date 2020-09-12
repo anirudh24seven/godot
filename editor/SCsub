@@ -9,7 +9,6 @@ import os.path
 import glob
 import editor_builders
 
-
 def _make_doc_data_class_path(to_path):
     # NOTE: It is safe to generate this file here, since this is still executed serially
     g = open(os.path.join(to_path, "doc_data_class_path.gen.h"), "w", encoding="utf-8")
@@ -23,7 +22,6 @@ def _make_doc_data_class_path(to_path):
     g.write("};\n")
 
     g.close()
-
 
 if env["tools"]:
     # Register exporters

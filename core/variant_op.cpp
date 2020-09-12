@@ -1,8 +1,6 @@
 
 /*  variant_op.cpp                                                       */
 
-
-
 #include "variant.h"
 
 #include "core/core_string_names.h"

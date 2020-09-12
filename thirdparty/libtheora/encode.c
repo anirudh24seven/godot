@@ -21,8 +21,6 @@
 # include "x86/x86enc.h"
 #endif
 
-
-
 /*The default quantization parameters used by VP3.1.*/
 static const int OC_VP31_RANGE_SIZES[1]={63};
 static const th_quant_base OC_VP31_BASES_INTRA_Y[2]={
@@ -311,8 +309,6 @@ const th_quant_info TH_DEF_QUANT_INFO={
   }
 };
 
-
-
 /*The Huffman codes used for macro block modes.*/
 
 const unsigned char OC_MODE_BITS[2][OC_NMODES]={
@@ -328,7 +324,6 @@ static const unsigned char OC_MODE_CODES[2][OC_NMODES]={
   /*Codebook 1: a fixed-length code.*/
   {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07}
 };
-
 
 /*The Huffman codes used for motion vectors.*/
 
@@ -381,8 +376,6 @@ static const unsigned char OC_MV_CODES[2][64]={
   }
 };
 
-
-
 /*Super block run coding scheme:
    Codeword             Run Length
    0                       1
@@ -397,7 +390,6 @@ static const unsigned OC_SB_RUN_CODE_PREFIX[7]={
   0,4,0xC,0x38,0xF0,0x3E0,0x3F000
 };
 const unsigned char   OC_SB_RUN_CODE_NBITS[7]={1,3,4,6,8,10,18};
-
 
 /*Writes the bit pattern for the run length of a super block run to the given
    oggpack_buffer.
@@ -423,8 +415,6 @@ static void oc_sb_run_pack(oggpack_buffer *_opb,ptrdiff_t _run_count,
    OC_SB_RUN_CODE_NBITS[i]);
 }
 
-
-
 /*Block run coding scheme:
    Codeword             Run Length
    0x                      1-2
@@ -443,7 +433,6 @@ static const ogg_uint16_t  OC_BLOCK_RUN_CODE_PATTERN[30]={
   0x1F9,0x1FA,0x1FB,0x1FC,0x1FD,0x1FE,0x1FF
 };
 
-
 /*Writes the bit pattern for the run length of a block run to the given
    oggpack_buffer.
   _opb:       The buffer to write to.
@@ -453,8 +442,6 @@ static void oc_block_run_pack(oggpack_buffer *_opb,int _run_count){
   oggpackB_write(_opb,OC_BLOCK_RUN_CODE_PATTERN[_run_count-1],
    OC_BLOCK_RUN_CODE_NBITS[_run_count-1]);
 }
-
-
 
 static void oc_enc_frame_header_pack(oc_enc_ctx *_enc){
   /*Mark this as a data packet.*/
@@ -887,7 +874,6 @@ static void oc_enc_frame_pack(oc_enc_ctx *_enc){
 #endif
 }
 
-
 void oc_enc_vtable_init_c(oc_enc_ctx *_enc){
   /*The implementations prefixed with oc_enc_ are encoder-specific.
     The rest we re-use from the decoder.*/
@@ -1217,7 +1203,6 @@ static void oc_enc_set_granpos(oc_enc_ctx *_enc){
      +_enc->state.curframe_num-_enc->state.keyframe_num+dup_offs;
   }
 }
-
 
 th_enc_ctx *th_encode_alloc(const th_info *_info){
   oc_enc_ctx *enc;

@@ -2,18 +2,14 @@ import os
 
 from emscripten_helpers import parse_config, run_closure_compiler, create_engine_file
 
-
 def is_active():
     return True
-
 
 def get_name():
     return "JavaScript"
 
-
 def can_build():
     return "EM_CONFIG" in os.environ or os.path.exists(os.path.expanduser("~/.emscripten"))
-
 
 def get_opts():
     from SCons.Variables import BoolVariable
@@ -25,7 +21,6 @@ def get_opts():
         BoolVariable("use_closure_compiler", "Use closure compiler to minimize JavaScript code", False),
     ]
 
-
 def get_flags():
     return [
         ("tools", False),
@@ -36,7 +31,6 @@ def get_flags():
         # manages TLS.
         ("module_mbedtls_enabled", False),
     ]
-
 
 def configure(env):
 

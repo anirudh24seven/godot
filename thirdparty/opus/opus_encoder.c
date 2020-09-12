@@ -1486,8 +1486,7 @@ opus_int32 opus_encode_native(OpusEncoder *st, const opus_val16 *pcm, int frame_
     }
 #endif
 
-
-    /* SILK processing */
+/* SILK processing */
     HB_gain = Q15ONE;
     if (st->mode != MODE_CELT_ONLY)
     {
@@ -1918,9 +1917,7 @@ opus_int32 opus_encode_native(OpusEncoder *st, const opus_val16 *pcm, int frame_
         celt_encoder_ctl(celt_enc, OPUS_GET_FINAL_RANGE(&redundant_rng));
     }
 
-
-
-    /* Signalling the mode in the first byte */
+/* Signalling the mode in the first byte */
     data--;
     data[0] = gen_toc(st->mode, st->Fs/frame_size, curr_bandwidth, st->stream_channels);
 
@@ -2067,7 +2064,6 @@ opus_int32 opus_encode_float(OpusEncoder *st, const float *pcm, int analysis_fra
                              pcm, analysis_frame_size, 0, -2, st->channels, downmix_float, 1);
 }
 #endif
-
 
 int opus_encoder_ctl(OpusEncoder *st, int request, ...)
 {

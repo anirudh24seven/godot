@@ -163,8 +163,7 @@ int mbedtls_aesni_crypt_ecb( mbedtls_aes_context *ctx,
          : "r" (ctx->nr), "r" (ctx->rk), "r" (mode), "r" (input), "r" (output)
          : "memory", "cc", "xmm0", "xmm1" );
 
-
-    return( 0 );
+return( 0 );
 }
 
 /*

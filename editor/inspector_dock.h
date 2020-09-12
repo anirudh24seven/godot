@@ -1,8 +1,6 @@
 
 /*  inspector_dock.h                                                     */
 
-
-
 #ifndef INSPECTOR_DOCK_H
 #define INSPECTOR_DOCK_H
 

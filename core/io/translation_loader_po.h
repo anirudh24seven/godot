@@ -1,8 +1,6 @@
 
 /*  translation_loader_po.h                                              */
 
-
-
 #ifndef TRANSLATION_LOADER_PO_H
 #define TRANSLATION_LOADER_PO_H
 

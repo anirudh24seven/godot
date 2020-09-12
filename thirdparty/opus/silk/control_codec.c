@@ -60,7 +60,6 @@ static OPUS_INLINE opus_int silk_setup_LBRR(
     const opus_int32                TargetRate_bps      /* I                        */
 );
 
-
 /* Control encoder */
 opus_int silk_control_encoder(
     silk_encoder_state_Fxx          *psEnc,                                 /* I/O  Pointer to Silk encoder state                                               */

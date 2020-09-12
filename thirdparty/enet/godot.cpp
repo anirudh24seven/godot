@@ -1,7 +1,6 @@
 
 /*  godot.cpp                                                            */
 
-
 /**
  @file  godot.cpp
  @brief ENet Godot specific functions

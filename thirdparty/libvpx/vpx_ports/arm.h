@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VPX_PORTS_ARM_H_
 #define VPX_PORTS_ARM_H_
 #include <stdlib.h>

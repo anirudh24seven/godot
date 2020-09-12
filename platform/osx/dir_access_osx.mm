@@ -1,8 +1,6 @@
 
 /*  dir_access_osx.mm                                                    */
 
-
-
 #include "dir_access_osx.h"
 
 #if defined(UNIX_ENABLED) || defined(LIBC_FILEIO_ENABLED)

@@ -1010,7 +1010,6 @@ inline void btDbvt::selfCollideTT(const btDbvtNode* root,
     }
 }
 
-
 DBVT_PREFIX
 inline void btDbvt::collideTTpersistentStack(const btDbvtNode* root0,
 											 const btDbvtNode* root1,

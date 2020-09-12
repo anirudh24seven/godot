@@ -1,8 +1,6 @@
 
 /*  soft_body_3d.h                                                       */
 
-
-
 #ifndef SOFT_PHYSICS_BODY_H
 #define SOFT_PHYSICS_BODY_H
 

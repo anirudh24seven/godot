@@ -1,8 +1,6 @@
 
 /*  bindings_generator.h                                                 */
 
-
-
 #ifndef BINDINGS_GENERATOR_H
 #define BINDINGS_GENERATOR_H
 

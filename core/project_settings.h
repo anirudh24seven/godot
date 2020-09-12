@@ -1,8 +1,6 @@
 
 /*  project_settings.h                                                   */
 
-
-
 #ifndef PROJECT_SETTINGS_H
 #define PROJECT_SETTINGS_H
 

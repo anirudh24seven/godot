@@ -1,8 +1,6 @@
 
 /*  resource_importer_bitmask.cpp                                        */
 
-
-
 #include "resource_importer_bitmask.h"
 #include "core/image.h"
 #include "core/io/config_file.h"

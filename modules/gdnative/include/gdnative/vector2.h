@@ -1,8 +1,6 @@
 
 /*  vector2.h                                                            */
 
-
-
 #ifndef GODOT_VECTOR2_H
 #define GODOT_VECTOR2_H
 

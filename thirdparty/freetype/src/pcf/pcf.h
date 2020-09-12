@@ -24,15 +24,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-
 #ifndef PCF_H_
 #define PCF_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_DRIVER_H
 #include FT_INTERNAL_STREAM_H
-
 
 FT_BEGIN_HEADER
 
@@ -45,8 +42,7 @@ FT_BEGIN_HEADER
 
   } PCF_TableRec, *PCF_Table;
 
-
-  typedef struct  PCF_TocRec_
+typedef struct  PCF_TocRec_
   {
     FT_ULong   version;
     FT_ULong   count;
@@ -54,8 +50,7 @@ FT_BEGIN_HEADER
 
   } PCF_TocRec, *PCF_Toc;
 
-
-  typedef struct  PCF_ParsePropertyRec_
+typedef struct  PCF_ParsePropertyRec_
   {
     FT_Long  name;
     FT_Byte  isString;
@@ -63,8 +58,7 @@ FT_BEGIN_HEADER
 
   } PCF_ParsePropertyRec, *PCF_ParseProperty;
 
-
-  typedef struct  PCF_PropertyRec_
+typedef struct  PCF_PropertyRec_
   {
     FT_String*  name;
     FT_Byte     isString;
@@ -79,8 +73,7 @@ FT_BEGIN_HEADER
 
   } PCF_PropertyRec, *PCF_Property;
 
-
-  typedef struct  PCF_Compressed_MetricRec_
+typedef struct  PCF_Compressed_MetricRec_
   {
     FT_Byte  leftSideBearing;
     FT_Byte  rightSideBearing;
@@ -90,8 +83,7 @@ FT_BEGIN_HEADER
 
   } PCF_Compressed_MetricRec, *PCF_Compressed_Metric;
 
-
-  typedef struct  PCF_MetricRec_
+typedef struct  PCF_MetricRec_
   {
     FT_Short  leftSideBearing;
     FT_Short  rightSideBearing;
@@ -104,8 +96,7 @@ FT_BEGIN_HEADER
 
   } PCF_MetricRec, *PCF_Metric;
 
-
-  typedef struct  PCF_EncRec_
+typedef struct  PCF_EncRec_
   {
     FT_UShort   firstCol;
     FT_UShort   lastCol;
@@ -117,8 +108,7 @@ FT_BEGIN_HEADER
 
   } PCF_EncRec, *PCF_Enc;
 
-
-  typedef struct  PCF_AccelRec_
+typedef struct  PCF_AccelRec_
   {
     FT_Byte        noOverlap;
     FT_Byte        constantMetrics;
@@ -137,8 +127,7 @@ FT_BEGIN_HEADER
 
   } PCF_AccelRec, *PCF_Accel;
 
-
-  /*
+/*
    * This file uses X11 terminology for PCF data; an `encoding' in X11 speak
    * is the same as a `character code' in FreeType speak.
    */
@@ -167,8 +156,7 @@ FT_BEGIN_HEADER
 
   } PCF_FaceRec, *PCF_Face;
 
-
-  typedef struct  PCF_DriverRec_
+typedef struct  PCF_DriverRec_
   {
     FT_DriverRec  root;
 
@@ -176,8 +164,7 @@ FT_BEGIN_HEADER
 
   } PCF_DriverRec, *PCF_Driver;
 
-
-  /* macros for pcf font format */
+/* macros for pcf font format */
 
 #define LSBFirst  0
 #define MSBFirst  1
@@ -247,6 +234,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* PCF_H_ */
-
 
 /* END */

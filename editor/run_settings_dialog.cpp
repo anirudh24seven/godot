@@ -1,8 +1,6 @@
 
 /*  run_settings_dialog.cpp                                              */
 
-
-
 #include "run_settings_dialog.h"
 
 void RunSettingsDialog::popup_run_settings() {

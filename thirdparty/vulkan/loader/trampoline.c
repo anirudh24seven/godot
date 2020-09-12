@@ -36,7 +36,6 @@
 #include "vk_loader_extensions.h"
 #include "gpa_helper.h"
 
-
 // Trampoline entrypoints are in this file for core Vulkan commands
 
 // Get an instance level or global level entry point address.

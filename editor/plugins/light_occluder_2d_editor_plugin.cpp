@@ -1,8 +1,6 @@
 
 /*  light_occluder_2d_editor_plugin.cpp                                  */
 
-
-
 #include "light_occluder_2d_editor_plugin.h"
 
 Ref<OccluderPolygon2D> LightOccluder2DEditor::_ensure_occluder() const {

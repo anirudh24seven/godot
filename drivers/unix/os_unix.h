@@ -1,8 +1,6 @@
 
 /*  os_unix.h                                                            */
 
-
-
 #ifndef OS_UNIX_H
 #define OS_UNIX_H
 

@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -45,9 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *  @brief Implementation of the aiProcess_OptimizeMeshes step
  */
 
-
 #ifndef ASSIMP_BUILD_NO_OPTIMIZEMESHES_PROCESS
-
 
 #include "OptimizeMeshes.h"
 #include "ProcessHelper.h"
@@ -200,8 +196,7 @@ void OptimizeMeshesProcess::ProcessNode( aiNode* pNode)
         }
     }
 
-
-    for( unsigned int i = 0; i < pNode->mNumChildren; ++i ) {
+for( unsigned int i = 0; i < pNode->mNumChildren; ++i ) {
         ProcessNode( pNode->mChildren[ i ] );
     }
 }

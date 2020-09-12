@@ -15,10 +15,8 @@
  *
  */
 
-
 #ifndef TTGLOAD_H_
 #define TTGLOAD_H_
-
 
 #include <ft2build.h>
 #include "ttobjs.h"
@@ -27,11 +25,9 @@
 #include "ttinterp.h"
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   TT_Init_Glyph_Loading( TT_Face  face );
 
   FT_LOCAL( void )
@@ -53,10 +49,8 @@ FT_BEGIN_HEADER
                  FT_UInt       glyph_index,
                  FT_Int32      load_flags );
 
-
 FT_END_HEADER
 
 #endif /* TTGLOAD_H_ */
-
 
 /* END */

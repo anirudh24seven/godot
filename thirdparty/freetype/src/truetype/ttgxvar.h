@@ -15,17 +15,13 @@
  *
  */
 
-
 #ifndef TTGXVAR_H_
 #define TTGXVAR_H_
-
 
 #include <ft2build.h>
 #include "ttobjs.h"
 
-
 FT_BEGIN_HEADER
-
 
 #ifdef TT_CONFIG_OPTION_GX_VAR_SUPPORT
 
@@ -45,8 +41,7 @@ FT_BEGIN_HEADER
 
   } GX_AVarCorrespondenceRec_, *GX_AVarCorrespondence;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Struct:
    *   GX_AVarRec
@@ -62,8 +57,7 @@ FT_BEGIN_HEADER
 
   } GX_AVarSegmentRec, *GX_AVarSegment;
 
-
-  typedef struct  GX_ItemVarDataRec_
+typedef struct  GX_ItemVarDataRec_
   {
     FT_UInt    itemCount;      /* number of delta sets per item         */
     FT_UInt    regionIdxCount; /* number of region indices in this data */
@@ -74,8 +68,7 @@ FT_BEGIN_HEADER
 
   } GX_ItemVarDataRec, *GX_ItemVarData;
 
-
-  /* contribution of one axis to a region */
+/* contribution of one axis to a region */
   typedef struct  GX_AxisCoordsRec_
   {
     FT_Fixed  startCoord;
@@ -84,15 +77,13 @@ FT_BEGIN_HEADER
 
   } GX_AxisCoordsRec, *GX_AxisCoords;
 
-
-  typedef struct  GX_VarRegionRec_
+typedef struct  GX_VarRegionRec_
   {
     GX_AxisCoords  axisList;               /* array of axisCount records */
 
   } GX_VarRegionRec, *GX_VarRegion;
 
-
-  /* item variation store */
+/* item variation store */
   typedef struct  GX_ItemVarStoreRec_
   {
     FT_UInt         dataCount;
@@ -104,8 +95,7 @@ FT_BEGIN_HEADER
 
   } GX_ItemVarStoreRec, *GX_ItemVarStore;
 
-
-  typedef struct  GX_DeltaSetIdxMapRec_
+typedef struct  GX_DeltaSetIdxMapRec_
   {
     FT_UInt   mapCount;
     FT_UInt*  outerIndex;             /* indices to item var data */
@@ -113,8 +103,7 @@ FT_BEGIN_HEADER
 
   } GX_DeltaSetIdxMapRec, *GX_DeltaSetIdxMap;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Struct:
    *   GX_HVVarTableRec
@@ -137,7 +126,6 @@ FT_BEGIN_HEADER
 #endif
 
   } GX_HVVarTableRec, *GX_HVVarTable;
-
 
 #define MVAR_TAG_GASP_0  FT_MAKE_TAG( 'g', 's', 'p', '0' )
 #define MVAR_TAG_GASP_1  FT_MAKE_TAG( 'g', 's', 'p', '1' )
@@ -179,8 +167,7 @@ FT_BEGIN_HEADER
 #define MVAR_TAG_VLGP  FT_MAKE_TAG( 'v', 'l', 'g', 'p' )
 #define MVAR_TAG_XHGT  FT_MAKE_TAG( 'x', 'h', 'g', 't' )
 
-
-  typedef struct  GX_ValueRec_
+typedef struct  GX_ValueRec_
   {
     FT_ULong   tag;
     FT_UShort  outerIndex;
@@ -190,8 +177,7 @@ FT_BEGIN_HEADER
 
   } GX_ValueRec, *GX_Value;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Struct:
    *   GX_MVarTableRec
@@ -208,8 +194,7 @@ FT_BEGIN_HEADER
 
   } GX_MVarTableRec, *GX_MVarTable;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Struct:
    *   GX_BlendRec
@@ -335,8 +320,7 @@ FT_BEGIN_HEADER
 
   } GX_BlendRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   GX_TupleCountFlags
@@ -352,8 +336,7 @@ FT_BEGIN_HEADER
 
   } GX_TupleCountFlags;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   GX_TupleIndexFlags
@@ -372,14 +355,12 @@ FT_BEGIN_HEADER
 
   } GX_TupleIndexFlags;
 
-
 #define TTAG_wght  FT_MAKE_TAG( 'w', 'g', 'h', 't' )
 #define TTAG_wdth  FT_MAKE_TAG( 'w', 'd', 't', 'h' )
 #define TTAG_opsz  FT_MAKE_TAG( 'o', 'p', 's', 'z' )
 #define TTAG_slnt  FT_MAKE_TAG( 's', 'l', 'n', 't' )
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   TT_Set_MM_Blend( TT_Face    face,
                    FT_UInt    num_coords,
                    FT_Fixed*  coords );
@@ -411,8 +392,7 @@ FT_BEGIN_HEADER
   tt_face_vary_cvt( TT_Face    face,
                     FT_Stream  stream );
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   TT_Vary_Apply_Glyph_Deltas( TT_Face      face,
                               FT_UInt      glyph_index,
                               FT_Outline*  outline,
@@ -444,11 +424,8 @@ FT_BEGIN_HEADER
 
 #endif /* TT_CONFIG_OPTION_GX_VAR_SUPPORT */
 
-
 FT_END_HEADER
 
-
 #endif /* TTGXVAR_H_ */
-
 
 /* END */

@@ -16,7 +16,6 @@
 #ifndef BT_DEFORMABLE_BODY_SOLVERS_H
 #define BT_DEFORMABLE_BODY_SOLVERS_H
 
-
 #include "btSoftBodySolvers.h"
 #include "btDeformableBackwardEulerObjective.h"
 #include "btDeformableMultiBodyDynamicsWorld.h"

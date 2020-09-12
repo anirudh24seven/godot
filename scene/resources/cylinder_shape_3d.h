@@ -1,8 +1,6 @@
 
 /*  cylinder_shape_3d.h                                                  */
 
-
-
 #ifndef CYLINDER_SHAPE_3D_H
 #define CYLINDER_SHAPE_3D_H
 

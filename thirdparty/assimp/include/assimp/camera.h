@@ -127,8 +127,7 @@ struct aiCamera
      */
     C_STRUCT aiVector3D mUp;
 
-
-    /** 'LookAt' - vector of the camera coordinate system relative to
+/** 'LookAt' - vector of the camera coordinate system relative to
      *  the coordinate space defined by the corresponding node.
      *
      *  This is the viewing direction of the user.
@@ -216,7 +215,6 @@ struct aiCamera
 
 #endif
 };
-
 
 #ifdef __cplusplus
 }

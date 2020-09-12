@@ -1,8 +1,6 @@
 
 /*  image_loader_tinyexr.cpp                                             */
 
-
-
 #include "image_loader_tinyexr.h"
 
 #include "core/os/os.h"

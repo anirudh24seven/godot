@@ -1,8 +1,6 @@
 
 /*  audio_effect_delay.h                                                 */
 
-
-
 #ifndef AUDIOEFFECTDELAY_H
 #define AUDIOEFFECTDELAY_H
 

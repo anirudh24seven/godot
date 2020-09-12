@@ -150,8 +150,7 @@ void nhwc_pooling_fwd_t<data_type>::execute_forward(
                 array_nhwc_initialize<true>(OC, dst + dst_offset_init,
                                     ws, ws_offset_init, ws_dt);
 
-
-            for (int kd = 0; kd < KD; ++kd)
+for (int kd = 0; kd < KD; ++kd)
             for (int kh = 0; kh < KH; ++kh)
             for (int kw = 0; kw < KW; ++kw) {
                 const int id = od * SD - padF + kd;

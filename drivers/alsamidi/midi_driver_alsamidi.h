@@ -1,8 +1,6 @@
 
 /*  midi_driver_alsamidi.h                                               */
 
-
-
 #ifdef ALSAMIDI_ENABLED
 
 #ifndef MIDI_DRIVER_ALSAMIDI_H

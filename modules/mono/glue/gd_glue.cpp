@@ -1,8 +1,6 @@
 
 /*  gd_glue.cpp                                                          */
 
-
-
 #ifdef MONO_GLUE_ENABLED
 
 #include "core/array.h"

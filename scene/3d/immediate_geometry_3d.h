@@ -1,8 +1,6 @@
 
 /*  immediate_geometry_3d.h                                              */
 
-
-
 #ifndef IMMEDIATE_GEOMETRY_3D_H
 #define IMMEDIATE_GEOMETRY_3D_H
 

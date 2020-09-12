@@ -1,8 +1,6 @@
 
 /*  subviewport_container.h                                              */
 
-
-
 #ifndef VIEWPORTCONTAINER_H
 #define VIEWPORTCONTAINER_H
 

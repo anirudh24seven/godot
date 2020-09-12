@@ -25,7 +25,6 @@
    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-
 #ifndef OPUS_PRIVATE_H
 #define OPUS_PRIVATE_H
 
@@ -55,8 +54,6 @@ int get_left_channel(const ChannelLayout *layout, int stream_id, int prev);
 int get_right_channel(const ChannelLayout *layout, int stream_id, int prev);
 int get_mono_channel(const ChannelLayout *layout, int stream_id, int prev);
 
-
-
 #define MODE_SILK_ONLY          1000
 #define MODE_HYBRID             1001
 #define MODE_CELT_ONLY          1002
@@ -79,7 +76,6 @@ int get_mono_channel(const ChannelLayout *layout, int stream_id, int prev);
   * @param[out] x <tt>int*</tt>:  Voice percentage in the range 0-100, inclusive.
   * @hideinitializer */
 #define OPUS_GET_VOICE_RATIO(x) OPUS_GET_VOICE_RATIO_REQUEST, __opus_check_int_ptr(x)
-
 
 #define OPUS_SET_FORCE_MODE_REQUEST    11002
 #define OPUS_SET_FORCE_MODE(x) OPUS_SET_FORCE_MODE_REQUEST, __opus_check_int(x)

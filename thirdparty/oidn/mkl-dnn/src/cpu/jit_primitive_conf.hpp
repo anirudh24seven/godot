@@ -473,7 +473,6 @@ struct jit_pool_call_s {
     float ker_area_h;
 };
 
-
 }
 }
 }

@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_DECODER_DBOOLHUFF_H_
 #define VP8_DECODER_DBOOLHUFF_H_
 
@@ -53,7 +52,6 @@ int vp8dx_start_decode(BOOL_DECODER *br,
                        void *decrypt_state);
 
 void vp8dx_bool_decoder_fill(BOOL_DECODER *br);
-
 
 static int vp8dx_decode_bool(BOOL_DECODER *br, int probability) {
     unsigned int bit = 0;

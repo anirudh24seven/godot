@@ -1,8 +1,6 @@
 
 /*  camera_win.h                                                         */
 
-
-
 #ifndef CAMERAWIN_H
 #define CAMERAWIN_H
 

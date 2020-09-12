@@ -1,8 +1,6 @@
 
 /*  vector2.cpp                                                          */
 
-
-
 #include "vector2.h"
 
 real_t Vector2::angle() const {

@@ -1,8 +1,6 @@
 
 /*  animation_cache.cpp                                                  */
 
-
-
 #include "animation_cache.h"
 
 void AnimationCache::_node_exit_tree(Node *p_node) {

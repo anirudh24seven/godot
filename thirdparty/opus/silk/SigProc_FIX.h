@@ -348,7 +348,6 @@ opus_int32 silk_inner_prod_aligned(
     int                         arch                /*    I Run-time architecture                                       */
 );
 
-
 opus_int32 silk_inner_prod_aligned_scale(
     const opus_int16 *const     inVec1,             /*    I input vector 1                                              */
     const opus_int16 *const     inVec2,             /*    I input vector 2                                              */
@@ -511,7 +510,6 @@ static OPUS_INLINE opus_int32 silk_ROR32( opus_int32 a32, opus_int rot )
 #define silk_NSHIFT_MUL_32_32(a, b)         ( -(31- (32-silk_CLZ32(silk_abs(a)) + (32-silk_CLZ32(silk_abs(b))))) )
 #define silk_NSHIFT_MUL_16_16(a, b)         ( -(15- (16-silk_CLZ16(silk_abs(a)) + (16-silk_CLZ16(silk_abs(b))))) )
 
-
 #define silk_min(a, b)                      (((a) < (b)) ? (a) : (b))
 #define silk_max(a, b)                      (((a) > (b)) ? (a) : (b))
 
@@ -606,7 +604,6 @@ static OPUS_INLINE opus_int64 silk_max_64(opus_int64 a, opus_int64 b)
 #if defined(MIPSr1_ASM)
 #include "mips/sigproc_fix_mipsr1.h"
 #endif
-
 
 #ifdef  __cplusplus
 }

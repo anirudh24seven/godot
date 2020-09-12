@@ -1,8 +1,6 @@
 
 /*  property_selector.cpp                                                */
 
-
-
 #include "property_selector.h"
 
 #include "core/os/keyboard.h"

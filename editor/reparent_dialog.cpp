@@ -1,8 +1,6 @@
 
 /*  reparent_dialog.cpp                                                  */
 
-
-
 #include "reparent_dialog.h"
 
 #include "core/print_string.h"

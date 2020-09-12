@@ -1,8 +1,6 @@
 
 /*  test_basis.h                                                         */
 
-
-
 #ifndef TEST_BASIS_H
 #define TEST_BASIS_H
 

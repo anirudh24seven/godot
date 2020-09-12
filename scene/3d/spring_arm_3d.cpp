@@ -1,8 +1,6 @@
 
 /*  spring_arm_3d.cpp                                                    */
 
-
-
 #include "spring_arm_3d.h"
 
 #include "core/engine.h"

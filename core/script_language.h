@@ -1,8 +1,6 @@
 
 /*  script_language.h                                                    */
 
-
-
 #ifndef SCRIPT_LANGUAGE_H
 #define SCRIPT_LANGUAGE_H
 

@@ -1,8 +1,6 @@
 
 /*  input_map.cpp                                                        */
 
-
-
 #include "input_map.h"
 
 #include "core/os/keyboard.h"

@@ -1,8 +1,6 @@
 
 /*  godot_collision_configuration.h                                      */
 
-
-
 #ifndef GODOT_COLLISION_CONFIGURATION_H
 #define GODOT_COLLISION_CONFIGURATION_H
 

@@ -1,8 +1,6 @@
 
 /*  editor_themes.h                                                      */
 
-
-
 #ifndef EDITOR_THEMES_H
 #define EDITOR_THEMES_H
 

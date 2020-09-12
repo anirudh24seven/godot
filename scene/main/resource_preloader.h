@@ -1,8 +1,6 @@
 
 /*  resource_preloader.h                                                 */
 
-
-
 #ifndef RESOURCE_PRELOADER_H
 #define RESOURCE_PRELOADER_H
 

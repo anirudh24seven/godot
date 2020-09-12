@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -44,7 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /** @file PretransformVertices.cpp
  *  @brief Implementation of the "PretransformVertices" post processing step
 */
-
 
 #include "PretransformVertices.h"
 #include "ProcessHelper.h"
@@ -119,8 +116,7 @@ unsigned int PretransformVertices::GetMeshVFormat( aiMesh* pcMesh )
     if (pcMesh->mBones)
         return (unsigned int)(uint64_t)pcMesh->mBones;
 
-
-    const unsigned int iRet = GetMeshVFormatUnique(pcMesh);
+const unsigned int iRet = GetMeshVFormatUnique(pcMesh);
 
     // store the value for later use
     pcMesh->mBones = (aiBone**)(uint64_t)iRet;

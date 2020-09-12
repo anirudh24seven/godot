@@ -8,7 +8,6 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
 
 %macro LF_ABS 2
@@ -264,7 +263,6 @@ LF_FILTER xmm0, xmm1, xmm3, xmm8, xmm4, xmm2
 %endif
 
     ret
-
 
 ;void vp8_loop_filter_bv_y_sse2
 ;(
@@ -594,7 +592,6 @@ LF_FILTER xmm0, xmm1, xmm4, xmm8, xmm3, xmm2
         movdqa       i11, xmm1
         movdqa       i12, xmm4
         movdqa       i13, xmm8
-
 
 ; RESHUFFLE AND WRITE OUT
         ; 8-f

@@ -8,9 +8,7 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
-
 
 ;void copy_mem8x8_mmx(
 ;    unsigned char *src,
@@ -45,8 +43,7 @@ sym(vp8_copy_mem8x8_mmx):
         movq        [rdi+rcx],      mm1
         movq        [rdi+rcx*2],    mm2
 
-
-        lea         rdi,        [rdi+rcx*2]
+lea         rdi,        [rdi+rcx*2]
         movq        mm3,        [rsi]
 
         add         rdi,        rcx
@@ -73,7 +70,6 @@ sym(vp8_copy_mem8x8_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void copy_mem8x4_mmx(
 ;    unsigned char *src,
@@ -117,7 +113,6 @@ sym(vp8_copy_mem8x4_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void copy_mem16x16_mmx(
 ;    unsigned char *src,

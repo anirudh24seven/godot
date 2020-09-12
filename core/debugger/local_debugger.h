@@ -1,8 +1,6 @@
 
 /*  local_debugger.h                                                     */
 
-
-
 #ifndef LOCAL_DEBUGGER_H
 #define LOCAL_DEBUGGER_H
 

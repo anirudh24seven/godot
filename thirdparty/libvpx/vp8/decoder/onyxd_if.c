@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "vp8/common/onyxc_int.h"
 #if CONFIG_POSTPROC
 #include "vp8/common/postproc.h"
@@ -153,7 +152,6 @@ vpx_codec_err_t vp8dx_get_reference(VP8D_COMP *pbi, enum vpx_ref_frame_type ref_
 
     return pbi->common.error.error_code;
 }
-
 
 vpx_codec_err_t vp8dx_set_reference(VP8D_COMP *pbi, enum vpx_ref_frame_type ref_frame_flag, YV12_BUFFER_CONFIG *sd)
 {
@@ -445,7 +443,6 @@ int vp8dx_get_raw_frame(VP8D_COMP *pbi, YV12_BUFFER_CONFIG *sd, int64_t *time_st
     vp8_clear_system_state();
     return ret;
 }
-
 
 /* This function as written isn't decoder specific, but the encoder has
  * much faster ways of computing this, so it's ok for it to live in a

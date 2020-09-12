@@ -8,7 +8,6 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
 
 ;void vp8_short_inv_walsh4x4_sse2(short *input, short *output)
@@ -26,8 +25,7 @@ sym(vp8_short_inv_walsh4x4_sse2):
     movdqa      xmm0, [rcx + 0]     ;ip[4] ip[0]
     movdqa      xmm1, [rcx + 16]    ;ip[12] ip[8]
 
-
-    pshufd      xmm2, xmm1, 4eh     ;ip[8] ip[12]
+pshufd      xmm2, xmm1, 4eh     ;ip[8] ip[12]
     movdqa      xmm3, xmm0          ;ip[4] ip[0]
 
     paddw       xmm0, xmm2          ;ip[4]+ip[8] ip[0]+ip[12] aka b1 a1

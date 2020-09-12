@@ -1,8 +1,6 @@
 
 /*  message_queue.cpp                                                    */
 
-
-
 #include "message_queue.h"
 
 #include "core/core_string_names.h"

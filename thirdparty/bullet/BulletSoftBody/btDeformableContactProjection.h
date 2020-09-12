@@ -34,7 +34,6 @@ struct LagrangeMultiplier
     int m_indices[3];             // indices of the nodes involved, same size as m_num_nodes;
 };
 
-
 class btDeformableContactProjection
 {
 public:

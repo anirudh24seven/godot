@@ -18,13 +18,11 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
 
 #include "triangulator.h"
-
 
 #define TRIANGULATOR_VERTEXTYPE_REGULAR 0
 #define TRIANGULATOR_VERTEXTYPE_START 1
@@ -900,8 +898,7 @@ int TriangulatorPartition::ConvexPartition_OPT(TriangulatorPoly *poly, List<Tria
 		}
 	}
 
-
-	//recover solution
+//recover solution
 	ret = 1;
 	newdiagonal.index1 = 0;
 	newdiagonal.index2 = n-1;
@@ -1356,10 +1353,6 @@ bool TriangulatorPartition::Below(Vector2 &p1, Vector2 &p2) {
 	}
 	return false;
 }
-
-
-
-
 
 //sorts in the falling order of y values, if y is equal, x is used instead
 bool TriangulatorPartition::VertexSorter::operator() (long index1, long index2) const {

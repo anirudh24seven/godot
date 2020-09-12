@@ -1,8 +1,6 @@
 
 /*  editor_settings.cpp                                                  */
 
-
-
 #include "editor_settings.h"
 
 #include "core/io/certs_compressed.gen.h"

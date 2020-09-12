@@ -1,8 +1,6 @@
 
 /*  gd_mono_method.cpp                                                   */
 
-
-
 #include "gd_mono_method.h"
 
 #include <mono/metadata/attrdefs.h>

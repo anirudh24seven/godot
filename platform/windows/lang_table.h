@@ -1,8 +1,6 @@
 
 /*  lang_table.h                                                         */
 
-
-
 #ifndef LANG_TABLE_H
 #define LANG_TABLE_H
 

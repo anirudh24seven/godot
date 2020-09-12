@@ -1,8 +1,6 @@
 
 /*  variant.h                                                            */
 
-
-
 #ifndef GODOT_VARIANT_H
 #define GODOT_VARIANT_H
 

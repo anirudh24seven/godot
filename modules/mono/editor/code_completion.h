@@ -1,8 +1,6 @@
 
 /*  code_completion.h                                                    */
 
-
-
 #ifndef CODE_COMPLETION_H
 #define CODE_COMPLETION_H
 

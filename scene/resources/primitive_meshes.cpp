@@ -1,8 +1,6 @@
 
 /*  primitive_meshes.cpp                                                 */
 
-
-
 #include "primitive_meshes.h"
 #include "servers/rendering_server.h"
 

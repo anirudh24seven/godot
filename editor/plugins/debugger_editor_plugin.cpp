@@ -1,8 +1,6 @@
 
 /*  debugger_editor_plugin.cpp                                           */
 
-
-
 #include "debugger_editor_plugin.h"
 
 #include "core/os/keyboard.h"

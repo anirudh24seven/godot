@@ -1,8 +1,6 @@
 
 /*  texture_editor_plugin.h                                              */
 
-
-
 #ifndef TEXTURE_EDITOR_PLUGIN_H
 #define TEXTURE_EDITOR_PLUGIN_H
 

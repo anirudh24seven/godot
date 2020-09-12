@@ -1,8 +1,6 @@
 
 /*  OvrWindowSurfaceFactory.java                                         */
 
-
-
 package org.godotengine.godot.xr.ovr;
 
 import android.opengl.GLSurfaceView;

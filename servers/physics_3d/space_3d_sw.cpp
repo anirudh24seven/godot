@@ -1,8 +1,6 @@
 
 /*  space_3d_sw.cpp                                                      */
 
-
-
 #include "space_3d_sw.h"
 
 #include "collision_solver_3d_sw.h"

@@ -1,8 +1,6 @@
 
 /*  crash_handler_linuxbsd.h                                             */
 
-
-
 #ifndef CRASH_HANDLER_X11_H
 #define CRASH_HANDLER_X11_H
 

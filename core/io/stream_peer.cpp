@@ -1,8 +1,6 @@
 
 /*  stream_peer.cpp                                                      */
 
-
-
 #include "stream_peer.h"
 
 #include "core/io/marshalls.h"

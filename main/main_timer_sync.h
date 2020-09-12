@@ -1,8 +1,6 @@
 
 /*  main_timer_sync.h                                                    */
 
-
-
 #ifndef MAIN_TIMER_SYNC_H
 #define MAIN_TIMER_SYNC_H
 

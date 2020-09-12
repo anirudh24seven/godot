@@ -21,7 +21,6 @@
 #include "huffdec.h"
 #include "decint.h"
 
-
 /*The ANSI offsetof macro is broken on some platforms (e.g., older DECs).*/
 #define _ogg_offsetof(_type,_field)\
  ((size_t)((char *)&((_type *)0)->_field-(char *)0))
@@ -127,7 +126,6 @@ static oc_pb_window oc_pack_refill(oc_pack_buf *_b,int _bits){
   return window;
 }
 
-
 /*Read in bits without advancing the bit pointer.
   Here we assume 0<=_bits&&_bits<=32.*/
 static long oc_pack_look(oc_pack_buf *_b,int _bits){
@@ -153,7 +151,6 @@ static void oc_pack_adv(oc_pack_buf *_b,int _bits){
   _b->bits-=_bits;
 }
 
-
 /*The log_2 of the size of a lookup table is allowed to grow to relative to
    the number of unique nodes it contains.
   E.g., if OC_HUFF_SLUSH is 2, then at most 75% of the space in the tree is
@@ -171,7 +168,6 @@ static void oc_pack_adv(oc_pack_buf *_b,int _bits){
   Since a value of 1 gets us the vast majority of the speed-up with only a
    small amount of wasted memory, this is what we use.*/
 #define OC_HUFF_SLUSH (1)
-
 
 /*Determines the size in bytes of a Huffman tree node that represents a
    subtree of depth _nbits.
@@ -194,7 +190,6 @@ static oc_huff_node *oc_huff_node_init(char **_storage,size_t _size,int _nbits){
   return ret;
 }
 
-
 /*Determines the size in bytes of a Huffman tree.
   _nbits: The depth of the subtree.
           If this is 0, the node is a leaf node.
@@ -213,7 +208,6 @@ static size_t oc_huff_tree_size(const oc_huff_node *_node){
   }
   return size;
 }
-
 
 /*Unpacks a sub-tree from the given buffer.
   _opb:      The buffer to unpack from.

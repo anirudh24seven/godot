@@ -1,8 +1,6 @@
 
 /*  back_buffer_copy.h                                                   */
 
-
-
 #ifndef BACKBUFFERCOPY_H
 #define BACKBUFFERCOPY_H
 

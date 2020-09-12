@@ -1,8 +1,6 @@
 
 /*  pool_allocator.cpp                                                   */
 
-
-
 #include "pool_allocator.h"
 
 #include "core/error_macros.h"

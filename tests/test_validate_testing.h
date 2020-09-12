@@ -1,8 +1,6 @@
 
 /*  test_validate_testing.h                                              */
 
-
-
 #ifndef TEST_VALIDATE_TESTING_H
 #define TEST_VALIDATE_TESTING_H
 

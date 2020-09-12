@@ -1,8 +1,6 @@
 
 /*  node_3d_editor_plugin.cpp                                            */
 
-
-
 #include "node_3d_editor_plugin.h"
 
 #include "core/input/input.h"

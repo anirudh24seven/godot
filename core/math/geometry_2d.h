@@ -1,8 +1,6 @@
 
 /*  geometry_2d.h                                                        */
 
-
-
 #ifndef GEOMETRY_2D_H
 #define GEOMETRY_2D_H
 

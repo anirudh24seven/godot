@@ -101,7 +101,6 @@ public:
         }
         return e;
     }
-    
-    
+
 };
 #endif /* BT_DEFORMABLE_GRAVITY_FORCE_H */

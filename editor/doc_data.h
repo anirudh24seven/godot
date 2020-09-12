@@ -1,8 +1,6 @@
 
 /*  doc_data.h                                                           */
 
-
-
 #ifndef DOC_DATA_H
 #define DOC_DATA_H
 

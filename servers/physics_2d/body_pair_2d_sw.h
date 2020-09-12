@@ -1,8 +1,6 @@
 
 /*  body_pair_2d_sw.h                                                    */
 
-
-
 #ifndef BODY_PAIR_2D_SW_H
 #define BODY_PAIR_2D_SW_H
 

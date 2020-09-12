@@ -15,15 +15,13 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_OBJECTS_H
 #include FT_INTERNAL_SERVICE_H
 #include FT_SERVICE_POSTSCRIPT_INFO_H
 
-
-  /* documentation is in t1tables.h */
+/* documentation is in t1tables.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Get_PS_Font_Info( FT_Face          face,
@@ -32,8 +30,7 @@
     FT_Error           error;
     FT_Service_PsInfo  service;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     if ( !afont_info )
@@ -49,8 +46,7 @@
     return error;
   }
 
-
-  /* documentation is in t1tables.h */
+/* documentation is in t1tables.h */
 
   FT_EXPORT_DEF( FT_Int )
   FT_Has_PS_Glyph_Names( FT_Face  face )
@@ -58,8 +54,7 @@
     FT_Int             result = 0;
     FT_Service_PsInfo  service;
 
-
-    if ( face )
+if ( face )
     {
       FT_FACE_FIND_SERVICE( face, service, POSTSCRIPT_INFO );
 
@@ -70,8 +65,7 @@
     return result;
   }
 
-
-  /* documentation is in t1tables.h */
+/* documentation is in t1tables.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Get_PS_Font_Private( FT_Face         face,
@@ -80,8 +74,7 @@
     FT_Error           error;
     FT_Service_PsInfo  service;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     if ( !afont_private )
@@ -97,8 +90,7 @@
     return error;
   }
 
-
-  /* documentation is in t1tables.h */
+/* documentation is in t1tables.h */
 
   FT_EXPORT_DEF( FT_Long )
   FT_Get_PS_Font_Value( FT_Face       face,
@@ -110,8 +102,7 @@
     FT_Int             result  = 0;
     FT_Service_PsInfo  service = NULL;
 
-
-    if ( face )
+if ( face )
     {
       FT_FACE_FIND_SERVICE( face, service, POSTSCRIPT_INFO );
 
@@ -122,6 +113,5 @@
 
     return result;
   }
-
 
 /* END */

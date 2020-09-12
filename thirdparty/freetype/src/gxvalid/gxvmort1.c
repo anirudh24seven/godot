@@ -25,11 +25,9 @@
  *
  */
 
-
 #include "gxvmort.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -38,8 +36,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvmort
 
-
-  typedef struct  GXV_mort_subtable_type1_StateOptRec_
+typedef struct  GXV_mort_subtable_type1_StateOptRec_
   {
     FT_UShort  substitutionTable;
     FT_UShort  substitutionTable_length;
@@ -50,8 +47,7 @@
 #define GXV_MORT_SUBTABLE_TYPE1_HEADER_SIZE \
           ( GXV_STATETABLE_HEADER_SIZE + 2 )
 
-
-  static void
+static void
   gxv_mort_subtable_type1_substitutionTable_load( FT_Bytes       table,
                                                   FT_Bytes       limit,
                                                   GXV_Validator  gxvalid )
@@ -61,13 +57,11 @@
     GXV_mort_subtable_type1_StateOptRecData  optdata =
       (GXV_mort_subtable_type1_StateOptRecData)gxvalid->statetable.optdata;
 
-
-    GXV_LIMIT_CHECK( 2 );
+GXV_LIMIT_CHECK( 2 );
     optdata->substitutionTable = FT_NEXT_USHORT( p );
   }
 
-
-  static void
+static void
   gxv_mort_subtable_type1_subtable_setup( FT_UShort      table_size,
                                           FT_UShort      classTable,
                                           FT_UShort      stateArray,
@@ -84,8 +78,7 @@
     GXV_mort_subtable_type1_StateOptRecData  optdata =
       (GXV_mort_subtable_type1_StateOptRecData)gxvalid->statetable.optdata;
 
-
-    o[0] = classTable;
+o[0] = classTable;
     o[1] = stateArray;
     o[2] = entryTable;
     o[3] = optdata->substitutionTable;
@@ -97,8 +90,7 @@
     gxv_set_length_by_ushort_offset( o, l, buff, 4, table_size, gxvalid );
   }
 
-
-  static void
+static void
   gxv_mort_subtable_type1_offset_to_subst_validate(
     FT_Short          wordOffset,
     const FT_String*  tag,
@@ -111,8 +103,7 @@
     FT_UNUSED( tag );
     FT_UNUSED( state );
 
-
-    substTable =
+substTable =
       ((GXV_mort_subtable_type1_StateOptRec *)
        (gxvalid->statetable.optdata))->substitutionTable;
     substTable_limit =
@@ -130,8 +121,7 @@
     /* TODO: min_gid & max_gid comparison with ClassTable contents */
   }
 
-
-  static void
+static void
   gxv_mort_subtable_type1_entry_validate(
     FT_Byte                         state,
     FT_UShort                       flags,
@@ -150,7 +140,6 @@
 
     FT_UNUSED( table );
     FT_UNUSED( limit );
-
 
 #ifdef GXV_LOAD_UNUSED_VARS
     setMark       = (FT_UShort)(   flags >> 15            );
@@ -178,8 +167,7 @@
                                                       gxvalid );
   }
 
-
-  static void
+static void
   gxv_mort_subtable_type1_substTable_validate( FT_Bytes       table,
                                                FT_Bytes       limit,
                                                GXV_Validator  gxvalid )
@@ -190,14 +178,12 @@
                   (gxvalid->statetable.optdata))->substitutionTable_length / 2 );
     FT_UShort  i;
 
-
-    GXV_NAME_ENTER( "validating contents of substitutionTable" );
+GXV_NAME_ENTER( "validating contents of substitutionTable" );
     for ( i = 0; i < num_gids; i++ )
     {
       FT_UShort  dst_gid;
 
-
-      GXV_LIMIT_CHECK( 2 );
+GXV_LIMIT_CHECK( 2 );
       dst_gid = FT_NEXT_USHORT( p );
 
       if ( dst_gid >= 0xFFFFU )
@@ -215,8 +201,7 @@
     GXV_EXIT;
   }
 
-
-  /*
+/*
    * subtable for Contextual glyph substitution is a modified StateTable.
    * In addition to classTable, stateArray, and entryTable, the field
    * `substitutionTable' is added.
@@ -230,8 +215,7 @@
 
     GXV_mort_subtable_type1_StateOptRec  st_rec;
 
-
-    GXV_NAME_ENTER( "mort chain subtable type1 (Contextual Glyph Subst)" );
+GXV_NAME_ENTER( "mort chain subtable type1 (Contextual Glyph Subst)" );
 
     GXV_LIMIT_CHECK( GXV_MORT_SUBTABLE_TYPE1_HEADER_SIZE );
 
@@ -255,6 +239,5 @@
 
     GXV_EXIT;
   }
-
 
 /* END */

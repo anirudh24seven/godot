@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "mips/warped_autocorrelation_FIX_mipsr1.h"
 #endif
 
-
 #ifndef OVERRIDE_silk_warped_autocorrelation_FIX
 /* Autocorrelations for a warped frequency axis */
 void silk_warped_autocorrelation_FIX(

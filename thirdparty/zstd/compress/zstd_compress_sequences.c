@@ -369,7 +369,6 @@ ZSTD_encodeSequences_default(
                                     sequences, nbSeq, longOffsets);
 }
 
-
 #if DYNAMIC_BMI2
 
 static TARGET_ATTRIBUTE("bmi2") size_t

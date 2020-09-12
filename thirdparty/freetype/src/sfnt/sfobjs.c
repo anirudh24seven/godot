@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include "sfobjs.h"
 #include "ttload.h"
@@ -41,8 +40,7 @@
 #include "ttbdf.h"
 #endif
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -51,9 +49,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  sfobjs
 
-
-
-  /* convert a UTF-16 name entry to ASCII */
+/* convert a UTF-16 name entry to ASCII */
   static FT_String*
   tt_name_ascii_from_utf16( TT_Name    entry,
                             FT_Memory  memory )
@@ -63,8 +59,7 @@
     FT_Byte*    read   = (FT_Byte*)entry->string;
     FT_Error    error;
 
-
-    len = (FT_UInt)entry->stringLength / 2;
+len = (FT_UInt)entry->stringLength / 2;
 
     if ( FT_NEW_ARRAY( string, len + 1 ) )
       return NULL;
@@ -87,8 +82,7 @@
     return string;
   }
 
-
-  /* convert an Apple Roman or symbol name entry to ASCII */
+/* convert an Apple Roman or symbol name entry to ASCII */
   static FT_String*
   tt_name_ascii_from_other( TT_Name    entry,
                             FT_Memory  memory )
@@ -98,8 +92,7 @@
     FT_Byte*    read   = (FT_Byte*)entry->string;
     FT_Error    error;
 
-
-    len = (FT_UInt)entry->stringLength;
+len = (FT_UInt)entry->stringLength;
 
     if ( FT_NEW_ARRAY( string, len + 1 ) )
       return NULL;
@@ -122,12 +115,10 @@
     return string;
   }
 
-
-  typedef FT_String*  (*TT_Name_ConvertFunc)( TT_Name    entry,
+typedef FT_String*  (*TT_Name_ConvertFunc)( TT_Name    entry,
                                               FT_Memory  memory );
 
-
-  /* documentation is in sfnt.h */
+/* documentation is in sfnt.h */
 
   FT_LOCAL_DEF( FT_Error )
   tt_face_get_name( TT_Face      face,
@@ -150,8 +141,7 @@
 
     TT_Name_ConvertFunc  convert;
 
-
-    FT_ASSERT( name );
+FT_ASSERT( name );
 
     rec = face->name_table.names;
     for ( n = 0; n < face->num_names; n++, rec++ )
@@ -266,8 +256,7 @@
       {
         FT_Stream  stream = face->name_table.stream;
 
-
-        if ( FT_QNEW_ARRAY ( rec->string, rec->stringLength ) ||
+if ( FT_QNEW_ARRAY ( rec->string, rec->stringLength ) ||
              FT_STREAM_SEEK( rec->stringOffset )              ||
              FT_STREAM_READ( rec->string, rec->stringLength ) )
         {
@@ -286,8 +275,7 @@
     return error;
   }
 
-
-  static FT_Encoding
+static FT_Encoding
   sfnt_find_encoding( int  platform_id,
                       int  encoding_id )
   {
@@ -320,8 +308,7 @@
 
     const TEncoding  *cur, *limit;
 
-
-    cur   = tt_encodings;
+cur   = tt_encodings;
     limit = cur + sizeof ( tt_encodings ) / sizeof ( tt_encodings[0] );
 
     for ( ; cur < limit; cur++ )
@@ -337,8 +324,7 @@
     return FT_ENCODING_NONE;
   }
 
-
-  /* Fill in face->ttc_header.  If the font is not a TTC, it is */
+/* Fill in face->ttc_header.  If the font is not a TTC, it is */
   /* synthesized into a TTC with one offset table.              */
   static FT_Error
   sfnt_open_font( FT_Stream  stream,
@@ -361,8 +347,7 @@
       FT_FRAME_END
     };
 
-
-    face->ttc_header.tag     = 0;
+face->ttc_header.tag     = 0;
     face->ttc_header.version = 0;
     face->ttc_header.count   = 0;
 
@@ -426,8 +411,7 @@
     {
       FT_Int  n;
 
-
-      FT_TRACE3(( "sfnt_open_font: file is a collection\n" ));
+FT_TRACE3(( "sfnt_open_font: file is a collection\n" ));
 
       if ( FT_STREAM_READ_FIELDS( ttc_header_fields, &face->ttc_header ) )
         return error;
@@ -474,8 +458,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   sfnt_init_face( FT_Stream      stream,
                   TT_Face        face,
                   FT_Int         face_instance_index,
@@ -488,13 +471,11 @@
     FT_Int        face_index;
     FT_Long       woff2_num_faces = 0;
 
-
-    /* for now, parameters are unused */
+/* for now, parameters are unused */
     FT_UNUSED( num_params );
     FT_UNUSED( params );
 
-
-    sfnt = (SFNT_Service)face->sfnt;
+sfnt = (SFNT_Service)face->sfnt;
     if ( !sfnt )
     {
       sfnt = (SFNT_Service)FT_Get_Module_Interface( library, "sfnt" );
@@ -516,8 +497,7 @@
       /* we want the MM interface from the `truetype' module only */
       FT_Module  tt_module = FT_Get_Module( library, "truetype" );
 
-
-      face->mm = ft_module_get_service( tt_module,
+face->mm = ft_module_get_service( tt_module,
                                         FT_SERVICE_ID_MULTI_MASTERS,
                                         0 );
     }
@@ -528,8 +508,7 @@
       /* from the `truetype' module only          */
       FT_Module  tt_module = FT_Get_Module( library, "truetype" );
 
-
-      face->var = ft_module_get_service( tt_module,
+face->var = ft_module_get_service( tt_module,
                                          FT_SERVICE_ID_METRICS_VARIATIONS,
                                          0 );
     }
@@ -592,8 +571,7 @@
       FT_Byte*  default_values  = NULL;
       FT_Byte*  instance_values = NULL;
 
-
-      instance_index = FT_ABS( face_instance_index ) >> 16;
+instance_index = FT_ABS( face_instance_index ) >> 16;
 
       /* test whether current face is a GX font with named instances */
       if ( face->goto_table( face, TTAG_fvar, stream, &fvar_len ) ||
@@ -654,8 +632,7 @@
         FT_Byte*  p;
         FT_UInt   i;
 
-
-        default_value_offset = array_start + 8;
+default_value_offset = array_start + 8;
         p                    = default_values;
 
         for ( i = 0; i < num_axes; i++ )
@@ -722,7 +699,6 @@
     return error;
   }
 
-
 #define LOAD_( x )                                          \
   do                                                        \
   {                                                         \
@@ -764,8 +740,7 @@
       goto Exit;                                                \
   } while ( 0 )
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   sfnt_load_face( FT_Stream      stream,
                   TT_Face        face,
                   FT_Int         face_instance_index,
@@ -788,14 +763,12 @@
 
     FT_UNUSED( face_instance_index );
 
-
-    /* Check parameters */
+/* Check parameters */
 
     {
       FT_Int  i;
 
-
-      for ( i = 0; i < num_params; i++ )
+for ( i = 0; i < num_params; i++ )
       {
         if ( params[i].tag == FT_PARAM_TAG_IGNORE_TYPOGRAPHIC_FAMILY )
           ignore_typographic_family = TRUE;
@@ -1030,8 +1003,7 @@
       FT_Face  root  = &face->root;
       FT_Long  flags = root->face_flags;
 
-
-      /**********************************************************************
+/**********************************************************************
        *
        * Compute face flags.
        */
@@ -1125,21 +1097,18 @@
 
       tt_face_build_cmaps( face );  /* ignore errors */
 
-
-      /* set the encoding fields */
+/* set the encoding fields */
       {
         FT_Int   m;
 #ifdef FT_CONFIG_OPTION_POSTSCRIPT_NAMES
         FT_Bool  has_unicode = FALSE;
 #endif
 
-
-        for ( m = 0; m < root->num_charmaps; m++ )
+for ( m = 0; m < root->num_charmaps; m++ )
         {
           FT_CharMap  charmap = root->charmaps[m];
 
-
-          charmap->encoding = sfnt_find_encoding( charmap->platform_id,
+charmap->encoding = sfnt_find_encoding( charmap->platform_id,
                                                   charmap->encoding_id );
 
 #ifdef FT_CONFIG_OPTION_POSTSCRIPT_NAMES
@@ -1154,14 +1123,12 @@
         {
           FT_CharMapRec cmaprec;
 
-
-          cmaprec.face        = root;
+cmaprec.face        = root;
           cmaprec.platform_id = TT_PLATFORM_MICROSOFT;
           cmaprec.encoding_id = TT_MS_ID_UNICODE_CS;
           cmaprec.encoding    = FT_ENCODING_UNICODE;
 
-
-          error = FT_CMap_New( (FT_CMap_Class)&tt_cmap_unicode_class_rec,
+error = FT_CMap_New( (FT_CMap_Class)&tt_cmap_unicode_class_rec,
                                NULL, &cmaprec, NULL );
           if ( error                                      &&
                FT_ERR_NEQ( error, No_Unicode_Glyph_Name ) &&
@@ -1184,8 +1151,7 @@
       {
         FT_UInt  count;
 
-
-        count = face->sbit_num_strikes;
+count = face->sbit_num_strikes;
 
         if ( count > 0 )
         {
@@ -1197,8 +1163,7 @@
           FT_UInt*  sbit_strike_map = NULL;
           FT_UInt   strike_idx, bsize_idx;
 
-
-          if ( em_size == 0 || face->os2.version == 0xFFFFU )
+if ( em_size == 0 || face->os2.version == 0xFFFFU )
           {
             avgwidth = 1;
             em_size = 1;
@@ -1216,8 +1181,7 @@
           {
             FT_Bitmap_Size*  bsize = root->available_sizes + bsize_idx;
 
-
-            error = sfnt->load_strike_metrics( face, strike_idx, &metrics );
+error = sfnt->load_strike_metrics( face, strike_idx, &metrics );
             if ( error )
               continue;
 
@@ -1258,8 +1222,7 @@
       if ( !FT_HAS_FIXED_SIZES( root ) && !FT_IS_SCALABLE( root ) )
         root->face_flags |= FT_FACE_FLAG_SCALABLE;
 
-
-      /**********************************************************************
+/**********************************************************************
        *
        * Set up metrics.
        */
@@ -1273,8 +1236,7 @@
         root->bbox.yMax    = face->header.yMax;
         root->units_per_EM = face->header.Units_Per_EM;
 
-
-        /*
+/*
          * Computing the ascender/descender/height is tricky.
          *
          * The OpenType specification v1.8.3 says:
@@ -1367,20 +1329,17 @@
     return error;
   }
 
-
 #undef LOAD_
 #undef LOADM_
 #undef GET_NAME
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   sfnt_done_face( TT_Face  face )
   {
     FT_Memory     memory;
     SFNT_Service  sfnt;
 
-
-    if ( !face )
+if ( !face )
       return;
 
     memory = face->root.memory;
@@ -1423,8 +1382,7 @@
     {
       FT_Stream  stream = FT_FACE_STREAM( face );
 
-
-      /* simply release the 'cmap' table frame */
+/* simply release the 'cmap' table frame */
       FT_FRAME_RELEASE( face->cmap_table );
       face->cmap_size = 0;
     }
@@ -1471,6 +1429,5 @@
 
     face->sfnt = NULL;
   }
-
 
 /* END */

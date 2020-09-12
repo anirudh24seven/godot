@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef JSONRPC_REGISTER_TYPES_H
 #define JSONRPC_REGISTER_TYPES_H
 

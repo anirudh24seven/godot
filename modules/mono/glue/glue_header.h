@@ -1,8 +1,6 @@
 
 /*  glue_header.h                                                        */
 
-
-
 #ifdef MONO_GLUE_ENABLED
 
 #include "../mono_gd/gd_mono_marshal.h"

@@ -1,8 +1,6 @@
 
 /*  slider_joint_bullet.h                                                */
 
-
-
 #ifndef SLIDER_JOINT_BULLET_H
 #define SLIDER_JOINT_BULLET_H
 

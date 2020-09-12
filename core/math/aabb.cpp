@@ -1,8 +1,6 @@
 
 /*  aabb.cpp                                                             */
 
-
-
 #include "aabb.h"
 
 #include "core/print_string.h"

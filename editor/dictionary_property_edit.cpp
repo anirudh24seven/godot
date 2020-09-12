@@ -1,8 +1,6 @@
 
 /*  dictionary_property_edit.cpp                                         */
 
-
-
 #include "dictionary_property_edit.h"
 #include "editor_node.h"
 

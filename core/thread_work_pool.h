@@ -1,8 +1,6 @@
 
 /*  thread_work_pool.h                                                   */
 
-
-
 #ifndef THREAD_WORK_POOL_H
 #define THREAD_WORK_POOL_H
 

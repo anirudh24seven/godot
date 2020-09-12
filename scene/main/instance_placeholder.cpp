@@ -1,8 +1,6 @@
 
 /*  instance_placeholder.cpp                                             */
 
-
-
 #include "instance_placeholder.h"
 
 #include "core/io/resource_loader.h"

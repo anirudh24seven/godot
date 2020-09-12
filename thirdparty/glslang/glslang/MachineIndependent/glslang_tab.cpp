@@ -58,12 +58,8 @@
 /* Pull parsers.  */
 #define YYPULL 1
 
-
-
-
 /* Copy the first part of user declarations.  */
 #line 68 "MachineIndependent/glslang.y" /* yacc.c:339  */
-
 
 /* Based on:
 ANSI C Yacc grammar
@@ -86,7 +82,6 @@ Jutta Degener, 1995
 #include "attribute.h"
 
 using namespace glslang;
-
 
 #line 92 "MachineIndependent/glslang_tab.cpp" /* yacc.c:339  */
 
@@ -583,15 +578,12 @@ typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_DECLARED 1
 #endif
 
-
-
 int yyparse (glslang::TParseContext* pParseContext);
 
 #endif /* !YY_YY_MACHINEINDEPENDENT_GLSLANG_TAB_CPP_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 #line 132 "MachineIndependent/glslang.y" /* yacc.c:358  */
-
 
 /* windows only pragma */
 #ifdef _MSC_VER
@@ -604,7 +596,6 @@ int yyparse (glslang::TParseContext* pParseContext);
 #define yyerror(context, msg) context->parserError(msg)
 
 extern int yylex(YYSTYPE*, TParseContext&);
-
 
 #line 610 "MachineIndependent/glslang_tab.cpp" /* yacc.c:358  */
 
@@ -716,7 +707,6 @@ typedef short int yytype_int16;
 # define YY_INITIAL_VALUE(Value) /* Nothing. */
 #endif
 
-
 #if ! defined yyoverflow || YYERROR_VERBOSE
 
 /* The parser invokes alloca or malloc; define the necessary symbols.  */
@@ -783,7 +773,6 @@ void free (void *); /* INFRINGES ON USER NAME SPACE */
 #  endif
 # endif
 #endif /* ! defined yyoverflow || YYERROR_VERBOSE */
-
 
 #if (! defined yyoverflow \
      && (! defined __cplusplus \
@@ -3484,7 +3473,6 @@ static const yytype_uint8 yyr2[] =
        3,     1,     4
 };
 
-
 #define yyerrok         (yyerrstatus = 0)
 #define yyclearin       (yychar = YYEMPTY)
 #define YYEMPTY         (-2)
@@ -3493,7 +3481,6 @@ static const yytype_uint8 yyr2[] =
 #define YYACCEPT        goto yyacceptlab
 #define YYABORT         goto yyabortlab
 #define YYERROR         goto yyerrorlab
-
 
 #define YYRECOVERING()  (!!yyerrstatus)
 
@@ -3518,8 +3505,6 @@ while (0)
 #define YYTERROR        1
 #define YYERRCODE       256
 
-
-
 /* Enable debugging if requested.  */
 #if YYDEBUG
 
@@ -3539,7 +3524,6 @@ do {                                            \
 # define YY_LOCATION_PRINT(File, Loc) ((void) 0)
 #endif
 
-
 # define YY_SYMBOL_PRINT(Title, Type, Value, Location)                    \
 do {                                                                      \
   if (yydebug)                                                            \
@@ -3550,7 +3534,6 @@ do {                                                                      \
       YYFPRINTF (stderr, "\n");                                           \
     }                                                                     \
 } while (0)
-
 
 /*----------------------------------------.
 | Print this symbol's value on YYOUTPUT.  |
@@ -3570,7 +3553,6 @@ yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvalue
 # endif
   YYUSE (yytype);
 }
-
 
 /*--------------------------------.
 | Print this symbol on YYOUTPUT.  |
@@ -3608,7 +3590,6 @@ do {                                                            \
   if (yydebug)                                                  \
     yy_stack_print ((Bottom), (Top));                           \
 } while (0)
-
 
 /*------------------------------------------------.
 | Report that the YYRULE is going to be reduced.  |
@@ -3650,7 +3631,6 @@ int yydebug;
 # define YY_REDUCE_PRINT(Rule)
 #endif /* !YYDEBUG */
 
-
 /* YYINITDEPTH -- initial size of the parser's stacks.  */
 #ifndef YYINITDEPTH
 # define YYINITDEPTH 200
@@ -3666,7 +3646,6 @@ int yydebug;
 #ifndef YYMAXDEPTH
 # define YYMAXDEPTH 10000
 #endif
-
 
 #if YYERROR_VERBOSE
 
@@ -3908,9 +3887,6 @@ yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep, glslang::TParseCon
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
-
-
-
 /*----------.
 | yyparse.  |
 `----------*/
@@ -3920,7 +3896,6 @@ yyparse (glslang::TParseContext* pParseContext)
 {
 /* The lookahead symbol.  */
 int yychar;
-
 
 /* The semantic value of the lookahead symbol.  */
 /* Default value used for initialization, for pacifying older GCCs
@@ -4131,7 +4106,6 @@ yybackup:
 
   goto yynewstate;
 
-
 /*-----------------------------------------------------------.
 | yydefault -- do the default action for the current state.  |
 `-----------------------------------------------------------*/
@@ -4140,7 +4114,6 @@ yydefault:
   if (yyn == 0)
     goto yyerrlab;
   goto yyreduce;
-
 
 /*-----------------------------.
 | yyreduce -- Do a reduction.  |
@@ -4159,8 +4132,7 @@ yyreduce:
      GCC warning that YYVAL may be used uninitialized.  */
   yyval = yyvsp[1-yylen];
 
-
-  YY_REDUCE_PRINT (yyn);
+YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
         case 2:
@@ -10206,7 +10178,6 @@ yyreduce:
 #line 10173 "MachineIndependent/glslang_tab.cpp" /* yacc.c:1646  */
     break;
 
-
 #line 10177 "MachineIndependent/glslang_tab.cpp" /* yacc.c:1646  */
       default: break;
     }
@@ -10242,7 +10213,6 @@ yyreduce:
     yystate = yydefgoto[yyn - YYNTOKENS];
 
   goto yynewstate;
-
 
 /*--------------------------------------.
 | yyerrlab -- here on detecting error.  |
@@ -10292,9 +10262,7 @@ yyerrlab:
 #endif
     }
 
-
-
-  if (yyerrstatus == 3)
+if (yyerrstatus == 3)
     {
       /* If just tried and failed to reuse lookahead token after an
          error, discard it.  */
@@ -10317,7 +10285,6 @@ yyerrlab:
      token.  */
   goto yyerrlab1;
 
-
 /*---------------------------------------------------.
 | yyerrorlab -- error raised explicitly by YYERROR.  |
 `---------------------------------------------------*/
@@ -10336,7 +10303,6 @@ yyerrorlab:
   YY_STACK_PRINT (yyss, yyssp);
   yystate = *yyssp;
   goto yyerrlab1;
-
 
 /*-------------------------------------------------------------.
 | yyerrlab1 -- common code for both syntax error and YYERROR.  |
@@ -10362,8 +10328,7 @@ yyerrlab1:
       if (yyssp == yyss)
         YYABORT;
 
-
-      yydestruct ("Error: popping",
+yydestruct ("Error: popping",
                   yystos[yystate], yyvsp, pParseContext);
       YYPOPSTACK (1);
       yystate = *yyssp;
@@ -10374,13 +10339,11 @@ yyerrlab1:
   *++yyvsp = yylval;
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 
-
-  /* Shift the error token.  */
+/* Shift the error token.  */
   YY_SYMBOL_PRINT ("Shifting", yystos[yyn], yyvsp, yylsp);
 
   yystate = yyn;
   goto yynewstate;
-
 
 /*-------------------------------------.
 | yyacceptlab -- YYACCEPT comes here.  |

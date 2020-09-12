@@ -15,7 +15,6 @@
  *
  */
 
-
 #include "pfrobjs.h"
 #include "pfrload.h"
 #include "pfrgload.h"
@@ -31,23 +30,17 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  pfr
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     FACE OBJECT METHODS                       *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   pfr_face_done( FT_Face  pfrface )     /* PFR_Face */
   {
     PFR_Face   face = (PFR_Face)pfrface;
     FT_Memory  memory;
 
-
-    if ( !face )
+if ( !face )
       return;
 
     memory = pfrface->driver->root.memory;
@@ -63,8 +56,7 @@
     FT_FREE( pfrface->available_sizes );
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   pfr_face_init( FT_Stream      stream,
                  FT_Face        pfrface,
                  FT_Int         face_index,
@@ -77,8 +69,7 @@
     FT_UNUSED( num_params );
     FT_UNUSED( params );
 
-
-    FT_TRACE2(( "PFR driver\n" ));
+FT_TRACE2(( "PFR driver\n" ));
 
     /* load the header and check it */
     error = pfr_header_load( &face->header, stream );
@@ -96,8 +87,7 @@
     {
       FT_Long  num_faces;
 
-
-      error = pfr_log_font_count( stream,
+error = pfr_log_font_count( stream,
                                   face->header.log_dir_offset,
                                   &num_faces );
       if ( error )
@@ -137,8 +127,7 @@
     {
       PFR_PhyFont  phy_font = &face->phy_font;
 
-
-      pfrface->face_index = face_index & 0xFFFF;
+pfrface->face_index = face_index & 0xFFFF;
       pfrface->num_glyphs = (FT_Long)phy_font->num_chars + 1;
 
       pfrface->face_flags |= FT_FACE_FLAG_SCALABLE;
@@ -148,8 +137,7 @@
       {
         FT_UInt  nn;
 
-
-        for ( nn = 0; nn < phy_font->num_chars; nn++ )
+for ( nn = 0; nn < phy_font->num_chars; nn++ )
           if ( phy_font->chars[nn].gps_offset != 0 )
             break;
 
@@ -212,8 +200,7 @@
         PFR_Strike       strike;
         FT_Memory        memory = pfrface->stream->memory;
 
-
-        if ( FT_NEW_ARRAY( pfrface->available_sizes, count ) )
+if ( FT_NEW_ARRAY( pfrface->available_sizes, count ) )
           goto Exit;
 
         size   = pfrface->available_sizes;
@@ -238,8 +225,7 @@
         FT_UInt   count = phy_font->num_chars;
         PFR_Char  gchar = phy_font->chars;
 
-
-        for ( ; count > 0; count--, gchar++ )
+for ( ; count > 0; count--, gchar++ )
         {
           if ( max < gchar->advance )
             max = gchar->advance;
@@ -257,8 +243,7 @@
       {
         FT_CharMapRec  charmap;
 
-
-        charmap.face        = pfrface;
+charmap.face        = pfrface;
         charmap.platform_id = TT_PLATFORM_MICROSOFT;
         charmap.encoding_id = TT_MS_ID_UNICODE_CS;
         charmap.encoding    = FT_ENCODING_UNICODE;
@@ -275,39 +260,30 @@
     return error;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    SLOT OBJECT METHOD                         *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   pfr_slot_init( FT_GlyphSlot  pfrslot )        /* PFR_Slot */
   {
     PFR_Slot        slot   = (PFR_Slot)pfrslot;
     FT_GlyphLoader  loader = pfrslot->internal->loader;
 
-
-    pfr_glyph_init( &slot->glyph, loader );
+pfr_glyph_init( &slot->glyph, loader );
 
     return 0;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   pfr_slot_done( FT_GlyphSlot  pfrslot )        /* PFR_Slot */
   {
     PFR_Slot  slot = (PFR_Slot)pfrslot;
 
-
-    pfr_glyph_done( &slot->glyph );
+pfr_glyph_done( &slot->glyph );
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   pfr_slot_load( FT_GlyphSlot  pfrslot,         /* PFR_Slot */
                  FT_Size       pfrsize,         /* PFR_Size */
                  FT_UInt       gindex,
@@ -321,8 +297,7 @@
     FT_Outline*  outline = &pfrslot->outline;
     FT_ULong     gps_offset;
 
-
-    FT_TRACE1(( "pfr_slot_load: glyph index %d\n", gindex ));
+FT_TRACE1(( "pfr_slot_load: glyph index %d\n", gindex ));
 
     if ( gindex > 0 )
       gindex--;
@@ -369,8 +344,7 @@
       FT_UInt            em_metrics, em_outline;
       FT_Bool            scaling;
 
-
-      scaling = FT_BOOL( !( load_flags & FT_LOAD_NO_SCALE ) );
+scaling = FT_BOOL( !( load_flags & FT_LOAD_NO_SCALE ) );
 
       /* copy outline data */
       *outline = slot->glyph.loader->base.outline;
@@ -414,8 +388,7 @@
       {
         FT_Matrix font_matrix;
 
-
-        font_matrix.xx = face->log_font.matrix[0] << 8;
+font_matrix.xx = face->log_font.matrix[0] << 8;
         font_matrix.yx = face->log_font.matrix[1] << 8;
         font_matrix.xy = face->log_font.matrix[2] << 8;
         font_matrix.yy = face->log_font.matrix[3] << 8;
@@ -432,8 +405,7 @@
         FT_Fixed    y_scale = pfrsize->metrics.y_scale;
         FT_Vector*  vec     = outline->points;
 
-
-        /* scale outline points */
+/* scale outline points */
         for ( n = 0; n < outline->n_points; n++, vec++ )
         {
           vec->x = FT_MulFix( vec->x, x_scale );
@@ -458,16 +430,11 @@
     return error;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      KERNING METHOD                           *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   pfr_face_get_kerning( FT_Face     pfrface,        /* PFR_Face */
                         FT_UInt     glyph1,
                         FT_UInt     glyph2,
@@ -478,8 +445,7 @@
     PFR_PhyFont  phy_font = &face->phy_font;
     FT_UInt32    code1, code2, pair;
 
-
-    kerning->x = 0;
+kerning->x = 0;
     kerning->y = 0;
 
     if ( glyph1 > 0 )
@@ -502,8 +468,7 @@
       PFR_KernItem  item   = phy_font->kern_items;
       FT_Stream     stream = pfrface->stream;
 
-
-      for ( ; item; item = item->next )
+for ( ; item; item = item->next )
       {
         if ( pair >= item->pair1 && pair <= item->pair2 )
           goto FoundPair;
@@ -527,8 +492,7 @@
         FT_Byte*   p;
         FT_UInt32  cpair;
 
-
-        if ( extra > 0 )
+if ( extra > 0 )
         {
           p = base + extra * size;
 
@@ -578,8 +542,7 @@
         {
           FT_Int  value;
 
-
-        Found:
+Found:
           if ( twobyte_adj )
             value = FT_PEEK_SHORT( p );
           else
@@ -595,6 +558,5 @@
   Exit:
     return error;
   }
-
 
 /* END */

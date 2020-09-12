@@ -1,8 +1,6 @@
 
 /*  constraint_bullet.h                                                  */
 
-
-
 #ifndef CONSTRAINT_BULLET_H
 #define CONSTRAINT_BULLET_H
 

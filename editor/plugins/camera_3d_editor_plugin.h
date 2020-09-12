@@ -1,8 +1,6 @@
 
 /*  camera_3d_editor_plugin.h                                            */
 
-
-
 #ifndef CAMERA_EDITOR_PLUGIN_H
 #define CAMERA_EDITOR_PLUGIN_H
 

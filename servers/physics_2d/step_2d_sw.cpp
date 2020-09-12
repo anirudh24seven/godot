@@ -1,8 +1,6 @@
 
 /*  step_2d_sw.cpp                                                       */
 
-
-
 #include "step_2d_sw.h"
 #include "core/os/os.h"
 

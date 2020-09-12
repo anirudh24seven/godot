@@ -1,8 +1,6 @@
 
 /*  slider_joint_3d_sw.cpp                                               */
 
-
-
 /*
 Adapted to Godot from the Bullet library.
 */

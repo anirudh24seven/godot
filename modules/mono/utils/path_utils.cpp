@@ -1,8 +1,6 @@
 
 /*  path_utils.cpp                                                       */
 
-
-
 #include "path_utils.h"
 
 #include "core/os/dir_access.h"

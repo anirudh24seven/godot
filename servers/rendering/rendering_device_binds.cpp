@@ -1,8 +1,6 @@
 
 /*  rendering_device_binds.cpp                                           */
 
-
-
 #include "rendering_device_binds.h"
 
 Error RDShaderFile::parse_versions_from_text(const String &p_text, const String p_defines, OpenIncludeFunction p_include_func, void *p_include_func_userdata) {

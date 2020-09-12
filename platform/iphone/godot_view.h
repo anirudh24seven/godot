@@ -1,8 +1,6 @@
 
 /*  godot_view.h                                                         */
 
-
-
 #import <UIKit/UIKit.h>
 
 class String;

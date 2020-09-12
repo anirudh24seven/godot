@@ -22,7 +22,6 @@ subject to the following restrictions:
 #pragma OPENCL EXTENSION cl_khr_local_int32_extended_atomics : enable
 #pragma OPENCL EXTENSION cl_khr_global_int32_extended_atomics : enable
 
-
 #ifdef cl_ext_atomic_counters_32
 #pragma OPENCL EXTENSION cl_ext_atomic_counters_32 : enable
 #else
@@ -47,7 +46,6 @@ typedef unsigned char u8;
 #define AtomCmpxhg(x, cmp, value) atom_cmpxchg( &(x), cmp, value )
 #define AtomXhg(x, value) atom_xchg ( &(x), value )
 
-
 #define SELECT_UINT4( b, a, condition ) select( b,a,condition )
 
 #define make_float4 (float4)
@@ -57,10 +55,8 @@ typedef unsigned char u8;
 #define make_uint2 (uint2)
 #define make_int2 (int2)
 
-
 #define max2 max
 #define min2 min
-
 
 ///////////////////////////////////////
 //	Vector
@@ -102,7 +98,6 @@ float4 fastNormalize4(float4 v)
 {
 	return fast_normalize(v);
 }
-
 
 __inline
 float sqrtf(float a)
@@ -171,15 +166,7 @@ float4 createEquation(const float4 a, const float4 b, const float4 c)
 	return eqn;
 }
 
-
-
 #define WG_SIZE 64
-
-
-
-
-
-
 
 typedef struct
 {
@@ -199,13 +186,7 @@ typedef struct
 //	int m_paddings[1];
 } ConstBufferBatchSolve;
 
-
-
-
- 
-
-
-typedef struct 
+typedef struct
 {
 	int m_valInt0;
 	int m_valInt1;
@@ -217,11 +198,6 @@ typedef struct
 	float m_val2;
 	float m_val3;
 } SolverDebugInfo;
-
-
-
-
-
 
 typedef struct
 {
@@ -270,8 +246,4 @@ float positionConstraintCoeff
 		gConstraintOut[gIdx] = cs;
 	}
 }
-
-
-
-
 

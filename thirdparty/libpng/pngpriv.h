@@ -270,7 +270,6 @@
 #  define PNG_POWERPC_VSX_IMPLEMENTATION 1
 #endif
 
-
 /* Is this a build of a DLL where compilation of the object modules requires
  * different preprocessor settings to those required for a simple library?  If
  * so PNG_BUILD_DLL must be set.
@@ -970,7 +969,6 @@ PNG_INTERNAL_DATA(const png_byte, png_sRGB_delta, [512]);
     * encoded value with maximum error 0.646365.  Note that the input is not a
     * 16-bit value; it has been multiplied by 255! */
 #endif /* SIMPLIFIED_READ/WRITE */
-
 
 /* Inhibit C++ name-mangling for libpng functions but not for system calls. */
 #ifdef __cplusplus

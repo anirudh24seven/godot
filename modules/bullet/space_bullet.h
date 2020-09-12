@@ -1,8 +1,6 @@
 
 /*  space_bullet.h                                                       */
 
-
-
 #ifndef SPACE_BULLET_H
 #define SPACE_BULLET_H
 

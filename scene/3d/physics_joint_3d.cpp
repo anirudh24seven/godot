@@ -1,8 +1,6 @@
 
 /*  physics_joint_3d.cpp                                                 */
 
-
-
 #include "physics_joint_3d.h"
 
 void Joint3D::_update_joint(bool p_only_free) {

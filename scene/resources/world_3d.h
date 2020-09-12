@@ -1,8 +1,6 @@
 
 /*  world_3d.h                                                           */
 
-
-
 #ifndef WORLD_3D_H
 #define WORLD_3D_H
 

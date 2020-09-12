@@ -1,8 +1,6 @@
 
 /*  app.cpp                                                              */
 
-
-
 //
 // This file demonstrates how to initialize EGL in a Windows Store app, using ICoreWindow.
 //

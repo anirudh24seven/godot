@@ -5,20 +5,16 @@ import sys
 # This file is mostly based on platform/x11/detect.py.
 # If editing this file, make sure to apply relevant changes here too.
 
-
 def is_active():
     return True
 
-
 def get_name():
     return "Server"
-
 
 def get_program_suffix():
     if sys.platform == "darwin":
         return "osx"
     return "linuxbsd"
-
 
 def can_build():
 
@@ -26,7 +22,6 @@ def can_build():
         return False
 
     return True
-
 
 def get_opts():
     from SCons.Variables import BoolVariable, EnumVariable
@@ -44,11 +39,9 @@ def get_opts():
         BoolVariable("execinfo", "Use libexecinfo on systems where glibc is not available", False),
     ]
 
-
 def get_flags():
 
     return []
-
 
 def configure(env):
 

@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -107,8 +105,7 @@ void BaseImporter::UpdateImporterScale( Importer* pImp )
 // Imports the given file and returns the imported data.
 aiScene* BaseImporter::ReadFile(Importer* pImp, const std::string& pFile, IOSystem* pIOHandler) {
 
-
-    m_progress = pImp->GetProgressHandler();
+m_progress = pImp->GetProgressHandler();
     if (nullptr == m_progress) {
         return nullptr;
     }
@@ -133,8 +130,7 @@ aiScene* BaseImporter::ReadFile(Importer* pImp, const std::string& pFile, IOSyst
         // passes scale into ScaleProcess
         UpdateImporterScale(pImp);
 
-
-    } catch( const std::exception& err )    {
+} catch( const std::exception& err )    {
         // extract error description
         m_ErrorText = err.what();
         ASSIMP_LOG_ERROR(m_ErrorText);
@@ -283,8 +279,7 @@ std::string BaseImporter::GetExtension( const std::string& file ) {
         return "";
     }
 
-
-    // thanks to Andy Maloney for the hint
+// thanks to Andy Maloney for the hint
     std::string ret = file.substr( pos + 1 );
     std::transform( ret.begin(), ret.end(), ret.begin(), ToLower<char>);
 
@@ -377,9 +372,8 @@ void BaseImporter::ConvertToUTF8(std::vector<char>& data)
         data.resize(data.size()-3);
         return;
     }
-    
-    
-    // UTF 32 BE with BOM
+
+// UTF 32 BE with BOM
     if(*((uint32_t*)&data.front()) == 0xFFFE0000) {
 
         // swap the endianness ..
@@ -621,8 +615,6 @@ aiScene* BatchLoader::GetImport( unsigned int which )
     }
     return nullptr;
 }
-
-
 
 // ------------------------------------------------------------------------------------------------
 void BatchLoader::LoadAll()

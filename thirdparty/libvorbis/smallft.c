@@ -195,8 +195,7 @@ static void dradf4(int ido,int l1,float *cc,float *ch,float *wa1,
   if(ido<2)return;
   if(ido==2)goto L105;
 
-
-  t1=0;
+t1=0;
   for(k=0;k<l1;k++){
     t2=t1;
     t4=t1<<2;

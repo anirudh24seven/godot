@@ -1,8 +1,6 @@
 
 /*  resource_importer_image.cpp                                          */
 
-
-
 #include "resource_importer_image.h"
 
 #include "core/io/image_loader.h"

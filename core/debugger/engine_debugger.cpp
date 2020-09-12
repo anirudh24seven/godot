@@ -1,8 +1,6 @@
 
 /*  engine_debugger.cpp                                                  */
 
-
-
 #include "engine_debugger.h"
 
 #include "core/debugger/local_debugger.h"

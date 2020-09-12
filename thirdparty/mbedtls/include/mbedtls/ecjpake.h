@@ -300,5 +300,4 @@ int mbedtls_ecjpake_self_test( int verbose );
 }
 #endif
 
-
 #endif /* ecjpake.h */

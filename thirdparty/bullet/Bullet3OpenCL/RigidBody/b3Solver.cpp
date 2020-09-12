@@ -957,15 +957,12 @@ void b3Solver::sortContacts(  const b3OpenCLArray<b3RigidBodyData>* bodyBuf,
 			b3OpenCLArray<b3Contact4>* contactsIn, void* additionalData, 
 			int nContacts, const b3Solver::ConstraintCfg& cfg )
 {
-	
-	
 
-	const int sortAlignment = 512; // todo. get this out of sort
+const int sortAlignment = 512; // todo. get this out of sort
 	if( cfg.m_enableParallelSolve )
 	{
-		
 
-		int sortSize = NEXTMULTIPLEOF( nContacts, sortAlignment );
+int sortSize = NEXTMULTIPLEOF( nContacts, sortAlignment );
 
 		b3OpenCLArray<unsigned int>* countsNative = m_numConstraints;//BufferUtils::map<TYPE_CL, false>( data->m_device, &countsHost );
 		b3OpenCLArray<unsigned int>* offsetsNative = m_offsets;//BufferUtils::map<TYPE_CL, false>( data->m_device, &offsetsHost );
@@ -986,8 +983,7 @@ void b3Solver::sortContacts(  const b3OpenCLArray<b3RigidBodyData>* bodyBuf,
 			cdata.m_scale = 1.f/(N_OBJ_PER_SPLIT*cfg.m_averageExtent);
 			cdata.m_nSplit = B3_SOLVER_N_SPLIT;
 
-			
-			b3BufferInfoCL bInfo[] = { b3BufferInfoCL( contactsIn->getBufferCL() ), b3BufferInfoCL( bodyBuf->getBufferCL() ), b3BufferInfoCL( m_sortDataBuffer->getBufferCL() ) };
+b3BufferInfoCL bInfo[] = { b3BufferInfoCL( contactsIn->getBufferCL() ), b3BufferInfoCL( bodyBuf->getBufferCL() ), b3BufferInfoCL( m_sortDataBuffer->getBufferCL() ) };
 			b3LauncherCL launcher( m_queue, m_setSortDataKernel );
 			launcher.setBuffers( bInfo, sizeof(bInfo)/sizeof(b3BufferInfoCL) );
 			launcher.setConst(  cdata );
@@ -1013,9 +1009,8 @@ void b3Solver::sortContacts(  const b3OpenCLArray<b3RigidBodyData>* bodyBuf,
 //			b3OpenCLArray<b3Contact4>* out = BufferUtils::map<TYPE_CL, false>( data->m_device, contactsIn );	//	copying contacts to this buffer
 
 			{
-				
 
-				b3Int4 cdata; cdata.x = nContacts;
+b3Int4 cdata; cdata.x = nContacts;
 				b3BufferInfoCL bInfo[] = { b3BufferInfoCL( contactsIn->getBufferCL() ), b3BufferInfoCL( m_contactBuffer->getBufferCL() ), b3BufferInfoCL( m_sortDataBuffer->getBufferCL() ) };
 				b3LauncherCL launcher( m_queue, m_reorderContactKernel );
 				launcher.setBuffers( bInfo, sizeof(bInfo)/sizeof(b3BufferInfoCL) );
@@ -1026,7 +1021,6 @@ void b3Solver::sortContacts(  const b3OpenCLArray<b3RigidBodyData>* bodyBuf,
 		}
 	}
 
-	
 }
 
 */

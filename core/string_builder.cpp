@@ -1,8 +1,6 @@
 
 /*  string_builder.cpp                                                   */
 
-
-
 #include "string_builder.h"
 
 #include <string.h>

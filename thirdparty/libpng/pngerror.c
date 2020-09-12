@@ -847,7 +847,6 @@ png_set_error_fn(png_structrp png_ptr, png_voidp error_ptr,
 #endif
 }
 
-
 /* This function returns a pointer to the error_ptr associated with the user
  * functions.  The application should free any memory associated with this
  * pointer before png_write_destroy and png_read_destroy are called.
@@ -860,7 +859,6 @@ png_get_error_ptr(png_const_structrp png_ptr)
 
    return ((png_voidp)png_ptr->error_ptr);
 }
-
 
 #ifdef PNG_ERROR_NUMBERS_SUPPORTED
 void PNGAPI

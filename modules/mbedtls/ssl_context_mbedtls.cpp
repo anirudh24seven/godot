@@ -1,8 +1,6 @@
 
 /*  ssl_context_mbedtls.cpp                                              */
 
-
-
 #include "ssl_context_mbedtls.h"
 
 static void my_debug(void *ctx, int level,

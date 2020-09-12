@@ -1,8 +1,6 @@
 
 /*  visual_shader_nodes.cpp                                              */
 
-
-
 #include "visual_shader_nodes.h"
 
 ////////////// Scalar(Float)

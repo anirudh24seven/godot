@@ -1,8 +1,6 @@
 
 /*  websocket_multiplayer_peer.cpp                                       */
 
-
-
 #include "websocket_multiplayer_peer.h"
 
 #include "core/os/os.h"

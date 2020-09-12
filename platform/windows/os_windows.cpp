@@ -1,8 +1,6 @@
 
 /*  os_windows.cpp                                                       */
 
-
-
 // Must include Winsock before windows.h (included by os_windows.h)
 #include "drivers/unix/net_socket_posix.h"
 

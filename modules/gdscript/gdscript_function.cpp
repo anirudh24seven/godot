@@ -1,8 +1,6 @@
 
 /*  gdscript_function.cpp                                                */
 
-
-
 #include "gdscript_function.h"
 
 #include "core/os/os.h"

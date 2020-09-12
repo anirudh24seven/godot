@@ -1,8 +1,6 @@
 
 /*  mobile_vr_interface.cpp                                              */
 
-
-
 #include "mobile_vr_interface.h"
 
 #include "core/input/input.h"

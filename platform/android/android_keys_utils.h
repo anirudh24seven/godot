@@ -1,8 +1,6 @@
 
 /*  android_keys_utils.h                                                 */
 
-
-
 #ifndef ANDROID_KEYS_UTILS_H
 #define ANDROID_KEYS_UTILS_H
 

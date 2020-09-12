@@ -1,8 +1,6 @@
 
 /*  gdscript_tokenizer.h                                                 */
 
-
-
 #ifndef GDSCRIPT_TOKENIZER_H
 #define GDSCRIPT_TOKENIZER_H
 

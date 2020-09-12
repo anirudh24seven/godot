@@ -1,8 +1,6 @@
 
 /*  gdscript_highlighter.h                                               */
 
-
-
 #ifndef GDSCRIPT_HIGHLIGHTER_H
 #define GDSCRIPT_HIGHLIGHTER_H
 

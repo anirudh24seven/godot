@@ -1,8 +1,6 @@
 
 /*  math_fieldwise.cpp                                                   */
 
-
-
 #ifdef TOOLS_ENABLED
 
 #include "math_fieldwise.h"

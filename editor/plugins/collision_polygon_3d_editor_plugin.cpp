@@ -1,8 +1,6 @@
 
 /*  collision_polygon_3d_editor_plugin.cpp                               */
 
-
-
 #include "collision_polygon_3d_editor_plugin.h"
 
 #include "canvas_item_editor_plugin.h"

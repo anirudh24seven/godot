@@ -1,8 +1,6 @@
 
 /*  display_server_windows.cpp                                           */
 
-
-
 #include "display_server_windows.h"
 #include "core/io/marshalls.h"
 #include "main/main.h"

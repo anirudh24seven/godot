@@ -331,7 +331,6 @@ static int ecdh_make_params_internal( mbedtls_ecdh_context_mbed *ctx,
     (void) restart_enabled;
 #endif
 
-
 #if defined(MBEDTLS_ECP_RESTARTABLE)
     if( ( ret = ecdh_gen_public_restartable( &ctx->grp, &ctx->d, &ctx->Q,
                                              f_rng, p_rng, rs_ctx ) ) != 0 )

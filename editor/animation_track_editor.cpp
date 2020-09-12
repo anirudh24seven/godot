@@ -1,8 +1,6 @@
 
 /*  animation_track_editor.cpp                                           */
 
-
-
 #include "animation_track_editor.h"
 
 #include "animation_track_editor_plugins.h"

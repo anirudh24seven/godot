@@ -1,8 +1,6 @@
 
 /*  audio_effect_pitch_shift.h                                           */
 
-
-
 #ifndef AUDIO_EFFECT_PITCH_SHIFT_H
 #define AUDIO_EFFECT_PITCH_SHIFT_H
 

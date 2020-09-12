@@ -1,8 +1,6 @@
 
 /*  navigation_mesh_editor_plugin.cpp                                    */
 
-
-
 #ifdef TOOLS_ENABLED
 #include "navigation_mesh_editor_plugin.h"
 

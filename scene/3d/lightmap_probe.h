@@ -1,8 +1,6 @@
 
 /*  lightmap_probe.h                                                     */
 
-
-
 #ifndef LIGHTMAP_PROBE_H
 #define LIGHTMAP_PROBE_H
 

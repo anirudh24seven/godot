@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -177,7 +175,6 @@ inline
 const aiVector2t<TReal> aiVector2t<TReal>::SymMul(const aiVector2t& o) {
     return aiVector2t(x*o.x,y*o.y);
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // symmetric addition

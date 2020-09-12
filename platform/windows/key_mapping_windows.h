@@ -1,8 +1,6 @@
 
 /*  key_mapping_windows.h                                                */
 
-
-
 #ifndef KEY_MAPPING_WINDOWS_H
 #define KEY_MAPPING_WINDOWS_H
 

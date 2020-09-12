@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -78,7 +76,6 @@ struct aiLogStream
     /** user data to be passed to the callback */
     char* user;
 };
-
 
 // --------------------------------------------------------------------------------
 /** C-API: Represents an opaque set of settings to be used during importing.
@@ -373,8 +370,6 @@ ASSIMP_API void aiGetExtensionList(
 ASSIMP_API void aiGetMemoryRequirements(
     const C_STRUCT aiScene* pIn,
     C_STRUCT aiMemoryInfo* in);
-
-
 
 // --------------------------------------------------------------------------------
 /** Create an empty property store. Property stores are used to collect import

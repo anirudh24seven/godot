@@ -50,7 +50,6 @@ void rcDelete(T* ptr) {
 }
 }  // namespace
 
-
 float rcSqrt(float x)
 {
 	return sqrtf(x);
@@ -188,7 +187,6 @@ rcHeightfieldLayerSet::~rcHeightfieldLayerSet()
 	rcFree(layers);
 }
 
-
 rcContourSet* rcAllocContourSet()
 {
 	return rcNew<rcContourSet>(RC_ALLOC_PERM);
@@ -218,7 +216,6 @@ rcContourSet::~rcContourSet()
 	}
 	rcFree(conts);
 }
-
 
 rcPolyMesh* rcAllocPolyMesh()
 {

@@ -1,8 +1,6 @@
 
 /*  variant.cpp                                                          */
 
-
-
 #include "gdnative/variant.h"
 
 #include "core/reference.h"

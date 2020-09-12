@@ -235,8 +235,7 @@ static int hmac_drbg_reseed_core( mbedtls_hmac_drbg_context *ctx,
         seedlen += ctx->entropy_len / 2;
     }
 
-
-    /* 1. Concatenate entropy and additional data if any */
+/* 1. Concatenate entropy and additional data if any */
     if( additional != NULL && len != 0 )
     {
         memcpy( seed + seedlen, additional, len );
@@ -522,7 +521,6 @@ exit:
     return( mbedtls_hmac_drbg_write_seed_file( ctx, path ) );
 }
 #endif /* MBEDTLS_FS_IO */
-
 
 #if defined(MBEDTLS_SELF_TEST)
 

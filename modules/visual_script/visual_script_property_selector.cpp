@@ -1,8 +1,6 @@
 
 /*  visual_script_property_selector.cpp                                  */
 
-
-
 #include "visual_script_property_selector.h"
 
 #include "core/os/keyboard.h"

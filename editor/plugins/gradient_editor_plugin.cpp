@@ -1,8 +1,6 @@
 
 /*  gradient_editor_plugin.cpp                                           */
 
-
-
 #include "gradient_editor_plugin.h"
 
 #include "canvas_item_editor_plugin.h"

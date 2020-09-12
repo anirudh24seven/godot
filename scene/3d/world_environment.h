@@ -1,8 +1,6 @@
 
 /*  world_environment.h                                                  */
 
-
-
 #ifndef SCENARIO_FX_H
 #define SCENARIO_FX_H
 

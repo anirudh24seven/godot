@@ -1,8 +1,6 @@
 
 /*  http_request.h                                                       */
 
-
-
 #ifndef HTTP_REQUEST_H
 #define HTTP_REQUEST_H
 

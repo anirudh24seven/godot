@@ -1,8 +1,6 @@
 
 /*  polygon_2d_editor_plugin.h                                           */
 
-
-
 #ifndef POLYGON_2D_EDITOR_PLUGIN_H
 #define POLYGON_2D_EDITOR_PLUGIN_H
 

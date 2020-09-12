@@ -1,8 +1,6 @@
 
 /*  gdscript.cpp                                                         */
 
-
-
 #include "gdscript.h"
 
 #include <stdint.h>

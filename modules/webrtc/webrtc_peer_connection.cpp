@@ -1,8 +1,6 @@
 
 /*  webrtc_peer_connection.cpp                                           */
 
-
-
 #include "webrtc_peer_connection.h"
 
 WebRTCPeerConnection *(*WebRTCPeerConnection::_create)() = nullptr;

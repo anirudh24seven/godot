@@ -1,8 +1,6 @@
 
 /*  gradient.cpp                                                         */
 
-
-
 #include "gradient.h"
 
 #include "core/core_string_names.h"

@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -106,8 +105,7 @@ protected:
      */
     void ProcessAnimation (aiAnimation* anim);
 
-
-    // ----------------------------------------------------------------
+// ----------------------------------------------------------------
     /** Preprocess a mesh in the scene
      *  @param mesh Mesh to be preprocessed.
      */
@@ -118,7 +116,6 @@ protected:
     //! Scene we're currently working on
     aiScene* scene;
 };
-
 
 } // ! end namespace Assimp
 

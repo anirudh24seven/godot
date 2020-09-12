@@ -1,8 +1,6 @@
 
 /*  joypad_uwp.h                                                         */
 
-
-
 #ifndef JOYPAD_UWP_H
 #define JOYPAD_UWP_H
 

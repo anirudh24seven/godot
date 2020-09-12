@@ -107,13 +107,3 @@ void _analysis_output(char *base,int i,float *v,int n,int bark,int dB,
 
 #endif
 
-
-
-
-
-
-
-
-
-
-

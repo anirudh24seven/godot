@@ -1,8 +1,6 @@
 
 /*  audio_stream_ogg_vorbis.h                                            */
 
-
-
 #ifndef AUDIO_STREAM_STB_VORBIS_H
 #define AUDIO_STREAM_STB_VORBIS_H
 

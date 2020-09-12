@@ -1,8 +1,6 @@
 
 /*  range.h                                                              */
 
-
-
 #ifndef RANGE_H
 #define RANGE_H
 

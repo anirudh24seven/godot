@@ -1,8 +1,6 @@
 
 /*  gdnative.h                                                           */
 
-
-
 #ifndef GODOT_GDNATIVE_H
 #define GODOT_GDNATIVE_H
 

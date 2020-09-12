@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -67,13 +66,11 @@ Deformer::Deformer(uint64_t id, const Element& element, const Document& doc, con
     props = GetPropertyTable(doc,"Deformer.Fbx" + classname,element,sc,true);
 }
 
-
 // ------------------------------------------------------------------------------------------------
 Deformer::~Deformer()
 {
 
 }
-
 
 // ------------------------------------------------------------------------------------------------
 Cluster::Cluster(uint64_t id, const Element& element, const Document& doc, const std::string& name)
@@ -120,13 +117,11 @@ Cluster::Cluster(uint64_t id, const Element& element, const Document& doc, const
     }
 }
 
-
 // ------------------------------------------------------------------------------------------------
 Cluster::~Cluster()
 {
 
 }
-
 
 // ------------------------------------------------------------------------------------------------
 Skin::Skin(uint64_t id, const Element& element, const Document& doc, const std::string& name)
@@ -152,7 +147,6 @@ Skin::Skin(uint64_t id, const Element& element, const Document& doc, const std::
         }
     }
 }
-
 
 // ------------------------------------------------------------------------------------------------
 Skin::~Skin()

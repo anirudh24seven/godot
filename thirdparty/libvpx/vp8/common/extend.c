@@ -8,10 +8,8 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "extend.h"
 #include "vpx_mem/vpx_mem.h"
-
 
 static void copy_and_extend_plane
 (
@@ -71,7 +69,6 @@ static void copy_and_extend_plane
     }
 }
 
-
 void vp8_copy_and_extend_frame(YV12_BUFFER_CONFIG *src,
                                YV12_BUFFER_CONFIG *dst)
 {
@@ -100,7 +97,6 @@ void vp8_copy_and_extend_frame(YV12_BUFFER_CONFIG *src,
                           src->uv_height, src->uv_width,
                           et, el, eb, er);
 }
-
 
 void vp8_copy_and_extend_frame_with_rect(YV12_BUFFER_CONFIG *src,
                                          YV12_BUFFER_CONFIG *dst,
@@ -154,7 +150,6 @@ void vp8_copy_and_extend_frame_with_rect(YV12_BUFFER_CONFIG *src,
                           srch, srcw,
                           et, el, eb, er);
 }
-
 
 /* note the extension is only for the last row, for intra prediction purpose */
 void vp8_extend_mb_row(YV12_BUFFER_CONFIG *ybf,

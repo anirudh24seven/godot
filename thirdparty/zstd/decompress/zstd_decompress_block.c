@@ -40,12 +40,10 @@
 #error "Cannot force the use of the short and the long ZSTD_decompressSequences variants!"
 #endif
 
-
 /*_*******************************************************
 *  Memory operations
 **********************************************************/
 static void ZSTD_copy4(void* dst, const void* src) { memcpy(dst, src, 4); }
-
 
 /*-*************************************************************
  *   Block decoding
@@ -68,7 +66,6 @@ size_t ZSTD_getcBlockSize(const void* src, size_t srcSize,
         return cSize;
     }
 }
-
 
 /* Hidden declaration for fullbench */
 size_t ZSTD_decodeLiteralsBlock(ZSTD_DCtx* dctx,
@@ -303,7 +300,6 @@ static const ZSTD_seqSymbol OF_defaultDTable[(1<<OF_DEFAULTNORMLOG)+1] = {
     {  0, 25,  5,33554429},  {  0, 24,  5,16777213},
 };   /* OF_defaultDTable */
 
-
 /* Default FSE distribution table for Match Lengths */
 static const ZSTD_seqSymbol ML_defaultDTable[(1<<ML_DEFAULTNORMLOG)+1] = {
     {  1,  1,  1, ML_DEFAULTNORMLOG},  /* header : fastMode, tableLog */
@@ -342,7 +338,6 @@ static const ZSTD_seqSymbol ML_defaultDTable[(1<<ML_DEFAULTNORMLOG)+1] = {
     {  0, 11,  6, 2051},  {  0, 10,  6, 1027},
 };   /* ML_defaultDTable */
 
-
 static void ZSTD_buildSeqTable_rle(ZSTD_seqSymbol* dt, U32 baseValue, U32 nbAddBits)
 {
     void* ptr = dt;
@@ -358,7 +353,6 @@ static void ZSTD_buildSeqTable_rle(ZSTD_seqSymbol* dt, U32 baseValue, U32 nbAddB
     cell->nbAdditionalBits = (BYTE)nbAddBits;
     cell->baseValue = baseValue;
 }
-
 
 /* ZSTD_buildFSETable() :
  * generate FSE decoding table for one symbol (ll, ml or off)
@@ -425,7 +419,6 @@ ZSTD_buildFSETable(ZSTD_seqSymbol* dt,
             tableDecode[u].baseValue = baseValue[symbol];
     }   }
 }
-
 
 /*! ZSTD_buildSeqTable() :
  * @return : nb bytes read from src,
@@ -548,7 +541,6 @@ size_t ZSTD_decodeSeqHeaders(ZSTD_DCtx* dctx, int* nbSeqPtr,
 
     return ip-istart;
 }
-
 
 typedef struct {
     size_t litLength;
@@ -965,8 +957,6 @@ ZSTD_decompressSequences_default(ZSTD_DCtx* dctx,
 }
 #endif /* ZSTD_FORCE_DECOMPRESS_SEQUENCES_LONG */
 
-
-
 #ifndef ZSTD_FORCE_DECOMPRESS_SEQUENCES_SHORT
 FORCE_INLINE_TEMPLATE seq_t
 ZSTD_decodeSequenceLong(seqState_t* seqState, ZSTD_longOffset_e const longOffsets)
@@ -1136,8 +1126,6 @@ ZSTD_decompressSequencesLong_default(ZSTD_DCtx* dctx,
 }
 #endif /* ZSTD_FORCE_DECOMPRESS_SEQUENCES_SHORT */
 
-
-
 #if DYNAMIC_BMI2
 
 #ifndef ZSTD_FORCE_DECOMPRESS_SEQUENCES_LONG
@@ -1187,7 +1175,6 @@ ZSTD_decompressSequences(ZSTD_DCtx* dctx, void* dst, size_t maxDstSize,
 }
 #endif /* ZSTD_FORCE_DECOMPRESS_SEQUENCES_LONG */
 
-
 #ifndef ZSTD_FORCE_DECOMPRESS_SEQUENCES_SHORT
 /* ZSTD_decompressSequencesLong() :
  * decompression function triggered when a minimum share of offsets is considered "long",
@@ -1209,8 +1196,6 @@ ZSTD_decompressSequencesLong(ZSTD_DCtx* dctx,
   return ZSTD_decompressSequencesLong_default(dctx, dst, maxDstSize, seqStart, seqSize, nbSeq, isLongOffset);
 }
 #endif /* ZSTD_FORCE_DECOMPRESS_SEQUENCES_SHORT */
-
-
 
 #if !defined(ZSTD_FORCE_DECOMPRESS_SEQUENCES_SHORT) && \
     !defined(ZSTD_FORCE_DECOMPRESS_SEQUENCES_LONG)
@@ -1239,7 +1224,6 @@ ZSTD_getLongOffsetsShare(const ZSTD_seqSymbol* offTable)
     return total;
 }
 #endif
-
 
 size_t
 ZSTD_decompressBlock_internal(ZSTD_DCtx* dctx,
@@ -1309,7 +1293,6 @@ ZSTD_decompressBlock_internal(ZSTD_DCtx* dctx,
 #endif
     }
 }
-
 
 size_t ZSTD_decompressBlock(ZSTD_DCtx* dctx,
                             void* dst, size_t dstCapacity,

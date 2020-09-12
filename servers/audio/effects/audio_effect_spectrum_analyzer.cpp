@@ -1,8 +1,6 @@
 
 /*  audio_effect_spectrum_analyzer.cpp                                   */
 
-
-
 #include "audio_effect_spectrum_analyzer.h"
 #include "servers/audio_server.h"
 

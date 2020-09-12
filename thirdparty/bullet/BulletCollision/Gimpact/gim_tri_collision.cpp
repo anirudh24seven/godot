@@ -149,9 +149,8 @@ public:
 		GUINT clipped_count= PLANE_CLIP_TRIANGLE_GENERIC(
 			0,srcpoints[0],srcpoints[1],srcpoints[2],temp_points,
 			DISTANCE_EDGE(tripoints[0],tripoints[1],i0,i1));
-		
-		
-		if(clipped_count == 0) return 0;
+
+if(clipped_count == 0) return 0;
 
 		// edge 1
 		clipped_count = PLANE_CLIP_POLYGON_GENERIC(
@@ -488,8 +487,7 @@ public:
 	GIM_TRIANGLE_CONTACT_DATA contacts1;
 	GIM_TRIANGLE_CONTACT_DATA contacts2;
 
-
-	//! clip triangle
+//! clip triangle
 	GUINT clip_triangle(
 		const btVector4 & tri_plane,
 		const btVector3 * tripoints,
@@ -526,10 +524,7 @@ public:
 		return clipped_count;
 	}
 
-
-
-
-	//! collides only on one side
+//! collides only on one side
 	bool triangle_collision(
 					const btVector3 & u0,
 					const btVector3 & u1,
@@ -544,8 +539,7 @@ public:
 
 		margin = margin_u + margin_v;
 
-		
-		tu_vertices[0] = u0;
+tu_vertices[0] = u0;
 		tu_vertices[1] = u1;
 		tu_vertices[2] = u2;
 
@@ -556,8 +550,7 @@ public:
 		//create planes
 		// plane v vs U points
 
-
-		TRIANGLE_PLANE(tv_vertices[0],tv_vertices[1],tv_vertices[2],contacts1.m_separating_normal);
+TRIANGLE_PLANE(tv_vertices[0],tv_vertices[1],tv_vertices[2],contacts1.m_separating_normal);
 
 		clipped_count = clip_triangle(
 			contacts1.m_separating_normal,tv_vertices,tu_vertices,clipped_points);
@@ -603,7 +596,6 @@ public:
 		}
 		return true;
 	}
-
 
 };*/
 

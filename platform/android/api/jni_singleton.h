@@ -1,8 +1,6 @@
 
 /*  jni_singleton.h                                                      */
 
-
-
 #ifndef JNI_SINGLETON_H
 #define JNI_SINGLETON_H
 

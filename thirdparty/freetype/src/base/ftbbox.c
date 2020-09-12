@@ -15,14 +15,12 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This component has a _single_ role: to compute exact outline bounding
    * boxes.
    *
    */
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
@@ -33,14 +31,12 @@
 #include FT_INTERNAL_CALC_H
 #include FT_INTERNAL_OBJECTS_H
 
-
-  typedef struct  TBBox_Rec_
+typedef struct  TBBox_Rec_
   {
     FT_Vector  last;
     FT_BBox    bbox;
 
   } TBBox_Rec;
-
 
 #define FT_UPDATE_BBOX( p, bbox ) \
   FT_BEGIN_STMNT                  \
@@ -60,8 +56,7 @@
 #define CHECK_Y( p, bbox )                         \
           ( p->y < bbox.yMin || p->y > bbox.yMax )
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   BBox_Move_To
@@ -94,8 +89,7 @@
     return 0;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   BBox_Line_To
@@ -126,8 +120,7 @@
     return 0;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   BBox_Conic_Check
@@ -176,8 +169,7 @@
       *max = y2;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   BBox_Conic_To
@@ -233,8 +225,7 @@
     return 0;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   BBox_Cubic_Check
@@ -273,8 +264,7 @@
     FT_Pos  peak = 0;
     FT_Int  shift;
 
-
-    /* This function finds a peak of a cubic segment if it is above 0    */
+/* This function finds a peak of a cubic segment if it is above 0    */
     /* using iterative bisection of the segment, or returns 0.           */
     /* The fixed-point arithmetic of bisection is inherently stable      */
     /* but may loose accuracy in the two lowest bits.  To compensate,    */
@@ -356,8 +346,7 @@
     return peak;
   }
 
-
-  static void
+static void
   BBox_Cubic_Check( FT_Pos   p1,
                     FT_Pos   p2,
                     FT_Pos   p3,
@@ -378,8 +367,7 @@
       *min -= cubic_peak( *min - p1, *min - p2, *min - p3, *min - p4 );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   BBox_Cubic_To
@@ -444,8 +432,7 @@
     return 0;
   }
 
-
-  FT_DEFINE_OUTLINE_FUNCS(
+FT_DEFINE_OUTLINE_FUNCS(
     bbox_interface,
 
     (FT_Outline_MoveTo_Func) BBox_Move_To,   /* move_to  */
@@ -456,8 +443,7 @@
     0                                        /* delta    */
   )
 
-
-  /* documentation is in ftbbox.h */
+/* documentation is in ftbbox.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_Get_BBox( FT_Outline*  outline,
@@ -470,8 +456,7 @@
     FT_Vector*  vec;
     FT_UShort   n;
 
-
-    if ( !abbox )
+if ( !abbox )
       return FT_THROW( Invalid_Argument );
 
     if ( !outline )
@@ -512,8 +497,7 @@
       FT_Error   error;
       TBBox_Rec  user;
 
-
-      user.bbox = bbox;
+user.bbox = bbox;
 
       error = FT_Outline_Decompose( outline, &bbox_interface, &user );
       if ( error )
@@ -526,6 +510,5 @@
 
     return FT_Err_Ok;
   }
-
 
 /* END */

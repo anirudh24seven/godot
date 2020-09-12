@@ -1,8 +1,6 @@
 
 /*  editor_profiler.h                                                    */
 
-
-
 #ifndef EDITORPROFILER_H
 #define EDITORPROFILER_H
 

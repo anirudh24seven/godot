@@ -1,8 +1,6 @@
 
 /*  core_string_names.cpp                                                */
 
-
-
 #include "core_string_names.h"
 
 CoreStringNames *CoreStringNames::singleton = nullptr;

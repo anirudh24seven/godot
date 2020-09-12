@@ -1,8 +1,6 @@
 
 /*  menu_button.cpp                                                      */
 
-
-
 #include "menu_button.h"
 
 #include "core/os/keyboard.h"

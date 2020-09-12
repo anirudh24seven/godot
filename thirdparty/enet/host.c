@@ -308,7 +308,6 @@ enet_host_channel_limit (ENetHost * host, size_t channelLimit)
     host -> channelLimit = channelLimit;
 }
 
-
 /** Adjusts the bandwidth limits of a host.
     @param host host to adjust
     @param incomingBandwidth new incoming bandwidth

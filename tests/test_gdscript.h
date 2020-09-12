@@ -1,8 +1,6 @@
 
 /*  test_gdscript.h                                                      */
 
-
-
 #ifndef TEST_GDSCRIPT_H
 #define TEST_GDSCRIPT_H
 

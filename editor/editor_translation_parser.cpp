@@ -1,8 +1,6 @@
 
 /*  editor_translation_parser.cpp                                        */
 
-
-
 #include "editor_translation_parser.h"
 
 #include "core/error_macros.h"

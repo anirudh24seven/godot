@@ -1,8 +1,6 @@
 
 /*  editor_themes.cpp                                                    */
 
-
-
 #include "editor_themes.h"
 
 #include "core/io/resource_loader.h"

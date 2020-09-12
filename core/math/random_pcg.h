@@ -1,8 +1,6 @@
 
 /*  random_pcg.h                                                         */
 
-
-
 #ifndef RANDOM_PCG_H
 #define RANDOM_PCG_H
 

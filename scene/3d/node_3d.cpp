@@ -1,8 +1,6 @@
 
 /*  node_3d.cpp                                                          */
 
-
-
 #include "node_3d.h"
 
 #include "core/engine.h"

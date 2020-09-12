@@ -1,8 +1,6 @@
 
 /*  file_access_unix.h                                                   */
 
-
-
 #ifndef FILE_ACCESS_UNIX_H
 #define FILE_ACCESS_UNIX_H
 

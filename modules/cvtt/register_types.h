@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifdef TOOLS_ENABLED
 
 #ifndef CVTT_REGISTER_TYPES_H

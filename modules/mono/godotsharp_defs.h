@@ -1,8 +1,6 @@
 
 /*  godotsharp_defs.h                                                    */
 
-
-
 #ifndef GODOTSHARP_DEFS_H
 #define GODOTSHARP_DEFS_H
 

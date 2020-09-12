@@ -1,8 +1,6 @@
 
 /*  audio_effect_amplify.cpp                                             */
 
-
-
 #include "audio_effect_amplify.h"
 
 void AudioEffectAmplifyInstance::process(const AudioFrame *p_src_frames, AudioFrame *p_dst_frames, int p_frame_count) {

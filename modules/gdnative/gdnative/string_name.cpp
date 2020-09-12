@@ -1,8 +1,6 @@
 
 /*  string_name.cpp                                                      */
 
-
-
 #include "gdnative/string_name.h"
 
 #include "core/string_name.h"

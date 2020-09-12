@@ -1,8 +1,6 @@
 
 /*  node_3d.h                                                            */
 
-
-
 #ifndef NODE_3D_H
 #define NODE_3D_H
 

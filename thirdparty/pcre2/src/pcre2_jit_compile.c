@@ -794,7 +794,6 @@ the start pointers when the end of the capturing group has not yet reached. */
     } \
   }
 
-
 #elif PCRE2_CODE_UNIT_WIDTH == 32
 
 #define GETCHARINC_INVALID(c, ptr, end, invalid_action) \
@@ -5066,7 +5065,6 @@ if (newlinecheck)
 
 return mainloop;
 }
-
 
 static SLJIT_INLINE void add_prefix_char(PCRE2_UCHAR chr, fast_forward_char_data *chars, BOOL last)
 {
@@ -9834,8 +9832,7 @@ add_jump(compiler, parent->top != NULL ? &parent->top->nextbacktracks : &parent-
   ()*?     OP_BRAMINZERO | OP_CBRA    | OP_KETRMIN      S 0 ( C M S )*
            OP_BRAMINZERO | OP_SCBRA   | OP_KETRMIN      S 0 ( C M S )*
 
-
-  Stack layout naming characters:
+Stack layout naming characters:
     A - Push the alternative index (starting from 0) on the stack.
         Not pushed if there is no alternatives.
     M - Any values pushed by the current alternative. Can be empty, or anything.

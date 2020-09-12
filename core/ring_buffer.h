@@ -1,8 +1,6 @@
 
 /*  ring_buffer.h                                                        */
 
-
-
 #ifndef RING_BUFFER_H
 #define RING_BUFFER_H
 

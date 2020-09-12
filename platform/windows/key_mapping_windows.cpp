@@ -1,8 +1,6 @@
 
 /*  key_mapping_windows.cpp                                              */
 
-
-
 #include "key_mapping_windows.h"
 
 #include <stdio.h>

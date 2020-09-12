@@ -293,14 +293,12 @@ struct btConnectivityProcessor : public btTriangleCallback
 	}
 };
 
-
 struct b3ProcessAllTrianglesHeightfield: public btTriangleCallback
 {
 	btHeightfieldTerrainShape* m_heightfieldShape;
 	btTriangleInfoMap* m_triangleInfoMap;
-	
 
-	b3ProcessAllTrianglesHeightfield(btHeightfieldTerrainShape* heightFieldShape, btTriangleInfoMap* triangleInfoMap)
+b3ProcessAllTrianglesHeightfield(btHeightfieldTerrainShape* heightFieldShape, btTriangleInfoMap* triangleInfoMap)
 		:m_heightfieldShape(heightFieldShape),
 		m_triangleInfoMap(triangleInfoMap)
 	{
@@ -396,7 +394,6 @@ void btGenerateInternalEdgeInfo(btBvhTriangleMeshShape* trimeshShape, btTriangle
 	}
 }
 
-
 void btGenerateInternalEdgeInfo(btHeightfieldTerrainShape* heightfieldShape, btTriangleInfoMap* triangleInfoMap)
 {
 
@@ -483,8 +480,7 @@ void btAdjustInternalEdgeContacts(btManifoldPoint& cp, const btCollisionObjectWr
 	if (colObj0Wrap->getCollisionShape()->getShapeType() != TRIANGLE_SHAPE_PROXYTYPE)
 		return;
 
-	
-	btTriangleInfoMap* triangleInfoMapPtr = 0;
+btTriangleInfoMap* triangleInfoMapPtr = 0;
 
 	if (colObj0Wrap->getCollisionObject()->getCollisionShape()->getShapeType() == TERRAIN_SHAPE_PROXYTYPE)
 	{
@@ -508,8 +504,7 @@ void btAdjustInternalEdgeContacts(btManifoldPoint& cp, const btCollisionObjectWr
 #endif
 	}
 
-
-	btBvhTriangleMeshShape* trimesh = 0;
+btBvhTriangleMeshShape* trimesh = 0;
 
 	if (colObj0Wrap->getCollisionObject()->getCollisionShape()->getShapeType() == SCALED_TRIANGLE_MESH_SHAPE_PROXYTYPE)
 	{
@@ -526,9 +521,8 @@ void btAdjustInternalEdgeContacts(btManifoldPoint& cp, const btCollisionObjectWr
 	{
 		triangleInfoMapPtr = (btTriangleInfoMap*)trimesh->getTriangleInfoMap();
 	}
-	
-	
-	if (!triangleInfoMapPtr)
+
+if (!triangleInfoMapPtr)
 		return;
 
 	int hash = btGetHash(partId0, index0);

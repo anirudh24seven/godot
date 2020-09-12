@@ -1,8 +1,6 @@
 
 /*  gdscript_language_server.cpp                                         */
 
-
-
 #include "gdscript_language_server.h"
 
 #include "core/os/file_access.h"

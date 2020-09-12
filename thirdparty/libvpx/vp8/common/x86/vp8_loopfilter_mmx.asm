@@ -8,9 +8,7 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
-
 
 ;void vp8_loop_filter_horizontal_edge_mmx
 ;(
@@ -55,8 +53,7 @@ sym(vp8_loop_filter_horizontal_edge_mmx):
         por         mm1, mm2              ; abs(q3-q2)
         psubusb     mm1, mm7              ;
 
-
-        movq        mm4, [rsi+rax]        ; q1
+movq        mm4, [rsi+rax]        ; q1
         movq        mm3, mm4              ; q1
         psubusb     mm4, mm6              ; q1-=q2
         psubusb     mm6, mm3              ; q2-=q1
@@ -74,8 +71,7 @@ sym(vp8_loop_filter_horizontal_edge_mmx):
         psubusb     mm4, mm7
         por        mm1, mm4
 
-
-        neg         rax                   ; negate pitch to deal with above border
+neg         rax                   ; negate pitch to deal with above border
 
         movq        mm2, [rsi+4*rax]      ; p3
         movq        mm4, [rdi+4*rax]      ; p2
@@ -86,8 +82,7 @@ sym(vp8_loop_filter_horizontal_edge_mmx):
         psubusb     mm4, mm7
         por        mm1, mm4
 
-
-        movq        mm4, [rsi+2*rax]      ; p1
+movq        mm4, [rsi+2*rax]      ; p1
         movq        mm3, mm4              ; p1
         psubusb     mm4, mm5              ; p1-=p2
         psubusb     mm5, mm3              ; p2-=p1
@@ -144,8 +139,7 @@ sym(vp8_loop_filter_horizontal_edge_mmx):
         pcmpeqb     mm5,        mm5
         pxor        mm4,        mm5
 
-
-        ; start work on filters
+; start work on filters
         movq        mm2, [rsi+2*rax]      ; p1
         movq        mm7, [rdi]            ; q1
         pxor        mm2, [GLOBAL(t80)]    ; p1 offset to convert to signed values
@@ -223,7 +217,6 @@ sym(vp8_loop_filter_horizontal_edge_mmx):
     pop         rbp
     ret
 
-
 ;void vp8_loop_filter_vertical_edge_mmx
 ;(
 ;    unsigned char *src_ptr,
@@ -259,8 +252,7 @@ sym(vp8_loop_filter_vertical_edge_mmx):
         mov         rdi,        rsi           ; rdi points to row +1 for indirect addressing
         add         rdi,        rax
 
-
-        ;transpose
+;transpose
         movq        mm6,        [rsi+2*rax]                 ; 67 66 65 64 63 62 61 60
         movq        mm7,        mm6                         ; 77 76 75 74 73 72 71 70
 
@@ -439,9 +431,7 @@ sym(vp8_loop_filter_vertical_edge_mmx):
         pcmpeqb     mm0,        mm0
         pxor        mm4,        mm0
 
-
-
-        ; start work on filters
+; start work on filters
         lea         rdx,        srct
 
         movq        mm2,        [rdx]           ; p1
@@ -551,15 +541,12 @@ sym(vp8_loop_filter_vertical_edge_mmx):
         punpcklwd   mm1,        mm3             ; 55 54 53 52 45 44 43 42
         punpckhwd   mm5,        mm3             ; 75 74 73 72 65 64 63 62
 
-
-        ; mm2 = 15 14 13 12 05 04 03 02
+; mm2 = 15 14 13 12 05 04 03 02
         ; mm6 = 35 34 33 32 25 24 23 22
         ; mm5 = 55 54 53 52 45 44 43 42
         ; mm1 = 75 74 73 72 65 64 63 62
 
-
-
-        movd        [rsi+rax*4+2], mm2
+movd        [rsi+rax*4+2], mm2
         psrlq       mm2,        32
 
         movd        [rdi+rax*4+2], mm2
@@ -592,7 +579,6 @@ sym(vp8_loop_filter_vertical_edge_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_mbloop_filter_horizontal_edge_mmx
 ;(
@@ -638,8 +624,7 @@ sym(vp8_mbloop_filter_horizontal_edge_mmx):
         por         mm1, mm2              ; abs(q3-q2)
         psubusb     mm1, mm7
 
-
-        ; mm1 = abs(q3-q2), mm6 =q2, mm7 = limit
+; mm1 = abs(q3-q2), mm6 =q2, mm7 = limit
         movq        mm4, [rsi+rax]        ; q1
         movq        mm3, mm4              ; q1
         psubusb     mm4, mm6              ; q1-=q2
@@ -648,8 +633,7 @@ sym(vp8_mbloop_filter_horizontal_edge_mmx):
         psubusb     mm4, mm7
         por        mm1, mm4
 
-
-        ; mm1 = mask,      mm3=q1, mm7 = limit
+; mm1 = mask,      mm3=q1, mm7 = limit
 
         movq        mm4, [rsi]            ; q0
         movq        mm0, mm4              ; q0
@@ -660,8 +644,7 @@ sym(vp8_mbloop_filter_horizontal_edge_mmx):
         psubusb     mm4, mm7
         por        mm1, mm4
 
-
-        ; mm1 = mask, mm0=q0,  mm7 = limit, t0 = abs(q0-q1)
+; mm1 = mask, mm0=q0,  mm7 = limit, t0 = abs(q0-q1)
 
         neg         rax                   ; negate pitch to deal with above border
 
@@ -685,8 +668,7 @@ sym(vp8_mbloop_filter_horizontal_edge_mmx):
 
         movq        mm2, mm3              ; p1
 
-
-        ; mm1 = mask, mm0=q0,  mm7 = limit, t0 = abs(q0-q1)
+; mm1 = mask, mm0=q0,  mm7 = limit, t0 = abs(q0-q1)
 
         movq        mm4, [rsi+rax]        ; p0
         movq        mm5, mm4              ; p0
@@ -739,9 +721,7 @@ sym(vp8_mbloop_filter_horizontal_edge_mmx):
         pcmpeqb     mm5,        mm5
         pxor        mm4,        mm5
 
-
-
-        ; mm1 = mask, mm0=q0,  mm7 = thresh, t0 = abs(q0-q1) t1 = abs(p1-p0)
+; mm1 = mask, mm0=q0,  mm7 = thresh, t0 = abs(q0-q1) t1 = abs(p1-p0)
         ; mm6 = p0, mm4=hev
         ; start work on filters
         movq        mm2, [rsi+2*rax]      ; p1
@@ -759,8 +739,7 @@ sym(vp8_mbloop_filter_horizontal_edge_mmx):
         paddsb      mm2, mm0              ; 3 * (q0 - p0) + (p1 - q1)
         pand        mm1, mm2              ; mask filter values we don't care about
 
-
-        ; mm1 = vp8_filter, mm4=hev, mm6=ps0, mm3=qs0
+; mm1 = vp8_filter, mm4=hev, mm6=ps0, mm3=qs0
         movq        mm2, mm1              ; vp8_filter
         pand        mm2, mm4;             ; Filter2 = vp8_filter & hev
 
@@ -797,8 +776,7 @@ sym(vp8_mbloop_filter_horizontal_edge_mmx):
         ; Filter2 = vp8_filter;
         pandn       mm4, mm1              ; vp8_filter&=~hev
 
-
-        ; mm3=qs0, mm4=filter2, mm6=ps0
+; mm3=qs0, mm4=filter2, mm6=ps0
 
         ; u = vp8_signed_char_clamp((63 + Filter2 * 27)>>7);
         ; s = vp8_signed_char_clamp(qs0 - u);
@@ -877,8 +855,7 @@ sym(vp8_mbloop_filter_horizontal_edge_mmx):
         psraw       mm2, 7
         packsswb    mm1, mm2
 
-
-        movq        mm6, [rdi+rax*4]
+movq        mm6, [rdi+rax*4]
         neg         rax
         movq        mm3, [rdi+rax  ]
 
@@ -909,7 +886,6 @@ sym(vp8_mbloop_filter_horizontal_edge_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_mbloop_filter_vertical_edge_mmx
 ;(
@@ -998,8 +974,7 @@ sym(vp8_mbloop_filter_vertical_edge_mmx):
         movq        [rdx+56],   mm7
         psubusb     mm5,        mm7                         ; q2-q3
 
-
-        movq        [rdx+48],   mm6
+movq        [rdx+48],   mm6
         psubusb     mm7,        mm6                         ; q3-q2
 
         por         mm7,        mm5;                        ; mm7=abs (q3-q2)
@@ -1136,10 +1111,7 @@ sym(vp8_mbloop_filter_vertical_edge_mmx):
         pcmpeqb     mm0,        mm0
         pxor        mm4,        mm0
 
-
-
-
-        ; start work on filters
+; start work on filters
         lea         rdx,        srct
 
         ; start work on filters
@@ -1198,8 +1170,7 @@ sym(vp8_mbloop_filter_vertical_edge_mmx):
         ; Filter2 = vp8_filter;
         pandn       mm4, mm1              ; vp8_filter&=~hev
 
-
-        ; mm3=qs0, mm4=filter2, mm6=ps0
+; mm3=qs0, mm4=filter2, mm6=ps0
 
         ; u = vp8_signed_char_clamp((63 + Filter2 * 27)>>7);
         ; s = vp8_signed_char_clamp(qs0 - u);
@@ -1377,7 +1348,6 @@ sym(vp8_mbloop_filter_vertical_edge_mmx):
     pop         rbp
     ret
 
-
 ;void vp8_loop_filter_simple_horizontal_edge_mmx
 ;(
 ;    unsigned char *src_ptr,
@@ -1463,8 +1433,7 @@ sym(vp8_loop_filter_simple_horizontal_edge_mmx):
         pxor        mm3, [GLOBAL(t80)]    ; unoffset
         movq        [rsi], mm3            ; write back
 
-
-        ; now do +3 side
+; now do +3 side
         psubsb      mm5, [GLOBAL(t1s)]     ; +3 instead of +4
 
         movq        mm0, mm5              ; get a copy of filters
@@ -1475,8 +1444,7 @@ sym(vp8_loop_filter_simple_horizontal_edge_mmx):
         psllw       mm5, 8                ; shift left 8 to put it back
         por         mm0, mm5              ; put the two together to get result
 
-
-        paddsb      mm6, mm0              ; p0+= p0 add
+paddsb      mm6, mm0              ; p0+= p0 add
         pxor        mm6, [GLOBAL(t80)]    ; unoffset
         movq        [rsi+rax], mm6        ; write back
 
@@ -1492,7 +1460,6 @@ sym(vp8_loop_filter_simple_horizontal_edge_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void vp8_loop_filter_simple_vertical_edge_mmx
 ;(
@@ -1562,8 +1529,7 @@ sym(vp8_loop_filter_simple_vertical_edge_mmx):
 
         punpckhdq   mm3,        mm5                             ; 73 63 53 43 33 23 13 03       = q1
 
-
-        ; calculate mask
+; calculate mask
         movq        mm6,        mm0                             ; p1
         movq        mm7,        mm3                             ; q1
         psubusb     mm7,        mm6                             ; q1-=p1
@@ -1644,8 +1610,7 @@ sym(vp8_loop_filter_simple_vertical_edge_mmx):
         paddsb      mm6, mm0                                    ; p0+= p0 add
         pxor        mm6, [GLOBAL(t80)]                          ; unoffset
 
-
-        movq        mm0,        t0
+movq        mm0,        t0
         movq        mm4,        t1
 
         ; mm0 = 70 60 50 40 30 20 10 00
@@ -1706,8 +1671,6 @@ sym(vp8_loop_filter_simple_vertical_edge_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
-
 
 ;void fast_loop_filter_vertical_edges_mmx(unsigned char *y_ptr,
 ;                  int y_stride,

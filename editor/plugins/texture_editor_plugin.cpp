@@ -1,8 +1,6 @@
 
 /*  texture_editor_plugin.cpp                                            */
 
-
-
 #include "texture_editor_plugin.h"
 
 #include "core/io/resource_loader.h"

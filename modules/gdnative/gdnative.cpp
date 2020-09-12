@@ -1,8 +1,6 @@
 
 /*  gdnative.cpp                                                         */
 
-
-
 #include "gdnative.h"
 
 #include "core/global_constants.h"

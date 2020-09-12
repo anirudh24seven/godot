@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 /* This module contains an internal function for validating UTF character
 strings. This file is also #included by the pcre2test program, which uses
 macros to change names from _pcre2_xxx to xxxx, thereby avoiding name clashes
@@ -50,7 +49,6 @@ with the library. In this case, PCRE2_PCRE2TEST is defined. */
 #endif
 #include "pcre2_internal.h"
 #endif /* PCRE2_PCRE2TEST */
-
 
 #ifndef SUPPORT_UNICODE
 /*************************************************
@@ -68,8 +66,6 @@ PRIV(valid_utf)(PCRE2_SPTR string, PCRE2_SIZE length, PCRE2_SIZE *erroroffset)
 return 0;
 }
 #else  /* UTF is supported */
-
-
 
 /*************************************************
 *           Validate a UTF string                *
@@ -315,7 +311,6 @@ for (p = string; length > 0; p++)
   }
 return 0;
 
-
 /* ----------------- Check a UTF-16 string ----------------- */
 
 #elif PCRE2_CODE_UNIT_WIDTH == 16
@@ -359,8 +354,6 @@ for (p = string; length > 0; p++)
     }
   }
 return 0;
-
-
 
 /* ----------------- Check a UTF-32 string ----------------- */
 

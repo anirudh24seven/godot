@@ -1,8 +1,6 @@
 
 /*  collada.h                                                            */
 
-
-
 #ifndef COLLADA_H
 #define COLLADA_H
 

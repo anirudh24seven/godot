@@ -1,8 +1,6 @@
 
 /*  convex_polygon_shape_2d.h                                            */
 
-
-
 #ifndef CONVEX_POLYGON_SHAPE_2D_H
 #define CONVEX_POLYGON_SHAPE_2D_H
 

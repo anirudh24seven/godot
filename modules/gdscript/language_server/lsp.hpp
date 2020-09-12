@@ -1,8 +1,6 @@
 
 /*  lsp.hpp                                                              */
 
-
-
 #ifndef GODOT_LSP_H
 #define GODOT_LSP_H
 

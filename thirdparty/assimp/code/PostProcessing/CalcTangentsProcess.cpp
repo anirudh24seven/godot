@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -233,8 +231,7 @@ bool CalcTangentsProcess::ProcessMesh( aiMesh* pMesh, unsigned int meshIndex)
         }
     }
 
-
-    // create a helper to quickly find locally close vertices among the vertex array
+// create a helper to quickly find locally close vertices among the vertex array
     // FIX: check whether we can reuse the SpatialSort of a previous step
     SpatialSort* vertexFinder = NULL;
     SpatialSort  _vertexFinder;

@@ -1,8 +1,6 @@
 
 /*  check_button.cpp                                                     */
 
-
-
 #include "check_button.h"
 
 #include "core/print_string.h"

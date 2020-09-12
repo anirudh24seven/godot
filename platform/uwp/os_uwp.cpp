@@ -1,8 +1,6 @@
 
 /*  os_uwp.cpp                                                           */
 
-
-
 // Must include Winsock before windows.h (included by os_uwp.h)
 #include "drivers/unix/net_socket_posix.h"
 

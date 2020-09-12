@@ -378,8 +378,7 @@ private:
     Xbyak::Zmm vidx5 = zmm27;
     Xbyak::Zmm zmm_tmp  = zmm26;
 
-
-    void transpose(int nrows, int l_pad, int r_pad, bool nontemporal_stores);
+void transpose(int nrows, int l_pad, int r_pad, bool nontemporal_stores);
     void generate();
 };
 
@@ -727,8 +726,7 @@ void jit_trans_ow_oc_t::transpose(int nrows, int l_pad, int r_pad,
         vmovups(src_ymm(i), EVEX_compress_addr(reg_src, i * src_stride));
     };
 
-
-    auto store = [=](Zmm r, int i) {
+auto store = [=](Zmm r, int i) {
         auto addr = EVEX_compress_addr(reg_tr_src, i * tr_src_stride);
         if (nontemporal_stores)
             vmovntps(addr, r);

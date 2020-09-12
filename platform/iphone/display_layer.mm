@@ -1,8 +1,6 @@
 
 /*  display_layer.mm                                                     */
 
-
-
 #import "display_layer.h"
 #include "core/os/keyboard.h"
 #include "core/project_settings.h"

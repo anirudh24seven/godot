@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_OBJECTS_H
@@ -25,8 +24,7 @@
 
 #include "ciderrs.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -35,25 +33,16 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  cidparse
 
-
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    INPUT STREAM PARSER                        *****/
   /*****                                                               *****/
-
-
-
-
 
 #define STARTDATA      "StartData"
 #define STARTDATA_LEN  ( sizeof ( STARTDATA ) - 1 )
 #define SFNTS          "/sfnts"
 #define SFNTS_LEN      ( sizeof ( SFNTS ) - 1 )
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   cid_parser_new( CID_Parser*    parser,
                   FT_Stream      stream,
                   FT_Memory      memory,
@@ -64,8 +53,7 @@
     FT_Byte   *cur, *limit;
     FT_Byte   *arg1, *arg2;
 
-
-    FT_ZERO( parser );
+FT_ZERO( parser );
     psaux->ps_parser_funcs->init( &parser->root, 0, 0, memory );
 
     parser->stream = stream;
@@ -115,13 +103,11 @@
       FT_ULong  read_offset = 0;
       FT_Byte*  p           = buffer;
 
-
-      for ( offset = FT_STREAM_POS(); ; offset += 256 )
+for ( offset = FT_STREAM_POS(); ; offset += 256 )
       {
         FT_ULong  stream_len;
 
-
-        stream_len = stream->size - FT_STREAM_POS();
+stream_len = stream->size - FT_STREAM_POS();
 
         read_len = FT_MIN( read_len, stream_len );
         if ( FT_STREAM_READ( p, read_len ) )
@@ -215,8 +201,7 @@
         {
           FT_Long  tmp = ft_strtol( (const char *)arg2, NULL, 10 );
 
-
-          if ( tmp < 0 )
+if ( tmp < 0 )
           {
             FT_ERROR(( "cid_parser_new: invalid length of hex data\n" ));
             error = FT_THROW( Invalid_File_Format );
@@ -252,14 +237,12 @@
     return error;
   }
 
-
 #undef STARTDATA
 #undef STARTDATA_LEN
 #undef SFNTS
 #undef SFNTS_LEN
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cid_parser_done( CID_Parser*  parser )
   {
     /* always free the private dictionary */
@@ -267,11 +250,9 @@
     {
       FT_Stream  stream = parser->stream;
 
-
-      FT_FRAME_RELEASE( parser->postscript );
+FT_FRAME_RELEASE( parser->postscript );
     }
     parser->root.funcs.done( &parser->root );
   }
-
 
 /* END */

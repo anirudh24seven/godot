@@ -103,9 +103,6 @@ Documentation of all members: vk_mem_alloc.h
 - [Product page on GPUOpen](https://gpuopen.com/gaming-product/vulkan-memory-allocator/)
 - [Source repository on GitHub](https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator)
 
-
-
-
 \page quick_start Quick start
 
 \section quick_start_project_setup Project setup
@@ -142,7 +139,6 @@ includes `<windows.h>` on Windows. If you need some specific macros defined
 before including these headers (like `WIN32_LEAN_AND_MEAN` or
 `WINVER` for Windows, `VK_USE_PLATFORM_WIN32_KHR` for Vulkan), you must define
 them before every `#include` of this library.
-
 
 \section quick_start_initialization Initialization
 
@@ -189,7 +185,6 @@ Don't forget to destroy your objects when no longer needed:
 vmaDestroyBuffer(allocator, buffer, allocation);
 vmaDestroyAllocator(allocator);
 \endcode
-
 
 \page choosing_memory_type Choosing memory type
 
@@ -327,7 +322,6 @@ The library can also internally decide to use dedicated allocation in some cases
 - When allocation of next big memory block fails due to not enough device memory,
   but allocation with the exact requested size succeeds.
 
-
 \page memory_mapping Memory mapping
 
 To "map memory" in Vulkan means to obtain a CPU pointer to `VkDeviceMemory`,
@@ -380,7 +374,6 @@ It happens because the library maps entire `VkDeviceMemory` block, where differe
 types of images and buffers may end up together, especially on GPUs with unified memory like Intel.
 You can safely ignore it if you are sure you access only memory of the intended
 object that you wanted to map.
-
 
 \section memory_mapping_persistently_mapped_memory Persistently mapped memory
 
@@ -526,7 +519,6 @@ else
 }
 \endcode
 
-
 \page staying_within_budget Staying within budget
 
 When developing a graphics-intensive game or program, it is important to avoid allocating
@@ -597,7 +589,6 @@ to obtain a new block.
 Please note that creating \ref custom_memory_pools with VmaPoolCreateInfo::minBlockCount
 set to more than 0 will try to allocate memory blocks without checking whether they
 fit within budget.
-
 
 \page custom_memory_pools Custom memory pools
 
@@ -863,7 +854,6 @@ VmaAllocator allocator;
 std::vector<VkBuffer> buffers;
 std::vector<VmaAllocation> allocations;
 
-
 const uint32_t allocCount = (uint32_t)allocations.size();
 std::vector<VkBool32> allocationsChanged(allocCount);
 
@@ -930,7 +920,6 @@ VmaAllocator allocator;
 VkCommandBuffer commandBuffer;
 std::vector<VkBuffer> buffers;
 std::vector<VmaAllocation> allocations;
-
 
 const uint32_t allocCount = (uint32_t)allocations.size();
 std::vector<VkBool32> allocationsChanged(allocCount);
@@ -1027,7 +1016,6 @@ Here are steps needed to do this:
    VmaDefragmentationInfo2::flags.
 -# Modify function `VmaBlockVectorDefragmentationContext::Begin` to create object
    of your new class whenever needed.
-
 
 \page lost_allocations Lost allocations
 
@@ -1146,7 +1134,6 @@ internal allocator state using vmaBuildStatsString().
 You can use this feature for debugging purposes to explicitly mark allocations that you use
 in current frame and then analyze JSON dump to see for how long each allocation stays unused.
 
-
 \page statistics Statistics
 
 This library contains functions that return information about its internal state,
@@ -1188,7 +1175,6 @@ The JSON string contains all the data that can be obtained using vmaCalculateSta
 It can also contain detailed map of allocated memory blocks and their regions -
 free and occupied by allocations.
 This allows e.g. to visualize the memory or assess fragmentation.
-
 
 \page allocation_annotation Allocation names and user data
 
@@ -1267,7 +1253,6 @@ printf("Image name: %s\n", imageName);
 \endcode
 
 That string is also printed in JSON report created by vmaBuildStatsString().
-
 
 \page debugging_memory_usage Debugging incorrect memory usage
 
@@ -1365,7 +1350,6 @@ vmaCheckPoolCorruption().
 Margin validation (corruption detection) works only for memory types that are
 `HOST_VISIBLE` and `HOST_COHERENT`.
 
-
 \page record_and_replay Record and replay
 
 \section record_and_replay_introduction Introduction
@@ -1417,12 +1401,10 @@ It's a human-readable, text file in CSV format (Comma Separated Values).
   `VMA_RECORDING_ENABLED` macro. Support for other platforms should be easy to
   add. Contributions are welcomed.
 
-
 \page usage_patterns Recommended usage patterns
 
 See also slides from talk:
 [Sawicki, Adam. Advanced Graphics Techniques Tutorial: Memory management in Vulkan and DX12. Game Developers Conference, 2018](https://www.gdcvault.com/play/1025458/Advanced-Graphics-Techniques-Tutorial-New)
-
 
 \section usage_patterns_common_mistakes Common mistakes
 
@@ -1568,7 +1550,6 @@ an simple optimization for cases when your resource ends up in mappable memory t
 directly in this case instead of creating CPU-side staging copy.
 For details see [Finding out if memory is mappable](@ref memory_mapping_finding_if_memory_mappable).
 
-
 \page configuration Configuration
 
 Please check "CONFIGURATION SECTION" in the code to find macros that you can define
@@ -1623,8 +1604,6 @@ memory available without switching your graphics card to one that really has
 smaller VRAM, you can use a feature of this library intended for this purpose.
 To do it, fill optional member VmaAllocatorCreateInfo::pHeapSizeLimit.
 
-
-
 \page vk_khr_dedicated_allocation VK_KHR_dedicated_allocation
 
 VK_KHR_dedicated_allocation is a Vulkan extension which can be used to improve
@@ -1672,8 +1651,6 @@ To learn more about this extension, see:
 
 - [VK_KHR_dedicated_allocation in Vulkan specification](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_dedicated_allocation)
 - [VK_KHR_dedicated_allocation unofficial manual](http://asawicki.info/articles/VK_KHR_dedicated_allocation.php5)
-
-
 
 \page general_considerations General considerations
 
@@ -8080,7 +8057,6 @@ struct VmaSuballocationItemSizeLess
     }
 };
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // class VmaBlockMetadata
 
@@ -9079,7 +9055,6 @@ void VmaBlockMetadata_Generic::RegisterFreeSuballocation(VmaSuballocationList::i
 
     //VMA_HEAVY_ASSERT(ValidateFreeSuballocationList());
 }
-
 
 void VmaBlockMetadata_Generic::UnregisterFreeSuballocation(VmaSuballocationList::iterator item)
 {
@@ -10890,7 +10865,6 @@ void VmaBlockMetadata_Linear::CleanupAfterFree()
     VMA_HEAVY_ASSERT(Validate());
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // class VmaBlockMetadata_Buddy
 
@@ -11456,7 +11430,6 @@ void VmaBlockMetadata_Buddy::PrintDetailedMapNode(class VmaJsonWriter& json, con
     }
 }
 #endif // #if VMA_STATS_STRING_ENABLED
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // class VmaDeviceMemoryBlock

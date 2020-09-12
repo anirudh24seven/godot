@@ -1,8 +1,6 @@
 
 /*  physics_body_3d.h                                                    */
 
-
-
 #ifndef PHYSICS_BODY_3D_H
 #define PHYSICS_BODY_3D_H
 

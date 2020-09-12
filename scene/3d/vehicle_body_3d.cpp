@@ -1,8 +1,6 @@
 
 /*  vehicle_body_3d.cpp                                                  */
 
-
-
 #include "vehicle_body_3d.h"
 
 #define ROLLING_INFLUENCE_FIX

@@ -90,7 +90,6 @@ aiMatrix4x4t<TReal>::operator aiMatrix4x4t<TOther> () const {
         static_cast<TOther>(d1),static_cast<TOther>(d2),static_cast<TOther>(d3),static_cast<TOther>(d4));
 }
 
-
 // ----------------------------------------------------------------------------------------
 template <typename TReal>
 AI_FORCE_INLINE

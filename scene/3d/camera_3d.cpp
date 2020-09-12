@@ -1,8 +1,6 @@
 
 /*  camera_3d.cpp                                                        */
 
-
-
 #include "camera_3d.h"
 
 #include "collision_object_3d.h"

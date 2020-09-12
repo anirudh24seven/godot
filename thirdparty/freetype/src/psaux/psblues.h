@@ -35,8 +35,7 @@
  *
  */
 
-
-  /*
+/*
    * A `CF2_Blues' object stores the blue zones (horizontal alignment
    * zones) of a font.  These are specified in the CFF private dictionary
    * by `BlueValues', `OtherBlues', `FamilyBlues', and `FamilyOtherBlues'.
@@ -64,18 +63,14 @@
    *
    */
 
-
 #ifndef PSBLUES_H_
 #define PSBLUES_H_
 
-
 #include "psglue.h"
-
 
 FT_BEGIN_HEADER
 
-
-  /*
+/*
    * `CF2_Hint' is shared by `cf2hints.h' and
    * `cf2blues.h', but `cf2blues.h' depends on
    * `cf2hints.h', so define it here.  Note: The typedef is in
@@ -93,8 +88,7 @@ FT_BEGIN_HEADER
     CF2_Synthetic   = 0x20  /* this edge was synthesized      */
   };
 
-
-  /*
+/*
    * Default value for OS/2 typoAscender/Descender when their difference
    * is not equal to `unitsPerEm'.  The default is based on -250 and 1100
    * in `CF2_Blues', assuming 1000 units per em here.
@@ -106,15 +100,13 @@ FT_BEGIN_HEADER
     CF2_ICF_Bottom = cf2_intToFixed( -120 )
   };
 
-
-  /*
+/*
    * Constant used for hint adjustment and for synthetic em box hint
    * placement.
    */
 #define CF2_MIN_COUNTER  cf2_doubleToFixed( 0.5 )
 
-
-  /* shared typedef is in cf2glue.h */
+/* shared typedef is in cf2glue.h */
   struct  CF2_HintRec_
   {
     CF2_UInt  flags;  /* attributes of the edge            */
@@ -125,8 +117,7 @@ FT_BEGIN_HEADER
     CF2_Fixed  scale;
   };
 
-
-  typedef struct  CF2_BlueRec_
+typedef struct  CF2_BlueRec_
   {
     CF2_Fixed  csBottomEdge;
     CF2_Fixed  csTopEdge;
@@ -137,16 +128,14 @@ FT_BEGIN_HEADER
 
   } CF2_BlueRec;
 
-
-  /* max total blue zones is 12 */
+/* max total blue zones is 12 */
   enum
   {
     CF2_MAX_BLUES      = 7,
     CF2_MAX_OTHERBLUES = 5
   };
 
-
-  typedef struct  CF2_BluesRec_
+typedef struct  CF2_BluesRec_
   {
     CF2_Fixed  scale;
     CF2_UInt   count;
@@ -166,8 +155,7 @@ FT_BEGIN_HEADER
 
   } CF2_BluesRec, *CF2_Blues;
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   cf2_blues_init( CF2_Blues  blues,
                   CF2_Font   font );
   FT_LOCAL( FT_Bool )
@@ -175,11 +163,8 @@ FT_BEGIN_HEADER
                      CF2_Hint         bottomHintEdge,
                      CF2_Hint         topHintEdge );
 
-
 FT_END_HEADER
 
-
 #endif /* PSBLUES_H_ */
-
 
 /* END */

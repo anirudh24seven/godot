@@ -1,8 +1,6 @@
 
 /*  editor_debugger_server_websocket.h                                   */
 
-
-
 #ifndef SCRIPT_EDITOR_DEBUGGER_WEBSOCKET_H
 #define SCRIPT_EDITOR_DEBUGGER_WEBSOCKET_H
 

@@ -75,5 +75,4 @@ extern long _ve_envelope_search(vorbis_dsp_state *v);
 extern void _ve_envelope_shift(envelope_lookup *e,long shift);
 extern int  _ve_envelope_mark(vorbis_dsp_state *v);
 
-
 #endif

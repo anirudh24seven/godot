@@ -1,8 +1,6 @@
 
 /*  websocket_client.h                                                   */
 
-
-
 #ifndef WEBSOCKET_CLIENT_H
 #define WEBSOCKET_CLIENT_H
 

@@ -1,8 +1,6 @@
 
 /*  godot_pluginscript.h                                                 */
 
-
-
 #ifndef GODOT_PLUGINSCRIPT_H
 #define GODOT_PLUGINSCRIPT_H
 

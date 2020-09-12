@@ -256,8 +256,6 @@ int mbedtls_asn1_get_bitstring_null( unsigned char **p, const unsigned char *end
     return( 0 );
 }
 
-
-
 /*
  *  Parses and splits an ASN.1 "SEQUENCE OF <tag>"
  */

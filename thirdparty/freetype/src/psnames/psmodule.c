@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_OBJECTS_H
@@ -42,18 +41,14 @@
 
 #include "psnamerr.h"
 
-
 #ifdef FT_CONFIG_OPTION_POSTSCRIPT_NAMES
 
-
 #ifdef FT_CONFIG_OPTION_ADOBE_GLYPH_LIST
-
 
 #define VARIANT_BIT         0x80000000UL
 #define BASE_GLYPH( code )  ( (FT_UInt32)( (code) & ~VARIANT_BIT ) )
 
-
-  /* Return the Unicode value corresponding to a given glyph.  Note that */
+/* Return the Unicode value corresponding to a given glyph.  Note that */
   /* we do deal with glyph variants by detecting a non-initial dot in    */
   /* the name, as in `A.swash' or `e.final'; in this case, the           */
   /* VARIANT_BIT is set in the return value.                             */
@@ -77,14 +72,12 @@
       FT_UInt32    value = 0;
       const char*  p     = glyph_name + 3;
 
-
-      for ( count = 4; count > 0; count--, p++ )
+for ( count = 4; count > 0; count--, p++ )
       {
         char          c = *p;
         unsigned int  d;
 
-
-        d = (unsigned char)c - '0';
+d = (unsigned char)c - '0';
         if ( d >= 10 )
         {
           d = (unsigned char)c - 'A';
@@ -121,14 +114,12 @@
       FT_UInt32    value = 0;
       const char*  p     = glyph_name + 1;
 
-
-      for ( count = 6; count > 0; count--, p++ )
+for ( count = 6; count > 0; count--, p++ )
       {
         char          c = *p;
         unsigned int  d;
 
-
-        d = (unsigned char)c - '0';
+d = (unsigned char)c - '0';
         if ( d >= 10 )
         {
           d = (unsigned char)c - 'A';
@@ -159,8 +150,7 @@
       const char*  p   = glyph_name;
       const char*  dot = NULL;
 
-
-      for ( ; *p; p++ )
+for ( ; *p; p++ )
       {
         if ( *p == '.' && p > glyph_name )
         {
@@ -178,8 +168,7 @@
     }
   }
 
-
-  /* ft_qsort callback to sort the unicode map */
+/* ft_qsort callback to sort the unicode map */
   FT_CALLBACK_DEF( int )
   compare_uni_maps( const void*  a,
                     const void*  b )
@@ -189,8 +178,7 @@
     FT_UInt32   unicode1 = BASE_GLYPH( map1->unicode );
     FT_UInt32   unicode2 = BASE_GLYPH( map2->unicode );
 
-
-    /* sort base glyphs before glyph variants */
+/* sort base glyphs before glyph variants */
     if ( unicode1 == unicode2 )
     {
       if ( map1->unicode > map2->unicode )
@@ -211,8 +199,7 @@
     }
   }
 
-
-  /* support for extra glyphs not handled (well) in AGL; */
+/* support for extra glyphs not handled (well) in AGL; */
   /* we add extra mappings for them if necessary         */
 
 #define EXTRA_GLYPH_LIST_SIZE  10
@@ -262,8 +249,7 @@
     72
   };
 
-
-  static void
+static void
   ps_check_extra_glyph_name( const char*  gname,
                              FT_UInt      glyph,
                              FT_UInt*     extra_glyphs,
@@ -271,8 +257,7 @@
   {
     FT_UInt  n;
 
-
-    for ( n = 0; n < EXTRA_GLYPH_LIST_SIZE; n++ )
+for ( n = 0; n < EXTRA_GLYPH_LIST_SIZE; n++ )
     {
       if ( ft_strcmp( ft_extra_glyph_names +
                         ft_extra_glyph_name_offsets[n], gname ) == 0 )
@@ -289,15 +274,13 @@
     }
   }
 
-
-  static void
+static void
   ps_check_extra_glyph_unicode( FT_UInt32  uni_char,
                                 FT_UInt   *states )
   {
     FT_UInt  n;
 
-
-    for ( n = 0; n < EXTRA_GLYPH_LIST_SIZE; n++ )
+for ( n = 0; n < EXTRA_GLYPH_LIST_SIZE; n++ )
     {
       if ( uni_char == ft_extra_glyph_unicodes[n] )
       {
@@ -309,8 +292,7 @@
     }
   }
 
-
-  /* Build a table that maps Unicode values to glyph indices. */
+/* Build a table that maps Unicode values to glyph indices. */
   static FT_Error
   ps_unicodes_init( FT_Memory             memory,
                     PS_Unicodes           table,
@@ -324,8 +306,7 @@
     FT_UInt  extra_glyph_list_states[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     FT_UInt  extra_glyphs[EXTRA_GLYPH_LIST_SIZE];
 
-
-    /* we first allocate the table */
+/* we first allocate the table */
     table->num_maps = 0;
     table->maps     = NULL;
 
@@ -336,15 +317,13 @@
       PS_UniMap*  map;
       FT_UInt32   uni_char;
 
-
-      map = table->maps;
+map = table->maps;
 
       for ( n = 0; n < num_glyphs; n++ )
       {
         const char*  gname = get_glyph_name( glyph_data, n );
 
-
-        if ( gname )
+if ( gname )
         {
           ps_check_extra_glyph_name( gname, n,
                                      extra_glyphs, extra_glyph_list_states );
@@ -410,15 +389,13 @@
     return error;
   }
 
-
-  static FT_UInt
+static FT_UInt
   ps_unicodes_char_index( PS_Unicodes  table,
                           FT_UInt32    unicode )
   {
     PS_UniMap  *min, *max, *mid, *result = NULL;
 
-
-    /* Perform a binary search on the table. */
+/* Perform a binary search on the table. */
 
     min = table->maps;
     max = min + table->num_maps - 1;
@@ -427,8 +404,7 @@
     {
       FT_UInt32  base_glyph;
 
-
-      mid = min + ( ( max - min ) >> 1 );
+mid = min + ( ( max - min ) >> 1 );
 
       if ( mid->unicode == unicode )
       {
@@ -456,24 +432,21 @@
       return 0;
   }
 
-
-  static FT_UInt32
+static FT_UInt32
   ps_unicodes_char_next( PS_Unicodes  table,
                          FT_UInt32   *unicode )
   {
     FT_UInt    result    = 0;
     FT_UInt32  char_code = *unicode + 1;
 
-
-    {
+{
       FT_UInt     min = 0;
       FT_UInt     max = table->num_maps;
       FT_UInt     mid;
       PS_UniMap*  map;
       FT_UInt32   base_glyph;
 
-
-      while ( min < max )
+while ( min < max )
       {
         mid = min + ( ( max - min ) >> 1 );
         map = table->maps + mid;
@@ -514,11 +487,9 @@
     return result;
   }
 
-
 #endif /* FT_CONFIG_OPTION_ADOBE_GLYPH_LIST */
 
-
-  static const char*
+static const char*
   ps_get_macintosh_name( FT_UInt  name_index )
   {
     if ( name_index >= FT_NUM_MAC_NAMES )
@@ -527,8 +498,7 @@
     return ft_standard_glyph_names + ft_mac_names[name_index];
   }
 
-
-  static const char*
+static const char*
   ps_get_standard_strings( FT_UInt  sid )
   {
     if ( sid >= FT_NUM_SID_NAMES )
@@ -536,7 +506,6 @@
 
     return ft_standard_glyph_names + ft_sid_names[sid];
   }
-
 
 #ifdef FT_CONFIG_OPTION_ADOBE_GLYPH_LIST
 
@@ -574,14 +543,12 @@
 
 #endif /* FT_CONFIG_OPTION_ADOBE_GLYPH_LIST */
 
-
-  FT_DEFINE_SERVICEDESCREC1(
+FT_DEFINE_SERVICEDESCREC1(
     pscmaps_services,
 
     FT_SERVICE_ID_POSTSCRIPT_CMAPS, &pscmaps_interface )
 
-
-  static FT_Pointer
+static FT_Pointer
   psnames_get_service( FT_Module    module,
                        const char*  service_id )
   {
@@ -591,7 +558,6 @@
   }
 
 #endif /* FT_CONFIG_OPTION_POSTSCRIPT_NAMES */
-
 
 #ifndef FT_CONFIG_OPTION_POSTSCRIPT_NAMES
 #define PUT_PS_NAMES_SERVICE( a )  NULL
@@ -616,6 +582,5 @@
     (FT_Module_Destructor) NULL,                                       /* module_done   */
     (FT_Module_Requester)  PUT_PS_NAMES_SERVICE( psnames_get_service ) /* get_interface */
   )
-
 
 /* END */

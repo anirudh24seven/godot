@@ -1,8 +1,6 @@
 
 /*  rendering_server_raster.cpp                                          */
 
-
-
 #include "rendering_server_raster.h"
 
 #include "core/io/marshalls.h"

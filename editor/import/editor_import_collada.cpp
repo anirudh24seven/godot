@@ -1,8 +1,6 @@
 
 /*  editor_import_collada.cpp                                            */
 
-
-
 #include "editor_import_collada.h"
 
 #include "core/os/os.h"

@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -320,9 +319,7 @@ enum aiPostProcessSteps
     */
     aiProcess_FixInfacingNormals = 0x2000,
 
-
-
-    // -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
     /** 
      * This step generically populates aiBone->mArmature and aiBone->mNode generically
      * The point of these is it saves you later having to calculate these elements
@@ -465,8 +462,7 @@ enum aiPostProcessSteps
     */
     aiProcess_OptimizeMeshes  = 0x200000,
 
-
-    // -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
     /** <hr>A post-processing step to optimize the scene hierarchy.
      *
      *  Nodes without animations, bones, lights or cameras assigned are
@@ -550,9 +546,7 @@ enum aiPostProcessSteps
     */
     aiProcess_Debone  = 0x4000000,
 
-
-
-    // -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
     /** <hr>This step will perform a global scale of the model.
     *
     *  Some importers are providing a mechanism to define a scaling unit for the
@@ -579,8 +573,7 @@ enum aiPostProcessSteps
     // aiProcess_OptimizeAnimations = 0x200000
     // aiProcess_FixTexturePaths = 0x200000
 
-
-    aiProcess_ForceGenNormals = 0x20000000,
+aiProcess_ForceGenNormals = 0x20000000,
 
     // -------------------------------------------------------------------------
     /** <hr>Drops normals for all faces of all meshes.
@@ -600,7 +593,6 @@ enum aiPostProcessSteps
     aiProcess_GenBoundingBoxes = 0x80000000
 };
 
-
 // ---------------------------------------------------------------------------------------
 /** @def aiProcess_ConvertToLeftHanded
  *  @brief Shortcut flag for Direct3D-based applications.
@@ -617,7 +609,6 @@ enum aiPostProcessSteps
     aiProcess_FlipUVs            | \
     aiProcess_FlipWindingOrder   | \
     0 )
-
 
 // ---------------------------------------------------------------------------------------
 /** @def aiProcessPreset_TargetRealtime_Fast
@@ -694,7 +685,6 @@ enum aiPostProcessSteps
     aiProcess_ValidateDataStructure          |  \
     aiProcess_OptimizeMeshes                 |  \
     0 )
-
 
 #ifdef __cplusplus
 } // end of extern "C"

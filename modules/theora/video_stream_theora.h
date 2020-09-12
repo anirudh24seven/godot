@@ -1,8 +1,6 @@
 
 /*  video_stream_theora.h                                                */
 
-
-
 #ifndef VIDEO_STREAM_THEORA_H
 #define VIDEO_STREAM_THEORA_H
 

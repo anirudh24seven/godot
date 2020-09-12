@@ -1,8 +1,6 @@
 
 /*  collision_object_2d.cpp                                              */
 
-
-
 #include "collision_object_2d.h"
 
 #include "scene/scene_string_names.h"

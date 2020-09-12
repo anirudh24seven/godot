@@ -1,8 +1,6 @@
 
 /*  segment_shape_2d.h                                                   */
 
-
-
 #ifndef SEGMENT_SHAPE_2D_H
 #define SEGMENT_SHAPE_2D_H
 

@@ -1,8 +1,6 @@
 
 /*  godotsharp_dirs.cpp                                                  */
 
-
-
 #include "godotsharp_dirs.h"
 
 #include "core/os/dir_access.h"

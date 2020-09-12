@@ -1,8 +1,6 @@
 
 /*  find_in_files.h                                                      */
 
-
-
 #ifndef FIND_IN_FILES_H
 #define FIND_IN_FILES_H
 

@@ -1,8 +1,6 @@
 
 /*  grid_map.cpp                                                         */
 
-
-
 #include "grid_map.h"
 
 #include "core/io/marshalls.h"

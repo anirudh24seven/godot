@@ -255,8 +255,7 @@ namespace Etc
 
 		InitBlocksAndBlockSorter();
 
-
-		std::future<void> *handle = new std::future<void>[a_uiMaxJobs];
+std::future<void> *handle = new std::future<void>[a_uiMaxJobs];
 
 		unsigned int uiNumThreadsNeeded = 0;
 		unsigned int uiUnfinishedBlocks = GetNumberOfBlocks();
@@ -302,9 +301,7 @@ namespace Etc
 					// m_psortedblocklist->Print();
 				}
 
-				
-
-				//stop enocding when we did enough to satify the effort percentage
+//stop enocding when we did enough to satify the effort percentage
 				if (uiFinishedBlocks >= uiTotalEffortBlocks)
 				{
 					if (m_bVerboseOutput)

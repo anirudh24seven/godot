@@ -1,8 +1,6 @@
 
 /*  audio_frame.h                                                        */
 
-
-
 #ifndef AUDIO_FRAME_H
 #define AUDIO_FRAME_H
 

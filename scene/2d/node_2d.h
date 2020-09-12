@@ -1,8 +1,6 @@
 
 /*  node_2d.h                                                            */
 
-
-
 #ifndef NODE2D_H
 #define NODE2D_H
 

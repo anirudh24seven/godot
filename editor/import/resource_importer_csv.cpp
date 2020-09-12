@@ -1,8 +1,6 @@
 
 /*  resource_importer_csv.cpp                                            */
 
-
-
 #include "resource_importer_csv.h"
 
 #include "core/io/resource_saver.h"

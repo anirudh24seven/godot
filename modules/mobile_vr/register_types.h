@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef MOBILE_VR_REGISTER_TYPES_H
 #define MOBILE_VR_REGISTER_TYPES_H
 

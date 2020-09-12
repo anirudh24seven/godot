@@ -56,7 +56,6 @@ convenient for user programs that want to test their values. */
 #define STRING(a)  # a
 #define XSTRING(s) STRING(s)
 
-
 /*************************************************
 * Return info about what features are configured *
 *************************************************/

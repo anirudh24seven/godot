@@ -1,8 +1,6 @@
 
 /*  register_types.cpp                                                   */
 
-
-
 #include "register_types.h"
 #include "scene/resources/mesh.h"
 #include "thirdparty/vhacd/public/VHACD.h"

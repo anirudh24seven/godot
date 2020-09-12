@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_CACHE_H
 #include "ftcimage.h"
@@ -25,8 +24,7 @@
 #include "ftccback.h"
 #include "ftcerror.h"
 
-
-  /* finalize a given glyph image node */
+/* finalize a given glyph image node */
   FT_LOCAL_DEF( void )
   ftc_inode_free( FTC_Node   ftcinode,
                   FTC_Cache  cache )
@@ -34,8 +32,7 @@
     FTC_INode  inode = (FTC_INode)ftcinode;
     FT_Memory  memory = cache->memory;
 
-
-    if ( inode->glyph )
+if ( inode->glyph )
     {
       FT_Done_Glyph( inode->glyph );
       inode->glyph = NULL;
@@ -45,16 +42,14 @@
     FT_FREE( inode );
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   FTC_INode_Free( FTC_INode  inode,
                   FTC_Cache  cache )
   {
     ftc_inode_free( FTC_NODE( inode ), cache );
   }
 
-
-  /* initialize a new glyph image node */
+/* initialize a new glyph image node */
   FT_LOCAL_DEF( FT_Error )
   FTC_INode_New( FTC_INode   *pinode,
                  FTC_GQuery   gquery,
@@ -64,16 +59,14 @@
     FT_Error   error;
     FTC_INode  inode  = NULL;
 
-
-    if ( !FT_NEW( inode ) )
+if ( !FT_NEW( inode ) )
     {
       FTC_GNode         gnode  = FTC_GNODE( inode );
       FTC_Family        family = gquery->family;
       FT_UInt           gindex = gquery->gindex;
       FTC_IFamilyClass  clazz  = FTC_CACHE_IFAMILY_CLASS( cache );
 
-
-      /* initialize its inner fields */
+/* initialize its inner fields */
       FTC_GNode_Init( gnode, gindex, family );
 
       /* we will now load the glyph image */
@@ -90,8 +83,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   ftc_inode_new( FTC_Node   *ftcpinode,
                  FT_Pointer  ftcgquery,
                  FTC_Cache   cache )
@@ -99,12 +91,10 @@
     FTC_INode  *pinode = (FTC_INode*)ftcpinode;
     FTC_GQuery  gquery = (FTC_GQuery)ftcgquery;
 
-
-    return FTC_INode_New( pinode, gquery, cache );
+return FTC_INode_New( pinode, gquery, cache );
   }
 
-
-  FT_LOCAL_DEF( FT_Offset )
+FT_LOCAL_DEF( FT_Offset )
   ftc_inode_weight( FTC_Node   ftcinode,
                     FTC_Cache  ftccache )
   {
@@ -114,15 +104,13 @@
 
     FT_UNUSED( ftccache );
 
-
-    switch ( glyph->format )
+switch ( glyph->format )
     {
     case FT_GLYPH_FORMAT_BITMAP:
       {
         FT_BitmapGlyph  bitg;
 
-
-        bitg = (FT_BitmapGlyph)glyph;
+bitg = (FT_BitmapGlyph)glyph;
         size = bitg->bitmap.rows * (FT_Offset)FT_ABS( bitg->bitmap.pitch ) +
                sizeof ( *bitg );
       }
@@ -132,8 +120,7 @@
       {
         FT_OutlineGlyph  outg;
 
-
-        outg = (FT_OutlineGlyph)glyph;
+outg = (FT_OutlineGlyph)glyph;
         size = (FT_Offset)outg->outline.n_points *
                  ( sizeof ( FT_Vector ) + sizeof ( FT_Byte ) ) +
                (FT_Offset)outg->outline.n_contours * sizeof ( FT_Short ) +
@@ -149,7 +136,6 @@
     return size;
   }
 
-
 #if 0
 
   FT_LOCAL_DEF( FT_Offset )
@@ -159,6 +145,5 @@
   }
 
 #endif /* 0 */
-
 
 /* END */

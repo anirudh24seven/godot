@@ -71,5 +71,4 @@ struct OpusCustomMode {
    PulseCache cache;
 };
 
-
 #endif

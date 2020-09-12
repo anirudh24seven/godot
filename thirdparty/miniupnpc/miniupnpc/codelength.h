@@ -41,7 +41,6 @@
 		n = (n << 7) | (*(p) & 0x7f); \
 	} while((*((p)++)&0x80) && (n<(1<<25)));
 
-
 /* n : unsigned
  * p : unsigned char *
  */

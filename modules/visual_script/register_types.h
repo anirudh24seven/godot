@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef VISUAL_SCRIPT_REGISTER_TYPES_H
 #define VISUAL_SCRIPT_REGISTER_TYPES_H
 

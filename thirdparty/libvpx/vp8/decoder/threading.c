@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "vpx_config.h"
 #include "vp8_rtcd.h"
 #if !defined(WIN32) && CONFIG_OS_SUPPORT == 1
@@ -35,7 +34,6 @@
   CHECK_MEM_ERROR((p), vpx_memalign((algn), sizeof(*(p)) * (n)));  \
   memset((p), 0, (n) * sizeof(*(p)));                              \
 } while (0)
-
 
 void vp8_mb_init_dequantizer(VP8D_COMP *pbi, MACROBLOCKD *xd);
 
@@ -115,7 +113,6 @@ static void mt_decode_macroblock(VP8D_COMP *pbi, MACROBLOCKD *xd,
 
     if (xd->segmentation_enabled)
         vp8_mb_init_dequantizer(pbi, xd);
-
 
 #if CONFIG_ERROR_CONCEALMENT
 
@@ -235,7 +232,6 @@ static void mt_decode_macroblock(VP8D_COMP *pbi, MACROBLOCKD *xd,
     {
         vp8_build_inter_predictors_mb(xd);
     }
-
 
 #if CONFIG_ERROR_CONCEALMENT
     if (corruption_detected)
@@ -450,8 +446,7 @@ static void mt_decode_mb_rows(VP8D_COMP *pbi, MACROBLOCKD *xd, int start_mb_row)
            }
     #endif
 
-
-           xd->dst.y_buffer = dst_buffer[0] + recon_yoffset;
+xd->dst.y_buffer = dst_buffer[0] + recon_yoffset;
            xd->dst.u_buffer = dst_buffer[1] + recon_uvoffset;
            xd->dst.v_buffer = dst_buffer[2] + recon_uvoffset;
 
@@ -614,7 +609,6 @@ static void mt_decode_mb_rows(VP8D_COMP *pbi, MACROBLOCKD *xd, int start_mb_row)
 
 }
 
-
 static THREAD_FUNCTION thread_decoding_proc(void *p_data)
 {
     int ithread = ((DECODETHREAD_DATA *)p_data)->ithread;
@@ -643,7 +637,6 @@ static THREAD_FUNCTION thread_decoding_proc(void *p_data)
 
     return 0 ;
 }
-
 
 void vp8_decoder_create_threads(VP8D_COMP *pbi)
 {
@@ -689,7 +682,6 @@ void vp8_decoder_create_threads(VP8D_COMP *pbi)
         pbi->allocated_decoding_thread_count = pbi->decoding_thread_count;
     }
 }
-
 
 void vp8mt_de_alloc_temp_buffers(VP8D_COMP *pbi, int mb_rows)
 {
@@ -779,7 +771,6 @@ void vp8mt_de_alloc_temp_buffers(VP8D_COMP *pbi, int mb_rows)
     }
 }
 
-
 void vp8mt_alloc_temp_buffers(VP8D_COMP *pbi, int width, int prev_mb_rows)
 {
     VP8_COMMON *const pc = & pbi->common;
@@ -840,7 +831,6 @@ void vp8mt_alloc_temp_buffers(VP8D_COMP *pbi, int width, int prev_mb_rows)
             CHECK_MEM_ERROR(pbi->mt_vleft_col[i], vpx_calloc(sizeof(unsigned char) * 8, 1));
     }
 }
-
 
 void vp8_decoder_remove_threads(VP8D_COMP *pbi)
 {

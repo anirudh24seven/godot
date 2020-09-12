@@ -1,8 +1,6 @@
 
 /*  node_path.cpp                                                        */
 
-
-
 #include "gdnative/node_path.h"
 
 #include "core/node_path.h"

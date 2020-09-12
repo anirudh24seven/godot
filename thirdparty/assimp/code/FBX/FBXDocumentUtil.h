@@ -64,7 +64,6 @@ AI_WONT_RETURN void DOMError(const std::string& message, const Element* element 
 void DOMWarning(const std::string& message, const Token& token);
 void DOMWarning(const std::string& message, const Element* element = NULL);
 
-
 // fetch a property table and the corresponding property template
 std::shared_ptr<const PropertyTable> GetPropertyTable(const Document& doc,
     const std::string& templateName,

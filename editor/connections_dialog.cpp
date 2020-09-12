@@ -1,8 +1,6 @@
 
 /*  connections_dialog.cpp                                               */
 
-
-
 #include "connections_dialog.h"
 
 #include "core/print_string.h"

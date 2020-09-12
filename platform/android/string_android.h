@@ -1,8 +1,6 @@
 
 /*  string_android.h                                                     */
 
-
-
 #ifndef STRING_ANDROID_H
 #define STRING_ANDROID_H
 #include "core/ustring.h"

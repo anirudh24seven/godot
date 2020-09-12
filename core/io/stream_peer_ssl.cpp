@@ -1,8 +1,6 @@
 
 /*  stream_peer_ssl.cpp                                                  */
 
-
-
 #include "stream_peer_ssl.h"
 
 #include "core/engine.h"

@@ -1,8 +1,6 @@
 
 /*  godot_result_callbacks.cpp                                           */
 
-
-
 #include "godot_result_callbacks.h"
 
 #include "area_bullet.h"

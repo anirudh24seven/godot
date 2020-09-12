@@ -1,8 +1,6 @@
 
 /*  rendering_device_vulkan.cpp                                          */
 
-
-
 #include "rendering_device_vulkan.h"
 
 #include "core/hashfuncs.h"

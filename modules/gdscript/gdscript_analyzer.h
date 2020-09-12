@@ -1,8 +1,6 @@
 
 /*  gdscript_analyzer.h                                                  */
 
-
-
 #ifndef GDSCRIPT_ANALYZER_H
 #define GDSCRIPT_ANALYZER_H
 

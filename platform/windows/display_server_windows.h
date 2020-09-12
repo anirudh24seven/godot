@@ -1,8 +1,6 @@
 
 /*  display_server_windows.h                                             */
 
-
-
 #ifndef DISPLAY_SERVER_WINDOWS_H
 #define DISPLAY_SERVER_WINDOWS_H
 

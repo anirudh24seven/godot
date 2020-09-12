@@ -1,8 +1,6 @@
 
 /*  java_godot_lib_jni.cpp                                               */
 
-
-
 #include "java_godot_lib_jni.h"
 
 #include "java_godot_io_wrapper.h"

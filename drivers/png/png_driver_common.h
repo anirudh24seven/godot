@@ -1,8 +1,6 @@
 
 /*  png_driver_common.h                                                  */
 
-
-
 #ifndef PNG_DRIVER_COMMON_H
 #define PNG_DRIVER_COMMON_H
 

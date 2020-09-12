@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 /*!\file
  * \brief Describes the vpx image descriptor and associated operations
  *
@@ -29,7 +28,6 @@ extern "C" {
    * fields to structures
    */
 #define VPX_IMAGE_ABI_VERSION (4) /**<\hideinitializer*/
-
 
 #define VPX_IMG_FMT_PLANAR     0x100  /**< Image is a planar format. */
 #define VPX_IMG_FMT_UV_FLIP    0x200  /**< V plane precedes U in memory. */
@@ -190,8 +188,7 @@ extern "C" {
                             unsigned int align,
                             unsigned char      *img_data);
 
-
-  /*!\brief Set the rectangle identifying the displayed portion of the image
+/*!\brief Set the rectangle identifying the displayed portion of the image
    *
    * Updates the displayed rectangle (aka viewport) on the image surface to
    * match the specified coordinates and size.
@@ -210,8 +207,7 @@ extern "C" {
                        unsigned int  w,
                        unsigned int  h);
 
-
-  /*!\brief Flip the image vertically (top for bottom)
+/*!\brief Flip the image vertically (top for bottom)
    *
    * Adjusts the image descriptor's pointers and strides to make the image
    * be referenced upside-down.

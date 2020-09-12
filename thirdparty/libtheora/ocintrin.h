@@ -112,8 +112,6 @@
   ((((_a)&0xF|((_b)&0xF)<<4|((_c)&0xF)<<8|((_d)&0xF)<<12| \
    ((_e)&0xF)<<16|((_f)&0xF)<<20|((_g)&0xF)<<24|((_h)&0xF)<<28)>>(_i)*4)&0xF)
 
-
-
 /*All of these macros should expect floats as arguments.*/
 #define OC_MAXF(_a,_b)      ((_a)<(_b)?(_b):(_a))
 #define OC_MINF(_a,_b)      ((_a)>(_b)?(_b):(_a))

@@ -74,9 +74,8 @@ static void calculateDistanceField(rcCompactHeightfield& chf, unsigned short* sr
 			}
 		}
 	}
-	
-			
-	// Pass 1
+
+// Pass 1
 	for (int y = 0; y < h; ++y)
 	{
 		for (int x = 0; x < w; ++x)
@@ -248,7 +247,6 @@ static unsigned short* boxBlur(rcCompactHeightfield& chf, int thr,
 	}
 	return dst;
 }
-
 
 static bool floodRegion(int x, int y, int i,
 						unsigned short level, unsigned short r,
@@ -466,8 +464,6 @@ static void expandRegions(int maxIter, unsigned short level,
 	}
 }
 
-
-
 static void sortCellsByLevel(unsigned short startLevel,
 							  rcCompactHeightfield& chf,
 							  const unsigned short* srcReg,
@@ -504,7 +500,6 @@ static void sortCellsByLevel(unsigned short startLevel,
 		}
 	}
 }
-
 
 static void appendStacks(const rcTempVector<LevelStackEntry>& srcStack,
 						 rcTempVector<LevelStackEntry>& dstStack,
@@ -785,7 +780,6 @@ static void walkContour(int x, int y, int i, int dir,
 	}
 }
 
-
 static bool mergeAndFilterRegions(rcContext* ctx, int minRegionArea, int mergeRegionSize,
 								  unsigned short& maxRegionId,
 								  rcCompactHeightfield& chf,
@@ -1032,7 +1026,6 @@ static bool mergeAndFilterRegions(rcContext* ctx, int minRegionArea, int mergeRe
 	return true;
 }
 
-
 static void addUniqueConnection(rcRegion& reg, int n)
 {
 	for (int i = 0; i < reg.connections.size(); ++i)
@@ -1239,8 +1232,6 @@ static bool mergeAndFilterLayerRegions(rcContext* ctx, int minRegionArea,
 	return true;
 }
 
-
-
 /// @par
 /// 
 /// This is usually the second to the last step in creating a fully built
@@ -1320,7 +1311,6 @@ static void paintRectRegion(int minx, int maxx, int miny, int maxy, unsigned sho
 	}
 }
 
-
 static const unsigned short RC_NULL_NEI = 0xffff;
 
 struct rcSweepSpan
@@ -1376,9 +1366,8 @@ bool rcBuildRegionsMonotone(rcContext* ctx, rcCompactHeightfield& chf,
 		ctx->log(RC_LOG_ERROR, "rcBuildRegionsMonotone: Out of memory 'sweeps' (%d).", nsweeps);
 		return false;
 	}
-	
-	
-	// Mark border regions.
+
+// Mark border regions.
 	if (borderSize > 0)
 	{
 		// Make sure border will not overflow.
@@ -1484,8 +1473,7 @@ bool rcBuildRegionsMonotone(rcContext* ctx, rcCompactHeightfield& chf,
 		}
 	}
 
-
-	{
+{
 		rcScopedTimer timerFilter(ctx, RC_TIMER_BUILD_REGIONS_FILTER);
 
 		// Merge regions and filter out small regions.
@@ -1658,7 +1646,6 @@ bool rcBuildRegions(rcContext* ctx, rcCompactHeightfield& chf,
 	return true;
 }
 
-
 bool rcBuildLayerRegions(rcContext* ctx, rcCompactHeightfield& chf,
 						 const int borderSize, const int minRegionArea)
 {
@@ -1685,9 +1672,8 @@ bool rcBuildLayerRegions(rcContext* ctx, rcCompactHeightfield& chf,
 		ctx->log(RC_LOG_ERROR, "rcBuildLayerRegions: Out of memory 'sweeps' (%d).", nsweeps);
 		return false;
 	}
-	
-	
-	// Mark border regions.
+
+// Mark border regions.
 	if (borderSize > 0)
 	{
 		// Make sure border will not overflow.
@@ -1792,9 +1778,8 @@ bool rcBuildLayerRegions(rcContext* ctx, rcCompactHeightfield& chf,
 			}
 		}
 	}
-	
-	
-	{
+
+{
 		rcScopedTimer timerFilter(ctx, RC_TIMER_BUILD_REGIONS_FILTER);
 
 		// Merge monotone regions to layers and remove small regions.
@@ -1802,9 +1787,8 @@ bool rcBuildLayerRegions(rcContext* ctx, rcCompactHeightfield& chf,
 		if (!mergeAndFilterLayerRegions(ctx, minRegionArea, chf.maxRegions, chf, srcReg))
 			return false;
 	}
-	
-	
-	// Store the result out.
+
+// Store the result out.
 	for (int i = 0; i < chf.spanCount; ++i)
 		chf.spans[i].reg = srcReg[i];
 	

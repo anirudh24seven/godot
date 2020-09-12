@@ -8,7 +8,6 @@ import os
 from io import StringIO
 from platform_methods import subprocess_main
 
-
 def make_editor_icons_action(target, source, env):
 
     dst = target[0]
@@ -89,7 +88,6 @@ def make_editor_icons_action(target, source, env):
 
     s.close()
     icons_string.close()
-
 
 if __name__ == "__main__":
     subprocess_main(globals())

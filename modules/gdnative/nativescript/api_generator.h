@@ -1,8 +1,6 @@
 
 /*  api_generator.h                                                      */
 
-
-
 #ifndef API_GENERATOR_H
 #define API_GENERATOR_H
 

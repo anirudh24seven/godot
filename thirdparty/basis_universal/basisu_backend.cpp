@@ -897,8 +897,7 @@ namespace basisu
 							int best_trial_idx = 0;
 							uint32_t best_trial_history_buf_idx = 0;
 
-
-							const float selector_remap_thresh = maximum(1.0f, m_params.m_selector_rdo_quality_thresh); //2.5f;
+const float selector_remap_thresh = maximum(1.0f, m_params.m_selector_rdo_quality_thresh); //2.5f;
 							const bool use_strict_search = (m_params.m_compression_level == 0) && (selector_remap_thresh == 1.0f);
 
 							for (uint32_t j = 0; j < selector_history_buf.size(); j++)
@@ -962,8 +961,7 @@ namespace basisu
 
 						m.m_selector_index = m_selector_remap_table_new_to_old[new_selector_index];
 
-
-						if ((selector_history_buf_rle_count) && (selector_history_buf_index != 0))
+if ((selector_history_buf_rle_count) && (selector_history_buf_index != 0))
 						{
 							if (selector_history_buf_rle_count >= (int)basist::SELECTOR_HISTORY_BUF_RLE_COUNT_THRESH)
 							{

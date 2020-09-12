@@ -24,24 +24,17 @@
  *
  */
 
-
 #ifndef GXVFEAT_H_
 #define GXVFEAT_H_
-
 
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                Registry predefined by Apple                   *****/
   /*****                                                               *****/
 
-
-
-  /* TODO: More compact format */
+/* TODO: More compact format */
   typedef struct  GXV_Feature_RegistryRec_
   {
     FT_Bool  existence;
@@ -51,13 +44,11 @@
 
   } GX_Feature_RegistryRec;
 
-
 #define gxv_feat_registry_length                  \
           ( sizeof ( gxv_feat_registry ) /        \
               sizeof ( GX_Feature_RegistryRec ) )
 
-
-  static GX_Feature_RegistryRec  gxv_feat_registry[] =
+static GX_Feature_RegistryRec  gxv_feat_registry[] =
   {
     /* Generated from gxvfgen.c */
     {1, 0, 0,  1},   /* All Typographic Features */
@@ -166,8 +157,6 @@
     {1, 0, 1,  4},   /* CJK Roman Spacing */
   };
 
-
 #endif /* GXVFEAT_H_ */
-
 
 /* END */

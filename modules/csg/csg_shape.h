@@ -1,8 +1,6 @@
 
 /*  csg_shape.h                                                          */
 
-
-
 #ifndef CSG_SHAPE_H
 #define CSG_SHAPE_H
 

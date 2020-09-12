@@ -17,8 +17,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * `COLR' table specification:
    *
@@ -26,26 +25,22 @@
    *
    */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_STREAM_H
 #include FT_TRUETYPE_TAGS_H
 #include FT_COLOR_H
 
-
 #ifdef TT_CONFIG_OPTION_COLOR_LAYERS
 
 #include "ttcolr.h"
 
-
-  /* NOTE: These are the table sizes calculated through the specs. */
+/* NOTE: These are the table sizes calculated through the specs. */
 #define BASE_GLYPH_SIZE            6
 #define LAYER_SIZE                 4
 #define COLR_HEADER_SIZE          14
 
-
-  typedef struct BaseGlyphRecord_
+typedef struct BaseGlyphRecord_
   {
     FT_UShort  gid;
     FT_UShort  first_layer_index;
@@ -53,8 +48,7 @@
 
   } BaseGlyphRecord;
 
-
-  typedef struct Colr_
+typedef struct Colr_
   {
     FT_UShort  version;
     FT_UShort  num_base_glyphs;
@@ -69,8 +63,7 @@
 
   } Colr;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -79,8 +72,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  ttcolr
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   tt_face_load_colr( TT_Face    face,
                      FT_Stream  stream )
   {
@@ -95,8 +87,7 @@
     FT_ULong  base_glyph_offset, layer_offset;
     FT_ULong  table_size;
 
-
-    /* `COLR' always needs `CPAL' */
+/* `COLR' always needs `CPAL' */
     if ( !face->cpal )
       return FT_THROW( Invalid_File_Format );
 
@@ -155,8 +146,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   tt_face_free_colr( TT_Face  face )
   {
     FT_Stream  stream = face->root.stream;
@@ -164,16 +154,14 @@
 
     Colr*  colr = (Colr*)face->colr;
 
-
-    if ( colr )
+if ( colr )
     {
       FT_FRAME_RELEASE( colr->table );
       FT_FREE( colr );
     }
   }
 
-
-  static FT_Bool
+static FT_Bool
   find_base_glyph_record( FT_Byte*          base_glyph_begin,
                           FT_Int            num_base_glyph,
                           FT_UInt           glyph_id,
@@ -182,16 +170,14 @@
     FT_Int  min = 0;
     FT_Int  max = num_base_glyph - 1;
 
-
-    while ( min <= max )
+while ( min <= max )
     {
       FT_Int    mid = min + ( max - min ) / 2;
       FT_Byte*  p   = base_glyph_begin + mid * BASE_GLYPH_SIZE;
 
       FT_UShort  gid = FT_NEXT_USHORT( p );
 
-
-      if ( gid < glyph_id )
+if ( gid < glyph_id )
         min = mid + 1;
       else if (gid > glyph_id )
         max = mid - 1;
@@ -208,8 +194,7 @@
     return 0;
   }
 
-
-  FT_LOCAL_DEF( FT_Bool )
+FT_LOCAL_DEF( FT_Bool )
   tt_face_get_colr_layer( TT_Face            face,
                           FT_UInt            base_glyph,
                           FT_UInt           *aglyph_index,
@@ -219,16 +204,14 @@
     Colr*            colr = (Colr*)face->colr;
     BaseGlyphRecord  glyph_record;
 
-
-    if ( !colr )
+if ( !colr )
       return 0;
 
     if ( !iterator->p )
     {
       FT_ULong  offset;
 
-
-      /* first call to function */
+/* first call to function */
       iterator->layer = 0;
 
       if ( !find_base_glyph_record( colr->base_glyphs,
@@ -265,8 +248,7 @@
     return 1;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   tt_face_colr_blend_layer( TT_Face       face,
                             FT_UInt       color_index,
                             FT_GlyphSlot  dstSlot,
@@ -281,8 +263,7 @@
     FT_Byte*  src;
     FT_Byte*  dst;
 
-
-    if ( !dstSlot->bitmap.buffer )
+if ( !dstSlot->bitmap.buffer )
     {
       /* Initialize destination of color bitmap */
       /* with the size of first component.      */
@@ -308,8 +289,7 @@
       /* Resize destination if needed such that new component fits. */
       FT_Int  x_min, x_max, y_min, y_max;
 
-
-      x_min = FT_MIN( dstSlot->bitmap_left, srcSlot->bitmap_left );
+x_min = FT_MIN( dstSlot->bitmap_left, srcSlot->bitmap_left );
       x_max = FT_MAX( dstSlot->bitmap_left + (FT_Int)dstSlot->bitmap.width,
                       srcSlot->bitmap_left + (FT_Int)srcSlot->bitmap.width );
 
@@ -332,8 +312,7 @@
         FT_Byte*  p;
         FT_Byte*  q;
 
-
-        size  = rows * pitch;
+size  = rows * pitch;
         if ( FT_ALLOC( buf, size ) )
           return error;
 
@@ -427,8 +406,7 @@
         int  br = dst[4 * x + 2];
         int  ba = dst[4 * x + 3];
 
-
-        dst[4 * x + 0] = (FT_Byte)( bb * ba2 / 255 + fb );
+dst[4 * x + 0] = (FT_Byte)( bb * ba2 / 255 + fb );
         dst[4 * x + 1] = (FT_Byte)( bg * ba2 / 255 + fg );
         dst[4 * x + 2] = (FT_Byte)( br * ba2 / 255 + fr );
         dst[4 * x + 3] = (FT_Byte)( ba * ba2 / 255 + fa );

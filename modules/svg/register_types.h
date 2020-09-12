@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef SVG_REGISTER_TYPES_H
 #define SVG_REGISTER_TYPES_H
 

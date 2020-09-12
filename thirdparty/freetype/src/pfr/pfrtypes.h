@@ -15,7 +15,6 @@
  *
  */
 
-
 #ifndef PFRTYPES_H_
 #define PFRTYPES_H_
 
@@ -67,13 +66,11 @@ FT_BEGIN_HEADER
 
   } PFR_HeaderRec, *PFR_Header;
 
-
-  /* used in `color_flags' field of the PFR_Header */
+/* used in `color_flags' field of the PFR_Header */
 #define PFR_FLAG_BLACK_PIXEL    0x01U
 #define PFR_FLAG_INVERT_BITMAP  0x02U
 
-
-  /************************************************************************/
+/************************************************************************/
 
   typedef struct  PFR_LogFontRec_
   {
@@ -91,7 +88,6 @@ FT_BEGIN_HEADER
 
   } PFR_LogFontRec, *PFR_LogFont;
 
-
 #define PFR_LINE_JOIN_MITER   0x00U
 #define PFR_LINE_JOIN_ROUND   0x01U
 #define PFR_LINE_JOIN_BEVEL   0x02U
@@ -103,8 +99,7 @@ FT_BEGIN_HEADER
 #define PFR_LOG_2BYTE_BOLD    0x20U
 #define PFR_LOG_EXTRA_ITEMS   0x40U
 
-
-  /************************************************************************/
+/************************************************************************/
 
 #define PFR_BITMAP_2BYTE_CHARCODE  0x01U
 #define PFR_BITMAP_2BYTE_SIZE      0x02U
@@ -114,8 +109,7 @@ FT_BEGIN_HEADER
 #define PFR_BITMAP_CHARCODES_VALIDATED  0x40U
 #define PFR_BITMAP_VALID_CHARCODES      0x80U
 
-
-  typedef struct  PFR_BitmapCharRec_
+typedef struct  PFR_BitmapCharRec_
   {
     FT_UInt    char_code;
     FT_UInt    gps_size;
@@ -123,15 +117,13 @@ FT_BEGIN_HEADER
 
   } PFR_BitmapCharRec, *PFR_BitmapChar;
 
-
 #define PFR_STRIKE_2BYTE_XPPM    0x01U
 #define PFR_STRIKE_2BYTE_YPPM    0x02U
 #define PFR_STRIKE_3BYTE_SIZE    0x04U
 #define PFR_STRIKE_3BYTE_OFFSET  0x08U
 #define PFR_STRIKE_2BYTE_COUNT   0x10U
 
-
-  typedef struct  PFR_StrikeRec_
+typedef struct  PFR_StrikeRec_
   {
     FT_UInt         x_ppm;
     FT_UInt         y_ppm;
@@ -149,8 +141,7 @@ FT_BEGIN_HEADER
 
   } PFR_StrikeRec, *PFR_Strike;
 
-
-  /************************************************************************/
+/************************************************************************/
 
   typedef struct  PFR_CharRec_
   {
@@ -161,8 +152,7 @@ FT_BEGIN_HEADER
 
   } PFR_CharRec, *PFR_Char;
 
-
-  /************************************************************************/
+/************************************************************************/
 
   typedef struct  PFR_DimensionRec_
   {
@@ -189,7 +179,6 @@ FT_BEGIN_HEADER
 
   } PFR_KernItemRec;
 
-
 #define PFR_KERN_INDEX( g1, g2 )                          \
           ( ( (FT_UInt32)(g1) << 16 ) | (FT_UInt16)(g2) )
 
@@ -199,8 +188,7 @@ FT_BEGIN_HEADER
 #define PFR_NEXT_KPAIR( p )  ( p += 2,                              \
                                ( (FT_UInt32)p[-2] << 16 ) | p[-1] )
 
-
-  /************************************************************************/
+/************************************************************************/
 
   typedef struct  PFR_PhyFontRec_
   {
@@ -248,7 +236,6 @@ FT_BEGIN_HEADER
 
   } PFR_PhyFontRec, *PFR_PhyFont;
 
-
 #define PFR_PHY_VERTICAL          0x01U
 #define PFR_PHY_2BYTE_CHARCODE    0x02U
 #define PFR_PHY_PROPORTIONAL      0x04U
@@ -257,12 +244,10 @@ FT_BEGIN_HEADER
 #define PFR_PHY_3BYTE_GPS_OFFSET  0x20U
 #define PFR_PHY_EXTRA_ITEMS       0x80U
 
-
 #define PFR_KERN_2BYTE_CHAR  0x01U
 #define PFR_KERN_2BYTE_ADJ   0x02U
 
-
-  /************************************************************************/
+/************************************************************************/
 
 #define PFR_GLYPH_YCOUNT         0x01U
 #define PFR_GLYPH_XCOUNT         0x02U
@@ -273,8 +258,7 @@ FT_BEGIN_HEADER
 
 #define PFR_GLYPH_IS_COMPOUND  0x80U
 
-
-  /* controlled coordinate */
+/* controlled coordinate */
   typedef struct  PFR_CoordRec_
   {
     FT_UInt  org;
@@ -282,8 +266,7 @@ FT_BEGIN_HEADER
 
   } PFR_CoordRec, *PFR_Coord;
 
-
-  typedef struct  PFR_SubGlyphRec_
+typedef struct  PFR_SubGlyphRec_
   {
     FT_Fixed   x_scale;
     FT_Fixed   y_scale;
@@ -294,14 +277,12 @@ FT_BEGIN_HEADER
 
   } PFR_SubGlyphRec, *PFR_SubGlyph;
 
-
 #define PFR_SUBGLYPH_XSCALE        0x10U
 #define PFR_SUBGLYPH_YSCALE        0x20U
 #define PFR_SUBGLYPH_2BYTE_SIZE    0x40U
 #define PFR_SUBGLYPH_3BYTE_OFFSET  0x80U
 
-
-  typedef struct  PFR_GlyphRec_
+typedef struct  PFR_GlyphRec_
   {
     FT_Byte           format;
 
@@ -313,8 +294,7 @@ FT_BEGIN_HEADER
     FT_Pos*           x_control;
     FT_Pos*           y_control;
 
-
-    FT_UInt           num_subs;
+FT_UInt           num_subs;
     FT_UInt           max_subs;
     PFR_SubGlyphRec*  subs;
 
@@ -323,10 +303,8 @@ FT_BEGIN_HEADER
 
   } PFR_GlyphRec, *PFR_Glyph;
 
-
 FT_END_HEADER
 
 #endif /* PFRTYPES_H_ */
-
 
 /* END */

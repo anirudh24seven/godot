@@ -1,8 +1,6 @@
 
 /*  rasterizer_canvas_rd.h                                               */
 
-
-
 #ifndef RASTERIZER_CANVAS_RD_H
 #define RASTERIZER_CANVAS_RD_H
 

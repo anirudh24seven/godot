@@ -170,7 +170,6 @@ static void kf_bfly4(
    }
 }
 
-
 #ifndef RADIX_TWO_ONLY
 
 static void kf_bfly3(
@@ -229,7 +228,6 @@ static void kf_bfly3(
       } while(--k);
    }
 }
-
 
 #ifndef OVERRIDE_kf_bfly5
 static void kf_bfly5(
@@ -308,9 +306,7 @@ static void kf_bfly5(
 }
 #endif /* OVERRIDE_kf_bfly5 */
 
-
 #endif
-
 
 #ifdef CUSTOM_MODES
 
@@ -587,7 +583,6 @@ void opus_fft_c(const kiss_fft_state *st,const kiss_fft_cpx *fin,kiss_fft_cpx *f
    }
    opus_fft_impl(st, fout);
 }
-
 
 void opus_ifft_c(const kiss_fft_state *st,const kiss_fft_cpx *fin,kiss_fft_cpx *fout)
 {

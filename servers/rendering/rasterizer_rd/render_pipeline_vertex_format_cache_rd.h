@@ -1,8 +1,6 @@
 
 /*  render_pipeline_vertex_format_cache_rd.h                             */
 
-
-
 #ifndef RENDER_PIPELINE_CACHE_RD_H
 #define RENDER_PIPELINE_CACHE_RD_H
 

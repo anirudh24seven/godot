@@ -1,8 +1,6 @@
 
 /*  gjk_epa.cpp                                                          */
 
-
-
 #include "gjk_epa.h"
 
 /* Disabling formatting for thirdparty code snippet */
@@ -57,7 +55,6 @@ GJK-EPA collision solver by Nathanael Presson, 2008
 
 namespace GjkEpa2 {
 
-
 struct sResults	{
 	enum eStatus {
 		Separated,		/* Shapes doesn't penetrate */
@@ -108,7 +105,6 @@ struct	MinkowskiDiff {
 };
 
 typedef	MinkowskiDiff tShape;
-
 
 // GJK
 struct	GJK
@@ -544,8 +540,7 @@ struct	GJK
 				Initialize();
 			}
 
-
-			static inline void		bind(sFace* fa,U ea,sFace* fb,U eb)
+static inline void		bind(sFace* fa,U ea,sFace* fb,U eb)
 			{
 				fa->e[ea]=(U1)eb;fa->f[ea]=fb;
 				fb->e[eb]=(U1)ea;fb->f[eb]=fa;
@@ -574,8 +569,7 @@ struct	GJK
 				--list.count;
 			}
 
-
-			void				Initialize()
+void				Initialize()
 			{
 				m_status	=	eStatus::Failed;
 				m_normal	=	Vector3(0,0,0);
@@ -812,8 +806,6 @@ struct	GJK
 
 	}
 
-
-
 //
 // Api
 //
@@ -857,7 +849,6 @@ bool Distance(	const Shape3DSW*	shape0,
 		return(false);
 	}
 }
-
 
 //
 bool Penetration(	const Shape3DSW*	shape0,
@@ -904,8 +895,6 @@ bool Penetration(	const Shape3DSW*	shape0,
 	return(false);
 }
 
-
-
 /* Symbols cleanup		*/
 
 #undef GJK_MAX_ITERATIONS
@@ -923,7 +912,6 @@ bool Penetration(	const Shape3DSW*	shape0,
 #undef EPA_FALLBACK
 #undef EPA_PLANE_EPS
 #undef EPA_INSIDE_EPS
-
 
 } // end of namespace
 

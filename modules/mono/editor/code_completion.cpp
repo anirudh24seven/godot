@@ -1,8 +1,6 @@
 
 /*  code_completion.cpp                                                  */
 
-
-
 #include "code_completion.h"
 
 #include "core/project_settings.h"

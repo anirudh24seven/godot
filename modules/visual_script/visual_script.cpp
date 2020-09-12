@@ -1,8 +1,6 @@
 
 /*  visual_script.cpp                                                    */
 
-
-
 #include "visual_script.h"
 
 #include "core/core_string_names.h"
@@ -2603,8 +2601,7 @@ void VisualScriptLanguage::debug_get_stack_level_locals(int p_level, List<String
 	/*
     ERR_FAIL_INDEX(p_level,_debug_call_stack_pos);
 
-
-    VisualFunction *f = _call_stack[l].function;
+VisualFunction *f = _call_stack[l].function;
 
     List<Pair<StringName,int> > locals;
 

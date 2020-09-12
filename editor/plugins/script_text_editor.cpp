@@ -1,8 +1,6 @@
 
 /*  script_text_editor.cpp                                               */
 
-
-
 #include "script_text_editor.h"
 
 #include "core/math/expression.h"

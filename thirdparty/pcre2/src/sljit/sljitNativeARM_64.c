@@ -967,8 +967,7 @@ SLJIT_API_FUNC_ATTRIBUTE sljit_s32 sljit_emit_enter(struct sljit_compiler *compi
 	if (prev != -1)
 		FAIL_IF(push_inst(compiler, STRI | RT(prev) | RN(SLJIT_SP) | (offs >> 5)));
 
-
-	FAIL_IF(push_inst(compiler, ADDI | RD(TMP_FP) | RN(SLJIT_SP) | (0 << 10)));
+FAIL_IF(push_inst(compiler, ADDI | RD(TMP_FP) | RN(SLJIT_SP) | (0 << 10)));
 
 	args = get_arg_count(arg_types);
 

@@ -1,8 +1,6 @@
 
 /*  rw_lock_posix.h                                                      */
 
-
-
 #ifndef RWLOCKPOSIX_H
 #define RWLOCKPOSIX_H
 

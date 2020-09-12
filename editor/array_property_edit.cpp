@@ -1,8 +1,6 @@
 
 /*  array_property_edit.cpp                                              */
 
-
-
 #include "array_property_edit.h"
 
 #include "core/io/marshalls.h"

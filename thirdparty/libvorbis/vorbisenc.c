@@ -96,8 +96,7 @@ typedef struct {
   long     samplerate_min_restriction;
   long     samplerate_max_restriction;
 
-
-  const int     *blocksize_short;
+const int     *blocksize_short;
   const int     *blocksize_long;
 
   const att3    *psy_tone_masteratt;
@@ -354,7 +353,6 @@ static void vorbis_encode_tonemask_setup(vorbis_info *vi,double s,int block,
   return;
 }
 
-
 static void vorbis_encode_compand_setup(vorbis_info *vi,double s,int block,
                                         const compandblock *in,
                                         const double *x){
@@ -429,7 +427,6 @@ static void vorbis_encode_ath_setup(vorbis_info *vi,int block){
   p->ath_maxatt=ci->hi.ath_absolute_dB;
   return;
 }
-
 
 static int book_dup_or_new(codec_setup_info *ci,const static_codebook *book){
   int i;

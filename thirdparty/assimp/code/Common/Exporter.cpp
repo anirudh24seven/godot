@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -196,7 +194,6 @@ Exporter::ExportFormatEntry gExporters[] =
 };
 
 #define ASSIMP_NUM_EXPORTERS (sizeof(gExporters)/sizeof(gExporters[0]))
-
 
 class ExporterPimpl {
 public:
@@ -631,6 +628,5 @@ bool ExportProperties::HasPropertyString(const char* szName) const {
 bool ExportProperties::HasPropertyMatrix(const char* szName) const {
     return HasGenericProperty<aiMatrix4x4>(mMatrixProperties, szName);
 }
-
 
 #endif // !ASSIMP_BUILD_NO_EXPORT

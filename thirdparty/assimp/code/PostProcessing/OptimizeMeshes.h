@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -104,8 +103,7 @@ public:
     // -------------------------------------------------------------------
     void SetupProperties(const Importer* pImp);
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** @brief Specify whether you want meshes with different
      *   primitive types to be merged as well.
      *
@@ -121,8 +119,7 @@ public:
         return pts;
     }
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** @brief Specify a maximum size of a single output mesh.
      *
      *  If a single input mesh already exceeds this limit, it won't
@@ -135,7 +132,6 @@ public:
         max_verts = verts;
         max_faces = faces;
     }
-
 
 protected:
 

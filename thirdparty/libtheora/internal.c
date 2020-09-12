@@ -20,8 +20,6 @@
 #include <string.h>
 #include "internal.h"
 
-
-
 /*A map from the index in the zig zag scan to the coefficient number in a
    block.
   All zig zag indices beyond 63 are sent to coefficient 64, so that zero runs
@@ -87,15 +85,11 @@ const unsigned char OC_DCT_TOKEN_EXTRA_BITS[TH_NDCT_TOKENS]={
   2,3
 };
 
-
-
 int oc_ilog(unsigned _v){
   int ret;
   for(ret=0;_v;ret++)_v>>=1;
   return ret;
 }
-
-
 
 /*The function used to fill in the chroma plane motion vectors for a macro
    block when 4 different motion vectors are specified in the luma plane.
@@ -168,8 +162,6 @@ const oc_set_chroma_mvs_func OC_SET_CHROMA_MVS_TABLE[TH_PF_NFORMATS]={
   (oc_set_chroma_mvs_func)oc_set_chroma_mvs10,
   (oc_set_chroma_mvs_func)oc_set_chroma_mvs11
 };
-
-
 
 void **oc_malloc_2d(size_t _height,size_t _width,size_t _sz){
   size_t  rowsz;

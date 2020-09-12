@@ -1,8 +1,6 @@
 
 /*  text_edit.cpp                                                        */
 
-
-
 #include "text_edit.h"
 
 #include "core/input/input.h"

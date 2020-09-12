@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -97,8 +96,6 @@ static const char *posix_meta_escapes =
   STR_LEFT_PARENTHESIS STR_RIGHT_PARENTHESIS
   STR_LEFT_CURLY_BRACKET STR_RIGHT_CURLY_BRACKET
   STR_1 STR_2 STR_3 STR_4 STR_5 STR_6 STR_7 STR_8 STR_9;
-
-
 
 /*************************************************
 *           Convert a POSIX pattern              *
@@ -359,7 +356,6 @@ convlength += p - pp;        /* Final segment */
 return 0;
 }
 
-
 /*************************************************
 *           Convert a glob pattern               *
 *************************************************/
@@ -372,7 +368,6 @@ typedef struct pcre2_output_context {
   PCRE2_SIZE output_size;               /* size of the output */
   uint8_t out_str[8];                   /* string copied to the output */
 } pcre2_output_context;
-
 
 /* Write a character into the output.
 
@@ -389,7 +384,6 @@ out->output_size++;
 if (out->output < out->output_end)
   *out->output++ = chr;
 }
-
 
 /* Write a string into the output.
 
@@ -419,7 +413,6 @@ out->output = output;
 out->output_size = output_size;
 }
 
-
 /* Prints the separator into the output.
 
 Arguments:
@@ -437,7 +430,6 @@ if (with_escape)
 
 convert_glob_write(out, separator);
 }
-
 
 /* Prints a wildcard into the output.
 
@@ -459,7 +451,6 @@ convert_glob_print_separator(out, separator, with_escape);
 
 convert_glob_write(out, CHAR_RIGHT_SQUARE_BRACKET);
 }
-
 
 /* Parse a posix class.
 
@@ -743,7 +734,6 @@ while (pattern < pattern_end)
 return PCRE2_ERROR_MISSING_SQUARE_BRACKET;
 }
 
-
 /* Prints a (*COMMIT) into the output.
 
 Arguments:
@@ -764,7 +754,6 @@ out->out_str[7] = CHAR_T;
 convert_glob_write_str(out, 8);
 convert_glob_write(out, CHAR_RIGHT_PARENTHESIS);
 }
-
 
 /* Bash glob converter.
 
@@ -1033,7 +1022,6 @@ if (result != 0)
 return 0;
 }
 
-
 /*************************************************
 *                Convert pattern                 *
 *************************************************/
@@ -1156,7 +1144,6 @@ for (i = 0; i < 2; i++)
 
 return PCRE2_ERROR_INTERNAL;
 }
-
 
 /*************************************************
 *            Free converted pattern              *

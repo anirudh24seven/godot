@@ -17,7 +17,6 @@ extern "C" {
 
 /*Generated file, included by entropymode.c*/
 
-
 const struct vp8_token_struct vp8_bmode_encodings[VP8_BINTRAMODES] =
 {
     { 0, 1 },
@@ -119,8 +118,6 @@ const vp8_prob vp8_bmode_prob[VP8_BINTRAMODES-1] =
 {
     120, 90, 79, 133, 87, 85, 80, 111, 151
 };
-
-
 
 const vp8_prob vp8_kf_bmode_prob
 [VP8_BINTRAMODES] [VP8_BINTRAMODES] [VP8_BINTRAMODES-1] =

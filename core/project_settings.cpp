@@ -1,8 +1,6 @@
 
 /*  project_settings.cpp                                                 */
 
-
-
 #include "project_settings.h"
 
 #include "core/bind/core_bind.h"

@@ -15,8 +15,7 @@
  *
  */
 
-
-  /***************************************************************************
+/***************************************************************************
    *
    * The functions defined here are called from the Type 1, CID and CFF
    * font drivers to record the hints of a given character/glyph.
@@ -27,28 +26,20 @@
    *
    */
 
-
 #ifndef PSHREC_H_
 #define PSHREC_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_POSTSCRIPT_HINTS_H
 #include "pshglob.h"
 
-
 FT_BEGIN_HEADER
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                 GLYPH HINTS RECORDER INTERNALS                *****/
   /*****                                                               *****/
 
-
-
-  /* handle to hint record */
+/* handle to hint record */
   typedef struct PS_HintRec_*  PS_Hint;
 
   /* hint types */
@@ -59,13 +50,11 @@ FT_BEGIN_HEADER
 
   } PS_Hint_Type;
 
-
-  /* hint flags */
+/* hint flags */
 #define PS_HINT_FLAG_GHOST   1U
 #define PS_HINT_FLAG_BOTTOM  2U
 
-
-  /* hint descriptor */
+/* hint descriptor */
   typedef struct  PS_HintRec_
   {
     FT_Int   pos;
@@ -74,13 +63,11 @@ FT_BEGIN_HEADER
 
   } PS_HintRec;
 
-
 #define ps_hint_is_active( x )  ( (x)->flags & PS_HINT_FLAG_ACTIVE )
 #define ps_hint_is_ghost( x )   ( (x)->flags & PS_HINT_FLAG_GHOST  )
 #define ps_hint_is_bottom( x )  ( (x)->flags & PS_HINT_FLAG_BOTTOM )
 
-
-  /* hints table descriptor */
+/* hints table descriptor */
   typedef struct  PS_Hint_TableRec_
   {
     FT_UInt  num_hints;
@@ -89,8 +76,7 @@ FT_BEGIN_HEADER
 
   } PS_Hint_TableRec, *PS_Hint_Table;
 
-
-  /* hint and counter mask descriptor */
+/* hint and counter mask descriptor */
   typedef struct  PS_MaskRec_
   {
     FT_UInt   num_bits;
@@ -100,8 +86,7 @@ FT_BEGIN_HEADER
 
   } PS_MaskRec, *PS_Mask;
 
-
-  /* masks and counters table descriptor */
+/* masks and counters table descriptor */
   typedef struct  PS_Mask_TableRec_
   {
     FT_UInt  num_masks;
@@ -110,8 +95,7 @@ FT_BEGIN_HEADER
 
   } PS_Mask_TableRec, *PS_Mask_Table;
 
-
- /* dimension-specific hints descriptor */
+/* dimension-specific hints descriptor */
   typedef struct  PS_DimensionRec_
   {
     PS_Hint_TableRec  hints;
@@ -120,8 +104,7 @@ FT_BEGIN_HEADER
 
   } PS_DimensionRec, *PS_Dimension;
 
-
-  /* glyph hints descriptor                                */
+/* glyph hints descriptor                                */
   /* dimension 0 => X coordinates + vertical hints/stems   */
   /* dimension 1 => Y coordinates + horizontal hints/stems */
   typedef struct  PS_HintsRec_
@@ -153,7 +136,6 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   t2_hints_funcs_init( T2_Hints_FuncsRec*  funcs );
 
-
 #ifdef DEBUG_HINTER
   extern PS_Hints  ps_debug_hints;
   extern  int      ps_debug_no_horz_hints;
@@ -162,11 +144,8 @@ FT_BEGIN_HEADER
 
  /* */
 
-
 FT_END_HEADER
 
-
 #endif /* PSHREC_H_ */
-
 
 /* END */

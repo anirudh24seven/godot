@@ -1,8 +1,6 @@
 
 /*  os_javascript.cpp                                                    */
 
-
-
 #include "os_javascript.h"
 
 #include "core/debugger/engine_debugger.h"

@@ -1,8 +1,6 @@
 
 /*  crypto_mbedtls.cpp                                                   */
 
-
-
 #include "crypto_mbedtls.h"
 
 #include "core/os/file_access.h"

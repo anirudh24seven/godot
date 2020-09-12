@@ -1,8 +1,6 @@
 
 /*  vector3.cpp                                                          */
 
-
-
 #include "vector3.h"
 
 #include "core/math/basis.h"

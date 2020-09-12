@@ -87,7 +87,6 @@ int          p
 #endif
 }
 
-
 void celt_fir_c(
          const opus_val16 *_x,
          const opus_val16 *num,

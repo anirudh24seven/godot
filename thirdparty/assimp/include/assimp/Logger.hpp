@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -286,7 +285,6 @@ void Logger::info(const std::string &message) {
 #define ASSIMP_LOG_INFO_F(string,...)\
     DefaultLogger::get()->info((Formatter::format(string),__VA_ARGS__))
 
-
 #define ASSIMP_LOG_WARN(string)\
     DefaultLogger::get()->warn(string)
 
@@ -298,7 +296,6 @@ void Logger::info(const std::string &message) {
 
 #define ASSIMP_LOG_INFO(string)\
     DefaultLogger::get()->info(string)
-
 
 } // Namespace Assimp
 

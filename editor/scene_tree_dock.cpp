@@ -1,8 +1,6 @@
 
 /*  scene_tree_dock.cpp                                                  */
 
-
-
 #include "scene_tree_dock.h"
 
 #include "core/input/input.h"

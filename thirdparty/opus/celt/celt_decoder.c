@@ -177,7 +177,6 @@ void opus_custom_decoder_destroy(CELTDecoder *st)
 }
 #endif /* CUSTOM_MODES */
 
-
 #ifndef RESYNTH
 static
 #endif
@@ -1073,7 +1072,6 @@ int celt_decode_with_ec(CELTDecoder * OPUS_RESTRICT st, const unsigned char *dat
       st->error = 1;
    return frame_size/st->downsample;
 }
-
 
 #ifdef CUSTOM_MODES
 

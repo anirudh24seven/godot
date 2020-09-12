@@ -1,8 +1,6 @@
 
 /*  rename_dialog.cpp                                                    */
 
-
-
 #include "rename_dialog.h"
 
 #include "core/print_string.h"

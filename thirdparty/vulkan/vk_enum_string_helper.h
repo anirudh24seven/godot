@@ -1,7 +1,6 @@
 // *** THIS FILE IS GENERATED - DO NOT EDIT ***
 // See helper_file_generator.py for modifications
 
-
 /***************************************************************************
  *
  * Copyright (c) 2015-2020 The Khronos Group Inc.
@@ -29,7 +28,6 @@
  *
  ****************************************************************************/
 
-
 #pragma once
 #ifdef _MSC_VER
 #pragma warning( disable : 4065 )
@@ -37,7 +35,6 @@
 
 #include <string>
 #include <vulkan/vulkan.h>
-
 
 static inline const char* string_VkPipelineCacheHeaderVersion(VkPipelineCacheHeaderVersion input_value)
 {
@@ -6312,7 +6309,6 @@ static inline const char* string_VkCoverageReductionModeNV(VkCoverageReductionMo
             return "Unhandled VkCoverageReductionModeNV";
     }
 }
-
 
 #ifdef VK_USE_PLATFORM_WIN32_KHR
 

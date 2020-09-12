@@ -521,9 +521,7 @@ namespace Etc
 			}
 		}
 
-		
-
-		if (DEBUG_PRINT)
+if (DEBUG_PRINT)
 		{
 			printf("\ntarget: [%.2f,%.2f,%.2f] [%.2f,%.2f,%.2f] [%.2f,%.2f,%.2f] [%.2f,%.2f,%.2f]\n",
 				m_frgbaSourceAverageLeft.fR, m_frgbaSourceAverageLeft.fG, m_frgbaSourceAverageLeft.fB,

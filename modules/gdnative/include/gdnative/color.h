@@ -1,8 +1,6 @@
 
 /*  color.h                                                              */
 
-
-
 #ifndef GODOT_COLOR_H
 #define GODOT_COLOR_H
 

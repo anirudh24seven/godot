@@ -1,8 +1,6 @@
 
 /*  GodotInputHandler.java                                               */
 
-
-
 package org.godotengine.godot.input;
 
 import static org.godotengine.godot.utils.GLUtils.DEBUG;

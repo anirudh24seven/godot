@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 /*!\defgroup codec Common Algorithm Interface
  * This abstraction allows applications to easily support multiple video
  * formats with minimal code duplication. This section describes the interface
@@ -141,8 +140,7 @@ extern "C" {
   }
   vpx_codec_err_t;
 
-
-  /*! \brief Codec capabilities bitfield
+/*! \brief Codec capabilities bitfield
    *
    *  Each codec advertises the capabilities it supports as part of its
    *  ::vpx_codec_iface_t interface structure. Capabilities are extra interfaces
@@ -154,8 +152,7 @@ extern "C" {
 #define VPX_CODEC_CAP_DECODER 0x1 /**< Is a decoder */
 #define VPX_CODEC_CAP_ENCODER 0x2 /**< Is an encoder */
 
-
-  /*! \brief Initialization-time Feature Enabling
+/*! \brief Initialization-time Feature Enabling
    *
    *  Certain codec features must be known at initialization time, to allow for
    *  proper memory allocation.
@@ -164,31 +161,27 @@ extern "C" {
    */
   typedef long vpx_codec_flags_t;
 
-
-  /*!\brief Codec interface structure.
+/*!\brief Codec interface structure.
    *
    * Contains function pointers and other data private to the codec
    * implementation. This structure is opaque to the application.
    */
   typedef const struct vpx_codec_iface vpx_codec_iface_t;
 
-
-  /*!\brief Codec private data structure.
+/*!\brief Codec private data structure.
    *
    * Contains data private to the codec implementation. This structure is opaque
    * to the application.
    */
   typedef       struct vpx_codec_priv  vpx_codec_priv_t;
 
-
-  /*!\brief Iterator
+/*!\brief Iterator
    *
    * Opaque storage used for iterating over lists.
    */
   typedef const void *vpx_codec_iter_t;
 
-
-  /*!\brief Codec context structure
+/*!\brief Codec context structure
    *
    * All codecs \ref MUST support this context structure fully. In general,
    * this data should be considered private to the codec algorithm, and
@@ -253,8 +246,7 @@ extern "C" {
   /*!\brief Return the version patch number */
 #define vpx_codec_version_patch() ((vpx_codec_version()>>0)&0xff)
 
-
-  /*!\brief Return the version information (as a string)
+/*!\brief Return the version information (as a string)
    *
    * Returns a printable string containing the full library version number. This may
    * contain additional text following the three digit version number, as to indicate
@@ -263,8 +255,7 @@ extern "C" {
    */
   const char *vpx_codec_version_str(void);
 
-
-  /*!\brief Return the version information (as a string)
+/*!\brief Return the version information (as a string)
    *
    * Returns a printable "extra string". This is the component of the string returned
    * by vpx_codec_version_str() following the three digit version number.
@@ -272,8 +263,7 @@ extern "C" {
    */
   const char *vpx_codec_version_extra_str(void);
 
-
-  /*!\brief Return the build configuration
+/*!\brief Return the build configuration
    *
    * Returns a printable string containing an encoded version of the build
    * configuration. This may be useful to vpx support.
@@ -281,8 +271,7 @@ extern "C" {
    */
   const char *vpx_codec_build_config(void);
 
-
-  /*!\brief Return the name for a given interface
+/*!\brief Return the name for a given interface
    *
    * Returns a human readable string for name of the given codec interface.
    *
@@ -291,8 +280,7 @@ extern "C" {
    */
   const char *vpx_codec_iface_name(vpx_codec_iface_t *iface);
 
-
-  /*!\brief Convert error number to printable string
+/*!\brief Convert error number to printable string
    *
    * Returns a human readable string for the last error returned by the
    * algorithm. The returned error will be one line and will not contain
@@ -304,8 +292,7 @@ extern "C" {
    */
   const char *vpx_codec_err_to_string(vpx_codec_err_t  err);
 
-
-  /*!\brief Retrieve error synopsis for codec context
+/*!\brief Retrieve error synopsis for codec context
    *
    * Returns a human readable string for the last error returned by the
    * algorithm. The returned error will be one line and will not contain
@@ -317,8 +304,7 @@ extern "C" {
    */
   const char *vpx_codec_error(vpx_codec_ctx_t  *ctx);
 
-
-  /*!\brief Retrieve detailed error information for codec context
+/*!\brief Retrieve detailed error information for codec context
    *
    * Returns a human readable string providing detailed information about
    * the last error.
@@ -330,8 +316,7 @@ extern "C" {
    */
   const char *vpx_codec_error_detail(vpx_codec_ctx_t  *ctx);
 
-
-  /* REQUIRED FUNCTIONS
+/* REQUIRED FUNCTIONS
    *
    * The following functions are required to be implemented for all codecs.
    * They represent the base case functionality expected of all codecs.
@@ -350,8 +335,7 @@ extern "C" {
    */
   vpx_codec_err_t vpx_codec_destroy(vpx_codec_ctx_t *ctx);
 
-
-  /*!\brief Get the capabilities of an algorithm.
+/*!\brief Get the capabilities of an algorithm.
    *
    * Retrieves the capabilities bitfield from the algorithm's interface.
    *
@@ -360,8 +344,7 @@ extern "C" {
    */
   vpx_codec_caps_t vpx_codec_get_caps(vpx_codec_iface_t *iface);
 
-
-  /*!\brief Control algorithm
+/*!\brief Control algorithm
    *
    * This function is used to exchange algorithm specific data with the codec
    * instance. This can be used to implement features specific to a particular
@@ -407,8 +390,7 @@ extern "C" {
 #    define vpx_codec_control(ctx,id,data) vpx_codec_control_##id(ctx,id,data)\
   /**<\hideinitializer*/
 
-
-  /*!\brief vpx_codec_control type definition macro
+/*!\brief vpx_codec_control type definition macro
    *
    * This macro allows for type safe conversions across the variadic parameter
    * to vpx_codec_control_(). It defines the type of the argument for a given
@@ -428,8 +410,7 @@ extern "C" {
     return vpx_codec_control_(ctx, ctrl_id, data);\
   } /**<\hideinitializer*/
 
-
-  /*!\brief vpx_codec_control deprecated type definition macro
+/*!\brief vpx_codec_control deprecated type definition macro
    *
    * Like #VPX_CTRL_USE_TYPE, but indicates that the specified control is
    * deprecated and should not be used. Consult the documentation for your
@@ -448,8 +429,7 @@ extern "C" {
     return vpx_codec_control_(ctx, ctrl_id, data);\
   } /**<\hideinitializer*/
 
-
-  /*!\brief vpx_codec_control void type definition macro
+/*!\brief vpx_codec_control void type definition macro
    *
    * This macro allows for type safe conversions across the variadic parameter
    * to vpx_codec_control_(). It indicates that a given control identifier takes
@@ -467,7 +447,6 @@ extern "C" {
   vpx_codec_control_##id(vpx_codec_ctx_t  *ctx, int ctrl_id) {\
     return vpx_codec_control_(ctx, ctrl_id);\
   } /**<\hideinitializer*/
-
 
 #endif
 

@@ -75,5 +75,4 @@ struct aiAABB {
 
 };
 
-
 #endif // AI_AABB_H_INC

@@ -1,8 +1,6 @@
 
 /*  bone_attachment_3d.cpp                                               */
 
-
-
 #include "bone_attachment_3d.h"
 
 void BoneAttachment3D::_validate_property(PropertyInfo &property) const {

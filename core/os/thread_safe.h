@@ -1,8 +1,6 @@
 
 /*  thread_safe.h                                                        */
 
-
-
 #ifndef THREAD_SAFE_H
 #define THREAD_SAFE_H
 

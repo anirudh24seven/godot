@@ -13,14 +13,11 @@ subject to the following restrictions:
 */
 //Originally written by Erwin Coumans
 
-
 #include "Bullet3Collision/NarrowPhaseCollision/shared/b3RigidBodyData.h"
 
 #include "Bullet3Dynamics/shared/b3IntegrateTransforms.h"
 
-
-
-__kernel void 
+__kernel void
   integrateTransformsKernel( __global b3RigidBodyData_t* bodies,const int numNodes, float timeStep, float angularDamping, float4 gravityAcceleration)
 {
 	int nodeID = get_global_id(0);

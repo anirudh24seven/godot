@@ -1,8 +1,6 @@
 
 /*  audio_driver_javascript.cpp                                          */
 
-
-
 #include "audio_driver_javascript.h"
 
 #include "core/project_settings.h"

@@ -1,8 +1,6 @@
 
 /*  xr_interface_gdnative.h                                              */
 
-
-
 #ifndef XR_INTERFACE_GDNATIVE_H
 #define XR_INTERFACE_GDNATIVE_H
 

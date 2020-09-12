@@ -1,8 +1,6 @@
 
 /*  image_loader_bmp.h                                                   */
 
-
-
 #ifndef IMAGE_LOADER_BMP_H
 #define IMAGE_LOADER_BMP_H
 

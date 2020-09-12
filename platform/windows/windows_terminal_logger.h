@@ -1,8 +1,6 @@
 
 /*  windows_terminal_logger.h                                            */
 
-
-
 #ifndef WINDOWS_TERMINAL_LOGGER_H
 #define WINDOWS_TERMINAL_LOGGER_H
 

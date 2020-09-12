@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -58,7 +57,6 @@ namespace Assimp    {
     class BaseImporter;
     class BaseProcess;
     class SharedPostProcessInfo;
-
 
 //! @cond never
 // ---------------------------------------------------------------------------
@@ -142,7 +140,6 @@ ImporterPimpl::ImporterPimpl() AI_NO_EXCEPT
     // empty
 }
 //! @endcond
-
 
 struct BatchData;
 

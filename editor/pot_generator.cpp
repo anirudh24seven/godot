@@ -1,8 +1,6 @@
 
 /*  pot_generator.cpp                                                    */
 
-
-
 #include "pot_generator.h"
 
 #include "core/error_macros.h"

@@ -1,8 +1,6 @@
 
 /*  line_shape_2d.h                                                      */
 
-
-
 #ifndef LINE_SHAPE_2D_H
 #define LINE_SHAPE_2D_H
 

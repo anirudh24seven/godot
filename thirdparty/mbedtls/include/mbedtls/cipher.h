@@ -421,7 +421,6 @@ void mbedtls_cipher_init( mbedtls_cipher_context_t *ctx );
  */
 void mbedtls_cipher_free( mbedtls_cipher_context_t *ctx );
 
-
 /**
  * \brief               This function initializes and fills the cipher-context
  *                      structure with the appropriate values. It also clears

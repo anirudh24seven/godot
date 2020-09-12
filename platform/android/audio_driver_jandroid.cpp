@@ -1,8 +1,6 @@
 
 /*  audio_driver_jandroid.cpp                                            */
 
-
-
 #include "audio_driver_jandroid.h"
 
 #include "core/os/os.h"

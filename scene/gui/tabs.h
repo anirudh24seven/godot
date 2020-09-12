@@ -1,8 +1,6 @@
 
 /*  tabs.h                                                               */
 
-
-
 #ifndef TABS_H
 #define TABS_H
 

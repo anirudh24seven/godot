@@ -144,7 +144,6 @@ FreeUPNPUrls(struct UPNPUrls *);
 /* return 0 or 1 */
 MINIUPNP_LIBSPEC int UPNPIGD_IsConnected(struct UPNPUrls *, struct IGDdatas *);
 
-
 #ifdef __cplusplus
 }
 #endif

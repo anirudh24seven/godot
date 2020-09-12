@@ -1,8 +1,6 @@
 
 /*  animation_state_machine_editor.h                                     */
 
-
-
 #ifndef ANIMATION_STATE_MACHINE_EDITOR_H
 #define ANIMATION_STATE_MACHINE_EDITOR_H
 

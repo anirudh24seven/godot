@@ -1,8 +1,6 @@
 
 /*  xr_nodes.h                                                           */
 
-
-
 #ifndef XR_NODES_H
 #define XR_NODES_H
 

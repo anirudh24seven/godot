@@ -15,14 +15,11 @@
  *
  */
 
-
 #ifndef CFFDECODE_H_
 #define CFFDECODE_H_
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_POSTSCRIPT_AUX_H
-
 
 FT_BEGIN_HEADER
 
@@ -41,11 +38,9 @@ FT_BEGIN_HEADER
                        CFF_Size      size,
                        FT_UInt       glyph_index );
 
-
-  FT_LOCAL( FT_Int )
+FT_LOCAL( FT_Int )
   cff_lookup_glyph_by_stdcharcode( CFF_Font  cff,
                                    FT_Int    charcode );
-
 
 #ifdef CFF_CONFIG_OPTION_OLD_ENGINE
   FT_LOCAL( FT_Error )
@@ -55,10 +50,8 @@ FT_BEGIN_HEADER
                                  FT_Bool       in_dict );
 #endif
 
-
 FT_END_HEADER
 
 #endif
-
 
 /* END */

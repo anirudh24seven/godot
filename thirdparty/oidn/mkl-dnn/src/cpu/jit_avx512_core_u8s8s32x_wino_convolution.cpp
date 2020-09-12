@@ -379,8 +379,7 @@ void jit_avx512_core_u8s8s32x_wino_conv_dst_trans_t::generate() {
             vpsubd(vreg_out(x+2), vreg_tmp(1), vreg_stg(x+2*3));
         }
 
-
-        if (jcp.with_bias) {
+if (jcp.with_bias) {
             vmovq(xmm_bias_alpha, reg_scratch_bias_alpha);
             vbroadcastss(zmm_bias_alpha, xmm_bias_alpha);
 

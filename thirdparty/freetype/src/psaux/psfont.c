@@ -35,7 +35,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_CALC_H
 
@@ -46,8 +45,7 @@
 #include "pserror.h"
 #include "psintrp.h"
 
-
-  /* Compute a stem darkening amount in character space. */
+/* Compute a stem darkening amount in character space. */
   static void
   cf2_computeDarkening( CF2_Fixed   emRatio,
                         CF2_Fixed   ppem,
@@ -110,8 +108,7 @@
     CF2_Fixed  stemWidthPer1000, scaledStem;
     FT_Int     logBase2;
 
-
-    *darkenAmount = 0;
+*darkenAmount = 0;
 
     if ( boldenAmount == 0 && !stemDarkened )
       return;
@@ -131,8 +128,7 @@
       FT_Int  x4 = darkenParams[6];
       FT_Int  y4 = darkenParams[7];
 
-
-      /* convert from true character space to 1000 unit character space; */
+/* convert from true character space to 1000 unit character space; */
       /* add synthetic emboldening effect                                */
 
       /* `stemWidthPer1000' will not overflow for a legitimate font      */
@@ -174,8 +170,7 @@
         FT_Int  x      = stemWidthPer1000 -
                            FT_DivFix( cf2_intToFixed( x1 ), ppem );
 
-
-        if ( !xdelta )
+if ( !xdelta )
           goto Try_x3;
 
         *darkenAmount = FT_MulDiv( x, ydelta, xdelta ) +
@@ -191,8 +186,7 @@
           FT_Int  x      = stemWidthPer1000 -
                              FT_DivFix( cf2_intToFixed( x2 ), ppem );
 
-
-          if ( !xdelta )
+if ( !xdelta )
             goto Try_x4;
 
           *darkenAmount = FT_MulDiv( x, ydelta, xdelta ) +
@@ -209,8 +203,7 @@
           FT_Int  x      = stemWidthPer1000 -
                              FT_DivFix( cf2_intToFixed( x3 ), ppem );
 
-
-          if ( !xdelta )
+if ( !xdelta )
             goto Use_y4;
 
           *darkenAmount = FT_MulDiv( x, ydelta, xdelta ) +
@@ -233,8 +226,7 @@
     *darkenAmount += boldenAmount / 2;
   }
 
-
-  /* set up values for the current FontDict and matrix; */
+/* set up values for the current FontDict and matrix; */
   /* called for each glyph to be rendered               */
 
   /* caller's transform is adjusted for subpixel positioning */
@@ -283,8 +275,7 @@
 #ifdef TT_CONFIG_OPTION_GX_VAR_SUPPORT
         FT_Service_CFFLoad  cffload = (FT_Service_CFFLoad)font->cffload;
 
-
-        /* check whether Private DICT in this subfont needs to be reparsed */
+/* check whether Private DICT in this subfont needs to be reparsed */
         font->error = cf2_getNormalizedVector( decoder,
                                                &lenNormalizedV,
                                                &normalizedV );
@@ -389,8 +380,7 @@
       CF2_Fixed  stdHW;
       CF2_Int    unitsPerEm = font->unitsPerEm;
 
-
-      if ( unitsPerEm == 0 )
+if ( unitsPerEm == 0 )
         unitsPerEm = 1000;
 
       ppem = FT_MAX( cf2_intToFixed( 4 ),
@@ -481,8 +471,7 @@
     } /* needExtraSetup */
   }
 
-
-  /* equivalent to AdobeGetOutline */
+/* equivalent to AdobeGetOutline */
   FT_LOCAL_DEF( FT_Error )
   cf2_getGlyphOutline( CF2_Font           font,
                        CF2_Buffer         charstring,
@@ -500,8 +489,7 @@
     CF2_Fixed  advWidth = 0;
     FT_Bool    needWinding;
 
-
-    /* Note: use both integer and fraction for outlines.  This allows bbox */
+/* Note: use both integer and fraction for outlines.  This allows bbox */
     /*       to come out directly.                                         */
 
     translation.x = transform->tx;
@@ -562,6 +550,5 @@
 
     return font->error;
   }
-
 
 /* END */

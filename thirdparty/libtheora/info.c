@@ -20,8 +20,6 @@
 #include <string.h>
 #include "internal.h"
 
-
-
 /*This is more or less the same as strncasecmp, but that doesn't exist
    everywhere, and this is a fairly trivial function, so we include it.
   Note: We take advantage of the fact that we know _n is less than or equal to
@@ -34,8 +32,6 @@ static int oc_tagcompare(const char *_s1,const char *_s2,int _n){
   return _s1[c]!='=';
 }
 
-
-
 void th_info_init(th_info *_info){
   memset(_info,0,sizeof(*_info));
   _info->version_major=TH_VERSION_MAJOR;
@@ -47,8 +43,6 @@ void th_info_init(th_info *_info){
 void th_info_clear(th_info *_info){
   memset(_info,0,sizeof(*_info));
 }
-
-
 
 void th_comment_init(th_comment *_tc){
   memset(_tc,0,sizeof(*_tc));

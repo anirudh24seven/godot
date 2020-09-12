@@ -1,8 +1,6 @@
 
 /*  editor_layouts_dialog.h                                              */
 
-
-
 #ifndef EDITOR_LAYOUTS_DIALOG_H
 #define EDITOR_LAYOUTS_DIALOG_H
 

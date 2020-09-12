@@ -39,8 +39,7 @@ namespace oidn {
   using mkldnn::impl::parallel_nd;
   using mkldnn::impl::memory_desc_matches_tag;
 
-
-  inline size_t getFormatBytes(Format format)
+inline size_t getFormatBytes(Format format)
   {
     switch (format)
     {
@@ -54,8 +53,7 @@ namespace oidn {
     return 0;
   }
 
-
-  inline memory::dims getTensorDims(const std::shared_ptr<memory>& mem)
+inline memory::dims getTensorDims(const std::shared_ptr<memory>& mem)
   {
     const mkldnn_memory_desc_t& desc = mem->get_desc().data;
     return memory::dims(&desc.dims[0], &desc.dims[desc.ndims]);
@@ -99,8 +97,7 @@ namespace oidn {
     return getTensorSize(getTensorDims(mem));
   }
 
-
-  template<int K>
+template<int K>
   inline int getPadded(int dim)
   {
     return (dim + (K-1)) & ~(K-1);
@@ -115,8 +112,7 @@ namespace oidn {
     return padDims;
   }
 
-
-  template<int K>
+template<int K>
   struct BlockedFormat;
 
   template<>

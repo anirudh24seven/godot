@@ -1,8 +1,6 @@
 
 /*  grid_container.h                                                     */
 
-
-
 #ifndef GRID_CONTAINER_H
 #define GRID_CONTAINER_H
 

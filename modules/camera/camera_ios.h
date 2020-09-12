@@ -1,8 +1,6 @@
 
 /*  camera_ios.h                                                         */
 
-
-
 #ifndef CAMERAIOS_H
 #define CAMERAIOS_H
 

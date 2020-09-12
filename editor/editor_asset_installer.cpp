@@ -1,8 +1,6 @@
 
 /*  editor_asset_installer.cpp                                           */
 
-
-
 #include "editor_asset_installer.h"
 
 #include "core/io/zip_io.h"

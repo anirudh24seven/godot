@@ -1,8 +1,6 @@
 
 /*  hashing_context.h                                                    */
 
-
-
 #ifndef HASHING_CONTEXT_H
 #define HASHING_CONTEXT_H
 

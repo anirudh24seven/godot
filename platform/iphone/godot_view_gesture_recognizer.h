@@ -1,8 +1,6 @@
 
 /*  godot_view_gesture_recognizer.h                                      */
 
-
-
 // GLViewGestureRecognizer allows iOS gestures to work currectly by
 // emulating UIScrollView's UIScrollViewDelayedTouchesBeganGestureRecognizer.
 // It catches all gestures incoming to UIView and delays them for 150ms

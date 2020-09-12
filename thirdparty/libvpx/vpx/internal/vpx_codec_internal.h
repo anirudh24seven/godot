@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 /*!\file
  * \brief Describes the decoder algorithm interface for algorithm
  *        implementations.
@@ -248,7 +247,6 @@ typedef vpx_codec_err_t (*vpx_codec_set_fb_fn_t)(
     vpx_get_frame_buffer_cb_fn_t cb_get,
     vpx_release_frame_buffer_cb_fn_t cb_release, void *cb_priv);
 
-
 typedef vpx_codec_err_t (*vpx_codec_encode_fn_t)(vpx_codec_alg_priv_t  *ctx,
                                                  const vpx_image_t     *img,
                                                  vpx_codec_pts_t        pts,
@@ -325,7 +323,6 @@ typedef struct vpx_codec_priv_cb_pair {
   void                            *user_priv;
 } vpx_codec_priv_cb_pair_t;
 
-
 /*!\brief Instance private storage
  *
  * This structure is allocated by the algorithm's init function. It can be
@@ -384,7 +381,6 @@ struct vpx_codec_priv_enc_mr_cfg
   vpx_codec_iface_t* id(void) { return &id##_algo; }\
   vpx_codec_iface_t  id##_algo
 
-
 /* Internal Utility Functions
  *
  * The following functions are intended to be used inside algorithms as
@@ -412,7 +408,6 @@ vpx_codec_pkt_list_add(struct vpx_codec_pkt_list *,
 const vpx_codec_cx_pkt_t *
 vpx_codec_pkt_list_get(struct vpx_codec_pkt_list *list,
                        vpx_codec_iter_t           *iter);
-
 
 #include <stdio.h>
 #include <setjmp.h>

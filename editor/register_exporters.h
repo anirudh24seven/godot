@@ -1,8 +1,6 @@
 
 /*  register_exporters.h                                                 */
 
-
-
 #ifndef REGISTER_EXPORTERS_H
 #define REGISTER_EXPORTERS_H
 

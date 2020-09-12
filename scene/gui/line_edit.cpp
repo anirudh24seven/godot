@@ -1,8 +1,6 @@
 
 /*  line_edit.cpp                                                        */
 
-
-
 #include "line_edit.h"
 
 #include "core/message_queue.h"

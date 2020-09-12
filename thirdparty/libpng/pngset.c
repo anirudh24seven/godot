@@ -687,7 +687,6 @@ png_set_sRGB_gAMA_and_cHRM(png_const_structrp png_ptr, png_inforp info_ptr,
 }
 #endif /* sRGB */
 
-
 #ifdef PNG_iCCP_SUPPORTED
 void PNGAPI
 png_set_iCCP(png_const_structrp png_ptr, png_inforp info_ptr,
@@ -1775,7 +1774,6 @@ png_set_invalid(png_const_structrp png_ptr, png_inforp info_ptr, int mask)
       info_ptr->valid &= (unsigned int)(~mask);
 }
 
-
 #ifdef PNG_SET_USER_LIMITS_SUPPORTED
 /* This function was added to libpng 1.2.6 */
 void PNGAPI
@@ -1810,7 +1808,6 @@ png_set_chunk_malloc_max (png_structrp png_ptr,
       png_ptr->user_chunk_malloc_max = user_chunk_malloc_max;
 }
 #endif /* ?SET_USER_LIMITS */
-
 
 #ifdef PNG_BENIGN_ERRORS_SUPPORTED
 void PNGAPI

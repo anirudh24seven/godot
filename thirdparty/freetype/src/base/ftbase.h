@@ -15,17 +15,13 @@
  *
  */
 
-
 #ifndef FTBASE_H_
 #define FTBASE_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_OBJECTS_H
 
-
 FT_BEGIN_HEADER
-
 
 #ifdef FT_CONFIG_OPTION_MAC_FONTS
 
@@ -33,8 +29,7 @@ FT_BEGIN_HEADER
   /* see https://support.microsoft.com/en-us/kb/130437                */
 #define FT_MAC_RFORK_MAX_LEN  0x00FFFFFFUL
 
-
-  /* Assume the stream is sfnt-wrapped PS Type1 or sfnt-wrapped CID-keyed */
+/* Assume the stream is sfnt-wrapped PS Type1 or sfnt-wrapped CID-keyed */
   /* font, and try to load a face specified by the face_index.            */
   FT_LOCAL( FT_Error )
   open_face_PS_from_sfnt_stream( FT_Library     library,
@@ -44,8 +39,7 @@ FT_BEGIN_HEADER
                                  FT_Parameter  *params,
                                  FT_Face       *aface );
 
-
-  /* Create a new FT_Face given a buffer and a driver name. */
+/* Create a new FT_Face given a buffer and a driver name. */
   /* From ftmac.c.                                          */
   FT_LOCAL( FT_Error )
   open_face_from_buffer( FT_Library   library,
@@ -54,7 +48,6 @@ FT_BEGIN_HEADER
                          FT_Long      face_index,
                          const char*  driver_name,
                          FT_Face     *aface );
-
 
 #if  defined( FT_CONFIG_OPTION_GUESSING_EMBEDDED_RFORK ) && \
     !defined( FT_MACINTOSH )
@@ -69,10 +62,8 @@ FT_BEGIN_HEADER
 
 #endif /* FT_CONFIG_OPTION_MAC_FONTS */
 
-
 FT_END_HEADER
 
 #endif /* FTBASE_H_ */
-
 
 /* END */

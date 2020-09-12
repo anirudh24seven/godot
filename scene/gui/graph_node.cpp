@@ -1,8 +1,6 @@
 
 /*  graph_node.cpp                                                       */
 
-
-
 #include "graph_node.h"
 
 #include "core/method_bind_ext.gen.inc"

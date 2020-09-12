@@ -1,8 +1,6 @@
 
 /*  editor_sub_scene.cpp                                                 */
 
-
-
 #include "editor_sub_scene.h"
 
 #include "editor/editor_node.h"

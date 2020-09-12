@@ -1,8 +1,6 @@
 
 /*  RegularConfigChooser.java                                            */
 
-
-
 package org.godotengine.godot.xr.regular;
 
 import org.godotengine.godot.utils.GLUtils;

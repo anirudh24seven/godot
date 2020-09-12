@@ -286,7 +286,6 @@ enum {
     ANDROID_CPU_MIPS_FEATURE_MSA   = (1 << 1),
 };
 
-
 /* Return the number of CPU cores detected on this device. */
 extern int android_getCpuCount(void);
 

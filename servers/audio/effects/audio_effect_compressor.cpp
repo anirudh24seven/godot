@@ -1,8 +1,6 @@
 
 /*  audio_effect_compressor.cpp                                          */
 
-
-
 #include "audio_effect_compressor.h"
 #include "servers/audio_server.h"
 

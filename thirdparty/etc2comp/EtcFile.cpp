@@ -20,7 +20,6 @@
 
 #include "EtcConfig.h"
 
-
 #include "EtcFile.h"
 
 #include "EtcFileHeader.h"
@@ -318,15 +317,13 @@ void File::UseSingleBlock(int a_iPixelX, int a_iPixelY)
 
 	int numXBlocks = (origWidth / 4);
 	int numYBlocks = (origHeight / 4);
-	
 
-	// block location 
+// block location
 	//int iBlockX = (a_iPixelX % 4) == 0 ? a_iPixelX / 4.0f : (a_iPixelX / 4) + 1;
 	//int iBlockY = (a_iPixelY % 4) == 0 ? a_iPixelY / 4.0f : (a_iPixelY / 4) + 1;
 	//m_paucEncodingBits += ((iBlockY * numXBlocks) + iBlockX) * uiEncodingBitsBytesPerBlock;
 
-	
-	unsigned int num = numXBlocks*numYBlocks;
+unsigned int num = numXBlocks*numYBlocks;
 	unsigned int uiH = 0, uiV = 0;
 	unsigned char* pEncodingBits = m_pMipmapImages[0].paucEncodingBits.get();
 	for (unsigned int uiBlock = 0; uiBlock < num; uiBlock++)

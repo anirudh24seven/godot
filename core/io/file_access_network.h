@@ -1,8 +1,6 @@
 
 /*  file_access_network.h                                                */
 
-
-
 #ifndef FILE_ACCESS_NETWORK_H
 #define FILE_ACCESS_NETWORK_H
 

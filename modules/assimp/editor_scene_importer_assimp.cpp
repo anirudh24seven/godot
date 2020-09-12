@@ -1,8 +1,6 @@
 
 /*  editor_scene_importer_assimp.cpp                                     */
 
-
-
 #include "editor_scene_importer_assimp.h"
 #include "core/io/image_loader.h"
 #include "editor/import/resource_importer_scene.h"

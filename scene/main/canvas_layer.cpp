@@ -1,8 +1,6 @@
 
 /*  canvas_layer.cpp                                                     */
 
-
-
 #include "canvas_layer.h"
 #include "viewport.h"
 

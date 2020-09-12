@@ -1,8 +1,6 @@
 
 /*  os_javascript.h                                                      */
 
-
-
 #ifndef OS_JAVASCRIPT_H
 #define OS_JAVASCRIPT_H
 

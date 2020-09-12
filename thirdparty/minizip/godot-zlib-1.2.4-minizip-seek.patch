@@ -15,9 +15,8 @@ index 49958f61f..0afbdc06a 100644
 +/* GODOT start */
 +/*
 +// GODOT end
- 
- 
- static voidpf  ZCALLBACK fopen_file_func OF((voidpf opaque, const char* filename, int mode));
+
+static voidpf  ZCALLBACK fopen_file_func OF((voidpf opaque, const char* filename, int mode));
 @@ -233,3 +240,6 @@ void fill_fopen64_filefunc (zlib_filefunc64_def*  pzlib_filefunc_def)
      pzlib_filefunc_def->zerror_file = ferror_file_func;
      pzlib_filefunc_def->opaque = NULL;
@@ -63,8 +62,7 @@ index 7617f41f1..32e27bd65 100644
 +    int extra_size;
 +    /* GODOT end */
  } file_in_zip64_read_info_s;
- 
- 
+
 @@ -606,9 +609,10 @@ local unzFile unzOpenInternal (const void *path,
      us.z_filefunc.zseek32_file = NULL;
      us.z_filefunc.ztell32_file = NULL;
@@ -77,8 +75,7 @@ index 7617f41f1..32e27bd65 100644
 +    us.z_filefunc = *pzlib_filefunc64_32_def;
 +    /* GODOT end */
      us.is64bitOpenFunction = is64bitOpenFunction;
- 
- 
+
 @@ -800,6 +804,18 @@ extern unzFile ZEXPORT unzOpen64 (const void *path)
      return unzOpenInternal(path, NULL, 1);
  }

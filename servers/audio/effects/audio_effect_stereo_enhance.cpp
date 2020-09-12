@@ -1,8 +1,6 @@
 
 /*  audio_effect_stereo_enhance.cpp                                      */
 
-
-
 #include "audio_effect_stereo_enhance.h"
 #include "servers/audio_server.h"
 void AudioEffectStereoEnhanceInstance::process(const AudioFrame *p_src_frames, AudioFrame *p_dst_frames, int p_frame_count) {

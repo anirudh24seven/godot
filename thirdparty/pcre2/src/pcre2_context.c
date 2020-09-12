@@ -38,14 +38,11 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include "pcre2_internal.h"
-
-
 
 /*************************************************
 *          Default malloc/free functions         *
@@ -59,14 +56,11 @@ static void *default_malloc(size_t size, void *data)
 return malloc(size);
 }
 
-
 static void default_free(void *block, void *data)
 {
 (void)data;
 free(block);
 }
-
-
 
 /*************************************************
 *        Get a block and save memory control     *
@@ -100,8 +94,6 @@ else *newmemctl = *memctl;
 return yield;
 }
 
-
-
 /*************************************************
 *          Create and initialize contexts        *
 *************************************************/
@@ -125,7 +117,6 @@ gcontext->memctl.free = private_free;
 gcontext->memctl.memory_data = memory_data;
 return gcontext;
 }
-
 
 /* A default compile context is set up to save having to initialize at run time
 when no context is supplied to the compile function. */
@@ -155,7 +146,6 @@ if (gcontext != NULL)
   *((pcre2_memctl *)ccontext) = *((pcre2_memctl *)gcontext);
 return ccontext;
 }
-
 
 /* A default match context is set up to save having to initialize at run time
 when no context is supplied to a match function. */
@@ -190,7 +180,6 @@ if (gcontext != NULL)
 return mcontext;
 }
 
-
 /* A default convert context is set up to save having to initialize at run time
 when no context is supplied to the convert function. */
 
@@ -220,7 +209,6 @@ if (gcontext != NULL)
 return ccontext;
 }
 
-
 /*************************************************
 *              Context copy functions            *
 *************************************************/
@@ -236,7 +224,6 @@ memcpy(new, gcontext, sizeof(pcre2_real_general_context));
 return new;
 }
 
-
 PCRE2_EXP_DEFN pcre2_compile_context * PCRE2_CALL_CONVENTION
 pcre2_compile_context_copy(pcre2_compile_context *ccontext)
 {
@@ -247,7 +234,6 @@ if (new == NULL) return NULL;
 memcpy(new, ccontext, sizeof(pcre2_real_compile_context));
 return new;
 }
-
 
 PCRE2_EXP_DEFN pcre2_match_context * PCRE2_CALL_CONVENTION
 pcre2_match_context_copy(pcre2_match_context *mcontext)
@@ -260,8 +246,6 @@ memcpy(new, mcontext, sizeof(pcre2_real_match_context));
 return new;
 }
 
-
-
 PCRE2_EXP_DEFN pcre2_convert_context * PCRE2_CALL_CONVENTION
 pcre2_convert_context_copy(pcre2_convert_context *ccontext)
 {
@@ -272,7 +256,6 @@ if (new == NULL) return NULL;
 memcpy(new, ccontext, sizeof(pcre2_real_convert_context));
 return new;
 }
-
 
 /*************************************************
 *              Context free functions            *
@@ -285,14 +268,12 @@ if (gcontext != NULL)
   gcontext->memctl.free(gcontext, gcontext->memctl.memory_data);
 }
 
-
 PCRE2_EXP_DEFN void PCRE2_CALL_CONVENTION
 pcre2_compile_context_free(pcre2_compile_context *ccontext)
 {
 if (ccontext != NULL)
   ccontext->memctl.free(ccontext, ccontext->memctl.memory_data);
 }
-
 
 PCRE2_EXP_DEFN void PCRE2_CALL_CONVENTION
 pcre2_match_context_free(pcre2_match_context *mcontext)
@@ -301,14 +282,12 @@ if (mcontext != NULL)
   mcontext->memctl.free(mcontext, mcontext->memctl.memory_data);
 }
 
-
 PCRE2_EXP_DEFN void PCRE2_CALL_CONVENTION
 pcre2_convert_context_free(pcre2_convert_context *ccontext)
 {
 if (ccontext != NULL)
   ccontext->memctl.free(ccontext, ccontext->memctl.memory_data);
 }
-
 
 /*************************************************
 *             Set values in contexts             *
@@ -317,7 +296,6 @@ if (ccontext != NULL)
 /* All these functions return 0 for success or PCRE2_ERROR_BADDATA if invalid
 data is given. Only some of the functions are able to test the validity of the
 data. */
-
 
 /* ------------ Compile context ------------ */
 
@@ -392,7 +370,6 @@ ccontext->stack_guard = guard;
 ccontext->stack_guard_data = user_data;
 return 0;
 }
-
 
 /* ------------ Match context ------------ */
 

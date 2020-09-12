@@ -750,5 +750,3 @@ namespace basist
 	
 } // namespace basist
 
-
-

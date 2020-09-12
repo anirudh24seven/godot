@@ -1,8 +1,6 @@
 
 /*  godot_nativescript.h                                                 */
 
-
-
 #ifndef GODOT_NATIVESCRIPT_H
 #define GODOT_NATIVESCRIPT_H
 

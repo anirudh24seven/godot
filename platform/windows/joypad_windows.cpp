@@ -1,8 +1,6 @@
 
 /*  joypad_windows.cpp                                                   */
 
-
-
 #include "joypad_windows.h"
 
 #include <oleauto.h>

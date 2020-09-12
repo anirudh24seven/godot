@@ -226,7 +226,6 @@ static float FLOOR1_fromdB_LOOKUP[256]={
 
 #endif
 
-
 static int mapping0_forward(vorbis_block *vb){
   vorbis_dsp_state      *vd=vb->vd;
   vorbis_info           *vi=vd->vi;
@@ -479,7 +478,6 @@ static int mapping0_forward(vorbis_block *vb){
         }
       }
 #endif
-
 
 #if 0
       if(vi->channels==2){

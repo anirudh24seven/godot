@@ -116,7 +116,6 @@ extern "C"
  * header bytes at the beginning of the Ogg page.
  */
 
-
 /** \defgroup oldfuncs Legacy pre-1.0 C API */
 /*  @{ */
 
@@ -279,7 +278,6 @@ typedef struct theora_comment{
   char  *vendor;                /**< The vendor string identifying the encoder, null terminated */
 
 } theora_comment;
-
 
 /**\name theora_control() codes */
 /* \anchor decctlcodes_old

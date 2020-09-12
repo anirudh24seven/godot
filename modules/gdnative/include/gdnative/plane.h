@@ -1,8 +1,6 @@
 
 /*  plane.h                                                              */
 
-
-
 #ifndef GODOT_PLANE_H
 #define GODOT_PLANE_H
 

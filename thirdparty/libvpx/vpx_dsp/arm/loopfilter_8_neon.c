@@ -64,11 +64,9 @@ static INLINE void mbloop_filter_neon(
     d23u8 = vabd_u8(d5u8, d16u8);
     d24u8 = vqadd_u8(d24u8, d24u8);
 
+d19u8 = vcge_u8(dlimit, d19u8);
 
-    d19u8 = vcge_u8(dlimit, d19u8);
-
-
-    d25u8 = vmax_u8(d25u8, d26u8);
+d25u8 = vmax_u8(d25u8, d26u8);
     d26u8 = vmax_u8(d27u8, d28u8);
 
     d23u8 = vshr_n_u8(d23u8, 1);

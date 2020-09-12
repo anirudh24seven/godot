@@ -1,8 +1,6 @@
 
 /*  audio_stream_player_3d.h                                             */
 
-
-
 #ifndef AUDIO_STREAM_PLAYER_3D_H
 #define AUDIO_STREAM_PLAYER_3D_H
 

@@ -1,8 +1,6 @@
 
 /*  shader_language.h                                                    */
 
-
-
 #ifndef SHADER_LANGUAGE_H
 #define SHADER_LANGUAGE_H
 

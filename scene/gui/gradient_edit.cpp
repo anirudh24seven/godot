@@ -1,8 +1,6 @@
 
 /*  gradient_edit.cpp                                                    */
 
-
-
 #include "gradient_edit.h"
 
 #include "core/os/keyboard.h"

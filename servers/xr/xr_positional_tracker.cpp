@@ -1,8 +1,6 @@
 
 /*  xr_positional_tracker.cpp                                            */
 
-
-
 #include "xr_positional_tracker.h"
 
 #include "core/input/input.h"

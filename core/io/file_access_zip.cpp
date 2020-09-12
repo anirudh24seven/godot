@@ -1,8 +1,6 @@
 
 /*  file_access_zip.cpp                                                  */
 
-
-
 #ifdef MINIZIP_ENABLED
 
 #include "file_access_zip.h"

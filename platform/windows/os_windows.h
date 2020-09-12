@@ -1,8 +1,6 @@
 
 /*  os_windows.h                                                         */
 
-
-
 #ifndef OS_WINDOWS_H
 #define OS_WINDOWS_H
 

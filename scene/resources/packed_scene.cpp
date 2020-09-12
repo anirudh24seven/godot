@@ -1,8 +1,6 @@
 
 /*  packed_scene.cpp                                                     */
 
-
-
 #include "packed_scene.h"
 
 #include "core/core_string_names.h"

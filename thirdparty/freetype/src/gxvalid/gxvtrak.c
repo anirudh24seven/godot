@@ -24,12 +24,10 @@
  *
  */
 
-
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -38,16 +36,11 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvtrak
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      Data and Types                           *****/
   /*****                                                               *****/
 
-
-
-    /*
+/*
      * referred track table format specification:
      * https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6trak.html
      * last update was 1996.
@@ -78,19 +71,13 @@
 
   } GXV_trak_DataRec, *GXV_trak_Data;
 
-
 #define GXV_TRAK_DATA( FIELD )  GXV_TABLE_DATA( trak, FIELD )
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      UTILITY FUNCTIONS                        *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   gxv_trak_trackTable_validate( FT_Bytes       table,
                                 FT_Bytes       limit,
                                 FT_UShort      nTracks,
@@ -103,8 +90,7 @@
     FT_UShort  offset;
     FT_UShort  i, j;
 
-
-    GXV_NAME_ENTER( "trackTable" );
+GXV_NAME_ENTER( "trackTable" );
 
     GXV_TRAK_DATA( trackValueOffset_min ) = 0xFFFFU;
     GXV_TRAK_DATA( trackValueOffset_max ) = 0x0000;
@@ -139,8 +125,7 @@
     GXV_EXIT;
   }
 
-
-  static void
+static void
   gxv_trak_trackData_validate( FT_Bytes       table,
                                FT_Bytes       limit,
                                GXV_Validator  gxvalid )
@@ -152,8 +137,7 @@
 
     GXV_ODTECT( 4, odtect );
 
-
-    GXV_ODTECT_INIT( odtect );
+GXV_ODTECT_INIT( odtect );
     GXV_NAME_ENTER( "trackData" );
 
     /* read the header of trackData */
@@ -195,16 +179,11 @@
     GXV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          trak TABLE                           *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   gxv_trak_validate( FT_Bytes      table,
                      FT_Face       face,
                      FT_Validator  ftvalid )
@@ -223,8 +202,7 @@
     FT_UShort  vertOffset;
     FT_UShort  reserved;
 
-
-    GXV_ODTECT( 3, odtect );
+GXV_ODTECT( 3, odtect );
 
     GXV_ODTECT_INIT( odtect );
     gxvalid->root       = ftvalid;
@@ -283,6 +261,5 @@
 
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

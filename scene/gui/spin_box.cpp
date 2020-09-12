@@ -1,8 +1,6 @@
 
 /*  spin_box.cpp                                                         */
 
-
-
 #include "spin_box.h"
 
 #include "core/input/input.h"

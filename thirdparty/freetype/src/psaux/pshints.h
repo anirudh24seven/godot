@@ -35,20 +35,17 @@
  *
  */
 
-
 #ifndef PSHINT_H_
 #define PSHINT_H_
 
 FT_BEGIN_HEADER
 
-
-  enum
+enum
   {
     CF2_MAX_HINTS = 96    /* maximum # of hints */
   };
 
-
-  /*
+/*
    * A HintMask object stores a bit mask that specifies which hints in the
    * charstring are active at a given time.  Hints in CFF must be declared
    * at the start, before any drawing operators, with horizontal hints
@@ -81,8 +78,7 @@ FT_BEGIN_HEADER
 
   } CF2_HintMaskRec, *CF2_HintMask;
 
-
-  typedef struct  CF2_StemHintRec_
+typedef struct  CF2_StemHintRec_
   {
     FT_Bool  used;     /* DS positions are valid         */
 
@@ -94,8 +90,7 @@ FT_BEGIN_HEADER
 
   } CF2_StemHintRec, *CF2_StemHint;
 
-
-  /*
+/*
    * A HintMap object stores a piecewise linear function for mapping
    * y-coordinates from character space to device space, providing
    * appropriate pixel alignment to stem edges.
@@ -122,8 +117,7 @@ FT_BEGIN_HEADER
     CF2_MAX_HINT_EDGES = CF2_MAX_HINTS * 2
   };
 
-
-  typedef struct  CF2_HintMapRec_
+typedef struct  CF2_HintMapRec_
   {
     CF2_Font  font;
 
@@ -146,8 +140,7 @@ FT_BEGIN_HEADER
 
   } CF2_HintMapRec, *CF2_HintMap;
 
-
-  FT_LOCAL( FT_Bool )
+FT_LOCAL( FT_Bool )
   cf2_hint_isValid( const CF2_Hint  hint );
   FT_LOCAL( FT_Bool )
   cf2_hint_isTop( const CF2_Hint  hint );
@@ -156,8 +149,7 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   cf2_hint_lock( CF2_Hint  hint );
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   cf2_hintmap_init( CF2_HintMap   hintmap,
                     CF2_Font      font,
                     CF2_HintMap   initialMap,
@@ -171,8 +163,7 @@ FT_BEGIN_HEADER
                      CF2_Fixed     hintOrigin,
                      FT_Bool       initialMap );
 
-
-  /*
+/*
    * GlyphPath is a wrapper for drawing operations that scales the
    * coordinates according to the render matrix and HintMap.  It also tracks
    * open paths to control ClosePath and to insert MoveTo for broken fonts.
@@ -185,8 +176,7 @@ FT_BEGIN_HEADER
     CF2_Font              font;           /* font instance    */
     CF2_OutlineCallbacks  callbacks;      /* outline consumer */
 
-
-    CF2_HintMapRec  hintMap;        /* current hint map            */
+CF2_HintMapRec  hintMap;        /* current hint map            */
     CF2_HintMapRec  firstHintMap;   /* saved copy                  */
     CF2_HintMapRec  initialHintMap; /* based on all captured hints */
 
@@ -243,8 +233,7 @@ FT_BEGIN_HEADER
 
   } CF2_GlyphPathRec, *CF2_GlyphPath;
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   cf2_glyphpath_init( CF2_GlyphPath         glyphpath,
                       CF2_Font              font,
                       CF2_OutlineCallbacks  callbacks,
@@ -278,11 +267,8 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   cf2_glyphpath_closeOpenPath( CF2_GlyphPath  glyphpath );
 
-
 FT_END_HEADER
 
-
 #endif /* PSHINT_H_ */
-
 
 /* END */

@@ -3,22 +3,17 @@ import sys
 import platform
 from distutils.version import LooseVersion
 
-
 def is_active():
     return True
-
 
 def get_name():
     return "Android"
 
-
 def can_build():
     return "ANDROID_NDK_ROOT" in os.environ
 
-
 def get_platform(platform):
     return int(platform.split("-")[1])
-
 
 def get_opts():
     from SCons.Variables import BoolVariable, EnumVariable
@@ -30,12 +25,10 @@ def get_opts():
         BoolVariable("android_neon", "Enable NEON support (armv7 only)", True),
     ]
 
-
 def get_flags():
     return [
         ("tools", False),
     ]
-
 
 def create(env):
     tools = env["TOOLS"]
@@ -45,7 +38,6 @@ def create(env):
         tools.remove("applelink")
         env.Tool("gcc")
     return env.Clone(tools=tools)
-
 
 def configure(env):
     # Workaround for MinGW. See:
@@ -321,7 +313,6 @@ def configure(env):
     env.Prepend(CPPPATH=["#platform/android"])
     env.Append(CPPDEFINES=["ANDROID_ENABLED", "UNIX_ENABLED", "VULKAN_ENABLED", "NO_FCNTL"])
     env.Append(LIBS=["OpenSLES", "EGL", "GLESv2", "vulkan", "android", "log", "z", "dl"])
-
 
 # Return NDK version string in source.properties (adapted from the Chromium project).
 def get_ndk_version(path):

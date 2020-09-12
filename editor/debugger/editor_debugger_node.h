@@ -1,8 +1,6 @@
 
 /*  editor_debugger_node.h                                               */
 
-
-
 #ifndef EDITOR_DEBUGGER_NODE_H
 #define EDITOR_DEBUGGER_NODE_H
 

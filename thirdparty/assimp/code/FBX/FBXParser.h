@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -70,7 +69,6 @@ typedef std::pair<ElementMap::const_iterator,ElementMap::const_iterator> Element
 
 #   define new_Scope new Scope
 #   define new_Element new Element
-
 
 /** FBX data entity that consists of a key:value tuple.
  *
@@ -187,7 +185,6 @@ private:
 
     const bool is_binary;
 };
-
 
 /* token parsing - this happens when building the DOM out of the parse-tree*/
 uint64_t ParseTokenAsID(const Token& t, const char*& err_out);

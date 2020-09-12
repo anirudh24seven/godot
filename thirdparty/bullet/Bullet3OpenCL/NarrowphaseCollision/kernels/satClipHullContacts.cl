@@ -1,8 +1,6 @@
 
 #define TRIANGLE_NUM_CONVEX_FACES 5
 
-
-
 #pragma OPENCL EXTENSION cl_amd_printf : enable
 #pragma OPENCL EXTENSION cl_khr_local_int32_base_atomics : enable
 #pragma OPENCL EXTENSION cl_khr_global_int32_base_atomics : enable
@@ -34,18 +32,12 @@
 
 typedef unsigned int u32;
 
-
-
 #include "Bullet3Collision/NarrowPhaseCollision/shared/b3Contact4Data.h"
 #include "Bullet3Collision/NarrowPhaseCollision/shared/b3ConvexPolyhedronData.h"
 #include "Bullet3Collision/NarrowPhaseCollision/shared/b3Collidable.h"
 #include "Bullet3Collision/NarrowPhaseCollision/shared/b3RigidBodyData.h"
 
-
-
 #define GET_NPOINTS(x) (x).m_worldNormalOnB.w
-
-
 
 #define SELECT_UINT4( b, a, condition ) select( b,a,condition )
 
@@ -55,7 +47,6 @@ typedef unsigned int u32;
 #define make_int4 (int4)
 #define make_uint2 (uint2)
 #define make_int2 (int2)
-
 
 __inline
 float fastDiv(float numerator, float denominator)
@@ -69,7 +60,6 @@ float4 fastDiv4(float4 numerator, float4 denominator)
 {
 	return native_divide(numerator, denominator);	
 }
-
 
 __inline
 float4 cross3(float4 a, float4 b)
@@ -93,7 +83,6 @@ float4 fastNormalize4(float4 v)
 	return fast_normalize(v);
 }
 
-
 ///////////////////////////////////////
 //	Quaternion
 ///////////////////////////////////////
@@ -111,9 +100,6 @@ float4 qtRotate(Quaternion q, float4 vec);
 
 __inline
 Quaternion qtInvert(Quaternion q);
-
-
-
 
 __inline
 Quaternion qtMul(Quaternion a, Quaternion b)
@@ -161,15 +147,12 @@ float4 transform(const float4* p, const float4* translation, const Quaternion* o
 	return qtRotate( *orientation, *p ) + (*translation);
 }
 
-
-
 __inline
 float4 normalize3(const float4 a)
 {
 	float4 n = make_float4(a.x, a.y, a.z, 0.f);
 	return fastNormalize4( n );
 }
-
 
 __inline float4 lerp3(const float4 a,const float4 b, float  t)
 {
@@ -178,8 +161,6 @@ __inline float4 lerp3(const float4 a,const float4 b, float  t)
 						a.z + (b.z - a.z) * t,
 						0.f);
 }
-
-
 
 // Clips a face to the back of a plane, return the number of vertices out, stored in ppVtxOut
 int clipFaceGlobal(__global const float4* pVtxIn, int numVertsIn, float4 planeNormalWS,float planeEqWS, __global float4* ppVtxOut)
@@ -228,8 +209,6 @@ int clipFaceGlobal(__global const float4* pVtxIn, int numVertsIn, float4 planeNo
 	}
 	return numVertsOut;
 }
-
-
 
 // Clips a face to the back of a plane, return the number of vertices out, stored in ppVtxOut
 int clipFace(const float4* pVtxIn, int numVertsIn, float4 planeNormalWS,float planeEqWS, float4* ppVtxOut)
@@ -281,8 +260,7 @@ int clipFace(const float4* pVtxIn, int numVertsIn, float4 planeNormalWS,float pl
 	return numVertsOut;
 }
 
-
-int clipFaceAgainstHull(const float4 separatingNormal, __global const b3ConvexPolyhedronData_t* hullA,  
+int clipFaceAgainstHull(const float4 separatingNormal, __global const b3ConvexPolyhedronData_t* hullA,
 	const float4 posA, const Quaternion ornA, float4* worldVertsB1, int numWorldVertsB1,
 	float4* worldVertsB2, int capacityWorldVertsB2,
 	const float minDist, float maxDist,
@@ -354,8 +332,7 @@ int clipFaceAgainstHull(const float4 separatingNormal, __global const b3ConvexPo
 		numVertsOut = 0;
 	}
 
-	
-	// only keep points that are behind the witness face
+// only keep points that are behind the witness face
 	{
 		float4 localPlaneNormal  = make_float4(polyA.m_plane.x,polyA.m_plane.y,polyA.m_plane.z,0.f);
 		float localPlaneEq = polyA.m_plane.w;
@@ -381,9 +358,7 @@ int clipFaceAgainstHull(const float4 separatingNormal, __global const b3ConvexPo
 	return numContactsOut;
 }
 
-
-
-int clipFaceAgainstHullLocalA(const float4 separatingNormal, const b3ConvexPolyhedronData_t* hullA,  
+int clipFaceAgainstHullLocalA(const float4 separatingNormal, const b3ConvexPolyhedronData_t* hullA,
 	const float4 posA, const Quaternion ornA, float4* worldVertsB1, int numWorldVertsB1,
 	float4* worldVertsB2, int capacityWorldVertsB2,
 	const float minDist, float maxDist,
@@ -458,8 +433,7 @@ int clipFaceAgainstHullLocalA(const float4 separatingNormal, const b3ConvexPolyh
 		numVertsOut = 0;
 	}
 
-	
-	// only keep points that are behind the witness face
+// only keep points that are behind the witness face
 	{
 		float4 localPlaneNormal  = make_float4(polyA.m_plane.x,polyA.m_plane.y,polyA.m_plane.z,0.f);
 		float localPlaneEq = polyA.m_plane.w;
@@ -499,8 +473,7 @@ int	clipHullAgainstHull(const float4 separatingNormal,
 	int numContactsOut = 0;
 	int numWorldVertsB1= 0;
 
-
-	int closestFaceB=-1;
+int closestFaceB=-1;
 	float dmax = -FLT_MAX;
 
 	{
@@ -540,7 +513,6 @@ int	clipHullAgainstHull(const float4 separatingNormal,
 	return numContactsOut;
 }
 
-
 int	clipHullAgainstHullLocalA(const float4 separatingNormal,
 	const b3ConvexPolyhedronData_t* hullA, __global const b3ConvexPolyhedronData_t* hullB, 
 	const float4 posA, const Quaternion ornA,const float4 posB, const Quaternion ornB, 
@@ -558,8 +530,7 @@ int	clipHullAgainstHullLocalA(const float4 separatingNormal,
 	int numContactsOut = 0;
 	int numWorldVertsB1= 0;
 
-
-	int closestFaceB=-1;
+int closestFaceB=-1;
 	float dmax = -FLT_MAX;
 
 	{
@@ -614,9 +585,8 @@ int extractManifoldSequentialGlobal(__global const float4* p, int nPoints, float
     
     if (nPoints <=4)
         return nPoints;
-    
-    
-    if (nPoints >64)
+
+if (nPoints >64)
         nPoints = 64;
     
 	float4 center = make_float4(0.f);
@@ -626,19 +596,16 @@ int extractManifoldSequentialGlobal(__global const float4* p, int nPoints, float
 			center += p[i];
 		center /= (float)nPoints;
 	}
-    
-	
-    
-	//	sample 4 directions
+
+//	sample 4 directions
     
     float4 aVector = p[0] - center;
     float4 u = cross3( nearNormal, aVector );
     float4 v = cross3( nearNormal, u );
     u = normalize3( u );
     v = normalize3( v );
-    
-    
-    //keep point with deepest penetration
+
+//keep point with deepest penetration
     float minW= FLT_MAX;
     
     int minIndex=-1;
@@ -672,9 +639,8 @@ int extractManifoldSequentialGlobal(__global const float4* p, int nPoints, float
             maxDots.y = f;
             contactIdx[0].y = ie;
         }
-        
-        
-        f = dot3F4( v, r );
+
+f = dot3F4( v, r );
         if (f<maxDots.z)
         {
             maxDots.z = f;
@@ -700,7 +666,6 @@ int extractManifoldSequentialGlobal(__global const float4* p, int nPoints, float
     
 }
 
-
 int extractManifoldSequentialGlobalFake(__global const float4* p, int nPoints, float4 nearNormal, int* contactIdx)
 {
     contactIdx[0] = 0;
@@ -714,8 +679,6 @@ int extractManifoldSequentialGlobalFake(__global const float4* p, int nPoints, f
     return nPoints;
     
 }
-
-
 
 int extractManifoldSequential(const float4* p, int nPoints, float4 nearNormal, int* contactIdx)
 {
@@ -733,9 +696,7 @@ int extractManifoldSequential(const float4* p, int nPoints, float4 nearNormal, i
 		center = v[0]/(float)nPoints;
 	}
 
-	
-
-	{	//	sample 4 directions
+{	//	sample 4 directions
 		if( nPoints < 4 )
 		{
 			for(int i=0; i<nPoints; i++) 
@@ -759,9 +720,8 @@ int extractManifoldSequential(const float4* p, int nPoints, float4 nearNormal, i
 					int4 a[64];
 					for(int ie = 0; ie<nPoints; ie++ )
 					{
-						
-						
-						float f;
+
+float f;
 						float4 r = p[ie]-center;
 						f = dot3F4( u, r );
 						a[ie].x = ((*(u32*)&f) & 0xffffff00) | (0xff & ie);
@@ -804,14 +764,11 @@ int extractManifoldSequential(const float4* p, int nPoints, float4 nearNormal, i
 		contactIdx[2] = idx[2];
 		contactIdx[3] = idx[3];
 
-
-		return 4;
+return 4;
 	}
 }
 
-
-
-__kernel void   extractManifoldAndAddContactKernel(__global const int4* pairs, 
+__kernel void   extractManifoldAndAddContactKernel(__global const int4* pairs,
 																	__global const b3RigidBodyData_t* rigidBodies, 
 																	__global const float4* closestPointsWorld,
 																	__global const float4* separatingNormalsWorld,
@@ -868,7 +825,6 @@ __kernel void   extractManifoldAndAddContactKernel(__global const int4* pairs,
 	}
 }
 
-
 void	trInverse(float4 translationIn, Quaternion orientationIn,
 		float4* translationOut, Quaternion* orientationOut)
 {
@@ -884,10 +840,7 @@ void	trMul(float4 translationA, Quaternion orientationA,
 	*translationOut = transform(&translationB,&translationA,&orientationA);
 }
 
-
-
-
-__kernel void   clipHullHullKernel( __global int4* pairs, 
+__kernel void   clipHullHullKernel( __global int4* pairs,
 																					__global const b3RigidBodyData_t* rigidBodies, 
 																					__global const b3Collidable_t* collidables,
 																					__global const b3ConvexPolyhedronData_t* convexShapes, 
@@ -928,14 +881,10 @@ __kernel void   clipHullHullKernel( __global int4* pairs,
 		if (hasSeparatingAxis[i])
 		{
 
-			
-			int shapeIndexA = collidables[collidableIndexA].m_shapeIndex;
+int shapeIndexA = collidables[collidableIndexA].m_shapeIndex;
 			int shapeIndexB = collidables[collidableIndexB].m_shapeIndex;
-			
 
-
-		
-			int numLocalContactsOut = clipHullAgainstHull(separatingNormals[i],
+int numLocalContactsOut = clipHullAgainstHull(separatingNormals[i],
 														&convexShapes[shapeIndexA], &convexShapes[shapeIndexB],
 														rigidBodies[bodyIndexA].m_pos,rigidBodies[bodyIndexA].m_quat,
 													  rigidBodies[bodyIndexB].m_pos,rigidBodies[bodyIndexB].m_quat,
@@ -957,9 +906,8 @@ __kernel void   clipHullHullKernel( __global int4* pairs,
 				contactIdx[3] = -1;
 		
 				int nReducedContacts = extractManifoldSequential(pointsIn, nPoints, normal, contactIdx);
-		
-				
-				int mprContactIndex = pairs[pairIndex].z;
+
+int mprContactIndex = pairs[pairIndex].z;
 
 				int dstIdx = mprContactIndex;
 				if (dstIdx<0)
@@ -999,8 +947,7 @@ __kernel void   clipHullHullKernel( __global int4* pairs,
 
 }
 
-
-__kernel void   clipCompoundsHullHullKernel( __global const int4* gpuCompoundPairs, 
+__kernel void   clipCompoundsHullHullKernel( __global const int4* gpuCompoundPairs,
 																					__global const b3RigidBodyData_t* rigidBodies, 
 																					__global const b3Collidable_t* collidables,
 																					__global const b3ConvexPolyhedronData_t* convexShapes, 
@@ -1131,9 +1078,7 @@ __kernel void   clipCompoundsHullHullKernel( __global const int4* gpuCompoundPai
 
 }
 
-
-
-__kernel void   sphereSphereCollisionKernel( __global const int4* pairs, 
+__kernel void   sphereSphereCollisionKernel( __global const int4* pairs,
 																					__global const b3RigidBodyData_t* rigidBodies, 
 																					__global const b3Collidable_t* collidables,
 																					__global const float4* separatingNormals,
@@ -1250,9 +1195,8 @@ __kernel void   clipHullHullConcaveConvexKernel( __global int4* concavePairsIn,
 		int shapeIndexB = collidables[collidableIndexB].m_shapeIndex;
 		
 		///////////////////////////////////////////////////////////////
-		
-	
-		bool overlap = false;
+
+bool overlap = false;
 		
 		b3ConvexPolyhedronData_t convexPolyhedronA;
 
@@ -1285,8 +1229,7 @@ __kernel void   clipHullHullConcaveConvexKernel( __global int4* concavePairsIn,
 		uniqueEdgesA[1] = (verticesA[2]-verticesA[1]);
 		uniqueEdgesA[2] = (verticesA[0]-verticesA[2]);
 
-
-		convexPolyhedronA.m_faceOffset = 0;
+convexPolyhedronA.m_faceOffset = 0;
                                   
 		float4 normal = make_float4(face.m_plane.x,face.m_plane.y,face.m_plane.z,0.f);
                              
@@ -1356,16 +1299,14 @@ __kernel void   clipHullHullConcaveConvexKernel( __global int4* concavePairsIn,
 		convexPolyhedronA.m_numFaces = TRIANGLE_NUM_CONVEX_FACES;
 		convexPolyhedronA.m_localCenter = localCenter*(1.f/3.f);
 
-
-		float4 posA = rigidBodies[bodyIndexA].m_pos;
+float4 posA = rigidBodies[bodyIndexA].m_pos;
 		posA.w = 0.f;
 		float4 posB = rigidBodies[bodyIndexB].m_pos;
 		posB.w = 0.f;
 		float4 ornA = rigidBodies[bodyIndexA].m_quat;
 		float4 ornB =rigidBodies[bodyIndexB].m_quat;
 
-
-		float4 sepAxis = separatingNormals[i];
+float4 sepAxis = separatingNormals[i];
 		
 		int shapeTypeB = collidables[collidableIndexB].m_shapeType;
 		int childShapeIndexB =-1;
@@ -1387,10 +1328,8 @@ __kernel void   clipHullHullConcaveConvexKernel( __global int4* concavePairsIn,
 		}
 		
 		////////////////////////////////////////
-		
-		
-		
-		int numLocalContactsOut = clipHullAgainstHullLocalA(sepAxis,
+
+int numLocalContactsOut = clipHullAgainstHullLocalA(sepAxis,
 														&convexPolyhedronA, &convexShapes[shapeIndexB],
 														posA,ornA,
 													  posB,ornB,
@@ -1439,11 +1378,6 @@ __kernel void   clipHullHullConcaveConvexKernel( __global int4* concavePairsIn,
 	}//	if (i<numPairs)
 }
 
-
-
-
-
-
 int	findClippingFaces(const float4 separatingNormal,
                       __global const b3ConvexPolyhedronData_t* hullA, __global const b3ConvexPolyhedronData_t* hullB,
                       const float4 posA, const Quaternion ornA,const float4 posB, const Quaternion ornB,
@@ -1459,9 +1393,8 @@ int	findClippingFaces(const float4 separatingNormal,
 {
 	int numContactsOut = 0;
 	int numWorldVertsB1= 0;
-    
-    
-	int closestFaceB=-1;
+
+int closestFaceB=-1;
 	float dmax = -FLT_MAX;
     
 	{
@@ -1522,12 +1455,9 @@ int	findClippingFaces(const float4 separatingNormal,
     clippingFaces[pairIndex].y = closestFaceB;
     clippingFaces[pairIndex].z = numVerticesA;
     clippingFaces[pairIndex].w = numWorldVertsB1;
-    
-    
-	return numContactsOut;
+
+return numContactsOut;
 }
-
-
 
 int clipFaces(__global float4* worldVertsA1,
               __global float4* worldNormalsA1,
@@ -1552,10 +1482,8 @@ int clipFaces(__global float4* worldVertsA1,
     
     __global float4* pVtxIn = &worldVertsB1[pairIndex*capacityWorldVertsB2];
     __global float4* pVtxOut = &worldVertsB2[pairIndex*capacityWorldVertsB2];
-    
-    
-	
-	// clip polygon to back of planes of all faces of hull A that are adjacent to witness face
+
+// clip polygon to back of planes of all faces of hull A that are adjacent to witness face
     
 	for(int e0=0;e0<numVertsInA;e0++)
 	{
@@ -1579,17 +1507,12 @@ int clipFaces(__global float4* worldVertsA1,
     //float4 planeNormalWS = worldNormalsA1[pairIndex];
     //float planeEqWS=-dot3F4(planeNormalWS,worldVertsA1[pairIndex*capacityWorldVertsB2]);
 
-
-    
-    /*for (int i=0;i<numVertsInB;i++)
+/*for (int i=0;i<numVertsInB;i++)
     {
         pVtxOut[i] = pVtxIn[i];
     }*/
-    
-    
-    
-    
-    //numVertsInB=0;
+
+//numVertsInB=0;
 	
     float4 planeNormalWS = worldNormalsA1[pairIndex];
     float planeEqWS=-dot3F4(planeNormalWS,worldVertsA1[pairIndex*capacityWorldVertsB2]);
@@ -1610,14 +1533,10 @@ int clipFaces(__global float4* worldVertsA1,
     }
    
     clippingFaces[pairIndex].w =numContactsOut;
-   
-    
-	return numContactsOut;
+
+return numContactsOut;
 
 }
-
-
-
 
 __kernel void   findClippingFacesKernel(  __global const int4* pairs,
                                         __global const b3RigidBodyData_t* rigidBodies,
@@ -1640,9 +1559,8 @@ __kernel void   findClippingFacesKernel(  __global const int4* pairs,
     
 	int i = get_global_id(0);
 	int pairIndex = i;
-    
-	
-	float minDist = -1e30f;
+
+float minDist = -1e30f;
 	float maxDist = 0.02f;
     
 	if (i<numPairs)
@@ -1659,10 +1577,8 @@ __kernel void   findClippingFacesKernel(  __global const int4* pairs,
 			
 			int shapeIndexA = collidables[collidableIndexA].m_shapeIndex;
 			int shapeIndexB = collidables[collidableIndexB].m_shapeIndex;
-			
-            
-            
-			int numLocalContactsOut = findClippingFaces(separatingNormals[i],
+
+int numLocalContactsOut = findClippingFaces(separatingNormals[i],
                                                         &convexShapes[shapeIndexA], &convexShapes[shapeIndexB],
                                                         rigidBodies[bodyIndexA].m_pos,rigidBodies[bodyIndexA].m_quat,
                                                         rigidBodies[bodyIndexB].m_pos,rigidBodies[bodyIndexB].m_quat,
@@ -1672,15 +1588,11 @@ __kernel void   findClippingFacesKernel(  __global const int4* pairs,
                                                         minDist, maxDist,
                                                         vertices,faces,indices,
                                                         clippingFacesOut,i);
-            
-            
-		}//		if (hasSeparatingAxis[i])
+
+}//		if (hasSeparatingAxis[i])
 	}//	if (i<numPairs)
     
 }
-
-
-
 
 __kernel void   clipFacesAndFindContactsKernel(    __global const float4* separatingNormals,
                                                    __global const int* hasSeparatingAxis,
@@ -1696,9 +1608,8 @@ __kernel void   clipFacesAndFindContactsKernel(    __global const float4* separa
 {
     int i = get_global_id(0);
 	int pairIndex = i;
-	
-    
-	float minDist = -1e30f;
+
+float minDist = -1e30f;
 	float maxDist = 0.02f;
     
 	if (i<numPairs)
@@ -1716,13 +1627,11 @@ __kernel void   clipFacesAndFindContactsKernel(    __global const float4* separa
             
             __global float4* pVtxIn = &worldVertsB1[pairIndex*capacityWorldVertsB2];
             __global float4* pVtxOut = &worldVertsB2[pairIndex*capacityWorldVertsB2];
-            
 
-            {
+{
                 __global int4* clippingFaces = clippingFacesOut;
-            
-                
-                int closestFaceA = clippingFaces[pairIndex].x;
+
+int closestFaceA = clippingFaces[pairIndex].x;
                 int closestFaceB = clippingFaces[pairIndex].y;
                 int numVertsInA = clippingFaces[pairIndex].z;
                 int numVertsInB = clippingFaces[pairIndex].w;
@@ -1731,10 +1640,8 @@ __kernel void   clipFacesAndFindContactsKernel(    __global const float4* separa
                 
                 if (closestFaceA>=0)
                 {
-                    
-                    
-                    
-                    // clip polygon to back of planes of all faces of hull A that are adjacent to witness face
+
+// clip polygon to back of planes of all faces of hull A that are adjacent to witness face
                     
                     for(int e0=0;e0<numVertsInA;e0++)
                     {
@@ -1775,9 +1682,8 @@ __kernel void   clipFacesAndFindContactsKernel(    __global const float4* separa
                     
                 }
                 clippingFaces[pairIndex].w =numLocalContactsOut;
-                
 
-            }
+}
             
             for (int i=0;i<numLocalContactsOut;i++)
                 pVtxIn[i] = pVtxOut[i];
@@ -1786,10 +1692,6 @@ __kernel void   clipFacesAndFindContactsKernel(    __global const float4* separa
 	}//	if (i<numPairs)
     
 }
-
-
-
-
 
 __kernel void   newContactReductionKernel( __global int4* pairs,
                                                    __global const b3RigidBodyData_t* rigidBodies,
@@ -1815,11 +1717,8 @@ __kernel void   newContactReductionKernel( __global int4* pairs,
         
 		if (hasSeparatingAxis[i])
 		{
-            
-			
-            
-            
-			int nPoints = clippingFaces[pairIndex].w;
+
+int nPoints = clippingFaces[pairIndex].w;
            
             if (nPoints>0)
             {
@@ -1875,14 +1774,11 @@ __kernel void   newContactReductionKernel( __global int4* pairs,
 					GET_NPOINTS(*c) = nReducedContacts;
                     
                  }
-                 
-                
+
 //#endif
 				
 			}//		if (numContactsOut>0)
 		}//		if (hasSeparatingAxis[i])
 	}//	if (i<numPairs)
 
-    
-    
 }

@@ -1,8 +1,6 @@
 
 /*  joints_2d.cpp                                                        */
 
-
-
 #include "joints_2d.h"
 
 #include "core/engine.h"

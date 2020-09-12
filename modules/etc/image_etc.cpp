@@ -1,8 +1,6 @@
 
 /*  image_etc.cpp                                                        */
 
-
-
 #include "image_etc.h"
 #include "Etc.h"
 #include "EtcFilter.h"

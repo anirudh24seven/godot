@@ -1,8 +1,6 @@
 
 /*  collision_polygon_3d.cpp                                             */
 
-
-
 #include "collision_polygon_3d.h"
 
 #include "collision_object_3d.h"

@@ -15,8 +15,7 @@
  *
  */
 
-
-  /*
+/*
    *
    * FTC_GCache is an _abstract_ cache object optimized to store glyph
    * data.  It works as follows:
@@ -88,8 +87,7 @@
    *   ftc_cache_add as usual.
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Important: The functions defined in this file are only used to
    *            implement an abstract glyph cache class.  You need to
@@ -97,34 +95,19 @@
    *
    */
 
-
-
-
-
-
-
-  /*********                                                       *********/
+/*********                                                       *********/
   /*********             WARNING, THIS IS BETA CODE.               *********/
   /*********                                                       *********/
-
-
-
-
-
-
 
 #ifndef FTCGLYPH_H_
 #define FTCGLYPH_H_
 
-
 #include <ft2build.h>
 #include "ftcmanag.h"
 
-
 FT_BEGIN_HEADER
 
-
- /*
+/*
   * We can group glyphs into `families'.  Each family correspond to a
   * given face ID, character size, transform, etc.
   *
@@ -144,8 +127,7 @@ FT_BEGIN_HEADER
 #define  FTC_FAMILY(x)    ( (FTC_Family)(x) )
 #define  FTC_FAMILY_P(x)  ( (FTC_Family*)(x) )
 
-
-  typedef struct  FTC_GNodeRec_
+typedef struct  FTC_GNodeRec_
   {
     FTC_NodeRec      node;
     FTC_Family       family;
@@ -156,8 +138,7 @@ FT_BEGIN_HEADER
 #define FTC_GNODE( x )    ( (FTC_GNode)(x) )
 #define FTC_GNODE_P( x )  ( (FTC_GNode*)(x) )
 
-
-  typedef struct  FTC_GQueryRec_
+typedef struct  FTC_GQueryRec_
   {
     FT_UInt      gindex;
     FTC_Family   family;
@@ -166,8 +147,7 @@ FT_BEGIN_HEADER
 
 #define FTC_GQUERY( x )  ( (FTC_GQuery)(x) )
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * These functions are exported so that they can be called from
    * user-provided cache classes; otherwise, they are really part of the
@@ -204,8 +184,7 @@ FT_BEGIN_HEADER
   FTC_GNode_Done( FTC_GNode  node,
                   FTC_Cache  cache );
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   FTC_Family_Init( FTC_Family  family,
                    FTC_Cache   cache );
 
@@ -218,13 +197,11 @@ FT_BEGIN_HEADER
 
 #define FTC_GCACHE( x )  ((FTC_GCache)(x))
 
-
 #if 0
   /* can be used as @FTC_Cache_InitFunc */
   FT_LOCAL( FT_Error )
   FTC_GCache_Init( FTC_GCache  cache );
 #endif
-
 
 #if 0
   /* can be used as @FTC_Cache_DoneFunc */
@@ -232,8 +209,7 @@ FT_BEGIN_HEADER
   FTC_GCache_Done( FTC_GCache  cache );
 #endif
 
-
-  /* the glyph cache class adds fields for the family implementation */
+/* the glyph cache class adds fields for the family implementation */
   typedef struct  FTC_GCacheClassRec_
   {
     FTC_CacheClassRec  clazz;
@@ -250,8 +226,7 @@ FT_BEGIN_HEADER
 #define FTC_CACHE_FAMILY_CLASS( x ) \
           ( (FTC_MruListClass)FTC_CACHE_GCACHE_CLASS( x )->family_class )
 
-
-  /* convenience function; use it instead of FTC_Manager_Register_Cache */
+/* convenience function; use it instead of FTC_Manager_Register_Cache */
   FT_LOCAL( FT_Error )
   FTC_GCache_New( FTC_Manager       manager,
                   FTC_GCacheClass   clazz,
@@ -266,14 +241,11 @@ FT_BEGIN_HEADER
                      FTC_Node    *anode );
 #endif
 
-
-  /* */
-
+/* */
 
 #define FTC_FAMILY_FREE( family, cache )                      \
           FTC_MruList_Remove( &FTC_GCACHE((cache))->families, \
                               (FTC_MruNode)(family) )
-
 
 #ifdef FTC_INLINE
 
@@ -319,11 +291,8 @@ FT_BEGIN_HEADER
 
 #endif /* !FTC_INLINE */
 
-
 FT_END_HEADER
 
-
 #endif /* FTCGLYPH_H_ */
-
 
 /* END */

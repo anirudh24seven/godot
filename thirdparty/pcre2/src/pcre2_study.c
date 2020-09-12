@@ -41,7 +41,6 @@ POSSIBILITY OF SUCH DAMAGE.
 /* This module contains functions for scanning a compiled pattern and
 collecting data (e.g. minimum matching length). */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -59,7 +58,6 @@ collecting data (e.g. minimum matching length). */
 /* Returns from set_start_bits() */
 
 enum { SSB_FAIL, SSB_DONE, SSB_CONTINUE, SSB_UNKNOWN };
-
 
 /*************************************************
 *   Find the minimum subject length for a group  *
@@ -758,8 +756,6 @@ for (;;)
 /* Control never gets here */
 }
 
-
-
 /*************************************************
 *      Set a bit and maybe its alternate case    *
 *************************************************/
@@ -833,8 +829,6 @@ if (caseless)
 return p;
 }
 
-
-
 /*************************************************
 *     Set bits for a positive character type     *
 *************************************************/
@@ -874,7 +868,6 @@ for (c = 128; c < 256; c++)
 #endif  /* UTF-8 */
 }
 
-
 /*************************************************
 *     Set bits for a negative character type     *
 *************************************************/
@@ -905,8 +898,6 @@ for (c = 0; c < table_limit; c++)
 if (table_limit != 32) for (c = 24; c < 32; c++) re->start_bitmap[c] = 0xff;
 #endif
 }
-
-
 
 /*************************************************
 *      Create bitmap of starting code units      *
@@ -1627,8 +1618,6 @@ while (*code == OP_ALT);
 
 return yield;
 }
-
-
 
 /*************************************************
 *          Study a compiled expression           *

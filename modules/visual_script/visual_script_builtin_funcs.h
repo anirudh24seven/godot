@@ -1,8 +1,6 @@
 
 /*  visual_script_builtin_funcs.h                                        */
 
-
-
 #ifndef VISUAL_SCRIPT_BUILTIN_FUNCS_H
 #define VISUAL_SCRIPT_BUILTIN_FUNCS_H
 

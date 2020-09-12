@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -41,8 +40,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 /** @file A helper class that processes texture transformations */
-
-
 
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
@@ -95,8 +92,7 @@ void TextureTransformStep::PreProcessUVTransform(STransformVecInfo& info)
     char szTemp[512];
     int rounded = 0;
 
-
-    /* Optimize the rotation angle. That's slightly difficult as
+/* Optimize the rotation angle. That's slightly difficult as
      * we have an inprecise floating-point number (when comparing
      * UV transformations we'll take that into account by using
      * an epsilon of 5 degrees). If there is a rotation value, we can't
@@ -119,8 +115,7 @@ void TextureTransformStep::PreProcessUVTransform(STransformVecInfo& info)
         return;
     }
 
-
-    /* Optimize UV translation in the U direction. To determine whether
+/* Optimize UV translation in the U direction. To determine whether
      * or not we can optimize we need to look at the requested mapping
      * type (e.g. if mirroring is active there IS a difference between
      * offset 2 and 3)
@@ -221,8 +216,7 @@ void TextureTransformStep::Execute( aiScene* pScene)
 {
     ASSIMP_LOG_DEBUG("TransformUVCoordsProcess begin");
 
-
-    /*  We build a per-mesh list of texture transformations we'll need
+/*  We build a per-mesh list of texture transformations we'll need
      *  to apply. To achieve this, we iterate through all materials,
      *  find all textures and get their transformations and UV indices.
      *  Then we search for all meshes using this material.
@@ -453,8 +447,7 @@ void TextureTransformStep::Execute( aiScene* pScene)
             size = AI_MAX_NUMBER_OF_TEXTURECOORDS;
         }
 
-
-        aiVector3D* old[AI_MAX_NUMBER_OF_TEXTURECOORDS];
+aiVector3D* old[AI_MAX_NUMBER_OF_TEXTURECOORDS];
         for (unsigned int n = 0; n < AI_MAX_NUMBER_OF_TEXTURECOORDS;++n)
             old[n] = mesh->mTextureCoords[n];
 
@@ -562,5 +555,4 @@ void TextureTransformStep::Execute( aiScene* pScene)
         }
     }
 }
-
 

@@ -1,8 +1,6 @@
 
 /*  rid_bullet.h                                                         */
 
-
-
 #ifndef RID_BULLET_H
 #define RID_BULLET_H
 

@@ -1,8 +1,6 @@
 
 /*  rasterizer_storage_rd.cpp                                            */
 
-
-
 #include "rasterizer_storage_rd.h"
 
 #include "core/engine.h"

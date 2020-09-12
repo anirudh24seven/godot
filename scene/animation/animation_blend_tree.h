@@ -1,8 +1,6 @@
 
 /*  animation_blend_tree.h                                               */
 
-
-
 #ifndef ANIMATION_BLEND_TREE_H
 #define ANIMATION_BLEND_TREE_H
 

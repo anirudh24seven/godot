@@ -131,7 +131,6 @@ static opus_int silk_QueryEncoder(                      /* O    Returns error co
     return ret;
 }
 
-
 /**************************/
 /* Encode frame with Silk */
 /**************************/

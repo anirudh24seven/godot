@@ -1,8 +1,6 @@
 
 /*  GodotPlugin.java                                                     */
 
-
-
 package org.godotengine.godot.plugin;
 
 import org.godotengine.godot.BuildConfig;

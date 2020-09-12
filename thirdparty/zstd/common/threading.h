@@ -44,7 +44,6 @@ extern "C" {
 #undef ERROR
 #define ERROR(name) ZSTD_ERROR(name)
 
-
 /* mutex */
 #define ZSTD_pthread_mutex_t           CRITICAL_SECTION
 #define ZSTD_pthread_mutex_init(a, b)  ((void)(b), InitializeCriticalSection((a)), 0)
@@ -75,7 +74,6 @@ int ZSTD_pthread_join(ZSTD_pthread_t thread, void** value_ptr);
 /**
  * add here more wrappers as required
  */
-
 
 #elif defined(ZSTD_MULTITHREAD)    /* posix assumed ; need a better detection method */
 /* ===   POSIX Systems   === */

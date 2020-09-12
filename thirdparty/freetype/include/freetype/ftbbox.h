@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This component has a _single_ role: to compute exact outline bounding
    * boxes.
@@ -26,10 +25,8 @@
    *
    */
 
-
 #ifndef FTBBOX_H_
 #define FTBBOX_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -40,19 +37,16 @@
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   outline_processing
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Outline_Get_BBox
@@ -88,14 +82,11 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTBBOX_H_ */
 
-
 /* END */
-
 
 /* Local Variables: */
 /* coding: utf-8    */

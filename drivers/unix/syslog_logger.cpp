@@ -1,8 +1,6 @@
 
 /*  syslog_logger.cpp                                                    */
 
-
-
 #ifdef UNIX_ENABLED
 
 #include "syslog_logger.h"

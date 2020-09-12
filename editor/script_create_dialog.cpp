@@ -1,8 +1,6 @@
 
 /*  script_create_dialog.cpp                                             */
 
-
-
 #include "script_create_dialog.h"
 
 #include "core/io/resource_saver.h"

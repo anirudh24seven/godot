@@ -1,8 +1,6 @@
 
 /*  animation_node_state_machine.h                                       */
 
-
-
 #ifndef ANIMATION_NODE_STATE_MACHINE_H
 #define ANIMATION_NODE_STATE_MACHINE_H
 

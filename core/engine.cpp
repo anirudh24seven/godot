@@ -1,8 +1,6 @@
 
 /*  engine.cpp                                                           */
 
-
-
 #include "engine.h"
 
 #include "core/authors.gen.h"

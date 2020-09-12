@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 /*!\defgroup vp8_decoder WebM VP8/VP9 Decoder
  * \ingroup vp8
  *
@@ -137,7 +136,6 @@ typedef struct vpx_decrypt_init {
  */
 typedef vpx_decrypt_init vp8_decrypt_init;
 
-
 /*!\cond */
 /*!\brief VP8 decoder control function parameter type
  *
@@ -145,7 +143,6 @@ typedef vpx_decrypt_init vp8_decrypt_init;
  * additional common controls are defined in vp8.h
  *
  */
-
 
 VPX_CTRL_USE_TYPE(VP8D_GET_LAST_REF_UPDATES,    int *)
 #define VPX_CTRL_VP8D_GET_LAST_REF_UPDATES

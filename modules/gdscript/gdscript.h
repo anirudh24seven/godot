@@ -1,8 +1,6 @@
 
 /*  gdscript.h                                                           */
 
-
-
 #ifndef GDSCRIPT_H
 #define GDSCRIPT_H
 

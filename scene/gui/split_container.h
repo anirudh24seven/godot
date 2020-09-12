@@ -1,8 +1,6 @@
 
 /*  split_container.h                                                    */
 
-
-
 #ifndef SPLIT_CONTAINER_H
 #define SPLIT_CONTAINER_H
 

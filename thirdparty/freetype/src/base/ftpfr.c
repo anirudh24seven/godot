@@ -21,22 +21,19 @@
 #include FT_INTERNAL_OBJECTS_H
 #include FT_SERVICE_PFR_H
 
-
-  /* check the format */
+/* check the format */
   static FT_Service_PfrMetrics
   ft_pfr_check( FT_Face  face )
   {
     FT_Service_PfrMetrics  service = NULL;
 
-
-    if ( face )
+if ( face )
       FT_FACE_LOOKUP_SERVICE( face, service, PFR_METRICS );
 
     return service;
   }
 
-
-  /* documentation is in ftpfr.h */
+/* documentation is in ftpfr.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Get_PFR_Metrics( FT_Face    face,
@@ -48,8 +45,7 @@
     FT_Error               error = FT_Err_Ok;
     FT_Service_PfrMetrics  service;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     service = ft_pfr_check( face );
@@ -65,8 +61,7 @@
     {
       FT_Fixed  x_scale, y_scale;
 
-
-      /* this is not a PFR font */
+/* this is not a PFR font */
       if ( aoutline_resolution )
         *aoutline_resolution = face->units_per_EM;
 
@@ -92,8 +87,7 @@
     return error;
   }
 
-
-  /* documentation is in ftpfr.h */
+/* documentation is in ftpfr.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Get_PFR_Kerning( FT_Face     face,
@@ -104,8 +98,7 @@
     FT_Error               error;
     FT_Service_PfrMetrics  service;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     if ( !avector )
@@ -121,8 +114,7 @@
     return error;
   }
 
-
-  /* documentation is in ftpfr.h */
+/* documentation is in ftpfr.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Get_PFR_Advance( FT_Face   face,
@@ -132,8 +124,7 @@
     FT_Error               error;
     FT_Service_PfrMetrics  service;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     if ( !aadvance )
@@ -148,6 +139,5 @@
 
     return error;
   }
-
 
 /* END */

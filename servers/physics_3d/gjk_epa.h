@@ -1,8 +1,6 @@
 
 /*  gjk_epa.h                                                            */
 
-
-
 #ifndef GJK_EPA_H
 #define GJK_EPA_H
 

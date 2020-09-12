@@ -1,8 +1,7 @@
 /* Copyright (c) 2011 Khaled Mamou (kmamou at gmail dot com)
  All rights reserved.
- 
- 
- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
  
  1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
  
@@ -1018,8 +1017,7 @@ void VHACD::ComputeACD(const Parameters& params)
 	// from that.
 	depth++;
 
-
-    while (sub++ < depth && inputParts.Size() > 0 && !m_cancel) {
+while (sub++ < depth && inputParts.Size() > 0 && !m_cancel) {
         msg.str("");
         msg << "Subdivision level " << sub;
         m_operation = msg.str();

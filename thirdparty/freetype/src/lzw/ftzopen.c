@@ -24,14 +24,12 @@
 #include FT_INTERNAL_STREAM_H
 #include FT_INTERNAL_DEBUG_H
 
-
-  static int
+static int
   ft_lzwstate_refill( FT_LzwState  state )
   {
     FT_ULong  count;
 
-
-    if ( state->in_eof )
+if ( state->in_eof )
       return -1;
 
     count = FT_Stream_TryRead( state->source,
@@ -55,8 +53,7 @@
     return 0;
   }
 
-
-  static FT_Int32
+static FT_Int32
   ft_lzwstate_get_code( FT_LzwState  state )
   {
     FT_UInt   num_bits = state->num_bits;
@@ -64,8 +61,7 @@
     FT_Byte*  p;
     FT_Int    result;
 
-
-    if ( state->buf_clear                    ||
+if ( state->buf_clear                    ||
          offset >= state->buf_size           ||
          state->free_ent >= state->free_bits )
     {
@@ -113,8 +109,7 @@
     return result;
   }
 
-
-  /* grow the character stack */
+/* grow the character stack */
   static int
   ft_lzwstate_stack_grow( FT_LzwState  state )
   {
@@ -150,8 +145,7 @@
     return 0;
   }
 
-
-  /* grow the prefix/suffix arrays */
+/* grow the prefix/suffix arrays */
   static int
   ft_lzwstate_prefix_grow( FT_LzwState  state )
   {
@@ -160,8 +154,7 @@
     FT_Memory  memory   = state->memory;
     FT_Error   error;
 
-
-    if ( new_size == 0 )  /* first allocation -> 9 bits */
+if ( new_size == 0 )  /* first allocation -> 9 bits */
       new_size = 512;
     else
       new_size += new_size >> 2;  /* don't grow too fast */
@@ -189,8 +182,7 @@
     return 0;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   ft_lzwstate_reset( FT_LzwState  state )
   {
     state->in_eof     = 0;
@@ -203,8 +195,7 @@
     state->phase      = FT_LZW_PHASE_START;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   ft_lzwstate_init( FT_LzwState  state,
                     FT_Stream    source )
   {
@@ -223,14 +214,12 @@
     ft_lzwstate_reset( state );
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   ft_lzwstate_done( FT_LzwState  state )
   {
     FT_Memory  memory = state->memory;
 
-
-    ft_lzwstate_reset( state );
+ft_lzwstate_reset( state );
 
     if ( state->stack != state->stack_0 )
       FT_FREE( state->stack );
@@ -241,7 +230,6 @@
     FT_ZERO( state );
   }
 
-
 #define FTLZW_STACK_PUSH( c )                        \
   FT_BEGIN_STMNT                                     \
     if ( state->stack_top >= state->stack_size &&    \
@@ -251,8 +239,7 @@
     state->stack[state->stack_top++] = (FT_Byte)(c); \
   FT_END_STMNT
 
-
-  FT_LOCAL_DEF( FT_ULong )
+FT_LOCAL_DEF( FT_ULong )
   ft_lzwstate_io( FT_LzwState  state,
                   FT_Byte*     buffer,
                   FT_ULong     out_size )
@@ -263,8 +250,7 @@
     FT_UInt  old_code = state->old_code;
     FT_UInt  in_code  = state->in_code;
 
-
-    if ( out_size == 0 )
+if ( out_size == 0 )
       goto Exit;
 
     switch ( state->phase )
@@ -274,8 +260,7 @@
         FT_Byte   max_bits;
         FT_Int32  c;
 
-
-        /* skip magic bytes, and read max_bits + block_flag */
+/* skip magic bytes, and read max_bits + block_flag */
         if ( FT_Stream_Seek( state->source, 2 ) != 0               ||
              FT_Stream_TryRead( state->source, &max_bits, 1 ) != 1 )
           goto Eof;
@@ -317,8 +302,7 @@
         FT_Int32  c;
         FT_UInt   code;
 
-
-      NextCode:
+NextCode:
         c = ft_lzwstate_get_code( state );
         if ( c < 0 )
           goto Eof;
@@ -419,6 +403,5 @@
     state->phase = FT_LZW_PHASE_EOF;
     goto Exit;
   }
-
 
 /* END */

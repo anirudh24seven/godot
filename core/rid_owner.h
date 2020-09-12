@@ -1,8 +1,6 @@
 
 /*  rid_owner.h                                                          */
 
-
-
 #ifndef RID_OWNER_H
 #define RID_OWNER_H
 

@@ -171,7 +171,6 @@ public:
     virtual void requireVulkan(const TSourceLoc&, const char* op);
     virtual void requireSpv(const TSourceLoc&, const char* op);
 
-
 #if defined(GLSLANG_WEB) && !defined(GLSLANG_WEB_DEVEL)
     void C_DECL   error(const TSourceLoc&, const char* szReason, const char* szToken,
                         const char* szExtraInfoFormat, ...) { addError(); }

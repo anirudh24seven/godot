@@ -39,7 +39,6 @@ typedef struct
 	};
 } b3AabbCL;
 
-
 unsigned int interleaveBits(unsigned int x)
 {
 	//........ ........ ......12 3456789A	//x
@@ -248,7 +247,6 @@ __kernel void plbvhCalculateOverlappingPairs(__global b3AabbCL* rigidAabbs,
 	}
 }
 
-
 //From rayCastKernels.cl
 typedef struct
 {
@@ -419,7 +417,6 @@ __kernel void plbvhLargeAabbRayTest(__global b3AabbCL* largeRigidAabbs, __global
 	}
 }
 
-
 //Set so that it is always greater than the actual common prefixes, and never selected as a parent node.
 //If there are no duplicates, then the highest common prefix is 32 or 64, depending on the number of bits used for the z-curve.
 //Duplicate common prefixes increase the highest common prefix at most by the number of bits used to index the leaf node.
@@ -478,7 +475,6 @@ __kernel void computeAdjacentPairCommonPrefix(__global SortDataCL* mortonCodesAn
 	out_commonPrefixes[internalNodeIndex] = computeCommonPrefix(nonduplicateLeftMortonCode, nonduplicateRightMortonCode);
 	out_commonPrefixLengths[internalNodeIndex] = computeCommonPrefixLength(nonduplicateLeftMortonCode, nonduplicateRightMortonCode);
 }
-
 
 __kernel void buildBinaryRadixTreeLeafNodes(__global int* commonPrefixLengths, __global int* out_leafNodeParentNodes,
 											__global int2* out_childNodes, int numLeafNodes)

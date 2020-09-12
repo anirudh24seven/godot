@@ -1,8 +1,6 @@
 
 /*  jni_utils.cpp                                                        */
 
-
-
 #include "jni_utils.h"
 
 jvalret _variant_to_jvalue(JNIEnv *env, Variant::Type p_type, const Variant *p_arg, bool force_jobject) {

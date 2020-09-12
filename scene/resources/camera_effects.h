@@ -1,8 +1,6 @@
 
 /*  camera_effects.h                                                     */
 
-
-
 #ifndef CAMERA_EFFECTS_H
 #define CAMERA_EFFECTS_H
 

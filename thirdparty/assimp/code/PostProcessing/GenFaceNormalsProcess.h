@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -75,7 +74,6 @@ public:
     * @param pScene The imported data to work at.
     */
     void Execute( aiScene* pScene);
-
 
 private:
     bool GenMeshFaceNormals(aiMesh* pcMesh);

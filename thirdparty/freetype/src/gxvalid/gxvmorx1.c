@@ -25,11 +25,9 @@
  *
  */
 
-
 #include "gxvmorx.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -38,8 +36,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvmorx
 
-
-  typedef struct  GXV_morx_subtable_type1_StateOptRec_
+typedef struct  GXV_morx_subtable_type1_StateOptRec_
   {
     FT_ULong   substitutionTable;
     FT_ULong   substitutionTable_length;
@@ -48,12 +45,10 @@
   }  GXV_morx_subtable_type1_StateOptRec,
     *GXV_morx_subtable_type1_StateOptRecData;
 
-
 #define GXV_MORX_SUBTABLE_TYPE1_HEADER_SIZE \
           ( GXV_STATETABLE_HEADER_SIZE + 2 )
 
-
-  static void
+static void
   gxv_morx_subtable_type1_substitutionTable_load( FT_Bytes       table,
                                                   FT_Bytes       limit,
                                                   GXV_Validator  gxvalid )
@@ -63,13 +58,11 @@
     GXV_morx_subtable_type1_StateOptRecData  optdata =
       (GXV_morx_subtable_type1_StateOptRecData)gxvalid->xstatetable.optdata;
 
-
-    GXV_LIMIT_CHECK( 2 );
+GXV_LIMIT_CHECK( 2 );
     optdata->substitutionTable = FT_NEXT_USHORT( p );
   }
 
-
-  static void
+static void
   gxv_morx_subtable_type1_subtable_setup( FT_ULong       table_size,
                                           FT_ULong       classTable,
                                           FT_ULong       stateArray,
@@ -86,8 +79,7 @@
     GXV_morx_subtable_type1_StateOptRecData  optdata =
       (GXV_morx_subtable_type1_StateOptRecData)gxvalid->xstatetable.optdata;
 
-
-    o[0] = classTable;
+o[0] = classTable;
     o[1] = stateArray;
     o[2] = entryTable;
     o[3] = optdata->substitutionTable;
@@ -99,8 +91,7 @@
     gxv_set_length_by_ulong_offset( o, l, buff, 4, table_size, gxvalid );
   }
 
-
-  static void
+static void
   gxv_morx_subtable_type1_entry_validate(
     FT_UShort                       state,
     FT_UShort                       flags,
@@ -123,7 +114,6 @@
     FT_UNUSED( state );
     FT_UNUSED( table );
     FT_UNUSED( limit );
-
 
 #ifdef GXV_LOAD_TRACE_VARS
     setMark      = (FT_UShort)( ( flags >> 15 ) & 1 );
@@ -156,8 +146,7 @@
         (FT_UShort)( currentIndex + 1 );
   }
 
-
-  static void
+static void
   gxv_morx_subtable_type1_LookupValue_validate( FT_UShort            glyph,
                                                 GXV_LookupValueCPtr  value_p,
                                                 GXV_Validator        gxvalid )
@@ -170,8 +159,7 @@
       FT_INVALID_GLYPH_ID;
   }
 
-
-  static GXV_LookupValueDesc
+static GXV_LookupValueDesc
   gxv_morx_subtable_type1_LookupFmt4_transit(
     FT_UShort            relative_gindex,
     GXV_LookupValueCPtr  base_value_p,
@@ -196,8 +184,7 @@
     return value;
   }
 
-
-  /*
+/*
    * TODO: length should be limit?
    **/
   static void
@@ -211,8 +198,7 @@
     GXV_morx_subtable_type1_StateOptRecData  optdata =
       (GXV_morx_subtable_type1_StateOptRecData)gxvalid->xstatetable.optdata;
 
-
-    /* TODO: calculate offset/length for each lookupTables */
+/* TODO: calculate offset/length for each lookupTables */
     gxvalid->lookupval_sign   = GXV_LOOKUPVALUE_UNSIGNED;
     gxvalid->lookupval_func   = gxv_morx_subtable_type1_LookupValue_validate;
     gxvalid->lookupfmt4_trans = gxv_morx_subtable_type1_LookupFmt4_transit;
@@ -221,8 +207,7 @@
     {
       FT_ULong  offset;
 
-
-      GXV_LIMIT_CHECK( 4 );
+GXV_LIMIT_CHECK( 4 );
       offset = FT_NEXT_ULONG( p );
 
       gxv_LookupTable_validate( table + offset, limit, gxvalid );
@@ -231,8 +216,7 @@
     /* TODO: overlapping of lookupTables in substitutionTable */
   }
 
-
-  /*
+/*
    * subtable for Contextual glyph substitution is a modified StateTable.
    * In addition to classTable, stateArray, entryTable, the field
    * `substitutionTable' is added.
@@ -246,8 +230,7 @@
 
     GXV_morx_subtable_type1_StateOptRec  st_rec;
 
-
-    GXV_NAME_ENTER( "morx chain subtable type1 (Contextual Glyph Subst)" );
+GXV_NAME_ENTER( "morx chain subtable type1 (Contextual Glyph Subst)" );
 
     GXV_LIMIT_CHECK( GXV_MORX_SUBTABLE_TYPE1_HEADER_SIZE );
 
@@ -273,6 +256,5 @@
 
     GXV_EXIT;
   }
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  emws_peer.cpp                                                        */
 
-
-
 #ifdef JAVASCRIPT_ENABLED
 
 #include "emws_peer.h"

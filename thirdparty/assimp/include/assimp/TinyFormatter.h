@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -88,8 +87,7 @@ public:
         underlying << sin;
     }
 
-
-    // The problem described here:
+// The problem described here:
     // https://sourceforge.net/tracker/?func=detail&atid=1067632&aid=3358562&group_id=226462
     // can also cause trouble here. Apparently, older gcc versions sometimes copy temporaries
     // being bound to const ref& function parameters. Copying streams is not permitted, though.
@@ -120,8 +118,7 @@ public:
         return *this;
     }
 
-
-    // comma operator overloaded as well, choose your preferred way.
+// comma operator overloaded as well, choose your preferred way.
     template <typename TToken>
     const basic_formatter& operator, (const TToken& s) const {
         underlying << s;
@@ -142,11 +139,9 @@ public:
         return *this;
     }
 
-
 private:
     mutable stringstream underlying;
 };
-
 
 typedef basic_formatter< char > format;
 typedef basic_formatter< wchar_t > wformat;

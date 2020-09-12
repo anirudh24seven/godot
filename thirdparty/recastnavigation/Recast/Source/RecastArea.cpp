@@ -355,7 +355,6 @@ void rcMarkBoxArea(rcContext* ctx, const float* bmin, const float* bmax, unsigne
 	}
 }
 
-
 static int pointInPoly(int nvert, const float* verts, const float* p)
 {
 	int i, j, c = 0;
@@ -413,9 +412,8 @@ void rcMarkConvexPolyArea(rcContext* ctx, const float* verts, const int nverts,
 	if (maxx >= chf.width) maxx = chf.width-1;
 	if (minz < 0) minz = 0;
 	if (maxz >= chf.height) maxz = chf.height-1;	
-	
-	
-	// TODO: Optimize.
+
+// TODO: Optimize.
 	for (int z = minz; z <= maxz; ++z)
 	{
 		for (int x = minx; x <= maxx; ++x)
@@ -520,7 +518,6 @@ int rcOffsetPoly(const float* verts, const int nverts, const float offset,
 	return n;
 }
 
-
 /// @par
 ///
 /// The value of spacial parameters are in world units.
@@ -559,9 +556,8 @@ void rcMarkCylinderArea(rcContext* ctx, const float* pos,
 	if (maxx >= chf.width) maxx = chf.width-1;
 	if (minz < 0) minz = 0;
 	if (maxz >= chf.height) maxz = chf.height-1;	
-	
-	
-	for (int z = minz; z <= maxz; ++z)
+
+for (int z = minz; z <= maxz; ++z)
 	{
 		for (int x = minx; x <= maxx; ++x)
 		{

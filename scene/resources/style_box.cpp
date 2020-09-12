@@ -1,8 +1,6 @@
 
 /*  style_box.cpp                                                        */
 
-
-
 #include "style_box.h"
 
 #include "scene/main/canvas_item.h"

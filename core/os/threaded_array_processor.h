@@ -1,8 +1,6 @@
 
 /*  threaded_array_processor.h                                           */
 
-
-
 #ifndef THREADED_ARRAY_PROCESSOR_H
 #define THREADED_ARRAY_PROCESSOR_H
 

@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -142,12 +141,10 @@ Material::Material(uint64_t id, const Element& element, const Document& doc, con
     }
 }
 
-
 // ------------------------------------------------------------------------------------------------
 Material::~Material()
 {
 }
-
 
 // ------------------------------------------------------------------------------------------------
 Texture::Texture(uint64_t id, const Element& element, const Document& doc, const std::string& name)
@@ -239,7 +236,6 @@ Texture::Texture(uint64_t id, const Element& element, const Document& doc, const
     }
 }
 
-
 Texture::~Texture()
 {
 
@@ -255,8 +251,7 @@ LayeredTexture::LayeredTexture(uint64_t id, const Element& element, const Docume
     const Element* const BlendModes = sc["BlendModes"];
     const Element* const Alphas = sc["Alphas"];
 
-
-    if(BlendModes!=0)
+if(BlendModes!=0)
     {
         blendMode = (BlendMode)ParseTokenAsInt(GetRequiredToken(*BlendModes,0));
     }
@@ -289,7 +284,6 @@ void LayeredTexture::fillTexture(const Document& doc)
         textures.push_back(tex);
     }
 }
-
 
 // ------------------------------------------------------------------------------------------------
 Video::Video(uint64_t id, const Element& element, const Document& doc, const std::string& name)
@@ -390,7 +384,6 @@ Video::Video(uint64_t id, const Element& element, const Document& doc, const std
 
     props = GetPropertyTable(doc,"Video.FbxVideo",element,sc);
 }
-
 
 Video::~Video()
 {

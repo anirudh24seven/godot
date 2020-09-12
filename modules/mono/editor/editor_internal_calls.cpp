@@ -1,8 +1,6 @@
 
 /*  editor_internal_calls.cpp                                            */
 
-
-
 #include "editor_internal_calls.h"
 
 #ifdef UNIX_ENABLED

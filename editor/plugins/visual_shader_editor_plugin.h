@@ -1,8 +1,6 @@
 
 /*  visual_shader_editor_plugin.h                                        */
 
-
-
 #ifndef VISUAL_SHADER_EDITOR_PLUGIN_H
 #define VISUAL_SHADER_EDITOR_PLUGIN_H
 

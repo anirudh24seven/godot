@@ -62,8 +62,7 @@ VKAPI_ATTR bool VKAPI_CALL loader_icd_init_entries(struct loader_icd_term *icd_t
         }                                                                                  \
     } while (0)
 
-
-    // ---- Core 1_0
+// ---- Core 1_0
     LOOKUP_GIPA(DestroyInstance, true);
     LOOKUP_GIPA(EnumeratePhysicalDevices, true);
     LOOKUP_GIPA(GetPhysicalDeviceFeatures, true);
@@ -1615,7 +1614,6 @@ VKAPI_ATTR void* VKAPI_CALL loader_lookup_instance_dispatch_table(const VkLayerI
     return NULL;
 }
 
-
 // ---- VK_KHR_device_group extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL GetDeviceGroupPeerMemoryFeaturesKHR(
@@ -1647,7 +1645,6 @@ VKAPI_ATTR void VKAPI_CALL CmdDispatchBaseKHR(
     disp->CmdDispatchBaseKHR(commandBuffer, baseGroupX, baseGroupY, baseGroupZ, groupCountX, groupCountY, groupCountZ);
 }
 
-
 // ---- VK_KHR_maintenance1 extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL TrimCommandPoolKHR(
@@ -1657,7 +1654,6 @@ VKAPI_ATTR void VKAPI_CALL TrimCommandPoolKHR(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     disp->TrimCommandPoolKHR(device, commandPool, flags);
 }
-
 
 // ---- VK_KHR_external_memory_win32 extension trampoline/terminators
 
@@ -1702,7 +1698,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetMemoryFdPropertiesKHR(
     return disp->GetMemoryFdPropertiesKHR(device, handleType, fd, pMemoryFdProperties);
 }
 
-
 // ---- VK_KHR_external_semaphore_win32 extension trampoline/terminators
 
 #ifdef VK_USE_PLATFORM_WIN32_KHR
@@ -1742,7 +1737,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetSemaphoreFdKHR(
     return disp->GetSemaphoreFdKHR(device, pGetFdInfo, pFd);
 }
 
-
 // ---- VK_KHR_push_descriptor extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL CmdPushDescriptorSetKHR(
@@ -1765,7 +1759,6 @@ VKAPI_ATTR void VKAPI_CALL CmdPushDescriptorSetWithTemplateKHR(
     const VkLayerDispatchTable *disp = loader_get_dispatch(commandBuffer);
     disp->CmdPushDescriptorSetWithTemplateKHR(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
 }
-
 
 // ---- VK_KHR_descriptor_update_template extension trampoline/terminators
 
@@ -1794,7 +1787,6 @@ VKAPI_ATTR void VKAPI_CALL UpdateDescriptorSetWithTemplateKHR(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     disp->UpdateDescriptorSetWithTemplateKHR(device, descriptorSet, descriptorUpdateTemplate, pData);
 }
-
 
 // ---- VK_KHR_create_renderpass2 extension trampoline/terminators
 
@@ -1830,7 +1822,6 @@ VKAPI_ATTR void VKAPI_CALL CmdEndRenderPass2KHR(
     disp->CmdEndRenderPass2KHR(commandBuffer, pSubpassEndInfo);
 }
 
-
 // ---- VK_KHR_shared_presentable_image extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL GetSwapchainStatusKHR(
@@ -1839,7 +1830,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetSwapchainStatusKHR(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     return disp->GetSwapchainStatusKHR(device, swapchain);
 }
-
 
 // ---- VK_KHR_external_fence_win32 extension trampoline/terminators
 
@@ -1879,7 +1869,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetFenceFdKHR(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     return disp->GetFenceFdKHR(device, pGetFdInfo, pFd);
 }
-
 
 // ---- VK_KHR_performance_query extension trampoline/terminators
 
@@ -1946,7 +1935,6 @@ VKAPI_ATTR void VKAPI_CALL ReleaseProfilingLockKHR(
     disp->ReleaseProfilingLockKHR(device);
 }
 
-
 // ---- VK_KHR_get_memory_requirements2 extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL GetImageMemoryRequirements2KHR(
@@ -1974,7 +1962,6 @@ VKAPI_ATTR void VKAPI_CALL GetImageSparseMemoryRequirements2KHR(
     disp->GetImageSparseMemoryRequirements2KHR(device, pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
 }
 
-
 // ---- VK_KHR_sampler_ycbcr_conversion extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL CreateSamplerYcbcrConversionKHR(
@@ -1994,7 +1981,6 @@ VKAPI_ATTR void VKAPI_CALL DestroySamplerYcbcrConversionKHR(
     disp->DestroySamplerYcbcrConversionKHR(device, ycbcrConversion, pAllocator);
 }
 
-
 // ---- VK_KHR_bind_memory2 extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL BindBufferMemory2KHR(
@@ -2013,7 +1999,6 @@ VKAPI_ATTR VkResult VKAPI_CALL BindImageMemory2KHR(
     return disp->BindImageMemory2KHR(device, bindInfoCount, pBindInfos);
 }
 
-
 // ---- VK_KHR_maintenance3 extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL GetDescriptorSetLayoutSupportKHR(
@@ -2023,7 +2008,6 @@ VKAPI_ATTR void VKAPI_CALL GetDescriptorSetLayoutSupportKHR(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     disp->GetDescriptorSetLayoutSupportKHR(device, pCreateInfo, pSupport);
 }
-
 
 // ---- VK_KHR_draw_indirect_count extension trampoline/terminators
 
@@ -2051,7 +2035,6 @@ VKAPI_ATTR void VKAPI_CALL CmdDrawIndexedIndirectCountKHR(
     disp->CmdDrawIndexedIndirectCountKHR(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
 }
 
-
 // ---- VK_KHR_timeline_semaphore extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL GetSemaphoreCounterValueKHR(
@@ -2077,7 +2060,6 @@ VKAPI_ATTR VkResult VKAPI_CALL SignalSemaphoreKHR(
     return disp->SignalSemaphoreKHR(device, pSignalInfo);
 }
 
-
 // ---- VK_KHR_buffer_device_address extension trampoline/terminators
 
 VKAPI_ATTR VkDeviceAddress VKAPI_CALL GetBufferDeviceAddressKHR(
@@ -2100,7 +2082,6 @@ VKAPI_ATTR uint64_t VKAPI_CALL GetDeviceMemoryOpaqueCaptureAddressKHR(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     return disp->GetDeviceMemoryOpaqueCaptureAddressKHR(device, pInfo);
 }
-
 
 // ---- VK_KHR_pipeline_executable_properties extension trampoline/terminators
 
@@ -2130,7 +2111,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetPipelineExecutableInternalRepresentationsKHR(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     return disp->GetPipelineExecutableInternalRepresentationsKHR(device, pExecutableInfo, pInternalRepresentationCount, pInternalRepresentations);
 }
-
 
 // ---- VK_EXT_debug_marker extension trampoline/terminators
 
@@ -2238,7 +2218,6 @@ VKAPI_ATTR void VKAPI_CALL CmdDebugMarkerInsertEXT(
     disp->CmdDebugMarkerInsertEXT(commandBuffer, pMarkerInfo);
 }
 
-
 // ---- VK_EXT_transform_feedback extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL CmdBindTransformFeedbackBuffersEXT(
@@ -2303,7 +2282,6 @@ VKAPI_ATTR void VKAPI_CALL CmdDrawIndirectByteCountEXT(
     disp->CmdDrawIndirectByteCountEXT(commandBuffer, instanceCount, firstInstance, counterBuffer, counterBufferOffset, counterOffset, vertexStride);
 }
 
-
 // ---- VK_NVX_image_view_handle extension trampoline/terminators
 
 VKAPI_ATTR uint32_t VKAPI_CALL GetImageViewHandleNVX(
@@ -2312,7 +2290,6 @@ VKAPI_ATTR uint32_t VKAPI_CALL GetImageViewHandleNVX(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     return disp->GetImageViewHandleNVX(device, pInfo);
 }
-
 
 // ---- VK_AMD_draw_indirect_count extension trampoline/terminators
 
@@ -2340,7 +2317,6 @@ VKAPI_ATTR void VKAPI_CALL CmdDrawIndexedIndirectCountAMD(
     disp->CmdDrawIndexedIndirectCountAMD(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
 }
 
-
 // ---- VK_AMD_shader_info extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL GetShaderInfoAMD(
@@ -2353,7 +2329,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetShaderInfoAMD(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     return disp->GetShaderInfoAMD(device, pipeline, shaderStage, infoType, pInfoSize, pInfo);
 }
-
 
 // ---- VK_GGP_stream_descriptor_surface extension trampoline/terminators
 
@@ -2427,7 +2402,6 @@ VKAPI_ATTR void VKAPI_CALL CmdEndConditionalRenderingEXT(
     const VkLayerDispatchTable *disp = loader_get_dispatch(commandBuffer);
     disp->CmdEndConditionalRenderingEXT(commandBuffer);
 }
-
 
 // ---- VK_NVX_device_generated_commands extension trampoline/terminators
 
@@ -2522,7 +2496,6 @@ VKAPI_ATTR void VKAPI_CALL terminator_GetPhysicalDeviceGeneratedCommandsProperti
     icd_term->dispatch.GetPhysicalDeviceGeneratedCommandsPropertiesNVX(phys_dev_term->phys_dev, pFeatures, pLimits);
 }
 
-
 // ---- VK_NV_clip_space_w_scaling extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL CmdSetViewportWScalingNV(
@@ -2533,7 +2506,6 @@ VKAPI_ATTR void VKAPI_CALL CmdSetViewportWScalingNV(
     const VkLayerDispatchTable *disp = loader_get_dispatch(commandBuffer);
     disp->CmdSetViewportWScalingNV(commandBuffer, firstViewport, viewportCount, pViewportWScalings);
 }
-
 
 // ---- VK_EXT_display_control extension trampoline/terminators
 
@@ -2573,7 +2545,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetSwapchainCounterEXT(
     return disp->GetSwapchainCounterEXT(device, swapchain, counter, pCounterValue);
 }
 
-
 // ---- VK_GOOGLE_display_timing extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL GetRefreshCycleDurationGOOGLE(
@@ -2593,7 +2564,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetPastPresentationTimingGOOGLE(
     return disp->GetPastPresentationTimingGOOGLE(device, swapchain, pPresentationTimingCount, pPresentationTimings);
 }
 
-
 // ---- VK_EXT_discard_rectangles extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL CmdSetDiscardRectangleEXT(
@@ -2605,7 +2575,6 @@ VKAPI_ATTR void VKAPI_CALL CmdSetDiscardRectangleEXT(
     disp->CmdSetDiscardRectangleEXT(commandBuffer, firstDiscardRectangle, discardRectangleCount, pDiscardRectangles);
 }
 
-
 // ---- VK_EXT_hdr_metadata extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL SetHdrMetadataEXT(
@@ -2616,7 +2585,6 @@ VKAPI_ATTR void VKAPI_CALL SetHdrMetadataEXT(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     disp->SetHdrMetadataEXT(device, swapchainCount, pSwapchains, pMetadata);
 }
-
 
 // ---- VK_EXT_debug_utils extension trampoline/terminators
 
@@ -2828,7 +2796,6 @@ VKAPI_ATTR void VKAPI_CALL terminator_CmdInsertDebugUtilsLabelEXT(
     }
 }
 
-
 // ---- VK_ANDROID_external_memory_android_hardware_buffer extension trampoline/terminators
 
 #ifdef VK_USE_PLATFORM_ANDROID_KHR
@@ -2884,7 +2851,6 @@ VKAPI_ATTR void VKAPI_CALL terminator_GetPhysicalDeviceMultisamplePropertiesEXT(
     icd_term->dispatch.GetPhysicalDeviceMultisamplePropertiesEXT(phys_dev_term->phys_dev, samples, pMultisampleProperties);
 }
 
-
 // ---- VK_EXT_image_drm_format_modifier extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL GetImageDrmFormatModifierPropertiesEXT(
@@ -2894,7 +2860,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetImageDrmFormatModifierPropertiesEXT(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     return disp->GetImageDrmFormatModifierPropertiesEXT(device, image, pProperties);
 }
-
 
 // ---- VK_EXT_validation_cache extension trampoline/terminators
 
@@ -2933,7 +2898,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetValidationCacheDataEXT(
     return disp->GetValidationCacheDataEXT(device, validationCache, pDataSize, pData);
 }
 
-
 // ---- VK_NV_shading_rate_image extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL CmdBindShadingRateImageNV(
@@ -2961,7 +2925,6 @@ VKAPI_ATTR void VKAPI_CALL CmdSetCoarseSampleOrderNV(
     const VkLayerDispatchTable *disp = loader_get_dispatch(commandBuffer);
     disp->CmdSetCoarseSampleOrderNV(commandBuffer, sampleOrderType, customSampleOrderCount, pCustomSampleOrders);
 }
-
 
 // ---- VK_NV_ray_tracing extension trampoline/terminators
 
@@ -3091,7 +3054,6 @@ VKAPI_ATTR VkResult VKAPI_CALL CompileDeferredNV(
     return disp->CompileDeferredNV(device, pipeline, shader);
 }
 
-
 // ---- VK_EXT_external_memory_host extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL GetMemoryHostPointerPropertiesEXT(
@@ -3102,7 +3064,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetMemoryHostPointerPropertiesEXT(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     return disp->GetMemoryHostPointerPropertiesEXT(device, handleType, pHostPointer, pMemoryHostPointerProperties);
 }
-
 
 // ---- VK_AMD_buffer_marker extension trampoline/terminators
 
@@ -3115,7 +3076,6 @@ VKAPI_ATTR void VKAPI_CALL CmdWriteBufferMarkerAMD(
     const VkLayerDispatchTable *disp = loader_get_dispatch(commandBuffer);
     disp->CmdWriteBufferMarkerAMD(commandBuffer, pipelineStage, dstBuffer, dstOffset, marker);
 }
-
 
 // ---- VK_EXT_calibrated_timestamps extension trampoline/terminators
 
@@ -3152,7 +3112,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetCalibratedTimestampsEXT(
     return disp->GetCalibratedTimestampsEXT(device, timestampCount, pTimestampInfos, pTimestamps, pMaxDeviation);
 }
 
-
 // ---- VK_NV_mesh_shader extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL CmdDrawMeshTasksNV(
@@ -3185,7 +3144,6 @@ VKAPI_ATTR void VKAPI_CALL CmdDrawMeshTasksIndirectCountNV(
     disp->CmdDrawMeshTasksIndirectCountNV(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
 }
 
-
 // ---- VK_NV_scissor_exclusive extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL CmdSetExclusiveScissorNV(
@@ -3196,7 +3154,6 @@ VKAPI_ATTR void VKAPI_CALL CmdSetExclusiveScissorNV(
     const VkLayerDispatchTable *disp = loader_get_dispatch(commandBuffer);
     disp->CmdSetExclusiveScissorNV(commandBuffer, firstExclusiveScissor, exclusiveScissorCount, pExclusiveScissors);
 }
-
 
 // ---- VK_NV_device_diagnostic_checkpoints extension trampoline/terminators
 
@@ -3214,7 +3171,6 @@ VKAPI_ATTR void VKAPI_CALL GetQueueCheckpointDataNV(
     const VkLayerDispatchTable *disp = loader_get_dispatch(queue);
     disp->GetQueueCheckpointDataNV(queue, pCheckpointDataCount, pCheckpointData);
 }
-
 
 // ---- VK_INTEL_performance_query extension trampoline/terminators
 
@@ -3282,7 +3238,6 @@ VKAPI_ATTR VkResult VKAPI_CALL GetPerformanceParameterINTEL(
     return disp->GetPerformanceParameterINTEL(device, parameter, pValue);
 }
 
-
 // ---- VK_AMD_display_native_hdr extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL SetLocalDimmingAMD(
@@ -3292,7 +3247,6 @@ VKAPI_ATTR void VKAPI_CALL SetLocalDimmingAMD(
     const VkLayerDispatchTable *disp = loader_get_dispatch(device);
     disp->SetLocalDimmingAMD(device, swapChain, localDimmingEnable);
 }
-
 
 // ---- VK_FUCHSIA_imagepipe_surface extension trampoline/terminators
 
@@ -3325,7 +3279,6 @@ VKAPI_ATTR VkDeviceAddress VKAPI_CALL GetBufferDeviceAddressEXT(
     return disp->GetBufferDeviceAddressEXT(device, pInfo);
 }
 
-
 // ---- VK_NV_cooperative_matrix extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL GetPhysicalDeviceCooperativeMatrixPropertiesNV(
@@ -3351,7 +3304,6 @@ VKAPI_ATTR VkResult VKAPI_CALL terminator_GetPhysicalDeviceCooperativeMatrixProp
     return icd_term->dispatch.GetPhysicalDeviceCooperativeMatrixPropertiesNV(phys_dev_term->phys_dev, pPropertyCount, pProperties);
 }
 
-
 // ---- VK_NV_coverage_reduction_mode extension trampoline/terminators
 
 VKAPI_ATTR VkResult VKAPI_CALL GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(
@@ -3376,7 +3328,6 @@ VKAPI_ATTR VkResult VKAPI_CALL terminator_GetPhysicalDeviceSupportedFramebufferM
     }
     return icd_term->dispatch.GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(phys_dev_term->phys_dev, pCombinationCount, pCombinations);
 }
-
 
 // ---- VK_EXT_full_screen_exclusive extension trampoline/terminators
 
@@ -3409,7 +3360,6 @@ VKAPI_ATTR void VKAPI_CALL CmdSetLineStippleEXT(
     disp->CmdSetLineStippleEXT(commandBuffer, lineStippleFactor, lineStipplePattern);
 }
 
-
 // ---- VK_EXT_host_query_reset extension trampoline/terminators
 
 VKAPI_ATTR void VKAPI_CALL ResetQueryPoolEXT(
@@ -3425,8 +3375,7 @@ VKAPI_ATTR void VKAPI_CALL ResetQueryPoolEXT(
 bool extension_instance_gpa(struct loader_instance *ptr_instance, const char *name, void **addr) {
     *addr = NULL;
 
-
-    // ---- VK_KHR_get_physical_device_properties2 extension commands
+// ---- VK_KHR_get_physical_device_properties2 extension commands
     if (!strcmp("vkGetPhysicalDeviceFeatures2KHR", name)) {
         *addr = (ptr_instance->enabled_known_extensions.khr_get_physical_device_properties2 == 1)
                      ? (void *)vkGetPhysicalDeviceFeatures2

@@ -1,8 +1,6 @@
 
 /*  godot_iphone.mm                                                      */
 
-
-
 #include "core/ustring.h"
 #include "main/main.h"
 #include "os_iphone.h"

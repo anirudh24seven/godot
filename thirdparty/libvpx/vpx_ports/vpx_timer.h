@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VPX_PORTS_VPX_TIMER_H_
 #define VPX_PORTS_VPX_TIMER_H_
 
@@ -46,7 +45,6 @@
 #endif
 #endif
 
-
 struct vpx_usec_timer {
 #if defined(_WIN32)
   LARGE_INTEGER  begin, end;
@@ -54,7 +52,6 @@ struct vpx_usec_timer {
   struct timeval begin, end;
 #endif
 };
-
 
 static INLINE void
 vpx_usec_timer_start(struct vpx_usec_timer *t) {
@@ -65,7 +62,6 @@ vpx_usec_timer_start(struct vpx_usec_timer *t) {
 #endif
 }
 
-
 static INLINE void
 vpx_usec_timer_mark(struct vpx_usec_timer *t) {
 #if defined(_WIN32)
@@ -74,7 +70,6 @@ vpx_usec_timer_mark(struct vpx_usec_timer *t) {
   gettimeofday(&t->end, NULL);
 #endif
 }
-
 
 static INLINE int64_t
 vpx_usec_timer_elapsed(struct vpx_usec_timer *t) {

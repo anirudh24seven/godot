@@ -1,8 +1,6 @@
 
 /*  rigid_body_bullet.cpp                                                */
 
-
-
 #include "rigid_body_bullet.h"
 
 #include "btRayShape.h"

@@ -1,8 +1,6 @@
 
 /*  image_loader_hdr.h                                                   */
 
-
-
 #ifndef IMAGE_LOADER_HDR_H
 #define IMAGE_LOADER_HDR_H
 

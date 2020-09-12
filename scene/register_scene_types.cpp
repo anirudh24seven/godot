@@ -1,8 +1,6 @@
 
 /*  register_scene_types.cpp                                             */
 
-
-
 #include "register_scene_types.h"
 
 #include "core/class_db.h"

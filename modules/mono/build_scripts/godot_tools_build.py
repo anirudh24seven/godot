@@ -4,7 +4,6 @@ import os
 
 from SCons.Script import Dir
 
-
 def build_godot_tools(source, target, env):
     # source and target elements are of type SCons.Node.FS.File, hence why we convert them to str
 
@@ -19,7 +18,6 @@ def build_godot_tools(source, target, env):
 
     build_solution(env, solution_path, build_config, extra_msbuild_args)
     # No need to copy targets. The GodotTools csproj takes care of copying them.
-
 
 def build(env_mono, api_sln_cmd):
     assert env_mono["tools"]

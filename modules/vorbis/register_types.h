@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef VORBIS_REGISTER_TYPES_H
 #define VORBIS_REGISTER_TYPES_H
 

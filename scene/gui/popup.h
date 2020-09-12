@@ -1,8 +1,6 @@
 
 /*  popup.h                                                              */
 
-
-
 #ifndef POPUP_H
 #define POPUP_H
 

@@ -5,8 +5,6 @@ All such functions are invoked in a subprocess on Windows to prevent build flaki
 
 from platform_methods import subprocess_main
 from collections import OrderedDict
-
-
 def make_default_controller_mappings(target, source, env):
     dst = target[0]
     g = open(dst, "w")
@@ -64,7 +62,6 @@ def make_default_controller_mappings(target, source, env):
 
     g.write("\tnullptr\n};\n")
     g.close()
-
 
 if __name__ == "__main__":
     subprocess_main(globals())

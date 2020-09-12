@@ -1,8 +1,6 @@
 
 /*  world_2d.cpp                                                         */
 
-
-
 #include "world_2d.h"
 
 #include "core/project_settings.h"

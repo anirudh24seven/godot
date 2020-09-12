@@ -1,8 +1,6 @@
 
 /*  video_stream_webm.cpp                                                */
 
-
-
 #include "video_stream_webm.h"
 
 #include "core/os/file_access.h"

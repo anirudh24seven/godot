@@ -892,8 +892,7 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 	b3AlignedObjectArray<b3Int2> contactConstraintOffsets;
 	contactConstraintOffsets.resize(numManifoldsCPU);
 
-
-	for (int i=0;i<numManifoldsCPU;i++)
+for (int i=0;i<numManifoldsCPU;i++)
 	{
 		int pa = manifoldPtrCPU[i].m_bodyAPtrAndSignBit;
 		int pb = manifoldPtrCPU[i].m_bodyBPtrAndSignBit;
@@ -937,9 +936,8 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 		B3_PROFILE("m_filler");
 		m_data->m_contactConstraintOffsets->resize(numManifolds);
 		m_data->m_filler->execute(*m_data->m_bodyCount,val,numBodies);
-		
-	
-		m_data->m_filler->execute(*m_data->m_contactConstraintOffsets,val2,numManifolds);
+
+m_data->m_filler->execute(*m_data->m_contactConstraintOffsets,val2,numManifolds);
 	}
 
 	{
@@ -966,8 +964,7 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 	int numContacts = manifoldPtrGPU->size();
 	m_data->m_contactConstraints->resize(numContacts);
 
-	
-	{
+{
 		B3_PROFILE("contactToConstraintSplitKernel");
 		b3LauncherCL launcher( m_queue, m_data->m_contactToConstraintSplitKernel);
 		launcher.setBuffer(manifoldPtrGPU->getBufferCL());
@@ -983,9 +980,7 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 		clFinish(m_queue);
 	}
 
-
-
-	b3AlignedObjectArray<b3GpuConstraint4> contactConstraints;
+b3AlignedObjectArray<b3GpuConstraint4> contactConstraints;
 	contactConstraints.resize(numManifoldsCPU);
 
 	for (int i=0;i<numManifoldsCPU;i++)
@@ -998,8 +993,7 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 	}
 	int maxIter = solverInfo.m_numIterations;
 
-
-	b3AlignedObjectArray<b3Vector3> deltaLinearVelocities;
+b3AlignedObjectArray<b3Vector3> deltaLinearVelocities;
 	b3AlignedObjectArray<b3Vector3> deltaAngularVelocities;
 	deltaLinearVelocities.resize(totalNumSplitBodiesCPU);
 	deltaAngularVelocities.resize(totalNumSplitBodiesCPU);
@@ -1012,9 +1006,7 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 	m_data->m_deltaLinearVelocities->resize(totalNumSplitBodies);
 	m_data->m_deltaAngularVelocities->resize(totalNumSplitBodies);
 
-
-	
-	{
+{
 		B3_PROFILE("m_clearVelocitiesKernel");
 		b3LauncherCL launch(m_queue,m_data->m_clearVelocitiesKernel);
 		launch.setBuffer(m_data->m_deltaAngularVelocities->getBufferCL());
@@ -1022,12 +1014,10 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 		launch.setConst(totalNumSplitBodies);
 		launch.launch1D(totalNumSplitBodies);
 	}
-	
 
-		///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
-	m_data->m_contactConstraints->copyToHost(contactConstraints);
+m_data->m_contactConstraints->copyToHost(contactConstraints);
 	m_data->m_offsetSplitBodies->copyToHost(offsetSplitBodies);
 	m_data->m_contactConstraintOffsets->copyToHost(contactConstraintOffsets);
 	m_data->m_deltaLinearVelocities->copyToHost(deltaLinearVelocities);
@@ -1056,8 +1046,7 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 			clFinish(m_queue);
 		}
 
-
-		int i=0;
+int i=0;
 		for( i=0; i<numManifoldsCPU; i++)
 		{
 
@@ -1092,9 +1081,7 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 				davBPtr = &deltaAngularVelocities[splitIndexB];
 			}
 
-
-
-			{
+{
 				float maxRambdaDt[4] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
 				float minRambdaDt[4] = {0.f,0.f,0.f,0.f};
 
@@ -1102,12 +1089,10 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 					(b3Vector3&)bodyB.m_pos, (b3Vector3&)bodyB.m_linVel, (b3Vector3&)bodyB.m_angVel, bodyB.m_invMass, inertiasCPU[bIdx].m_invInertiaWorld,
 					maxRambdaDt, minRambdaDt , *dlvAPtr,*davAPtr,*dlvBPtr,*davBPtr		);
 
-
-			}
+}
 		}
 
-		
-		{
+{
 			B3_PROFILE("average velocities");
 			b3LauncherCL launcher( m_queue, m_data->m_averageVelocitiesKernel);
 			launcher.setBuffer(bodiesGPU->getBufferCL());
@@ -1281,8 +1266,7 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 		clFinish(m_queue);
 	}
 
-
-	//easy
+//easy
 	for (int i=0;i<numBodiesCPU;i++)
 	{
 		if (bodiesCPU[i].m_invMass)
@@ -1297,9 +1281,7 @@ void  b3GpuJacobiContactSolver::solveGroupMixed(b3OpenCLArray<b3RigidBodyData>* 
 		}
 	}
 
-
 //	bodiesGPU->copyFromHost(bodiesCPU);
-
 
 }
 #endif

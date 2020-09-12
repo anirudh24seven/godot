@@ -1,8 +1,6 @@
 
 /*  texture_loader_dds.h                                                 */
 
-
-
 #ifndef TEXTURE_LOADER_DDS_H
 #define TEXTURE_LOADER_DDS_H
 

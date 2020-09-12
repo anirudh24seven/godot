@@ -1,8 +1,6 @@
 
 /*  texture_button.cpp                                                   */
 
-
-
 #include "texture_button.h"
 #include "core/typedefs.h"
 #include <stdlib.h>

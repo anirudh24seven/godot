@@ -1,8 +1,6 @@
 
 /*  file_access_compressed.cpp                                           */
 
-
-
 #include "file_access_compressed.h"
 
 #include "core/print_string.h"

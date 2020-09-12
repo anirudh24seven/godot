@@ -1,8 +1,6 @@
 
 /*  mono_gc_handle.h                                                     */
 
-
-
 #ifndef CSHARP_GC_HANDLE_H
 #define CSHARP_GC_HANDLE_H
 

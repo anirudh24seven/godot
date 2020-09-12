@@ -1,8 +1,6 @@
 
 /*  gdscript_tokenizer.cpp                                               */
 
-
-
 #include "gdscript_tokenizer.h"
 
 #include "core/error_macros.h"

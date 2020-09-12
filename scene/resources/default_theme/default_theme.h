@@ -1,8 +1,6 @@
 
 /*  default_theme.h                                                      */
 
-
-
 #ifndef DEFAULT_THEME_H
 #define DEFAULT_THEME_H
 

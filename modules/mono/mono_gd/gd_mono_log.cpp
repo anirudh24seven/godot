@@ -1,8 +1,6 @@
 
 /*  gd_mono_log.cpp                                                      */
 
-
-
 #include "gd_mono_log.h"
 
 #include <stdlib.h> // abort

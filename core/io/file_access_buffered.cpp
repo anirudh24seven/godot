@@ -1,8 +1,6 @@
 
 /*  file_access_buffered.cpp                                             */
 
-
-
 #include "file_access_buffered.h"
 
 #include "core/error_macros.h"

@@ -1,8 +1,6 @@
 
 /*  godot_android.h                                                      */
 
-
-
 #ifndef GODOT_ANDROID_GDN_H
 #define GODOT_ANDROID_GDN_H
 

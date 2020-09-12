@@ -1,8 +1,6 @@
 
 /*  nav_rid.h                                                            */
 
-
-
 #ifndef NAV_RID_H
 #define NAV_RID_H
 

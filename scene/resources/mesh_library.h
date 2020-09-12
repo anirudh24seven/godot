@@ -1,8 +1,6 @@
 
 /*  mesh_library.h                                                       */
 
-
-
 #ifndef GRID_THEME_H
 #define GRID_THEME_H
 

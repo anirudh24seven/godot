@@ -1,8 +1,6 @@
 
 /*  tab_container.cpp                                                    */
 
-
-
 #include "tab_container.h"
 
 #include "core/message_queue.h"

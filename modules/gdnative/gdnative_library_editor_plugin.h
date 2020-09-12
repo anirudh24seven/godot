@@ -1,8 +1,6 @@
 
 /*  gdnative_library_editor_plugin.h                                     */
 
-
-
 #ifndef GDNATIVE_LIBRARY_EDITOR_PLUGIN_H
 #define GDNATIVE_LIBRARY_EDITOR_PLUGIN_H
 

@@ -72,7 +72,6 @@ inline int b3GetVersion()
 #if (defined(_WIN32) && (_MSC_VER) && _MSC_VER >= 1400) && (!defined(B3_USE_DOUBLE_PRECISION))
 #if (defined(_M_IX86) || defined(_M_X64))
 
-
 #ifdef __clang__
 //#define B3_NO_SIMD_OPERATOR_OVERLOADS
 #define B3_DISABLE_SSE

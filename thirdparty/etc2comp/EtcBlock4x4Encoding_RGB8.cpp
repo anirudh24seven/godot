@@ -708,9 +708,8 @@ namespace Etc
 				}
 			}
 		}
-		
 
-		// add up all of the pixel errors
+// add up all of the pixel errors
 		float fBlockError = 0.0f;
 		for (unsigned int uiPixel = 0; uiPixel < PIXELS; uiPixel++)
 		{
@@ -949,9 +948,8 @@ namespace Etc
 				}
 			}
 		}
-		
 
-		// add up all of the pixel errors
+// add up all of the pixel errors
 		float fBlockError = 0.0f;
 		for (unsigned int uiPixel = 0; uiPixel < PIXELS; uiPixel++)
 		{

@@ -630,5 +630,3 @@ void btDeformableContactProjection::reinitialize(bool nodeUpdated)
     m_lagrangeMultipliers.clear();
 }
 
-
-

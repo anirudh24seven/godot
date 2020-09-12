@@ -15,7 +15,6 @@
  *
  */
 
-
 #ifndef FTGZIP_H_
 #define FTGZIP_H_
 
@@ -27,7 +26,6 @@
 #error "Please fix the directory search order for header files"
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
-
 
 FT_BEGIN_HEADER
 
@@ -47,8 +45,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Stream_OpenGzip
@@ -91,8 +88,7 @@ FT_BEGIN_HEADER
   FT_Stream_OpenGzip( FT_Stream  stream,
                       FT_Stream  source );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Gzip_Uncompress
@@ -142,10 +138,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTGZIP_H_ */
-
 
 /* END */

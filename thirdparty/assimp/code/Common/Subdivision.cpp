@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -94,7 +93,6 @@ public:
 #define MAKE_EDGE_HASH(id0,id1) (eh_tmp0__=id0,eh_tmp1__=id1,\
     (eh_tmp0__<eh_tmp1__?std::swap(eh_tmp0__,eh_tmp1__):mydummy()),(uint64_t)eh_tmp0__^((uint64_t)eh_tmp1__<<32u))
 
-
 #define INIT_EDGE_HASH_TEMPORARIES()\
     unsigned int eh_tmp0__, eh_tmp1__;
 
@@ -102,7 +100,6 @@ private:
     void InternSubdivide (const aiMesh* const * smesh,
         size_t nmesh,aiMesh** out, unsigned int num);
 };
-
 
 // ------------------------------------------------------------------------------------------------
 // Construct a subdivider of a specific type
@@ -263,7 +260,6 @@ void CatmullClarkSubdivider::InternSubdivide (
 
     spatial.Finalize();
     const unsigned int num_unique = spatial.GenerateMappingTable(maptbl,ComputePositionEpsilon(smesh,nmesh));
-
 
 #define FLATTEN_VERTEX_IDX(mesh_idx, vert_idx) (moffsets[mesh_idx].second+vert_idx)
 #define   FLATTEN_FACE_IDX(mesh_idx, face_idx) (moffsets[mesh_idx].first+face_idx)

@@ -1,8 +1,6 @@
 
 /*  editor_autoload_settings.cpp                                         */
 
-
-
 #include "editor_autoload_settings.h"
 
 #include "core/global_constants.h"

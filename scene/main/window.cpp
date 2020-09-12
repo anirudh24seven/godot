@@ -1,8 +1,6 @@
 
 /*  window.cpp                                                           */
 
-
-
 #include "window.h"
 
 #include "core/debugger/engine_debugger.h"

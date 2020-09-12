@@ -123,8 +123,6 @@ static ogg_int64_t oc_iir_filter_update(oc_iir_filter *_f,ogg_int32_t _x){
   return ya;
 }
 
-
-
 /*Search for the quantizer that matches the target most closely.
   We don't assume a linear ordering, but when there are ties we pick the
    quantizer closest to the old one.*/
@@ -240,7 +238,6 @@ static ogg_int32_t oc_bexp64_q24(ogg_int64_t _log_scale){
   }
   return 0x7FFFFFFF;
 }
-
 
 static void oc_enc_rc_reset(oc_enc_ctx *_enc){
   ogg_int64_t npixels;

@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -136,8 +135,7 @@ public:
         Swap8(fOut);
     }
 
-
-    // ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
     /** ByteSwap an int16t. Not a joke.
      *  @param[inout] fOut ehm. .. */
     static inline void Swap(int16_t* fOut) {
@@ -205,7 +203,6 @@ template <typename T> struct ByteSwap::_swapper<T,8> {
     }
 };
 
-
 // --------------------------------------------------------------------------------------
 // ByteSwap macros for BigEndian/LittleEndian support
 // --------------------------------------------------------------------------------------
@@ -244,7 +241,6 @@ template <typename T> struct ByteSwap::_swapper<T,8> {
 #   define AI_LSWAP8P(p)    ByteSwap::Swap8((p))
 #   define LE_NCONST
 #endif
-
 
 namespace Intern {
 

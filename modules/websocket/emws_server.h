@@ -1,8 +1,6 @@
 
 /*  emws_server.h                                                        */
 
-
-
 #ifndef EMWSSERVER_H
 #define EMWSSERVER_H
 

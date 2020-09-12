@@ -139,7 +139,6 @@ namespace memory_tracking {
  *  ```
  */
 
-
 /* namespace with common keys and prefixes */
 namespace names {
 enum {

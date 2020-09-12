@@ -1,8 +1,6 @@
 
 /*  visual_shader_nodes.h                                                */
 
-
-
 #ifndef VISUAL_SHADER_NODES_H
 #define VISUAL_SHADER_NODES_H
 

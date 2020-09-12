@@ -1,8 +1,6 @@
 
 /*  ip.cpp                                                               */
 
-
-
 #include "ip.h"
 
 #include "core/hash_map.h"

@@ -1,8 +1,6 @@
 
 /*  line_edit.h                                                          */
 
-
-
 #ifndef LINE_EDIT_H
 #define LINE_EDIT_H
 

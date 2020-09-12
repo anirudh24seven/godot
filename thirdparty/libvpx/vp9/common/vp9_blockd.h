@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP9_COMMON_VP9_BLOCKD_H_
 #define VP9_COMMON_VP9_BLOCKD_H_
 
@@ -277,7 +276,6 @@ typedef void (*foreach_transformed_block_visitor)(int plane, int block,
 void vp9_foreach_transformed_block_in_plane(
     const MACROBLOCKD *const xd, BLOCK_SIZE bsize, int plane,
     foreach_transformed_block_visitor visit, void *arg);
-
 
 void vp9_foreach_transformed_block(
     const MACROBLOCKD* const xd, BLOCK_SIZE bsize,

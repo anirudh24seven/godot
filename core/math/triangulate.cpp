@@ -1,8 +1,6 @@
 
 /*  triangulate.cpp                                                      */
 
-
-
 #include "triangulate.h"
 
 real_t Triangulate::get_area(const Vector<Vector2> &contour) {

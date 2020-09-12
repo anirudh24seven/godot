@@ -1,8 +1,6 @@
 
 /*  multiplayer_api.h                                                    */
 
-
-
 #ifndef MULTIPLAYER_API_H
 #define MULTIPLAYER_API_H
 

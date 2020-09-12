@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -286,7 +284,6 @@ private:
     std::vector<uint8_t> buffer;
     std::size_t cursor;
 };
-
 
 // --------------------------------------------------------------------------------------------
 // `static` StreamWriter. Their byte order is fixed and they might be a little bit faster.

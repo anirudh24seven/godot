@@ -79,7 +79,6 @@ static PyMemberDef UPnP_members[] = {
 	{NULL}
 };
 
-
 static int UPnP_init(UPnPObject *self, PyObject *args, PyObject *kwds)
 {
 	char* multicastif = NULL;
@@ -374,7 +373,6 @@ Py_END_ALLOW_THREADS
 		return NULL;
 	}
 }
-
 
 /* DeletePortMapping(extPort, proto, removeHost='')
  * proto = 'UDP', 'TCP' */

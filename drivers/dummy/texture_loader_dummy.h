@@ -1,8 +1,6 @@
 
 /*  texture_loader_dummy.h                                               */
 
-
-
 #ifndef TEXTURE_LOADER_DUMMY_H
 #define TEXTURE_LOADER_DUMMY_H
 

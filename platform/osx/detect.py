@@ -3,14 +3,11 @@ import sys
 import subprocess
 from methods import detect_darwin_sdk_path
 
-
 def is_active():
     return True
 
-
 def get_name():
     return "OSX"
-
 
 def can_build():
 
@@ -18,7 +15,6 @@ def can_build():
         return True
 
     return False
-
 
 def get_opts():
     from SCons.Variables import BoolVariable, EnumVariable
@@ -39,11 +35,9 @@ def get_opts():
         BoolVariable("use_tsan", "Use LLVM/GCC compiler thread sanitizer (TSAN))", False),
     ]
 
-
 def get_flags():
 
     return []
-
 
 def configure(env):
 

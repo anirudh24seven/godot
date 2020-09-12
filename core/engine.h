@@ -1,8 +1,6 @@
 
 /*  engine.h                                                             */
 
-
-
 #ifndef ENGINE_H
 #define ENGINE_H
 

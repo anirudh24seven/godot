@@ -1,8 +1,6 @@
 
 /*  macros.h                                                             */
 
-
-
 #ifndef UTIL_MACROS_H
 #define UTIL_MACROS_H
 

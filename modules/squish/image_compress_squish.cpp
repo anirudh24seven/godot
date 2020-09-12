@@ -1,8 +1,6 @@
 
 /*  image_compress_squish.cpp                                            */
 
-
-
 #include "image_compress_squish.h"
 
 #include <squish.h>

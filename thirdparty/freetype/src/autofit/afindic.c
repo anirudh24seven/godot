@@ -15,32 +15,27 @@
  *
  */
 
-
 #include "aftypes.h"
 #include "aflatin.h"
 #include "afcjk.h"
-
 
 #ifdef AF_CONFIG_OPTION_INDIC
 
 #include "afindic.h"
 #include "aferrors.h"
 
-
 #ifdef AF_CONFIG_OPTION_USE_WARPER
 #include "afwarp.h"
 #endif
 
-
-  static FT_Error
+static FT_Error
   af_indic_metrics_init( AF_CJKMetrics  metrics,
                          FT_Face        face )
   {
     /* skip blue zone init in CJK routines */
     FT_CharMap  oldmap = face->charmap;
 
-
-    metrics->units_per_em = face->units_per_EM;
+metrics->units_per_em = face->units_per_EM;
 
     if ( FT_Select_Charmap( face, FT_ENCODING_UNICODE ) )
       face->charmap = NULL;
@@ -59,8 +54,7 @@
     return FT_Err_Ok;
   }
 
-
-  static void
+static void
   af_indic_metrics_scale( AF_CJKMetrics  metrics,
                           AF_Scaler      scaler )
   {
@@ -68,8 +62,7 @@
     af_cjk_metrics_scale( metrics, scaler );
   }
 
-
-  static FT_Error
+static FT_Error
   af_indic_hints_init( AF_GlyphHints  hints,
                        AF_CJKMetrics  metrics )
   {
@@ -77,8 +70,7 @@
     return af_cjk_hints_init( hints, metrics );
   }
 
-
-  static FT_Error
+static FT_Error
   af_indic_hints_apply( FT_UInt        glyph_index,
                         AF_GlyphHints  hints,
                         FT_Outline*    outline,
@@ -88,8 +80,7 @@
     return af_cjk_hints_apply( glyph_index, hints, outline, metrics );
   }
 
-
-  /* Extract standard_width from writing system/script specific */
+/* Extract standard_width from writing system/script specific */
   /* metrics class.                                             */
 
   static void
@@ -104,17 +95,11 @@
       *stdVW = metrics->axis[AF_DIMENSION_HORZ].standard_width;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                I N D I C   S C R I P T   C L A S S            *****/
   /*****                                                               *****/
 
-
-
-
-  AF_DEFINE_WRITING_SYSTEM_CLASS(
+AF_DEFINE_WRITING_SYSTEM_CLASS(
     af_indic_writing_system_class,
 
     AF_WRITING_SYSTEM_INDIC,
@@ -130,11 +115,9 @@
     (AF_WritingSystem_ApplyHintsFunc)  af_indic_hints_apply          /* style_hints_apply     */
   )
 
-
 #else /* !AF_CONFIG_OPTION_INDIC */
 
-
-  AF_DEFINE_WRITING_SYSTEM_CLASS(
+AF_DEFINE_WRITING_SYSTEM_CLASS(
     af_indic_writing_system_class,
 
     AF_WRITING_SYSTEM_INDIC,
@@ -150,8 +133,6 @@
     (AF_WritingSystem_ApplyHintsFunc)  NULL  /* style_hints_apply     */
   )
 
-
 #endif /* !AF_CONFIG_OPTION_INDIC */
-
 
 /* END */

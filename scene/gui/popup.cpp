@@ -1,8 +1,6 @@
 
 /*  popup.cpp                                                            */
 
-
-
 #include "popup.h"
 
 #include "core/engine.h"

@@ -1,8 +1,6 @@
 
 /*  texture_basisu.h                                                     */
 
-
-
 #include "scene/resources/texture.h"
 
 #ifdef TOOLS_ENABLED
@@ -36,8 +34,7 @@ public:
 	virtual void set_flags(uint32_t p_flags);
 	virtual uint32_t get_flags() const;
 
-
-	Error import(const Ref<Image> &p_img);
+Error import(const Ref<Image> &p_img);
 
 	void set_basisu_data(const Vector<uint8_t>& p_data);
 

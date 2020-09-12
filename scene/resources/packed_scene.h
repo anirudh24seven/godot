@@ -1,8 +1,6 @@
 
 /*  packed_scene.h                                                       */
 
-
-
 #ifndef PACKED_SCENE_H
 #define PACKED_SCENE_H
 

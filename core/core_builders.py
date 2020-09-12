@@ -5,7 +5,6 @@ All such functions are invoked in a subprocess on Windows to prevent build flaki
 
 from platform_methods import subprocess_main
 
-
 def escape_string(s):
     def charcode_to_c_escapes(c):
         rev_result = []
@@ -24,7 +23,6 @@ def escape_string(s):
         else:
             result += chr(c)
     return result
-
 
 def make_certs_header(target, source, env):
     src = source[0]
@@ -57,7 +55,6 @@ def make_certs_header(target, source, env):
 
     g.close()
     f.close()
-
 
 def make_authors_header(target, source, env):
     sections = [
@@ -111,7 +108,6 @@ def make_authors_header(target, source, env):
 
     g.close()
     f.close()
-
 
 def make_donors_header(target, source, env):
     sections = [
@@ -173,7 +169,6 @@ def make_donors_header(target, source, env):
 
     g.close()
     f.close()
-
 
 def make_license_header(target, source, env):
     src_copyright = source[0]
@@ -330,7 +325,6 @@ def make_license_header(target, source, env):
         f.write("};\n\n")
 
         f.write("#endif // LICENSE_GEN_H\n")
-
 
 if __name__ == "__main__":
     subprocess_main(globals())

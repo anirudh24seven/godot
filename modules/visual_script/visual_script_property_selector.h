@@ -1,8 +1,6 @@
 
 /*  visual_script_property_selector.h                                    */
 
-
-
 #ifndef VISUALSCRIPT_PROPERTYSELECTOR_H
 #define VISUALSCRIPT_PROPERTYSELECTOR_H
 

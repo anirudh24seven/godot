@@ -118,8 +118,7 @@ The general 'rule' to get from Assimp headers to the serialized layout is:
    2. Object array members (i.e aiMesh::mBones, aiScene::mMeshes) are stored in
       subchunks directly following the data written in 1.) and 2.)
 
-
-    Of course, there are some exceptions to this general order:
+Of course, there are some exceptions to this general order:
 
 [[aiScene]]
 
@@ -164,9 +163,7 @@ The general 'rule' to get from Assimp headers to the serialized layout is:
 
    - mNumAllocated is omitted, for obvious reasons :-)
 
-
- @endverbatim*/
-
+@endverbatim*/
 
 #define ASSBIN_HEADER_LENGTH 512
 
@@ -191,6 +188,5 @@ The general 'rule' to get from Assimp headers to the serialized layout is:
 
 #define ASSBIN_MESH_HAS_TEXCOORD(n) (ASSBIN_MESH_HAS_TEXCOORD_BASE << n)
 #define ASSBIN_MESH_HAS_COLOR(n)    (ASSBIN_MESH_HAS_COLOR_BASE << n)
-
 
 #endif // INCLUDED_ASSBIN_CHUNKS_H

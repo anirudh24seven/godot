@@ -1,8 +1,6 @@
 
 /*  crash_handler_osx.mm                                                 */
 
-
-
 #include "crash_handler_osx.h"
 
 #include "core/os/os.h"

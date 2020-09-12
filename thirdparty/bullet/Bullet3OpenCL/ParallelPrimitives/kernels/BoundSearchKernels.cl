@@ -13,7 +13,6 @@ subject to the following restrictions:
 */
 //Originally written by Takahiro Harada
 
-
 typedef unsigned int u32;
 #define GET_GROUP_IDX get_group_id(0)
 #define GET_LOCAL_IDX get_local_id(0)
@@ -27,16 +26,12 @@ typedef struct
 	u32 m_value;
 }SortData;
 
-
-
 typedef struct
 {
 	u32 m_nSrc;
 	u32 m_nDst;
 	u32 m_padding[2];
 } ConstBuffer;
-
-
 
 __attribute__((reqd_work_group_size(64,1,1)))
 __kernel
@@ -63,7 +58,6 @@ void SearchSortDataLowerKernel(__global SortData* src, __global u32 *dst,
 		}
 	}
 }
-
 
 __attribute__((reqd_work_group_size(64,1,1)))
 __kernel
@@ -96,9 +90,8 @@ void SubtractKernel(__global u32* A, __global u32 *B, __global u32 *C,
 					unsigned int nSrc, unsigned int nDst)
 {
 	int gIdx = GET_GLOBAL_IDX;
-	
 
-	if( gIdx < nDst )
+if( gIdx < nDst )
 	{
 		C[gIdx] = A[gIdx] - B[gIdx];
 	}

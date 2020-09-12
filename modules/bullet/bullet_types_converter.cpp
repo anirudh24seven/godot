@@ -1,8 +1,6 @@
 
 /*  bullet_types_converter.cpp                                           */
 
-
-
 #include "bullet_types_converter.h"
 
 /**

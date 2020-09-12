@@ -1,8 +1,6 @@
 
 /*  managed_callable.h                                                   */
 
-
-
 #ifndef MANAGED_CALLABLE_H
 #define MANAGED_CALLABLE_H
 

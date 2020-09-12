@@ -1,8 +1,6 @@
 
 /*  localization_editor.h                                                */
 
-
-
 #ifndef LOCALIZATION_EDITOR_H
 #define LOCALIZATION_EDITOR_H
 

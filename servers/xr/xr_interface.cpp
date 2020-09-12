@@ -1,8 +1,6 @@
 
 /*  xr_interface.cpp                                                     */
 
-
-
 #include "xr_interface.h"
 
 void XRInterface::_bind_methods() {

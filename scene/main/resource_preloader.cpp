@@ -1,8 +1,6 @@
 
 /*  resource_preloader.cpp                                               */
 
-
-
 #include "resource_preloader.h"
 
 void ResourcePreloader::_set_resources(const Array &p_data) {

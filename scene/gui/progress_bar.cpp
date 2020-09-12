@@ -1,8 +1,6 @@
 
 /*  progress_bar.cpp                                                     */
 
-
-
 #include "progress_bar.h"
 
 Size2 ProgressBar::get_minimum_size() const {

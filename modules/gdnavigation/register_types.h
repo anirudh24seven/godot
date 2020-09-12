@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 /**
 	@author AndreaCatania
 */

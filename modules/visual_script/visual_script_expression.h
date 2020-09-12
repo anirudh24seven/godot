@@ -1,8 +1,6 @@
 
 /*  visual_script_expression.h                                           */
 
-
-
 #ifndef VISUALSCRIPTEXPRESSION_H
 #define VISUALSCRIPTEXPRESSION_H
 

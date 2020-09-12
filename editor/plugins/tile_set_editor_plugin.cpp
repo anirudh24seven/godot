@@ -1,8 +1,6 @@
 
 /*  tile_set_editor_plugin.cpp                                           */
 
-
-
 #include "tile_set_editor_plugin.h"
 
 #include "core/input/input.h"

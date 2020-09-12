@@ -1,8 +1,6 @@
 
 /*  audio_driver_alsa.h                                                  */
 
-
-
 #ifdef ALSA_ENABLED
 
 #ifndef AUDIO_DRIVER_ALSA_H

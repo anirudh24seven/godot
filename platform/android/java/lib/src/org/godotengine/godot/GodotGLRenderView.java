@@ -1,8 +1,6 @@
 
 /*  GodotGLRenderView.java                                               */
 
-
-
 package org.godotengine.godot;
 
 import org.godotengine.godot.input.GodotGestureHandler;

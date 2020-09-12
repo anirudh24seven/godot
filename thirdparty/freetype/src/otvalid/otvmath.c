@@ -17,13 +17,11 @@
  *
  */
 
-
 #include "otvalid.h"
 #include "otvcommn.h"
 #include "otvgpos.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -32,17 +30,11 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  otvmath
 
-
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                  MATH TYPOGRAPHIC CONSTANTS                   *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   otv_MathConstants_validate( FT_Bytes       table,
                               OTV_Validator  otvalid )
   {
@@ -52,8 +44,7 @@
 
     OTV_OPTIONAL_TABLE( DeviceTableOffset );
 
-
-    OTV_NAME_ENTER( "MathConstants" );
+OTV_NAME_ENTER( "MathConstants" );
 
     /* 56 constants, 51 have device tables */
     OTV_LIMIT_CHECK( 2 * ( 56 + 51 ) );
@@ -72,17 +63,12 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                   MATH ITALICS CORRECTION                     *****/
   /*****                 MATH TOP ACCENT ATTACHMENT                    *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   otv_MathItalicsCorrectionInfo_validate( FT_Bytes       table,
                                           OTV_Validator  otvalid,
                                           FT_Int         isItalic )
@@ -95,8 +81,7 @@
 
     FT_UNUSED( isItalic );  /* only used if tracing is active */
 
-
-    OTV_NAME_ENTER( isItalic ? "MathItalicsCorrectionInfo"
+OTV_NAME_ENTER( isItalic ? "MathItalicsCorrectionInfo"
                              : "MathTopAccentAttachment" );
 
     OTV_LIMIT_CHECK( 4 );
@@ -122,16 +107,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                           MATH KERNING                        *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   otv_MathKern_validate( FT_Bytes       table,
                          OTV_Validator  otvalid )
   {
@@ -140,8 +120,7 @@
 
     OTV_OPTIONAL_TABLE( DeviceTableOffset );
 
-
-    /* OTV_NAME_ENTER( "MathKern" );*/
+/* OTV_NAME_ENTER( "MathKern" );*/
 
     OTV_LIMIT_CHECK( 2 );
 
@@ -173,8 +152,7 @@
     OTV_EXIT;
   }
 
-
-  static void
+static void
   otv_MathKernInfo_validate( FT_Bytes       table,
                              OTV_Validator  otvalid )
   {
@@ -184,8 +162,7 @@
     OTV_OPTIONAL_TABLE( Coverage );
     OTV_OPTIONAL_TABLE( MKRecordOffset );
 
-
-    OTV_NAME_ENTER( "MathKernInfo" );
+OTV_NAME_ENTER( "MathKernInfo" );
 
     OTV_LIMIT_CHECK( 4 );
 
@@ -212,16 +189,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                         MATH GLYPH INFO                       *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   otv_MathGlyphInfo_validate( FT_Bytes       table,
                               OTV_Validator  otvalid )
   {
@@ -229,8 +201,7 @@
     FT_UInt   MathItalicsCorrectionInfo, MathTopAccentAttachment;
     FT_UInt   ExtendedShapeCoverage, MathKernInfo;
 
-
-    OTV_NAME_ENTER( "MathGlyphInfo" );
+OTV_NAME_ENTER( "MathGlyphInfo" );
 
     OTV_LIMIT_CHECK( 8 );
 
@@ -261,16 +232,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    MATH GLYPH CONSTRUCTION                    *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   otv_GlyphAssembly_validate( FT_Bytes       table,
                               OTV_Validator  otvalid )
   {
@@ -280,8 +246,7 @@
 
     OTV_OPTIONAL_TABLE( DeviceTableOffset );
 
-
-    /* OTV_NAME_ENTER( "GlyphAssembly" ); */
+/* OTV_NAME_ENTER( "GlyphAssembly" ); */
 
     OTV_LIMIT_CHECK( 6 );
 
@@ -300,8 +265,7 @@
     {
       FT_UInt  gid;
 
-
-      gid = FT_NEXT_USHORT( p );
+gid = FT_NEXT_USHORT( p );
       if ( gid >= otvalid->glyph_count )
         FT_INVALID_GLYPH_ID;
       p += 2*4;             /* skip the Start, End, Full, and Flags fields */
@@ -310,8 +274,7 @@
     /* OTV_EXIT; */
   }
 
-
-  static void
+static void
   otv_MathGlyphConstruction_validate( FT_Bytes       table,
                                       OTV_Validator  otvalid )
   {
@@ -321,8 +284,7 @@
 
     OTV_OPTIONAL_TABLE( GlyphAssembly );
 
-
-    /* OTV_NAME_ENTER( "MathGlyphConstruction" ); */
+/* OTV_NAME_ENTER( "MathGlyphConstruction" ); */
 
     OTV_LIMIT_CHECK( 4 );
 
@@ -336,8 +298,7 @@
     {
       FT_UInt  gid;
 
-
-      gid = FT_NEXT_USHORT( p );
+gid = FT_NEXT_USHORT( p );
       if ( gid >= otvalid->glyph_count )
         FT_INVALID_GLYPH_ID;
       p += 2;                          /* skip the size */
@@ -350,8 +311,7 @@
     /* OTV_EXIT; */
   }
 
-
-  static void
+static void
   otv_MathVariants_validate( FT_Bytes       table,
                              OTV_Validator  otvalid )
   {
@@ -362,8 +322,7 @@
     OTV_OPTIONAL_TABLE( HCoverage );
     OTV_OPTIONAL_TABLE( Offset );
 
-
-    OTV_NAME_ENTER( "MathVariants" );
+OTV_NAME_ENTER( "MathVariants" );
 
     OTV_LIMIT_CHECK( 10 );
 
@@ -401,16 +360,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          MATH TABLE                           *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->glyph_count */
+/* sets otvalid->glyph_count */
 
   FT_LOCAL_DEF( void )
   otv_MATH_validate( FT_Bytes      table,
@@ -422,8 +376,7 @@
     FT_Bytes          p       = table;
     FT_UInt           MathConstants, MathGlyphInfo, MathVariants;
 
-
-    otvalid->root = ftvalid;
+otvalid->root = ftvalid;
 
     FT_TRACE3(( "validating MATH table\n" ));
     OTV_INIT;
@@ -448,6 +401,5 @@
 
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

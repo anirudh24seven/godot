@@ -1,8 +1,6 @@
 
 /*  animation_player.cpp                                                 */
 
-
-
 #include "animation_player.h"
 
 #include "core/engine.h"

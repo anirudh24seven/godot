@@ -34,7 +34,6 @@ typedef enum {
   SEG_LVL_MAX = 4                  // Number of features supported
 } SEG_LVL_FEATURES;
 
-
 struct segmentation {
   uint8_t enabled;
   uint8_t update_map;

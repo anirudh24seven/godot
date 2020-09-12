@@ -1,8 +1,6 @@
 
 /*  editor_about.cpp                                                     */
 
-
-
 #include "editor_about.h"
 #include "editor_node.h"
 

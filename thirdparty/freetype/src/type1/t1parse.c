@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The Type 1 parser is in charge of the following:
    *
@@ -32,7 +31,6 @@
    *
    */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_STREAM_H
@@ -42,8 +40,7 @@
 
 #include "t1errors.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -52,19 +49,11 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  t1parse
 
-
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                   INPUT STREAM PARSER                         *****/
   /*****                                                               *****/
 
-
-
-
-
-  /* see Adobe Technical Note 5040.Download_Fonts.pdf */
+/* see Adobe Technical Note 5040.Download_Fonts.pdf */
 
   static FT_Error
   read_pfb_tag( FT_Stream   stream,
@@ -75,8 +64,7 @@
     FT_UShort  tag;
     FT_ULong   size;
 
-
-    *atag  = 0;
+*atag  = 0;
     *asize = 0;
 
     if ( !FT_READ_USHORT( tag ) )
@@ -93,8 +81,7 @@
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   check_type1_format( FT_Stream    stream,
                       const char*  header_string,
                       size_t       header_length )
@@ -103,8 +90,7 @@
     FT_UShort  tag;
     FT_ULong   dummy;
 
-
-    if ( FT_STREAM_SEEK( 0 ) )
+if ( FT_STREAM_SEEK( 0 ) )
       goto Exit;
 
     error = read_pfb_tag( stream, &tag, &dummy );
@@ -131,8 +117,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T1_New_Parser( T1_Parser      parser,
                  FT_Stream      stream,
                  FT_Memory      memory,
@@ -142,8 +127,7 @@
     FT_UShort  tag;
     FT_ULong   size;
 
-
-    psaux->ps_parser_funcs->init( &parser->root, NULL, NULL, memory );
+psaux->ps_parser_funcs->init( &parser->root, NULL, NULL, memory );
 
     parser->stream       = stream;
     parser->base_len     = 0;
@@ -239,14 +223,12 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   T1_Finalize_Parser( T1_Parser  parser )
   {
     FT_Memory  memory = parser->root.memory;
 
-
-    /* always free the private dictionary */
+/* always free the private dictionary */
     FT_FREE( parser->private_dict );
 
     /* free the base dictionary only when we have a disk stream */
@@ -256,8 +238,7 @@
     parser->root.funcs.done( &parser->root );
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T1_Get_Private_Dict( T1_Parser      parser,
                        PSAux_Service  psaux )
   {
@@ -266,8 +247,7 @@
     FT_Error   error  = FT_Err_Ok;
     FT_ULong   size;
 
-
-    if ( parser->in_pfb )
+if ( parser->in_pfb )
     {
       /* in the case of the PFB format, the private dictionary can be  */
       /* made of several segments.  We thus first read the number of   */
@@ -276,8 +256,7 @@
       FT_ULong   start_pos = FT_STREAM_POS();
       FT_UShort  tag;
 
-
-      parser->private_len = 0;
+parser->private_len = 0;
       for (;;)
       {
         error = read_pfb_tag( stream, &tag, &size );
@@ -337,8 +316,7 @@
       FT_Pointer  pos_lf;
       FT_Bool     test_cr;
 
-
-    Again:
+Again:
       for (;;)
       {
         if ( cur[0] == 'e'   &&
@@ -478,8 +456,7 @@
         /* ASCII hexadecimal encoding */
         FT_ULong  len;
 
-
-        parser->root.cursor = cur;
+parser->root.cursor = cur;
         (void)psaux->ps_parser_funcs->to_bytes( &parser->root,
                                                 parser->private_dict,
                                                 parser->private_len,
@@ -520,6 +497,5 @@
   Exit:
     return error;
   }
-
 
 /* END */

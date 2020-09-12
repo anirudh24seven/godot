@@ -8,15 +8,12 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
 extern sym(vp8_bilinear_filters_x86_8)
-
 
 %define BLOCK_HEIGHT_WIDTH 4
 %define vp8_filter_weight 128
 %define VP8_FILTER_SHIFT  7
-
 
 ;void vp8_filter_block1d_h6_mmx
 ;(
@@ -113,7 +110,6 @@ sym(vp8_filter_block1d_h6_mmx):
     pop         rbp
     ret
 
-
 ;void vp8_filter_block1dc_v6_mmx
 ;(
 ;   short *src_ptr,
@@ -152,13 +148,11 @@ sym(vp8_filter_block1dc_v6_mmx):
         movsxd      rax, DWORD PTR arg(2) ;output_pitch      ; destination pitch?
         pxor        mm0, mm0              ; mm0 = 00000000
 
-
 .nextrow_cv:
         movq        mm3, [rsi+rdx]        ; mm3 = p0..p8  = row -1
         pmullw      mm3, mm1              ; mm3 *= kernel 1 modifiers.
 
-
-        movq        mm4, [rsi + 4*rdx]      ; mm4 = p0..p3  = row 2
+movq        mm4, [rsi + 4*rdx]      ; mm4 = p0..p3  = row 2
         pmullw      mm4, mm7              ; mm4 *= kernel 4 modifiers.
         paddsw      mm3, mm4              ; mm3 += mm4
 
@@ -170,8 +164,7 @@ sym(vp8_filter_block1dc_v6_mmx):
         pmullw      mm4, [rbx]            ; mm4 *= kernel 0 modifiers.
         paddsw      mm3, mm4              ; mm3 += mm4
 
-
-        add         rsi, rdx              ; move source forward 1 line to avoid 3 * pitch
+add         rsi, rdx              ; move source forward 1 line to avoid 3 * pitch
         movq        mm4, [rsi + 2*rdx]     ; mm4 = p0..p3  = row 1
         pmullw      mm4, mm6              ; mm4 *= kernel 3 modifiers.
         paddsw      mm3, mm4              ; mm3 += mm4
@@ -180,8 +173,7 @@ sym(vp8_filter_block1dc_v6_mmx):
         pmullw      mm4, [rbx +80]        ; mm4 *= kernel 3 modifiers.
         paddsw      mm3, mm4              ; mm3 += mm4
 
-
-        paddsw      mm3, mm5               ; mm3 += round value
+paddsw      mm3, mm5               ; mm3 += round value
         psraw       mm3, VP8_FILTER_SHIFT     ; mm3 /= 128
         packuswb    mm3, mm0              ; pack and saturate
 
@@ -202,7 +194,6 @@ sym(vp8_filter_block1dc_v6_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void bilinear_predict8x8_mmx
 ;(
@@ -249,9 +240,7 @@ sym(vp8_bilinear_predict8x8_mmx):
         lea         rcx,        [rdi+rdx*8]          ;
         movsxd      rdx,        dword ptr arg(1) ;src_pixels_per_line    ;
 
-
-
-        ; get the first horizontal line done       ;
+; get the first horizontal line done       ;
         movq        mm3,        [rsi]               ; xx 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14
         movq        mm4,        mm3                 ; make a copy of current line
 
@@ -323,15 +312,13 @@ sym(vp8_bilinear_predict8x8_mmx):
         movq        mm7,        mm3                 ;
         packuswb    mm7,        mm4                 ;
 
-
-        pmullw      mm3,        [rax+16]            ;
+pmullw      mm3,        [rax+16]            ;
         pmullw      mm4,        [rax+16]            ;
 
         paddw       mm3,        mm5                 ;
         paddw       mm4,        mm6                 ;
 
-
-        paddw       mm3,        [GLOBAL(rd)]                 ; xmm3 += round value
+paddw       mm3,        [GLOBAL(rd)]                 ; xmm3 += round value
         psraw       mm3,        VP8_FILTER_SHIFT        ; xmm3 /= 128
 
         paddw       mm4,        [GLOBAL(rd)]                 ;
@@ -359,7 +346,6 @@ sym(vp8_bilinear_predict8x8_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void bilinear_predict8x4_mmx
 ;(
@@ -478,15 +464,13 @@ sym(vp8_bilinear_predict8x4_mmx):
         movq        mm7,        mm3                 ;
         packuswb    mm7,        mm4                 ;
 
-
-        pmullw      mm3,        [rax+16]            ;
+pmullw      mm3,        [rax+16]            ;
         pmullw      mm4,        [rax+16]            ;
 
         paddw       mm3,        mm5                 ;
         paddw       mm4,        mm6                 ;
 
-
-        paddw       mm3,        [GLOBAL(rd)]                 ; xmm3 += round value
+paddw       mm3,        [GLOBAL(rd)]                 ; xmm3 += round value
         psraw       mm3,        VP8_FILTER_SHIFT        ; xmm3 /= 128
 
         paddw       mm4,        [GLOBAL(rd)]                 ;
@@ -514,7 +498,6 @@ sym(vp8_bilinear_predict8x4_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
 
 ;void bilinear_predict4x4_mmx
 ;(
@@ -606,8 +589,7 @@ sym(vp8_bilinear_predict4x4_mmx):
         pmullw      mm3,        [rax+16]            ;
         paddw       mm3,        mm5                 ;
 
-
-        paddw       mm3,        [GLOBAL(rd)]                 ; xmm3 += round value
+paddw       mm3,        [GLOBAL(rd)]                 ; xmm3 += round value
         psraw       mm3,        VP8_FILTER_SHIFT        ; xmm3 /= 128
 
         packuswb    mm3,        mm0
@@ -632,8 +614,6 @@ sym(vp8_bilinear_predict4x4_mmx):
     UNSHADOW_ARGS
     pop         rbp
     ret
-
-
 
 SECTION_RODATA
 align 16
@@ -698,5 +678,4 @@ sym(vp8_six_tap_mmx):
     times 8 dw 123
     times 8 dw -6
     times 8 dw 0
-
 

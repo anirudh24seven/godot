@@ -1,8 +1,6 @@
 
 /*  gd_mono_method.h                                                     */
 
-
-
 #ifndef GD_MONO_METHOD_H
 #define GD_MONO_METHOD_H
 

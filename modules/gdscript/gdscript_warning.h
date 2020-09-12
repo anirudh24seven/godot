@@ -1,8 +1,6 @@
 
 /*  gdscript_warning.h                                                   */
 
-
-
 #ifndef GDSCRIPT_WARNINGS
 #define GDSCRIPT_WARNINGS
 

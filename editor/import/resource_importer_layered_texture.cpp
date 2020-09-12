@@ -1,8 +1,6 @@
 
 /*  resource_importer_layered_texture.cpp                                */
 
-
-
 #include "resource_importer_layered_texture.h"
 
 #include "resource_importer_texture.h"

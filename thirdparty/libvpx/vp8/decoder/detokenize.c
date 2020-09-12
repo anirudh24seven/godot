@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "vp8/common/blockd.h"
 #include "onyxd_int.h"
 #include "vpx_mem/vpx_mem.h"

@@ -1,8 +1,6 @@
 
 /*  body_3d_sw.cpp                                                       */
 
-
-
 #include "body_3d_sw.h"
 #include "area_3d_sw.h"
 #include "space_3d_sw.h"
@@ -630,7 +628,6 @@ void BodySW::simulate_motion(const Transform& p_xform,real_t p_step) {
 		get_space()->body_add_to_state_query_list(&direct_state_query_list);
 	simulated_motion=true;
 	_set_transform(p_xform);
-
 
 }
 

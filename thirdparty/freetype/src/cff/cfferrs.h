@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This file is used to define the CFF error enumeration constants.
    *
@@ -33,10 +32,8 @@
 #define FT_ERR_PREFIX  CFF_Err_
 #define FT_ERR_BASE    FT_Mod_Err_CFF
 
-
 #include FT_ERRORS_H
 
 #endif /* CFFERRS_H_ */
-
 
 /* END */

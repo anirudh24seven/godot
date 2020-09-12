@@ -1,8 +1,6 @@
 
 /*  scene_string_names.cpp                                               */
 
-
-
 #include "scene_string_names.h"
 
 SceneStringNames *SceneStringNames::singleton = nullptr;

@@ -1,8 +1,6 @@
 
 /*  shader_globals_editor.cpp                                            */
 
-
-
 #include "shader_globals_editor.h"
 #include "editor_node.h"
 

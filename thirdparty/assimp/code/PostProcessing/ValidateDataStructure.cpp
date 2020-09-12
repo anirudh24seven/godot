@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -453,8 +451,7 @@ void ValidateDSProcess::Validate( const aiMesh* pMesh)
             }
     }
 
-
-    // now validate all bones
+// now validate all bones
     if (pMesh->mNumBones)
     {
         if (!pMesh->mBones)

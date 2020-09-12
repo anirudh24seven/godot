@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP9_DECODER_VP9_DSUBEXP_H_
 #define VP9_DECODER_VP9_DSUBEXP_H_
 

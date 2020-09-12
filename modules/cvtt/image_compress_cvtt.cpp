@@ -1,8 +1,6 @@
 
 /*  image_compress_cvtt.cpp                                              */
 
-
-
 #include "image_compress_cvtt.h"
 
 #include "core/os/os.h"

@@ -5,7 +5,6 @@ if os.name == "nt":
     import sys
     import winreg
 
-
 def _reg_open_key(key, subkey):
     try:
         return winreg.OpenKey(key, subkey)
@@ -15,7 +14,6 @@ def _reg_open_key(key, subkey):
         else:
             bitness_sam = winreg.KEY_WOW64_32KEY
         return winreg.OpenKey(key, subkey, 0, winreg.KEY_READ | bitness_sam)
-
 
 def _reg_open_key_bits(key, subkey, bits):
     sam = winreg.KEY_READ
@@ -31,7 +29,6 @@ def _reg_open_key_bits(key, subkey, bits):
 
     return winreg.OpenKey(key, subkey, 0, sam)
 
-
 def _find_mono_in_reg(subkey, bits):
     try:
         with _reg_open_key_bits(winreg.HKEY_LOCAL_MACHINE, subkey, bits) as hKey:
@@ -39,7 +36,6 @@ def _find_mono_in_reg(subkey, bits):
             return value
     except (WindowsError, OSError):
         return None
-
 
 def _find_mono_in_reg_old(subkey, bits):
     try:
@@ -51,7 +47,6 @@ def _find_mono_in_reg_old(subkey, bits):
     except (WindowsError, EnvironmentError):
         return None
 
-
 def find_mono_root_dir(bits):
     root_dir = _find_mono_in_reg(r"SOFTWARE\Mono", bits)
     if root_dir is not None:
@@ -60,7 +55,6 @@ def find_mono_root_dir(bits):
     if root_dir is not None:
         return str(root_dir)
     return ""
-
 
 def find_msbuild_tools_path_reg():
     import subprocess

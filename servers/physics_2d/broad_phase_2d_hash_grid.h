@@ -1,8 +1,6 @@
 
 /*  broad_phase_2d_hash_grid.h                                           */
 
-
-
 #ifndef BROAD_PHASE_2D_HASH_GRID_H
 #define BROAD_PHASE_2D_HASH_GRID_H
 

@@ -351,8 +351,7 @@ namespace Etc
 						m_afrgbaSource[uiPixel].fB = 0.0f;
 					}
 
-				
-					// for RGB8A1, set source alpha to 0.0 or 1.0
+// for RGB8A1, set source alpha to 0.0 or 1.0
 					// set punch through flag
 					if (imageformat == Image::Format::RGB8A1 ||
 						imageformat == Image::Format::SRGB8A1)

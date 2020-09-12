@@ -1,8 +1,6 @@
 
 /*  range.cpp                                                            */
 
-
-
 #include "range.h"
 
 String Range::get_configuration_warning() const {

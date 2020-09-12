@@ -1,8 +1,6 @@
 
 /*  array.cpp                                                            */
 
-
-
 #include "gdnative/array.h"
 
 #include "core/array.h"

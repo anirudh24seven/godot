@@ -1,8 +1,6 @@
 
 /*  webrtc_data_channel_js.h                                             */
 
-
-
 #ifdef JAVASCRIPT_ENABLED
 
 #ifndef WEBRTC_DATA_CHANNEL_JS_H

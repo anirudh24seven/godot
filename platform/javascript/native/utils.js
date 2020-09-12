@@ -1,8 +1,6 @@
 
 /*  utils.js                                                             */
 
-
-
 Module['copyToFS'] = function(path, buffer) {
 	var p = path.lastIndexOf("/");
 	var dir = "/";

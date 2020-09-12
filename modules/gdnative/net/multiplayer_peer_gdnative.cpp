@@ -1,8 +1,6 @@
 
 /*  multiplayer_peer_gdnative.cpp                                        */
 
-
-
 #include "multiplayer_peer_gdnative.h"
 
 MultiplayerPeerGDNative::MultiplayerPeerGDNative() {

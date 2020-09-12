@@ -15,18 +15,14 @@
  *
  */
 
-
 #ifndef CFFOBJS_H_
 #define CFFOBJS_H_
 
-
 #include <ft2build.h>
-
 
 FT_BEGIN_HEADER
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cff_size_init( FT_Size  size );           /* CFF_Size */
 
   FT_LOCAL( void )
@@ -50,8 +46,7 @@ FT_BEGIN_HEADER
   FT_LOCAL( FT_Error )
   cff_slot_init( FT_GlyphSlot  slot );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Face functions
    */
@@ -65,8 +60,7 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   cff_face_done( FT_Face  face );               /* CFF_Face */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Driver functions
    */
@@ -76,10 +70,8 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   cff_driver_done( FT_Module  module );         /* PS_Driver */
 
-
 FT_END_HEADER
 
 #endif /* CFFOBJS_H_ */
-
 
 /* END */

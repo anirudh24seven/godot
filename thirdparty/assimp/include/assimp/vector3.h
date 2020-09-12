@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -112,8 +110,7 @@ public:
      *  @return length */
     TReal Length() const;
 
-
-    /** @brief Normalize the vector */
+/** @brief Normalize the vector */
     aiVector3t& Normalize();
 
     /** @brief Normalize the vector with extra check for zero vectors */
@@ -127,7 +124,6 @@ public:
 
     TReal x, y, z;
 };
-
 
 typedef aiVector3t<ai_real> aiVector3D;
 

@@ -48,8 +48,7 @@ int main(){
     fprintf(stderr,"rate=%gHz, block=%d, f(1)=%.2gHz bark(1)=%.2g (of %.2g)\n\n",
             rate,i,rate/2 / (i/2),toBARK(rate/2 /(i/2)),toBARK(rate/2));
 
-
-  }
+}
   {
     float i;
     int j;

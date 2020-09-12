@@ -1,8 +1,6 @@
 
 /*  editor_sectioned_inspector.cpp                                       */
 
-
-
 #include "editor_sectioned_inspector.h"
 
 #include "editor_scale.h"

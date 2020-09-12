@@ -2,7 +2,6 @@
 # FreeType 2 CID driver configuration rules
 #
 
-
 # Copyright (C) 1996-2020 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
@@ -12,17 +11,14 @@
 # indicate that you have read the license and understand and accept it
 # fully.
 
-
 # CID driver directory
 #
 CID_DIR := $(SRC_DIR)/cid
-
 
 CID_COMPILE := $(CC) $(ANSIFLAGS)                            \
                      $I$(subst /,$(COMPILER_SEP),$(CID_DIR)) \
                      $(INCLUDE_FLAGS)                        \
                      $(FT_CFLAGS)
-
 
 # CID driver sources (i.e., C files)
 #
@@ -38,7 +34,6 @@ CID_DRV_H := $(CID_DRV_SRC:%.c=%.h) \
              $(CID_DIR)/cidtoken.h  \
              $(CID_DIR)/ciderrs.h
 
-
 # CID driver object(s)
 #
 #   CID_DRV_OBJ_M is used during `multi' builds
@@ -51,23 +46,19 @@ CID_DRV_OBJ_S := $(OBJ_DIR)/type1cid.$O
 #
 CID_DRV_SRC_S := $(CID_DIR)/type1cid.c
 
-
 # CID driver - single object
 #
 $(CID_DRV_OBJ_S): $(CID_DRV_SRC_S) $(CID_DRV_SRC) $(FREETYPE_H) $(CID_DRV_H)
 	$(CID_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $(CID_DRV_SRC_S))
-
 
 # CID driver - multiple objects
 #
 $(OBJ_DIR)/%.$O: $(CID_DIR)/%.c $(FREETYPE_H) $(CID_DRV_H)
 	$(CID_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $<)
 
-
 # update main driver object lists
 #
 DRV_OBJS_S += $(CID_DRV_OBJ_S)
 DRV_OBJS_M += $(CID_DRV_OBJ_M)
-
 
 # EOF

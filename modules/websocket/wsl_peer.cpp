@@ -1,8 +1,6 @@
 
 /*  wsl_peer.cpp                                                         */
 
-
-
 #ifndef JAVASCRIPT_ENABLED
 
 #include "wsl_peer.h"

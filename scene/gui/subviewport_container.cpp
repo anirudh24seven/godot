@@ -1,8 +1,6 @@
 
 /*  subviewport_container.cpp                                            */
 
-
-
 #include "subviewport_container.h"
 
 #include "core/engine.h"

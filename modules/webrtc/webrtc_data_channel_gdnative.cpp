@@ -1,8 +1,6 @@
 
 /*  webrtc_data_channel_gdnative.cpp                                     */
 
-
-
 #ifdef WEBRTC_GDNATIVE_ENABLED
 
 #include "webrtc_data_channel_gdnative.h"

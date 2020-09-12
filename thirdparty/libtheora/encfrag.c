@@ -18,7 +18,6 @@
 #include <string.h>
 #include "encint.h"
 
-
 void oc_enc_frag_sub(const oc_enc_ctx *_enc,ogg_int16_t _diff[64],
  const unsigned char *_src,const unsigned char *_ref,int _ystride){
   (*_enc->opt_vtable.frag_sub)(_diff,_src,_ref,_ystride);

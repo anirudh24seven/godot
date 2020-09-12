@@ -1,8 +1,6 @@
 
 /*  file_access_network.cpp                                              */
 
-
-
 #include "file_access_network.h"
 
 #include "core/io/ip.h"

@@ -1,8 +1,6 @@
 
 /*  java_godot_io_wrapper.cpp                                            */
 
-
-
 #include "java_godot_io_wrapper.h"
 #include "core/error_list.h"
 

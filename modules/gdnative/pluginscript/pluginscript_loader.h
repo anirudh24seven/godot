@@ -1,8 +1,6 @@
 
 /*  pluginscript_loader.h                                                */
 
-
-
 #ifndef PYTHONSCRIPT_PY_LOADER_H
 #define PYTHONSCRIPT_PY_LOADER_H
 

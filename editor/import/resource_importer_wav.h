@@ -1,8 +1,6 @@
 
 /*  resource_importer_wav.h                                              */
 
-
-
 #ifndef RESOURCEIMPORTWAV_H
 #define RESOURCEIMPORTWAV_H
 

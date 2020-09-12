@@ -1,8 +1,6 @@
 
 /*  audio_effect_record.h                                                */
 
-
-
 #ifndef AUDIOEFFECTRECORD_H
 #define AUDIOEFFECTRECORD_H
 

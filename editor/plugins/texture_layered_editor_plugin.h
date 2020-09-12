@@ -1,8 +1,6 @@
 
 /*  texture_layered_editor_plugin.h                                      */
 
-
-
 #ifndef TEXTURE_LAYERED_EDITOR_PLUGIN_H
 #define TEXTURE_LAYERED_EDITOR_PLUGIN_H
 

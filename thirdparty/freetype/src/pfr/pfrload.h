@@ -15,13 +15,11 @@
  *
  */
 
-
 #ifndef PFRLOAD_H_
 #define PFRLOAD_H_
 
 #include "pfrobjs.h"
 #include FT_INTERNAL_STREAM_H
-
 
 FT_BEGIN_HEADER
 
@@ -47,8 +45,7 @@ FT_BEGIN_HEADER
 #define PFR_NEXT_LONG( p )    FT_NEXT_OFF3( p )
 #define PFR_NEXT_ULONG( p )   FT_NEXT_UOFF3( p )
 
-
- /* handling extra items */
+/* handling extra items */
 
   typedef FT_Error
   (*PFR_ExtraItem_ParseFunc)( FT_Byte*    p,
@@ -64,8 +61,7 @@ FT_BEGIN_HEADER
 
   typedef const struct PFR_ExtraItemRec_*  PFR_ExtraItem;
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   pfr_extra_items_skip( FT_Byte*  *pp,
                         FT_Byte*  limit );
 
@@ -75,8 +71,7 @@ FT_BEGIN_HEADER
                          PFR_ExtraItem  item_list,
                          FT_Pointer     item_data );
 
-
-  /* load a PFR header */
+/* load a PFR header */
   FT_LOCAL( FT_Error )
   pfr_header_load( PFR_Header  header,
                    FT_Stream   stream );
@@ -85,8 +80,7 @@ FT_BEGIN_HEADER
   FT_LOCAL( FT_Bool )
   pfr_header_check( PFR_Header  header );
 
-
-  /* return number of logical fonts in this file */
+/* return number of logical fonts in this file */
   FT_LOCAL( FT_Error )
   pfr_log_font_count( FT_Stream   stream,
                       FT_UInt32   log_section_offset,
@@ -100,8 +94,7 @@ FT_BEGIN_HEADER
                      FT_UInt32    section_offset,
                      FT_Bool      size_increment );
 
-
-  /* load a physical font entry */
+/* load a physical font entry */
   FT_LOCAL( FT_Error )
   pfr_phy_font_load( PFR_PhyFont  phy_font,
                      FT_Stream    stream,
@@ -118,6 +111,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* PFRLOAD_H_ */
-
 
 /* END */

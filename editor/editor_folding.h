@@ -1,8 +1,6 @@
 
 /*  editor_folding.h                                                     */
 
-
-
 #ifndef EDITOR_FOLDING_H
 #define EDITOR_FOLDING_H
 

@@ -293,7 +293,6 @@ public:
 	rcPermVector(const T* begin, const T* end) : Base(begin, end) {}
 };
 
-
 /// Legacy class. Prefer rcVector<int>.
 class rcIntArray
 {

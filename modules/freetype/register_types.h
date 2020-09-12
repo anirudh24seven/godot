@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef FREETYPE_REGISTER_TYPES_H
 #define FREETYPE_REGISTER_TYPES_H
 

@@ -1,8 +1,6 @@
 
 /*  wsl_server.cpp                                                       */
 
-
-
 #ifndef JAVASCRIPT_ENABLED
 
 #include "wsl_server.h"

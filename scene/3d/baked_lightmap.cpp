@@ -1,8 +1,6 @@
 
 /*  baked_lightmap.cpp                                                   */
 
-
-
 #include "baked_lightmap.h"
 
 #include "core/io/config_file.h"

@@ -56,7 +56,6 @@ static OPUS_INLINE void silk_NLSF_residual_dequant(               /* O    Return
     }
 }
 
-
 /***********************/
 /* NLSF vector decoder */
 /***********************/

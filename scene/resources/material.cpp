@@ -1,8 +1,6 @@
 
 /*  material.cpp                                                         */
 
-
-
 #include "material.h"
 
 #include "core/engine.h"

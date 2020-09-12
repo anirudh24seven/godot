@@ -1,8 +1,6 @@
 
 /*  gdscript_functions.cpp                                               */
 
-
-
 #include "gdscript_functions.h"
 
 #include "core/class_db.h"

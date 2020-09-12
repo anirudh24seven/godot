@@ -8,7 +8,6 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
 
 section .text
@@ -16,7 +15,6 @@ global sym(vpx_reset_mmx_state) PRIVATE
 sym(vpx_reset_mmx_state):
     emms
     ret
-
 
 %if LIBVPX_YASM_WIN64
 global sym(vpx_winx64_fldcw) PRIVATE
@@ -26,7 +24,6 @@ sym(vpx_winx64_fldcw):
     fldcw [rsp]
     add   rsp, 8
     ret
-
 
 global sym(vpx_winx64_fstcw) PRIVATE
 sym(vpx_winx64_fstcw):

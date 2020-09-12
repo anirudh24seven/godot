@@ -1,8 +1,6 @@
 
 /*  dtls_server.h                                                        */
 
-
-
 #ifndef DTLS_SERVER_H
 #define DTLS_SERVER_H
 

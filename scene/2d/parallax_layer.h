@@ -1,8 +1,6 @@
 
 /*  parallax_layer.h                                                     */
 
-
-
 #ifndef PARALLAX_LAYER_H
 #define PARALLAX_LAYER_H
 

@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "quant_common.h"
 
 static const int dc_qlookup[QINDEX_RANGE] =
@@ -34,7 +33,6 @@ static const int ac_qlookup[QINDEX_RANGE] =
     155,  158,  161,  164,  167,  170,  173,  177,  181,  185,  189,  193,  197,  201,  205,  209,
     213,  217,  221,  225,  229,  234,  239,  245,  249,  254,  259,  264,  269,  274,  279,  284,
 };
-
 
 int vp8_dc_quant(int QIndex, int Delta)
 {

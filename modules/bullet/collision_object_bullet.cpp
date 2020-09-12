@@ -1,8 +1,6 @@
 
 /*  collision_object_bullet.cpp                                          */
 
-
-
 #include "collision_object_bullet.h"
 
 #include "area_bullet.h"

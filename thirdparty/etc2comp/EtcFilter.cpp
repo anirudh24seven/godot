@@ -2,7 +2,6 @@
 #include <math.h>
 #include "EtcFilter.h"
 
-
 namespace Etc
 {
 
@@ -103,7 +102,6 @@ double FilterLinear( double t )
 
     return (t < 1.0) ? (1.0 - t) : 0.0;
 }
-
 
 //**--------------------------------------------------------------------------
 //** Name: CalcContributions( int srcSize, 
@@ -399,6 +397,5 @@ void FilterResample( RGBCOLOR *pSrcImage, int srcWidth, int srcHeight,
         }
     }
 }
-
 
 }

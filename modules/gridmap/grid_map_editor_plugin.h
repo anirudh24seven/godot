@@ -1,8 +1,6 @@
 
 /*  grid_map_editor_plugin.h                                             */
 
-
-
 #ifndef GRID_MAP_EDITOR_PLUGIN_H
 #define GRID_MAP_EDITOR_PLUGIN_H
 

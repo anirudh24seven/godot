@@ -1,8 +1,6 @@
 
 /*  reflection_probe.cpp                                                 */
 
-
-
 #include "reflection_probe.h"
 
 void ReflectionProbe::set_intensity(float p_intensity) {

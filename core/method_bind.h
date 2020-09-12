@@ -1,8 +1,6 @@
 
 /*  method_bind.h                                                        */
 
-
-
 #ifndef METHOD_BIND_H
 #define METHOD_BIND_H
 

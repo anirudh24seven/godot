@@ -4,7 +4,6 @@ import os
 
 from SCons.Script import Dir
 
-
 def build_api_solution(source, target, env):
     # source and target elements are of type SCons.Node.FS.File, hence why we convert them to str
 
@@ -44,7 +43,6 @@ def build_api_solution(source, target, env):
 
     for scons_target in target:
         copy_target(str(scons_target))
-
 
 def build(env_mono):
     assert env_mono["tools"]

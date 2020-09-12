@@ -33,7 +33,6 @@ typedef struct tagRGBCOLOR
 	};
 } RGBCOLOR;
 
-
 double FilterBox( double t );
 double FilterLinear( double t );
 double FilterLanczos3( double t );
@@ -42,7 +41,6 @@ int FilterTwoPass( RGBCOLOR *pSrcImage, int srcWidth, int srcHeight,
                     RGBCOLOR *pDestImage, int destWidth, int destHeight, unsigned int wrapFlags, double (*FilterProc)(double) );
 void FilterResample( RGBCOLOR *pSrcImage, int srcWidth, int srcHeight, 
                      RGBCOLOR *pDstImage, int dstWidth, int dstHeight );
-
 
 void CalcContributions(int srcSize, int destSize, double filterSize, bool wrap, double(*FilterProc)(double), FilterWeights contrib[]);
 
@@ -239,6 +237,5 @@ int FilterTwoPass(T *pSrcImage, int srcWidth, int srcHeight,
 
 	return 1;
 }
-
 
 }

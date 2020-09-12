@@ -1,8 +1,6 @@
 
 /*  visual_shader.cpp                                                    */
 
-
-
 #include "visual_shader.h"
 
 #include "core/vmap.h"

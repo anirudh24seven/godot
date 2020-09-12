@@ -64,8 +64,7 @@ public:
 
 	/*const struct b3Contact4* getContactsCPU() const;
 
-	
-	int	getNumContactsGpu() const;
+int	getNumContactsGpu() const;
 	*/
 
 	const b3AlignedObjectArray<b3Contact4Data>& getContacts() const;

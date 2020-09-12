@@ -1,8 +1,6 @@
 
 /*  resource_importer_texture.cpp                                        */
 
-
-
 #include "resource_importer_texture.h"
 
 #include "core/io/config_file.h"

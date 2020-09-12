@@ -1,8 +1,6 @@
 
 /*  area_bullet.h                                                        */
 
-
-
 #ifndef AREABULLET_H
 #define AREABULLET_H
 

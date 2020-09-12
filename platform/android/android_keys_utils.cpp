@@ -1,8 +1,6 @@
 
 /*  android_keys_utils.cpp                                               */
 
-
-
 #include "android_keys_utils.h"
 
 unsigned int android_get_keysym(unsigned int p_code) {

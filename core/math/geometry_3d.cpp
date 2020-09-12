@@ -1,8 +1,6 @@
 
 /*  geometry_3d.cpp                                                      */
 
-
-
 #include "geometry_3d.h"
 
 #include "core/print_string.h"

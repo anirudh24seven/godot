@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -216,7 +215,6 @@ int ASSIMP_strincmp(const char *s1, const char *s2, unsigned int n) {
     return c1 - c2;
 #endif
 }
-
 
 // -------------------------------------------------------------------------------
 /** @brief Evaluates an integer power

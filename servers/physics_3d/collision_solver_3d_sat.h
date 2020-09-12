@@ -1,8 +1,6 @@
 
 /*  collision_solver_3d_sat.h                                            */
 
-
-
 #ifndef COLLISION_SOLVER_SAT_H
 #define COLLISION_SOLVER_SAT_H
 

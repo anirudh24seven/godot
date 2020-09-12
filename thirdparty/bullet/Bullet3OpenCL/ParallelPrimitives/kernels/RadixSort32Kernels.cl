@@ -14,7 +14,6 @@ subject to the following restrictions:
 */
 //Author Takahiro Harada
 
-
 //#pragma OPENCL EXTENSION cl_amd_printf : enable
 #pragma OPENCL EXTENSION cl_khr_local_int32_base_atomics : enable
 #pragma OPENCL EXTENSION cl_khr_global_int32_base_atomics : enable
@@ -32,7 +31,6 @@ typedef unsigned int u32;
 
 #define SELECT_UINT4( b, a, condition ) select( b,a,condition )
 
-
 #define make_uint4 (uint4)
 #define make_uint2 (uint2)
 #define make_int2 (int2)
@@ -49,7 +47,6 @@ typedef uchar u8;
 //#define CHECK_BOUNDARY 1
 
 //#define NV_GPU 1
-
 
 //	Cypress
 #define nPerWI 16
@@ -76,7 +73,6 @@ typedef struct
 	unsigned int m_key;
 	unsigned int m_value;
 } SortDataCL;
-
 
 uint prefixScanVectorEx( uint4* data )
 {
@@ -179,7 +175,6 @@ uint4 localPrefixSum128V( uint4 pData, uint lIdx, uint* totalSum, __local u32* s
 	return pData + make_uint4( rank, rank, rank, rank );
 }
 
-
 //__attribute__((reqd_work_group_size(64,1,1)))
 uint4 localPrefixSum64V( uint4 pData, uint lIdx, uint* totalSum, __local u32* sorterSharedMemory )
 {
@@ -197,11 +192,7 @@ u32 bit8Scan(u32 v)
 
 //===
 
-
-
-
 #define MY_HISTOGRAM(idx) localHistogramMat[(idx)*WG_SIZE+lIdx]
-
 
 __kernel
 __attribute__((reqd_work_group_size(WG_SIZE,1,1)))
@@ -520,8 +511,7 @@ void sort4Bits1(u32 sortData[4], int startBit, int lIdx, __local u32* ldsSortDat
 			}
 		}
 
-
-		GROUP_LDS_BARRIER;
+GROUP_LDS_BARRIER;
 
 		{
 			ldsSortData[newOffset[0]] = sortData[0];
@@ -757,8 +747,7 @@ void sort4Bits1KeyValue(u32 sortData[4], int sortVal[4], int startBit, int lIdx,
 			}
 		}
 
-
-		GROUP_LDS_BARRIER;
+GROUP_LDS_BARRIER;
 
 		{
 			ldsSortData[newOffset[0]] = sortData[0];
@@ -789,9 +778,6 @@ void sort4Bits1KeyValue(u32 sortData[4], int sortVal[4], int startBit, int lIdx,
 	}
 }
 
-
-
-
 __kernel
 __attribute__((reqd_work_group_size(WG_SIZE,1,1)))
 void SortAndScatterSortDataKernel( __global const SortDataCL* restrict gSrc, __global const u32* rHistogram, __global SortDataCL* restrict gDst, int4 cb)
@@ -817,9 +803,8 @@ void SortAndScatterSortDataKernel( __global const SortDataCL* restrict gSrc, __g
 	}
 
 	GROUP_LDS_BARRIER;
-    
 
-	const int blockSize = ELEMENTS_PER_WORK_ITEM*WG_SIZE;
+const int blockSize = ELEMENTS_PER_WORK_ITEM*WG_SIZE;
 
 	int nBlocks = n/blockSize - nBlocksPerWG*wgIdx;
 
@@ -967,12 +952,6 @@ void SortAndScatterSortDataKernel( __global const SortDataCL* restrict gSrc, __g
 	}
 }
 
-
-
-
-
-
-
 __kernel
 __attribute__((reqd_work_group_size(WG_SIZE,1,1)))
 void SortAndScatterSortDataKernelSerial( __global const SortDataCL* restrict gSrc, __global const u32* rHistogram, __global SortDataCL* restrict gDst, int4 cb)
@@ -1020,7 +999,6 @@ void SortAndScatterSortDataKernelSerial( __global const SortDataCL* restrict gSr
   }
     
 }
-
 
 __kernel
 __attribute__((reqd_work_group_size(WG_SIZE,1,1)))

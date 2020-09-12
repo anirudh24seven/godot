@@ -1,8 +1,6 @@
 
 /*  image_etc.h                                                          */
 
-
-
 #ifndef IMAGE_ETC1_H
 #define IMAGE_ETC1_H
 

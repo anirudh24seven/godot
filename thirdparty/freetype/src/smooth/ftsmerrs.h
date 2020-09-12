@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This file is used to define the smooth renderer error enumeration
    * constants.
@@ -37,6 +36,5 @@
 #include FT_ERRORS_H
 
 #endif /* FTSMERRS_H_ */
-
 
 /* END */

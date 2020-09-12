@@ -1,8 +1,6 @@
 
 /*  test_render.cpp                                                      */
 
-
-
 #include "test_render.h"
 
 #include "core/math/math_funcs.h"

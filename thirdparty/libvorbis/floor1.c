@@ -749,7 +749,6 @@ int *floor1_interpolate_fit(vorbis_block *vb,vorbis_look_floor1 *look,
   return(output);
 }
 
-
 int floor1_encode(oggpack_buffer *opb,vorbis_block *vb,
                   vorbis_look_floor1 *look,
                   int *post,int *ilogmask){
@@ -840,8 +839,7 @@ int floor1_encode(oggpack_buffer *opb,vorbis_block *vb,
     oggpack_write(opb,out[0],ov_ilog(look->quant_q-1));
     oggpack_write(opb,out[1],ov_ilog(look->quant_q-1));
 
-
-    /* partition by partition */
+/* partition by partition */
     for(i=0,j=2;i<info->partitions;i++){
       int class=info->partitionclass[i];
       int cdim=info->class_dim[class];

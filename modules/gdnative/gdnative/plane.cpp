@@ -1,8 +1,6 @@
 
 /*  plane.cpp                                                            */
 
-
-
 #include "gdnative/plane.h"
 
 #include "core/math/plane.h"

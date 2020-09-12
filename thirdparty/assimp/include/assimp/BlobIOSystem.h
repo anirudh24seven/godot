@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -76,8 +74,7 @@ public:
     {
     }
 
-
-    virtual ~BlobIOStream();
+virtual ~BlobIOStream();
 
 public:
 
@@ -93,11 +90,9 @@ public:
         return blob;
     }
 
-
 public:
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     virtual size_t Read( void *,
         size_t,
         size_t )
@@ -170,8 +165,6 @@ public:
         // ignore
     }
 
-
-
 private:
 
     // -------------------------------------------------------------------
@@ -205,7 +198,6 @@ private:
     BlobIOSystem* const creator;
 };
 
-
 #define AI_BLOBIO_MAGIC "$blobfile"
 
 // --------------------------------------------------------------------------------------------
@@ -238,8 +230,7 @@ public:
         return AI_BLOBIO_MAGIC;
     }
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     aiExportDataBlob* GetBlobChain()
     {
         // one must be the master
@@ -283,14 +274,12 @@ public:
         return created.find(std::string(pFile)) != created.end();
     }
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     virtual char getOsSeparator() const {
         return '/';
     }
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     virtual IOStream* Open(const char* pFile,
         const char* pMode)
     {
@@ -324,14 +313,12 @@ private:
     std::vector< BlobEntry > blobs;
 };
 
-
 // --------------------------------------------------------------------------------------------
 BlobIOStream :: ~BlobIOStream()
 {
     creator->OnDestruct(file,this);
     delete[] buffer;
 }
-
 
 } // end Assimp
 

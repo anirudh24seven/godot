@@ -149,7 +149,6 @@ void FBX::Node::AddP70time(
     AddChild(n);
 }
 
-
 // public member functions for writing nodes to stream
 
 void FBX::Node::Dump(
@@ -179,7 +178,6 @@ void FBX::Node::Dump(
         outstream.PutString(ss.str());
     }
 }
-
 
 // public member functions for low-level writing
 
@@ -273,7 +271,6 @@ void FBX::Node::End(
     }
 }
 
-
 // public member functions for writing to binary fbx
 
 void FBX::Node::DumpBinary(Assimp::StreamWriterLE &s)
@@ -293,7 +290,6 @@ void FBX::Node::DumpBinary(Assimp::StreamWriterLE &s)
     // finish, filling in end offset placeholder
     EndBinary(s, force_has_children || !children.empty());
 }
-
 
 // public member functions for writing to ascii fbx
 
@@ -315,7 +311,6 @@ void FBX::Node::DumpAscii(std::ostream &s, int indent)
     // finish (also closing the children bracket '}')
     EndAscii(s, indent, force_has_children || !children.empty());
 }
-
 
 // private member functions for low-level writing to fbx
 
@@ -378,7 +373,6 @@ void FBX::Node::EndBinary(
     s.PutU4(uint32_t(end_pos));
     s.Seek(end_pos);
 }
-
 
 void FBX::Node::BeginAscii(std::ostream& s, int indent)
 {

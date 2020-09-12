@@ -1,8 +1,6 @@
 
 /*  vulkan_context_iphone.mm                                             */
 
-
-
 #include "vulkan_context_iphone.h"
 #include <vulkan/vulkan_ios.h>
 

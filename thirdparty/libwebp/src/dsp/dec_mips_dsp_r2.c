@@ -894,7 +894,6 @@ static void DC8uvNoTop(uint8_t* dst) {  // DC with no top samples
   "precrqu_s.qb.ph %[temp1],   %[temp3],   %[temp1]      \n\t"                 \
 ".endif                                                  \n\t"
 
-
 #define CLIP_8B_TO_DST(DST, TOP, SIZE) do {                                    \
   int dst_1 = ((int)(DST)[-1] << 16) + (DST)[-1];                              \
   int temp0, temp1, temp2, temp3;                                              \

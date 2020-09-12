@@ -73,7 +73,6 @@ size_t ZSTD_ldm_blockCompress(rawSeqStore_t* rawSeqStore,
 void ZSTD_ldm_skipSequences(rawSeqStore_t* rawSeqStore, size_t srcSize,
     U32 const minMatch);
 
-
 /** ZSTD_ldm_getTableSize() :
  *  Estimate the space needed for long distance matching tables or 0 if LDM is
  *  disabled.

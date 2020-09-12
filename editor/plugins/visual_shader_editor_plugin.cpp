@@ -1,8 +1,6 @@
 
 /*  visual_shader_editor_plugin.cpp                                      */
 
-
-
 #include "visual_shader_editor_plugin.h"
 
 #include "core/input/input.h"

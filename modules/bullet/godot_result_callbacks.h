@@ -1,8 +1,6 @@
 
 /*  godot_result_callbacks.h                                             */
 
-
-
 #ifndef GODOT_RESULT_CALLBACKS_H
 #define GODOT_RESULT_CALLBACKS_H
 

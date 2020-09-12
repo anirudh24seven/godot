@@ -1,8 +1,6 @@
 
 /*  script_editor_debugger.cpp                                           */
 
-
-
 #include "script_editor_debugger.h"
 
 #include "core/debugger/debugger_marshalls.h"

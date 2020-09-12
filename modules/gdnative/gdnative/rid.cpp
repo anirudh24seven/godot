@@ -1,8 +1,6 @@
 
 /*  rid.cpp                                                              */
 
-
-
 #include "gdnative/rid.h"
 
 #include "core/resource.h"

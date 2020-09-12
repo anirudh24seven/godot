@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_HEADER_H_
 #define VP8_COMMON_HEADER_H_
 
@@ -42,7 +41,6 @@ typedef struct
 #else
 #define VP8_HEADER_SIZE 3
 #endif
-
 
 #ifdef __cplusplus
 }  // extern "C"

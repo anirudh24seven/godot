@@ -1,8 +1,6 @@
 
 /*  test_variant.h                                                       */
 
-
-
 #ifndef TEST_VARIANT_H
 #define TEST_VARIANT_H
 

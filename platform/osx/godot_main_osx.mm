@@ -1,8 +1,6 @@
 
 /*  godot_main_osx.mm                                                    */
 
-
-
 #include "main/main.h"
 
 #include "os_osx.h"

@@ -32,7 +32,6 @@
 *  - xxHash source repository : https://github.com/Cyan4973/xxHash
 */
 
-
 /* *************************************
 *  Tuning parameters
 ***************************************/
@@ -92,7 +91,6 @@
 #  endif
 #endif
 
-
 /* *************************************
 *  Includes & Memory related functions
 ***************************************/
@@ -110,7 +108,6 @@ static void* XXH_memcpy(void* dest, const void* src, size_t size) { return memcp
 #  define XXH_STATIC_LINKING_ONLY
 #endif
 #include "xxhash.h"
-
 
 /* *************************************
 *  Compiler Specific Options
@@ -131,11 +128,9 @@ static void* XXH_memcpy(void* dest, const void* src, size_t size) { return memcp
 
 #define FORCE_INLINE_TEMPLATE static INLINE_KEYWORD FORCE_INLINE_ATTR
 
-
 #ifdef _MSC_VER
 #  pragma warning(disable : 4127)      /* disable: C4127: conditional expression is constant */
 #endif
-
 
 /* *************************************
 *  Basic Types
@@ -157,7 +152,6 @@ static void* XXH_memcpy(void* dest, const void* src, size_t size) { return memcp
     typedef unsigned long long U64;   /* if your compiler doesn't support unsigned long long, replace by another 64-bit type here. Note that xxhash.h will also need to be updated. */
 #  endif
 #endif
-
 
 #if (defined(XXH_FORCE_MEMORY_ACCESS) && (XXH_FORCE_MEMORY_ACCESS==2))
 
@@ -195,7 +189,6 @@ static U64 XXH_read64(const void* memPtr)
 }
 
 #endif   /* XXH_FORCE_DIRECT_MEMORY_ACCESS */
-
 
 /* ****************************************
 *  Compiler-specific Functions and Macros
@@ -243,7 +236,6 @@ static U64 XXH_swap64 (U64 x)
 }
 #endif
 
-
 /* *************************************
 *  Architecture Macros
 ***************************************/
@@ -254,7 +246,6 @@ typedef enum { XXH_bigEndian=0, XXH_littleEndian=1 } XXH_endianess;
     static const int g_one = 1;
 #   define XXH_CPU_LITTLE_ENDIAN   (*(const char*)(&g_one))
 #endif
-
 
 /* ***************************
 *  Memory reads
@@ -297,12 +288,10 @@ static U64 XXH_readBE64(const void* ptr)
     return XXH_CPU_LITTLE_ENDIAN ? XXH_swap64(XXH_read64(ptr)) : XXH_read64(ptr);
 }
 
-
 /* *************************************
 *  Macros
 ***************************************/
 #define XXH_STATIC_ASSERT(c)   { enum { XXH_static_assert = 1/(int)(!!(c)) }; }    /* use only *after* variable declarations */
-
 
 /* *************************************
 *  Constants
@@ -321,7 +310,6 @@ static const U64 PRIME64_5 =  2870177450012600261ULL;
 
 XXH_PUBLIC_API unsigned XXH_versionNumber (void) { return XXH_VERSION_NUMBER; }
 
-
 /* **************************
 *  Utils
 ****************************/
@@ -334,7 +322,6 @@ XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* restrict dstState, const XXH6
 {
     memcpy(dstState, srcState, sizeof(*dstState));
 }
-
 
 /* ***************************
 *  Simple Hash Functions
@@ -404,7 +391,6 @@ FORCE_INLINE_TEMPLATE U32 XXH32_endian_align(const void* input, size_t len, U32 
     return h32;
 }
 
-
 XXH_PUBLIC_API unsigned int XXH32 (const void* input, size_t len, unsigned int seed)
 {
 #if 0
@@ -430,7 +416,6 @@ XXH_PUBLIC_API unsigned int XXH32 (const void* input, size_t len, unsigned int s
         return XXH32_endian_align(input, len, seed, XXH_bigEndian, XXH_unaligned);
 #endif
 }
-
 
 static U64 XXH64_round(U64 acc, U64 input)
 {
@@ -516,7 +501,6 @@ FORCE_INLINE_TEMPLATE U64 XXH64_endian_align(const void* input, size_t len, U64 
     return h64;
 }
 
-
 XXH_PUBLIC_API unsigned long long XXH64 (const void* input, size_t len, unsigned long long seed)
 {
 #if 0
@@ -543,7 +527,6 @@ XXH_PUBLIC_API unsigned long long XXH64 (const void* input, size_t len, unsigned
 #endif
 }
 
-
 /* **************************************************
 *  Advanced Hash Functions
 ****************************************************/
@@ -568,7 +551,6 @@ XXH_PUBLIC_API XXH_errorcode XXH64_freeState(XXH64_state_t* statePtr)
     return XXH_OK;
 }
 
-
 /*** Hash feed ***/
 
 XXH_PUBLIC_API XXH_errorcode XXH32_reset(XXH32_state_t* statePtr, unsigned int seed)
@@ -583,7 +565,6 @@ XXH_PUBLIC_API XXH_errorcode XXH32_reset(XXH32_state_t* statePtr, unsigned int s
     return XXH_OK;
 }
 
-
 XXH_PUBLIC_API XXH_errorcode XXH64_reset(XXH64_state_t* statePtr, unsigned long long seed)
 {
     XXH64_state_t state;   /* using a local state to memcpy() in order to avoid strict-aliasing warnings */
@@ -595,7 +576,6 @@ XXH_PUBLIC_API XXH_errorcode XXH64_reset(XXH64_state_t* statePtr, unsigned long 
     memcpy(statePtr, &state, sizeof(state));
     return XXH_OK;
 }
-
 
 FORCE_INLINE_TEMPLATE XXH_errorcode XXH32_update_endian (XXH32_state_t* state, const void* input, size_t len, XXH_endianess endian)
 {
@@ -665,8 +645,6 @@ XXH_PUBLIC_API XXH_errorcode XXH32_update (XXH32_state_t* state_in, const void* 
         return XXH32_update_endian(state_in, input, len, XXH_bigEndian);
 }
 
-
-
 FORCE_INLINE_TEMPLATE U32 XXH32_digest_endian (const XXH32_state_t* state, XXH_endianess endian)
 {
     const BYTE * p = (const BYTE*)state->mem32;
@@ -702,7 +680,6 @@ FORCE_INLINE_TEMPLATE U32 XXH32_digest_endian (const XXH32_state_t* state, XXH_e
     return h32;
 }
 
-
 XXH_PUBLIC_API unsigned int XXH32_digest (const XXH32_state_t* state_in)
 {
     XXH_endianess endian_detected = (XXH_endianess)XXH_CPU_LITTLE_ENDIAN;
@@ -712,8 +689,6 @@ XXH_PUBLIC_API unsigned int XXH32_digest (const XXH32_state_t* state_in)
     else
         return XXH32_digest_endian(state_in, XXH_bigEndian);
 }
-
-
 
 /* **** XXH64 **** */
 
@@ -782,8 +757,6 @@ XXH_PUBLIC_API XXH_errorcode XXH64_update (XXH64_state_t* state_in, const void* 
         return XXH64_update_endian(state_in, input, len, XXH_bigEndian);
 }
 
-
-
 FORCE_INLINE_TEMPLATE U64 XXH64_digest_endian (const XXH64_state_t* state, XXH_endianess endian)
 {
     const BYTE * p = (const BYTE*)state->mem64;
@@ -835,7 +808,6 @@ FORCE_INLINE_TEMPLATE U64 XXH64_digest_endian (const XXH64_state_t* state, XXH_e
     return h64;
 }
 
-
 XXH_PUBLIC_API unsigned long long XXH64_digest (const XXH64_state_t* state_in)
 {
     XXH_endianess endian_detected = (XXH_endianess)XXH_CPU_LITTLE_ENDIAN;
@@ -845,7 +817,6 @@ XXH_PUBLIC_API unsigned long long XXH64_digest (const XXH64_state_t* state_in)
     else
         return XXH64_digest_endian(state_in, XXH_bigEndian);
 }
-
 
 /* **************************
 *  Canonical representation

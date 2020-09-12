@@ -27,7 +27,6 @@ ios_lib = env_ios.add_library("iphone", iphone_lib)
 # (iOS) Enable module support
 env_ios.Append(CCFLAGS=["-fmodules", "-fcxx-modules"])
 
-
 def combine_libs(target=None, source=None, env=None):
     lib_path = target[0].srcnode().abspath
     if "osxcross" in env:
@@ -37,6 +36,5 @@ def combine_libs(target=None, source=None, env=None):
     env.Execute(
         libtool + ' -static -o "' + lib_path + '" ' + " ".join([('"' + lib.srcnode().abspath + '"') for lib in source])
     )
-
 
 combine_command = env_ios.Command("#bin/libgodot" + env_ios["LIBSUFFIX"], [ios_lib] + env_ios["LIBS"], combine_libs)

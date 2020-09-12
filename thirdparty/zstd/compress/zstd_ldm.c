@@ -223,7 +223,6 @@ static U64 ZSTD_ldm_fillLdmHashTable(ldmState_t* state,
     return rollingHash;
 }
 
-
 /** ZSTD_ldm_limitTableUpdate() :
  *
  *  Sets cctx->nextToUpdate to a position corresponding closer to anchor

@@ -9,9 +9,8 @@ index ad6ea0de6..452c7d148 100644
 +// -- GODOT start --
 +import java.lang.ref.WeakReference;
 +// -- GODOT end --
- 
- 
- /**
+
+/**
 @@ -118,29 +121,46 @@ public class DownloaderClientMarshaller {
          /**
           * Target we publish for clients to send messages to IncomingHandler.
@@ -89,9 +88,8 @@ index 979352299..3771d19c9 100644
 +// -- GODOT start --
 +import java.lang.ref.WeakReference;
 +// -- GODOT end --
- 
- 
- /**
+
+/**
 @@ -108,32 +111,49 @@ public class DownloaderServiceMarshaller {
  
      private static class Stub implements IStub {

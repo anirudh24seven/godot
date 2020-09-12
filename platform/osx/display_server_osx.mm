@@ -1,8 +1,6 @@
 
 /*  display_server_osx.mm                                                */
 
-
-
 #include "display_server_osx.h"
 
 #include "os_osx.h"
@@ -76,9 +74,7 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 	return [NSCursor arrowCursor];
 }
 
-
 /* GodotApplication                                                      */
-
 
 @interface GodotApplication : NSApplication
 @end
@@ -116,9 +112,7 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 
 @end
 
-
 /* GlobalMenuItem                                                       */
-
 
 @interface GlobalMenuItem : NSObject {
 @public
@@ -132,9 +126,7 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 @implementation GlobalMenuItem
 @end
 
-
 /* GodotApplicationDelegate                                              */
-
 
 @interface GodotApplicationDelegate : NSObject
 - (void)forceUnbundledWindowActivationHackStep1;
@@ -249,9 +241,7 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 
 @end
 
-
 /* GodotWindowDelegate                                                   */
-
 
 @interface GodotWindowDelegate : NSObject {
 	DisplayServerOSX::WindowID window_id;
@@ -486,9 +476,7 @@ static NSCursor *_cursorFromSelector(SEL selector, SEL fallback = nil) {
 
 @end
 
-
 /* GodotContentView                                                      */
-
 
 @interface GodotContentView : NSView <NSTextInputClient> {
 	DisplayServerOSX::WindowID window_id;
@@ -1495,9 +1483,7 @@ inline void sendPanEvent(DisplayServer::WindowID window_id, double dx, double dy
 
 @end
 
-
 /* GodotWindow                                                           */
-
 
 @interface GodotWindow : NSWindow {
 }
@@ -1532,9 +1518,7 @@ inline void sendPanEvent(DisplayServer::WindowID window_id, double dx, double dy
 
 @end
 
-
 /* DisplayServerOSX                                                      */
-
 
 bool DisplayServerOSX::has_feature(Feature p_feature) const {
 	switch (p_feature) {

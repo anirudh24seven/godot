@@ -15,20 +15,16 @@
  *
  */
 
-
 #ifndef T1PARSE_H_
 #define T1PARSE_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_TYPE1_TYPES_H
 #include FT_INTERNAL_STREAM_H
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Struct:
    *   T1_ParserRec
@@ -84,7 +80,6 @@ FT_BEGIN_HEADER
 
   } T1_ParserRec, *T1_Parser;
 
-
 #define T1_Add_Table( p, i, o, l )  (p)->funcs.add( (p), i, o, l )
 #define T1_Release_Table( p )          \
           do                           \
@@ -92,7 +87,6 @@ FT_BEGIN_HEADER
             if ( (p)->funcs.release )  \
               (p)->funcs.release( p ); \
           } while ( 0 )
-
 
 #define T1_Skip_Spaces( p )    (p)->root.funcs.skip_spaces( &(p)->root )
 #define T1_Skip_PS_Token( p )  (p)->root.funcs.skip_PS_token( &(p)->root )
@@ -115,8 +109,7 @@ FT_BEGIN_HEADER
 #define T1_Load_Field_Table( p, f, o, m, pf )                         \
           (p)->root.funcs.load_field_table( &(p)->root, f, o, m, pf )
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   T1_New_Parser( T1_Parser      parser,
                  FT_Stream      stream,
                  FT_Memory      memory,
@@ -129,10 +122,8 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   T1_Finalize_Parser( T1_Parser  parser );
 
-
 FT_END_HEADER
 
 #endif /* T1PARSE_H_ */
-
 
 /* END */

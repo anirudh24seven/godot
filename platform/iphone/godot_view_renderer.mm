@@ -1,8 +1,6 @@
 
 /*  godot_view_renderer.mm                                               */
 
-
-
 #import "godot_view_renderer.h"
 #include "core/os/keyboard.h"
 #include "core/project_settings.h"

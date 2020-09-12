@@ -16,8 +16,7 @@
  *
  */
 
-
-  /****************************************************
+/****************************************************
    *
    * This file is *not* portable!  You have to adapt
    * its definitions to your platform.
@@ -27,8 +26,7 @@
 #ifndef FTMISC_H_
 #define FTMISC_H_
 
-
-  /* memset */
+/* memset */
 #include FT_CONFIG_STANDARD_LIBRARY_H
 
 #define FT_BEGIN_HEADER
@@ -36,8 +34,7 @@
 
 #define FT_LOCAL_DEF( x )   static x
 
-
-  /* from include/freetype/fttypes.h */
+/* from include/freetype/fttypes.h */
 
   typedef unsigned char  FT_Byte;
   typedef signed int     FT_Int;
@@ -53,8 +50,7 @@
             ( (FT_ULong)_x3 <<  8 ) |     \
               (FT_ULong)_x4         )
 
-
-  /* from include/freetype/ftsystem.h */
+/* from include/freetype/ftsystem.h */
 
   typedef struct FT_MemoryRec_*  FT_Memory;
 
@@ -79,8 +75,7 @@
 
   } FT_MemoryRec;
 
-
-  /* from src/ftcalc.c */
+/* from src/ftcalc.c */
 
 #if ( defined _WIN32 || defined _WIN64 )
 
@@ -94,8 +89,7 @@
 
 #endif
 
-
-  static FT_Long
+static FT_Long
   FT_MulDiv( FT_Long  a,
              FT_Long  b,
              FT_Long  c )
@@ -103,8 +97,7 @@
     FT_Int   s;
     FT_Long  d;
 
-
-    s = 1;
+s = 1;
     if ( a < 0 ) { a = -a; s = -1; }
     if ( b < 0 ) { b = -b; s = -s; }
     if ( c < 0 ) { c = -c; s = -s; }
@@ -115,8 +108,7 @@
     return ( s > 0 ) ? d : -d;
   }
 
-
-  static FT_Long
+static FT_Long
   FT_MulDiv_No_Round( FT_Long  a,
                       FT_Long  b,
                       FT_Long  c )
@@ -124,8 +116,7 @@
     FT_Int   s;
     FT_Long  d;
 
-
-    s = 1;
+s = 1;
     if ( a < 0 ) { a = -a; s = -1; }
     if ( b < 0 ) { b = -b; s = -s; }
     if ( c < 0 ) { c = -c; s = -s; }
@@ -137,6 +128,5 @@
   }
 
 #endif /* FTMISC_H_ */
-
 
 /* END */

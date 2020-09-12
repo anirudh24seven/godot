@@ -349,5 +349,4 @@ int mbedtls_gcm_self_test( int verbose );
 }
 #endif
 
-
 #endif /* gcm.h */

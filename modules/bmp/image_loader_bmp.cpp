@@ -1,8 +1,6 @@
 
 /*  image_loader_bmp.cpp                                                 */
 
-
-
 #include "image_loader_bmp.h"
 
 Error ImageLoaderBMP::convert_to_image(Ref<Image> p_image,

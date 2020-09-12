@@ -1,8 +1,6 @@
 
 /*  nav_region.cpp                                                       */
 
-
-
 #include "nav_region.h"
 
 #include "nav_map.h"

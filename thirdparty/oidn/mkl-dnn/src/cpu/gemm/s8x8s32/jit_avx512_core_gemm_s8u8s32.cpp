@@ -1237,8 +1237,7 @@ static void jit_init(blas_t *arg)
         gemv_s8u8s32_kernel = new jit_avx512_core_gemv_s8u8s32_kern();
         gemv_u8s8s32_kernel = new jit_avx512_core_gemv_s8u8s32_kern();
 
-
-        copyAn = copy_an->getCode<int (*)(const dim_t *, const dim_t *,
+copyAn = copy_an->getCode<int (*)(const dim_t *, const dim_t *,
                 const int8_t *, const dim_t *, const int8_t *, int8_t *,
                 const dim_t *, const dim_t *, int32_t *)>();
 

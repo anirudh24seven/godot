@@ -73,7 +73,6 @@ opus_int64 silk_inner_prod16_aligned_64_sse4_1(
     const opus_int   len
 );
 
-
 #if defined(OPUS_X86_PRESUME_SSE4_1)
 
 #define silk_inner_prod16_aligned_64(inVec1, inVec2, len, arch) \

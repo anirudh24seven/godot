@@ -1,8 +1,6 @@
 
 /*  net_socket.cpp                                                       */
 
-
-
 #include "net_socket.h"
 
 NetSocket *(*NetSocket::_create)() = nullptr;

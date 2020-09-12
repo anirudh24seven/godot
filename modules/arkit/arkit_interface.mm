@@ -1,8 +1,6 @@
 
 /*  arkit_interface.mm                                                   */
 
-
-
 #include "core/input/input.h"
 #include "core/os/os.h"
 #include "scene/resources/surface_tool.h"

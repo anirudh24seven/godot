@@ -1,8 +1,6 @@
 
 /*  plane.cpp                                                            */
 
-
-
 #include "plane.h"
 
 #include "core/math/math_funcs.h"

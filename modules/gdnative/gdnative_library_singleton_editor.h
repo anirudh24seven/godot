@@ -1,8 +1,6 @@
 
 /*  gdnative_library_singleton_editor.h                                  */
 
-
-
 #ifndef GD_NATIVE_LIBRARY_EDITOR_H
 #define GD_NATIVE_LIBRARY_EDITOR_H
 

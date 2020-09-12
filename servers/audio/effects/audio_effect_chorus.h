@@ -1,8 +1,6 @@
 
 /*  audio_effect_chorus.h                                                */
 
-
-
 #ifndef AUDIOEFFECTCHORUS_H
 #define AUDIOEFFECTCHORUS_H
 

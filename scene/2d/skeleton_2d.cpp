@@ -1,8 +1,6 @@
 
 /*  skeleton_2d.cpp                                                      */
 
-
-
 #include "skeleton_2d.h"
 
 void Bone2D::_notification(int p_what) {

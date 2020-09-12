@@ -1,8 +1,6 @@
 
 /*  default_controller_mappings.h                                        */
 
-
-
 #ifndef DEFAULT_CONTROLLER_MAPPINGS_H
 #define DEFAULT_CONTROLLER_MAPPINGS_H
 

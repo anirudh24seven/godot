@@ -1,8 +1,6 @@
 
 /*  color_picker.cpp                                                     */
 
-
-
 #include "color_picker.h"
 
 #include "core/input/input.h"

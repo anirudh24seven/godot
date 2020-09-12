@@ -1,8 +1,6 @@
 
 /*  light_2d.h                                                           */
 
-
-
 #ifndef LIGHT_2D_H
 #define LIGHT_2D_H
 

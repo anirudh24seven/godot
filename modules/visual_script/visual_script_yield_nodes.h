@@ -1,8 +1,6 @@
 
 /*  visual_script_yield_nodes.h                                          */
 
-
-
 #ifndef VISUAL_SCRIPT_YIELD_NODES_H
 #define VISUAL_SCRIPT_YIELD_NODES_H
 

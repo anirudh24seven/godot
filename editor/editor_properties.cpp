@@ -1,8 +1,6 @@
 
 /*  editor_properties.cpp                                                */
 
-
-
 #include "editor_properties.h"
 
 #include "editor/editor_resource_preview.h"

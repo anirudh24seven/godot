@@ -1,8 +1,6 @@
 
 /*  editor_translation_parser.h                                          */
 
-
-
 #ifndef EDITOR_TRANSLATION_PARSER_H
 #define EDITOR_TRANSLATION_PARSER_H
 

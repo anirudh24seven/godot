@@ -1,8 +1,6 @@
 
 /*  quick_hull.h                                                         */
 
-
-
 #ifndef QUICK_HULL_H
 #define QUICK_HULL_H
 

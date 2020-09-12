@@ -1,8 +1,6 @@
 
 /*  pck_packer.h                                                         */
 
-
-
 #ifndef PCK_PACKER_H
 #define PCK_PACKER_H
 

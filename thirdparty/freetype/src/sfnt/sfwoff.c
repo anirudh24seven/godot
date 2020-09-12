@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include "sfwoff.h"
 #include FT_TRUETYPE_TAGS_H
@@ -23,8 +22,7 @@
 #include FT_INTERNAL_STREAM_H
 #include FT_GZIP_H
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -32,7 +30,6 @@
    */
 #undef  FT_COMPONENT
 #define FT_COMPONENT  sfwoff
-
 
 #define WRITE_USHORT( p, v )                \
           do                                \
@@ -52,22 +49,19 @@
                                              \
           } while ( 0 )
 
-
-  static void
+static void
   sfnt_stream_close( FT_Stream  stream )
   {
     FT_Memory  memory = stream->memory;
 
-
-    FT_FREE( stream->base );
+FT_FREE( stream->base );
 
     stream->size  = 0;
     stream->base  = NULL;
     stream->close = NULL;
   }
 
-
-  FT_CALLBACK_DEF( int )
+FT_CALLBACK_DEF( int )
   compare_offsets( const void*  a,
                    const void*  b )
   {
@@ -77,8 +71,7 @@
     FT_ULong  offset1 = table1->Offset;
     FT_ULong  offset2 = table2->Offset;
 
-
-    if ( offset1 > offset2 )
+if ( offset1 > offset2 )
       return 1;
     else if ( offset1 < offset2 )
       return -1;
@@ -86,8 +79,7 @@
       return 0;
   }
 
-
-  /* Replace `face->root.stream' with a stream containing the extracted */
+/* Replace `face->root.stream' with a stream containing the extracted */
   /* SFNT of a WOFF font.                                               */
 
   FT_LOCAL_DEF( FT_Error )
@@ -134,8 +126,7 @@
       FT_FRAME_END
     };
 
-
-    FT_ASSERT( stream == face->root.stream );
+FT_ASSERT( stream == face->root.stream );
     FT_ASSERT( FT_STREAM_POS() == 0 );
 
     if ( FT_STREAM_READ_FIELDS( woff_header_fields, &woff ) )
@@ -171,8 +162,7 @@
     {
       FT_UInt  searchRange, entrySelector, rangeShift, x;
 
-
-      x             = woff.num_tables;
+x             = woff.num_tables;
       entrySelector = 0;
       while ( x )
       {
@@ -257,8 +247,7 @@
     {
       WOFF_Table  table = indices[nn];
 
-
-      if ( table->Offset != woff_offset                         ||
+if ( table->Offset != woff_offset                         ||
            table->CompLength > woff.length                      ||
            table->Offset > woff.length - table->CompLength      ||
            table->OrigLength > woff.totalSfntSize               ||
@@ -340,8 +329,7 @@
     {
       WOFF_Table  table = tables + nn;
 
-
-      /* Write SFNT table entry. */
+/* Write SFNT table entry. */
       WRITE_ULONG( sfnt_header, table->Tag );
       WRITE_ULONG( sfnt_header, table->CheckSum );
       WRITE_ULONG( sfnt_header, table->OrigOffset );
@@ -366,8 +354,7 @@
         /* Uncompress with zlib. */
         FT_ULong  output_len = table->OrigLength;
 
-
-        error = FT_Gzip_Uncompress( memory,
+error = FT_Gzip_Uncompress( memory,
                                     sfnt + table->OrigOffset, &output_len,
                                     stream->cursor, table->CompLength );
         if ( error )
@@ -430,9 +417,7 @@
     goto Exit;
   }
 
-
 #undef WRITE_USHORT
 #undef WRITE_ULONG
-
 
 /* END */

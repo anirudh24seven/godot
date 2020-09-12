@@ -528,7 +528,6 @@ TBuiltIns::~TBuiltIns()
 {
 }
 
-
 //
 // Add all context-independent built-in functions and variables that are present
 // for the given version and profile.  Share common ones across stages, otherwise
@@ -4828,8 +4827,7 @@ void TBuiltIns::initialize(int version, EProfile profile, const SpvVersion& spvV
             "\n");
     }
 
-
-    //============================================================================
+//============================================================================
     //
     // Define the interface to the geometry shader.
     //
@@ -7116,8 +7114,7 @@ void TBuiltIns::identifyBuiltIns(int version, EProfile profile, const SpvVersion
             }
         }
 
-
-        if (profile != EEsProfile) {
+if (profile != EEsProfile) {
             symbolTable.setFunctionExtensions("minInvocationsAMD",                1, &E_GL_AMD_shader_ballot);
             symbolTable.setFunctionExtensions("maxInvocationsAMD",                1, &E_GL_AMD_shader_ballot);
             symbolTable.setFunctionExtensions("addInvocationsAMD",                1, &E_GL_AMD_shader_ballot);

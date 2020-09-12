@@ -28,7 +28,6 @@ btSubsimplexConvexCast::btSubsimplexConvexCast(const btConvexShape* convexA, con
 {
 }
 
-
 bool btSubsimplexConvexCast::calcTimeOfImpact(
 	const btTransform& fromA,
 	const btTransform& toA,
@@ -63,9 +62,7 @@ bool btSubsimplexConvexCast::calcTimeOfImpact(
 
 	btScalar dist2 = v.length2();
 
-
-
-	btVector3 w, p;
+btVector3 w, p;
 	btScalar VdotR;
 
 	while ((dist2 > result.m_subSimplexCastEpsilon) && maxIter--)

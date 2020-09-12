@@ -15,7 +15,6 @@
  *
  */
 
-
 #ifndef FTGASP_H_
 #define FTGASP_H_
 
@@ -28,11 +27,9 @@
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   gasp_table
@@ -98,8 +95,7 @@ FT_BEGIN_HEADER
 #define FT_GASP_SYMMETRIC_GRIDFIT    0x04
 #define FT_GASP_SYMMETRIC_SMOOTHING  0x08
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Get_Gasp
@@ -135,10 +131,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTGASP_H_ */
-
 
 /* END */

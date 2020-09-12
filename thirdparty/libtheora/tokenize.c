@@ -18,8 +18,6 @@
 #include <string.h>
 #include "encint.h"
 
-
-
 static int oc_make_eob_token(int _run_count){
   if(_run_count<4)return OC_DCT_EOB1_TOKEN+_run_count-1;
   else{
@@ -185,7 +183,6 @@ static void oc_enc_eob_log(oc_enc_ctx *_enc,
   token=oc_make_eob_token_full(_run_count,&eb);
   oc_enc_token_log(_enc,_pli,_zzi,token,eb);
 }
-
 
 void oc_enc_tokenize_start(oc_enc_ctx *_enc){
   memset(_enc->ndct_tokens,0,sizeof(_enc->ndct_tokens));

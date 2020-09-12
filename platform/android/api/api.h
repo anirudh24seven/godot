@@ -1,8 +1,6 @@
 
 /*  api.h                                                                */
 
-
-
 #ifndef ANDROID_API_H
 #define ANDROID_API_H
 

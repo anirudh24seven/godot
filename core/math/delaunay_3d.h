@@ -1,8 +1,6 @@
 
 /*  delaunay_3d.h                                                        */
 
-
-
 #ifndef DELAUNAY_3D_H
 #define DELAUNAY_3D_H
 

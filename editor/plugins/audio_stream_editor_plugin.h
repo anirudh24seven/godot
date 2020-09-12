@@ -1,8 +1,6 @@
 
 /*  audio_stream_editor_plugin.h                                         */
 
-
-
 #ifndef AUDIO_STREAM_EDITOR_PLUGIN_H
 #define AUDIO_STREAM_EDITOR_PLUGIN_H
 

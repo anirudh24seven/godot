@@ -1,8 +1,6 @@
 
 /*  rasterizer_rd.cpp                                                    */
 
-
-
 #include "rasterizer_rd.h"
 
 #include "core/project_settings.h"

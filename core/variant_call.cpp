@@ -1,8 +1,6 @@
 
 /*  variant_call.cpp                                                     */
 
-
-
 #include "variant.h"
 
 #include "core/color_names.inc"

@@ -1,8 +1,6 @@
 
 /*  shape_3d.cpp                                                         */
 
-
-
 #include "shape_3d.h"
 
 #include "core/os/os.h"

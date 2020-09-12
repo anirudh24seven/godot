@@ -1,8 +1,6 @@
 
 /*  xr_nodes.cpp                                                         */
 
-
-
 #include "xr_nodes.h"
 
 #include "core/input/input.h"

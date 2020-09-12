@@ -1,8 +1,6 @@
 
 /*  texture_progress.h                                                   */
 
-
-
 #ifndef TEXTURE_PROGRESS_H
 #define TEXTURE_PROGRESS_H
 

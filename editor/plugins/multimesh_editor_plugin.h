@@ -1,8 +1,6 @@
 
 /*  multimesh_editor_plugin.h                                            */
 
-
-
 #ifndef MULTIMESH_EDITOR_PLUGIN_H
 #define MULTIMESH_EDITOR_PLUGIN_H
 

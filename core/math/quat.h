@@ -1,8 +1,6 @@
 
 /*  quat.h                                                               */
 
-
-
 // Circular dependency between Vector3 and Basis :/
 #include "core/math/vector3.h"
 

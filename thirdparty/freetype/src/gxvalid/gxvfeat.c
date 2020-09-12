@@ -24,13 +24,11 @@
  *
  */
 
-
 #include "gxvalid.h"
 #include "gxvcommn.h"
 #include "gxvfeat.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -39,16 +37,11 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvfeat
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      Data and Types                           *****/
   /*****                                                               *****/
 
-
-
-  typedef struct  GXV_feat_DataRec_
+typedef struct  GXV_feat_DataRec_
   {
     FT_UInt    reserved_size;
     FT_UShort  feature;
@@ -56,11 +49,9 @@
 
   } GXV_feat_DataRec, *GXV_feat_Data;
 
-
 #define GXV_FEAT_DATA( field )  GXV_TABLE_DATA( feat, field )
 
-
-  typedef enum  GXV_FeatureFlagsMask_
+typedef enum  GXV_FeatureFlagsMask_
   {
     GXV_FEAT_MASK_EXCLUSIVE_SETTINGS = 0x8000U,
     GXV_FEAT_MASK_DYNAMIC_DEFAULT    = 0x4000,
@@ -69,16 +60,11 @@
 
   } GXV_FeatureFlagsMask;
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      UTILITY FUNCTIONS                        *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   gxv_feat_registry_validate( FT_UShort      feature,
                               FT_UShort      nSettings,
                               FT_Bool        exclusive,
@@ -133,8 +119,7 @@
     GXV_EXIT;
   }
 
-
-  static void
+static void
   gxv_feat_name_index_validate( FT_Bytes       table,
                                 FT_Bytes       limit,
                                 GXV_Validator  gxvalid )
@@ -143,8 +128,7 @@
 
     FT_Short  nameIndex;
 
-
-    GXV_NAME_ENTER( "nameIndex" );
+GXV_NAME_ENTER( "nameIndex" );
 
     GXV_LIMIT_CHECK( 2 );
     nameIndex = FT_NEXT_SHORT ( p );
@@ -158,8 +142,7 @@
     GXV_EXIT;
   }
 
-
-  static void
+static void
   gxv_feat_setting_validate( FT_Bytes       table,
                              FT_Bytes       limit,
                              FT_Bool        exclusive,
@@ -168,8 +151,7 @@
     FT_Bytes   p = table;
     FT_UShort  setting;
 
-
-    GXV_NAME_ENTER( "setting" );
+GXV_NAME_ENTER( "setting" );
 
     GXV_LIMIT_CHECK( 2 );
 
@@ -186,8 +168,7 @@
     GXV_EXIT;
   }
 
-
-  static void
+static void
   gxv_feat_name_validate( FT_Bytes       table,
                           FT_Bytes       limit,
                           GXV_Validator  gxvalid )
@@ -204,8 +185,7 @@
     FT_Int     last_setting;
     FT_UInt    i;
 
-
-    GXV_NAME_ENTER( "name" );
+GXV_NAME_ENTER( "name" );
 
     /* feature + nSettings + settingTable + featureFlags */
     GXV_LIMIT_CHECK( 2 + 2 + 4 + 2 );
@@ -228,8 +208,7 @@
     {
       FT_Byte  dynamic_default;
 
-
-      if ( featureFlags & GXV_FEAT_MASK_DYNAMIC_DEFAULT )
+if ( featureFlags & GXV_FEAT_MASK_DYNAMIC_DEFAULT )
         dynamic_default = (FT_Byte)( featureFlags &
                                      GXV_FEAT_MASK_DEFAULT_SETTING );
       else
@@ -260,16 +239,11 @@
     GXV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                         feat TABLE                            *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   gxv_feat_validate( FT_Bytes      table,
                      FT_Face       face,
                      FT_Validator  ftvalid )
@@ -288,8 +262,7 @@
     FT_UInt           i;
     FT_Int            last_feature;
 
-
-    gxvalid->root       = ftvalid;
+gxvalid->root       = ftvalid;
     gxvalid->table_data = feat;
     gxvalid->face       = face;
 
@@ -334,6 +307,5 @@
 
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

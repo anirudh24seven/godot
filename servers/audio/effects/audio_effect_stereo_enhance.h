@@ -1,8 +1,6 @@
 
 /*  audio_effect_stereo_enhance.h                                        */
 
-
-
 #ifndef AUDIOEFFECTSTEREOENHANCE_H
 #define AUDIOEFFECTSTEREOENHANCE_H
 

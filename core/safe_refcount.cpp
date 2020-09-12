@@ -1,8 +1,6 @@
 
 /*  safe_refcount.cpp                                                    */
 
-
-
 #include "safe_refcount.h"
 
 #if defined(_MSC_VER)

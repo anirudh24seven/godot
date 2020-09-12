@@ -1,8 +1,6 @@
 
 /*  main.cpp                                                             */
 
-
-
 #include "main.h"
 
 #include "core/core_string_names.h"

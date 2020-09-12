@@ -1,8 +1,6 @@
 
 /*  pluginscript_language.cpp                                            */
 
-
-
 // Godot imports
 #include "core/os/file_access.h"
 #include "core/os/os.h"

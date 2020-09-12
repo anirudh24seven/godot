@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -95,7 +94,6 @@ inline bool PointInTriangle2D(const T& p0, const T& p1,const T& p2, const T& pp)
     return (dot11 > 0) && (dot00 > 0) && (dot11 + dot00 < 1);
 }
 
-
 // -------------------------------------------------------------------------------
 /** Check whether the winding order of a given polygon is counter-clockwise.
  *  The function accepts an unconstrained template parameter, but is intended
@@ -168,7 +166,6 @@ inline bool IsCCW(T* in, size_t npoints) {
 
     return convex_sum >= (2 * AI_MATH_PI_F);
 }
-
 
 // -------------------------------------------------------------------------------
 /** Compute the normal of an arbitrary polygon in R3.

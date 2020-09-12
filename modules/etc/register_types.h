@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef ETC_REGISTER_TYPES_H
 #define ETC_REGISTER_TYPES_H
 

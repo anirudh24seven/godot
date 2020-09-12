@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -43,9 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /// @file ProcessHelper.cpp
 /** Implement shared utility functions for postprocessing steps */
 
-
 #include "ProcessHelper.h"
-
 
 #include <limits>
 
@@ -119,7 +116,6 @@ void FindSceneCenter (aiScene* scene, aiVector3D& out, aiVector3D& min, aiVector
     out = min + (max-min)*(ai_real)0.5;
 }
 
-
 // -------------------------------------------------------------------------------
 void FindMeshCenterTransformed (aiMesh* mesh, aiVector3D& out, aiVector3D& min,
     aiVector3D& max, const aiMatrix4x4& m)
@@ -175,7 +171,6 @@ ai_real ComputePositionEpsilon(const aiMesh* const* pMeshes, size_t num)
     return (maxVec - minVec).Length() * epsilon;
 }
 
-
 // -------------------------------------------------------------------------------
 unsigned int GetMeshVFormatUnique(const aiMesh* pcMesh)
 {
@@ -229,7 +224,6 @@ VertexWeightTable* ComputeVertexBoneWeightTable(const aiMesh* pMesh)
     }
     return avPerVertexWeights;
 }
-
 
 // -------------------------------------------------------------------------------
 const char* TextureTypeToString(aiTextureType in)
@@ -294,7 +288,6 @@ const char* MappingTypeToString(aiTextureMapping in)
     ai_assert(false);
     return  "BUG";
 }
-
 
 // -------------------------------------------------------------------------------
 aiMesh* MakeSubmesh(const aiMesh *pMesh, const std::vector<unsigned int> &subMeshFaces, unsigned int subFlags)

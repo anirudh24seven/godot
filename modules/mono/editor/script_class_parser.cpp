@@ -1,8 +1,6 @@
 
 /*  script_class_parser.cpp                                              */
 
-
-
 #include "script_class_parser.h"
 
 #include "core/map.h"

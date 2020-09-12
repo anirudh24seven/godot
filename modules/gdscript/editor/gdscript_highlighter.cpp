@@ -1,8 +1,6 @@
 
 /*  gdscript_highlighter.cpp                                             */
 
-
-
 #include "gdscript_highlighter.h"
 #include "../gdscript.h"
 #include "../gdscript_tokenizer.h"

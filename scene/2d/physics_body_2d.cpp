@@ -1,8 +1,6 @@
 
 /*  physics_body_2d.cpp                                                  */
 
-
-
 #include "physics_body_2d.h"
 
 #include "core/core_string_names.h"

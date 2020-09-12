@@ -1,8 +1,6 @@
 
 /*  resource_format_text.cpp                                             */
 
-
-
 #include "resource_format_text.h"
 
 #include "core/io/resource_format_binary.h"

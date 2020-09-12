@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_STREAM_H
@@ -30,8 +29,7 @@
 
 #include "ciderrs.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -40,8 +38,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  cidobjs
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                           SLOT  FUNCTIONS
    *
@@ -53,30 +50,26 @@
     slot->internal->glyph_hints = NULL;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   cid_slot_init( FT_GlyphSlot  slot )
   {
     CID_Face          face;
     PSHinter_Service  pshinter;
 
-
-    face     = (CID_Face)slot->face;
+face     = (CID_Face)slot->face;
     pshinter = (PSHinter_Service)face->pshinter;
 
     if ( pshinter )
     {
       FT_Module  module;
 
-
-      module = FT_Get_Module( slot->face->driver->root.library,
+module = FT_Get_Module( slot->face->driver->root.library,
                               "pshinter" );
       if ( module )
       {
         T1_Hints_Funcs  funcs;
 
-
-        funcs = pshinter->get_t1_funcs( module );
+funcs = pshinter->get_t1_funcs( module );
         slot->internal->glyph_hints = (void*)funcs;
       }
     }
@@ -84,42 +77,36 @@
     return 0;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                          SIZE  FUNCTIONS
    *
    */
 
-
-  static PSH_Globals_Funcs
+static PSH_Globals_Funcs
   cid_size_get_globals_funcs( CID_Size  size )
   {
     CID_Face          face     = (CID_Face)size->root.face;
     PSHinter_Service  pshinter = (PSHinter_Service)face->pshinter;
     FT_Module         module;
 
-
-    module = FT_Get_Module( size->root.face->driver->root.library,
+module = FT_Get_Module( size->root.face->driver->root.library,
                             "pshinter" );
     return ( module && pshinter && pshinter->get_globals_funcs )
            ? pshinter->get_globals_funcs( module )
            : 0;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cid_size_done( FT_Size  cidsize )         /* CID_Size */
   {
     CID_Size  size = (CID_Size)cidsize;
 
-
-    if ( cidsize->internal->module_data )
+if ( cidsize->internal->module_data )
     {
       PSH_Globals_Funcs  funcs;
 
-
-      funcs = cid_size_get_globals_funcs( size );
+funcs = cid_size_get_globals_funcs( size );
       if ( funcs )
         funcs->destroy( (PSH_Globals)cidsize->internal->module_data );
 
@@ -127,24 +114,21 @@
     }
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   cid_size_init( FT_Size  cidsize )     /* CID_Size */
   {
     CID_Size           size  = (CID_Size)cidsize;
     FT_Error           error = FT_Err_Ok;
     PSH_Globals_Funcs  funcs = cid_size_get_globals_funcs( size );
 
-
-    if ( funcs )
+if ( funcs )
     {
       PSH_Globals   globals;
       CID_Face      face = (CID_Face)cidsize->face;
       CID_FaceDict  dict = face->cid.font_dicts + face->root.face_index;
       PS_Private    priv = &dict->private_dict;
 
-
-      error = funcs->create( cidsize->face->memory, priv, &globals );
+error = funcs->create( cidsize->face->memory, priv, &globals );
       if ( !error )
         cidsize->internal->module_data = globals;
     }
@@ -152,15 +136,13 @@
     return error;
   }
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cid_size_request( FT_Size          size,
                     FT_Size_Request  req )
   {
     PSH_Globals_Funcs  funcs;
 
-
-    FT_Request_Metrics( size->face, req );
+FT_Request_Metrics( size->face, req );
 
     funcs = cid_size_get_globals_funcs( (CID_Size)size );
 
@@ -173,8 +155,7 @@
     return FT_Err_Ok;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                          FACE  FUNCTIONS
    *
@@ -200,8 +181,7 @@
     CID_FaceInfo  cid;
     PS_FontInfo   info;
 
-
-    if ( !face )
+if ( !face )
       return;
 
     cid    = &face->cid;
@@ -213,13 +193,11 @@
     {
       FT_Int  n;
 
-
-      for ( n = 0; n < cid->num_dicts; n++ )
+for ( n = 0; n < cid->num_dicts; n++ )
       {
         CID_Subrs  subr = face->subrs + n;
 
-
-        if ( subr->code )
+if ( subr->code )
         {
           FT_FREE( subr->code[0] );
           FT_FREE( subr->code );
@@ -252,8 +230,7 @@
     FT_FREE( face->cid_stream );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   cid_face_init
@@ -297,8 +274,7 @@
     FT_UNUSED( params );
     FT_UNUSED( stream );
 
-
-    cidface->num_faces = 1;
+cidface->num_faces = 1;
 
     psaux = (PSAux_Service)face->psaux;
     if ( !psaux )
@@ -357,8 +333,7 @@
       CID_FaceInfo  cid  = &face->cid;
       PS_FontInfo   info = &cid->font_info;
 
-
-      cidface->num_glyphs   = (FT_Long)cid->cid_count;
+cidface->num_glyphs   = (FT_Long)cid->cid_count;
       cidface->num_charmaps = 0;
 
       cidface->face_index = face_index & 0xFFFF;
@@ -382,8 +357,7 @@
         char*  full   = info->full_name;
         char*  family = cidface->family_name;
 
-
-        if ( full )
+if ( full )
         {
           while ( *full )
           {
@@ -454,8 +428,7 @@
     return error;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   cid_driver_init
@@ -477,8 +450,7 @@
 
     FT_UInt32  seed;
 
-
-    /* set default property values, cf. `ftt1drv.h' */
+/* set default property values, cf. `ftt1drv.h' */
 #ifdef T1_CONFIG_OPTION_OLD_ENGINE
     driver->hinting_engine = FT_HINTING_FREETYPE;
 #else
@@ -511,8 +483,7 @@
     return FT_Err_Ok;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   cid_driver_done
@@ -529,6 +500,5 @@
   {
     FT_UNUSED( driver );
   }
-
 
 /* END */

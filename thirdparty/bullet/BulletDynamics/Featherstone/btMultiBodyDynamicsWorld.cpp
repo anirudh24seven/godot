@@ -564,7 +564,6 @@ void btMultiBodyDynamicsWorld::solveExternalForces(btContactSolverInfo& solverIn
     }
 }
 
-
 void btMultiBodyDynamicsWorld::integrateTransforms(btScalar timeStep)
 {
 	btDiscreteDynamicsWorld::integrateTransforms(timeStep);
@@ -606,8 +605,7 @@ void btMultiBodyDynamicsWorld::integrateMultiBodyTransforms(btScalar timeStep)
                     bod->setPosUpdated(false);
                 }
 
-
-				m_scratch_world_to_local.resize(nLinks + 1);
+m_scratch_world_to_local.resize(nLinks + 1);
 				m_scratch_local_origin.resize(nLinks + 1);
                 bod->updateCollisionObjectWorldTransforms(m_scratch_world_to_local, m_scratch_local_origin);
 			}

@@ -1,8 +1,6 @@
 
 /*  skin.h                                                               */
 
-
-
 #ifndef SKIN_H
 #define SKIN_H
 

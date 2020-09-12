@@ -1,8 +1,6 @@
 
 /*  export.cpp                                                           */
 
-
-
 #include "export.h"
 
 #include "core/io/image_loader.h"

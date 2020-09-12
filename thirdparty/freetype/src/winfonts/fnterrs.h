@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This file is used to define the Windows FNT/FON error enumeration
    * constants.
@@ -37,6 +36,5 @@
 #include FT_ERRORS_H
 
 #endif /* FNTERRS_H_ */
-
 
 /* END */

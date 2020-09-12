@@ -1,8 +1,6 @@
 
 /*  camera_matrix.h                                                      */
 
-
-
 #ifndef CAMERA_MATRIX_H
 #define CAMERA_MATRIX_H
 

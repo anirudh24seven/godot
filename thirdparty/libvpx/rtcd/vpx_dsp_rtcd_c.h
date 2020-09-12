@@ -14,7 +14,6 @@
 #include "vpx/vpx_integer.h"
 #include "vpx_dsp/vpx_dsp_common.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif

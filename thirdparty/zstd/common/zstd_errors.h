@@ -18,7 +18,6 @@ extern "C" {
 /*===== dependency =====*/
 #include <stddef.h>   /* size_t */
 
-
 /* =====   ZSTDERRORLIB_API : control library symbols visibility   ===== */
 #ifndef ZSTDERRORLIB_VISIBILITY
 #  if defined(__GNUC__) && (__GNUC__ >= 4)
@@ -84,7 +83,6 @@ typedef enum {
     which can be used to compare with enum list published above */
 ZSTDERRORLIB_API ZSTD_ErrorCode ZSTD_getErrorCode(size_t functionResult);
 ZSTDERRORLIB_API const char* ZSTD_getErrorString(ZSTD_ErrorCode code);   /**< Same as ZSTD_getErrorName, but using a `ZSTD_ErrorCode` enum argument */
-
 
 #if defined (__cplusplus)
 }

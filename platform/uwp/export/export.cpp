@@ -1,8 +1,6 @@
 
 /*  export.cpp                                                           */
 
-
-
 #include "export.h"
 #include "core/bind/core_bind.h"
 #include "core/crypto/crypto_core.h"

@@ -1,8 +1,6 @@
 
 /*  video_stream_gdnative.cpp                                            */
 
-
-
 #include "video_stream_gdnative.h"
 
 #include "core/project_settings.h"

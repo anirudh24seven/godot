@@ -1,8 +1,6 @@
 
 /*  regex.cpp                                                            */
 
-
-
 #include "regex.h"
 #include "core/os/memory.h"
 

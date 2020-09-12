@@ -1,8 +1,6 @@
 
 /*  gi_probe_editor_plugin.cpp                                           */
 
-
-
 #include "gi_probe_editor_plugin.h"
 
 void GIProbeEditorPlugin::_bake() {

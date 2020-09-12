@@ -60,7 +60,6 @@ struct inflate_blocks_state {
 
 };
 
-
 /* defines for inflate input/output */
 /*   update pointers and return */
 #define UPDBITS {s->bitb=b;s->bitk=k;}

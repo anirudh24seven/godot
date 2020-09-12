@@ -1,8 +1,6 @@
 
 /*  editor_fonts.h                                                       */
 
-
-
 #ifndef EDITOR_FONTS_H
 #define EDITOR_FONTS_H
 

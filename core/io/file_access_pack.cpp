@@ -1,8 +1,6 @@
 
 /*  file_access_pack.cpp                                                 */
 
-
-
 #include "file_access_pack.h"
 
 #include "core/version.h"

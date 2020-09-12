@@ -1,8 +1,6 @@
 
 /*  editor_inspector.cpp                                                 */
 
-
-
 #include "editor_inspector.h"
 
 #include "array_property_edit.h"

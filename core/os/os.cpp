@@ -1,8 +1,6 @@
 
 /*  os.cpp                                                               */
 
-
-
 #include "os.h"
 
 #include "core/input/input.h"

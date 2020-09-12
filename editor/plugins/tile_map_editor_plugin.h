@@ -1,8 +1,6 @@
 
 /*  tile_map_editor_plugin.h                                             */
 
-
-
 #ifndef TILE_MAP_EDITOR_PLUGIN_H
 #define TILE_MAP_EDITOR_PLUGIN_H
 

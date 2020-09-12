@@ -1,8 +1,6 @@
 
 /*  visual_instance_3d.cpp                                               */
 
-
-
 #include "visual_instance_3d.h"
 
 #include "scene/scene_string_names.h"

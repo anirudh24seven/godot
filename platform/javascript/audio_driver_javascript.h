@@ -1,8 +1,6 @@
 
 /*  audio_driver_javascript.h                                            */
 
-
-
 #ifndef AUDIO_DRIVER_JAVASCRIPT_H
 #define AUDIO_DRIVER_JAVASCRIPT_H
 

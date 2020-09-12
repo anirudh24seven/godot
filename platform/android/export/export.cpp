@@ -1,8 +1,6 @@
 
 /*  export.cpp                                                           */
 
-
-
 #include "export.h"
 #include "gradle_export_util.h"
 

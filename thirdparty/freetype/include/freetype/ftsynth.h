@@ -16,34 +16,20 @@
  *
  */
 
-
-
-
-
-
-
-  /*********                                                       *********/
+/*********                                                       *********/
   /*********        WARNING, THIS IS ALPHA CODE!  THIS API         *********/
   /*********    IS DUE TO CHANGE UNTIL STRICTLY NOTIFIED BY THE    *********/
   /*********            FREETYPE DEVELOPMENT TEAM                  *********/
   /*********                                                       *********/
 
-
-
-
-
-
-
-  /* Main reason for not lifting the functions in this module to a  */
+/* Main reason for not lifting the functions in this module to a  */
   /* 'standard' API is that the used parameters for emboldening and */
   /* slanting are not configurable.  Consider the functions as a    */
   /* code resource that should be copied into the application and   */
   /* adapted to the particular needs.                               */
 
-
 #ifndef FTSYNTH_H_
 #define FTSYNTH_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -53,7 +39,6 @@
 #error "Please fix the directory search order for header files"
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
-
 
 FT_BEGIN_HEADER
 
@@ -75,10 +60,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTSYNTH_H_ */
-
 
 /* END */

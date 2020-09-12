@@ -1,8 +1,6 @@
 
 /*  editor_path.h                                                        */
 
-
-
 #ifndef EDITOR_PATH_H
 #define EDITOR_PATH_H
 

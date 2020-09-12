@@ -1,8 +1,6 @@
 
 /*  shape_2d.h                                                           */
 
-
-
 #ifndef SHAPE_2D_H
 #define SHAPE_2D_H
 

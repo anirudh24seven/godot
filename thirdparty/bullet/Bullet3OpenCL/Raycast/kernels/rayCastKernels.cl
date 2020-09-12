@@ -5,7 +5,6 @@
 #define SHAPE_COMPOUND_OF_CONVEX_HULLS 6
 #define SHAPE_SPHERE 7
 
-
 typedef struct
 {
 	float4 m_from;
@@ -46,8 +45,7 @@ typedef struct Collidable
 	int m_shapeIndex;
 } Collidable;
 
-
-typedef struct  
+typedef struct
 {
 	float4		m_localCenter;
 	float4		m_extents;
@@ -73,8 +71,6 @@ typedef struct
 	int m_numIndices;
 } b3GpuFace;
 
-
-
 ///////////////////////////////////////
 //	Quaternion
 ///////////////////////////////////////
@@ -87,10 +83,8 @@ __inline
 __inline
 	Quaternion qtNormalize(Quaternion in);
 
-
 __inline
 	Quaternion qtInvert(Quaternion q);
-
 
 __inline
 	float dot3F4(float4 a, float4 b)
@@ -99,7 +93,6 @@ __inline
 	float4 b1 = (float4)(b.xyz,0.f);
 	return dot(a1, b1);
 }
-
 
 __inline
 	Quaternion qtMul(Quaternion a, Quaternion b)
@@ -142,18 +135,12 @@ __inline
 	return qtRotate( qtInvert( q ), vec );
 }
 
-
-
 void	trInverse(float4 translationIn, Quaternion orientationIn,
 	float4* translationOut, Quaternion* orientationOut)
 {
 	*orientationOut = qtInvert(orientationIn);
 	*translationOut = qtRotate(*orientationOut, -translationIn);
 }
-
-
-
-
 
 bool rayConvex(float4 rayFromLocal, float4 rayToLocal, int numFaces, int faceOffset,
 	__global const b3GpuFace* faces, float* hitFraction, float4* hitNormal)
@@ -212,11 +199,6 @@ bool rayConvex(float4 rayFromLocal, float4 rayToLocal, int numFaces, int faceOff
 	}
 	return result;
 }
-
-
-
-
-
 
 bool sphere_intersect(float4 spherePos,  float radius, float4 rayFrom, float4 rayTo, float* hitFraction)
 {
@@ -338,8 +320,7 @@ __kernel void rayCastKernel(
 
 }
 
-
-__kernel void findRayRigidPairIndexRanges(__global int2* rayRigidPairs, 
+__kernel void findRayRigidPairIndexRanges(__global int2* rayRigidPairs,
 											__global int* out_firstRayRigidPairIndexPerRay,
 											__global int* out_numRayRigidPairsPerRay,
 											int numRayRigidPairs)

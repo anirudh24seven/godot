@@ -1,8 +1,6 @@
 
 /*  cowdata.h                                                            */
 
-
-
 #ifndef COWDATA_H
 #define COWDATA_H
 

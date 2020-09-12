@@ -15,7 +15,6 @@
  *
  */
 
-
 /****************************************************************************
  *
  * NOTE: Include this file after `FT_FREETYPE_H` and after any
@@ -24,18 +23,14 @@
  *
  */
 
-
 #ifndef FTMAC_H_
 #define FTMAC_H_
 
-
 #include <ft2build.h>
-
 
 FT_BEGIN_HEADER
 
-
-  /* gcc-3.1 and later can warn about functions tagged as deprecated */
+/* gcc-3.1 and later can warn about functions tagged as deprecated */
 #ifndef FT_DEPRECATED_ATTRIBUTE
 #if defined( __GNUC__ )                                     && \
     ( ( __GNUC__ >= 4 )                                  ||    \
@@ -46,8 +41,7 @@ FT_BEGIN_HEADER
 #endif
 #endif
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   mac_specific
@@ -64,8 +58,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_New_Face_From_FOND
@@ -107,8 +100,7 @@ FT_BEGIN_HEADER
                          FT_Face    *aface )
                        FT_DEPRECATED_ATTRIBUTE;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_GetFile_From_Mac_Name
@@ -136,8 +128,7 @@ FT_BEGIN_HEADER
                             FT_Long*     face_index )
                           FT_DEPRECATED_ATTRIBUTE;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_GetFile_From_Mac_ATS_Name
@@ -165,8 +156,7 @@ FT_BEGIN_HEADER
                                 FT_Long*     face_index )
                               FT_DEPRECATED_ATTRIBUTE;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_GetFilePath_From_Mac_ATS_Name
@@ -200,8 +190,7 @@ FT_BEGIN_HEADER
                                     FT_Long*     face_index )
                                   FT_DEPRECATED_ATTRIBUTE;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_New_Face_From_FSSpec
@@ -239,8 +228,7 @@ FT_BEGIN_HEADER
                            FT_Face       *aface )
                          FT_DEPRECATED_ATTRIBUTE;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_New_Face_From_FSRef
@@ -280,11 +268,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
-
 #endif /* FTMAC_H_ */
-
 
 /* END */

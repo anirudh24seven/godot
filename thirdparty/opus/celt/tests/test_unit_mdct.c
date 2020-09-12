@@ -127,7 +127,6 @@ void check_inv(kiss_fft_scalar  * in,kiss_fft_scalar  * out,int nfft,int isinver
    }
 }
 
-
 void test1d(int nfft,int isinverse,int arch)
 {
     mdct_lookup cfg;
@@ -177,8 +176,7 @@ void test1d(int nfft,int isinverse,int arch)
     }
     /*for (k=0;k<nfft;++k) printf("%d %d ", out[k].r, out[k].i);printf("\n");*/
 
-
-    free(in);
+free(in);
     free(in_copy);
     free(out);
     free(window);

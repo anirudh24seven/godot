@@ -1,8 +1,6 @@
 
 /*  rid.h                                                                */
 
-
-
 #ifndef GODOT_RID_H
 #define GODOT_RID_H
 

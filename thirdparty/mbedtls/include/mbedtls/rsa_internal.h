@@ -96,7 +96,6 @@
 extern "C" {
 #endif
 
-
 /**
  * \brief          Compute RSA prime moduli P, Q from public modulus N=PQ
  *                 and a pair of private and public key.
@@ -151,7 +150,6 @@ int mbedtls_rsa_deduce_private_exponent( mbedtls_mpi const *P,
                                          mbedtls_mpi const *E,
                                          mbedtls_mpi *D );
 
-
 /**
  * \brief          Generate RSA-CRT parameters
  *
@@ -175,7 +173,6 @@ int mbedtls_rsa_deduce_private_exponent( mbedtls_mpi const *P,
 int mbedtls_rsa_deduce_crt( const mbedtls_mpi *P, const mbedtls_mpi *Q,
                             const mbedtls_mpi *D, mbedtls_mpi *DP,
                             mbedtls_mpi *DQ, mbedtls_mpi *QP );
-
 
 /**
  * \brief          Check validity of core RSA parameters

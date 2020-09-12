@@ -1,8 +1,6 @@
 
 /*  shader_globals_editor.h                                              */
 
-
-
 #ifndef SHADER_GLOBALS_EDITOR_H
 #define SHADER_GLOBALS_EDITOR_H
 

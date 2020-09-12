@@ -1,8 +1,6 @@
 
 /*  rich_text_effect.h                                                   */
 
-
-
 #ifndef RICH_TEXT_EFFECT_H
 #define RICH_TEXT_EFFECT_H
 

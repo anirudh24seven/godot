@@ -963,7 +963,6 @@ struct simple_reorder_impl<SIMPLE_REORDER_TEMPL_CALL,
     }
 };
 
-
 /* high level class declaration */
 
 template <SIMPLE_REORDER_TEMPL_DECL, typename spec = void>

@@ -7,6 +7,5 @@ def can_build(env, platform):
     desktop_platforms = ["linuxbsd", "osx", "windows"]
     return env["tools"] and platform in desktop_platforms and env["bits"] == "64" and env["arch"] != "arm64"
 
-
 def configure(env):
     pass

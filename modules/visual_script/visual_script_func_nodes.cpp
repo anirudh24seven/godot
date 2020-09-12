@@ -1,8 +1,6 @@
 
 /*  visual_script_func_nodes.cpp                                         */
 
-
-
 #include "visual_script_func_nodes.h"
 
 #include "core/engine.h"

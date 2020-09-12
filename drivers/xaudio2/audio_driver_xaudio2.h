@@ -1,8 +1,6 @@
 
 /*  audio_driver_xaudio2.h                                               */
 
-
-
 #ifndef AUDIO_DRIVER_XAUDIO2_H
 #define AUDIO_DRIVER_XAUDIO2_H
 

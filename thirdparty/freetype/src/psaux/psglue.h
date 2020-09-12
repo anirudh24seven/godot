@@ -35,10 +35,8 @@
  *
  */
 
-
 #ifndef PSGLUE_H_
 #define PSGLUE_H_
-
 
 /* common includes for other modules */
 #include "pserror.h"
@@ -46,11 +44,9 @@
 #include "psarrst.h"
 #include "psread.h"
 
-
 FT_BEGIN_HEADER
 
-
-  /* rendering parameters */
+/* rendering parameters */
 
   /* apply hints to rendered glyphs */
 #define CF2_FlagsHinted    1
@@ -60,8 +56,7 @@ FT_BEGIN_HEADER
   /* type for holding the flags */
   typedef CF2_Int  CF2_RenderingFlags;
 
-
-  /* elements of a glyph outline */
+/* elements of a glyph outline */
   typedef enum  CF2_PathOp_
   {
     CF2_PathOpMoveTo = 1,     /* change the current point */
@@ -71,8 +66,7 @@ FT_BEGIN_HEADER
 
   } CF2_PathOp;
 
-
-  /* a matrix of fixed point values */
+/* a matrix of fixed point values */
   typedef struct  CF2_Matrix_
   {
     CF2_F16Dot16  a;
@@ -84,14 +78,12 @@ FT_BEGIN_HEADER
 
   } CF2_Matrix;
 
-
-  /* these typedefs are needed by more than one header file */
+/* these typedefs are needed by more than one header file */
   /* and gcc compiler doesn't allow redefinition            */
   typedef struct CF2_FontRec_  CF2_FontRec, *CF2_Font;
   typedef struct CF2_HintRec_  CF2_HintRec, *CF2_Hint;
 
-
-  /* A common structure for all callback parameters.                       */
+/* A common structure for all callback parameters.                       */
   /*                                                                       */
   /* Some members may be unused.  For example, `pt0' is not used for       */
   /* `moveTo' and `pt3' is not used for `quadTo'.  The initial point `pt0' */
@@ -110,8 +102,7 @@ FT_BEGIN_HEADER
 
   } CF2_CallbackParamsRec, *CF2_CallbackParams;
 
-
-  /* forward reference */
+/* forward reference */
   typedef struct CF2_OutlineCallbacksRec_  CF2_OutlineCallbacksRec,
                                            *CF2_OutlineCallbacks;
 
@@ -120,8 +111,7 @@ FT_BEGIN_HEADER
   (*CF2_Callback_Type)( CF2_OutlineCallbacks      callbacks,
                         const CF2_CallbackParams  params );
 
-
-  struct  CF2_OutlineCallbacksRec_
+struct  CF2_OutlineCallbacksRec_
   {
     CF2_Callback_Type  moveTo;
     CF2_Callback_Type  lineTo;
@@ -134,11 +124,8 @@ FT_BEGIN_HEADER
     FT_Error*  error;
   };
 
-
 FT_END_HEADER
 
-
 #endif /* PSGLUE_H_ */
-
 
 /* END */

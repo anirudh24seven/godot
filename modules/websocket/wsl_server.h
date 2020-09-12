@@ -1,8 +1,6 @@
 
 /*  wsl_server.h                                                         */
 
-
-
 #ifndef WSLSERVER_H
 #define WSLSERVER_H
 

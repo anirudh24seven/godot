@@ -1,8 +1,6 @@
 
 /*  groups_editor.h                                                      */
 
-
-
 #ifndef GROUPS_EDITOR_H
 #define GROUPS_EDITOR_H
 

@@ -35,7 +35,6 @@
  *
  */
 
-
 #include "psft.h"
 #include FT_INTERNAL_DEBUG_H
 
@@ -43,11 +42,9 @@
 
 #include "pserror.h"
 
-
-  /* Define CF2_IO_FAIL as 1 to enable random errors and random */
+/* Define CF2_IO_FAIL as 1 to enable random errors and random */
   /* value errors in I/O.                                       */
 #define CF2_IO_FAIL  0
-
 
 #if CF2_IO_FAIL
 
@@ -68,8 +65,7 @@
 
 #endif /* CF2_IO_FAIL */
 
-
-  /* Region Buffer                                      */
+/* Region Buffer                                      */
   /*                                                    */
   /* Can be constructed from a copied buffer managed by */
   /* `FCM_getDatablock'.                                */
@@ -100,13 +96,11 @@
     }
   }
 
-
-  /* note: end condition can occur without error */
+/* note: end condition can occur without error */
   FT_LOCAL_DEF( FT_Bool )
   cf2_buf_isEnd( CF2_Buffer  buf )
   {
     return FT_BOOL( buf->ptr >= buf->end );
   }
-
 
 /* END */

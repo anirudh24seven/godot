@@ -15,7 +15,6 @@
  *
  */
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  PS_FontInfoRec
 #undef  T1CODE
@@ -97,7 +96,6 @@
   T1_FIELD_BOOL      ( "ForceBold",        force_bold,
                        T1_FIELD_DICT_PRIVATE )
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  T1_FontRec
 #undef  T1CODE
@@ -108,14 +106,12 @@
   T1_FIELD_NUM  ( "FontType",    font_type,    T1_FIELD_DICT_FONTDICT )
   T1_FIELD_FIXED( "StrokeWidth", stroke_width, T1_FIELD_DICT_FONTDICT )
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  FT_BBox
 #undef  T1CODE
 #define T1CODE        T1_FIELD_LOCATION_BBOX
 
   T1_FIELD_BBOX( "FontBBox", xMin, T1_FIELD_DICT_FONTDICT )
-
 
 #ifndef T1_CONFIG_OPTION_NO_MM_SUPPORT
 
@@ -127,7 +123,6 @@
   T1_FIELD_NUM( "NDV", ndv_idx, T1_FIELD_DICT_PRIVATE )
   T1_FIELD_NUM( "CDV", cdv_idx, T1_FIELD_DICT_PRIVATE )
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  PS_BlendRec
 #undef  T1CODE
@@ -136,8 +131,6 @@
   T1_FIELD_NUM_TABLE( "DesignVector", default_design_vector,
                       T1_MAX_MM_DESIGNS, T1_FIELD_DICT_FONTDICT )
 
-
 #endif /* T1_CONFIG_OPTION_NO_MM_SUPPORT */
-
 
 /* END */

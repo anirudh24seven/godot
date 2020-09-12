@@ -1,8 +1,6 @@
 
 /*  denoise_wrapper.h                                                    */
 
-
-
 #ifndef DENOISE_WRAPPER_H
 #define DENOISE_WRAPPER_H
 

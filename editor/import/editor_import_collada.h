@@ -1,8 +1,6 @@
 
 /*  editor_import_collada.h                                              */
 
-
-
 #ifndef EDITOR_IMPORT_COLLADA_H
 #define EDITOR_IMPORT_COLLADA_H
 

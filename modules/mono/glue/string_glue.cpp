@@ -1,8 +1,6 @@
 
 /*  string_glue.cpp                                                      */
 
-
-
 #ifdef MONO_GLUE_ENABLED
 
 #include "core/ustring.h"

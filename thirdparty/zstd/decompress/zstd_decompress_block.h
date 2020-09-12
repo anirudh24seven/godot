@@ -8,7 +8,6 @@
  * You may select, at your option, one of the above-listed licenses.
  */
 
-
 #ifndef ZSTD_DEC_BLOCK_H
 #define ZSTD_DEC_BLOCK_H
 
@@ -20,7 +19,6 @@
 #include "zstd_internal.h"  /* blockProperties_t, and some public functions */
 #include "zstd_decompress_internal.h"  /* ZSTD_seqSymbol */
 
-
 /* ===   Prototypes   === */
 
 /* note: prototypes already published within `zstd.h` :
@@ -31,7 +29,6 @@
  * ZSTD_getcBlockSize()
  * ZSTD_decodeSeqHeaders()
  */
-
 
 /* ZSTD_decompressBlock_internal() :
  * decompress block, starting at `src`,
@@ -54,6 +51,5 @@ void ZSTD_buildFSETable(ZSTD_seqSymbol* dt,
              const short* normalizedCounter, unsigned maxSymbolValue,
              const U32* baseValue, const U32* nbAdditionalBits,
                    unsigned tableLog);
-
 
 #endif /* ZSTD_DEC_BLOCK_H */

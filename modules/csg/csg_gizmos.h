@@ -1,8 +1,6 @@
 
 /*  csg_gizmos.h                                                         */
 
-
-
 #ifndef CSG_GIZMOS_H
 #define CSG_GIZMOS_H
 

@@ -1,8 +1,6 @@
 
 /*  editor_run_script.cpp                                                */
 
-
-
 #include "editor_run_script.h"
 
 #include "editor_node.h"

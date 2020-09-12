@@ -1,8 +1,6 @@
 
 /*  compressed_translation.h                                             */
 
-
-
 #ifndef COMPRESSED_TRANSLATION_H
 #define COMPRESSED_TRANSLATION_H
 

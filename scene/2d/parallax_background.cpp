@@ -1,8 +1,6 @@
 
 /*  parallax_background.cpp                                              */
 
-
-
 #include "parallax_background.h"
 #include "parallax_layer.h"
 

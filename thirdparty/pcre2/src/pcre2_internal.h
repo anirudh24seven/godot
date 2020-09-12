@@ -232,7 +232,6 @@ allocated on the stack. */
 #define BSR_DEFAULT PCRE2_BSR_UNICODE
 #endif
 
-
 /* ---------------- Basic UTF-8 macros ---------------- */
 
 /* These UTF-8 macros are always defined because they are used in pcre2test for
@@ -452,7 +451,6 @@ PCRE (both APIs) for a long time. */
 
 /* -------------- End of whitespace macros -------------- */
 
-
 /* PCRE2 is able to support several different kinds of newline (CR, LF, CRLF,
 "any" and "anycrlf" at present). The following macros are used to package up
 testing for newlines. NLBLOCK, PSSTART, and PSEND are defined in the various
@@ -580,7 +578,6 @@ total length of the tables. */
 #define cbits_offset  512                           /* Character classes */
 #define ctypes_offset (cbits_offset + cbit_length)  /* Character types */
 #define tables_length (ctypes_offset + 256)
-
 
 /* -------------------- Character and string names ------------------------ */
 
@@ -1303,7 +1300,6 @@ enum { ESC_A = 1, ESC_G, ESC_K, ESC_B, ESC_b, ESC_D, ESC_d, ESC_S, ESC_s,
        ESC_h, ESC_V, ESC_v, ESC_X, ESC_Z, ESC_z,
        ESC_E, ESC_Q, ESC_g, ESC_k };
 
-
 /********************** Opcode definitions ******************/
 
 /****** NOTE NOTE NOTE ******
@@ -1319,7 +1315,6 @@ pcre2_compile.c must also be updated, and also the tables called "coptable"
 and "poptable" in pcre2_dfa_match.c.
 
 ****** NOTE NOTE NOTE ******/
-
 
 /* The values between FIRST_AUTOTAB_OP and LAST_AUTOTAB_RIGHT_OP, inclusive,
 are used in a table for deciding whether a repeated character type can be
@@ -1598,7 +1593,6 @@ definitions that follow must also be updated to match. There are also tables
 called "opcode_possessify" in pcre2_compile.c and "coptable" and "poptable" in
 pcre2_dfa_match.c that must be updated. */
 
-
 /* This macro defines textual names for all the opcodes. These are used only
 for debugging, and some of them are only partial names. The macro is referenced
 only in pcre2_printint.c, which fills out the full names in many cases (and in
@@ -1645,7 +1639,6 @@ some cases doesn't actually use these names at all). */
   "*THEN", "*THEN", "*COMMIT", "*COMMIT", "*FAIL",                \
   "*ACCEPT", "*ASSERT_ACCEPT",                                    \
   "Close", "Skip zero", "Define"
-
 
 /* This macro defines the length of fixed length operations in the compiled
 regex. The lengths are used when searching for specific things, and also in the
@@ -1746,7 +1739,6 @@ in UTF-8 mode. The code that uses this table must know about such things. */
 
 #define RREF_ANY  0xffff
 
-
 /* ---------- Private structures that are mode-independent. ---------- */
 
 /* Structure to hold data for custom memory management. */
@@ -1822,8 +1814,6 @@ typedef struct pcre2_serialized_data {
   uint32_t config;
   int32_t  number_of_codes;
 } pcre2_serialized_data;
-
-
 
 /* ----------------- Items that need PCRE2_CODE_UNIT_WIDTH ----------------- */
 

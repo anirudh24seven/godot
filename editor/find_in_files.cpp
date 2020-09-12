@@ -1,8 +1,6 @@
 
 /*  find_in_files.cpp                                                    */
 
-
-
 #include "find_in_files.h"
 
 #include "core/os/dir_access.h"

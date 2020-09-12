@@ -1,8 +1,6 @@
 
 /*  context_egl_uwp.h                                                    */
 
-
-
 #ifndef CONTEXT_EGL_UWP_H
 #define CONTEXT_EGL_UWP_H
 

@@ -1,8 +1,6 @@
 
 /*  doc_data.cpp                                                         */
 
-
-
 #include "doc_data.h"
 
 #include "core/engine.h"

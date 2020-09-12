@@ -742,7 +742,6 @@ template struct jit_uni_eltwise_injector_f32<avx512_common>;
 template struct jit_uni_eltwise_injector_f32<avx2>;
 template struct jit_uni_eltwise_injector_f32<sse42>;
 
-
 struct jit_args {
     const float *from;
     const float *for_comparison;

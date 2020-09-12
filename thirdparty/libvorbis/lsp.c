@@ -134,7 +134,6 @@ static const int MLOOP_2[64]={
 
 static const int MLOOP_3[8]={0,1,2,2,3,3,3,3};
 
-
 /* side effect: changes *lsp to cosines of lsp */
 void vorbis_lsp_to_curve(float *curve,int *map,int n,int ln,float *lsp,int m,
                             float amp,float ampoffset){
@@ -215,8 +214,7 @@ void vorbis_lsp_to_curve(float *curve,int *map,int n,int ln,float *lsp,int m,
 
     }
 
-
-    /* we've let the normalization drift because it wasn't important;
+/* we've let the normalization drift because it wasn't important;
        however, for the lookup, things must be normalized again.  We
        need at most one right shift or a number of left shifts */
 
@@ -358,7 +356,6 @@ static int Laguerre_With_Deflation(float *a,int ord,float *r){
   return(0);
 }
 
-
 /* for spit-and-polish only */
 static int Newton_Raphson(float *a,int ord,float *r){
   int i, k, count=0;
@@ -396,7 +393,6 @@ static int Newton_Raphson(float *a,int ord,float *r){
   for(i=0; i<ord;i++) r[i] = root[i];
   return(0);
 }
-
 
 /* Convert lpc coefficients to lsp coefficients */
 int vorbis_lpc_to_lsp(float *lpc,float *lsp,int m){

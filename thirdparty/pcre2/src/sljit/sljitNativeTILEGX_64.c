@@ -508,7 +508,6 @@ const struct Format formats[] =
 	BUNDLE_FORMAT(TILEGX_PIPELINE_X1, TILEGX_PIPELINE_X0, NO_PIPELINE)
 };
 
-
 struct jit_instr inst_buf[TILEGX_MAX_INSTRUCTIONS_PER_BUNDLE];
 unsigned long inst_buf_index;
 

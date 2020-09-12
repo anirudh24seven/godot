@@ -80,7 +80,6 @@
 
 #include <string.h>
 
-
 #if defined(MBEDTLS_PLATFORM_C)
 #include "mbedtls/platform.h"
 #else
@@ -371,8 +370,7 @@ int mbedtls_cipher_cmac_finish( mbedtls_cipher_context_t *ctx,
         cmac_xor_block( M_last, last_block, K1, block_size );
     }
 
-
-    cmac_xor_block( state, M_last, state, block_size );
+cmac_xor_block( state, M_last, state, block_size );
     if( ( ret = mbedtls_cipher_update( ctx, state, block_size, state,
                                        &olen ) ) != 0 )
     {

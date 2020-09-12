@@ -1,8 +1,6 @@
 
 /*  audio_rb_resampler.h                                                 */
 
-
-
 #ifndef AUDIO_RB_RESAMPLER_H
 #define AUDIO_RB_RESAMPLER_H
 

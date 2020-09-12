@@ -1,8 +1,6 @@
 
 /*  constraint_2d_sw.h                                                   */
 
-
-
 #ifndef CONSTRAINT_2D_SW_H
 #define CONSTRAINT_2D_SW_H
 

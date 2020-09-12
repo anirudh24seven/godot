@@ -21,7 +21,6 @@ env_thirdparty.add_source_files(env.scene_sources, thirdparty_sources)
 # Godot's own sources
 env.add_source_files(env.scene_sources, "*.cpp")
 
-
 # Chain load SCsubs
 SConscript("main/SCsub")
 SConscript("gui/SCsub")
@@ -31,7 +30,6 @@ SConscript("animation/SCsub")
 SConscript("audio/SCsub")
 SConscript("resources/SCsub")
 SConscript("debugger/SCsub")
-
 
 # Build it all as a library
 lib = env.add_library("scene", env.scene_sources)

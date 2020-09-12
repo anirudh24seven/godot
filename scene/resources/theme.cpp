@@ -1,8 +1,6 @@
 
 /*  theme.cpp                                                            */
 
-
-
 #include "theme.h"
 #include "core/os/file_access.h"
 #include "core/print_string.h"

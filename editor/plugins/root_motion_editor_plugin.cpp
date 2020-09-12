@@ -1,8 +1,6 @@
 
 /*  root_motion_editor_plugin.cpp                                        */
 
-
-
 #include "root_motion_editor_plugin.h"
 #include "editor/editor_node.h"
 #include "scene/main/window.h"

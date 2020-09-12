@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -186,7 +185,6 @@ of use and undefined afterwards. */
 #define Fovector           F->ovector
 #define Freturn_id         F->return_id
 
-
 #ifdef DEBUG_FRAMES_DISPLAY
 /*************************************************
 *      Display current frames and contents       *
@@ -241,8 +239,6 @@ for (i = 0, Q = mb->match_frames;
 }
 
 #endif
-
-
 
 /*************************************************
 *                Process a callout               *
@@ -325,8 +321,6 @@ callout_ovector[1] = save1;
 cb->callout_flags = 0;
 return rc;
 }
-
-
 
 /*************************************************
 *          Match a back-reference                *
@@ -459,8 +453,6 @@ else
 return 0;  /* Match */
 }
 
-
-
 /******************************************************************************
 *******************************************************************************
                    "Recursion" in the match() function
@@ -481,9 +473,6 @@ heap is used for a larger vector.
 
 *******************************************************************************
 ******************************************************************************/
-
-
-
 
 /*************************************************
 *       Macros for the match() function          *
@@ -515,7 +504,6 @@ A partial match is returned only if no complete match can be found. */
     if (mb->partial > 1) return PCRE2_ERROR_PARTIAL; \
     }
 
-
 /* These macros are used to implement backtracking. They simulate a recursive
 call to the match() function by means of a local vector of frames which
 remember the backtracking points. */
@@ -533,8 +521,6 @@ remember the backtracking points. */
   rrc = ra;\
   goto RETURN_SWITCH;\
   }
-
-
 
 /*************************************************
 *         Match from current position            *
@@ -721,7 +707,6 @@ if (group_frame_type != 0)
   group_frame_type = 0;
   }
 
-
 /* ========================================================================= */
 /* This is the main processing loop. First check that we haven't recorded too
 many backtracks (search tree is too large), or that we haven't exceeded the
@@ -771,8 +756,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode += PRIV(OP_lengths)[*Fecode];
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Real or forced end of the pattern, assertion, or recursion. In an
     assertion ACCEPT, update the last used pointer and remember the current
     frame so that the captures and mark can be fished out of it. */
@@ -856,8 +840,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     while (--i >= Foffset_top + 2) ovector[i] = PCRE2_UNSET;
     return MATCH_MATCH;  /* Note: NOT RRETURN */
 
-
-    /*===================================================================== */
+/*===================================================================== */
     /* Match any single character type except newline; have to take care with
     CRLF newlines and partial matching. */
 
@@ -889,8 +872,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode++;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match a single code unit, even in UTF mode. This opcode really does
     match any code unit, even newline. (It really should be called ANYCODEUNIT,
     of course - the byte name is from pre-16 bit days.) */
@@ -905,8 +887,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode++;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match a single character, casefully */
 
     case OP_CHAR:
@@ -940,8 +921,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
       }
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match a single character, caselessly. If we are at the end of the
     subject, give up immediately. We get here only when the pattern character
     has at most one other case. Characters with more than two cases are coded
@@ -999,8 +979,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
       }
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match not a single character. */
 
     case OP_NOT:
@@ -1041,8 +1020,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
       }
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match a single character repeatedly. */
 
 #define Loclength    F->temp_size
@@ -1388,8 +1366,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 #undef Lc
 #undef Loc
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match a negated single one-byte character repeatedly. This is almost a
     repeat of the code for a repeated single character, but I haven't found a
     nice way of commoning these up that doesn't require a test of the
@@ -1779,8 +1756,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 #undef Lc
 #undef Loc
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match a bit-mapped character class, possibly repeatedly. These opcodes
     are used when all the characters in the class have values in the range
     0-255, and either the matching is caseful, or the characters are in the
@@ -2023,8 +1999,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 #undef Lmin
 #undef Lmax
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match an extended character class. In the 8-bit library, this opcode is
     encountered only when UTF-8 mode mode is supported. In the 16-bit and
     32-bit libraries, codepoints greater than 255 may be encountered even when
@@ -2160,8 +2135,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 #undef Lmin
 #undef Lmax
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match various character types when PCRE2_UCP is not set. These opcodes
     are not generated when PCRE2_UCP is set - instead appropriate property
     tests are compiled. */
@@ -2333,7 +2307,6 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode++;
     break;
 
-
 #ifdef SUPPORT_UNICODE
 
     /* ===================================================================== */
@@ -2443,8 +2416,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
       }
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match an extended Unicode sequence. We will get here only if the support
     is in the binary; otherwise a compile-time error occurs. */
 
@@ -2466,8 +2438,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 
 #endif  /* SUPPORT_UNICODE */
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match a single character type repeatedly. Note that the property type
     does not need to be in a stack frame as it is not used within an RMATCH()
     loop. */
@@ -4606,8 +4577,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 #undef Lctype
 #undef Lpropvalue
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Match a back reference, possibly repeatedly. Look past the end of the
     item to see if there is repeat information following. The OP_REF and
     OP_REFI opcodes are used for a reference to a numbered group or to a
@@ -4823,8 +4793,6 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 #undef Lstart
 #undef Loffset
 
-
-
 /* ========================================================================= */
 /*           Opcodes for the start of various parenthesized items            */
 /* ========================================================================= */
@@ -4840,8 +4808,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     groups, where a group not containing | does not affect the current
     alternative, that is, (X) is NOT the same as (X|(*F)). */
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* BRAZERO, BRAMINZERO and SKIPZERO occur just before a non-possessive
     bracket group, indicating that it may occur zero times. It may repeat
     infinitely, or not at all - i.e. it could be ()* or ()? or even (){0} in
@@ -4875,8 +4842,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode += 1 + LINK_SIZE;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Handle possessive brackets with an unlimited repeat. The end of these
     brackets will always be OP_KETRPOS, which returns MATCH_KETRPOS without
     going further in the pattern. */
@@ -4963,8 +4929,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 #undef Lstart_eptr
 #undef Lstart_group
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Handle non-capturing brackets that cannot match an empty string. When we
     get to the final alternative within the brackets, as long as there are no
     THEN's in the pattern, we can optimize by not recording a new backtracking
@@ -5003,8 +4968,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 
 #undef Lnext_branch
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Handle a capturing bracket, other than those that are possessive with an
     unlimited repeat. */
 
@@ -5013,8 +4977,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Lframe_type = GF_CAPTURE | GET2(Fecode, 1+LINK_SIZE);
     goto GROUPLOOP;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Atomic groups and non-capturing brackets that can match an empty string
     must record a backtracking point and also set up a chained frame. */
 
@@ -5043,8 +5006,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 
 #undef Lframe_type
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Recursion either matches the current regex, or some subexpression. The
     offset data is the offset to the starting bracket from the start of the
     whole pattern. (This is so that it works from duplicated subpatterns.) */
@@ -5120,8 +5082,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 #undef Lframe_type
 #undef Lstart_branch
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Positive assertions are like other groups except that PCRE doesn't allow
     the effect of (*THEN) to escape beyond an assertion; it is therefore
     treated as NOMATCH. (*ACCEPT) is treated as successful assertion, with its
@@ -5158,8 +5119,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 
 #undef Lframe_type
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Handle negative assertions. Loop for each non-matching branch as for
     positive assertions. */
 
@@ -5206,8 +5166,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 
 #undef Lframe_type
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* The callout item calls an external function, if one is provided, passing
     details of the match so far. This is mainly for debugging, though the
     function is able to force a failure. */
@@ -5220,8 +5179,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode += length;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Conditional group: compilation checked that there are no more than two
     branches. If the condition is false, skipping the first branch takes us
     past the end of the item if there is only one branch, but that's exactly
@@ -5398,14 +5356,11 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
       }
     break;
 
-
-
 /* ========================================================================= */
 /*                  End of start of parenthesis opcodes                      */
 /* ========================================================================= */
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Move the subject pointer back. This occurs only at the start of each
     branch of a lookbehind assertion. If we are too close to the start to move
     back, fail. When working with UTF-8 we move back a number of characters,
@@ -5439,8 +5394,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode += 1 + LINK_SIZE;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* An alternation is the end of a branch; scan along to find the end of the
     bracketed group. */
 
@@ -5448,8 +5402,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     do Fecode += GET(Fecode,1); while (*Fecode == OP_ALT);
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* The end of a parenthesized group. For all but OP_BRA and OP_COND, the
     starting frame was added to the chained frames in order to remember the
     starting subject position for the group. */
@@ -5630,8 +5583,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode += 1 + LINK_SIZE;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Start and end of line assertions, not multiline mode. */
 
     case OP_CIRC:   /* Start of line, unless PCRE2_NOTBOL is set. */
@@ -5694,8 +5646,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode++;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Start and end of line assertions, multiline mode. */
 
     /* Start of subject unless notbol, or after any newline except for one at
@@ -5740,8 +5691,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode++;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Start of match assertion */
 
     case OP_SOM:
@@ -5749,8 +5699,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode++;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Reset the start of match point */
 
     case OP_SET_SOM:
@@ -5758,8 +5707,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     Fecode++;
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Word boundary assertions. Find out if the previous and current
     characters are "word" characters. It takes a bit more work in UTF mode.
     Characters > 255 are assumed to be "non-word" characters when PCRE2_UCP is
@@ -5836,8 +5784,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
       RRETURN(MATCH_NOMATCH);
     break;
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* Backtracking (*VERB)s, with and without arguments. Note that if the
     pattern is successfully matched, we do not come back from RMATCH. */
 
@@ -5945,8 +5892,7 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
     mb->verb_current_recurse = Fcurrent_recurse;
     RRETURN(MATCH_THEN);
 
-
-    /* ===================================================================== */
+/* ===================================================================== */
     /* There's been some horrible disaster. Arrival here can only mean there is
     something seriously wrong in the code above or the OP_xxx definitions. */
 
@@ -5960,7 +5906,6 @@ fprintf(stderr, "++ op=%d\n", *Fecode);
 
   }  /* End of main loop */
 /* Control never reaches here */
-
 
 /* ========================================================================= */
 /* The RRETURN() macro jumps here. The number that is saved in Freturn_id
@@ -6004,7 +5949,6 @@ switch (Freturn_id)
   }
 #undef LBL
 }
-
 
 /*************************************************
 *           Match a Regular Expression           *
@@ -6188,7 +6132,6 @@ match_data->subject = NULL;
 
 match_data->startchar = 0;
 
-
 /* ============================= JIT matching ============================== */
 
 /* Prepare for JIT matching. Check a UTF string for validity unless no check is
@@ -6286,7 +6229,6 @@ if (use_jit)
 #endif  /* SUPPORT_JIT */
 
 /* ========================= End of JIT matching ========================== */
-
 
 /* Proceed with non-JIT matching. The default is to allow lookbehinds to the
 start of the subject. A UTF check when there is a non-zero offset may change
@@ -6612,7 +6554,6 @@ if ((re->flags & PCRE2_LASTSET) != 0)
 #endif
     }
   }
-
 
 /* ==========================================================================*/
 

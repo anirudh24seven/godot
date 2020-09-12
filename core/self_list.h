@@ -1,8 +1,6 @@
 
 /*  self_list.h                                                          */
 
-
-
 #ifndef SELF_LIST_H
 #define SELF_LIST_H
 

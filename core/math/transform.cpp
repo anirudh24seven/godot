@@ -1,8 +1,6 @@
 
 /*  transform.cpp                                                        */
 
-
-
 #include "transform.h"
 
 #include "core/math/math_funcs.h"

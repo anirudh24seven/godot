@@ -1,8 +1,6 @@
 
 /*  crash_handler_windows.cpp                                            */
 
-
-
 #include "crash_handler_windows.h"
 
 #include "core/os/os.h"

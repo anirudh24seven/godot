@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This file is used to define the OpenType validation module error
    * enumeration constants.
@@ -37,6 +36,5 @@
 #include FT_ERRORS_H
 
 #endif /* OTVERROR_H_ */
-
 
 /* END */

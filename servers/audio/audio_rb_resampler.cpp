@@ -1,8 +1,6 @@
 
 /*  audio_rb_resampler.cpp                                               */
 
-
-
 #include "audio_rb_resampler.h"
 #include "core/math/math_funcs.h"
 #include "core/os/os.h"

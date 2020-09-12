@@ -1,8 +1,6 @@
 
 /*  pin_joint_bullet.h                                                   */
 
-
-
 #ifndef PIN_JOINT_BULLET_H
 #define PIN_JOINT_BULLET_H
 

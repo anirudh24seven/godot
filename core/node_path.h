@@ -1,8 +1,6 @@
 
 /*  node_path.h                                                          */
 
-
-
 #ifndef NODE_PATH_H
 #define NODE_PATH_H
 

@@ -24,10 +24,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-
 #ifndef PCFREAD_H_
 #define PCFREAD_H_
-
 
 #include <ft2build.h>
 
@@ -40,6 +38,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* PCFREAD_H_ */
-
 
 /* END */

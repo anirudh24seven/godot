@@ -1,8 +1,6 @@
 
 /*  reverb.cpp                                                           */
 
-
-
 // Author: Juan Linietsky <reduzio@gmail.com>, (C) 2006
 
 #include "reverb.h"
@@ -122,8 +120,7 @@ void Reverb::process(float *p_src, float *p_dst, int p_frames) {
 	sample=-in+aux;	\
 	ap->pos++;
 
-
-		PROCESS_ALLPASS(0);
+PROCESS_ALLPASS(0);
 		PROCESS_ALLPASS(1);
 		PROCESS_ALLPASS(2);
 		PROCESS_ALLPASS(3);

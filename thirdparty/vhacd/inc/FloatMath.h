@@ -2,7 +2,6 @@
 
 #define FLOAT_MATH_LIB_H
 
-
 #include <float.h>
 #include <stdint.h>
 
@@ -32,7 +31,6 @@ enum LineSegmentType
   LS_MIDDLE,
   LS_END
 };
-
 
 const float FM_PI = 3.1415926535897932384626433832795028841971693993751f;
 const float FM_DEG_TO_RAD = ((2.0f * FM_PI) / 360.0f);
@@ -193,17 +191,14 @@ uint32_t fm_clipTestPoint(const double bmin[3],const double bmax[3],const double
 uint32_t fm_clipTestPointXZ(const float bmin[3],const float bmax[3],const float pos[3]); // only tests X and Z, not Y
 uint32_t fm_clipTestPointXZ(const double bmin[3],const double bmax[3],const double pos[3]); // only tests X and Z, not Y
 
-
 uint32_t fm_clipTestAABB(const float bmin[3],const float bmax[3],const float p1[3],const float p2[3],const float p3[3],uint32_t &andCode);
 uint32_t fm_clipTestAABB(const double bmin[3],const double bmax[3],const double p1[3],const double p2[3],const double p3[3],uint32_t &andCode);
-
 
 bool     fm_lineTestAABBXZ(const float p1[3],const float p2[3],const float bmin[3],const float bmax[3],float &time);
 bool     fm_lineTestAABBXZ(const double p1[3],const double p2[3],const double bmin[3],const double bmax[3],double &time);
 
 bool     fm_lineTestAABB(const float p1[3],const float p2[3],const float bmin[3],const float bmax[3],float &time);
 bool     fm_lineTestAABB(const double p1[3],const double p2[3],const double bmin[3],const double bmax[3],double &time);
-
 
 void  fm_initMinMax(const float p[3],float bmin[3],float bmax[3]);
 void  fm_initMinMax(const double p[3],double bmin[3],double bmax[3]);
@@ -269,7 +264,6 @@ bool  fm_computeCentroid(uint32_t vcount,     // number of input data points
 	const uint32_t *indices,
 	double *center);
 
-
 float  fm_computeBestFitAABB(uint32_t vcount,const float *points,uint32_t pstride,float bmin[3],float bmax[3]); // returns the diagonal distance
 double fm_computeBestFitAABB(uint32_t vcount,const double *points,uint32_t pstride,double bmin[3],double bmax[3]); // returns the diagonal distance
 
@@ -297,14 +291,12 @@ void fm_catmullRom(double out_vector[3],const double p1[3],const double p2[3],co
 bool fm_intersectAABB(const float bmin1[3],const float bmax1[3],const float bmin2[3],const float bmax2[3]);
 bool fm_intersectAABB(const double bmin1[3],const double bmax1[3],const double bmin2[3],const double bmax2[3]);
 
-
 // computes the rotation quaternion to go from unit-vector v0 to unit-vector v1
 void fm_rotationArc(const float v0[3],const float v1[3],float quat[4]);
 void fm_rotationArc(const double v0[3],const double v1[3],double quat[4]);
 
 float  fm_distancePointLineSegment(const float Point[3],const float LineStart[3],const float LineEnd[3],float intersection[3],LineSegmentType &type,float epsilon);
 double fm_distancePointLineSegment(const double Point[3],const double LineStart[3],const double LineEnd[3],double intersection[3],LineSegmentType &type,double epsilon);
-
 
 bool fm_colinear(const double p1[3],const double p2[3],const double p3[3],double epsilon=0.999);               // true if these three points in a row are co-linear
 bool fm_colinear(const float  p1[3],const float  p2[3],const float p3[3],float epsilon=0.999f);
@@ -345,7 +337,6 @@ PlaneTriResult fm_planeTriIntersection(const float plane[4],    // the plane equ
 									float       *back,     // the triangle in back of the plane
 									uint32_t &bcount); // the number of vertices in the 'back' triangle.
 
-
 PlaneTriResult fm_planeTriIntersection(const double plane[4],    // the plane equation in Ax+By+Cz+D format
 									const double *triangle, // the source triangle.
 									uint32_t tstride,  // stride in bytes of the input and output *vertices*
@@ -355,13 +346,11 @@ PlaneTriResult fm_planeTriIntersection(const double plane[4],    // the plane eq
 									double       *back,     // the triangle in back of the plane
 									uint32_t &bcount); // the number of vertices in the 'back' triangle.
 
-
 bool fm_intersectPointPlane(const float p1[3],const float p2[3],float *split,const float plane[4]);
 bool fm_intersectPointPlane(const double p1[3],const double p2[3],double *split,const double plane[4]);
 
 PlaneTriResult fm_getSidePlane(const float p[3],const float plane[4],float epsilon);
 PlaneTriResult fm_getSidePlane(const double p[3],const double plane[4],double epsilon);
-
 
 void fm_computeBestFitOBB(uint32_t vcount,const float *points,uint32_t pstride,float *sides,float matrix[16],bool bruteForce=true);
 void fm_computeBestFitOBB(uint32_t vcount,const double *points,uint32_t pstride,double *sides,double matrix[16],bool bruteForce=true);
@@ -372,11 +361,9 @@ void fm_computeBestFitOBB(uint32_t vcount,const double *points,uint32_t pstride,
 void fm_computeBestFitABB(uint32_t vcount,const float *points,uint32_t pstride,float *sides,float pos[3]);
 void fm_computeBestFitABB(uint32_t vcount,const double *points,uint32_t pstride,double *sides,double pos[3]);
 
-
 //** Note, if the returned capsule height is less than zero, then you must represent it is a sphere of size radius.
 void fm_computeBestFitCapsule(uint32_t vcount,const float *points,uint32_t pstride,float &radius,float &height,float matrix[16],bool bruteForce=true);
 void fm_computeBestFitCapsule(uint32_t vcount,const double *points,uint32_t pstride,float &radius,float &height,double matrix[16],bool bruteForce=true);
-
 
 void fm_planeToMatrix(const float plane[4],float matrix[16]); // convert a plane equation to a 4x4 rotation matrix.  Reference vector is 0,1,0
 void fm_planeToQuat(const float plane[4],float quat[4],float pos[3]); // convert a plane equation to a quaternion and translation
@@ -387,14 +374,11 @@ void fm_planeToQuat(const double plane[4],double quat[4],double pos[3]); // conv
 inline void fm_doubleToFloat3(const double p[3],float t[3]) { t[0] = (float) p[0]; t[1] = (float)p[1]; t[2] = (float)p[2]; };
 inline void fm_floatToDouble3(const float p[3],double t[3]) { t[0] = (double)p[0]; t[1] = (double)p[1]; t[2] = (double)p[2]; };
 
-
 void  fm_eulerMatrix(float ax,float ay,float az,float matrix[16]); // convert euler (in radians) to a dest 4x4 matrix (translation set to zero)
 void  fm_eulerMatrix(double ax,double ay,double az,double matrix[16]); // convert euler (in radians) to a dest 4x4 matrix (translation set to zero)
 
-
 float  fm_computeMeshVolume(const float *vertices,uint32_t tcount,const uint32_t *indices);
 double fm_computeMeshVolume(const double *vertices,uint32_t tcount,const uint32_t *indices);
-
 
 #define FM_DEFAULT_GRANULARITY 0.001f  // 1 millimeter is the default granularity
 
@@ -415,7 +399,6 @@ public:
 fm_VertexIndex * fm_createVertexIndex(double granularity,bool snapToGrid); // create an indexed vertex system for doubles
 fm_VertexIndex * fm_createVertexIndex(float granularity,bool snapToGrid);  // create an indexed vertext system for floats
 void             fm_releaseVertexIndex(fm_VertexIndex *vindex);
-
 
 class fm_Triangulate
 {
@@ -438,7 +421,6 @@ public:
 fm_Triangulate * fm_createTriangulate(void);
 void             fm_releaseTriangulate(fm_Triangulate *t);
 
-
 const float * fm_getPoint(const float *points,uint32_t pstride,uint32_t index);
 const double * fm_getPoint(const double *points,uint32_t pstride,uint32_t index);
 
@@ -452,7 +434,6 @@ bool  fm_pointInsidePolygon2d(uint32_t pcount,const double *points,uint32_t pstr
 
 uint32_t fm_consolidatePolygon(uint32_t pcount,const float *points,uint32_t pstride,float *dest,float epsilon=0.999999f); // collapses co-linear edges.
 uint32_t fm_consolidatePolygon(uint32_t pcount,const double *points,uint32_t pstride,double *dest,double epsilon=0.999999); // collapses co-linear edges.
-
 
 bool fm_computeSplitPlane(uint32_t vcount,const double *vertices,uint32_t tcount,const uint32_t *indices,double *plane);
 bool fm_computeSplitPlane(uint32_t vcount,const float *vertices,uint32_t tcount,const uint32_t *indices,float *plane);
@@ -515,10 +496,8 @@ void fm_computeMeanNormals(uint32_t vcount,       // the number of vertices
 						   uint32_t tcount,       // the number of triangles
 						   const uint32_t *indices);     // the triangle indices
 
-
 bool fm_isValidTriangle(const float *p1,const float *p2,const float *p3,float epsilon=0.00001f);
 bool fm_isValidTriangle(const double *p1,const double *p2,const double *p3,double epsilon=0.00001f);
-
 
 }; // end of namespace
 

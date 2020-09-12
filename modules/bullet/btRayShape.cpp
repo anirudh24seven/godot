@@ -1,8 +1,6 @@
 
 /*  btRayShape.cpp                                                       */
 
-
-
 #include "btRayShape.h"
 
 #include "core/math/math_funcs.h"

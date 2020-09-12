@@ -11,8 +11,7 @@
 @  be found in the AUTHORS file in the root of the source tree.
 @
 
-
-    .global vpx_push_neon 
+.global vpx_push_neon
 	.type vpx_push_neon, function
     .global vpx_pop_neon 
 	.type vpx_pop_neon, function
@@ -40,5 +39,4 @@ _vpx_pop_neon:
 
 	.size vpx_pop_neon, .-vpx_pop_neon    @ ENDP
 
-
-	.section	.note.GNU-stack,"",%progbits
+.section	.note.GNU-stack,"",%progbits

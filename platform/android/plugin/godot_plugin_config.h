@@ -1,8 +1,6 @@
 
 /*  godot_plugin_config.h                                                */
 
-
-
 #ifndef GODOT_PLUGIN_CONFIG_H
 #define GODOT_PLUGIN_CONFIG_H
 

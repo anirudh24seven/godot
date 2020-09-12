@@ -1,8 +1,6 @@
 
 /*  os_android.cpp                                                       */
 
-
-
 #include "os_android.h"
 
 #include "core/io/file_access_buffered_fa.h"

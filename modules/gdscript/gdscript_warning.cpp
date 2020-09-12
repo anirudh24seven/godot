@@ -1,8 +1,6 @@
 
 /*  gdscript_warning.cpp                                                 */
 
-
-
 #include "gdscript_warning.h"
 
 #include "core/variant.h"

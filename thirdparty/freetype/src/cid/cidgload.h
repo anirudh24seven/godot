@@ -15,17 +15,13 @@
  *
  */
 
-
 #ifndef CIDGLOAD_H_
 #define CIDGLOAD_H_
-
 
 #include <ft2build.h>
 #include "cidobjs.h"
 
-
 FT_BEGIN_HEADER
-
 
 #if 0
 
@@ -42,10 +38,8 @@ FT_BEGIN_HEADER
                        FT_UInt       glyph_index,
                        FT_Int32      load_flags );
 
-
 FT_END_HEADER
 
 #endif /* CIDGLOAD_H_ */
-
 
 /* END */

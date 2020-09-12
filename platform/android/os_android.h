@@ -1,8 +1,6 @@
 
 /*  os_android.h                                                         */
 
-
-
 #ifndef OS_ANDROID_H
 #define OS_ANDROID_H
 

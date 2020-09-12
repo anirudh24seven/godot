@@ -1,8 +1,6 @@
 
 /*  packet_peer_gdnative.h                                               */
 
-
-
 #ifndef PACKET_PEER_GDNATIVE_H
 #define PACKET_PEER_GDNATIVE_H
 

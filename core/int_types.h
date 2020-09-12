@@ -1,8 +1,6 @@
 
 /*  int_types.h                                                          */
 
-
-
 #ifndef INT_TYPES_H
 #define INT_TYPES_H
 

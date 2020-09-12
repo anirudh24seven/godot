@@ -8,9 +8,8 @@ public:
     T b;
     T g;
     T r;
-    
 
-    ColorRgb()
+ColorRgb()
         : b(0)
         , g(0)
         , r(0) {

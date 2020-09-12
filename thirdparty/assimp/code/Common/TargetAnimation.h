@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -50,8 +49,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace Assimp    {
 
-
-
 // ---------------------------------------------------------------------------
 /** Helper class to iterate through all keys in an animation channel.
  *
@@ -62,8 +59,7 @@ class KeyIterator
 {
 public:
 
-
-    // ------------------------------------------------------------------
+// ------------------------------------------------------------------
     /** Constructs a new key iterator
      *
      *  @param _objPos Object position track. May be NULL.
@@ -91,9 +87,7 @@ public:
     inline void operator++(int)
         {return ++(*this);}
 
-
-
-    // ------------------------------------------------------------------
+// ------------------------------------------------------------------
     /** Getters to retrieve the current state of the iterator
      */
     inline const aiVector3D& GetCurPosition() const
@@ -139,8 +133,7 @@ public:
         ,   objectPositions     (NULL)
     {}
 
-
-    // ------------------------------------------------------------------
+// ------------------------------------------------------------------
     /** Sets the target animation channel
      *
      *  This channel specifies the position of the camera/spot light
@@ -150,8 +143,7 @@ public:
     void SetTargetAnimationChannel (const
         std::vector<aiVectorKey>* targetPositions);
 
-
-    // ------------------------------------------------------------------
+// ------------------------------------------------------------------
     /** Sets the main animation channel
      *
      *  @param objectPositions Translation channel */
@@ -164,19 +156,16 @@ public:
      *  @param fixed Fixed value for the main animation channel*/
     void SetFixedMainAnimationChannel(const aiVector3D& fixed);
 
-
-    // ------------------------------------------------------------------
+// ------------------------------------------------------------------
     /** Computes final animation channels
      * @param distanceTrack Receive camera translation keys ... != NULL. */
     void Process( std::vector<aiVectorKey>* distanceTrack );
-
 
 private:
 
     const std::vector<aiVectorKey>* targetPositions,*objectPositions;
     aiVector3D fixedMain;
 };
-
 
 } // ! end namespace Assimp
 

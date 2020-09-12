@@ -1,8 +1,6 @@
 
 /*  broad_phase_2d_basic.cpp                                             */
 
-
-
 #include "broad_phase_2d_basic.h"
 
 BroadPhase2DBasic::ID BroadPhase2DBasic::create(CollisionObject2DSW *p_object_, int p_subindex) {

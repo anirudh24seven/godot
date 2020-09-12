@@ -1,8 +1,6 @@
 
 /*  vector2.cpp                                                          */
 
-
-
 #include "gdnative/vector2.h"
 
 #include "core/math/vector2.h"

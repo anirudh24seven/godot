@@ -15,14 +15,11 @@
  *
  */
 
-
 #ifndef AFSHAPER_H_
 #define AFSHAPER_H_
 
-
 #include <ft2build.h>
 #include FT_FREETYPE_H
-
 
 #ifdef FT_CONFIG_OPTION_USE_HARFBUZZ
 
@@ -32,7 +29,6 @@
 
 #endif
 
-
 FT_BEGIN_HEADER
 
   FT_Error
@@ -41,8 +37,7 @@ FT_BEGIN_HEADER
                           FT_UShort*      gstyles,
                           FT_Bool         default_script );
 
-
-  void*
+void*
   af_shaper_buf_create( FT_Face  face );
 
   void
@@ -67,6 +62,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* AFSHAPER_H_ */
-
 
 /* END */

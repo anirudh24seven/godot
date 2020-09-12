@@ -1,8 +1,6 @@
 
 /*  random_pcg.cpp                                                       */
 
-
-
 #include "random_pcg.h"
 
 #include "core/os/os.h"

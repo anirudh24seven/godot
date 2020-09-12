@@ -1,8 +1,6 @@
 
 /*  curve.cpp                                                            */
 
-
-
 #include "curve.h"
 
 #include "core/core_string_names.h"

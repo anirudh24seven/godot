@@ -1,8 +1,6 @@
 
 /*  cone_twist_joint_bullet.h                                            */
 
-
-
 #ifndef CONE_TWIST_JOINT_BULLET_H
 #define CONE_TWIST_JOINT_BULLET_H
 

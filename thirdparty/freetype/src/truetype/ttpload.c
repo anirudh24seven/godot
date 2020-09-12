@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_OBJECTS_H
@@ -30,8 +29,7 @@
 
 #include "tterrors.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -40,8 +38,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  ttpload
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   tt_face_load_loca
@@ -68,8 +65,7 @@
     FT_ULong  table_len;
     FT_Int    shift;
 
-
-    /* we need the size of the `glyf' table for malformed `loca' tables */
+/* we need the size of the `glyf' table for malformed `loca' tables */
     error = face->goto_table( face, TTAG_glyf, stream, &face->glyf_len );
 
     /* it is possible that a font doesn't have a glyf table at all */
@@ -140,14 +136,12 @@
         FT_Long  dist  = 0x7FFFFFFFL;
         FT_Bool  found = 0;
 
-
-        /* compute the distance to next table in font file */
+/* compute the distance to next table in font file */
         for ( ; entry < limit; entry++ )
         {
           FT_Long  diff = (FT_Long)entry->Offset - pos;
 
-
-          if ( diff > 0 && diff < dist )
+if ( diff > 0 && diff < dist )
           {
             dist  = diff;
             found = 1;
@@ -192,8 +186,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_ULong )
+FT_LOCAL_DEF( FT_ULong )
   tt_face_get_location( TT_Face   face,
                         FT_UInt   gindex,
                         FT_UInt  *asize )
@@ -202,8 +195,7 @@
     FT_Byte*  p;
     FT_Byte*  p_limit;
 
-
-    pos1 = pos2 = 0;
+pos1 = pos2 = 0;
 
     if ( gindex < face->num_locations )
     {
@@ -286,20 +278,16 @@
     return pos1;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   tt_face_done_loca( TT_Face  face )
   {
     FT_Stream  stream = face->root.stream;
 
-
-    FT_FRAME_RELEASE( face->glyph_locations );
+FT_FRAME_RELEASE( face->glyph_locations );
     face->num_locations = 0;
   }
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   tt_face_load_cvt
@@ -328,8 +316,7 @@
     FT_Memory  memory = stream->memory;
     FT_ULong   table_len;
 
-
-    FT_TRACE2(( "CVT " ));
+FT_TRACE2(( "CVT " ));
 
     error = face->goto_table( face, TTAG_cvt, stream, &table_len );
     if ( error )
@@ -355,8 +342,7 @@
       FT_Int32*  cur   = face->cvt;
       FT_Int32*  limit = cur + face->cvt_size;
 
-
-      for ( ; cur < limit; cur++ )
+for ( ; cur < limit; cur++ )
         *cur = FT_GET_SHORT() * 64;
     }
 
@@ -381,8 +367,7 @@
 #endif
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   tt_face_load_fpgm
@@ -410,8 +395,7 @@
     FT_Error  error;
     FT_ULong  table_len;
 
-
-    FT_TRACE2(( "Font program " ));
+FT_TRACE2(( "Font program " ));
 
     /* The font program is optional */
     error = face->goto_table( face, TTAG_fpgm, stream, &table_len );
@@ -445,8 +429,7 @@
 #endif
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   tt_face_load_prep
@@ -474,8 +457,7 @@
     FT_Error  error;
     FT_ULong  table_len;
 
-
-    FT_TRACE2(( "Prep program " ));
+FT_TRACE2(( "Prep program " ));
 
     error = face->goto_table( face, TTAG_prep, stream, &table_len );
     if ( error )
@@ -508,8 +490,7 @@
 #endif
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   tt_face_load_hdmx
@@ -539,8 +520,7 @@
     FT_Byte*   p;
     FT_Byte*   limit;
 
-
-    /* this table is optional */
+/* this table is optional */
     error = face->goto_table( face, TTAG_hdmx, stream, &table_size );
     if ( error || table_size < 8 )
       return FT_Err_Ok;
@@ -607,20 +587,17 @@
     goto Exit;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   tt_face_free_hdmx( TT_Face  face )
   {
     FT_Stream  stream = face->root.stream;
     FT_Memory  memory = stream->memory;
 
-
-    FT_FREE( face->hdmx_record_sizes );
+FT_FREE( face->hdmx_record_sizes );
     FT_FRAME_RELEASE( face->hdmx_table );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Return the advance width table for a given pixel size if it is found
    * in the font's `hdmx' table (if any).
@@ -635,8 +612,7 @@
     FT_ULong  record_size = face->hdmx_record_size;
     FT_Byte*  record      = FT_OFFSET( face->hdmx_table, 8 );
 
-
-    for ( nn = 0; nn < face->hdmx_record_count; nn++ )
+for ( nn = 0; nn < face->hdmx_record_count; nn++ )
       if ( face->hdmx_record_sizes[nn] == ppem )
       {
         gindex += 2;
@@ -647,6 +623,5 @@
 
     return result;
   }
-
 
 /* END */

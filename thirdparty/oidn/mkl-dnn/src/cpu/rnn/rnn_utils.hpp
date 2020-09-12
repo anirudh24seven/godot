@@ -21,7 +21,6 @@
 
 #include "cpu_rnn_pd.hpp"
 
-
 #define rnn_elemwise_sig(f)                                               \
     void f(const rnn_utils::rnn_conf_t &rnn, acc_data_t *ws_gates_,   \
             src_data_t *states_t_l_, float *c_states_t_l_,            \
@@ -68,7 +67,6 @@
             const int *gates_per_part, const size_t *part_weights_pack_size, \
             weights_data_t **weights_, const weights_data_t *w_,             \
             float **bias_, const float *b_, float *scratch_bias_) const
-
 
 namespace mkldnn {
 namespace impl {

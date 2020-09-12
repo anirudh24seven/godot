@@ -1,8 +1,6 @@
 
 /*  animation_tree_editor_plugin.cpp                                     */
 
-
-
 #include "animation_tree_editor_plugin.h"
 
 #include "animation_blend_space_1d_editor.h"

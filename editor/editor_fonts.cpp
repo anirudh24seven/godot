@@ -1,8 +1,6 @@
 
 /*  editor_fonts.cpp                                                     */
 
-
-
 #include "editor_fonts.h"
 
 #include "builtin_fonts.gen.h"

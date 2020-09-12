@@ -1,8 +1,6 @@
 
 /*  compressed_translation.cpp                                           */
 
-
-
 #include "compressed_translation.h"
 
 #include "core/pair.h"

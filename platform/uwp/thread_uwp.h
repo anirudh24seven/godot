@@ -1,8 +1,6 @@
 
 /*  thread_uwp.h                                                         */
 
-
-
 #ifndef THREAD_UWP_H
 #define THREAD_UWP_H
 

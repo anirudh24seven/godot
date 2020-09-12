@@ -1,8 +1,6 @@
 
 /*  editor_file_dialog.h                                                 */
 
-
-
 #ifndef EDITORFILEDIALOG_H
 #define EDITORFILEDIALOG_H
 

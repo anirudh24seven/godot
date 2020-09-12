@@ -1,8 +1,6 @@
 
 /*  context_gl_osx.h                                                     */
 
-
-
 #ifndef CONTEXT_GL_OSX_H
 #define CONTEXT_GL_OSX_H
 

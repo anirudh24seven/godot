@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -82,8 +80,7 @@ public:
                     TReal _c1, TReal _c2, TReal _c3, TReal _c4,
                     TReal _d1, TReal _d2, TReal _d3, TReal _d4);
 
-
-    /** construction from 3x3 matrix, remaining elements are set to identity */
+/** construction from 3x3 matrix, remaining elements are set to identity */
     explicit aiMatrix4x4t( const aiMatrix3x3t<TReal>& m);
 
     /** construction from position, rotation and scaling components
@@ -133,8 +130,7 @@ public:
     aiMatrix4x4t& Inverse();
     TReal Determinant() const;
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** @brief Returns true of the matrix is the identity matrix.
      *  The check is performed against a not so small epsilon.
      */
@@ -269,7 +265,6 @@ struct aiMatrix4x4 {
     ai_real c1, c2, c3, c4;
     ai_real d1, d2, d3, d4;
 };
-
 
 #endif // __cplusplus
 

@@ -1,8 +1,6 @@
 
 /*  editor_scale.cpp                                                     */
 
-
-
 #include "editor_scale.h"
 
 #include "core/os/os.h"

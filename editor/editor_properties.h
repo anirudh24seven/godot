@@ -1,8 +1,6 @@
 
 /*  editor_properties.h                                                  */
 
-
-
 #ifndef EDITOR_PROPERTIES_H
 #define EDITOR_PROPERTIES_H
 

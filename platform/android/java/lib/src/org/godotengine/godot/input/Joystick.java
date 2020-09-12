@@ -1,8 +1,6 @@
 
 /*  Joystick.java                                                        */
 
-
-
 package org.godotengine.godot.input;
 
 import android.view.InputDevice.MotionRange;

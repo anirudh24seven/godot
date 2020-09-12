@@ -1,8 +1,6 @@
 
 /*  default_theme.cpp                                                    */
 
-
-
 #include "default_theme.h"
 
 #include "scene/resources/theme.h"

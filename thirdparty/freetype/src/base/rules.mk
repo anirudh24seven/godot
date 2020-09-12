@@ -2,7 +2,6 @@
 # FreeType 2 base layer configuration rules
 #
 
-
 # Copyright (C) 1996-2020 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
@@ -11,7 +10,6 @@
 # LICENSE.TXT.  By continuing to use, modify, or distribute this file you
 # indicate that you have read the license and understand and accept it
 # fully.
-
 
 # It sets the following variables which are used by the master Makefile
 # after the call:
@@ -22,12 +20,10 @@
 #                 in `src/base' which are not compiled within the base
 #                 layer proper.
 
-
 BASE_COMPILE := $(CC) $(ANSIFLAGS)                             \
                       $I$(subst /,$(COMPILER_SEP),$(BASE_DIR)) \
                       $(INCLUDE_FLAGS)                         \
                       $(FT_CFLAGS)
-
 
 # Base layer sources
 #
@@ -54,7 +50,6 @@ BASE_SRC := $(BASE_DIR)/ftadvanc.c \
             $(BASE_DIR)/fttrigon.c \
             $(BASE_DIR)/ftutil.c
 
-
 ifneq ($(ftmac_c),)
   BASE_SRC += $(BASE_DIR)/$(ftmac_c)
 endif
@@ -76,7 +71,6 @@ BASE_EXT_SRC := $(patsubst %,$(BASE_DIR)/%,$(BASE_EXTENSIONS))
 #
 BASE_EXT_OBJ := $(BASE_EXT_SRC:$(BASE_DIR)/%.c=$(OBJ_DIR)/%.$O)
 
-
 # Base layer object(s)
 #
 #   BASE_OBJ_M is used during `multi' builds (each base source file compiles
@@ -92,17 +86,14 @@ BASE_OBJ_S := $(OBJ_DIR)/ftbase.$O
 #
 BASE_SRC_S := $(BASE_DIR)/ftbase.c
 
-
 # Base layer - single object build
 #
 $(BASE_OBJ_S): $(BASE_SRC_S) $(BASE_SRC) $(FREETYPE_H) $(BASE_H)
 	$(BASE_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $(BASE_SRC_S))
 
-
 # Multiple objects build + extensions
 #
 $(OBJ_DIR)/%.$O: $(BASE_DIR)/%.c $(FREETYPE_H) $(BASE_H)
 	$(BASE_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $<)
-
 
 # EOF

@@ -1,8 +1,6 @@
 
 /*  json.cpp                                                             */
 
-
-
 #include "json.h"
 
 #include "core/print_string.h"

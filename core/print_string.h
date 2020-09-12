@@ -1,8 +1,6 @@
 
 /*  print_string.h                                                       */
 
-
-
 #ifndef PRINT_STRING_H
 #define PRINT_STRING_H
 

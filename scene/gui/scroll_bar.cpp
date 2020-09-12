@@ -1,8 +1,6 @@
 
 /*  scroll_bar.cpp                                                       */
 
-
-
 #include "scroll_bar.h"
 
 #include "core/os/keyboard.h"

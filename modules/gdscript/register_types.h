@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef GDSCRIPT_REGISTER_TYPES_H
 #define GDSCRIPT_REGISTER_TYPES_H
 

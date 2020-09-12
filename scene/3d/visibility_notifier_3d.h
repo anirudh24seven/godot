@@ -1,8 +1,6 @@
 
 /*  visibility_notifier_3d.h                                             */
 
-
-
 #ifndef VISIBILITY_NOTIFIER_H
 #define VISIBILITY_NOTIFIER_H
 

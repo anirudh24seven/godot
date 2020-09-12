@@ -1,8 +1,6 @@
 
 /*  broad_phase_2d_hash_grid.cpp                                         */
 
-
-
 #include "broad_phase_2d_hash_grid.h"
 #include "collision_object_2d_sw.h"
 #include "core/project_settings.h"

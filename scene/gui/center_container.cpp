@@ -1,8 +1,6 @@
 
 /*  center_container.cpp                                                 */
 
-
-
 #include "center_container.h"
 
 Size2 CenterContainer::get_minimum_size() const {

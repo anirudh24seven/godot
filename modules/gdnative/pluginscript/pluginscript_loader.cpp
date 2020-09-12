@@ -1,8 +1,6 @@
 
 /*  pluginscript_loader.cpp                                              */
 
-
-
 // Godot imports
 #include "core/os/file_access.h"
 // Pythonscript imports

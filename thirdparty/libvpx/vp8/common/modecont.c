@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "entropy.h"
 
 const int vp8_mode_contexts[6][4] =

@@ -1,8 +1,6 @@
 
 /*  shape_owner_bullet.h                                                 */
 
-
-
 #ifndef SHAPE_OWNER_BULLET_H
 #define SHAPE_OWNER_BULLET_H
 

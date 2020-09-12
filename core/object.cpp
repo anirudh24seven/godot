@@ -1,8 +1,6 @@
 
 /*  object.cpp                                                           */
 
-
-
 #include "object.h"
 
 #include "core/class_db.h"

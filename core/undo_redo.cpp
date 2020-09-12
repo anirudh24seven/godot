@@ -1,8 +1,6 @@
 
 /*  undo_redo.cpp                                                        */
 
-
-
 #include "undo_redo.h"
 
 #include "core/os/os.h"

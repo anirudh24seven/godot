@@ -1,8 +1,6 @@
 
 /*  soft_body_3d.cpp                                                     */
 
-
-
 #include "soft_body_3d.h"
 
 #include "core/list.h"

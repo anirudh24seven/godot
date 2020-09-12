@@ -183,7 +183,6 @@ vpx_codec_err_t vp9_copy_reference_dec(VP9Decoder *pbi,
   return cm->error.error_code;
 }
 
-
 vpx_codec_err_t vp9_set_reference_dec(VP9_COMMON *cm,
                                       VP9_REFFRAME ref_frame_flag,
                                       YV12_BUFFER_CONFIG *sd) {
@@ -332,8 +331,7 @@ int vp9_receive_compressed_data(VP9Decoder *pbi,
     pbi->cur_buf = &frame_bufs[cm->new_fb_idx];
   }
 
-
-  if (setjmp(cm->error.jmp)) {
+if (setjmp(cm->error.jmp)) {
     const VPxWorkerInterface *const winterface = vpx_get_worker_interface();
     int i;
 

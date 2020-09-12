@@ -1,8 +1,6 @@
 
 /*  rendering_server_wrap_mt.h                                           */
 
-
-
 #ifndef RENDERING_SERVER_WRAP_MT_H
 #define RENDERING_SERVER_WRAP_MT_H
 

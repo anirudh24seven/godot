@@ -1,8 +1,6 @@
 
 /*  voxelizer.cpp                                                        */
 
-
-
 #include "voxelizer.h"
 #include "core/math/geometry_3d.h"
 #include "core/os/os.h"

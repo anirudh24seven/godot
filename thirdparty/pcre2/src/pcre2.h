@@ -309,7 +309,6 @@ pcre2_pattern_convert(). */
 #define PCRE2_ERROR_TOO_MANY_CAPTURES              197
 #define PCRE2_ERROR_CONDITION_ATOMIC_ASSERTION_EXPECTED  198
 
-
 /* "Expected" matching error codes: no match and partial match. */
 
 #define PCRE2_ERROR_NOMATCH          (-1)
@@ -395,7 +394,6 @@ released, the numbers must not be changed. */
 #define PCRE2_ERROR_INTERNAL_DUPMATCH (-65)
 #define PCRE2_ERROR_DFA_UINVALID_UTF  (-66)
 
-
 /* Request types for pcre2_pattern_info() */
 
 #define PCRE2_INFO_ALLOPTIONS            0
@@ -446,7 +444,6 @@ released, the numbers must not be changed. */
 #define PCRE2_CONFIG_NEVER_BACKSLASH_C      13
 #define PCRE2_CONFIG_COMPILED_WIDTHS        14
 
-
 /* Types for code units in patterns and subject strings. */
 
 typedef uint8_t  PCRE2_UCHAR8;
@@ -493,7 +490,6 @@ struct pcre2_real_jit_stack; \
 typedef struct pcre2_real_jit_stack pcre2_jit_stack; \
 \
 typedef pcre2_jit_stack *(*pcre2_jit_callback)(void *);
-
 
 /* The structures for passing out data via callout functions. We use structures
 so that new fields can be added on the end in future versions, without changing
@@ -554,14 +550,12 @@ typedef struct pcre2_substitute_callout_block { \
   /* ------------------------------------------------------------------ */ \
 } pcre2_substitute_callout_block;
 
-
 /* List the generic forms of all other functions in macros, which will be
 expanded for each width below. Start with functions that give general
 information. */
 
 #define PCRE2_GENERAL_INFO_FUNCTIONS \
 PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION pcre2_config(uint32_t, void *);
-
 
 /* Functions for manipulating contexts. */
 
@@ -636,7 +630,6 @@ PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
 PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
   pcre2_set_glob_separator(pcre2_convert_context *, uint32_t);
 
-
 /* Functions concerned with compiling a pattern to PCRE internal code. */
 
 #define PCRE2_COMPILE_FUNCTIONS \
@@ -650,7 +643,6 @@ PCRE2_EXP_DECL pcre2_code PCRE2_CALL_CONVENTION \
 PCRE2_EXP_DECL pcre2_code PCRE2_CALL_CONVENTION \
   *pcre2_code_copy_with_tables(const pcre2_code *);
 
-
 /* Functions that give information about a compiled pattern. */
 
 #define PCRE2_PATTERN_INFO_FUNCTIONS \
@@ -659,7 +651,6 @@ PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
 PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
   pcre2_callout_enumerate(const pcre2_code *, \
     int (*)(pcre2_callout_enumerate_block *, void *), void *);
-
 
 /* Functions for running a match and inspecting the result. */
 
@@ -687,7 +678,6 @@ PCRE2_EXP_DECL PCRE2_SIZE PCRE2_CALL_CONVENTION \
   *pcre2_get_ovector_pointer(pcre2_match_data *); \
 PCRE2_EXP_DECL PCRE2_SIZE PCRE2_CALL_CONVENTION \
   pcre2_get_startchar(pcre2_match_data *);
-
 
 /* Convenience functions for handling matched substrings. */
 
@@ -734,7 +724,6 @@ PCRE2_EXP_DECL int32_t PCRE2_CALL_CONVENTION \
 PCRE2_EXP_DECL void PCRE2_CALL_CONVENTION \
   pcre2_serialize_free(uint8_t *);
 
-
 /* Convenience function for match + substitute. */
 
 #define PCRE2_SUBSTITUTE_FUNCTION \
@@ -742,7 +731,6 @@ PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
   pcre2_substitute(const pcre2_code *, PCRE2_SPTR, PCRE2_SIZE, PCRE2_SIZE, \
     uint32_t, pcre2_match_data *, pcre2_match_context *, PCRE2_SPTR, \
     PCRE2_SIZE, PCRE2_UCHAR *, PCRE2_SIZE *);
-
 
 /* Functions for converting pattern source strings. */
 
@@ -752,7 +740,6 @@ PCRE2_EXP_DECL int PCRE2_CALL_CONVENTION \
     PCRE2_SIZE *, pcre2_convert_context *); \
 PCRE2_EXP_DECL void PCRE2_CALL_CONVENTION \
   pcre2_converted_pattern_free(PCRE2_UCHAR *);
-
 
 /* Functions for JIT processing */
 
@@ -770,7 +757,6 @@ PCRE2_EXP_DECL void PCRE2_CALL_CONVENTION \
   pcre2_jit_stack_assign(pcre2_match_context *, pcre2_jit_callback, void *); \
 PCRE2_EXP_DECL void PCRE2_CALL_CONVENTION \
   pcre2_jit_stack_free(pcre2_jit_stack *);
-
 
 /* Other miscellaneous functions. */
 
@@ -793,7 +779,6 @@ pcre2_compile are called by application code. */
 #define PCRE2_GLUE(a,b) PCRE2_JOIN(a,b)
 #define PCRE2_SUFFIX(a) PCRE2_GLUE(a,PCRE2_LOCAL_WIDTH)
 
-
 /* Data types */
 
 #define PCRE2_UCHAR                 PCRE2_SUFFIX(PCRE2_UCHAR)
@@ -811,7 +796,6 @@ pcre2_compile are called by application code. */
 #define pcre2_real_jit_stack        PCRE2_SUFFIX(pcre2_real_jit_stack_)
 #define pcre2_real_match_data       PCRE2_SUFFIX(pcre2_real_match_data_)
 
-
 /* Data blocks */
 
 #define pcre2_callout_block            PCRE2_SUFFIX(pcre2_callout_block_)
@@ -822,7 +806,6 @@ pcre2_compile are called by application code. */
 #define pcre2_convert_context          PCRE2_SUFFIX(pcre2_convert_context_)
 #define pcre2_match_context            PCRE2_SUFFIX(pcre2_match_context_)
 #define pcre2_match_data               PCRE2_SUFFIX(pcre2_match_data_)
-
 
 /* Functions: the complete list in alphabetical order */
 

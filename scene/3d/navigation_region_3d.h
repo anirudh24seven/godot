@@ -1,8 +1,6 @@
 
 /*  navigation_region_3d.h                                               */
 
-
-
 #ifndef NAVIGATION_REGION_H
 #define NAVIGATION_REGION_H
 

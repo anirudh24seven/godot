@@ -1,8 +1,6 @@
 
 /*  platform_config.h                                                    */
 
-
-
 #include <alloca.h>
 
 #define PLATFORM_REFCOUNT

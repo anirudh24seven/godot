@@ -30,7 +30,6 @@
 #define AVX512_BLOCKING_SMALL_K           48
 #define AVX512_BN_SMALL_K                 24
 
-
 #define PAGESIZE 4096
 
 #define PADD_BYTESIZE_ONPAGE(x, size) (((x) * (size) + PAGESIZE - 1) / PAGESIZE) * PAGESIZE
@@ -142,7 +141,6 @@ typedef struct {
     int swap;
 
 } blas_t;
-
 
 class jit_avx512_core_u8_copy_an_kern : public jit_generator {
     DECLARE_CPU_JIT_AUX_FUNCTIONS(jit_avx512_core_u8_copy_an_kern);

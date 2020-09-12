@@ -455,7 +455,6 @@ int mbedtls_ctr_drbg_random_with_add( void *p_rng,
 int mbedtls_ctr_drbg_random( void *p_rng,
                      unsigned char *output, size_t output_len );
 
-
 #if ! defined(MBEDTLS_DEPRECATED_REMOVED)
 #if defined(MBEDTLS_DEPRECATED_WARNING)
 #define MBEDTLS_DEPRECATED    __attribute__((deprecated))

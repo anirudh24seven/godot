@@ -1,8 +1,6 @@
 
 /*  key_mapping_x11.h                                                    */
 
-
-
 #ifndef KEY_MAPPING_X11_H
 #define KEY_MAPPING_X11_H
 

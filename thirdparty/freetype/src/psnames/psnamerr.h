@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This file is used to define the PS names module error enumeration
    * constants.
@@ -37,6 +36,5 @@
 #include FT_ERRORS_H
 
 #endif /* PSNAMERR_H_ */
-
 
 /* END */

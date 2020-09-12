@@ -1,8 +1,6 @@
 
 /*  webrtc_data_channel.cpp                                              */
 
-
-
 #include "webrtc_data_channel.h"
 #include "core/project_settings.h"
 

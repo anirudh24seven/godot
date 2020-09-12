@@ -1,8 +1,6 @@
 
 /*  android_support.h                                                    */
 
-
-
 #ifndef ANDROID_SUPPORT_H
 #define ANDROID_SUPPORT_H
 

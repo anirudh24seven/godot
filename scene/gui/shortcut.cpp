@@ -1,8 +1,6 @@
 
 /*  shortcut.cpp                                                         */
 
-
-
 #include "shortcut.h"
 
 #include "core/os/keyboard.h"

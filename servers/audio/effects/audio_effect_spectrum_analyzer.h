@@ -1,8 +1,6 @@
 
 /*  audio_effect_spectrum_analyzer.h                                     */
 
-
-
 #ifndef AUDIO_EFFECT_SPECTRUM_ANALYZER_H
 #define AUDIO_EFFECT_SPECTRUM_ANALYZER_H
 

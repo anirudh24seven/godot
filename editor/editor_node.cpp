@@ -1,8 +1,6 @@
 
 /*  editor_node.cpp                                                      */
 
-
-
 #include "editor_node.h"
 
 #include "core/bind/core_bind.h"

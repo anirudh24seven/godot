@@ -1,8 +1,6 @@
 
 /*  audio_driver_wasapi.h                                                */
 
-
-
 #ifndef AUDIO_DRIVER_WASAPI_H
 #define AUDIO_DRIVER_WASAPI_H
 

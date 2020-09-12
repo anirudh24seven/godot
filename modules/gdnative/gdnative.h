@@ -1,8 +1,6 @@
 
 /*  gdnative.h                                                           */
 
-
-
 #ifndef GDNATIVE_H
 #define GDNATIVE_H
 

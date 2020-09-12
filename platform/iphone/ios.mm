@@ -1,8 +1,6 @@
 
 /*  ios.mm                                                               */
 
-
-
 #include "ios.h"
 #import "app_delegate.h"
 #import <UIKit/UIKit.h>

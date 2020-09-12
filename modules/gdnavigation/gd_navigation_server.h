@@ -1,8 +1,6 @@
 
 /*  gd_navigation_server.h                                               */
 
-
-
 #ifndef GD_NAVIGATION_SERVER_H
 #define GD_NAVIGATION_SERVER_H
 

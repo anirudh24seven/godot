@@ -1,8 +1,6 @@
 
 /*  class_db_api_json.cpp                                                */
 
-
-
 #include "class_db_api_json.h"
 
 #ifdef DEBUG_METHODS_ENABLED

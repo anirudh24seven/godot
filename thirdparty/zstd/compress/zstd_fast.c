@@ -11,7 +11,6 @@
 #include "zstd_compress_internal.h"  /* ZSTD_hashPtr, ZSTD_count, ZSTD_storeSeq */
 #include "zstd_fast.h"
 
-
 void ZSTD_fillHashTable(ZSTD_matchState_t* ms,
                         const void* const end,
                         ZSTD_dictTableLoadMethod_e dtlm)
@@ -41,7 +40,6 @@ void ZSTD_fillHashTable(ZSTD_matchState_t* ms,
                     hashTable[hash] = current + p;
     }   }   }   }
 }
-
 
 FORCE_INLINE_TEMPLATE size_t
 ZSTD_compressBlock_fast_generic(
@@ -170,7 +168,6 @@ _match: /* Requires: ip0, match0, offcode */
     /* Return the last literals size */
     return (size_t)(iend - anchor);
 }
-
 
 size_t ZSTD_compressBlock_fast(
         ZSTD_matchState_t* ms, seqStore_t* seqStore, U32 rep[ZSTD_REP_NUM],
@@ -360,7 +357,6 @@ size_t ZSTD_compressBlock_fast_dictMatchState(
     }
 }
 
-
 static size_t ZSTD_compressBlock_fast_extDict_generic(
         ZSTD_matchState_t* ms, seqStore_t* seqStore, U32 rep[ZSTD_REP_NUM],
         void const* src, size_t srcSize, U32 const mls)
@@ -462,7 +458,6 @@ static size_t ZSTD_compressBlock_fast_extDict_generic(
     /* Return the last literals size */
     return (size_t)(iend - anchor);
 }
-
 
 size_t ZSTD_compressBlock_fast_extDict(
         ZSTD_matchState_t* ms, seqStore_t* seqStore, U32 rep[ZSTD_REP_NUM],

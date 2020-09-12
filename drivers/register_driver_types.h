@@ -1,8 +1,6 @@
 
 /*  register_driver_types.h                                              */
 
-
-
 #ifndef REGISTER_DRIVER_TYPES_H
 #define REGISTER_DRIVER_TYPES_H
 

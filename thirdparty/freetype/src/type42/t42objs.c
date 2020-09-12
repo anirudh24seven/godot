@@ -15,7 +15,6 @@
  *
  */
 
-
 #include "t42objs.h"
 #include "t42parse.h"
 #include "t42error.h"
@@ -23,12 +22,10 @@
 #include FT_LIST_H
 #include FT_TRUETYPE_IDS_H
 
-
 #undef  FT_COMPONENT
 #define FT_COMPONENT  t42
 
-
-  static FT_Error
+static FT_Error
   T42_Open_Face( T42_Face  face )
   {
     T42_LoaderRec  loader;
@@ -39,8 +36,7 @@
 
     PSAux_Service  psaux  = (PSAux_Service)face->psaux;
 
-
-    t42_loader_init( &loader, face );
+t42_loader_init( &loader, face );
 
     parser = &loader.parser;
 
@@ -100,8 +96,7 @@
     {
       FT_Int  charcode, idx, min_char, max_char;
 
-
-      /* OK, we do the following: for each element in the encoding   */
+/* OK, we do the following: for each element in the encoding   */
       /* table, look up the index of the glyph having the same name  */
       /* as defined in the CharStrings array.                        */
       /* The index is then stored in type1.encoding.char_index, and  */
@@ -116,8 +111,7 @@
         const FT_String*  char_name =
               (const FT_String*)loader.encoding_table.elements[charcode];
 
-
-        type1->encoding.char_index[charcode] = 0;
+type1->encoding.char_index[charcode] = 0;
         type1->encoding.char_name [charcode] = ".notdef";
 
         if ( char_name )
@@ -125,8 +119,7 @@
           {
             const FT_String*  glyph_name = type1->glyph_names[idx];
 
-
-            if ( ft_strcmp( char_name, glyph_name ) == 0 )
+if ( ft_strcmp( char_name, glyph_name ) == 0 )
             {
               type1->encoding.char_index[charcode] = (FT_UShort)idx;
               type1->encoding.char_name [charcode] = glyph_name;
@@ -155,11 +148,9 @@
     return error;
   }
 
+/***************** Driver Functions *************/
 
-  /***************** Driver Functions *************/
-
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T42_Face_Init( FT_Stream      stream,
                  FT_Face        t42face,       /* T42_Face */
                  FT_Int         face_index,
@@ -178,8 +169,7 @@
     FT_UNUSED( params );
     FT_UNUSED( stream );
 
-
-    face->ttf_face       = NULL;
+face->ttf_face       = NULL;
     face->root.num_faces = 1;
 
     FT_FACE_FIND_GLOBAL_SERVICE( face, psnames, POSTSCRIPT_CMAPS );
@@ -246,8 +236,7 @@
       char*  full   = info->full_name;
       char*  family = root->family_name;
 
-
-      if ( full )
+if ( full )
       {
         while ( *full )
         {
@@ -287,8 +276,7 @@
     {
       FT_Open_Args  args;
 
-
-      args.flags       = FT_OPEN_MEMORY | FT_OPEN_DRIVER;
+args.flags       = FT_OPEN_MEMORY | FT_OPEN_DRIVER;
       args.driver      = FT_Get_Module( FT_FACE_LIBRARY( face ),
                                         "truetype" );
       args.memory_base = face->ttf_data;
@@ -343,8 +331,7 @@
         T1_CMap_Classes  cmap_classes = psaux->t1_cmap_classes;
         FT_CMap_Class    clazz;
 
-
-        charmap.face = root;
+charmap.face = root;
 
         /* first of all, try to synthesize a Unicode charmap */
         charmap.platform_id = TT_PLATFORM_MICROSOFT;
@@ -400,8 +387,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   T42_Face_Done( FT_Face  t42face )
   {
     T42_Face     face = (T42_Face)t42face;
@@ -409,8 +395,7 @@
     PS_FontInfo  info;
     FT_Memory    memory;
 
-
-    if ( !face )
+if ( !face )
       return;
 
     type1  = &face->type1;
@@ -456,8 +441,7 @@
     face->root.style_name  = NULL;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   T42_Driver_Init
@@ -478,8 +462,7 @@
     T42_Driver  driver = (T42_Driver)module;
     FT_Module   ttmodule;
 
-
-    ttmodule = FT_Get_Module( module->library, "truetype" );
+ttmodule = FT_Get_Module( module->library, "truetype" );
     if ( !ttmodule )
     {
       FT_ERROR(( "T42_Driver_Init: cannot access `truetype' module\n" ));
@@ -491,15 +474,13 @@
     return FT_Err_Ok;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   T42_Driver_Done( FT_Module  module )
   {
     FT_UNUSED( module );
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T42_Size_Init( FT_Size  size )         /* T42_Size */
   {
     T42_Size  t42size = (T42_Size)size;
@@ -508,8 +489,7 @@
     FT_Size   ttsize;
     FT_Error  error;
 
-
-    error = FT_New_Size( t42face->ttf_face, &ttsize );
+error = FT_New_Size( t42face->ttf_face, &ttsize );
     t42size->ttsize = ttsize;
 
     FT_Activate_Size( ttsize );
@@ -517,8 +497,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T42_Size_Request( FT_Size          t42size,      /* T42_Size */
                     FT_Size_Request  req )
   {
@@ -526,8 +505,7 @@
     T42_Face  face = (T42_Face)t42size->face;
     FT_Error  error;
 
-
-    FT_Activate_Size( size->ttsize );
+FT_Activate_Size( size->ttsize );
 
     error = FT_Request_Size( face->ttf_face, req );
     if ( !error )
@@ -536,8 +514,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T42_Size_Select( FT_Size   t42size,         /* T42_Size */
                    FT_ULong  strike_index )
   {
@@ -545,8 +522,7 @@
     T42_Face  face = (T42_Face)t42size->face;
     FT_Error  error;
 
-
-    FT_Activate_Size( size->ttsize );
+FT_Activate_Size( size->ttsize );
 
     error = FT_Select_Size( face->ttf_face, (FT_Int)strike_index );
     if ( !error )
@@ -556,8 +532,7 @@
 
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   T42_Size_Done( FT_Size  t42size )             /* T42_Size */
   {
     T42_Size     size    = (T42_Size)t42size;
@@ -565,8 +540,7 @@
     T42_Face     t42face = (T42_Face)face;
     FT_ListNode  node;
 
-
-    node = FT_List_Find( &t42face->ttf_face->sizes_list, size->ttsize );
+node = FT_List_Find( &t42face->ttf_face->sizes_list, size->ttsize );
     if ( node )
     {
       FT_Done_Size( size->ttsize );
@@ -574,8 +548,7 @@
     }
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T42_GlyphSlot_Init( FT_GlyphSlot  t42slot )        /* T42_GlyphSlot */
   {
     T42_GlyphSlot  slot    = (T42_GlyphSlot)t42slot;
@@ -584,8 +557,7 @@
     FT_GlyphSlot   ttslot;
     FT_Error       error   = FT_Err_Ok;
 
-
-    if ( !face->glyph )
+if ( !face->glyph )
     {
       /* First glyph slot for this face */
       slot->ttslot = t42face->ttf_face->glyph;
@@ -599,18 +571,15 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   T42_GlyphSlot_Done( FT_GlyphSlot  t42slot )       /* T42_GlyphSlot */
   {
     T42_GlyphSlot  slot = (T42_GlyphSlot)t42slot;
 
-
-    FT_Done_GlyphSlot( slot->ttslot );
+FT_Done_GlyphSlot( slot->ttslot );
   }
 
-
-  static void
+static void
   t42_glyphslot_clear( FT_GlyphSlot  slot )
   {
     /* free bitmap if needed */
@@ -634,8 +603,7 @@
     slot->linearVertAdvance = 0;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   T42_GlyphSlot_Load( FT_GlyphSlot  glyph,
                       FT_Size       size,
                       FT_UInt       glyph_index,
@@ -647,8 +615,7 @@
     T42_Face         t42face = (T42_Face)size->face;
     FT_Driver_Class  ttclazz = ((T42_Driver)glyph->face->driver)->ttclazz;
 
-
-    FT_TRACE1(( "T42_GlyphSlot_Load: glyph index %d\n", glyph_index ));
+FT_TRACE1(( "T42_GlyphSlot_Load: glyph index %d\n", glyph_index ));
 
     /* map T42 glyph index to embedded TTF's glyph index */
     glyph_index = (FT_UInt)ft_strtol(
@@ -684,6 +651,5 @@
 
     return error;
   }
-
 
 /* END */

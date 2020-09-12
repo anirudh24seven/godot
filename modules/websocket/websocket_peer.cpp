@@ -1,8 +1,6 @@
 
 /*  websocket_peer.cpp                                                   */
 
-
-
 #include "websocket_peer.h"
 
 GDCINULL(WebSocketPeer);

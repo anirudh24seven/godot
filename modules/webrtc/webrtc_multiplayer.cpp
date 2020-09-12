@@ -1,8 +1,6 @@
 
 /*  webrtc_multiplayer.cpp                                               */
 
-
-
 #include "webrtc_multiplayer.h"
 
 #include "core/io/marshalls.h"

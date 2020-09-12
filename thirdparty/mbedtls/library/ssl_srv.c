@@ -878,7 +878,6 @@ static int ssl_ciphersuite_match( mbedtls_ssl_context *ssl, int suite_id,
     }
 #endif
 
-
 #if defined(MBEDTLS_ECDH_C) || defined(MBEDTLS_ECDSA_C)
     if( mbedtls_ssl_ciphersuite_uses_ec( suite_info ) &&
         ( ssl->handshake->curves == NULL ||

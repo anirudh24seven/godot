@@ -1,8 +1,6 @@
 
 /*  editor_help.cpp                                                      */
 
-
-
 #include "editor_help.h"
 
 #include "core/input/input.h"

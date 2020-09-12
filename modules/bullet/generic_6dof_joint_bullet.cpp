@@ -1,8 +1,6 @@
 
 /*  generic_6dof_joint_bullet.cpp                                        */
 
-
-
 #include "generic_6dof_joint_bullet.h"
 
 #include "bullet_types_converter.h"

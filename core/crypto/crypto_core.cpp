@@ -1,8 +1,6 @@
 
 /*  crypto_core.cpp                                                      */
 
-
-
 #include "crypto_core.h"
 
 #include <mbedtls/aes.h>

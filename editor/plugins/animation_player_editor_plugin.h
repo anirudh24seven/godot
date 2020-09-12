@@ -1,8 +1,6 @@
 
 /*  animation_player_editor_plugin.h                                     */
 
-
-
 #ifndef ANIMATION_PLAYER_EDITOR_PLUGIN_H
 #define ANIMATION_PLAYER_EDITOR_PLUGIN_H
 

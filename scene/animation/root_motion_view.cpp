@@ -1,8 +1,6 @@
 
 /*  root_motion_view.cpp                                                 */
 
-
-
 #include "root_motion_view.h"
 #include "scene/animation/animation_tree.h"
 #include "scene/resources/material.h"

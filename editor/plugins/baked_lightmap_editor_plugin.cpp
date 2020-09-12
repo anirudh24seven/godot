@@ -1,8 +1,6 @@
 
 /*  baked_lightmap_editor_plugin.cpp                                     */
 
-
-
 #include "baked_lightmap_editor_plugin.h"
 
 void BakedLightmapEditorPlugin::_bake_select_file(const String &p_file) {

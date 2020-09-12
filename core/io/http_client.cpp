@@ -1,8 +1,6 @@
 
 /*  http_client.cpp                                                      */
 
-
-
 #include "http_client.h"
 
 #include "core/io/stream_peer_ssl.h"

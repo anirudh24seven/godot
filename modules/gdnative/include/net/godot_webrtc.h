@@ -1,8 +1,6 @@
 
 /*  godot_webrtc.h                                                       */
 
-
-
 #ifndef GODOT_NATIVEWEBRTC_H
 #define GODOT_NATIVEWEBRTC_H
 

@@ -1,8 +1,6 @@
 
 /*  editor_visual_profiler.h                                             */
 
-
-
 #ifndef EDITOR_FRAME_PROFILER_H
 #define EDITOR_FRAME_PROFILER_H
 

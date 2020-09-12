@@ -1,8 +1,6 @@
 
 /*  arkit_interface.h                                                    */
 
-
-
 #ifndef ARKIT_INTERFACE_H
 #define ARKIT_INTERFACE_H
 

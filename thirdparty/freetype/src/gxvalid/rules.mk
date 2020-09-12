@@ -2,7 +2,6 @@
 # FreeType 2 TrueTypeGX/AAT validation driver configuration rules
 #
 
-
 # Copyright (C) 2004-2020 by
 # suzuki toshiya, Masatake YAMATO, Red Hat K.K.,
 # David Turner, Robert Wilhelm, and Werner Lemberg.
@@ -13,11 +12,9 @@
 # indicate that you have read the license and understand and accept it
 # fully.
 
-
 # GXV driver directory
 #
 GXV_DIR := $(SRC_DIR)/gxvalid
-
 
 # compilation flags for the driver
 #
@@ -25,7 +22,6 @@ GXV_COMPILE := $(CC) $(ANSIFLAGS)                            \
                      $I$(subst /,$(COMPILER_SEP),$(GXV_DIR)) \
                      $(INCLUDE_FLAGS)                        \
                      $(FT_CFLAGS)
-
 
 # GXV driver sources (i.e., C files)
 #
@@ -62,7 +58,6 @@ GXV_DRV_H := $(GXV_DIR)/gxvalid.h  \
              $(GXV_DIR)/gxvmort.h  \
              $(GXV_DIR)/gxvmorx.h
 
-
 # GXV driver object(s)
 #
 #   GXV_DRV_OBJ_M is used during `multi' builds.
@@ -75,24 +70,20 @@ GXV_DRV_OBJ_S := $(OBJ_DIR)/gxvalid.$O
 #
 GXV_DRV_SRC_S := $(GXV_DIR)/gxvalid.c
 
-
 # GXV driver - single object
 #
 $(GXV_DRV_OBJ_S): $(GXV_DRV_SRC_S) $(GXV_DRV_SRC) \
                    $(FREETYPE_H) $(GXV_DRV_H)
 	$(GXV_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $(GXV_DRV_SRC_S))
 
-
 # GXV driver - multiple objects
 #
 $(OBJ_DIR)/%.$O: $(GXV_DIR)/%.c $(FREETYPE_H) $(GXV_DRV_H)
 	$(GXV_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $<)
 
-
 # update main driver object lists
 #
 DRV_OBJS_S += $(GXV_DRV_OBJ_S)
 DRV_OBJS_M += $(GXV_DRV_OBJ_M)
-
 
 # EOF

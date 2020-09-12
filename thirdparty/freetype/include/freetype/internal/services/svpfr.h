@@ -15,21 +15,17 @@
  *
  */
 
-
 #ifndef SVPFR_H_
 #define SVPFR_H_
 
 #include FT_PFR_H
 #include FT_INTERNAL_SERVICE_H
 
-
 FT_BEGIN_HEADER
-
 
 #define FT_SERVICE_ID_PFR_METRICS  "pfr-metrics"
 
-
-  typedef FT_Error
+typedef FT_Error
   (*FT_PFR_GetMetricsFunc)( FT_Face    face,
                             FT_UInt   *aoutline,
                             FT_UInt   *ametrics,
@@ -47,8 +43,7 @@ FT_BEGIN_HEADER
                             FT_UInt   gindex,
                             FT_Pos   *aadvance );
 
-
-  FT_DEFINE_SERVICE( PfrMetrics )
+FT_DEFINE_SERVICE( PfrMetrics )
   {
     FT_PFR_GetMetricsFunc  get_metrics;
     FT_PFR_GetKerningFunc  get_kerning;
@@ -61,6 +56,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* SVPFR_H_ */
-
 
 /* END */

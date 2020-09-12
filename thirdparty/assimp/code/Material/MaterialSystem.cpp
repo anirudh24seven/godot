@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -393,7 +392,6 @@ aiReturn aiGetMaterialTexture(const C_STRUCT aiMaterial* mat,
 
     return AI_SUCCESS;
 }
-
 
 static const unsigned int DefaultNumAllocated = 5;
 

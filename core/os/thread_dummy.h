@@ -1,8 +1,6 @@
 
 /*  thread_dummy.h                                                       */
 
-
-
 #ifndef THREAD_DUMMY_H
 #define THREAD_DUMMY_H
 

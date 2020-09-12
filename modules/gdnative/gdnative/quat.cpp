@@ -1,8 +1,6 @@
 
 /*  quat.cpp                                                             */
 
-
-
 #include "gdnative/quat.h"
 
 #include "core/math/quat.h"

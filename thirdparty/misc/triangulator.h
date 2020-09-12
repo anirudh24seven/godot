@@ -33,9 +33,7 @@
 class TriangulatorPoly {
 protected:
 
-
-
-	Vector2 *points;
+Vector2 *points;
 	long numpoints;
 	bool hole;
 
@@ -301,6 +299,5 @@ public:
 	//returns 1 on success, 0 on failure
 	int ConvexPartition_OPT(TriangulatorPoly *poly, List<TriangulatorPoly> *parts);
 };
-
 
 #endif

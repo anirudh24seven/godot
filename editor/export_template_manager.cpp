@@ -1,8 +1,6 @@
 
 /*  export_template_manager.cpp                                          */
 
-
-
 #include "export_template_manager.h"
 
 #include "core/input/input.h"

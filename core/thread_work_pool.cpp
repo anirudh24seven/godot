@@ -1,8 +1,6 @@
 
 /*  thread_work_pool.cpp                                                 */
 
-
-
 #include "thread_work_pool.h"
 
 #include "core/os/os.h"

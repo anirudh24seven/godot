@@ -68,7 +68,6 @@ opus_int32 silk_noise_shape_quantizer_short_prediction_neon(const opus_int32 *bu
     return out;
 }
 
-
 opus_int32 silk_NSQ_noise_shape_feedback_loop_neon(const opus_int32 *data0, opus_int32 *data1, const opus_int16 *coef, opus_int order)
 {
     opus_int32 out;

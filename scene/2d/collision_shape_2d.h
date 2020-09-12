@@ -1,8 +1,6 @@
 
 /*  collision_shape_2d.h                                                 */
 
-
-
 #ifndef COLLISION_SHAPE_2D_H
 #define COLLISION_SHAPE_2D_H
 

@@ -1,8 +1,6 @@
 
 /*  app_delegate.mm                                                      */
 
-
-
 #import "app_delegate.h"
 #include "core/project_settings.h"
 #include "drivers/coreaudio/audio_driver_coreaudio.h"

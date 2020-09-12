@@ -1,14 +1,12 @@
 //keep this enum in sync with the CPU version (in btCollidable.h)
 //written by Erwin Coumans
 
-
 #define SHAPE_CONVEX_HULL 3
 #define SHAPE_CONCAVE_TRIMESH 5
 #define TRIANGLE_NUM_CONVEX_FACES 5
 #define SHAPE_COMPOUND_OF_CONVEX_HULLS 6
 
 #define B3_MAX_STACK_DEPTH 256
-
 
 typedef unsigned int u32;
 
@@ -55,7 +53,6 @@ typedef struct
 
 } b3BvhInfo;
 
-
 int	getTriangleIndex(const b3QuantizedBvhNode* rootNode)
 {
 	unsigned int x=0;
@@ -94,7 +91,6 @@ int getEscapeIndexGlobal(__global const b3QuantizedBvhNode* rootNode)
 	return -rootNode->m_escapeIndexOrTriangleIndex;
 }
 
-
 typedef struct
 {
 	//12 bytes
@@ -107,12 +103,6 @@ typedef struct
 	int			m_padding[3];
 } b3BvhSubtreeInfo;
 
-
-
-
-
-
-
 typedef struct
 {
 	float4	m_childPosition;
@@ -122,7 +112,6 @@ typedef struct
 	int m_unused1;
 	int m_unused2;
 } btGpuChildShape;
-
 
 typedef struct
 {
@@ -137,8 +126,7 @@ typedef struct
 	float m_frictionCoeff;
 } BodyData;
 
-
-typedef struct  
+typedef struct
 {
 	float4		m_localCenter;
 	float4		m_extents;
@@ -175,8 +163,6 @@ typedef struct
 #include "Bullet3Collision/BroadPhaseCollision/shared/b3Aabb.h"
 #include "Bullet3Common/shared/b3Int2.h"
 
-
-
 typedef struct
 {
 	float4 m_plane;
@@ -186,13 +172,11 @@ typedef struct
 
 #define make_float4 (float4)
 
-
 __inline
 float4 cross3(float4 a, float4 b)
 {
 	return cross(a,b);
 
-	
 //	float4 a1 = make_float4(a.xyz,0.f);
 //	float4 b1 = make_float4(b.xyz,0.f);
 
@@ -220,7 +204,6 @@ float4 fastNormalize4(float4 v)
 	return fast_normalize(v);
 }
 
-
 ///////////////////////////////////////
 //	Quaternion
 ///////////////////////////////////////
@@ -238,9 +221,6 @@ float4 qtRotate(Quaternion q, float4 vec);
 
 __inline
 Quaternion qtInvert(Quaternion q);
-
-
-
 
 __inline
 Quaternion qtMul(Quaternion a, Quaternion b)
@@ -287,8 +267,6 @@ float4 transform(const float4* p, const float4* translation, const Quaternion* o
 {
 	return qtRotate( *orientation, *p ) + (*translation);
 }
-
-
 
 __inline
 float4 normalize3(const float4 a)
@@ -370,9 +348,6 @@ inline bool TestSepAxisLocalA(const ConvexPolyhedronCL* hullA, __global const Co
 	return true;
 }
 
-
-
-
 inline bool IsAlmostZero(const float4 v)
 {
 	if(fabs(v.x)>1e-6f || fabs(v.y)>1e-6f || fabs(v.z)>1e-6f)
@@ -380,9 +355,7 @@ inline bool IsAlmostZero(const float4 v)
 	return true;
 }
 
-
-
-bool findSeparatingAxisLocalA(	const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB, 
+bool findSeparatingAxisLocalA(	const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB,
 	const float4 posA1,
 	const float4 ornA,
 	const float4 posB1,
@@ -401,9 +374,8 @@ bool findSeparatingAxisLocalA(	const ConvexPolyhedronCL* hullA, __global const C
 	float4* sep,
 	float* dmin)
 {
-	
 
-	float4 posA = posA1;
+float4 posA = posA1;
 	posA.w = 0.f;
 	float4 posB = posB1;
 	posB.w = 0.f;
@@ -453,8 +425,7 @@ bool findSeparatingAxisLocalB(	__global const ConvexPolyhedronCL* hullA,  const 
 	float* dmin)
 {
 
-
-	float4 posA = posA1;
+float4 posA = posA1;
 	posA.w = 0.f;
 	float4 posB = posB1;
 	posB.w = 0.f;
@@ -486,9 +457,7 @@ bool findSeparatingAxisLocalB(	__global const ConvexPolyhedronCL* hullA,  const 
 	return true;
 }
 
-
-
-bool findSeparatingAxisEdgeEdgeLocalA(	const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB, 
+bool findSeparatingAxisEdgeEdgeLocalA(	const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB,
 	const float4 posA1,
 	const float4 ornA,
 	const float4 posB1,
@@ -506,8 +475,7 @@ bool findSeparatingAxisEdgeEdgeLocalA(	const ConvexPolyhedronCL* hullA, __global
 	float* dmin)
 {
 
-
-	float4 posA = posA1;
+float4 posA = posA1;
 	posA.w = 0.f;
 	float4 posB = posB1;
 	posB.w = 0.f;
@@ -526,8 +494,7 @@ bool findSeparatingAxisEdgeEdgeLocalA(	const ConvexPolyhedronCL* hullA, __global
 			const float4 edge1 = uniqueEdgesB[hullB->m_uniqueEdgesOffset+e1];
 			float4 edge1World = qtRotate(ornB,edge1);
 
-
-			float4 crossje = cross3(edge0World,edge1World);
+float4 crossje = cross3(edge0World,edge1World);
 
 			curEdgeEdge++;
 			if(!IsAlmostZero(crossje))
@@ -553,9 +520,8 @@ bool findSeparatingAxisEdgeEdgeLocalA(	const ConvexPolyhedronCL* hullA, __global
 					result = true;
 
 				}
-				
 
-				if(dist<*dmin)
+if(dist<*dmin)
 				{
 					*dmin = dist;
 					*sep = crossje;
@@ -565,16 +531,14 @@ bool findSeparatingAxisEdgeEdgeLocalA(	const ConvexPolyhedronCL* hullA, __global
 
 	}
 
-	
-	if((dot3F4(-DeltaC2,*sep))>0.0f)
+if((dot3F4(-DeltaC2,*sep))>0.0f)
 	{
 		*sep = -(*sep);
 	}
 	return true;
 }
 
-
-inline bool TestSepAxis(__global const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB, 
+inline bool TestSepAxis(__global const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB,
 	const float4 posA,const float4 ornA,
 	const float4 posB,const float4 ornB,
 	float4* sep_axis, __global const float4* vertices,float* depth)
@@ -593,8 +557,7 @@ inline bool TestSepAxis(__global const ConvexPolyhedronCL* hullA, __global const
 	return true;
 }
 
-
-bool findSeparatingAxis(	__global const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB, 
+bool findSeparatingAxis(	__global const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB,
 	const float4 posA1,
 	const float4 ornA,
 	const float4 posB1,
@@ -607,9 +570,8 @@ bool findSeparatingAxis(	__global const ConvexPolyhedronCL* hullA, __global cons
 	float4* sep,
 	float* dmin)
 {
-	
 
-	float4 posA = posA1;
+float4 posA = posA1;
 	posA.w = 0.f;
 	float4 posB = posB1;
 	posB.w = 0.f;
@@ -641,8 +603,7 @@ bool findSeparatingAxis(	__global const ConvexPolyhedronCL* hullA, __global cons
 		}
 	}
 
-
-		if((dot3F4(-DeltaC2,*sep))>0.0f)
+if((dot3F4(-DeltaC2,*sep))>0.0f)
 		{
 			*sep = -(*sep);
 		}
@@ -650,10 +611,7 @@ bool findSeparatingAxis(	__global const ConvexPolyhedronCL* hullA, __global cons
 	return true;
 }
 
-
-
-
-bool findSeparatingAxisUnitSphere(	__global const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB, 
+bool findSeparatingAxisUnitSphere(	__global const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB,
 	const float4 posA1,
 	const float4 ornA,
 	const float4 posB1,
@@ -707,16 +665,14 @@ bool findSeparatingAxisUnitSphere(	__global const ConvexPolyhedronCL* hullA, __g
 		}
 	}
 
-	
-	if((dot3F4(-DeltaC2,*sep))>0.0f)
+if((dot3F4(-DeltaC2,*sep))>0.0f)
 	{
 		*sep = -(*sep);
 	}
 	return true;
 }
 
-
-bool findSeparatingAxisEdgeEdge(	__global const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB, 
+bool findSeparatingAxisEdgeEdge(	__global const ConvexPolyhedronCL* hullA, __global const ConvexPolyhedronCL* hullB,
 	const float4 posA1,
 	const float4 ornA,
 	const float4 posB1,
@@ -729,9 +685,8 @@ bool findSeparatingAxisEdgeEdge(	__global const ConvexPolyhedronCL* hullA, __glo
 	float4* sep,
 	float* dmin)
 {
-	
 
-	float4 posA = posA1;
+float4 posA = posA1;
 	posA.w = 0.f;
 	float4 posB = posB1;
 	posB.w = 0.f;
@@ -750,8 +705,7 @@ bool findSeparatingAxisEdgeEdge(	__global const ConvexPolyhedronCL* hullA, __glo
 			const float4 edge1 = uniqueEdges[hullB->m_uniqueEdgesOffset+e1];
 			float4 edge1World = qtRotate(ornB,edge1);
 
-
-			float4 crossje = cross3(edge0World,edge1World);
+float4 crossje = cross3(edge0World,edge1World);
 
 			curEdgeEdge++;
 			if(!IsAlmostZero(crossje))
@@ -777,9 +731,8 @@ bool findSeparatingAxisEdgeEdge(	__global const ConvexPolyhedronCL* hullA, __glo
 					result = true;
 
 				}
-				
 
-				if(dist<*dmin)
+if(dist<*dmin)
 				{
 					*dmin = dist;
 					*sep = crossje;
@@ -789,14 +742,12 @@ bool findSeparatingAxisEdgeEdge(	__global const ConvexPolyhedronCL* hullA, __glo
 
 	}
 
-	
-	if((dot3F4(-DeltaC2,*sep))>0.0f)
+if((dot3F4(-DeltaC2,*sep))>0.0f)
 	{
 		*sep = -(*sep);
 	}
 	return true;
 }
-
 
 // work-in-progress
 __kernel void   processCompoundPairsKernel( __global const int4* gpuCompoundPairs,
@@ -868,9 +819,8 @@ __kernel void   processCompoundPairsKernel( __global const int4* gpuCompoundPair
 	
 		int shapeTypeA = collidables[collidableIndexA].m_shapeType;
 		int shapeTypeB = collidables[collidableIndexB].m_shapeType;
-	
 
-		if ((shapeTypeA != SHAPE_CONVEX_HULL) || (shapeTypeB != SHAPE_CONVEX_HULL))
+if ((shapeTypeA != SHAPE_CONVEX_HULL) || (shapeTypeB != SHAPE_CONVEX_HULL))
 		{
 			return;
 		}
@@ -909,12 +859,10 @@ __kernel void   processCompoundPairsKernel( __global const int4* gpuCompoundPair
 				}//sepEE
 			}//(!sepB)
 		}//(!sepA)
-		
-		
-	}
+
+}
 		
 }
-
 
 inline b3Float4 MyUnQuantize(const unsigned short* vecIn, b3Float4 quantization, b3Float4 bvhAabbMin)
 {
@@ -941,7 +889,6 @@ inline b3Float4 MyUnQuantizeGlobal(__global const unsigned short* vecIn, b3Float
 		vecOut += bvhAabbMin;
 		return vecOut;
 }
-
 
 // work-in-progress
 __kernel void   findCompoundPairsKernel( __global const int4* pairs, 
@@ -977,8 +924,7 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 		int shapeIndexA = collidables[collidableIndexA].m_shapeIndex;
 		int shapeIndexB = collidables[collidableIndexB].m_shapeIndex;
 
-
-		//once the broadphase avoids static-static pairs, we can remove this test
+//once the broadphase avoids static-static pairs, we can remove this test
 		if ((rigidBodies[bodyIndexA].m_invMass==0) &&(rigidBodies[bodyIndexB].m_invMass==0))
 		{
 			return;
@@ -992,8 +938,7 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 			int subTreesOffsetA = bvhInfos[bvhA].m_subTreeOffset;
 			int subTreesOffsetB = bvhInfos[bvhB].m_subTreeOffset;
 
-
-			int numSubTreesB = bvhInfos[bvhB].m_numSubTrees;
+int numSubTreesB = bvhInfos[bvhB].m_numSubTrees;
 			
 			float4 posA = rigidBodies[bodyIndexA].m_pos;
 			b3Quat ornA = rigidBodies[bodyIndexA].m_quat;
@@ -1001,8 +946,7 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 			b3Quat ornB = rigidBodies[bodyIndexB].m_quat;
 			float4 posB = rigidBodies[bodyIndexB].m_pos;
 
-			
-			for (int p=0;p<numSubTreesA;p++)
+for (int p=0;p<numSubTreesA;p++)
 			{
 				b3BvhSubtreeInfo subtreeA = subtrees[subTreesOffsetA+p];
 				//bvhInfos[bvhA].m_quantization
@@ -1024,9 +968,7 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 					float margin=0.f;
 					b3TransformAabb2(treeBminLocal,treeBmaxLocal, margin,posB,ornB,&aabbBMinOut,&aabbBMaxOut);
 
-					
-					
-					bool aabbOverlap = b3TestAabbAgainstAabb(aabbAMinOut,aabbAMaxOut,aabbBMinOut,aabbBMaxOut);
+bool aabbOverlap = b3TestAabbAgainstAabb(aabbAMinOut,aabbAMaxOut,aabbBMinOut,aabbBMaxOut);
 					if (aabbOverlap)
 					{
 						
@@ -1036,8 +978,7 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 						int startNodeIndexB = subtreeB.m_rootNodeIndex+bvhInfos[bvhB].m_nodeOffset;
 						int endNodeIndexB = startNodeIndexB+subtreeB.m_subtreeSize;
 
-
-						b3Int2 nodeStack[B3_MAX_STACK_DEPTH];
+b3Int2 nodeStack[B3_MAX_STACK_DEPTH];
 						b3Int2 node0;
 						node0.x = startNodeIndexA;
 						node0.y = startNodeIndexB;
@@ -1062,8 +1003,7 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 							b3Float4 aabbBMinOut,aabbBMaxOut;
 							b3TransformAabb2(bMinLocal,bMaxLocal, margin,posB,ornB,&aabbBMinOut,&aabbBMaxOut);
 
-							
-							bool nodeOverlap = b3TestAabbAgainstAabb(aabbAMinOut,aabbAMaxOut,aabbBMinOut,aabbBMaxOut);
+bool nodeOverlap = b3TestAabbAgainstAabb(aabbAMinOut,aabbAMaxOut,aabbBMinOut,aabbBMaxOut);
 							if (nodeOverlap)
 							{
 								bool isLeafA = isLeafNodeGlobal(&quantizedNodes[node.x]);
@@ -1131,11 +1071,7 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 			return;
 		}
 
-
-
-
-
-		if ((collidables[collidableIndexA].m_shapeType==SHAPE_COMPOUND_OF_CONVEX_HULLS) ||(collidables[collidableIndexB].m_shapeType==SHAPE_COMPOUND_OF_CONVEX_HULLS))
+if ((collidables[collidableIndexA].m_shapeType==SHAPE_COMPOUND_OF_CONVEX_HULLS) ||(collidables[collidableIndexB].m_shapeType==SHAPE_COMPOUND_OF_CONVEX_HULLS))
 		{
 
 			if (collidables[collidableIndexA].m_shapeType==SHAPE_COMPOUND_OF_CONVEX_HULLS) 
@@ -1165,9 +1101,8 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 						newPosA,
 						newOrnA,
 						&aabbAMinWS,&aabbAMaxWS);
-						
-					
-					if (collidables[collidableIndexB].m_shapeType==SHAPE_COMPOUND_OF_CONVEX_HULLS)
+
+if (collidables[collidableIndexB].m_shapeType==SHAPE_COMPOUND_OF_CONVEX_HULLS)
 					{
 						int numChildrenB = collidables[collidableIndexB].m_numChildShapes;
 						for (int b=0;b<numChildrenB;b++)
@@ -1191,10 +1126,8 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 								newPosB,
 								newOrnB,
 								&aabbBMinWS,&aabbBMaxWS);
-								
-								
-							
-							bool aabbOverlap = b3TestAabbAgainstAabb(aabbAMinWS,aabbAMaxWS,aabbBMinWS,aabbBMaxWS);
+
+bool aabbOverlap = b3TestAabbAgainstAabb(aabbAMinWS,aabbAMaxWS,aabbBMinWS,aabbBMaxWS);
 							if (aabbOverlap)
 							{
 								int numFacesA = convexShapes[shapeIndexA].m_numFaces;
@@ -1268,8 +1201,7 @@ __kernel void   findCompoundPairsKernel( __global const int4* pairs,
 
 					int shapeIndexB = collidables[childColIndexB].m_shapeIndex;
 
-
-					//////////////////////////////////////
+//////////////////////////////////////
 
 					if (1)
 					{
@@ -1323,8 +1255,7 @@ __kernel void   findSeparatingAxisKernel( __global const int4* pairs,
 	if (i<numPairs)
 	{
 
-	
-		int bodyIndexA = pairs[i].x;
+int bodyIndexA = pairs[i].x;
 		int bodyIndexB = pairs[i].y;
 
 		int collidableIndexA = rigidBodies[bodyIndexA].m_collidableIdx;
@@ -1332,17 +1263,15 @@ __kernel void   findSeparatingAxisKernel( __global const int4* pairs,
 	
 		int shapeIndexA = collidables[collidableIndexA].m_shapeIndex;
 		int shapeIndexB = collidables[collidableIndexB].m_shapeIndex;
-		
-		
-		//once the broadphase avoids static-static pairs, we can remove this test
+
+//once the broadphase avoids static-static pairs, we can remove this test
 		if ((rigidBodies[bodyIndexA].m_invMass==0) &&(rigidBodies[bodyIndexB].m_invMass==0))
 		{
 			hasSeparatingAxis[i] = 0;
 			return;
 		}
-		
 
-		if ((collidables[collidableIndexA].m_shapeType!=SHAPE_CONVEX_HULL) ||(collidables[collidableIndexB].m_shapeType!=SHAPE_CONVEX_HULL))
+if ((collidables[collidableIndexA].m_shapeType!=SHAPE_CONVEX_HULL) ||(collidables[collidableIndexB].m_shapeType!=SHAPE_CONVEX_HULL))
 		{
 			hasSeparatingAxis[i] = 0;
 			return;
@@ -1413,8 +1342,7 @@ __kernel void   findSeparatingAxisKernel( __global const int4* pairs,
 
 }
 
-
-__kernel void   findSeparatingAxisVertexFaceKernel( __global const int4* pairs, 
+__kernel void   findSeparatingAxisVertexFaceKernel( __global const int4* pairs,
 																					__global const BodyData* rigidBodies, 
 																					__global const btCollidableGpu* collidables,
 																					__global const ConvexPolyhedronCL* convexShapes, 
@@ -1435,8 +1363,7 @@ __kernel void   findSeparatingAxisVertexFaceKernel( __global const int4* pairs,
 	if (i<numPairs)
 	{
 
-	
-		int bodyIndexA = pairs[i].x;
+int bodyIndexA = pairs[i].x;
 		int bodyIndexB = pairs[i].y;
 
 		int collidableIndexA = rigidBodies[bodyIndexA].m_collidableIdx;
@@ -1452,15 +1379,13 @@ __kernel void   findSeparatingAxisVertexFaceKernel( __global const int4* pairs,
 		{
 			return;
 		}
-		
 
-		if ((collidables[collidableIndexA].m_shapeType!=SHAPE_CONVEX_HULL) ||(collidables[collidableIndexB].m_shapeType!=SHAPE_CONVEX_HULL))
+if ((collidables[collidableIndexA].m_shapeType!=SHAPE_CONVEX_HULL) ||(collidables[collidableIndexB].m_shapeType!=SHAPE_CONVEX_HULL))
 		{
 			return;
 		}
-			
 
-		int numFacesA = convexShapes[shapeIndexA].m_numFaces;
+int numFacesA = convexShapes[shapeIndexA].m_numFaces;
 
 		float dmin = FLT_MAX;
 
@@ -1508,8 +1433,7 @@ __kernel void   findSeparatingAxisVertexFaceKernel( __global const int4* pairs,
 
 }
 
-
-__kernel void   findSeparatingAxisEdgeEdgeKernel( __global const int4* pairs, 
+__kernel void   findSeparatingAxisEdgeEdgeKernel( __global const int4* pairs,
 																					__global const BodyData* rigidBodies, 
 																					__global const btCollidableGpu* collidables,
 																					__global const ConvexPolyhedronCL* convexShapes, 
@@ -1543,9 +1467,8 @@ __kernel void   findSeparatingAxisEdgeEdgeKernel( __global const int4* pairs,
 		
 			int shapeIndexA = collidables[collidableIndexA].m_shapeIndex;
 			int shapeIndexB = collidables[collidableIndexB].m_shapeIndex;
-			
-			
-			int numFacesA = convexShapes[shapeIndexA].m_numFaces;
+
+int numFacesA = convexShapes[shapeIndexA].m_numFaces;
 	
 			float dmin = dmins[i];
 	
@@ -1561,10 +1484,8 @@ __kernel void   findSeparatingAxisEdgeEdgeKernel( __global const int4* pairs,
 			float4 c1 = transform(&c1local,&posB,&ornB);
 			const float4 DeltaC2 = c0 - c1;
 			float4 sepNormal = separatingNormals[i];
-			
-			
-			
-			bool sepEE = false;
+
+bool sepEE = false;
 			int numEdgeEdgeDirections = convexShapes[shapeIndexA].m_numUniqueEdges*convexShapes[shapeIndexB].m_numUniqueEdges;
 			if (numEdgeEdgeDirections<=numUnitSphereDirections)
 			{
@@ -1606,10 +1527,6 @@ __kernel void   findSeparatingAxisEdgeEdgeKernel( __global const int4* pairs,
 	}//(i<numPairs)
 }
 
-
-
-
-
 inline int	findClippingFaces(const float4 separatingNormal,
                       const ConvexPolyhedronCL* hullA, 
 					  __global const ConvexPolyhedronCL* hullB,
@@ -1629,9 +1546,8 @@ inline int	findClippingFaces(const float4 separatingNormal,
 {
 	int numContactsOut = 0;
 	int numWorldVertsB1= 0;
-    
-    
-	int closestFaceB=0;
+
+int closestFaceB=0;
 	float dmax = -FLT_MAX;
     
 	{
@@ -1704,13 +1620,9 @@ inline int	findClippingFaces(const float4 separatingNormal,
     clippingFaces[pairIndex].y = closestFaceB;
     clippingFaces[pairIndex].z = numVerticesA;
     clippingFaces[pairIndex].w = numWorldVertsB1;
-    
-    
-	return numContactsOut;
+
+return numContactsOut;
 }
-
-
-
 
 // work-in-progress
 __kernel void   findConcaveSeparatingAxisKernel( __global int4* concavePairs,
@@ -1758,9 +1670,7 @@ __kernel void   findConcaveSeparatingAxisKernel( __global int4* concavePairs,
 		return;
 	}
 
-
-
-	int numFacesA = convexShapes[shapeIndexA].m_numFaces;
+int numFacesA = convexShapes[shapeIndexA].m_numFaces;
 	int numActualConcaveConvexTests = 0;
 	
 	int f = concavePairs[i].z;
@@ -1816,8 +1726,7 @@ __kernel void   findConcaveSeparatingAxisKernel( __global int4* concavePairs,
 		uniqueEdgesA[1] = (verticesA[2]-verticesA[1]);
 		uniqueEdgesA[2] = (verticesA[0]-verticesA[2]);
 
-
-		convexPolyhedronA.m_faceOffset = 0;
+convexPolyhedronA.m_faceOffset = 0;
                                   
 		float4 normal = make_float4(face.m_plane.x,face.m_plane.y,face.m_plane.z,0.f);
                              
@@ -1887,8 +1796,7 @@ __kernel void   findConcaveSeparatingAxisKernel( __global int4* concavePairs,
 		convexPolyhedronA.m_numFaces = TRIANGLE_NUM_CONVEX_FACES;
 		convexPolyhedronA.m_localCenter = localCenter*(1.f/3.f);
 
-
-		float4 posA = rigidBodies[bodyIndexA].m_pos;
+float4 posA = rigidBodies[bodyIndexA].m_pos;
 		posA.w = 0.f;
 		float4 posB = rigidBodies[bodyIndexB].m_pos;
 		posB.w = 0.f;
@@ -1896,10 +1804,7 @@ __kernel void   findConcaveSeparatingAxisKernel( __global int4* concavePairs,
 		float4 ornA = rigidBodies[bodyIndexA].m_quat;
 		float4 ornB =rigidBodies[bodyIndexB].m_quat;
 
-		
-
-
-		///////////////////
+///////////////////
 		///compound shape support
 
 		if (collidables[collidableIndexB].m_shapeType==SHAPE_COMPOUND_OF_CONVEX_HULLS)
@@ -1923,8 +1828,7 @@ __kernel void   findConcaveSeparatingAxisKernel( __global int4* concavePairs,
 		float4 c1 = transform(&c1local,&posB,&ornB);
 		const float4 DeltaC2 = c0 - c1;
 
-
-		bool sepA = findSeparatingAxisLocalA(	&convexPolyhedronA, &convexShapes[shapeIndexB],
+bool sepA = findSeparatingAxisLocalA(	&convexPolyhedronA, &convexShapes[shapeIndexB],
 												posA,ornA,
 												posB,ornB,
 												DeltaC2,
@@ -1974,13 +1878,10 @@ __kernel void   findConcaveSeparatingAxisKernel( __global int4* concavePairs,
 			concaveSeparatingNormalsOut[pairIdx]=sepAxis;
 			concaveHasSeparatingNormals[i]=1;
 
-
-			float minDist = -1e30f;
+float minDist = -1e30f;
 			float maxDist = 0.02f;
 
-		
-
-			findClippingFaces(sepAxis,
+findClippingFaces(sepAxis,
                      &convexPolyhedronA,
 					 &convexShapes[shapeIndexB],
 					 posA,ornA,
@@ -1998,8 +1899,7 @@ __kernel void   findConcaveSeparatingAxisKernel( __global int4* concavePairs,
                       indices,
                       clippingFacesOut, pairIdx);
 
-
-		} else
+} else
 		{	
 			//mark this pair as in-active
 			concavePairs[pairIdx].w = -1;
@@ -2013,6 +1913,4 @@ __kernel void   findConcaveSeparatingAxisKernel( __global int4* concavePairs,
 	
 	concavePairs[pairIdx].z = -1;//now z is used for existing/persistent contacts
 }
-
-
 

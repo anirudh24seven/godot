@@ -1,8 +1,6 @@
 
 /*  editor_path.cpp                                                      */
 
-
-
 #include "editor_path.h"
 
 #include "editor_node.h"

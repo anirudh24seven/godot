@@ -1,8 +1,6 @@
 
 /*  command_queue_mt.cpp                                                 */
 
-
-
 #include "command_queue_mt.h"
 
 #include "core/os/os.h"

@@ -71,7 +71,6 @@ int gemm_s8u8s32_jump_to_gemv_s8u8s32(blas_t *arg) {
     return 0;
 }
 
-
 int gemv_kernel_driver(blas_t *arg) {
 
     dim_t m = arg -> m;

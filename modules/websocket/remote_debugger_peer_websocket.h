@@ -1,8 +1,6 @@
 
 /*  remote_debugger_peer_websocket.h                                     */
 
-
-
 #ifndef SCRIPT_DEBUGGER_WEBSOCKET_H
 #define SCRIPT_DEBUGGER_WEBSOCKET_H
 

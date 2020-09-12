@@ -1,8 +1,6 @@
 
 /*  upnp_device.cpp                                                      */
 
-
-
 #include "upnp_device.h"
 
 #include "upnp.h"

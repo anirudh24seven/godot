@@ -1,8 +1,6 @@
 
 /*  collision_solver_2d_sw.h                                             */
 
-
-
 #ifndef COLLISION_SOLVER_2D_SW_H
 #define COLLISION_SOLVER_2D_SW_H
 

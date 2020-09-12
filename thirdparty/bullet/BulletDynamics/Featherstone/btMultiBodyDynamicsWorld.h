@@ -48,9 +48,8 @@ protected:
 
 	virtual void calculateSimulationIslands();
 	virtual void updateActivationState(btScalar timeStep);
-	
 
-	virtual void serializeMultiBodies(btSerializer* serializer);
+virtual void serializeMultiBodies(btSerializer* serializer);
 
 public:
 	btMultiBodyDynamicsWorld(btDispatcher* dispatcher, btBroadphaseInterface* pairCache, btMultiBodyConstraintSolver* constraintSolver, btCollisionConfiguration* collisionConfiguration);

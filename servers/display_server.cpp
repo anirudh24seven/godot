@@ -1,8 +1,6 @@
 
 /*  display_server.cpp                                                   */
 
-
-
 #include "display_server.h"
 
 #include "core/input/input.h"

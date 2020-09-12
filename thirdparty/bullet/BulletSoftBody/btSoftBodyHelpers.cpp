@@ -1335,9 +1335,8 @@ btSoftBody* btSoftBodyHelpers::CreateFromVtkFile(btSoftBodyWorldInfo& worldInfo,
             psb->appendLink(ni[2], ni[3], 0, true);
         }
     }
-    
-    
-    generateBoundaryFaces(psb);
+
+generateBoundaryFaces(psb);
     psb->initializeDmInverse();
     psb->m_tetraScratches.resize(psb->m_tetras.size());
     psb->m_tetraScratchesTn.resize(psb->m_tetras.size());
@@ -1570,7 +1569,6 @@ void btSoftBodyHelpers::interpolateBarycentricWeights(btSoftBody* psb)
         psb->m_renderNodesParents[i] = optimal_parents;
     }
 }
-
 
 // Iterate through all render nodes to find the simulation triangle that's closest to the node in the barycentric sense.
 void btSoftBodyHelpers::extrapolateBarycentricWeights(btSoftBody* psb)

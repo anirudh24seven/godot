@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This is the 'entry point' for FreeType header file inclusions.  It is
    * the only header file which should be included directly; all other
@@ -32,13 +31,11 @@
    *
    */
 
-
 #ifndef FT2BUILD_H_
 #define FT2BUILD_H_
 
 #include <freetype/config/ftheader.h>
 
 #endif /* FT2BUILD_H_ */
-
 
 /* END */

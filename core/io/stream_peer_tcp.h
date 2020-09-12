@@ -1,8 +1,6 @@
 
 /*  stream_peer_tcp.h                                                    */
 
-
-
 #ifndef STREAM_PEER_TCP_H
 #define STREAM_PEER_TCP_H
 

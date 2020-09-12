@@ -1,8 +1,6 @@
 
 /*  physics_material.h                                                   */
 
-
-
 #ifndef PHYSICS_MATERIAL_H
 #define PHYSICS_MATERIAL_H
 

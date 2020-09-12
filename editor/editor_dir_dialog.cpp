@@ -1,8 +1,6 @@
 
 /*  editor_dir_dialog.cpp                                                */
 
-
-
 #include "editor_dir_dialog.h"
 
 #include "core/os/keyboard.h"

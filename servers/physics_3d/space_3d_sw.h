@@ -1,8 +1,6 @@
 
 /*  space_3d_sw.h                                                        */
 
-
-
 #ifndef SPACE_SW_H
 #define SPACE_SW_H
 

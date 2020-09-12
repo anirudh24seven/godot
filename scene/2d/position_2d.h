@@ -1,8 +1,6 @@
 
 /*  position_2d.h                                                        */
 
-
-
 #ifndef POSITION_2D_H
 #define POSITION_2D_H
 

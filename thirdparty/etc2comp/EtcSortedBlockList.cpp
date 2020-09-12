@@ -178,8 +178,7 @@ namespace Etc
 			}
 		}
 
-
-	}
+}
 
 	// ----------------------------------------------------------------------------------------------------
 	// clear all of the buckets.  normally done in preparation for a sort

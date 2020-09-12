@@ -1,8 +1,6 @@
 
 /*  gdnative.cpp                                                         */
 
-
-
 #include "gdnative/gdnative.h"
 
 #include "core/class_db.h"

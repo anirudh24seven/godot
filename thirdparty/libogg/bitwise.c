@@ -704,7 +704,6 @@ void copytest(int prefill, int copy){
   oggpack_writeclear(&source_write);
   oggpack_writeclear(&dest_write);
 
-
 }
 
 void copytestB(int prefill, int copy){
@@ -970,8 +969,7 @@ int main(void){
   
   fprintf(stderr,"ok.      \n");
 
-
-  /********** lazy, cut-n-paste retest with MSb packing ***********/
+/********** lazy, cut-n-paste retest with MSb packing ***********/
 
   /* Test read/write together */
   /* Later we test against pregenerated bitstreams */

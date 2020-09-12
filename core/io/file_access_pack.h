@@ -1,8 +1,6 @@
 
 /*  file_access_pack.h                                                   */
 
-
-
 #ifndef FILE_ACCESS_PACK_H
 #define FILE_ACCESS_PACK_H
 

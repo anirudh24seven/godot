@@ -1,8 +1,6 @@
 
 /*  audio_driver_opensl.h                                                */
 
-
-
 #ifndef AUDIO_DRIVER_OPENSL_H
 #define AUDIO_DRIVER_OPENSL_H
 

@@ -1,8 +1,6 @@
 
 /*  video_stream_gdnative.h                                              */
 
-
-
 #ifndef VIDEO_STREAM_GDNATIVE_H
 #define VIDEO_STREAM_GDNATIVE_H
 

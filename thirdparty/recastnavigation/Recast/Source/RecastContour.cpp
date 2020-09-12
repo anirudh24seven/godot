@@ -25,7 +25,6 @@
 #include "RecastAlloc.h"
 #include "RecastAssert.h"
 
-
 static int getCornerHeight(int x, int y, int i, int dir,
 						   const rcCompactHeightfield& chf,
 						   bool& isBorderVertex)
@@ -337,9 +336,8 @@ static void simplifyContour(rcIntArray& points, rcIntArray& simplified,
 				ci = (ci+cinc) % pn;
 			}
 		}
-		
-		
-		// If the max deviation is larger than accepted error,
+
+// If the max deviation is larger than accepted error,
 		// add new point, else continue to next segment.
 		if (maxi != -1 && maxd > (maxError*maxError))
 		{
@@ -576,7 +574,6 @@ static bool	inCone(int i, int n, const int* verts, const int* pj)
 	return !(leftOn(pi, pj, pi1) && leftOn(pj, pi, pin1));
 }
 
-
 static void removeDegenerateSegments(rcIntArray& simplified)
 {
 	// Remove adjacent vertices which are equal on xz-plane,
@@ -601,7 +598,6 @@ static void removeDegenerateSegments(rcIntArray& simplified)
 		}
 	}
 }
-
 
 static bool mergeContours(rcContour& ca, rcContour& cb, int ia, int ib)
 {
@@ -706,7 +702,6 @@ static int compareHoles(const void* va, const void* vb)
 	return 0;
 }
 
-
 static int compareDiagDist(const void* va, const void* vb)
 {
 	const rcPotentialDiagonal* a = (const rcPotentialDiagonal*)va;
@@ -717,7 +712,6 @@ static int compareDiagDist(const void* va, const void* vb)
 		return 1;
 	return 0;
 }
-
 
 static void mergeRegionHoles(rcContext* ctx, rcContourRegion& region)
 {
@@ -806,7 +800,6 @@ static void mergeRegionHoles(rcContext* ctx, rcContourRegion& region)
 		}
 	}
 }
-
 
 /// @par
 ///
@@ -932,9 +925,8 @@ bool rcBuildContours(rcContext* ctx, rcCompactHeightfield& chf,
 				simplifyContour(verts, simplified, maxError, maxEdgeLen, buildFlags);
 				removeDegenerateSegments(simplified);
 				ctx->stopTimer(RC_TIMER_BUILD_CONTOURS_SIMPLIFY);
-				
-				
-				// Store region->contour remap info.
+
+// Store region->contour remap info.
 				// Create contour.
 				if (simplified.size()/4 >= 3)
 				{

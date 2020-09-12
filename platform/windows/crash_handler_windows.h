@@ -1,8 +1,6 @@
 
 /*  crash_handler_windows.h                                              */
 
-
-
 #ifndef CRASH_HANDLER_WINDOWS_H
 #define CRASH_HANDLER_WINDOWS_H
 

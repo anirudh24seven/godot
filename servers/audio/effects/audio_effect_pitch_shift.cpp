@@ -1,8 +1,6 @@
 
 /*  audio_effect_pitch_shift.cpp                                         */
 
-
-
 #include "audio_effect_pitch_shift.h"
 
 #include "core/math/math_funcs.h"
@@ -51,8 +49,7 @@
 
 void SMBPitchShift::PitchShift(float pitchShift, long numSampsToProcess, long fftFrameSize, long osamp, float sampleRate, float *indata, float *outdata,int stride) {
 
-
-	/*
+/*
 		Routine smbPitchShift(). See top of file for explanation
 		Purpose: doing pitch shifting while maintaining duration using the Short
 		Time Fourier Transform.
@@ -94,8 +91,7 @@ void SMBPitchShift::PitchShift(float pitchShift, long numSampsToProcess, long ff
 				gFFTworksp[2*k+1] = 0.;
 			}
 
-
-			/* ***************** ANALYSIS ******************* */
+/* ***************** ANALYSIS ******************* */
 			/* do transform */
 			smbFft(gFFTworksp, fftFrameSize, -1);
 
@@ -205,11 +201,7 @@ void SMBPitchShift::PitchShift(float pitchShift, long numSampsToProcess, long ff
 		}
 	}
 
-
-
 }
-
-
 
 void SMBPitchShift::smbFft(float *fftBuffer, long fftFrameSize, long sign)
 /*
@@ -267,7 +259,6 @@ void SMBPitchShift::smbFft(float *fftBuffer, long fftFrameSize, long sign)
 		}
 	}
 }
-
 
 /* Godot code again */
 /* clang-format on */

@@ -1,8 +1,6 @@
 
 /*  rectangle_shape_2d.h                                                 */
 
-
-
 #ifndef RECTANGLE_SHAPE_2D_H
 #define RECTANGLE_SHAPE_2D_H
 

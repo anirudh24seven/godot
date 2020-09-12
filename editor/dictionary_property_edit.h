@@ -1,8 +1,6 @@
 
 /*  dictionary_property_edit.h                                           */
 
-
-
 #ifndef DICTIONARY_PROPERTY_EDIT_H
 #define DICTIONARY_PROPERTY_EDIT_H
 

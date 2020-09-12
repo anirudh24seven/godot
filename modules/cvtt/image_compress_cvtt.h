@@ -1,8 +1,6 @@
 
 /*  image_compress_cvtt.h                                                */
 
-
-
 #ifndef IMAGE_COMPRESS_CVTT_H
 #define IMAGE_COMPRESS_CVTT_H
 

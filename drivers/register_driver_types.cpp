@@ -1,8 +1,6 @@
 
 /*  register_driver_types.cpp                                            */
 
-
-
 #include "register_driver_types.h"
 
 #include "drivers/png/image_loader_png.h"

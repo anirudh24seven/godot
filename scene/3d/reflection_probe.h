@@ -1,8 +1,6 @@
 
 /*  reflection_probe.h                                                   */
 
-
-
 #ifndef REFLECTIONPROBE_H
 #define REFLECTIONPROBE_H
 

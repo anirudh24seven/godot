@@ -1,8 +1,6 @@
 
 /*  android_gdn.cpp                                                      */
 
-
-
 #include "modules/gdnative/gdnative.h"
 
 // Code by Paritosh97 with minor tweaks by Mux213

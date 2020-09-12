@@ -2690,8 +2690,7 @@ mkldnn_status_t jit_avx_gemm_f32(
         });
     }
 
-
-    free(c_buffers);
+free(c_buffers);
     free(ompstatus_);
     free(ws_buffers);
 

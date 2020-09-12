@@ -1,8 +1,6 @@
 
 /*  keyboard.cpp                                                         */
 
-
-
 #include "keyboard.h"
 
 #include "core/os/os.h"

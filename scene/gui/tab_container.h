@@ -1,8 +1,6 @@
 
 /*  tab_container.h                                                      */
 
-
-
 #ifndef TAB_CONTAINER_H
 #define TAB_CONTAINER_H
 

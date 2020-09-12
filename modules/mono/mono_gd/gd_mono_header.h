@@ -1,8 +1,6 @@
 
 /*  gd_mono_header.h                                                     */
 
-
-
 #ifndef GD_MONO_HEADER_H
 #define GD_MONO_HEADER_H
 

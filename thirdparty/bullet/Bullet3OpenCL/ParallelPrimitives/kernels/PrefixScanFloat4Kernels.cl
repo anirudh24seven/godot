@@ -13,7 +13,6 @@ subject to the following restrictions:
 */
 //Originally written by Takahiro Harada
 
-
 typedef unsigned int u32;
 #define GET_GROUP_IDX get_group_id(0)
 #define GET_LOCAL_IDX get_local_id(0)

@@ -77,7 +77,6 @@ static OPUS_INLINE opus_val32 celt_maxabs32(const opus_val32 *x, int len)
 #endif
 #endif
 
-
 #ifndef FIXED_POINT
 
 #define PI 3.141592653f
@@ -151,7 +150,6 @@ static OPUS_INLINE opus_int16 celt_ilog2(opus_int32 x)
    return EC_ILOG(x)-1;
 }
 #endif
-
 
 /** Integer log in base2. Defined for zero, but not for negative numbers */
 static OPUS_INLINE opus_int16 celt_zlog2(opus_val32 x)

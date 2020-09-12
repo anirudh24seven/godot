@@ -1,8 +1,6 @@
 
 /*  script_editor_plugin.cpp                                             */
 
-
-
 #include "script_editor_plugin.h"
 
 #include "core/input/input.h"

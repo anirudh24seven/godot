@@ -1,8 +1,6 @@
 
 /*  dependency_editor.cpp                                                */
 
-
-
 #include "dependency_editor.h"
 
 #include "core/io/resource_loader.h"

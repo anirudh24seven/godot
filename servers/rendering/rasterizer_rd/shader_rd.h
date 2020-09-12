@@ -1,8 +1,6 @@
 
 /*  shader_rd.h                                                          */
 
-
-
 #ifndef SHADER_RD_H
 #define SHADER_RD_H
 

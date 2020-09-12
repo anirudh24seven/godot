@@ -1,8 +1,6 @@
 
 /*  xml_parser.cpp                                                       */
 
-
-
 #include "xml_parser.h"
 
 #include "core/print_string.h"

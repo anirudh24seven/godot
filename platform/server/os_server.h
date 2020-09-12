@@ -1,8 +1,6 @@
 
 /*  os_server.h                                                          */
 
-
-
 #ifndef OS_SERVER_H
 #define OS_SERVER_H
 

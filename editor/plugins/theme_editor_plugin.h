@@ -1,8 +1,6 @@
 
 /*  theme_editor_plugin.h                                                */
 
-
-
 #ifndef THEME_EDITOR_PLUGIN_H
 #define THEME_EDITOR_PLUGIN_H
 

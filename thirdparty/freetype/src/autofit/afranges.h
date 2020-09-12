@@ -15,13 +15,10 @@
  *
  */
 
-
 #ifndef AFRANGES_H_
 #define AFRANGES_H_
 
-
 #include "aftypes.h"
-
 
 FT_BEGIN_HEADER
 
@@ -42,6 +39,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* AFRANGES_H_ */
-
 
 /* END */

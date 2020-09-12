@@ -238,8 +238,7 @@ namespace Godot
         [MethodImpl(MethodImplOptions.InternalCall)]
         internal extern static void godot_icall_GD_randomize();
 
-
-        [MethodImpl(MethodImplOptions.InternalCall)]
+[MethodImpl(MethodImplOptions.InternalCall)]
         internal extern static double godot_icall_GD_rand_range(double from, double to);
 
         [MethodImpl(MethodImplOptions.InternalCall)]

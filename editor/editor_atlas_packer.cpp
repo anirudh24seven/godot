@@ -1,8 +1,6 @@
 
 /*  editor_atlas_packer.cpp                                              */
 
-
-
 #include "editor_atlas_packer.h"
 
 void EditorAtlasPacker::_plot_triangle(Ref<BitMap> p_bitmap, Vector2i *vertices) {

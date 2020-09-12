@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_OBJECTS_H
@@ -25,8 +24,7 @@
 
 #include "ftsmerrs.h"
 
-
-  /* initialize renderer -- init its raster */
+/* initialize renderer -- init its raster */
   static FT_Error
   ft_smooth_init( FT_Renderer  render )
   {
@@ -35,8 +33,7 @@
 
     FT_Vector*  sub = render->root.library->lcd_geometry;
 
-
-    /* set up default subpixel geometry for striped RGB panels. */
+/* set up default subpixel geometry for striped RGB panels. */
     sub[0].x = -21;
     sub[0].y = 0;
     sub[1].x = 0;
@@ -55,8 +52,7 @@
     return 0;
   }
 
-
-  /* sets render-specific mode */
+/* sets render-specific mode */
   static FT_Error
   ft_smooth_set_mode( FT_Renderer  render,
                       FT_ULong     mode_tag,
@@ -77,8 +73,7 @@
   {
     FT_Error  error = FT_Err_Ok;
 
-
-    if ( slot->format != render->glyph_format )
+if ( slot->format != render->glyph_format )
     {
       error = FT_THROW( Invalid_Argument );
       goto Exit;
@@ -94,8 +89,7 @@
     return error;
   }
 
-
-  /* return the glyph's control box */
+/* return the glyph's control box */
   static void
   ft_smooth_get_cbox( FT_Renderer   render,
                       FT_GlyphSlot  slot,
@@ -107,8 +101,7 @@
       FT_Outline_Get_CBox( &slot->outline, cbox );
   }
 
-
-  /* convert a slot's glyph image into a bitmap */
+/* convert a slot's glyph image into a bitmap */
   static FT_Error
   ft_smooth_render_generic( FT_Renderer       render,
                             FT_GlyphSlot      slot,
@@ -127,8 +120,7 @@
 
     FT_Raster_Params  params;
 
-
-    /* check glyph image format */
+/* check glyph image format */
     if ( slot->format != render->glyph_format )
     {
       error = FT_THROW( Invalid_Argument );
@@ -194,8 +186,7 @@
       FT_Vector*  points_end = FT_OFFSET( points, outline->n_points );
       FT_Vector*  vec;
 
-
-      if ( hmul )
+if ( hmul )
         for ( vec = points; vec < points_end; vec++ )
           vec->x *= 3;
 
@@ -213,8 +204,7 @@
       FT_Vector*  points_end = FT_OFFSET( points, outline->n_points );
       FT_Vector*  vec;
 
-
-      if ( hmul )
+if ( hmul )
         for ( vec = points; vec < points_end; vec++ )
           vec->x /= 3;
 
@@ -232,8 +222,7 @@
       FT_Byte*                 lcd_weights;
       FT_Bitmap_LcdFilterFunc  lcd_filter_func;
 
-
-      /* Per-face LCD filtering takes priority if set up. */
+/* Per-face LCD filtering takes priority if set up. */
       if ( slot->face && slot->face->internal->lcd_filter_func )
       {
         lcd_weights     = slot->face->internal->lcd_weights;
@@ -263,8 +252,7 @@
 
       FT_Vector*  sub = slot->library->lcd_geometry;
 
-
-      /* Render 3 separate monochrome bitmaps, shifting the outline.  */
+/* Render 3 separate monochrome bitmaps, shifting the outline.  */
       width /= 3;
 
       FT_Outline_Translate( outline,
@@ -321,8 +309,7 @@
 
       FT_Vector*  sub = slot->library->lcd_geometry;
 
-
-      /* Render 3 separate monochrome bitmaps, shifting the outline. */
+/* Render 3 separate monochrome bitmaps, shifting the outline. */
       /* Notice that the subpixel geometry vectors are rotated.      */
       /* Triple the pitch to render on each third row.               */
       bitmap->pitch *= 3;
@@ -382,8 +369,7 @@
     return error;
   }
 
-
-  /* convert a slot's glyph image into a bitmap */
+/* convert a slot's glyph image into a bitmap */
   static FT_Error
   ft_smooth_render( FT_Renderer       render,
                     FT_GlyphSlot      slot,
@@ -397,8 +383,7 @@
                                      FT_RENDER_MODE_NORMAL );
   }
 
-
-  /* convert a slot's glyph image into a horizontal LCD bitmap */
+/* convert a slot's glyph image into a horizontal LCD bitmap */
   static FT_Error
   ft_smooth_render_lcd( FT_Renderer       render,
                         FT_GlyphSlot      slot,
@@ -409,8 +394,7 @@
                                      FT_RENDER_MODE_LCD );
   }
 
-
-  /* convert a slot's glyph image into a vertical LCD bitmap */
+/* convert a slot's glyph image into a vertical LCD bitmap */
   static FT_Error
   ft_smooth_render_lcd_v( FT_Renderer       render,
                           FT_GlyphSlot      slot,
@@ -421,8 +405,7 @@
                                      FT_RENDER_MODE_LCD_V );
   }
 
-
-  FT_DEFINE_RENDERER(
+FT_DEFINE_RENDERER(
     ft_smooth_renderer_class,
 
       FT_MODULE_RENDERER,
@@ -448,8 +431,7 @@
     (FT_Raster_Funcs*)&ft_grays_raster               /* raster_class    */
   )
 
-
-  FT_DEFINE_RENDERER(
+FT_DEFINE_RENDERER(
     ft_smooth_lcd_renderer_class,
 
       FT_MODULE_RENDERER,
@@ -475,8 +457,7 @@
     (FT_Raster_Funcs*)&ft_grays_raster                /* raster_class    */
   )
 
-
-  FT_DEFINE_RENDERER(
+FT_DEFINE_RENDERER(
     ft_smooth_lcdv_renderer_class,
 
       FT_MODULE_RENDERER,
@@ -501,6 +482,5 @@
 
     (FT_Raster_Funcs*)&ft_grays_raster                  /* raster_class    */
   )
-
 
 /* END */

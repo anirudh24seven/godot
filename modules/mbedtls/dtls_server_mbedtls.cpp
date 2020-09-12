@@ -1,8 +1,6 @@
 
 /*  dtls_server_mbedtls.cpp                                              */
 
-
-
 #include "dtls_server_mbedtls.h"
 #include "packet_peer_mbed_dtls.h"
 

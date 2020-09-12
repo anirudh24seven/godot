@@ -1,8 +1,6 @@
 
 /*  project_manager.cpp                                                  */
 
-
-
 #include "project_manager.h"
 
 #include "core/io/config_file.h"

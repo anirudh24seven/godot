@@ -1,8 +1,6 @@
 
 /*  gdscript_extend_parser.cpp                                           */
 
-
-
 #include "gdscript_extend_parser.h"
 
 #include "../gdscript.h"

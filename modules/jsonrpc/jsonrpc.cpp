@@ -1,8 +1,6 @@
 
 /*  jsonrpc.cpp                                                          */
 
-
-
 #include "jsonrpc.h"
 #include "core/io/json.h"
 

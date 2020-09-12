@@ -1,8 +1,6 @@
 
 /*  soft_body_bullet.cpp                                                 */
 
-
-
 #include "soft_body_bullet.h"
 
 #include "bullet_types_converter.h"

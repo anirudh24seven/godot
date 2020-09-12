@@ -69,7 +69,6 @@ static inline int MULT16_16_Q15_SUB(int a, int b, int c, int d) {
     return m;
 }
 
-
 #undef MULT16_32_Q16
 static inline int MULT16_32_Q16(int a, int b)
 {

@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef NET_REGISTER_TYPES_H
 #define NET_REGISTER_TYPES_H
 

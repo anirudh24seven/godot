@@ -35,5 +35,4 @@ compatible to the above two licenses.
 The MD5 checksum support (only used for debugging in development builds)
 is in the public domain.
 
-
 --- end of LICENSE.TXT ---

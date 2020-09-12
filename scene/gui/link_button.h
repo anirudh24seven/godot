@@ -1,8 +1,6 @@
 
 /*  link_button.h                                                        */
 
-
-
 #ifndef LINKBUTTON_H
 #define LINKBUTTON_H
 

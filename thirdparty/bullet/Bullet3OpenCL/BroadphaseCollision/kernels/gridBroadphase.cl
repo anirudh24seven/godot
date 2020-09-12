@@ -20,7 +20,6 @@ int4 getGridPos(float4 worldPos, __global float4* pParams)
     return gridPos;
 }
 
-
 // calculate grid hash value for each body using its AABB
 __kernel void kCalcHashAABB(int numObjects, __global float4* allpAABB, __global const int* smallAabbMapping, __global int2* pHash, __global float4* pParams )
 {
@@ -92,9 +91,6 @@ int testAABBOverlap(float4 min0, float4 max0, float4 min1, float4 max1)
 			(min0.y <= max1.y)&& (min1.y <= max0.y) && 
 			(min0.z <= max1.z)&& (min1.z <= max0.z); 
 }
-
-
-
 
 //search for AABB 'index' against other AABBs' in this cell
 void findPairsInCell(	int numObjects,
@@ -209,8 +205,4 @@ __kernel void kFindOverlappingPairs(	int numObjects,
         }
     }
 }
-
-
-
-
 

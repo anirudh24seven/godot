@@ -1,8 +1,6 @@
 
 /*  resource_format_text.h                                               */
 
-
-
 #ifndef RESOURCE_FORMAT_TEXT_H
 #define RESOURCE_FORMAT_TEXT_H
 

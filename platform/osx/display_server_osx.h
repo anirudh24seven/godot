@@ -1,8 +1,6 @@
 
 /*  display_server_osx.h                                                 */
 
-
-
 #ifndef DISPLAY_SERVER_OSX_H
 #define DISPLAY_SERVER_OSX_H
 

@@ -1,8 +1,6 @@
 
 /*  midi_driver_winmidi.h                                                */
 
-
-
 #ifdef WINMIDI_ENABLED
 
 #ifndef MIDI_DRIVER_WINMIDI_H

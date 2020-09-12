@@ -1,8 +1,6 @@
 
 /*  color_rect.h                                                         */
 
-
-
 #ifndef COLOR_RECT_H
 #define COLOR_RECT_H
 

@@ -29,7 +29,6 @@ mkldnn_status_t jit_avx_gemm_f32(
         const int *lda, const float *B, const int *ldb, const float *beta,
         float *C, const int *ldc, const float *bias = nullptr);
 
-
 }
 }
 }

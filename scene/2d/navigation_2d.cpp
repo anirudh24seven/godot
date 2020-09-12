@@ -1,8 +1,6 @@
 
 /*  navigation_2d.cpp                                                    */
 
-
-
 #include "navigation_2d.h"
 #include "servers/navigation_server_2d.h"
 

@@ -1,8 +1,6 @@
 
 /*  environment.h                                                        */
 
-
-
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 

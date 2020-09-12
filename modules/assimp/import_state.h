@@ -1,8 +1,6 @@
 
 /*  import_state.h                                                       */
 
-
-
 #ifndef EDITOR_SCENE_IMPORT_STATE_H
 #define EDITOR_SCENE_IMPORT_STATE_H
 

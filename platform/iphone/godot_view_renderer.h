@@ -1,8 +1,6 @@
 
 /*  godot_view_renderer.h                                                */
 
-
-
 #import <UIKit/UIKit.h>
 
 @protocol GodotViewRendererProtocol <NSObject>

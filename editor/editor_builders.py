@@ -7,7 +7,6 @@ import os
 import os.path
 from platform_methods import subprocess_main
 
-
 def make_doc_header(target, source, env):
 
     dst = target[0]
@@ -42,7 +41,6 @@ def make_doc_header(target, source, env):
 
     g.close()
 
-
 def make_fonts_header(target, source, env):
 
     dst = target[0]
@@ -71,7 +69,6 @@ def make_fonts_header(target, source, env):
     g.write("#endif")
 
     g.close()
-
 
 def make_translations_header(target, source, env, category):
 
@@ -122,14 +119,11 @@ def make_translations_header(target, source, env, category):
 
     g.close()
 
-
 def make_editor_translations_header(target, source, env):
     make_translations_header(target, source, env, "editor")
 
-
 def make_doc_translations_header(target, source, env):
     make_translations_header(target, source, env, "doc")
-
 
 if __name__ == "__main__":
     subprocess_main(globals())

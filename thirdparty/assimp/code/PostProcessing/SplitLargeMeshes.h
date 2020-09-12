@@ -102,16 +102,14 @@ public:
     */
     bool IsActive( unsigned int pFlags) const;
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Called prior to ExecuteOnScene().
     * The function is a request to the process to update its configuration
     * basing on the Importer's configuration property list.
     */
     virtual void SetupProperties(const Importer* pImp);
 
-
-    //! Set the split limit - needed for unit testing
+//! Set the split limit - needed for unit testing
     inline void SetLimit(unsigned int l)
         {LIMIT = l;}
 
@@ -144,7 +142,6 @@ public:
     unsigned int LIMIT;
 };
 
-
 // ---------------------------------------------------------------------------
 /** Post-processing filter to split large meshes into sub-meshes
  *
@@ -174,8 +171,7 @@ public:
     */
     virtual void SetupProperties(const Importer* pImp);
 
-
-    //! Set the split limit - needed for unit testing
+//! Set the split limit - needed for unit testing
     inline void SetLimit(unsigned int l)
         {LIMIT = l;}
 

@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_COMMON_H_
 #define VP8_COMMON_COMMON_H_
 
@@ -39,7 +38,6 @@ extern "C" {
 #define vp8_zero( Dest)  memset( &Dest, 0, sizeof( Dest));
 
 #define vp8_zero_array( Dest, N)  memset( Dest, 0, N * sizeof( *Dest));
-
 
 #ifdef __cplusplus
 }  // extern "C"

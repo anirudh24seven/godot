@@ -33,7 +33,6 @@
 #define pragma_unroll
 #endif
 
-
 namespace mkldnn {
 namespace impl {
 namespace cpu {
@@ -166,7 +165,6 @@ void _jit_avx512_core_fp32_wino_conv_4x3_t<is_fwd>
     }
 }
 
-
 template<bool is_fwd>
 void _jit_avx512_core_fp32_wino_conv_4x3_t<is_fwd>
     ::input_transform_data(int image, const jit_conv_winograd_conf_t &jcp,
@@ -249,8 +247,7 @@ void _jit_avx512_core_fp32_wino_conv_4x3_t<is_fwd>
     p.Mw = Iw;
     p.T = T;
 
-
-    int tile_index = tile_block * jcp.nb_tile_block_ur * jcp.tile_block_ur;
+int tile_index = tile_block * jcp.nb_tile_block_ur * jcp.tile_block_ur;
 
     for (int nb_tile_block_ur = 0;
             nb_tile_block_ur < jcp.nb_tile_block_ur;

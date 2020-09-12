@@ -1,8 +1,6 @@
 
 /*  websocket_peer.h                                                     */
 
-
-
 #ifndef WEBSOCKETPEER_H
 #define WEBSOCKETPEER_H
 

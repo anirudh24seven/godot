@@ -1,8 +1,6 @@
 
 /*  thread_jandroid.h                                                    */
 
-
-
 #ifndef THREAD_POSIX_H
 #define THREAD_POSIX_H
 

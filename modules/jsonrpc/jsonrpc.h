@@ -1,8 +1,6 @@
 
 /*  jsonrpc.h                                                            */
 
-
-
 #ifndef GODOT_JSON_RPC_H
 #define GODOT_JSON_RPC_H
 

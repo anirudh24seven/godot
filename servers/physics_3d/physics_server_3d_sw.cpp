@@ -1,8 +1,6 @@
 
 /*  physics_server_3d_sw.cpp                                             */
 
-
-
 #include "physics_server_3d_sw.h"
 
 #include "broad_phase_3d_basic.h"

@@ -1,8 +1,6 @@
 
 /*  gd_mono_method_thunk.h                                               */
 
-
-
 #ifndef GD_MONO_METHOD_THUNK_H
 #define GD_MONO_METHOD_THUNK_H
 

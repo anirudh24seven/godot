@@ -1,8 +1,6 @@
 
 /*  menu_button.h                                                        */
 
-
-
 #ifndef MENU_BUTTON_H
 #define MENU_BUTTON_H
 

@@ -1,8 +1,6 @@
 
 /*  resource_importer_wav.cpp                                            */
 
-
-
 #include "resource_importer_wav.h"
 
 #include "core/io/marshalls.h"

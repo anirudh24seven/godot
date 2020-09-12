@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -316,8 +314,7 @@ struct aiString
         data[len] = 0;
     }
 
-
-    /** Assignment operator */
+/** Assignment operator */
     aiString& operator = (const aiString &rOther) {
         if (this == &rOther) {
             return *this;
@@ -329,8 +326,7 @@ struct aiString
         return *this;
     }
 
-
-    /** Assign a const char* to the string */
+/** Assign a const char* to the string */
     aiString& operator = (const char* sz) {
         Set(sz);
         return *this;
@@ -392,7 +388,6 @@ struct aiString
     /** String buffer. Size limit is MAXLEN */
     char data[MAXLEN];
 } ;  // !struct aiString
-
 
 // ----------------------------------------------------------------------------------
 /** Standard return type for some library functions.

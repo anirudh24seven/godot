@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -78,7 +77,6 @@ enum TokenType
     TokenType_KEY
 };
 
-
 /** Represents a single token in a FBX file. Tokens are
  *  classified by the #TokenType enumerated types.
  *
@@ -141,8 +139,7 @@ private:
     const std::string contents;
 #endif
 
-
-    const char* const sbegin;
+const char* const sbegin;
     const char* const send;
     const TokenType type;
 
@@ -159,7 +156,6 @@ typedef std::vector< TokenPtr > TokenList;
 
 #define new_Token new Token
 
-
 /** Main FBX tokenizer function. Transform input buffer into a list of preprocessed tokens.
  *
  *  Skips over comments and generates line and column numbers.
@@ -168,7 +164,6 @@ typedef std::vector< TokenPtr > TokenList;
  * @param input_buffer Textual input buffer to be processed, 0-terminated.
  * @throw DeadlyImportError if something goes wrong */
 void Tokenize(TokenList& output_tokens, const char* input);
-
 
 /** Tokenizer function for binary FBX files.
  *
@@ -179,7 +174,6 @@ void Tokenize(TokenList& output_tokens, const char* input);
  * @param length Length of input buffer, in bytes. There is no 0-terminal.
  * @throw DeadlyImportError if something goes wrong */
 void TokenizeBinary(TokenList& output_tokens, const char* input, size_t length);
-
 
 } // ! FBX
 } // ! Assimp

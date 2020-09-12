@@ -114,7 +114,6 @@ void silk_shell_encoder(
     encode_split( psRangeEnc, pulses0[ 14 ], pulses1[ 7 ], silk_shell_code_table0 );
 }
 
-
 /* Shell decoder, operates on one shell code frame of 16 pulses */
 void silk_shell_decoder(
     opus_int16                  *pulses0,                       /* O    data: nonnegative pulse amplitudes          */

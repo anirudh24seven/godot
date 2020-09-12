@@ -69,7 +69,6 @@ typedef struct {
 /* Expose this option again when variable framesize actually works */
 #define OPUS_FRAMESIZE_VARIABLE              5010 /**< Optimize the frame size dynamically */
 
-
 #define CELT_SET_PREDICTION_REQUEST    10002
 /** Controls the use of interframe prediction.
     0=Independent frames
@@ -86,7 +85,6 @@ typedef struct {
 
 #define CELT_SET_CHANNELS_REQUEST    10008
 #define CELT_SET_CHANNELS(x) CELT_SET_CHANNELS_REQUEST, __opus_check_int(x)
-
 
 /* Internal */
 #define CELT_SET_START_BAND_REQUEST    10010
@@ -125,12 +123,9 @@ int celt_encode_with_ec(OpusCustomEncoder * OPUS_RESTRICT st, const opus_val16 *
 int celt_encoder_init(CELTEncoder *st, opus_int32 sampling_rate, int channels,
                       int arch);
 
-
-
 /* Decoder stuff */
 
 int celt_decoder_get_size(int channels);
-
 
 int celt_decoder_init(CELTDecoder *st, opus_int32 sampling_rate, int channels);
 
@@ -139,7 +134,6 @@ int celt_decode_with_ec(OpusCustomDecoder * OPUS_RESTRICT st, const unsigned cha
 
 #define celt_encoder_ctl opus_custom_encoder_ctl
 #define celt_decoder_ctl opus_custom_decoder_ctl
-
 
 #ifdef CUSTOM_MODES
 #define OPUS_CUSTOM_NOSTATIC

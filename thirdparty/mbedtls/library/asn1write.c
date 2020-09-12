@@ -364,7 +364,6 @@ int mbedtls_asn1_write_octet_string( unsigned char **p, unsigned char *start,
     return( (int) len );
 }
 
-
 /* This is a copy of the ASN.1 parsing function mbedtls_asn1_find_named_data(),
  * which is replicated to avoid a dependency ASN1_WRITE_C on ASN1_PARSE_C. */
 static mbedtls_asn1_named_data *asn1_find_named_data(

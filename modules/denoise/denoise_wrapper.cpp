@@ -1,8 +1,6 @@
 
 /*  denoise_wrapper.cpp                                                  */
 
-
-
 #include "denoise_wrapper.h"
 #include "thirdparty/oidn/include/OpenImageDenoise/oidn.h"
 #include <stdio.h>

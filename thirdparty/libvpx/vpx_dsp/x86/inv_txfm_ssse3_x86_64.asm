@@ -346,8 +346,7 @@ cglobal idct8x8_12_add, 3, 5, 13, input, output, stride
   punpckhqdq m3, m4, m10
   punpcklqdq m2, m4, m10
 
-
-  pmulhrsw   m0, m12
+pmulhrsw   m0, m12
   pmulhrsw   m6, m2, [dpw_30274_30274]
   pmulhrsw   m4, m2, [dpw_12540_12540]
 
@@ -375,8 +374,7 @@ cglobal idct8x8_12_add, 3, 5, 13, input, output, stride
   SWAP       1, 2
   SWAP       2, 4
 
-
-  pxor    m12, m12
+pxor    m12, m12
   ADD_STORE_8P_2X  0, 1, 9, 10, 12
   lea              outputq, [outputq + r3]
   ADD_STORE_8P_2X  2, 3, 9, 10, 12

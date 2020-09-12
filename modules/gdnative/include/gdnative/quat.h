@@ -1,8 +1,6 @@
 
 /*  quat.h                                                               */
 
-
-
 #ifndef GODOT_QUAT_H
 #define GODOT_QUAT_H
 

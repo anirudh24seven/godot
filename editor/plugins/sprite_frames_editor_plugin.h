@@ -1,8 +1,6 @@
 
 /*  sprite_frames_editor_plugin.h                                        */
 
-
-
 #ifndef SPRITE_FRAMES_EDITOR_PLUGIN_H
 #define SPRITE_FRAMES_EDITOR_PLUGIN_H
 

@@ -1,8 +1,6 @@
 
 /*  center_container.h                                                   */
 
-
-
 #ifndef CENTER_CONTAINER_H
 #define CENTER_CONTAINER_H
 

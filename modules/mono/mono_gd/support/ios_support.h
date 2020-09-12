@@ -1,8 +1,6 @@
 
 /*  ios_support.h                                                        */
 
-
-
 #ifndef IOS_SUPPORT_H
 #define IOS_SUPPORT_H
 

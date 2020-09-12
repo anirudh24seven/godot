@@ -1,8 +1,6 @@
 
 /*  visual_script_yield_nodes.cpp                                        */
 
-
-
 #include "visual_script_yield_nodes.h"
 
 #include "core/os/os.h"

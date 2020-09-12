@@ -1,8 +1,6 @@
 
 /*  scene_tree_editor.h                                                  */
 
-
-
 #ifndef SCENE_TREE_EDITOR_H
 #define SCENE_TREE_EDITOR_H
 

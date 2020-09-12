@@ -1,8 +1,6 @@
 
 /*  dir_access.h                                                         */
 
-
-
 #ifndef DIR_ACCESS_H
 #define DIR_ACCESS_H
 

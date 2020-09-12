@@ -15,14 +15,11 @@
  *
  */
 
-
 #ifndef CIDRIVER_H_
 #define CIDRIVER_H_
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DRIVER_H
-
 
 FT_BEGIN_HEADER
 
@@ -32,6 +29,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* CIDRIVER_H_ */
-
 
 /* END */

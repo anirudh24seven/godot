@@ -2,7 +2,6 @@
 # FreeType 2 CFF module definition
 #
 
-
 # Copyright (C) 1996-2020 by
 # David Turner, Robert Wilhelm, and Werner Lemberg.
 #
@@ -11,7 +10,6 @@
 # LICENSE.TXT.  By continuing to use, modify, or distribute this file you
 # indicate that you have read the license and understand and accept it
 # fully.
-
 
 FTMODULE_H_COMMANDS += CFF_DRIVER
 

@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -99,8 +98,7 @@ namespace std {
         return ::aiColor4t<TReal> (max(a.r,b.r),max(a.g,b.g),max(a.b,b.b),max(a.a,b.a));
     }
 
-
-    // std::min for aiQuaterniont<TReal>
+// std::min for aiQuaterniont<TReal>
     template <typename TReal>
     inline ::aiQuaterniont<TReal> min (const ::aiQuaterniont<TReal>& a, const ::aiQuaterniont<TReal>& b)    {
         return ::aiQuaterniont<TReal> (min(a.w,b.w),min(a.x,b.x),min(a.y,b.y),min(a.z,b.z));
@@ -112,9 +110,7 @@ namespace std {
         return ::aiQuaterniont<TReal> (max(a.w,b.w),max(a.x,b.x),max(a.y,b.y),max(a.z,b.z));
     }
 
-
-
-    // std::min for aiVectorKey
+// std::min for aiVectorKey
     inline ::aiVectorKey min (const ::aiVectorKey& a, const ::aiVectorKey& b)   {
         return ::aiVectorKey (min(a.mTime,b.mTime),min(a.mValue,b.mValue));
     }
@@ -226,7 +222,6 @@ inline void ArrayBounds(const T* in, unsigned int size, T& min, T& max)
     }
 }
 
-
 // -------------------------------------------------------------------------------
 /** Little helper function to calculate the quadratic difference
  * of two colours.
@@ -239,14 +234,12 @@ inline ai_real GetColorDifference( const aiColor4D& pColor1, const aiColor4D& pC
     return c.r*c.r + c.g*c.g + c.b*c.b + c.a*c.a;
 }
 
-
 // -------------------------------------------------------------------------------
 /** @brief Extract single strings from a list of identifiers
  *  @param in Input string list.
  *  @param out Receives a list of clean output strings
  *  @sdee #AI_CONFIG_PP_OG_EXCLUDE_LIST */
 void ConvertListToStrings(const std::string& in, std::list<std::string>& out);
-
 
 // -------------------------------------------------------------------------------
 /** @brief Compute the AABB of a mesh after applying a given transform
@@ -255,7 +248,6 @@ void ConvertListToStrings(const std::string& in, std::list<std::string>& out);
  *  @param[out] max Receives maximum transformed vertex
  *  @param m Transformation matrix to be applied */
 void FindAABBTransformed (const aiMesh* mesh, aiVector3D& min, aiVector3D& max, const aiMatrix4x4& m);
-
 
 // -------------------------------------------------------------------------------
 /** @brief Helper function to determine the 'real' center of a mesh
@@ -277,36 +269,29 @@ void FindMeshCenter (aiMesh* mesh, aiVector3D& out, aiVector3D& min, aiVector3D&
  *  @param[out] out Center point */
 void FindSceneCenter (aiScene* scene, aiVector3D& out, aiVector3D& min, aiVector3D& max);
 
-
 // -------------------------------------------------------------------------------
 // Helper function to determine the 'real' center of a mesh after applying a given transform
 void FindMeshCenterTransformed (aiMesh* mesh, aiVector3D& out, aiVector3D& min,aiVector3D& max, const aiMatrix4x4& m);
-
 
 // -------------------------------------------------------------------------------
 // Helper function to determine the 'real' center of a mesh
 void FindMeshCenter (aiMesh* mesh, aiVector3D& out);
 
-
 // -------------------------------------------------------------------------------
 // Helper function to determine the 'real' center of a mesh after applying a given transform
 void FindMeshCenterTransformed (aiMesh* mesh, aiVector3D& out,const aiMatrix4x4& m);
-
 
 // -------------------------------------------------------------------------------
 // Compute a good epsilon value for position comparisons on a mesh
 ai_real ComputePositionEpsilon(const aiMesh* pMesh);
 
-
 // -------------------------------------------------------------------------------
 // Compute a good epsilon value for position comparisons on a array of meshes
 ai_real ComputePositionEpsilon(const aiMesh* const* pMeshes, size_t num);
 
-
 // -------------------------------------------------------------------------------
 // Compute an unique value for the vertex format of a mesh
 unsigned int GetMeshVFormatUnique(const aiMesh* pcMesh);
-
 
 // defs for ComputeVertexBoneWeightTable()
 typedef std::pair <unsigned int,float> PerVertexWeight;
@@ -316,16 +301,13 @@ typedef std::vector <PerVertexWeight> VertexWeightTable;
 // Compute a per-vertex bone weight table
 VertexWeightTable* ComputeVertexBoneWeightTable(const aiMesh* pMesh);
 
-
 // -------------------------------------------------------------------------------
 // Get a string for a given aiTextureType
 const char* TextureTypeToString(aiTextureType in);
 
-
 // -------------------------------------------------------------------------------
 // Get a string for a given aiTextureMapping
 const char* MappingTypeToString(aiTextureMapping in);
-
 
 // flags for MakeSubmesh()
 #define AI_SUBMESH_FLAGS_SANS_BONES 0x1
@@ -379,8 +361,6 @@ class DestroySpatialSortProcess : public BaseProcess
         shared->RemoveProperty(AI_SPP_SPATIAL_SORT);
     }
 };
-
-
 
 } // ! namespace Assimp
 #endif // !! AI_PROCESS_HELPER_H_INCLUDED

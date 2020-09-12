@@ -1,8 +1,6 @@
 
 /*  audio_effect_filter.cpp                                              */
 
-
-
 #include "audio_effect_filter.h"
 #include "servers/audio_server.h"
 

@@ -581,8 +581,7 @@ int mbedtls_sha256_self_test( int verbose )
         if( ( ret = mbedtls_sha256_finish_ret( &ctx, sha256sum ) ) != 0 )
             goto fail;
 
-
-        if( memcmp( sha256sum, sha256_test_sum[i], 32 - k * 4 ) != 0 )
+if( memcmp( sha256sum, sha256_test_sum[i], 32 - k * 4 ) != 0 )
         {
             ret = 1;
             goto fail;

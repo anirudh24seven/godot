@@ -1,8 +1,6 @@
 
 /*  transform.cpp                                                        */
 
-
-
 #include "gdnative/transform.h"
 
 #include "core/math/transform.h"

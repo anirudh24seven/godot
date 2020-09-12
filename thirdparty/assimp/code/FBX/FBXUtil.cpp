@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -83,7 +82,6 @@ const char* TokenTypeString(TokenType t)
     ai_assert(false);
     return "";
 }
-
 
 // ------------------------------------------------------------------------------------------------
 std::string AddOffset(const std::string& prefix, const std::string& text, size_t offset)

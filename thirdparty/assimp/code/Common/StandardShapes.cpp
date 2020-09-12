@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -55,7 +54,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace Assimp    {
 
-
 # define ADD_TRIANGLE(n0,n1,n2) \
     positions.push_back(n0); \
     positions.push_back(n1); \
@@ -90,7 +88,6 @@ namespace Assimp    {
         ADD_TRIANGLE(n0, n1, n2) \
         ADD_TRIANGLE(n0, n2, n3) \
     }
-
 
 // ------------------------------------------------------------------------------------------------
 // Fast subdivision for a mesh whose verts have a magnitude of 1
@@ -449,8 +446,7 @@ void StandardShapes::MakeCone(ai_real height,ai_real radius1,
             positions.push_back(aiVector3D(s2 * radius2,  halfHeight, t2 * radius2 ));
             positions.push_back(aiVector3D(0.0, halfHeight, 0.0));
 
-
-            if (radius1)
+if (radius1)
             {
                 // generate the other end 'cap'
                 positions.push_back(aiVector3D(s * radius1,  -halfHeight, t * radius1 ));

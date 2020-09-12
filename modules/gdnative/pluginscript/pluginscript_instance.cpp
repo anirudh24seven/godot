@@ -1,8 +1,6 @@
 
 /*  pluginscript_instance.cpp                                            */
 
-
-
 #include "pluginscript_instance.h"
 
 // Godot imports

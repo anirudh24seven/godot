@@ -1,8 +1,6 @@
 
 /*  audio_driver_jandroid.h                                              */
 
-
-
 #ifndef AUDIO_DRIVER_ANDROID_H
 #define AUDIO_DRIVER_ANDROID_H
 

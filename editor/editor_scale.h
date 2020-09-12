@@ -1,8 +1,6 @@
 
 /*  editor_scale.h                                                       */
 
-
-
 #ifndef EDITOR_SCALE_H
 #define EDITOR_SCALE_H
 

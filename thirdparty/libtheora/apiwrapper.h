@@ -48,7 +48,6 @@ struct th_api_info{
   theora_info    info;
 };
 
-
 void oc_theora_info2th_info(th_info *_info,const theora_info *_ci);
 
 #endif

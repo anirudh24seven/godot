@@ -1,8 +1,6 @@
 
 /*  variant_parser.h                                                     */
 
-
-
 #ifndef VARIANT_PARSER_H
 #define VARIANT_PARSER_H
 

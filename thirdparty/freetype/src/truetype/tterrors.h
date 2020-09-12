@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This file is used to define the TrueType error enumeration
    * constants.
@@ -37,6 +36,5 @@
 #include FT_ERRORS_H
 
 #endif /* TTERRORS_H_ */
-
 
 /* END */

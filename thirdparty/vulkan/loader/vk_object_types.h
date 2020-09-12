@@ -1,7 +1,6 @@
 // *** THIS FILE IS GENERATED - DO NOT EDIT ***
 // See helper_file_generator.py for modifications
 
-
 /***************************************************************************
  *
  * Copyright (c) 2015-2017 The Khronos Group Inc.
@@ -28,7 +27,6 @@
  * Author: John Zulauf<jzulauf@lunarg.com>
  *
  ****************************************************************************/
-
 
 #pragma once
 

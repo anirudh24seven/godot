@@ -1,7 +1,6 @@
 
 /*  http_request.js                                                      */
 
-
 var GodotHTTPRequest = {
 
 	$GodotHTTPRequest: {

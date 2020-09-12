@@ -47,7 +47,6 @@ typedef unsigned char u8;
 #define AtomCmpxhg(x, cmp, value) atom_cmpxchg( &(x), cmp, value )
 #define AtomXhg(x, value) atom_xchg ( &(x), value )
 
-
 #define SELECT_UINT4( b, a, condition ) select( b,a,condition )
 
 #define make_float4 (float4)
@@ -57,18 +56,12 @@ typedef unsigned char u8;
 #define make_uint2 (uint2)
 #define make_int2 (int2)
 
-
 #define max2 max
 #define min2 min
 
-
 #define WG_SIZE 64
 
-
-
-
-
-typedef struct 
+typedef struct
 {
 	int m_n;
 	int m_start;
@@ -82,10 +75,6 @@ typedef struct
 	int m_b;
 	u32 m_idx;
 }Elem;
-
-
-
-
 
 //	batching on the GPU
 __kernel void CreateBatchesBruteForce( __global struct b3Contact4Data* gConstraints, 	__global const u32* gN, __global const u32* gStart, int m_staticIdx )
@@ -107,11 +96,7 @@ __kernel void CreateBatchesBruteForce( __global struct b3Contact4Data* gConstrai
 	}
 }
 
-
 #define CHECK_SIZE (WG_SIZE)
-
-
-
 
 u32 readBuf(__local u32* buff, int idx)
 {
@@ -139,7 +124,6 @@ u32 tryWrite(__local u32* buff, int idx)
 	return ((ans >> bitIdx)&1) == 0;
 }
 
-
 //	batching on the GPU
 __kernel void CreateBatchesNew( __global struct b3Contact4Data* gConstraints, __global const u32* gN, __global const u32* gStart, __global int* batchSizes, int staticIdx )
 {
@@ -150,19 +134,13 @@ __kernel void CreateBatchesNew( __global struct b3Contact4Data* gConstraints, __
 	b3Contact4Data_t tmp;
 	
 	__local u32 ldsFixedBuffer[CHECK_SIZE];
-		
-	
-	
-	
-	
-	if( lIdx == 0 )
+
+if( lIdx == 0 )
 	{
-	
-		
-		__global struct b3Contact4Data* cs = &gConstraints[m_start];	
-	
-		
-		int numValidConstraints = 0;
+
+__global struct b3Contact4Data* cs = &gConstraints[m_start];
+
+int numValidConstraints = 0;
 		int batchIdx = 0;
 
 		while( numValidConstraints < numConstraints)
@@ -205,8 +183,7 @@ __kernel void CreateBatchesNew( __global struct b3Contact4Data* gConstraints, __
 						cs[i] = cs[numValidConstraints];
 						cs[numValidConstraints]  = tmp;
 
-
-					}
+}
 
 					numValidConstraints++;
 					

@@ -22,8 +22,7 @@
   Jean-loup Gailly        Mark Adler
   jloup@gzip.org          madler@alumni.caltech.edu
 
-
-  The data format used by the zlib library is described by RFCs (Request for
+The data format used by the zlib library is described by RFCs (Request for
   Comments) 1950 to 1952 in the files http://tools.ietf.org/html/rfc1950
   (zlib format), rfc1951 (deflate format) and rfc1952 (gzip format).
 */
@@ -214,8 +213,7 @@ typedef gz_header FAR *gz_headerp;
 #define zlib_version zlibVersion()
 /* for compatibility with versions < 1.0.2 */
 
-
-                        /* basic functions */
+/* basic functions */
 
 ZEXTERN const char * ZEXPORT zlibVersion OF((void));
 /* The application can compare zlibVersion and ZLIB_VERSION for consistency.
@@ -245,7 +243,6 @@ ZEXTERN int ZEXPORT deflateInit OF((z_streamp strm, int level));
    if there is no error message.  deflateInit does not perform any compression:
    this will be done by deflate().
 */
-
 
 ZEXTERN int ZEXPORT deflate OF((z_streamp strm, int flush));
 /*
@@ -359,7 +356,6 @@ ZEXTERN int ZEXPORT deflate OF((z_streamp strm, int flush));
   continue compressing.
 */
 
-
 ZEXTERN int ZEXPORT deflateEnd OF((z_streamp strm));
 /*
      All dynamically allocated data structures for this stream are freed.
@@ -372,7 +368,6 @@ ZEXTERN int ZEXPORT deflateEnd OF((z_streamp strm));
    may be set but then points to a static string (which must not be
    deallocated).
 */
-
 
 /*
 ZEXTERN int ZEXPORT inflateInit OF((z_streamp strm));
@@ -395,7 +390,6 @@ ZEXTERN int ZEXPORT inflateInit OF((z_streamp strm));
    implementation of inflateInit() does not process any header information --
    that is deferred until inflate() is called.
 */
-
 
 ZEXTERN int ZEXPORT inflate OF((z_streamp strm, int flush));
 /*
@@ -516,7 +510,6 @@ ZEXTERN int ZEXPORT inflate OF((z_streamp strm, int flush));
   recovery of the data is to be attempted.
 */
 
-
 ZEXTERN int ZEXPORT inflateEnd OF((z_streamp strm));
 /*
      All dynamically allocated data structures for this stream are freed.
@@ -527,8 +520,7 @@ ZEXTERN int ZEXPORT inflateEnd OF((z_streamp strm));
    was inconsistent.
 */
 
-
-                        /* Advanced functions */
+/* Advanced functions */
 
 /*
     The following functions are needed only in some special applications.
@@ -1755,8 +1747,7 @@ ZEXTERN uLong ZEXPORT crc32_combine OF((uLong crc1, uLong crc2, z_off_t len2));
    len2.
 */
 
-
-                        /* various hacks, don't look :) */
+/* various hacks, don't look :) */
 
 /* deflateInit and inflateInit are macros to allow checking the zlib version
  * and the compiler's view of z_stream:

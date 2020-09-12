@@ -225,8 +225,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #   error Currently, Borland is unsupported. Feel free to port Assimp.
 #endif
 
-
-    //////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
     /* Define ASSIMP_BUILD_SINGLETHREADED to compile assimp
      * without threading support. The library doesn't utilize
      * threads then and is itself not threadsafe. */
@@ -296,7 +295,6 @@ static const ai_real ai_epsilon = (ai_real) 0.00001;
 #if defined(__BIG_ENDIAN__)
 #   define AI_BUILD_BIG_ENDIAN
 #endif
-
 
 /**
  *  To avoid running out of memory

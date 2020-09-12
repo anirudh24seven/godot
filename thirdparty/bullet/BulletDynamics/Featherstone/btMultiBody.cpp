@@ -30,7 +30,6 @@
 //#include "Bullet3Common/b3Logging.h"
 // #define INCLUDE_GYRO_TERM
 
-
 namespace
 {
 const btScalar SLEEP_EPSILON = btScalar(0.05);  // this is a squared velocity (m^2 s^-2)
@@ -50,7 +49,6 @@ void btMultiBody::spatialTransform(const btMatrix3x3 &rotation_matrix,  // rotat
 
 namespace
 {
-
 
 #if 0
     void InverseSpatialTransform(const btMatrix3x3 &rotation_matrix,
@@ -405,7 +403,6 @@ void btMultiBody::setJointPos(int i, btScalar q)
 	m_links[i].updateCacheMultiDof();
 }
 
-
 void btMultiBody::setJointPosMultiDof(int i, const double *q)
 {
 	for (int pos = 0; pos < m_links[i].m_posVarCount; ++pos)
@@ -421,8 +418,6 @@ void btMultiBody::setJointPosMultiDof(int i, const float *q)
 
 	m_links[i].updateCacheMultiDof();
 }
-
-
 
 void btMultiBody::setJointVel(int i, btScalar qdot)
 {
@@ -582,7 +577,6 @@ void btMultiBody::compTreeLinkVelocities(btVector3 *omega, btVector3 *vel) const
 		}
 	}
 }
-
 
 void btMultiBody::clearConstraintForces()
 {
@@ -2006,9 +2000,7 @@ void btMultiBody::checkMotionAndSleepIfRequired(btScalar timestep)
 		return;
 	}
 
-	
-
-	// motion is computed as omega^2 + v^2 + (sum of squares of joint velocities)
+// motion is computed as omega^2 + v^2 + (sum of squares of joint velocities)
 	btScalar motion = 0;
 	{
 		for (int i = 0; i < 6 + m_dofCount; ++i)

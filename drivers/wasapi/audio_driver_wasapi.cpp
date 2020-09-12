@@ -1,8 +1,6 @@
 
 /*  audio_driver_wasapi.cpp                                              */
 
-
-
 #ifdef WASAPI_ENABLED
 
 #include "audio_driver_wasapi.h"

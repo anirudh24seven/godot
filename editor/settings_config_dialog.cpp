@@ -1,8 +1,6 @@
 
 /*  settings_config_dialog.cpp                                           */
 
-
-
 #include "settings_config_dialog.h"
 
 #include "core/os/keyboard.h"

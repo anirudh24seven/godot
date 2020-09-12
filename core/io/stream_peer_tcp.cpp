@@ -1,8 +1,6 @@
 
 /*  stream_peer_tcp.cpp                                                  */
 
-
-
 #include "stream_peer_tcp.h"
 
 #include "core/project_settings.h"

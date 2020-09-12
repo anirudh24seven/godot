@@ -1,8 +1,6 @@
 
 /*  ip_address.h                                                         */
 
-
-
 #ifndef IP_ADDRESS_H
 #define IP_ADDRESS_H
 

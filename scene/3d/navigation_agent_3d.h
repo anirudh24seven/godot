@@ -1,8 +1,6 @@
 
 /*  navigation_agent_3d.h                                                */
 
-
-
 #ifndef NAVIGATION_AGENT_H
 #define NAVIGATION_AGENT_H
 

@@ -18,8 +18,7 @@ struct DeformableBodyInplaceSolverIslandCallback : public MultiBodyInplaceSolver
 	{
 	}
 
-
-	virtual void processConstraints(int islandId=-1)
+virtual void processConstraints(int islandId=-1)
 	{
 		btCollisionObject** bodies = m_bodies.size() ? &m_bodies[0] : 0;
 		btCollisionObject** softBodies = m_softBodies.size() ? &m_softBodies[0] : 0;

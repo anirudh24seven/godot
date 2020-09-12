@@ -36,7 +36,6 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 // -- GODOT end --
 
-
 /**
  * This class binds the service API to your application client.  It contains the IDownloaderClient proxy,
  * which is used to call functions in your client as well as the Stub, which is used to call functions

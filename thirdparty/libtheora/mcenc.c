@@ -19,11 +19,7 @@
 #include <string.h>
 #include "encint.h"
 
-
-
 typedef struct oc_mcenc_ctx           oc_mcenc_ctx;
-
-
 
 /*Temporary state used for motion estimation.*/
 struct oc_mcenc_ctx{
@@ -34,8 +30,6 @@ struct oc_mcenc_ctx{
   /*The total number of candidates.*/
   int                ncandidates;
 };
-
-
 
 /*The maximum Y plane SAD value for accepting the median predictor.*/
 #define OC_YSAD_THRESH1            (256)
@@ -86,7 +80,6 @@ static const int OC_SQUARE_SITES[11][8]={
   /*       dx==15(.5),        dy==15(.5)*/
   {0,1,3}
 };
-
 
 static void oc_mcenc_find_candidates(oc_enc_ctx *_enc,oc_mcenc_ctx *_mcenc,
  int _accum[2],int _mbi,int _frame){

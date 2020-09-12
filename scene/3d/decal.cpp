@@ -1,8 +1,6 @@
 
 /*  decal.cpp                                                            */
 
-
-
 #include "decal.h"
 
 void Decal::set_extents(const Vector3 &p_extents) {

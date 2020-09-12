@@ -1,8 +1,6 @@
 
 /*  scene_debugger.cpp                                                   */
 
-
-
 #include "scene_debugger.h"
 
 #include "core/debugger/engine_debugger.h"

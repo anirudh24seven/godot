@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -92,7 +91,6 @@ public:
 private:
     T value;
 };
-
 
 typedef std::fbx_unordered_map<std::string,std::shared_ptr<Property> > DirectPropertyMap;
 typedef std::fbx_unordered_map<std::string,const Property*>            PropertyMap;

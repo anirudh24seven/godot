@@ -1,8 +1,6 @@
 
 /*  joypad_windows.h                                                     */
 
-
-
 #ifndef JOYPAD_WINDOWS_H
 #define JOYPAD_WINDOWS_H
 

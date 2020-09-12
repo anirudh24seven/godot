@@ -126,7 +126,6 @@ OPUS_CUSTOM_EXPORT OPUS_WARN_UNUSED_RESULT OpusCustomMode *opus_custom_mode_crea
   */
 OPUS_CUSTOM_EXPORT void opus_custom_mode_destroy(OpusCustomMode *mode);
 
-
 #if !defined(OPUS_BUILD) || defined(CELT_ENCODER_C)
 
 /* Encoder */
@@ -161,7 +160,6 @@ OPUS_CUSTOM_EXPORT int opus_custom_encoder_init(
 # endif
 #endif
 
-
 /** Creates a new encoder state. Each stream needs its own encoder
   * state (can't be shared across simultaneous streams).
   * @param [in] mode <tt>OpusCustomMode*</tt>: Contains all the information about the characteristics of
@@ -176,7 +174,6 @@ OPUS_CUSTOM_EXPORT OPUS_WARN_UNUSED_RESULT OpusCustomEncoder *opus_custom_encode
     int channels,
     int *error
 ) OPUS_ARG_NONNULL(1);
-
 
 /** Destroys a an encoder state.
   * @param[in] st <tt>OpusCustomEncoder*</tt>: State to be freed.
@@ -237,7 +234,6 @@ OPUS_CUSTOM_EXPORT OPUS_WARN_UNUSED_RESULT int opus_custom_encode(
   */
 OPUS_CUSTOM_EXPORT int opus_custom_encoder_ctl(OpusCustomEncoder * OPUS_RESTRICT st, int request, ...) OPUS_ARG_NONNULL(1);
 
-
 #if !defined(OPUS_BUILD) || defined(CELT_DECODER_C)
 /* Decoder */
 
@@ -270,7 +266,6 @@ OPUS_CUSTOM_EXPORT_STATIC int opus_custom_decoder_init(
 ) OPUS_ARG_NONNULL(1) OPUS_ARG_NONNULL(2);
 
 #endif
-
 
 /** Creates a new decoder state. Each stream needs its own decoder state (can't
   * be shared across simultaneous streams).

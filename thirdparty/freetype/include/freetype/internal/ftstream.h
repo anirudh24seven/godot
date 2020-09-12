@@ -15,20 +15,16 @@
  *
  */
 
-
 #ifndef FTSTREAM_H_
 #define FTSTREAM_H_
-
 
 #include <ft2build.h>
 #include FT_SYSTEM_H
 #include FT_INTERNAL_OBJECTS_H
 
-
 FT_BEGIN_HEADER
 
-
-  /* format of an 8-bit frame_op value:           */
+/* format of an 8-bit frame_op value:           */
   /*                                              */
   /* bit  76543210                                */
   /*      xxxxxxes                                */
@@ -53,8 +49,7 @@ FT_BEGIN_HEADER
 #define FT_FRAME_OP_OFF3   5  /* read 3-byte value     */
 #define FT_FRAME_OP_BYTES  6  /* read a bytes sequence */
 
-
-  typedef enum  FT_Frame_Op_
+typedef enum  FT_Frame_Op_
   {
     ft_frame_end       = 0,
     ft_frame_start     = FT_MAKE_FRAME_OP( FT_FRAME_OP_START, 0, 0 ),
@@ -82,8 +77,7 @@ FT_BEGIN_HEADER
 
   } FT_Frame_Op;
 
-
-  typedef struct  FT_Frame_Field_
+typedef struct  FT_Frame_Field_
   {
     FT_Byte    value;
     FT_Byte    size;
@@ -91,8 +85,7 @@ FT_BEGIN_HEADER
 
   } FT_Frame_Field;
 
-
-  /* Construct an FT_Frame_Field out of a structure type and a field name. */
+/* Construct an FT_Frame_Field out of a structure type and a field name. */
   /* The structure type must be set in the FT_STRUCTURE macro before       */
   /* calling the FT_FRAME_START() macro.                                   */
   /*                                                                       */
@@ -146,8 +139,7 @@ FT_BEGIN_HEADER
 
 #define FT_FRAME_SKIP_BYTES( count )  { ft_frame_skip, count, 0 }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Integer extraction macros -- the 'buffer' parameter must ALWAYS be of
    * type 'char*' or equivalent (1-byte elements).
@@ -160,12 +152,10 @@ FT_BEGIN_HEADER
 #define FT_INT32( x )   ( (FT_Int32)(x)  )
 #define FT_UINT32( x )  ( (FT_UInt32)(x) )
 
-
 #define FT_BYTE_U16( p, i, s )  ( FT_UINT16( FT_BYTE_( p, i ) ) << (s) )
 #define FT_BYTE_U32( p, i, s )  ( FT_UINT32( FT_BYTE_( p, i ) ) << (s) )
 
-
-  /*
+/*
    *    function      acts on      increases  does range   for    emits
    *                                pointer    checking   frames  error
    *  -------------------------------------------------------------------
@@ -175,8 +165,7 @@ FT_BEGIN_HEADER
    *   FT_READ_XXX  stream->pos        yes        yes        no    yes
    */
 
-
-  /*
+/*
    * `FT_PEEK_XXX' are generic macros to get data from a buffer position.  No
    * safety checks are performed.
    */
@@ -256,7 +245,6 @@ FT_BEGIN_HEADER
 #define FT_NEXT_ULONG( buffer )                                           \
           ( (unsigned long)( buffer += 4, FT_PEEK_ULONG( buffer - 4 ) ) )
 
-
 #define FT_NEXT_SHORT_LE( buffer )                                   \
           ( (short)( buffer += 2, FT_PEEK_SHORT_LE( buffer - 2 ) ) )
 
@@ -275,8 +263,7 @@ FT_BEGIN_HEADER
 #define FT_NEXT_ULONG_LE( buffer )                                           \
           ( (unsigned long)( buffer += 4, FT_PEEK_ULONG_LE( buffer - 4 ) ) )
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The `FT_GET_XXX` macros use an implicit 'stream' variable.
    *
@@ -321,7 +308,6 @@ FT_BEGIN_HEADER
 #define FT_GET_ULONG_LE()   FT_GET_MACRO( FT_Stream_GetULongLE, FT_ULong )
 #endif
 
-
 #define FT_READ_MACRO( func, type, var )        \
           ( var = (type)func( stream, &error ), \
             error != FT_Err_Ok )
@@ -347,7 +333,6 @@ FT_BEGIN_HEADER
 #define FT_READ_LONG_LE( var )    FT_READ_MACRO( FT_Stream_ReadULongLE, FT_Long, var )
 #define FT_READ_ULONG_LE( var )   FT_READ_MACRO( FT_Stream_ReadULongLE, FT_ULong, var )
 
-
 #ifndef FT_CONFIG_OPTION_NO_DEFAULT_SYSTEM
 
   /* initialize a stream for reading a regular system stream */
@@ -357,8 +342,7 @@ FT_BEGIN_HEADER
 
 #endif /* FT_CONFIG_OPTION_NO_DEFAULT_SYSTEM */
 
-
-  /* create a new (input) stream from an FT_Open_Args structure */
+/* create a new (input) stream from an FT_Open_Args structure */
   FT_BASE( FT_Error )
   FT_Stream_New( FT_Library           library,
                  const FT_Open_Args*  args,
@@ -379,8 +363,7 @@ FT_BEGIN_HEADER
   FT_BASE( void )
   FT_Stream_Close( FT_Stream  stream );
 
-
-  /* seek within a stream. position is relative to start of stream */
+/* seek within a stream. position is relative to start of stream */
   FT_BASE( FT_Error )
   FT_Stream_Seek( FT_Stream  stream,
                   FT_ULong   pos );
@@ -433,8 +416,7 @@ FT_BEGIN_HEADER
   FT_BASE( void )
   FT_Stream_ExitFrame( FT_Stream  stream );
 
-
-  /* Extract a stream frame.  If the stream is disk-based, a heap block */
+/* Extract a stream frame.  If the stream is disk-based, a heap block */
   /* is allocated and the frame bytes are read into it.  If the stream  */
   /* is memory-based, this function simply sets a pointer to the data.  */
   /*                                                                    */
@@ -455,8 +437,7 @@ FT_BEGIN_HEADER
   FT_Stream_ReleaseFrame( FT_Stream  stream,
                           FT_Byte**  pbytes );
 
-
-  /* read a byte from an entered frame */
+/* read a byte from an entered frame */
   FT_BASE( FT_Char )
   FT_Stream_GetChar( FT_Stream  stream );
 
@@ -480,8 +461,7 @@ FT_BEGIN_HEADER
   FT_BASE( FT_ULong )
   FT_Stream_GetULongLE( FT_Stream  stream );
 
-
-  /* read a byte from a stream */
+/* read a byte from a stream */
   FT_BASE( FT_Char )
   FT_Stream_ReadChar( FT_Stream  stream,
                       FT_Error*  error );
@@ -518,7 +498,6 @@ FT_BEGIN_HEADER
                         const FT_Frame_Field*  fields,
                         void*                  structure );
 
-
 #define FT_STREAM_POS()           \
           FT_Stream_Pos( stream )
 
@@ -544,7 +523,6 @@ FT_BEGIN_HEADER
 #define FT_STREAM_READ_FIELDS( fields, object )                          \
           FT_SET_ERROR( FT_Stream_ReadFields( stream, fields, object ) )
 
-
 #define FT_FRAME_ENTER( size )                                           \
           FT_SET_ERROR(                                                  \
             FT_DEBUG_INNER( FT_Stream_EnterFrame( stream,                \
@@ -563,10 +541,8 @@ FT_BEGIN_HEADER
           FT_DEBUG_INNER( FT_Stream_ReleaseFrame( stream,                 \
                                                   (FT_Byte**)&(bytes) ) )
 
-
 FT_END_HEADER
 
 #endif /* FTSTREAM_H_ */
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  vulkan_context_x11.h                                                 */
 
-
-
 #ifndef VULKAN_DEVICE_X11_H
 #define VULKAN_DEVICE_X11_H
 

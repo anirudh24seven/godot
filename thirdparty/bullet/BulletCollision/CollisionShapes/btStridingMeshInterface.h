@@ -133,7 +133,6 @@ struct	btMeshPartData
 	int                     m_numVertices;
 };
 
-
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
 struct	btStridingMeshInterfaceData
 {

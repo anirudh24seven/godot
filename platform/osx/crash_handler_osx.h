@@ -1,8 +1,6 @@
 
 /*  crash_handler_osx.h                                                  */
 
-
-
 #ifndef CRASH_HANDLER_OSX_H
 #define CRASH_HANDLER_OSX_H
 

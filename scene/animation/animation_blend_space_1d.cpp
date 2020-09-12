@@ -1,8 +1,6 @@
 
 /*  animation_blend_space_1d.cpp                                         */
 
-
-
 #include "animation_blend_space_1d.h"
 
 void AnimationNodeBlendSpace1D::get_parameter_list(List<PropertyInfo> *r_list) const {

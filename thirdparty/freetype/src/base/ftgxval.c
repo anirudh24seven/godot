@@ -24,15 +24,13 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 
 #include FT_INTERNAL_OBJECTS_H
 #include FT_SERVICE_GX_VALIDATE_H
 
-
-  /* documentation is in ftgxval.h */
+/* documentation is in ftgxval.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_TrueTypeGX_Validate( FT_Face   face,
@@ -43,8 +41,7 @@
     FT_Service_GXvalidate  service;
     FT_Error               error;
 
-
-    if ( !face )
+if ( !face )
     {
       error = FT_THROW( Invalid_Face_Handle );
       goto Exit;
@@ -70,15 +67,13 @@
     return error;
   }
 
-
-  FT_EXPORT_DEF( void )
+FT_EXPORT_DEF( void )
   FT_TrueTypeGX_Free( FT_Face   face,
                       FT_Bytes  table )
   {
     FT_Memory  memory;
 
-
-    if ( !face )
+if ( !face )
       return;
 
     memory = FT_FACE_MEMORY( face );
@@ -86,8 +81,7 @@
     FT_FREE( table );
   }
 
-
-  FT_EXPORT_DEF( FT_Error )
+FT_EXPORT_DEF( FT_Error )
   FT_ClassicKern_Validate( FT_Face    face,
                            FT_UInt    validation_flags,
                            FT_Bytes  *ckern_table )
@@ -95,8 +89,7 @@
     FT_Service_CKERNvalidate  service;
     FT_Error                  error;
 
-
-    if ( !face )
+if ( !face )
     {
       error = FT_THROW( Invalid_Face_Handle );
       goto Exit;
@@ -121,22 +114,18 @@
     return error;
   }
 
-
-  FT_EXPORT_DEF( void )
+FT_EXPORT_DEF( void )
   FT_ClassicKern_Free( FT_Face   face,
                        FT_Bytes  table )
   {
     FT_Memory  memory;
 
-
-    if ( !face )
+if ( !face )
       return;
 
     memory = FT_FACE_MEMORY( face );
 
-
-    FT_FREE( table );
+FT_FREE( table );
   }
-
 
 /* END */

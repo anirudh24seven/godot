@@ -1,8 +1,6 @@
 
 /*  managed_callable.cpp                                                 */
 
-
-
 #include "managed_callable.h"
 
 #include "csharp_script.h"

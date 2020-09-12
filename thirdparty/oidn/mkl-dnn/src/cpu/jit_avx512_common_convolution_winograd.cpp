@@ -186,7 +186,6 @@ void trans_O_4x4_3x3(float Mw[6][6][16], float O[4][4][16]) {
     }
 }
 
-
 void trans_W_3x3_4x4(float Fw[6][6][16], float F[4][6][16])
 {
     const float rcp3 = 1.0f / 3.0f;

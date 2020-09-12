@@ -24,12 +24,10 @@
  *
  */
 
-
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -38,14 +36,9 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvprop
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      Data and Types                           *****/
   /*****                                                               *****/
-
-
 
 #define GXV_PROP_HEADER_SIZE  ( 4 + 2 + 2 )
 #define GXV_PROP_SIZE_MIN     GXV_PROP_HEADER_SIZE
@@ -65,16 +58,11 @@
 #define GXV_PROP_RESERVED                     0x0060U
 #define GXV_PROP_DIRECTIONALITY_CLASS         0x001FU
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      UTILITY FUNCTIONS                        *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   gxv_prop_zero_advance_validate( FT_UShort      gid,
                                   GXV_Validator  gxvalid )
   {
@@ -82,8 +70,7 @@
     FT_Error      error;
     FT_GlyphSlot  glyph;
 
-
-    GXV_NAME_ENTER( "zero advance" );
+GXV_NAME_ENTER( "zero advance" );
 
     face = gxvalid->face;
 
@@ -105,8 +92,7 @@
     GXV_EXIT;
   }
 
-
-  /* Pass 0 as GLYPH to check the default property */
+/* Pass 0 as GLYPH to check the default property */
   static void
   gxv_prop_property_validate( FT_UShort      property,
                               FT_UShort      glyph,
@@ -120,8 +106,7 @@
       FT_UShort  offset;
       char       complement;
 
-
-      offset = (FT_UShort)( property & GXV_PROP_COMPLEMENTARY_BRACKET_OFFSET );
+offset = (FT_UShort)( property & GXV_PROP_COMPLEMENTARY_BRACKET_OFFSET );
       if ( offset == 0 )
       {
         GXV_TRACE(( "  found zero offset to property\n" ));
@@ -184,8 +169,7 @@
     }
   }
 
-
-  static void
+static void
   gxv_prop_LookupValue_validate( FT_UShort            glyph,
                                  GXV_LookupValueCPtr  value_p,
                                  GXV_Validator        gxvalid )
@@ -193,8 +177,7 @@
     gxv_prop_property_validate( value_p->u, glyph, gxvalid );
   }
 
-
-  /*
+/*
     +===============+ --------+
     | lookup header |         |
     +===============+         |
@@ -244,16 +227,11 @@
     return value;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                         prop TABLE                            *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   gxv_prop_validate( FT_Bytes      table,
                      FT_Face       face,
                      FT_Validator  ftvalid )
@@ -270,8 +248,7 @@
     FT_UShort         format;
     FT_UShort         defaultProp;
 
-
-    gxvalid->root       = ftvalid;
+gxvalid->root       = ftvalid;
     gxvalid->table_data = prop;
     gxvalid->face       = face;
 
@@ -296,8 +273,7 @@
       FT_INVALID_FORMAT;
     }
 
-
-    /* only formats 0x0000, 0x0001 are defined (1996) */
+/* only formats 0x0000, 0x0001 are defined (1996) */
     if ( format > 1 )
     {
       GXV_TRACE(( "  found unknown format\n" ));
@@ -325,6 +301,5 @@
   Exit:
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

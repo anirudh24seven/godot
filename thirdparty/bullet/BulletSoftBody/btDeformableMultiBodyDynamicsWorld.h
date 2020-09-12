@@ -240,9 +240,7 @@ public:
         }
     };
 
-    
-    
-    void rayTest(const btVector3& rayFromWorld, const btVector3& rayToWorld, RayResultCallback& resultCallback) const
+void rayTest(const btVector3& rayFromWorld, const btVector3& rayToWorld, RayResultCallback& resultCallback) const
     {
         BT_PROFILE("rayTest");
         /// use the broadphase to accelerate the search for objects, based on their aabb

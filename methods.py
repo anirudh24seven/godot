@@ -9,7 +9,6 @@ from collections import OrderedDict
 from SCons.Script import Action
 from platform_methods import run_in_subprocess
 
-
 def add_source_files(self, sources, files, warn_duplicates=True):
     # Convert string to list of absolute paths (including expanding wildcard)
     if isinstance(files, (str, bytes)):
@@ -33,7 +32,6 @@ def add_source_files(self, sources, files, warn_duplicates=True):
                 continue
         sources.append(obj)
 
-
 def disable_warnings(self):
     # 'self' is the environment
     if self.msvc:
@@ -51,10 +49,8 @@ def disable_warnings(self):
         self.Append(CFLAGS=["-w"])
         self.Append(CXXFLAGS=["-w"])
 
-
 def add_module_version_string(self, s):
     self.module_version_string += "." + s
-
 
 def update_version(module_version_string=""):
 
@@ -109,7 +105,6 @@ def update_version(module_version_string=""):
     fhash.write("#endif // VERSION_HASH_GEN_H\n")
     fhash.close()
 
-
 def parse_cg_file(fname, uniforms, sizes, conditionals):
 
     fs = open(fname, "r")
@@ -142,7 +137,6 @@ def parse_cg_file(fname, uniforms, sizes, conditionals):
 
     fs.close()
 
-
 def detect_modules(at_path):
     module_list = OrderedDict()  # name : path
 
@@ -159,10 +153,8 @@ def detect_modules(at_path):
 
     return module_list
 
-
 def is_module(path):
     return os.path.isdir(path) and os.path.exists(os.path.join(path, "SCsub"))
-
 
 def write_modules(module_list):
     includes_cpp = ""
@@ -218,7 +210,6 @@ void unregister_module_types() {
     with open("modules/register_module_types.gen.cpp", "w") as f:
         f.write(modules_cpp)
 
-
 def convert_custom_modules_path(path):
     if not path:
         return path
@@ -232,10 +223,8 @@ def convert_custom_modules_path(path):
         raise ValueError(err_msg % "point to a directory with modules, not a single module.")
     return path
 
-
 def disable_module(self):
     self.disabled_modules.append(self.current_module)
-
 
 def module_check_dependencies(self, module, dependencies):
     """
@@ -259,7 +248,6 @@ def module_check_dependencies(self, module, dependencies):
         return False
     else:
         return True
-
 
 def use_windows_spawn_fix(self, platform=None):
 
@@ -317,7 +305,6 @@ def use_windows_spawn_fix(self, platform=None):
 
     self["SPAWN"] = mySpawn
 
-
 def save_active_platforms(apnames, ap):
 
     for x in ap:
@@ -344,7 +331,6 @@ def save_active_platforms(apnames, ap):
             wf = x + "/" + name + ".gen.h"
             with open(wf, "w") as pngw:
                 pngw.write(str)
-
 
 def no_verbose(sys, env):
 
@@ -404,7 +390,6 @@ def no_verbose(sys, env):
     env.Append(LINKCOMSTR=[link_program_message])
     env.Append(JARCOMSTR=[java_library_message])
     env.Append(JAVACCOMSTR=[java_compile_source_message])
-
 
 def detect_visual_c_compiler_version(tools_env):
     # tools_env is the variable scons uses to call tools that execute tasks, SCons's env['ENV'] that executes tasks...
@@ -505,14 +490,12 @@ def detect_visual_c_compiler_version(tools_env):
 
     return vc_chosen_compiler_str
 
-
 def find_visual_c_batch_file(env):
     from SCons.Tool.MSCommon.vc import get_default_version, get_host_target, find_batch_file
 
     version = get_default_version(env)
     (host_platform, target_platform, _) = get_host_target(env)
     return find_batch_file(env, version, host_platform, target_platform)[0]
-
 
 def generate_cpp_hint_file(filename):
     if os.path.isfile(filename):
@@ -524,7 +507,6 @@ def generate_cpp_hint_file(filename):
                 fd.write("#define GDCLASS(m_class, m_inherits)\n")
         except IOError:
             print("Could not write cpp.hint file.")
-
 
 def generate_vs_project(env, num_jobs):
     batch_file = find_visual_c_batch_file(env)
@@ -592,36 +574,30 @@ def generate_vs_project(env, num_jobs):
     else:
         print("Could not locate Visual Studio batch file to set up the build environment. Not generating VS project.")
 
-
 def precious_program(env, program, sources, **args):
     program = env.ProgramOriginal(program, sources, **args)
     env.Precious(program)
     return program
-
 
 def add_shared_library(env, name, sources, **args):
     library = env.SharedLibrary(name, sources, **args)
     env.NoCache(library)
     return library
 
-
 def add_library(env, name, sources, **args):
     library = env.Library(name, sources, **args)
     env.NoCache(library)
     return library
-
 
 def add_program(env, name, sources, **args):
     program = env.Program(name, sources, **args)
     env.NoCache(program)
     return program
 
-
 def CommandNoCache(env, target, sources, command, **args):
     result = env.Command(target, sources, command, **args)
     env.NoCache(result)
     return result
-
 
 def Run(env, function, short_message, subprocess=True):
     output_print = short_message if not env["verbose"] else ""
@@ -629,7 +605,6 @@ def Run(env, function, short_message, subprocess=True):
         return Action(function, output_print)
     else:
         return Action(run_in_subprocess(function), output_print)
-
 
 def detect_darwin_sdk_path(platform, env):
     sdk_name = ""
@@ -654,7 +629,6 @@ def detect_darwin_sdk_path(platform, env):
             print("Failed to find SDK path while running xcrun --sdk {} --show-sdk-path.".format(sdk_name))
             raise
 
-
 def is_vanilla_clang(env):
     if not using_clang(env):
         return False
@@ -664,7 +638,6 @@ def is_vanilla_clang(env):
         print("Couldn't parse CXX environment variable to infer compiler version.")
         return False
     return not version.startswith("Apple")
-
 
 def get_compiler_version(env):
     """
@@ -687,14 +660,11 @@ def get_compiler_version(env):
     else:
         return None
 
-
 def using_gcc(env):
     return "gcc" in os.path.basename(env["CC"])
 
-
 def using_clang(env):
     return "clang" in os.path.basename(env["CC"])
-
 
 def show_progress(env):
     import sys
@@ -817,7 +787,6 @@ def show_progress(env):
 
     progress_finish_command = Command("progress_finish", [], progress_finish)
     AlwaysBuild(progress_finish_command)
-
 
 def dump(env):
     # Dumps latest build information for debugging purposes and external tools.

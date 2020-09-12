@@ -1,8 +1,6 @@
 
 /*  tile_set.cpp                                                         */
 
-
-
 #include "tile_set.h"
 
 #include "core/array.h"

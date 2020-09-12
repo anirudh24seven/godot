@@ -1,8 +1,6 @@
 
 /*  filesystem_dock.cpp                                                  */
 
-
-
 #include "filesystem_dock.h"
 
 #include "core/io/resource_loader.h"

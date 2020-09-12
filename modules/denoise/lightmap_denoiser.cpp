@@ -1,8 +1,6 @@
 
 /*  lightmap_denoiser.cpp                                                */
 
-
-
 #include "lightmap_denoiser.h"
 #include "denoise_wrapper.h"
 

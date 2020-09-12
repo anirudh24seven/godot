@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -43,7 +41,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /** @file Implementation of the post processing step to remove
  *        any parts of the mesh structure from the imported data.
 */
-
 
 #include "RemoveVCProcess.h"
 #include <assimp/postprocess.h>
@@ -219,8 +216,7 @@ void RemoveVCProcess::Execute( aiScene* pScene)
         }
     }
 
-
-    // now check whether the result is still a full scene
+// now check whether the result is still a full scene
     if (!pScene->mNumMeshes || !pScene->mNumMaterials)
     {
         pScene->mFlags |= AI_SCENE_FLAGS_INCOMPLETE;

@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef NATIVESCRIPT_REGISTER_TYPES_H
 #define NATIVESCRIPT_REGISTER_TYPES_H
 

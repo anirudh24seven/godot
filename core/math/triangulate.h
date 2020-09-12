@@ -1,8 +1,6 @@
 
 /*  triangulate.h                                                        */
 
-
-
 #ifndef TRIANGULATE_H
 #define TRIANGULATE_H
 

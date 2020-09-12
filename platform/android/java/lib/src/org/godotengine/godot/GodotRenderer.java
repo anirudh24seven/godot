@@ -1,8 +1,6 @@
 
 /*  GodotRenderer.java                                                   */
 
-
-
 package org.godotengine.godot;
 
 import org.godotengine.godot.plugin.GodotPlugin;

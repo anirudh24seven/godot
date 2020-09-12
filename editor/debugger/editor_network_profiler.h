@@ -1,8 +1,6 @@
 
 /*  editor_network_profiler.h                                            */
 
-
-
 #ifndef EDITORNETWORKPROFILER_H
 #define EDITORNETWORKPROFILER_H
 

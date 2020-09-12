@@ -1,8 +1,6 @@
 
 /*  dynamic_font.h                                                       */
 
-
-
 #ifndef DYNAMIC_FONT_H
 #define DYNAMIC_FONT_H
 

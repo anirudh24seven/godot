@@ -1,8 +1,6 @@
 
 /*  performance.h                                                        */
 
-
-
 #ifndef PERFORMANCE_H
 #define PERFORMANCE_H
 

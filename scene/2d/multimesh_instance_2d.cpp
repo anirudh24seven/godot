@@ -1,8 +1,6 @@
 
 /*  multimesh_instance_2d.cpp                                            */
 
-
-
 #include "multimesh_instance_2d.h"
 
 void MultiMeshInstance2D::_notification(int p_what) {

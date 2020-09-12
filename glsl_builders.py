@@ -5,7 +5,6 @@ All such functions are invoked in a subprocess on Windows to prevent build flaki
 """
 from platform_methods import subprocess_main
 
-
 class RDHeaderStruct:
     def __init__(self):
         self.vertex_lines = []
@@ -21,7 +20,6 @@ class RDHeaderStruct:
         self.vertex_offset = 0
         self.fragment_offset = 0
         self.compute_offset = 0
-
 
 def include_file_in_rd_header(filename, header_data, depth):
     fs = open(filename, "r")
@@ -88,7 +86,6 @@ def include_file_in_rd_header(filename, header_data, depth):
 
     return header_data
 
-
 def build_rd_header(filename):
     header_data = RDHeaderStruct()
     include_file_in_rd_header(filename, header_data, 0)
@@ -151,16 +148,13 @@ def build_rd_header(filename):
     fd.write("#endif\n")
     fd.close()
 
-
 def build_rd_headers(target, source, env):
     for x in source:
         build_rd_header(str(x))
 
-
 class RAWHeaderStruct:
     def __init__(self):
         self.code = ""
-
 
 def include_file_in_raw_header(filename, header_data, depth):
     fs = open(filename, "r")
@@ -183,7 +177,6 @@ def include_file_in_raw_header(filename, header_data, depth):
         line = fs.readline()
 
     fs.close()
-
 
 def build_raw_header(filename):
     header_data = RAWHeaderStruct()
@@ -210,16 +203,13 @@ def build_raw_header(filename):
     fd.write("#endif\n")
     fd.close()
 
-
 def build_rd_headers(target, source, env):
     for x in source:
         build_rd_header(str(x))
 
-
 def build_raw_headers(target, source, env):
     for x in source:
         build_raw_header(str(x))
-
 
 if __name__ == "__main__":
     subprocess_main(globals())

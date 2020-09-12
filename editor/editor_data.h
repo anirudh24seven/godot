@@ -1,8 +1,6 @@
 
 /*  editor_data.h                                                        */
 
-
-
 #ifndef EDITOR_DATA_H
 #define EDITOR_DATA_H
 

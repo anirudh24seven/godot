@@ -1,8 +1,6 @@
 
 /*  tile_map.h                                                           */
 
-
-
 #ifndef TILE_MAP_H
 #define TILE_MAP_H
 

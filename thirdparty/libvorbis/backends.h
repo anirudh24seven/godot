@@ -53,7 +53,6 @@ typedef struct{
 
 } vorbis_info_floor0;
 
-
 #define VIF_POSIT 63
 #define VIF_CLASS 16
 #define VIF_PARTS 31
@@ -66,12 +65,10 @@ typedef struct{
   int   class_book[VIF_CLASS];       /* subs ^ dim entries */
   int   class_subbook[VIF_CLASS][8]; /* [VIF_CLASS][subs] */
 
-
-  int   mult;                      /* 1 2 3 or 4 */
+int   mult;                      /* 1 2 3 or 4 */
   int   postlist[VIF_POSIT+2];    /* first two implicit */
 
-
-  /* encode side analysis parameters */
+/* encode side analysis parameters */
   float maxover;
   float maxunder;
   float maxerr;

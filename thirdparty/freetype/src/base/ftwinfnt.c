@@ -15,15 +15,13 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_WINFONTS_H
 #include FT_INTERNAL_OBJECTS_H
 #include FT_SERVICE_WINFNT_H
 
-
-  /* documentation is in ftwinfnt.h */
+/* documentation is in ftwinfnt.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Get_WinFNT_Header( FT_Face               face,
@@ -32,8 +30,7 @@
     FT_Service_WinFnt  service;
     FT_Error           error;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     if ( !header )
@@ -48,6 +45,5 @@
 
     return error;
   }
-
 
 /* END */

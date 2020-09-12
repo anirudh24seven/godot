@@ -51,7 +51,6 @@ defined. */
 #include "pcre2_internal.h"
 #endif /* PCRE2_PCRE2TEST */
 
-
 /* Table of sizes for the fixed-length opcodes. It's defined in a macro so that
 the definition is next to the definition of the opcodes in pcre2_internal.h.
 This is mode-dependent, so is skipped when this file is included by pcre2test. */
@@ -79,7 +78,6 @@ const uint32_t PRIV(callout_end_delims[]) = {
   CHAR_GRAVE_ACCENT, CHAR_APOSTROPHE, CHAR_QUOTATION_MARK,
   CHAR_CIRCUMFLEX_ACCENT, CHAR_PERCENT_SIGN, CHAR_NUMBER_SIGN,
   CHAR_DOLLAR_SIGN, CHAR_RIGHT_CURLY_BRACKET, 0 };
-
 
 /*************************************************
 *           Tables for UTF-8 support             *
@@ -118,7 +116,6 @@ const uint8_t PRIV(utf8_table4)[] = {
   3,3,3,3,3,3,3,3,4,4,4,4,5,5,5,5 };
 
 #endif /* UTF-8 support needed */
-
 
 #ifdef SUPPORT_UNICODE
 

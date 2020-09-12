@@ -1,8 +1,6 @@
 
 /*  packet_peer.cpp                                                      */
 
-
-
 #include "packet_peer.h"
 
 #include "core/io/marshalls.h"

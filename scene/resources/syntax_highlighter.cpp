@@ -1,8 +1,6 @@
 
 /*  syntax_highlighter.cpp                                               */
 
-
-
 #include "syntax_highlighter.h"
 
 #include "core/script_language.h"

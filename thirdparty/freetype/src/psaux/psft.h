@@ -35,28 +35,22 @@
  *
  */
 
-
 #ifndef PSFT_H_
 #define PSFT_H_
 
-
 #include "pstypes.h"
 
-
-  /* TODO: disable asserts for now */
+/* TODO: disable asserts for now */
 #define CF2_NDEBUG
-
 
 #include FT_SYSTEM_H
 
 #include "psglue.h"
 #include FT_INTERNAL_POSTSCRIPT_AUX_H    /* for PS_Decoder */
 
-
 FT_BEGIN_HEADER
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cf2_decoder_parse_charstrings( PS_Decoder*  decoder,
                                  FT_Byte*     charstring_base,
                                  FT_ULong     charstring_len );
@@ -130,8 +124,7 @@ FT_BEGIN_HEADER
   FT_LOCAL( CF2_Fixed )
   cf2_getNominalWidthX( PS_Decoder*  decoder );
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cf2_getT1SeacComponent( PS_Decoder*  decoder,
                           FT_UInt      glyph_index,
                           CF2_Buffer   buf );
@@ -151,17 +144,13 @@ FT_BEGIN_HEADER
 
   } CF2_OutlineRec, *CF2_Outline;
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   cf2_outline_reset( CF2_Outline  outline );
   FT_LOCAL( void )
   cf2_outline_close( CF2_Outline  outline );
 
-
 FT_END_HEADER
 
-
 #endif /* PSFT_H_ */
-
 
 /* END */

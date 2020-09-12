@@ -24,7 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-
 #include <ft2build.h>
 
 #include FT_INTERNAL_DEBUG_H
@@ -36,8 +35,7 @@ THE SOFTWARE.
 
 #include "pcferror.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -45,7 +43,6 @@ THE SOFTWARE.
    */
 #undef  FT_COMPONENT
 #define FT_COMPONENT  pcfread
-
 
 #ifdef FT_DEBUG_LEVEL_TRACE
   static const char* const  tableNames[] =
@@ -62,8 +59,7 @@ THE SOFTWARE.
   };
 #endif
 
-
-  static
+static
   const FT_Frame_Field  pcf_toc_header[] =
   {
 #undef  FT_STRUCTURE
@@ -75,8 +71,7 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  static
+static
   const FT_Frame_Field  pcf_table_header[] =
   {
 #undef  FT_STRUCTURE
@@ -90,8 +85,7 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  static FT_Error
+static FT_Error
   pcf_read_TOC( FT_Stream  stream,
                 PCF_Face   face )
   {
@@ -104,8 +98,7 @@ THE SOFTWARE.
 
     FT_ULong   size;
 
-
-    if ( FT_STREAM_SEEK( 0 )                          ||
+if ( FT_STREAM_SEEK( 0 )                          ||
          FT_STREAM_READ_FIELDS( pcf_toc_header, toc ) )
       return FT_THROW( Cannot_Open_Resource );
 
@@ -148,15 +141,13 @@ THE SOFTWARE.
     {
       FT_UInt  i, have_change;
 
-
-      have_change = 0;
+have_change = 0;
 
       for ( i = 0; i < toc->count - 1 - n; i++ )
       {
         PCF_TableRec  tmp;
 
-
-        if ( tables[i].offset > tables[i + 1].offset )
+if ( tables[i].offset > tables[i + 1].offset )
         {
           tmp           = tables[i];
           tables[i]     = tables[i + 1];
@@ -229,8 +220,7 @@ THE SOFTWARE.
       FT_UInt      i, j;
       const char*  name = "?";
 
-
-      FT_TRACE4(( "pcf_read_TOC:\n" ));
+FT_TRACE4(( "pcf_read_TOC:\n" ));
 
       FT_TRACE4(( "  number of tables: %ld\n", face->toc.count ));
 
@@ -260,7 +250,6 @@ THE SOFTWARE.
     return error;
   }
 
-
 #define PCF_METRIC_SIZE  12
 
   static
@@ -279,8 +268,7 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  static
+static
   const FT_Frame_Field  pcf_metric_msb_header[] =
   {
 #undef  FT_STRUCTURE
@@ -295,7 +283,6 @@ THE SOFTWARE.
       FT_FRAME_SHORT( attributes ),
     FT_FRAME_END
   };
-
 
 #define PCF_COMPRESSED_METRIC_SIZE  5
 
@@ -314,21 +301,18 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  static FT_Error
+static FT_Error
   pcf_get_metric( FT_Stream   stream,
                   FT_ULong    format,
                   PCF_Metric  metric )
   {
     FT_Error  error = FT_Err_Ok;
 
-
-    if ( PCF_FORMAT_MATCH( format, PCF_DEFAULT_FORMAT ) )
+if ( PCF_FORMAT_MATCH( format, PCF_DEFAULT_FORMAT ) )
     {
       const FT_Frame_Field*  fields;
 
-
-      /* parsing normal metrics */
+/* parsing normal metrics */
       fields = ( PCF_BYTE_ORDER( format ) == MSBFirst )
                ? pcf_metric_msb_header
                : pcf_metric_header;
@@ -340,8 +324,7 @@ THE SOFTWARE.
     {
       PCF_Compressed_MetricRec  compr;
 
-
-      /* parsing compressed metrics */
+/* parsing compressed metrics */
       if ( FT_STREAM_READ_FIELDS( pcf_compressed_metric_header, &compr ) )
         goto Exit;
 
@@ -368,8 +351,7 @@ THE SOFTWARE.
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   pcf_seek_to_table_type( FT_Stream  stream,
                           PCF_Table  tables,
                           FT_ULong   ntables, /* same as PCF_Toc->count */
@@ -380,8 +362,7 @@ THE SOFTWARE.
     FT_Error  error = FT_ERR( Invalid_File_Format );
     FT_ULong  i;
 
-
-    for ( i = 0; i < ntables; i++ )
+for ( i = 0; i < ntables; i++ )
       if ( tables[i].type == type )
       {
         if ( stream->pos > tables[i].offset )
@@ -407,22 +388,19 @@ THE SOFTWARE.
     return error;
   }
 
-
-  static FT_Bool
+static FT_Bool
   pcf_has_table_type( PCF_Table  tables,
                       FT_ULong   ntables, /* same as PCF_Toc->count */
                       FT_ULong   type )
   {
     FT_ULong  i;
 
-
-    for ( i = 0; i < ntables; i++ )
+for ( i = 0; i < ntables; i++ )
       if ( tables[i].type == type )
         return TRUE;
 
     return FALSE;
   }
-
 
 #define PCF_PROPERTY_SIZE  9
 
@@ -439,8 +417,7 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  static
+static
   const FT_Frame_Field  pcf_property_msb_header[] =
   {
 #undef  FT_STRUCTURE
@@ -453,8 +430,7 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  FT_LOCAL_DEF( PCF_Property )
+FT_LOCAL_DEF( PCF_Property )
   pcf_find_property( PCF_Face          face,
                      const FT_String*  prop )
   {
@@ -462,8 +438,7 @@ THE SOFTWARE.
     FT_Bool       found      = 0;
     int           i;
 
-
-    for ( i = 0; i < face->nprops && !found; i++ )
+for ( i = 0; i < face->nprops && !found; i++ )
     {
       if ( !ft_strcmp( properties[i].name, prop ) )
         found = 1;
@@ -475,8 +450,7 @@ THE SOFTWARE.
       return NULL;
   }
 
-
-  static FT_Error
+static FT_Error
   pcf_get_properties( FT_Stream  stream,
                       PCF_Face   face )
   {
@@ -489,8 +463,7 @@ THE SOFTWARE.
     FT_ULong           string_size;
     FT_String*         strings    = NULL;
 
-
-    error = pcf_seek_to_table_type( stream,
+error = pcf_seek_to_table_type( stream,
                                     face->toc.tables,
                                     face->toc.count,
                                     PCF_PROPERTIES,
@@ -625,8 +598,7 @@ THE SOFTWARE.
     {
       FT_Long  name_offset = props[i].name;
 
-
-      if ( ( name_offset < 0 )                     ||
+if ( ( name_offset < 0 )                     ||
            ( (FT_ULong)name_offset > string_size ) )
       {
         error = FT_THROW( Invalid_Offset );
@@ -644,8 +616,7 @@ THE SOFTWARE.
       {
         FT_Long  value_offset = props[i].value;
 
-
-        if ( ( value_offset < 0 )                     ||
+if ( ( value_offset < 0 )                     ||
              ( (FT_ULong)value_offset > string_size ) )
         {
           error = FT_THROW( Invalid_Offset );
@@ -674,8 +645,7 @@ THE SOFTWARE.
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   pcf_get_metrics( FT_Stream  stream,
                    PCF_Face   face )
   {
@@ -685,8 +655,7 @@ THE SOFTWARE.
     PCF_Metric  metrics = NULL;
     FT_ULong    nmetrics, orig_nmetrics, i;
 
-
-    error = pcf_seek_to_table_type( stream,
+error = pcf_seek_to_table_type( stream,
                                     face->toc.tables,
                                     face->toc.count,
                                     PCF_METRICS,
@@ -809,8 +778,7 @@ THE SOFTWARE.
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   pcf_get_bitmaps( FT_Stream  stream,
                    PCF_Face   face )
   {
@@ -819,8 +787,7 @@ THE SOFTWARE.
     FT_ULong  format, size, pos;
     FT_ULong  nbitmaps, orig_nbitmaps, i, sizebitmaps = 0;
 
-
-    error = pcf_seek_to_table_type( stream,
+error = pcf_seek_to_table_type( stream,
                                     face->toc.tables,
                                     face->toc.count,
                                     PCF_BITMAPS,
@@ -884,8 +851,7 @@ THE SOFTWARE.
     {
       FT_ULong  offset;
 
-
-      if ( PCF_BYTE_ORDER( format ) == MSBFirst )
+if ( PCF_BYTE_ORDER( format ) == MSBFirst )
         (void)FT_READ_ULONG( offset );
       else
         (void)FT_READ_ULONG_LE( offset );
@@ -935,8 +901,7 @@ THE SOFTWARE.
     return error;
   }
 
-
-  /*
+/*
    * This file uses X11 terminology for PCF data; an `encoding' in X11 speak
    * is the same as a character code in FreeType speak.
    */
@@ -957,8 +922,7 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  static
+static
   const FT_Frame_Field  pcf_enc_msb_header[] =
   {
 #undef  FT_STRUCTURE
@@ -973,8 +937,7 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  static FT_Error
+static FT_Error
   pcf_get_encodings( FT_Stream  stream,
                      PCF_Face   face )
   {
@@ -989,8 +952,7 @@ THE SOFTWARE.
     FT_UShort   i, j;
     FT_Byte*    pos;
 
-
-    error = pcf_seek_to_table_type( stream,
+error = pcf_seek_to_table_type( stream,
                                     face->toc.tables,
                                     face->toc.count,
                                     PCF_BDF_ENCODINGS,
@@ -1142,8 +1104,7 @@ THE SOFTWARE.
     return error;
   }
 
-
-  static
+static
   const FT_Frame_Field  pcf_accel_header[] =
   {
 #undef  FT_STRUCTURE
@@ -1164,8 +1125,7 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  static
+static
   const FT_Frame_Field  pcf_accel_msb_header[] =
   {
 #undef  FT_STRUCTURE
@@ -1186,8 +1146,7 @@ THE SOFTWARE.
     FT_FRAME_END
   };
 
-
-  static FT_Error
+static FT_Error
   pcf_get_accel( FT_Stream  stream,
                  PCF_Face   face,
                  FT_ULong   type )
@@ -1196,8 +1155,7 @@ THE SOFTWARE.
     FT_Error   error;
     PCF_Accel  accel = &face->accel;
 
-
-    error = pcf_seek_to_table_type( stream,
+error = pcf_seek_to_table_type( stream,
                                     face->toc.tables,
                                     face->toc.count,
                                     type,
@@ -1302,8 +1260,7 @@ THE SOFTWARE.
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   pcf_interpret_style( PCF_Face  pcf )
   {
     FT_Error   error  = FT_Err_Ok;
@@ -1315,8 +1272,7 @@ THE SOFTWARE.
     const char*  strings[4] = { NULL, NULL, NULL, NULL };
     size_t       lengths[4], nn, len;
 
-
-    face->style_flags = 0;
+face->style_flags = 0;
 
     prop = pcf_find_property( pcf, "SLANT" );
     if ( prop && prop->isString                                       &&
@@ -1369,8 +1325,7 @@ THE SOFTWARE.
     {
       char*  s;
 
-
-      if ( FT_ALLOC( face->style_name, len ) )
+if ( FT_ALLOC( face->style_name, len ) )
         return error;
 
       s = face->style_name;
@@ -1379,8 +1334,7 @@ THE SOFTWARE.
       {
         const char*  src = strings[nn];
 
-
-        len = lengths[nn];
+len = lengths[nn];
 
         if ( !src )
           continue;
@@ -1397,8 +1351,7 @@ THE SOFTWARE.
         {
           size_t  mm;
 
-
-          for ( mm = 0; mm < len; mm++ )
+for ( mm = 0; mm < len; mm++ )
             if ( s[mm] == ' ' )
               s[mm] = '-';
         }
@@ -1411,8 +1364,7 @@ THE SOFTWARE.
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   pcf_load_font( FT_Stream  stream,
                  PCF_Face   face,
                  FT_Long    face_index )
@@ -1422,8 +1374,7 @@ THE SOFTWARE.
     FT_Memory  memory = FT_FACE( face )->memory;
     FT_Bool    hasBDFAccelerators;
 
-
-    error = pcf_read_TOC( stream, face );
+error = pcf_read_TOC( stream, face );
     if ( error )
       goto Exit;
 
@@ -1478,8 +1429,7 @@ THE SOFTWARE.
     {
       PCF_Property  prop;
 
-
-      root->face_flags |= FT_FACE_FLAG_FIXED_SIZES |
+root->face_flags |= FT_FACE_FLAG_FIXED_SIZES |
                           FT_FACE_FLAG_HORIZONTAL;
 
       if ( face->accel.constantWidth )
@@ -1496,8 +1446,7 @@ THE SOFTWARE.
 
         PCF_Driver  driver = (PCF_Driver)FT_FACE_DRIVER( face );
 
-
-        if ( !driver->no_long_family_names )
+if ( !driver->no_long_family_names )
         {
           /* Prepend the foundry name plus a space to the family name.     */
           /* There are many fonts just called `Fixed' which look           */
@@ -1515,8 +1464,7 @@ THE SOFTWARE.
           int  l    = ft_strlen( prop->value.atom ) + 1;
           int  wide = 0;
 
-
-          foundry_prop       = pcf_find_property( face, "FOUNDRY" );
+foundry_prop       = pcf_find_property( face, "FOUNDRY" );
           point_size_prop    = pcf_find_property( face, "POINT_SIZE" );
           average_width_prop = pcf_find_property( face, "AVERAGE_WIDTH" );
 
@@ -1574,8 +1522,7 @@ THE SOFTWARE.
         FT_Bitmap_Size*  bsize = root->available_sizes;
         FT_Short         resolution_x = 0, resolution_y = 0;
 
-
-        FT_ZERO( bsize );
+FT_ZERO( bsize );
 
         /* for simplicity, we take absolute values of integer properties */
 
@@ -1709,8 +1656,7 @@ THE SOFTWARE.
       {
         PCF_Property  charset_registry, charset_encoding;
 
-
-        charset_registry = pcf_find_property( face, "CHARSET_REGISTRY" );
+charset_registry = pcf_find_property( face, "CHARSET_REGISTRY" );
         charset_encoding = pcf_find_property( face, "CHARSET_ENCODING" );
 
         if ( charset_registry && charset_registry->isString &&
@@ -1735,6 +1681,5 @@ THE SOFTWARE.
 
     return error;
   }
-
 
 /* END */

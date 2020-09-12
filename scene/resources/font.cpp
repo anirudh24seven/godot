@@ -1,8 +1,6 @@
 
 /*  font.cpp                                                             */
 
-
-
 #include "font.h"
 
 #include "core/io/resource_loader.h"

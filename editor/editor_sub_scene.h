@@ -1,8 +1,6 @@
 
 /*  editor_sub_scene.h                                                   */
 
-
-
 #ifndef EDITOR_SUB_SCENE_H
 #define EDITOR_SUB_SCENE_H
 

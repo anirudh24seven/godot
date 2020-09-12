@@ -1,8 +1,6 @@
 
 /*  navigation_polygon_editor_plugin.cpp                                 */
 
-
-
 #include "navigation_polygon_editor_plugin.h"
 
 Ref<NavigationPolygon> NavigationPolygonEditor::_ensure_navpoly() const {

@@ -1,8 +1,6 @@
 
 /*  velocity_tracker_3d.h                                                */
 
-
-
 #ifndef SPATIAL_VELOCITY_TRACKER_H
 #define SPATIAL_VELOCITY_TRACKER_H
 

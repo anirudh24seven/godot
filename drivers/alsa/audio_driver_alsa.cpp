@@ -1,8 +1,6 @@
 
 /*  audio_driver_alsa.cpp                                                */
 
-
-
 #include "audio_driver_alsa.h"
 
 #ifdef ALSA_ENABLED

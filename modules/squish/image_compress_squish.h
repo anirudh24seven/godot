@@ -1,8 +1,6 @@
 
 /*  image_compress_squish.h                                              */
 
-
-
 #ifndef IMAGE_COMPRESS_SQUISH_H
 #define IMAGE_COMPRESS_SQUISH_H
 

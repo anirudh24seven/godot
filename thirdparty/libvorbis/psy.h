@@ -90,7 +90,6 @@ typedef struct {
   int   coupling_pointlimit[2][P_NOISECURVES];
 } vorbis_look_psy_global;
 
-
 typedef struct {
   int n;
   struct vorbis_info_psy *vi;

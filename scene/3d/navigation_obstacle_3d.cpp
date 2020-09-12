@@ -1,8 +1,6 @@
 
 /*  navigation_obstacle_3d.cpp                                           */
 
-
-
 #include "navigation_obstacle_3d.h"
 
 #include "scene/3d/collision_shape_3d.h"

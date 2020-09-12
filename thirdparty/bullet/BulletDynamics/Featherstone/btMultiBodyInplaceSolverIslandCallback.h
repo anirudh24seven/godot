@@ -243,5 +243,4 @@ struct MultiBodyInplaceSolverIslandCallback : public btSimulationIslandManager::
     }
 };
 
-
 #endif /*BT_MULTIBODY_INPLACE_SOLVER_ISLAND_CALLBACK_H */

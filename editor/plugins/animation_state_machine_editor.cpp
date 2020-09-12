@@ -1,8 +1,6 @@
 
 /*  animation_state_machine_editor.cpp                                   */
 
-
-
 #include "animation_state_machine_editor.h"
 
 #include "core/input/input.h"

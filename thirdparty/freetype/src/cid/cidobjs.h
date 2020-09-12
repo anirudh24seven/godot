@@ -15,26 +15,21 @@
  *
  */
 
-
 #ifndef CIDOBJS_H_
 #define CIDOBJS_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_OBJECTS_H
 #include FT_CONFIG_CONFIG_H
 #include FT_INTERNAL_TYPE1_TYPES_H
 
-
 FT_BEGIN_HEADER
 
-
-  /* The following structures must be defined by the hinter */
+/* The following structures must be defined by the hinter */
   typedef struct CID_Size_Hints_   CID_Size_Hints;
   typedef struct CID_Glyph_Hints_  CID_Glyph_Hints;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   CID_Driver
@@ -44,8 +39,7 @@ FT_BEGIN_HEADER
    */
   typedef struct CID_DriverRec_*  CID_Driver;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   CID_Size
@@ -55,8 +49,7 @@ FT_BEGIN_HEADER
    */
   typedef struct CID_SizeRec_*  CID_Size;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   CID_GlyphSlot
@@ -66,8 +59,7 @@ FT_BEGIN_HEADER
    */
   typedef struct CID_GlyphSlotRec_*  CID_GlyphSlot;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Type:
    *   CID_CharMap
@@ -82,23 +74,20 @@ FT_BEGIN_HEADER
    */
   typedef struct CID_CharMapRec_*  CID_CharMap;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * HERE BEGINS THE TYPE 1 SPECIFIC STUFF
    *
    */
 
-
-  typedef struct  CID_SizeRec_
+typedef struct  CID_SizeRec_
   {
     FT_SizeRec  root;
     FT_Bool     valid;
 
   } CID_SizeRec;
 
-
-  typedef struct  CID_GlyphSlotRec_
+typedef struct  CID_GlyphSlotRec_
   {
     FT_GlyphSlotRec  root;
 
@@ -110,15 +99,13 @@ FT_BEGIN_HEADER
 
   } CID_GlyphSlotRec;
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   cid_slot_done( FT_GlyphSlot  slot );
 
   FT_LOCAL( FT_Error )
   cid_slot_init( FT_GlyphSlot  slot );
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   cid_size_done( FT_Size  size );       /* CID_Size */
 
   FT_LOCAL( FT_Error )
@@ -138,17 +125,14 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   cid_face_done( FT_Face  face );               /* CID_Face */
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cid_driver_init( FT_Module  driver );
 
   FT_LOCAL( void )
   cid_driver_done( FT_Module  driver );
 
-
 FT_END_HEADER
 
 #endif /* CIDOBJS_H_ */
-
 
 /* END */

@@ -8,13 +8,11 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
 
 %define BLOCK_HEIGHT_WIDTH 4
 %define VP8_FILTER_WEIGHT 128
 %define VP8_FILTER_SHIFT  7
-
 
 ;/************************************************************************************
 ; Notes: filter_block1d_h6 applies a 6 tap filter horizontally to the input pixels. The
@@ -403,8 +401,6 @@ sym(vp8_filter_block1d4_h6_ssse3):
     pop         rbp
     ret
 
-
-
 ;void vp8_filter_block1d16_v6_ssse3
 ;(
 ;    unsigned char *src_ptr,
@@ -449,7 +445,6 @@ sym(vp8_filter_block1d16_v6_ssse3):
     mov         rax, rsi
     movsxd      rcx, DWORD PTR arg(4)   ;output_height
     add         rax, rdx
-
 
 .vp8_filter_block1d16_v6_ssse3_loop:
     movq        xmm1, MMWORD PTR [rsi]                  ;A

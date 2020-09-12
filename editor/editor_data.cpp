@@ -1,8 +1,6 @@
 
 /*  editor_data.cpp                                                      */
 
-
-
 #include "editor_data.h"
 
 #include "core/io/resource_loader.h"

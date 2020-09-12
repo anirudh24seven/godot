@@ -1,8 +1,6 @@
 
 /*  string_name.cpp                                                      */
 
-
-
 #include "string_name.h"
 
 #include "core/os/os.h"

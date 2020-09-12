@@ -128,7 +128,6 @@ static WEBP_INLINE void PredictLineGradient(const uint8_t* pinput,
   }
 }
 
-
 static void GradientFilter_MSA(const uint8_t* data, int width, int height,
                                int stride, uint8_t* filtered_data) {
   const uint8_t* in = data;

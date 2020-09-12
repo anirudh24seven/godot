@@ -152,8 +152,7 @@ public:
     // see getIndex(const char*)
     int getIndex(const TString& name) const { return getIndex(name.c_str()); }
 
-
-    // for mapping any name to its index (only pipe input/output names)
+// for mapping any name to its index (only pipe input/output names)
     int getPipeIOIndex(const char* name, const bool inOrOut) const
     {
         TNameToIndex::const_iterator it = inOrOut ? pipeInNameToIndex.find(name) : pipeOutNameToIndex.find(name);

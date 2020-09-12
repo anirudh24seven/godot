@@ -1,8 +1,6 @@
 
 /*  plugin_config_dialog.cpp                                             */
 
-
-
 #include "plugin_config_dialog.h"
 #include "core/io/config_file.h"
 #include "core/os/dir_access.h"

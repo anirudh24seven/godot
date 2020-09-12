@@ -1,8 +1,6 @@
 
 /*  localization_editor.cpp                                              */
 
-
-
 #include "localization_editor.h"
 
 #include "core/translation.h"

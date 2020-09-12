@@ -8,7 +8,6 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
 
 ;void vp8_idct_dequant_0_2x_sse2
@@ -66,8 +65,7 @@ sym(vp8_idct_dequant_0_2x_sse2):
         punpcklbw   xmm2,           xmm5
         punpcklbw   xmm3,           xmm5
 
-
-    ; Add to predict buffer
+; Add to predict buffer
         paddw       xmm0,           xmm4
         paddw       xmm1,           xmm4
         paddw       xmm2,           xmm4
@@ -118,12 +116,10 @@ sym(vp8_idct_dequant_full_2x_sse2):
         mov         rdx,            arg(1)  ; dequant
         mov         rdi,            arg(2) ; dst
 
-
-    ; Zero out xmm7, for use unpacking
+; Zero out xmm7, for use unpacking
         pxor        xmm7,           xmm7
 
-
-    ; note the transpose of xmm1 and xmm2, necessary for shuffle
+; note the transpose of xmm1 and xmm2, necessary for shuffle
     ;   to spit out sensicle data
         movdqa      xmm0,           [rax]
         movdqa      xmm2,           [rax+16]
@@ -204,8 +200,7 @@ sym(vp8_idct_dequant_full_2x_sse2):
         punpcklwd   xmm4,           xmm6        ; 015 011 014 010 013 009 012 008
         punpckhwd   xmm5,           xmm6        ; 115 111 114 110 113 109 112 108
 
-
-        movdqa      xmm1,           xmm2        ; 007 003 006 002 005 001 004 000
+movdqa      xmm1,           xmm2        ; 007 003 006 002 005 001 004 000
         punpckldq   xmm2,           xmm4        ; 013 009 005 001 012 008 004 000
         punpckhdq   xmm1,           xmm4        ; 015 011 007 003 014 010 006 002
 
@@ -213,8 +208,7 @@ sym(vp8_idct_dequant_full_2x_sse2):
         punpckldq   xmm7,           xmm5        ; 113 109 105 101 112 108 104 100
         punpckhdq   xmm6,           xmm5        ; 115 111 107 103 114 110 106 102
 
-
-        movdqa      xmm5,           xmm2        ; 013 009 005 001 012 008 004 000
+movdqa      xmm5,           xmm2        ; 013 009 005 001 012 008 004 000
         punpckldq   xmm2,           xmm7        ; 112 108 012 008 104 100 004 000
         punpckhdq   xmm5,           xmm7        ; 113 109 013 009 105 101 005 001
 
@@ -282,8 +276,7 @@ sym(vp8_idct_dequant_full_2x_sse2):
         punpcklwd   xmm4,           xmm6        ; 015 011 014 010 013 009 012 008
         punpckhwd   xmm5,           xmm6        ; 115 111 114 110 113 109 112 108
 
-
-        movdqa      xmm1,           xmm2        ; 007 003 006 002 005 001 004 000
+movdqa      xmm1,           xmm2        ; 007 003 006 002 005 001 004 000
         punpckldq   xmm2,           xmm4        ; 013 009 005 001 012 008 004 000
         punpckhdq   xmm1,           xmm4        ; 015 011 007 003 014 010 006 002
 
@@ -291,8 +284,7 @@ sym(vp8_idct_dequant_full_2x_sse2):
         punpckldq   xmm7,           xmm5        ; 113 109 105 101 112 108 104 100
         punpckhdq   xmm6,           xmm5        ; 115 111 107 103 114 110 106 102
 
-
-        movdqa      xmm5,           xmm2        ; 013 009 005 001 012 008 004 000
+movdqa      xmm5,           xmm2        ; 013 009 005 001 012 008 004 000
         punpckldq   xmm2,           xmm7        ; 112 108 012 008 104 100 004 000
         punpckhdq   xmm5,           xmm7        ; 113 109 013 009 105 101 005 001
 
@@ -454,8 +446,7 @@ sym(vp8_idct_dequant_dc_full_2x_sse2):
     ; Zero out xmm7, for use unpacking
         pxor        xmm7,           xmm7
 
-
-    ; note the transpose of xmm1 and xmm2, necessary for shuffle
+; note the transpose of xmm1 and xmm2, necessary for shuffle
     ;   to spit out sensicle data
         movdqa      xmm0,           [rax]
         movdqa      xmm2,           [rax+16]
@@ -541,8 +532,7 @@ sym(vp8_idct_dequant_dc_full_2x_sse2):
         punpcklwd   xmm4,           xmm6        ; 015 011 014 010 013 009 012 008
         punpckhwd   xmm5,           xmm6        ; 115 111 114 110 113 109 112 108
 
-
-        movdqa      xmm1,           xmm2        ; 007 003 006 002 005 001 004 000
+movdqa      xmm1,           xmm2        ; 007 003 006 002 005 001 004 000
         punpckldq   xmm2,           xmm4        ; 013 009 005 001 012 008 004 000
         punpckhdq   xmm1,           xmm4        ; 015 011 007 003 014 010 006 002
 
@@ -550,8 +540,7 @@ sym(vp8_idct_dequant_dc_full_2x_sse2):
         punpckldq   xmm7,           xmm5        ; 113 109 105 101 112 108 104 100
         punpckhdq   xmm6,           xmm5        ; 115 111 107 103 114 110 106 102
 
-
-        movdqa      xmm5,           xmm2        ; 013 009 005 001 012 008 004 000
+movdqa      xmm5,           xmm2        ; 013 009 005 001 012 008 004 000
         punpckldq   xmm2,           xmm7        ; 112 108 012 008 104 100 004 000
         punpckhdq   xmm5,           xmm7        ; 113 109 013 009 105 101 005 001
 
@@ -619,8 +608,7 @@ sym(vp8_idct_dequant_dc_full_2x_sse2):
         punpcklwd   xmm4,           xmm6        ; 015 011 014 010 013 009 012 008
         punpckhwd   xmm5,           xmm6        ; 115 111 114 110 113 109 112 108
 
-
-        movdqa      xmm1,           xmm2        ; 007 003 006 002 005 001 004 000
+movdqa      xmm1,           xmm2        ; 007 003 006 002 005 001 004 000
         punpckldq   xmm2,           xmm4        ; 013 009 005 001 012 008 004 000
         punpckhdq   xmm1,           xmm4        ; 015 011 007 003 014 010 006 002
 
@@ -628,8 +616,7 @@ sym(vp8_idct_dequant_dc_full_2x_sse2):
         punpckldq   xmm7,           xmm5        ; 113 109 105 101 112 108 104 100
         punpckhdq   xmm6,           xmm5        ; 115 111 107 103 114 110 106 102
 
-
-        movdqa      xmm5,           xmm2        ; 013 009 005 001 012 008 004 000
+movdqa      xmm5,           xmm2        ; 013 009 005 001 012 008 004 000
         punpckldq   xmm2,           xmm7        ; 112 108 012 008 104 100 004 000
         punpckhdq   xmm5,           xmm7        ; 113 109 013 009 105 101 005 001
 
@@ -687,8 +674,7 @@ sym(vp8_idct_dequant_dc_full_2x_sse2):
         movq        [rdi],          xmm2
         movq        [rdi + rdx],    xmm3
 
-
-    ; begin epilog
+; begin epilog
     pop         rdi
     RESTORE_GOT
     RESTORE_XMM

@@ -1,8 +1,6 @@
 
 /*  camera_matrix.cpp                                                    */
 
-
-
 #include "camera_matrix.h"
 
 #include "core/math/math_funcs.h"

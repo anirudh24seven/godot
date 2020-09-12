@@ -39,12 +39,10 @@ extern "C" {
 #ifndef FSE_H
 #define FSE_H
 
-
 /*-*****************************************
 *  Dependencies
 ******************************************/
 #include <stddef.h>    /* size_t, ptrdiff_t */
-
 
 /*-*****************************************
 *  FSE_PUBLIC_API : control library symbols visibility
@@ -71,7 +69,6 @@ extern "C" {
 
 #define FSE_VERSION_NUMBER  (FSE_VERSION_MAJOR *100*100 + FSE_VERSION_MINOR *100 + FSE_VERSION_RELEASE)
 FSE_PUBLIC_API unsigned FSE_versionNumber(void);   /**< library version number; to be used when checking dll version */
-
 
 /*-****************************************
 *  FSE simple functions
@@ -100,7 +97,6 @@ FSE_PUBLIC_API size_t FSE_compress(void* dst, size_t dstCapacity,
 FSE_PUBLIC_API size_t FSE_decompress(void* dst,  size_t dstCapacity,
                                const void* cSrc, size_t cSrcSize);
 
-
 /*-*****************************************
 *  Tool functions
 ******************************************/
@@ -109,7 +105,6 @@ FSE_PUBLIC_API size_t FSE_compressBound(size_t size);       /* maximum compresse
 /* Error Management */
 FSE_PUBLIC_API unsigned    FSE_isError(size_t code);        /* tells if a return value is an error code */
 FSE_PUBLIC_API const char* FSE_getErrorName(size_t code);   /* provides error code string (useful for debugging) */
-
 
 /*-*****************************************
 *  FSE advanced functions
@@ -123,7 +118,6 @@ FSE_PUBLIC_API const char* FSE_getErrorName(size_t code);   /* provides error co
                      if FSE_isError(return), it's an error code.
 */
 FSE_PUBLIC_API size_t FSE_compress2 (void* dst, size_t dstSize, const void* src, size_t srcSize, unsigned maxSymbolValue, unsigned tableLog);
-
 
 /*-*****************************************
 *  FSE detailed API
@@ -236,7 +230,6 @@ If it returns '0', compressed data could not fit into 'dst'.
 If there is an error, the function will return an ErrorCode (which can be tested using FSE_isError()).
 */
 
-
 /* *** DECOMPRESSION *** */
 
 /*! FSE_readNCount():
@@ -302,7 +295,6 @@ If there is an error, the function will return an error code, which can be teste
 /* *** Dependency *** */
 #include "bitstream.h"
 
-
 /* *****************************************
 *  Static allocation
 *******************************************/
@@ -318,7 +310,6 @@ If there is an error, the function will return an error code, which can be teste
 /* or use the size to malloc() space directly. Pay attention to alignment restrictions though */
 #define FSE_CTABLE_SIZE(maxTableLog, maxSymbolValue)   (FSE_CTABLE_SIZE_U32(maxTableLog, maxSymbolValue) * sizeof(FSE_CTable))
 #define FSE_DTABLE_SIZE(maxTableLog)                   (FSE_DTABLE_SIZE_U32(maxTableLog) * sizeof(FSE_DTable))
-
 
 /* *****************************************
  *  FSE advanced API
@@ -394,7 +385,6 @@ FSE_CTable    ct;         // Provided by FSE_buildCTable()
 BIT_CStream_t bitStream;  // bitStream tracking structure
 FSE_CState_t  state;      // State tracking structure (can have several)
 
-
 The first thing to do is to init bitStream and state.
     size_t errorCode = BIT_initCStream(&bitStream, dstBuffer, maxDstSize);
     FSE_initCState(&state, ct);
@@ -424,7 +414,6 @@ If there is an error, it returns an errorCode (which can be tested using FSE_isE
     size_t size = BIT_closeCStream(&bitStream);
 */
 
-
 /* *****************************************
 *  FSE symbol decompression API
 *******************************************/
@@ -432,7 +421,6 @@ typedef struct {
     size_t      state;
     const void* table;   /* precise table may vary, depending on U16 */
 } FSE_DState_t;
-
 
 static void     FSE_initDState(FSE_DState_t* DStatePtr, BIT_DStream_t* bitD, const FSE_DTable* dt);
 
@@ -489,13 +477,11 @@ Check also the states. There might be some symbols left there, if some high prob
     FSE_endOfDState(&DState);
 */
 
-
 /* *****************************************
 *  FSE unsafe API
 *******************************************/
 static unsigned char FSE_decodeSymbolFast(FSE_DState_t* DStatePtr, BIT_DStream_t* bitD);
 /* faster, but works only if nbBits is always >= 1 (otherwise, result will be corrupted) */
-
 
 /* *****************************************
 *  Implementation of inlined functions
@@ -515,7 +501,6 @@ MEM_STATIC void FSE_initCState(FSE_CState_t* statePtr, const FSE_CTable* ct)
     statePtr->symbolTT = ct + 1 + (tableLog ? (1<<(tableLog-1)) : 1);
     statePtr->stateLog = tableLog;
 }
-
 
 /*! FSE_initCState2() :
 *   Same as FSE_initCState(), but the first symbol to include (which will be the last to be read)
@@ -545,7 +530,6 @@ MEM_STATIC void FSE_flushCState(BIT_CStream_t* bitC, const FSE_CState_t* statePt
     BIT_addBits(bitC, statePtr->value, statePtr->stateLog);
     BIT_flushBits(bitC);
 }
-
 
 /* FSE_getMaxNbBits() :
  * Approximate maximum cost of a symbol, in bits.
@@ -578,7 +562,6 @@ MEM_STATIC U32 FSE_bitCost(const void* symbolTTPtr, U32 tableLog, U32 symbolValu
         return (minNbBits+1)*bitMultiplier - normalizedDeltaFromThreshold;
     }
 }
-
 
 /* ======    Decompression    ====== */
 
@@ -646,8 +629,6 @@ MEM_STATIC unsigned FSE_endOfDState(const FSE_DState_t* DStatePtr)
     return DStatePtr->state == 0;
 }
 
-
-
 #ifndef FSE_COMMONDEFS_ONLY
 
 /* **************************************************************
@@ -679,9 +660,7 @@ MEM_STATIC unsigned FSE_endOfDState(const FSE_DState_t* DStatePtr)
 #define FSE_FUNCTION_EXTENSION
 #define FSE_DECODE_TYPE FSE_decode_t
 
-
 #endif   /* !FSE_COMMONDEFS_ONLY */
-
 
 /* ***************************************************************
 *  Constants
@@ -699,9 +678,7 @@ MEM_STATIC unsigned FSE_endOfDState(const FSE_DState_t* DStatePtr)
 
 #define FSE_TABLESTEP(tableSize) ((tableSize>>1) + (tableSize>>3) + 3)
 
-
 #endif /* FSE_STATIC_LINKING_ONLY */
-
 
 #if defined (__cplusplus)
 }

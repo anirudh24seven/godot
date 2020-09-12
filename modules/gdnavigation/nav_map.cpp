@@ -1,8 +1,6 @@
 
 /*  nav_map.cpp                                                          */
 
-
-
 #include "nav_map.h"
 
 #include "core/os/threaded_array_processor.h"

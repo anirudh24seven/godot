@@ -1,8 +1,6 @@
 
 /*  message_queue.h                                                      */
 
-
-
 #ifndef MESSAGE_QUEUE_H
 #define MESSAGE_QUEUE_H
 

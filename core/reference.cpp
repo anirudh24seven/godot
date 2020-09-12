@@ -1,8 +1,6 @@
 
 /*  reference.cpp                                                        */
 
-
-
 #include "reference.h"
 
 #include "core/script_language.h"

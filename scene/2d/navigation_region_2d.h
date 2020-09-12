@@ -1,8 +1,6 @@
 
 /*  navigation_region_2d.h                                               */
 
-
-
 #ifndef NAVIGATION_REGION_2D_H
 #define NAVIGATION_REGION_2D_H
 

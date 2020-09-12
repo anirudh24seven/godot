@@ -1,8 +1,6 @@
 
 /*  dir_access_windows.cpp                                               */
 
-
-
 #if defined(WINDOWS_ENABLED)
 
 #include "dir_access_windows.h"
@@ -280,8 +278,7 @@ Error DirAccessWindows::remove(String p_path) {
 
 FileType DirAccessWindows::get_file_type(const String& p_file) const {
 
-
-	wchar_t real_current_dir_name[2048];
+wchar_t real_current_dir_name[2048];
 	GetCurrentDirectoryW(2048,real_current_dir_name);
 	String prev_dir=real_current_dir_name;
 
@@ -300,8 +297,7 @@ FileType DirAccessWindows::get_file_type(const String& p_file) const {
 	if (!worked)
 		return FILE_TYPE_NONE;
 
-
-	return (attr&FILE_ATTRIBUTE_DIRECTORY)?FILE_TYPE_
+return (attr&FILE_ATTRIBUTE_DIRECTORY)?FILE_TYPE_
 }
 
 */

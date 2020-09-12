@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 /*!\file
  * \brief Provides the high level interface to wrap decoder algorithms.
  *
@@ -25,16 +24,13 @@ int vpx_codec_version(void) {
   return VERSION_PACKED;
 }
 
-
 const char *vpx_codec_version_str(void) {
   return VERSION_STRING_NOSP;
 }
 
-
 const char *vpx_codec_version_extra_str(void) {
   return VERSION_EXTRA;
 }
-
 
 const char *vpx_codec_iface_name(vpx_codec_iface_t *iface) {
   return iface ? iface->name : "<invalid interface>";
@@ -79,7 +75,6 @@ const char *vpx_codec_error_detail(vpx_codec_ctx_t  *ctx) {
   return NULL;
 }
 
-
 vpx_codec_err_t vpx_codec_destroy(vpx_codec_ctx_t *ctx) {
   vpx_codec_err_t res;
 
@@ -99,11 +94,9 @@ vpx_codec_err_t vpx_codec_destroy(vpx_codec_ctx_t *ctx) {
   return SAVE_STATUS(ctx, res);
 }
 
-
 vpx_codec_caps_t vpx_codec_get_caps(vpx_codec_iface_t *iface) {
   return (iface) ? iface->caps : 0;
 }
-
 
 vpx_codec_err_t vpx_codec_control_(vpx_codec_ctx_t  *ctx,
                                    int               ctrl_id,

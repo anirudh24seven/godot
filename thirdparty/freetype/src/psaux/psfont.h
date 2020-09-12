@@ -35,19 +35,15 @@
  *
  */
 
-
 #ifndef PSFONT_H_
 #define PSFONT_H_
-
 
 #include FT_SERVICE_CFF_TABLE_LOAD_H
 
 #include "psft.h"
 #include "psblues.h"
 
-
 FT_BEGIN_HEADER
-
 
 #define CF2_OPERAND_STACK_SIZE  48
 #define CF2_MAX_SUBR            16 /* maximum subroutine nesting;         */
@@ -58,8 +54,7 @@ FT_BEGIN_HEADER
                                    /* this limit                          */
 #define CF2_STORAGE_SIZE        32
 
-
-  /* typedef is in `cf2glue.h' */
+/* typedef is in `cf2glue.h' */
   struct  CF2_FontRec_
   {
     FT_Memory  memory;
@@ -117,18 +112,14 @@ FT_BEGIN_HEADER
     FT_Service_CFFLoad  cffload;           /* pointer to cff functions */
   };
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cf2_getGlyphOutline( CF2_Font           font,
                        CF2_Buffer         charstring,
                        const CF2_Matrix*  transform,
                        CF2_F16Dot16*      glyphWidth );
 
-
 FT_END_HEADER
 
-
 #endif /* PSFONT_H_ */
-
 
 /* END */

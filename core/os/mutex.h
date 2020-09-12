@@ -1,8 +1,6 @@
 
 /*  mutex.h                                                              */
 
-
-
 #ifndef MUTEX_H
 #define MUTEX_H
 

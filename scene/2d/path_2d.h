@@ -1,8 +1,6 @@
 
 /*  path_2d.h                                                            */
 
-
-
 #ifndef PATH_2D_H
 #define PATH_2D_H
 

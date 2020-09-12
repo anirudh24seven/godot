@@ -1,8 +1,6 @@
 
 /*  platform_config.h                                                    */
 
-
-
 #ifdef __linux__
 #include <alloca.h>
 #endif

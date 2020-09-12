@@ -69,8 +69,7 @@ void silk_warped_LPC_analysis_filter_FIX(
         acc_Q11 = silk_RSHIFT( order, 1 );
         acc_Q11 = silk_SMLAWB( acc_Q11, tmp2, coef_Q13[ 0 ] );
 
-
-        /* Output of lowpass section */
+/* Output of lowpass section */
         tmp4 = silk_SMLAWB( state_cur, state_next, lambda_Q16 );
         state[ 0 ] = silk_LSHIFT( input[ n+1 ], 14 );
         /* Output of allpass section */
@@ -90,8 +89,7 @@ void silk_warped_LPC_analysis_filter_FIX(
             state_next = tmp2;
             acc_Q11 = silk_SMLAWB( acc_Q11, tmp2, coef_Q13[ i ] );
 
-
-            /* Output of allpass section */
+/* Output of allpass section */
             tmp4 = silk_SMLAWB( state_cur, state_next - tmp3, lambda_Q16 );
             state[ i ] = tmp3;
             acc_Q22 = silk_SMLAWB( acc_Q22, tmp3, coef_Q13[ i - 1 ] );
@@ -108,8 +106,6 @@ void silk_warped_LPC_analysis_filter_FIX(
         res_Q2[ n+1 ] = silk_LSHIFT( (opus_int32)input[ n+1 ], 2 ) - silk_RSHIFT_ROUND( acc_Q22, 9 );
     }
 }
-
-
 
 /* Prefilter for finding Quantizer input signal */
 #define OVERRIDE_silk_prefilt_FIX

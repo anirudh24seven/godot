@@ -424,9 +424,8 @@ void gridRaycast(Action_T& quadAction, const btVector3& beginPos, const btVector
 		// Consider the ray is too small to hit anything
 		return;
 	}
-	
 
-	btScalar rayDirectionFlatX = endPos[indices[0]] - beginPos[indices[0]];
+btScalar rayDirectionFlatX = endPos[indices[0]] - beginPos[indices[0]];
 	btScalar rayDirectionFlatZ = endPos[indices[2]] - beginPos[indices[2]];
 	rs.maxDistanceFlat = btSqrt(rayDirectionFlatX * rayDirectionFlatX + rayDirectionFlatZ * rayDirectionFlatZ);
 
@@ -714,9 +713,7 @@ void btHeightfieldTerrainShape::performRaycast(btTriangleCallback* callback, con
 		return;
 	}
 
-	
-
-	if (m_vboundsGrid.size()==0)
+if (m_vboundsGrid.size()==0)
 	{
 		// Process all quads intersecting the flat projection of the ray
 		gridRaycast(processTriangles, beginPos, endPos, &indices[0]);

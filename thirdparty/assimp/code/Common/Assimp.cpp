@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -101,7 +99,6 @@ namespace Assimp {
     /** will delete all registered importers. */
     void DeleteImporterInstanceList(std::vector< BaseImporter* >& out);
 } // namespace assimp
-
 
 #ifndef ASSIMP_BUILD_SINGLETHREADED
 /** Global mutex to manage the access to the log-stream map */
@@ -294,8 +291,7 @@ ASSIMP_API const aiScene* aiApplyPostProcessing(const aiScene* pScene,
 {
     const aiScene* sc = NULL;
 
-
-    ASSIMP_BEGIN_EXCEPTION_REGION();
+ASSIMP_BEGIN_EXCEPTION_REGION();
 
     // find the importer associated with this data
     const ScenePrivateData* priv = ScenePriv(pScene);

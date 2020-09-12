@@ -1,8 +1,6 @@
 
 /*  networked_multiplayer_enet.cpp                                       */
 
-
-
 #include "networked_multiplayer_enet.h"
 #include "core/io/ip.h"
 #include "core/io/marshalls.h"

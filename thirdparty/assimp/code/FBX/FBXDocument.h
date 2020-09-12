@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -80,7 +79,6 @@ class BlendShapeChannel;
 class BlendShape;
 class Skin;
 class Cluster;
-
 
 /** Represents a delay-parsed FBX objects. Many objects in the scene
  *  are not needed by assimp, so it makes no sense to parse them
@@ -218,7 +216,6 @@ private:
         } \
         return static_cast<type>(ival); \
 }
-
 
 /** DOM base class for FBX cameras attached to a node */
 class Camera : public NodeAttribute {
@@ -597,7 +594,6 @@ private:
 typedef std::fbx_unordered_map<std::string, const Texture*> TextureMap;
 typedef std::fbx_unordered_map<std::string, const LayeredTexture*> LayeredTextureMap;
 
-
 /** DOM class for generic FBX videos */
 class Video : public Object {
 public:
@@ -753,8 +749,7 @@ public:
         return *props.get();
     }
 
-
-    const AnimationCurveMap& Curves() const;
+const AnimationCurveMap& Curves() const;
 
     /** Object the curve is assigned to, this can be NULL if the
      *  target object has no DOM representation or could not
@@ -835,7 +830,6 @@ private:
     AnimationLayerList layers;
 };
 
-
 /** DOM class for deformers */
 class Deformer : public Object {
 public:
@@ -853,7 +847,6 @@ private:
 
 typedef std::vector<float> WeightArray;
 typedef std::vector<unsigned int> WeightIndexArray;
-
 
 /** DOM class for BlendShapeChannel deformers */
 class BlendShapeChannel : public Deformer {
@@ -976,8 +969,7 @@ public:
     LazyObject& LazySourceObject() const;
     LazyObject& LazyDestinationObject() const;
 
-
-    /** return the name of the property the connection is attached to.
+/** return the name of the property the connection is attached to.
       * this is an empty string for object to object (OO) connections. */
     const std::string& PropertyName() const {
         return prop;
@@ -1054,8 +1046,7 @@ public:
     fbx_simple_property(AmbientColor, aiVector3D, aiVector3D(0,0,0))
     fbx_simple_property(DefaultCamera, std::string, "")
 
-
-    enum FrameRate {
+enum FrameRate {
         FrameRate_DEFAULT = 0,
         FrameRate_120 = 1,
         FrameRate_100 = 2,

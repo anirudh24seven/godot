@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -52,7 +50,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #   pragma GCC system_header
 #endif
 
-
 /** Mixed set of flags for #aiImporterDesc, indicating some features
   *  common to many importers*/
 enum aiImporterFlags {
@@ -80,7 +77,6 @@ enum aiImporterFlags {
       * in releases. */
     aiImporterFlags_Experimental = 0x10
 };
-
 
 /** Meta information about a particular importer. Importers need to fill
  *  this structure, but they can freely decide how talkative they are.

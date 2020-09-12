@@ -217,7 +217,6 @@ libvpx_sources_arm_neon_gas = [libvpx_dir + file for file in libvpx_sources_arm_
 libvpx_sources_arm_neon_armasm_ms = [libvpx_dir + file for file in libvpx_sources_arm_neon_armasm_ms]
 libvpx_sources_arm_neon_gas_apple = [libvpx_dir + file for file in libvpx_sources_arm_neon_gas_apple]
 
-
 env_libvpx = env_modules.Clone()
 env_libvpx.disable_warnings()
 env_libvpx.Prepend(CPPPATH=[libvpx_dir])

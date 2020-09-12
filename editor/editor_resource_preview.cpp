@@ -1,8 +1,6 @@
 
 /*  editor_resource_preview.cpp                                          */
 
-
-
 #include "editor_resource_preview.h"
 
 #include "core/method_bind_ext.gen.inc"

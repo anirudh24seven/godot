@@ -1,8 +1,6 @@
 
 /*  editor_file_system.cpp                                               */
 
-
-
 #include "editor_file_system.h"
 
 #include "core/io/resource_importer.h"

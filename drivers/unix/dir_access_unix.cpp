@@ -1,8 +1,6 @@
 
 /*  dir_access_unix.cpp                                                  */
 
-
-
 #include "dir_access_unix.h"
 
 #if defined(UNIX_ENABLED) || defined(LIBC_FILEIO_ENABLED)

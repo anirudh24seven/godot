@@ -1,8 +1,6 @@
 
 /*  godot_collision_configuration.cpp                                    */
 
-
-
 #include "godot_collision_configuration.h"
 
 #include "godot_ray_world_algorithm.h"

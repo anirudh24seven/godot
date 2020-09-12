@@ -1,8 +1,6 @@
 
 /*  packed_scene_translation_parser_plugin.h                             */
 
-
-
 #ifndef PACKED_SCENE_TRANSLATION_PARSER_PLUGIN_H
 #define PACKED_SCENE_TRANSLATION_PARSER_PLUGIN_H
 

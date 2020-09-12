@@ -1,8 +1,6 @@
 
 /*  spin_box.h                                                           */
 
-
-
 #ifndef SPIN_BOX_H
 #define SPIN_BOX_H
 

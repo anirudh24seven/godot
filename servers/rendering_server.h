@@ -1,8 +1,6 @@
 
 /*  rendering_server.h                                                   */
 
-
-
 #ifndef RENDERING_SERVER_H
 #define RENDERING_SERVER_H
 

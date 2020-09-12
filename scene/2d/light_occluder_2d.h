@@ -1,8 +1,6 @@
 
 /*  light_occluder_2d.h                                                  */
 
-
-
 #ifndef LIGHTOCCLUDER2D_H
 #define LIGHTOCCLUDER2D_H
 

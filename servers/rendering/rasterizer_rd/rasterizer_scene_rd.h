@@ -1,8 +1,6 @@
 
 /*  rasterizer_scene_rd.h                                                */
 
-
-
 #ifndef RASTERIZER_SCENE_RD_H
 #define RASTERIZER_SCENE_RD_H
 

@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef TINYEXR_REGISTER_TYPES_H
 #define TINYEXR_REGISTER_TYPES_H
 

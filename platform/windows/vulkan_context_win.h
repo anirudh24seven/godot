@@ -1,8 +1,6 @@
 
 /*  vulkan_context_win.h                                                 */
 
-
-
 #ifndef VULKAN_DEVICE_WIN_H
 #define VULKAN_DEVICE_WIN_H
 

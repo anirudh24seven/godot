@@ -1,8 +1,6 @@
 
 /*  godot_collision_dispatcher.cpp                                       */
 
-
-
 #include "godot_collision_dispatcher.h"
 
 #include "collision_object_bullet.h"

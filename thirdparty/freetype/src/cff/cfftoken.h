@@ -15,7 +15,6 @@
  *
  */
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  CFF_FontRecDictRec
 
@@ -74,7 +73,6 @@
   CFF_FIELD_NUM     ( 0x127, chameleon, "Chameleon" )
 #endif
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  CFF_PrivateRec
 #undef  CFFCODE
@@ -101,7 +99,6 @@
   CFF_FIELD_NUM       ( 20,    default_width,          "defaultWidthX" )
   CFF_FIELD_NUM       ( 21,    nominal_width,          "nominalWidthX" )
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  CFF_FontRecDictRec
 #undef  CFFCODE
@@ -114,7 +111,6 @@
   CFF_FIELD_NUM     ( 24,    vstore_offset,        "vstore" )
   CFF_FIELD_CALLBACK( 25,    maxstack,             "maxstack" )
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  CFF_FontRecDictRec
 #undef  CFFCODE
@@ -122,7 +118,6 @@
 
   CFF_FIELD_CALLBACK( 18,    private_dict, "Private" )
   CFF_FIELD_CALLBACK( 0x107, font_matrix,  "FontMatrix" )
-
 
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  CFF_PrivateRec
@@ -145,6 +140,5 @@
   CFF_FIELD_CALLBACK  ( 22,    vsindex,                "vsindex" )
   CFF_FIELD_BLEND     ( 23,                            "blend" )
   CFF_FIELD_NUM       ( 19,    local_subrs_offset,     "Subrs" )
-
 
 /* END */

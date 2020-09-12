@@ -1,8 +1,6 @@
 
 /*  resource_importer_texture_atlas.cpp                                  */
 
-
-
 #include "resource_importer_texture_atlas.h"
 
 #include "atlas_import_failed.xpm"

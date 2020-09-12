@@ -104,8 +104,7 @@ static inline void xcorr_kernel_mips(const opus_val16 * x,
        sum_2 = __builtin_mips_madd( sum_2, tmp, y_0);
        sum_3 = __builtin_mips_madd( sum_3, tmp, y_1);
 
-
-      tmp=*x++;
+tmp=*x++;
       y_2=*y++;
 
        sum_0 = __builtin_mips_madd( sum_0, tmp, y_3 );

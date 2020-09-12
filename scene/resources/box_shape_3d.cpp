@@ -1,8 +1,6 @@
 
 /*  box_shape_3d.cpp                                                     */
 
-
-
 #include "box_shape_3d.h"
 #include "servers/physics_server_3d.h"
 

@@ -73,8 +73,6 @@ long ogg_page_pageno(const ogg_page *og){
                ((ogg_uint32_t)og->header[21]<<24));
 }
 
-
-
 /* returns the number of packets that are completed on this page (if
    the leading packet is begun on a previous page, but ends on this
    page, it's counted */
@@ -98,7 +96,6 @@ int ogg_page_packets(const ogg_page *og){
     if(og->header[27+i]<255)count++;
   return(count);
 }
-
 
 #if 0
 /* helper to initialize lookup for direct-table CRC (illustrative; we
@@ -1172,7 +1169,6 @@ const int head2_3[] = {0x4f,0x67,0x67,0x53,0,0x04,
                        4,
                        255,4,255,0};
 
-
 /* continuing packet test */
 const int head1_4[] = {0x4f,0x67,0x67,0x53,0,0x02,
                        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -1226,7 +1222,6 @@ const int head3_4[] = {0x4f,0x67,0x67,0x53,0,0x05,
                        6,
                        255,220,255,4,255,0};
 
-
 /* spill expansion test */
 const int head1_4b[] = {0x4f,0x67,0x67,0x53,0,0x02,
                         0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -1242,7 +1237,6 @@ const int head2_4b[] = {0x4f,0x67,0x67,0x53,0,0x00,
                         23,
                         255,255,255,255,255,255,255,255,
                         255,255,255,255,255,255,255,255,255,10,255,4,255,0,0};
-
 
 const int head3_4b[] = {0x4f,0x67,0x67,0x53,0,0x04,
                         0x07,0x14,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -1303,7 +1297,6 @@ const int head3_5[] = {0x4f,0x67,0x67,0x53,0,0x04,
                        0x6c,0x3b,0x82,0x3d,
                        1,
                        50};
-
 
 /* packet that overspans over an entire page */
 const int head1_6[] = {0x4f,0x67,0x67,0x53,0,0x02,
@@ -1795,9 +1788,7 @@ int main(void){
     test_pack(packets,headret,0,0,0);
   }
 
-
-
-  {
+{
     /* build a bunch of pages for testing */
     unsigned char *data=_ogg_malloc(1024*1024);
     int pl[]={0, 1,1,98,4079, 1,1,2954,2057, 76,34,912,0,234,1000,1000, 1000,300,-1};

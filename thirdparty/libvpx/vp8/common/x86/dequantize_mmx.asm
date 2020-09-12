@@ -8,9 +8,7 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
-
 
 ;void vp8_dequantize_b_impl_mmx(short *sq, short *dq, short *q)
 global sym(vp8_dequantize_b_impl_mmx) PRIVATE
@@ -49,7 +47,6 @@ sym(vp8_dequantize_b_impl_mmx):
     pop         rbp
     ret
 
-
 ;void dequant_idct_add_mmx(
 ;short *input,            0
 ;short *dq,               1
@@ -67,8 +64,7 @@ sym(vp8_dequant_idct_add_mmx):
         mov         rax,    arg(0) ;input
         mov         rdx,    arg(1) ;dq
 
-
-        movq        mm0,    [rax   ]
+movq        mm0,    [rax   ]
         pmullw      mm0,    [rdx]
 
         movq        mm1,    [rax +8]
@@ -84,15 +80,13 @@ sym(vp8_dequant_idct_add_mmx):
 
         pxor        mm7,    mm7
 
-
-        movq        [rax],   mm7
+movq        [rax],   mm7
         movq        [rax+8], mm7
 
         movq        [rax+16],mm7
         movq        [rax+24],mm7
 
-
-        movsxd      rdi,            dword ptr arg(3) ;stride
+movsxd      rdi,            dword ptr arg(3) ;stride
 
         psubw       mm0,            mm2             ; b1= 0-2
         paddw       mm2,            mm2             ;

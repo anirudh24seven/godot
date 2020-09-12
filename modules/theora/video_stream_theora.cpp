@@ -1,8 +1,6 @@
 
 /*  video_stream_theora.cpp                                              */
 
-
-
 #include "video_stream_theora.h"
 
 #include "core/os/os.h"

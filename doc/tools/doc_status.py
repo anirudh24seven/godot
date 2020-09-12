@@ -84,17 +84,14 @@ colors = {
 }
 overall_progress_description_weigth = 10
 
-
 ################################################################################
 #                                    Utils                                     #
 ################################################################################
-
 
 def validate_tag(elem, tag):
     if elem.tag != tag:
         print('Tag mismatch, expected "' + tag + '", got ' + elem.tag)
         sys.exit(255)
-
 
 def color(color, string):
     if flags["c"] and terminal_supports_color():
@@ -105,13 +102,10 @@ def color(color, string):
     else:
         return string
 
-
 ansi_escape = re.compile(r"\x1b[^m]*m")
-
 
 def nonescape_len(s):
     return len(ansi_escape.sub("", s))
-
 
 def terminal_supports_color():
     p = sys.platform
@@ -122,11 +116,9 @@ def terminal_supports_color():
         return False
     return True
 
-
 ################################################################################
 #                                   Classes                                    #
 ################################################################################
-
 
 class ClassStatusProgress:
     def __init__(self, described=0, total=0):
@@ -167,7 +159,6 @@ class ClassStatusProgress:
         pad_percent = "".ljust(3 - len(str(percent)))
         pad_total = "".ljust(pad_size - len(str(self.total)))
         return pad_format.format(pad_described=pad_described, pad_total=pad_total, pad_percent=pad_percent, s=s)
-
 
 class ClassStatus:
     def __init__(self, name=""):
@@ -280,7 +271,6 @@ class ClassStatus:
 
         return status
 
-
 ################################################################################
 #                                  Arguments                                   #
 ################################################################################
@@ -322,7 +312,6 @@ if flags["u"]:
     table_column_names.append("Docs URL")
     table_columns.append("url")
 
-
 ################################################################################
 #                                     Help                                     #
 ################################################################################
@@ -355,7 +344,6 @@ if len(input_file_list) < 1 or flags["h"]:
             )
         )
     sys.exit(0)
-
 
 ################################################################################
 #                               Parse class list                               #
@@ -426,7 +414,6 @@ for cn in filtered_classes:
         row.append(out["comment"])
 
     table.append(row)
-
 
 ################################################################################
 #                              Print output table                              #

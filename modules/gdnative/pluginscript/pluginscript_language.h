@@ -1,8 +1,6 @@
 
 /*  pluginscript_language.h                                              */
 
-
-
 #ifndef PLUGINSCRIPT_LANGUAGE_H
 #define PLUGINSCRIPT_LANGUAGE_H
 

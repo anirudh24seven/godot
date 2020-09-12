@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef GLSLANG_REGISTER_TYPES_H
 #define GLSLANG_REGISTER_TYPES_H
 

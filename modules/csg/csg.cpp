@@ -1,8 +1,6 @@
 
 /*  csg.cpp                                                              */
 
-
-
 #include "csg.h"
 
 #include "core/math/geometry_2d.h"

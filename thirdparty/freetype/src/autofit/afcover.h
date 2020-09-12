@@ -15,12 +15,10 @@
  *
  */
 
-
-  /* This header file can be included multiple times. */
+/* This header file can be included multiple times. */
   /* Define `COVERAGE' as needed.                     */
 
-
-  /* Add new coverages here.  The first and second arguments are the   */
+/* Add new coverages here.  The first and second arguments are the   */
   /* coverage name in lowercase and uppercase, respectively, followed  */
   /* by a description string.  The last four arguments are the four    */
   /* characters defining the corresponding OpenType feature.           */
@@ -100,6 +98,5 @@
   COVERAGE(nalt, 'n', 'a', 'l', 't'); /* Alternate Annotation Forms (?) */
   COVERAGE(ornm, 'o', 'r', 'n', 'm'); /* Ornaments (?) */
 #endif
-
 
 /* END */

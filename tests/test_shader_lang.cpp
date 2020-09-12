@@ -1,8 +1,6 @@
 
 /*  test_shader_lang.cpp                                                 */
 
-
-
 #include "test_shader_lang.h"
 
 #include "core/os/file_access.h"

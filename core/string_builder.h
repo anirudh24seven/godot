@@ -1,8 +1,6 @@
 
 /*  string_builder.h                                                     */
 
-
-
 #ifndef STRING_BUILDER_H
 #define STRING_BUILDER_H
 

@@ -1,8 +1,6 @@
 
 /*  net_socket_posix.cpp                                                 */
 
-
-
 #include "net_socket_posix.h"
 
 #ifndef UNIX_SOCKET_UNAVAILABLE

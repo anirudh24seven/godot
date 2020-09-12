@@ -1,8 +1,6 @@
 
 /*  video_player.cpp                                                     */
 
-
-
 #include "video_player.h"
 #include "scene/scene_string_names.h"
 

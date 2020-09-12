@@ -1,8 +1,6 @@
 
 /*  geometry_3d.h                                                        */
 
-
-
 #ifndef GEOMETRY_3D_H
 #define GEOMETRY_3D_H
 

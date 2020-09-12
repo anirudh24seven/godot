@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
@@ -225,7 +224,6 @@ static vpx_codec_err_t vp8_get_si(vpx_codec_alg_priv_t    *ctx,
 
     return VPX_CODEC_OK;
 }
-
 
 static vpx_codec_err_t
 update_error_state(vpx_codec_alg_priv_t                 *ctx,
@@ -587,7 +585,6 @@ static vpx_codec_err_t image2yuvconfig(const vpx_image_t   *img,
     return res;
 }
 
-
 static vpx_codec_err_t vp8_set_reference(vpx_codec_alg_priv_t *ctx,
                                          va_list args)
 {
@@ -651,7 +648,6 @@ static vpx_codec_err_t vp8_set_postproc(vpx_codec_alg_priv_t *ctx,
     return VPX_CODEC_INCAPABLE;
 #endif
 }
-
 
 static vpx_codec_err_t vp8_set_dbg_color_ref_frame(vpx_codec_alg_priv_t *ctx,
                                                    va_list args) {
@@ -793,7 +789,6 @@ vpx_codec_ctrl_fn_map_t vp8_ctf_maps[] =
     {VPXD_SET_DECRYPTOR,            vp8_set_decryptor},
     { -1, NULL},
 };
-
 
 #ifndef VERSION_STRING
 #define VERSION_STRING

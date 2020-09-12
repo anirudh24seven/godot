@@ -154,7 +154,6 @@ btDeformableRigidContactConstraint::btDeformableRigidContactConstraint(const btD
     m_total_tangent_dv = other.m_total_tangent_dv;
 }
 
-
 btVector3 btDeformableRigidContactConstraint::getVa() const
 {
     const btSoftBody::sCti& cti = m_contact->m_cti;
@@ -313,7 +312,6 @@ btVector3 btDeformableNodeRigidContactConstraint::getVb() const
     return m_node->m_v;
 }
 
-
 btVector3 btDeformableNodeRigidContactConstraint::getDv(const btSoftBody::Node* node) const
 {
     return m_total_normal_dv + m_total_tangent_dv;
@@ -347,7 +345,6 @@ btVector3 btDeformableFaceRigidContactConstraint::getVb() const
     btVector3 vb = m_face->m_n[0]->m_v * contact->m_bary[0] + m_face->m_n[1]->m_v * contact->m_bary[1] + m_face->m_n[2]->m_v * contact->m_bary[2];
     return vb;
 }
-
 
 btVector3 btDeformableFaceRigidContactConstraint::getDv(const btSoftBody::Node* node) const
 {

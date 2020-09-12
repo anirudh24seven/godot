@@ -1,8 +1,6 @@
 
 /*  editor_scene_importer_gltf.h                                         */
 
-
-
 #ifndef EDITOR_SCENE_IMPORTER_GLTF_H
 #define EDITOR_SCENE_IMPORTER_GLTF_H
 

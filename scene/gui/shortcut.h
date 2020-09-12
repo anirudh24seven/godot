@@ -1,8 +1,6 @@
 
 /*  shortcut.h                                                           */
 
-
-
 #ifndef SHORTCUT_H
 #define SHORTCUT_H
 

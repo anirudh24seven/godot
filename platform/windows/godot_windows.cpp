@@ -1,8 +1,6 @@
 
 /*  godot_windows.cpp                                                    */
 
-
-
 #include "main/main.h"
 #include "os_windows.h"
 

@@ -605,7 +605,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT int opus_decoder_get_nb_samples(const OpusDe
   */
 OPUS_EXPORT void opus_pcm_soft_clip(float *pcm, int frame_size, int channels, float *softclip_mem);
 
-
 /**@}*/
 
 /** @defgroup opus_repacketizer Repacketizer
@@ -836,7 +835,6 @@ OPUS_EXPORT void opus_repacketizer_destroy(OpusRepacketizer *rp);
   *                              than 120 ms.
   */
 OPUS_EXPORT int opus_repacketizer_cat(OpusRepacketizer *rp, const unsigned char *data, opus_int32 len) OPUS_ARG_NONNULL(1) OPUS_ARG_NONNULL(2);
-
 
 /** Construct a new packet from data previously submitted to the repacketizer
   * state via opus_repacketizer_cat().

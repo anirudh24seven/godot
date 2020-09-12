@@ -1,8 +1,6 @@
 
 /*  input_event.cpp                                                      */
 
-
-
 #include "input_event.h"
 
 #include "core/input/input_map.h"

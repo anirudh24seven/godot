@@ -1,8 +1,6 @@
 
 /*  joints_2d_sw.cpp                                                     */
 
-
-
 #include "joints_2d_sw.h"
 
 #include "space_2d_sw.h"

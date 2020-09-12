@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_OUTLINE_H
 #include FT_INTERNAL_OBJECTS_H
@@ -23,8 +22,7 @@
 #include FT_INTERNAL_DEBUG_H
 #include FT_TRIGONOMETRY_H
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -33,12 +31,10 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  outline
 
-
-  static
+static
   const FT_Outline  null_outline = { 0, 0, NULL, NULL, NULL, 0 };
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_Decompose( FT_Outline*              outline,
@@ -65,8 +61,7 @@
     FT_Int   shift;
     FT_Pos   delta;
 
-
-    if ( !outline )
+if ( !outline )
       return FT_THROW( Invalid_Outline );
 
     if ( !func_interface )
@@ -80,8 +75,7 @@
     {
       FT_Int  last;  /* index of last point in contour */
 
-
-      FT_TRACE5(( "FT_Outline_Decompose: Outline %d\n", n ));
+FT_TRACE5(( "FT_Outline_Decompose: Outline %d\n", n ));
 
       last = outline->contours[n];
       if ( last < 0 )
@@ -148,8 +142,7 @@
           {
             FT_Vector  vec;
 
-
-            vec.x = SCALED( point->x );
+vec.x = SCALED( point->x );
             vec.y = SCALED( point->y );
 
             FT_TRACE5(( "  line to (%.2f, %.2f)\n",
@@ -170,8 +163,7 @@
             FT_Vector  vec;
             FT_Vector  v_middle;
 
-
-            point++;
+point++;
             tags++;
             tag = FT_CURVE_TAG( tags[0] );
 
@@ -219,8 +211,7 @@
           {
             FT_Vector  vec1, vec2;
 
-
-            if ( point + 1 > limit                             ||
+if ( point + 1 > limit                             ||
                  FT_CURVE_TAG( tags[1] ) != FT_CURVE_TAG_CUBIC )
               goto Invalid_Outline;
 
@@ -237,8 +228,7 @@
             {
               FT_Vector  vec;
 
-
-              vec.x = SCALED( point->x );
+vec.x = SCALED( point->x );
               vec.y = SCALED( point->y );
 
               FT_TRACE5(( "  cubic to (%.2f, %.2f)"
@@ -287,8 +277,7 @@
     return error;
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_New( FT_Library   library,
@@ -299,8 +288,7 @@
     FT_Error   error;
     FT_Memory  memory;
 
-
-    if ( !library )
+if ( !library )
       return FT_THROW( Invalid_Library_Handle );
 
     memory = library->memory;
@@ -335,8 +323,7 @@
     return error;
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_Check( FT_Outline*  outline )
@@ -348,8 +335,7 @@
       FT_Int  end0, end;
       FT_Int  n;
 
-
-      /* empty glyph? */
+/* empty glyph? */
       if ( n_points == 0 && n_contours == 0 )
         return FT_Err_Ok;
 
@@ -380,8 +366,7 @@
     return FT_THROW( Invalid_Argument );
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_Copy( const FT_Outline*  source,
@@ -389,8 +374,7 @@
   {
     FT_Int  is_owner;
 
-
-    if ( !source || !target )
+if ( !source || !target )
       return FT_THROW( Invalid_Outline );
 
     if ( source->n_points   != target->n_points   ||
@@ -419,8 +403,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_Done( FT_Library   library,
@@ -428,8 +411,7 @@
   {
     FT_Memory  memory;
 
-
-    if ( !library )
+if ( !library )
       return FT_THROW( Invalid_Library_Handle );
 
     if ( !outline )
@@ -451,8 +433,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( void )
   FT_Outline_Get_CBox( const FT_Outline*  outline,
@@ -460,8 +441,7 @@
   {
     FT_Pos  xMin, yMin, xMax, yMax;
 
-
-    if ( outline && acbox )
+if ( outline && acbox )
     {
       if ( outline->n_points == 0 )
       {
@@ -475,8 +455,7 @@
         FT_Vector*  vec   = outline->points;
         FT_Vector*  limit = vec + outline->n_points;
 
-
-        xMin = xMax = vec->x;
+xMin = xMax = vec->x;
         yMin = yMax = vec->y;
         vec++;
 
@@ -484,8 +463,7 @@
         {
           FT_Pos  x, y;
 
-
-          x = vec->x;
+x = vec->x;
           if ( x < xMin ) xMin = x;
           if ( x > xMax ) xMax = x;
 
@@ -501,8 +479,7 @@
     }
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( void )
   FT_Outline_Translate( const FT_Outline*  outline,
@@ -512,8 +489,7 @@
     FT_UShort   n;
     FT_Vector*  vec;
 
-
-    if ( !outline )
+if ( !outline )
       return;
 
     vec = outline->points;
@@ -526,8 +502,7 @@
     }
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( void )
   FT_Outline_Reverse( FT_Outline*  outline )
@@ -535,8 +510,7 @@
     FT_UShort  n;
     FT_Int     first, last;
 
-
-    if ( !outline )
+if ( !outline )
       return;
 
     first = 0;
@@ -551,8 +525,7 @@
         FT_Vector*  q = outline->points + last;
         FT_Vector   swap;
 
-
-        while ( p < q )
+while ( p < q )
         {
           swap = *p;
           *p   = *q;
@@ -567,13 +540,11 @@
         char*  p = outline->tags + first;
         char*  q = outline->tags + last;
 
-
-        while ( p < q )
+while ( p < q )
         {
           char  swap;
 
-
-          swap = *p;
+swap = *p;
           *p   = *q;
           *q   = swap;
           p++;
@@ -587,8 +558,7 @@
     outline->flags ^= FT_OUTLINE_REVERSE_FILL;
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_Render( FT_Library         library,
@@ -600,8 +570,7 @@
     FT_ListNode  node;
     FT_BBox      cbox;
 
-
-    if ( !library )
+if ( !library )
       return FT_THROW( Invalid_Library_Handle );
 
     if ( !outline )
@@ -650,8 +619,7 @@
     return error;
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_Get_Bitmap( FT_Library        library,
@@ -660,8 +628,7 @@
   {
     FT_Raster_Params  params;
 
-
-    if ( !abitmap )
+if ( !abitmap )
       return FT_THROW( Invalid_Argument );
 
     /* other checks are delayed to `FT_Outline_Render' */
@@ -677,8 +644,7 @@
     return FT_Outline_Render( library, outline, &params );
   }
 
-
-  /* documentation is in freetype.h */
+/* documentation is in freetype.h */
 
   FT_EXPORT_DEF( void )
   FT_Vector_Transform( FT_Vector*        vector,
@@ -686,8 +652,7 @@
   {
     FT_Pos  xz, yz;
 
-
-    if ( !vector || !matrix )
+if ( !vector || !matrix )
       return;
 
     xz = FT_MulFix( vector->x, matrix->xx ) +
@@ -700,8 +665,7 @@
     vector->y = yz;
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( void )
   FT_Outline_Transform( const FT_Outline*  outline,
@@ -710,8 +674,7 @@
     FT_Vector*  vec;
     FT_Vector*  limit;
 
-
-    if ( !outline || !matrix || !outline->points )
+if ( !outline || !matrix || !outline->points )
       return;
 
     vec   = outline->points;
@@ -720,7 +683,6 @@
     for ( ; vec < limit; vec++ )
       FT_Vector_Transform( vec, matrix );
   }
-
 
 #if 0
 
@@ -733,8 +695,7 @@
     (last) = (outline)->points + (outline)->contours[c];   \
   } while ( 0 )
 
-
-  /* Is a point in some contour?                     */
+/* Is a point in some contour?                     */
   /*                                                 */
   /* We treat every point of the contour as if it    */
   /* it were ON.  That is, we allow false positives, */
@@ -750,16 +711,14 @@
     FT_Vector*  b;
     FT_UInt     n = 0;
 
-
-    FT_OUTLINE_GET_CONTOUR( outline, c, first, last );
+FT_OUTLINE_GET_CONTOUR( outline, c, first, last );
 
     for ( a = first; a <= last; a++ )
     {
       FT_Pos  x;
       FT_Int  intersect;
 
-
-      b = ( a == last ) ? first : a + 1;
+b = ( a == last ) ? first : a + 1;
 
       intersect = ( a->y - point->y ) ^ ( b->y - point->y );
 
@@ -787,8 +746,7 @@
     return n & 1;
   }
 
-
-  static FT_Bool
+static FT_Bool
   ft_contour_enclosed( FT_Outline*  outline,
                        FT_UShort    c )
   {
@@ -796,8 +754,7 @@
     FT_Vector*  last;
     FT_Short    i;
 
-
-    FT_OUTLINE_GET_CONTOUR( outline, c, first, last );
+FT_OUTLINE_GET_CONTOUR( outline, c, first, last );
 
     for ( i = 0; i < outline->n_contours; i++ )
     {
@@ -805,8 +762,7 @@
       {
         FT_Vector*  pt;
 
-
-        for ( pt = first + 1; pt <= last; pt++ )
+for ( pt = first + 1; pt <= last; pt++ )
           if ( !ft_contour_has( outline, i, pt ) )
             return 0;
 
@@ -817,8 +773,7 @@
     return 0;
   }
 
-
-  /* This version differs from the public one in that each */
+/* This version differs from the public one in that each */
   /* part (contour not enclosed in another contour) of the */
   /* outline is checked for orientation.  This is          */
   /* necessary for some buggy CJK fonts.                   */
@@ -830,16 +785,14 @@
     FT_Vector*      last;
     FT_Orientation  orient = FT_ORIENTATION_NONE;
 
-
-    first = outline->points;
+first = outline->points;
     for ( i = 0; i < outline->n_contours; i++, first = last + 1 )
     {
       FT_Vector*  point;
       FT_Vector*  xmin_point;
       FT_Pos      xmin;
 
-
-      last = outline->points + outline->contours[i];
+last = outline->points + outline->contours[i];
 
       /* skip degenerate contours */
       if ( last < first + 2 )
@@ -866,8 +819,7 @@
         FT_Vector*      next;
         FT_Orientation  o;
 
-
-        prev = ( xmin_point == first ) ? last : xmin_point - 1;
+prev = ( xmin_point == first ) ? last : xmin_point - 1;
         next = ( xmin_point == last ) ? first : xmin_point + 1;
 
         if ( FT_Atan2( prev->x - xmin_point->x, prev->y - xmin_point->y ) >
@@ -888,8 +840,7 @@
 
 #endif /* 0 */
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_Embolden( FT_Outline*  outline,
@@ -898,8 +849,7 @@
     return FT_Outline_EmboldenXY( outline, strength, strength );
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Outline_EmboldenXY( FT_Outline*  outline,
@@ -910,8 +860,7 @@
     FT_Int          c, first, last;
     FT_Orientation  orientation;
 
-
-    if ( !outline )
+if ( !outline )
       return FT_THROW( Invalid_Outline );
 
     xstrength /= 2;
@@ -937,8 +886,7 @@
       FT_Fixed   l_in, l_out, l_anchor = 0, l, q, d;
       FT_Int     i, j, k;
 
-
-      l_in = 0;
+l_in = 0;
       last = outline->contours[c];
 
       /* pacify compiler */
@@ -1003,8 +951,7 @@
             else
               shift.x = FT_MulDiv( shift.x, l, q );
 
-
-            if ( FT_MulFix( ystrength, q ) <= FT_MulFix( l, d ) )
+if ( FT_MulFix( ystrength, q ) <= FT_MulFix( l, d ) )
               shift.y = FT_MulDiv( shift.y, ystrength, d );
             else
               shift.y = FT_MulDiv( shift.y, l, q );
@@ -1033,8 +980,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* documentation is in ftoutln.h */
+/* documentation is in ftoutln.h */
 
   FT_EXPORT_DEF( FT_Orientation )
   FT_Outline_Get_Orientation( FT_Outline*  outline )
@@ -1046,8 +992,7 @@
     FT_Int      c, n, first;
     FT_Pos      area = 0;
 
-
-    if ( !outline || outline->n_points <= 0 )
+if ( !outline || outline->n_points <= 0 )
       return FT_ORIENTATION_TRUETYPE;
 
     /* We use the nonzero winding rule to find the orientation.       */
@@ -1075,8 +1020,7 @@
     {
       FT_Int  last = outline->contours[c];
 
-
-      v_prev.x = points[last].x >> xshift;
+v_prev.x = points[last].x >> xshift;
       v_prev.y = points[last].y >> yshift;
 
       for ( n = first; n <= last; n++ )
@@ -1101,6 +1045,5 @@
     else
       return FT_ORIENTATION_NONE;
   }
-
 
 /* END */

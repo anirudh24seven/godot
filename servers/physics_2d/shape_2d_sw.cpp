@@ -1,8 +1,6 @@
 
 /*  shape_2d_sw.cpp                                                      */
 
-
-
 #include "shape_2d_sw.h"
 
 #include "core/math/geometry_2d.h"

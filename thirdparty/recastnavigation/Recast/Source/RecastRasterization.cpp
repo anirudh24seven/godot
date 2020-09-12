@@ -40,7 +40,6 @@ inline bool overlapInterval(unsigned short amin, unsigned short amax,
 	return true;
 }
 
-
 static rcSpan* allocSpan(rcHeightfield& hf)
 {
 	// If running out of memory, allocate new page and update the freelist.
@@ -235,8 +234,6 @@ static void dividePoly(const float* in, int nin,
 	*nout1 = m;
 	*nout2 = n;
 }
-
-
 
 static bool rasterizeTri(const float* v0, const float* v1, const float* v2,
 						 const unsigned char area, rcHeightfield& hf,

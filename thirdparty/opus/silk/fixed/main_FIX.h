@@ -107,7 +107,6 @@ void silk_warped_LPC_analysis_filter_FIX_c(
     const opus_int              order                       /* I    Filter order (even)                 */
 );
 
-
 /**************************/
 /* Noise shaping analysis */
 /**************************/

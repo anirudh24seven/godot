@@ -1,8 +1,6 @@
 
 /*  math_defs.h                                                          */
 
-
-
 #ifndef MATH_DEFS_H
 #define MATH_DEFS_H
 

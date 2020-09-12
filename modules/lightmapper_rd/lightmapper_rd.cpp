@@ -1,8 +1,6 @@
 
 /*  lightmapper_rd.cpp                                                   */
 
-
-
 #include "lightmapper_rd.h"
 #include "core/math/geometry_2d.h"
 #include "core/project_settings.h"

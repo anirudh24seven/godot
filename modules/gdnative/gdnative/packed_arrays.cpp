@@ -1,8 +1,6 @@
 
 /*  packed_arrays.cpp                                                    */
 
-
-
 #include "gdnative/packed_arrays.h"
 
 #include "core/array.h"

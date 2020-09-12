@@ -1049,7 +1049,6 @@ struct mbedtls_ssl_config
 #endif
 };
 
-
 struct mbedtls_ssl_context
 {
     const mbedtls_ssl_config *conf; /*!< configuration information          */
@@ -2118,7 +2117,6 @@ int mbedtls_ssl_conf_own_cert( mbedtls_ssl_config *conf,
 int mbedtls_ssl_conf_psk( mbedtls_ssl_config *conf,
                 const unsigned char *psk, size_t psk_len,
                 const unsigned char *psk_identity, size_t psk_identity_len );
-
 
 /**
  * \brief          Set the Pre Shared Key (PSK) for the current handshake

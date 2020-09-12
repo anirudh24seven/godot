@@ -1,8 +1,6 @@
 
 /*  texture_rect.h                                                       */
 
-
-
 #ifndef TEXTURE_FRAME_H
 #define TEXTURE_FRAME_H
 

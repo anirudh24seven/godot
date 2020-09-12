@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_POSTSCRIPT_AUX_H
 #include FT_INTERNAL_DEBUG_H
@@ -23,8 +22,7 @@
 #include "psconv.h"
 #include "psauxerr.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -33,8 +31,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  psconv
 
-
-  /* The following array is used by various functions to quickly convert */
+/* The following array is used by various functions to quickly convert */
   /* digits (both decimal and non-decimal) into numbers.                 */
 
 #if 'A' == 65
@@ -79,8 +76,7 @@
 
 #endif /* 'A' == 193 */
 
-
-  FT_LOCAL_DEF( FT_Long )
+FT_LOCAL_DEF( FT_Long )
   PS_Conv_Strtol( FT_Byte**  cursor,
                   FT_Byte*   limit,
                   FT_Long    base )
@@ -94,8 +90,7 @@
     FT_Long   num_limit;
     FT_Char   c_limit;
 
-
-    if ( p >= limit )
+if ( p >= limit )
       goto Bad;
 
     if ( base < 2 || base > 36 )
@@ -124,8 +119,7 @@
     {
       FT_Char  c;
 
-
-      if ( IS_PS_SPACE( *p ) || *p OP 0x80 )
+if ( IS_PS_SPACE( *p ) || *p OP 0x80 )
         break;
 
       c = ft_char_table[*p & 0x7F];
@@ -157,8 +151,7 @@
     return 0;
   }
 
-
-  FT_LOCAL_DEF( FT_Long )
+FT_LOCAL_DEF( FT_Long )
   PS_Conv_ToInt( FT_Byte**  cursor,
                  FT_Byte*   limit )
 
@@ -168,8 +161,7 @@
 
     FT_Long   num;
 
-
-    curp = p;
+curp = p;
     num  = PS_Conv_Strtol( &p, limit, 10 );
 
     if ( p == curp )
@@ -191,8 +183,7 @@
     return num;
   }
 
-
-  FT_LOCAL_DEF( FT_Fixed )
+FT_LOCAL_DEF( FT_Fixed )
   PS_Conv_ToFixed( FT_Byte**  cursor,
                    FT_Byte*   limit,
                    FT_Long    power_ten )
@@ -208,8 +199,7 @@
     FT_Bool   have_overflow  = 0;
     FT_Bool   have_underflow = 0;
 
-
-    if ( p >= limit )
+if ( p >= limit )
       goto Bad;
 
     if ( *p == '-' || *p == '+' )
@@ -249,8 +239,7 @@
       {
         FT_Char  c;
 
-
-        if ( IS_PS_SPACE( *p ) || *p OP 0x80 )
+if ( IS_PS_SPACE( *p ) || *p OP 0x80 )
           break;
 
         c = ft_char_table[*p & 0x7F];
@@ -276,8 +265,7 @@
     {
       FT_Long  exponent;
 
-
-      p++;
+p++;
 
       curp     = p;
       exponent = PS_Conv_ToInt( &p, limit );
@@ -364,7 +352,6 @@
     return 0;
   }
 
-
 #if 0
   FT_LOCAL_DEF( FT_UInt )
   PS_Conv_StringDecode( FT_Byte**  cursor,
@@ -375,13 +362,11 @@
     FT_Byte*  p;
     FT_UInt   r = 0;
 
-
-    for ( p = *cursor; r < n && p < limit; p++ )
+for ( p = *cursor; r < n && p < limit; p++ )
     {
       FT_Byte  b;
 
-
-      if ( *p != '\\' )
+if ( *p != '\\' )
       {
         buffer[r++] = *p;
 
@@ -460,8 +445,7 @@
   }
 #endif /* 0 */
 
-
-  FT_LOCAL_DEF( FT_UInt )
+FT_LOCAL_DEF( FT_UInt )
   PS_Conv_ASCIIHexDecode( FT_Byte**  cursor,
                           FT_Byte*   limit,
                           FT_Byte*   buffer,
@@ -472,8 +456,7 @@
     FT_UInt   w   = 0;
     FT_UInt   pad = 0x01;
 
-
-    n *= 2;
+n *= 2;
 
 #if 1
 
@@ -490,8 +473,7 @@
     {
       FT_UInt  c = p[r];
 
-
-      if ( IS_PS_SPACE( c ) )
+if ( IS_PS_SPACE( c ) )
         continue;
 
       if ( c OP 0x80 )
@@ -522,8 +504,7 @@
     {
       FT_Char  c;
 
-
-      if ( IS_PS_SPACE( *p ) )
+if ( IS_PS_SPACE( *p ) )
         continue;
 
       if ( *p OP 0x80 )
@@ -553,8 +534,7 @@
 
   }
 
-
-  FT_LOCAL_DEF( FT_UInt )
+FT_LOCAL_DEF( FT_UInt )
   PS_Conv_EexecDecode( FT_Byte**   cursor,
                        FT_Byte*    limit,
                        FT_Byte*    buffer,
@@ -564,7 +544,6 @@
     FT_Byte*  p;
     FT_UInt   r;
     FT_UInt   s = *seed;
-
 
 #if 1
 
@@ -581,8 +560,7 @@
       FT_UInt  val = p[r];
       FT_UInt  b   = ( val ^ ( s >> 8 ) );
 
-
-      s         = ( (val + s)*52845U + 22719 ) & 0xFFFFU;
+s         = ( (val + s)*52845U + 22719 ) & 0xFFFFU;
       buffer[r] = (FT_Byte) b;
     }
 
@@ -595,8 +573,7 @@
     {
       FT_Byte  b = (FT_Byte)( *p ^ ( s >> 8 ) );
 
-
-      s = (FT_UShort)( ( *p + s ) * 52845U + 22719 );
+s = (FT_UShort)( ( *p + s ) * 52845U + 22719 );
       *buffer++ = b;
     }
     *cursor = p;
@@ -606,6 +583,5 @@
 
     return r;
   }
-
 
 /* END */

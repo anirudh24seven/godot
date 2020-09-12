@@ -1,8 +1,6 @@
 
 /*  xr_positional_tracker.h                                              */
 
-
-
 #ifndef XR_POSITIONAL_TRACKER_H
 #define XR_POSITIONAL_TRACKER_H
 

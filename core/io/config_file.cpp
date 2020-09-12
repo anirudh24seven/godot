@@ -1,8 +1,6 @@
 
 /*  config_file.cpp                                                      */
 
-
-
 #include "config_file.h"
 
 #include "core/io/file_access_encrypted.h"

@@ -1,8 +1,6 @@
 
 /*  signal_awaiter_utils.cpp                                             */
 
-
-
 #include "signal_awaiter_utils.h"
 
 #include "csharp_script.h"

@@ -117,7 +117,6 @@
       This release represents approximately a year of engineering effort,
       and contains multiple bug fixes. Please refer to git history for details.
 
-
 2012-12-21 v1.2.0
   This release acts as a checkpoint for a large amount of internal refactoring
   and testing. It also contains a number of small bugfixes, so all users are
@@ -145,7 +144,6 @@
       Fixes multithreaded encoder race condition in loopfilter
       Fixes multi-resolution threaded encoding
       Fix potential encoder dead-lock after picture resize
-
 
 2012-05-09 v1.1.0 "Eider"
   This introduces a number of enhancements, mostly focused on real-time
@@ -238,7 +236,6 @@
       Fixed a decoder error introduced in Duclair where the segmentation
       map was not being reinitialized on keyframes (#378)
 
-
 2012-01-27 v1.0.0 "Duclair"
   Our fourth named release, focused on performance and features related to
   real-time encoding. It also fixes a decoder crash bug introduced in
@@ -286,7 +283,6 @@
       behavior could be triggered by corrupt input or by starting
       decoding from a P-frame.
 
-
 2011-08-15 v0.9.7-p1 "Cayuga" patch 1
   This is an incremental bugfix release against Cayuga. All users of that
   release are strongly encouraged to upgrade.
@@ -315,7 +311,6 @@
     - Revert 1-pass CBR rate control changes (e961317)
       Further testing showed this change produced undesirable visual
       artifacts, rolling back for now.
-
 
 2011-08-02 v0.9.7 "Cayuga"
   Our third named release, focused on a faster, higher quality, encoder.
@@ -387,8 +382,7 @@
           Adding support for independent partitions
           Adjusted rate-distortion constants
 
-
-  - Bug Fixes:
+- Bug Fixes:
           Removed firstpass motion map
           Fix parallel make install
           Fix multithreaded encoding for 1 MB wide frame
@@ -397,7 +391,6 @@
           Fix build with xcode4 and simplify GLOBAL.
           Mark ARM asm objects as allowing a non-executable stack.
           Fix vpxenc encoding incorrect webm file header on big endian
-
 
 2011-03-07 v0.9.6 "Bali"
   Our second named release, focused on a faster, higher quality, encoder.
@@ -475,7 +468,6 @@
       Fix for manual Golden frame frequency
       Fix drastic undershoot in long form content
 
-
 2010-10-28 v0.9.5 "Aylesbury"
   Our first named release, focused on a faster decoder, and a better encoder.
 
@@ -525,8 +517,7 @@
           $ ivfenc <options> INPUT OUTPUT.ivf
           $ vpxenc <options> -o OUTPUT.ivf --ivf INPUT
 
-
-  - Enhancements:
+- Enhancements:
       ivfenc and ivfdec have been renamed to vpxenc, vpxdec.
       vpxdec supports .webm input
       vpxdec writes .y4m by default
@@ -633,7 +624,6 @@
       Fix DSO link errors on x86-64 when not using a version script
       Fixed buffer selection for UV in AltRef filtering
 
-
 2010-06-17 v0.9.1
   - Enhancements:
       * ivfenc/ivfdec now support YUV4MPEG2 input and pipe I/O
@@ -647,7 +637,6 @@
       * Better autotools emulation (--prefix, --libdir, DESTDIR)
   - Updated LICENSE
       * http://webmproject.blogspot.com/2010/06/changes-to-webm-open-source-license.html
-
 
 2010-05-18 v0.9.0
   - Initial open source release. Welcome to WebM and VP8!

@@ -1,8 +1,6 @@
 
 /*  packed_arrays.h                                                      */
 
-
-
 #ifndef GODOT_PACKED_ARRAYS_H
 #define GODOT_PACKED_ARRAYS_H
 

@@ -1,8 +1,6 @@
 
 /*  editor_debugger_plugin.cpp                                           */
 
-
-
 #include "editor_debugger_plugin.h"
 
 #include "editor/debugger/script_editor_debugger.h"

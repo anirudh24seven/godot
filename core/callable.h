@@ -1,8 +1,6 @@
 
 /*  callable.h                                                           */
 
-
-
 #ifndef CALLABLE_H
 #define CALLABLE_H
 

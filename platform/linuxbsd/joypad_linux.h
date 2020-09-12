@@ -1,8 +1,6 @@
 
 /*  joypad_linux.h                                                       */
 
-
-
 //author: Andreas Haas <hondres,  liugam3@gmail.com>
 #ifndef JOYPAD_LINUX_H
 #define JOYPAD_LINUX_H

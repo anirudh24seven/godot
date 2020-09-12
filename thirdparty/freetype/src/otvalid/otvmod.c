@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_TRUETYPE_TABLES_H
 #include FT_TRUETYPE_TAGS_H
@@ -27,8 +26,7 @@
 #include "otvalid.h"
 #include "otvcommn.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -37,8 +35,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  otvmodule
 
-
-  static FT_Error
+static FT_Error
   otv_load_table( FT_Face             face,
                   FT_Tag              tag,
                   FT_Byte* volatile*  table,
@@ -47,8 +44,7 @@
     FT_Error   error;
     FT_Memory  memory = FT_FACE_MEMORY( face );
 
-
-    error = FT_Load_Sfnt_Table( face, tag, 0, NULL, table_len );
+error = FT_Load_Sfnt_Table( face, tag, 0, NULL, table_len );
     if ( FT_ERR_EQ( error, Table_Missing ) )
       return FT_Err_Ok;
     if ( error )
@@ -63,8 +59,7 @@
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   otv_validate( FT_Face volatile   face,
                 FT_UInt            ot_flags,
                 FT_Bytes          *ot_base,
@@ -85,8 +80,7 @@
     FT_UInt                   num_glyphs = (FT_UInt)face->num_glyphs;
     FT_ValidatorRec volatile  valid;
 
-
-    base     = gdef     = gpos     = gsub     = jstf     = math     = NULL;
+base     = gdef     = gpos     = gsub     = jstf     = math     = NULL;
     len_base = len_gdef = len_gpos = len_gsub = len_jstf = len_math = 0;
 
     /*
@@ -218,8 +212,7 @@
     {
       FT_Memory  memory = FT_FACE_MEMORY( face );
 
-
-      FT_FREE( base );
+FT_FREE( base );
       FT_FREE( gdef );
       FT_FREE( gpos );
       FT_FREE( gsub );
@@ -229,30 +222,26 @@
     {
       FT_Memory  memory = FT_FACE_MEMORY( face );
 
-
-      FT_FREE( math );                 /* Can't return this as API is frozen */
+FT_FREE( math );                 /* Can't return this as API is frozen */
     }
 
     return error;
   }
 
-
-  static
+static
   const FT_Service_OTvalidateRec  otvalid_interface =
   {
     otv_validate        /* validate */
   };
 
-
-  static
+static
   const FT_ServiceDescRec  otvalid_services[] =
   {
     { FT_SERVICE_ID_OPENTYPE_VALIDATE, &otvalid_interface },
     { NULL, NULL }
   };
 
-
-  static FT_Pointer
+static FT_Pointer
   otvalid_get_service( FT_Module    module,
                        const char*  service_id )
   {
@@ -261,8 +250,7 @@
     return ft_service_list_lookup( otvalid_services, service_id );
   }
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const FT_Module_Class  otv_module_class =
   {
     0,
@@ -277,6 +265,5 @@
     (FT_Module_Destructor) NULL,                /* module_done   */
     (FT_Module_Requester)  otvalid_get_service  /* get_interface */
   };
-
 
 /* END */

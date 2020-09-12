@@ -1,8 +1,6 @@
 
 /*  packet_peer_dtls.h                                                   */
 
-
-
 #ifndef PACKET_PEER_DTLS_H
 #define PACKET_PEER_DTLS_H
 

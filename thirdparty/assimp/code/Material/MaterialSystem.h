@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -65,7 +64,6 @@ namespace Assimp    {
  *  @return 32 Bit jash value for the material
  */
 uint32_t ComputeMaterialHash(const aiMaterial* mat, bool includeMatName = false);
-
 
 } // ! namespace Assimp
 

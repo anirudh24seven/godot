@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -58,7 +57,6 @@ namespace Assimp    {
 #define AI_TT_UV_IDX_LOCK_TBD   0xffffffff
 #define AI_TT_UV_IDX_LOCK_NONE  0xeeeeeeee
 
-
 #define AI_TT_ROTATION_EPSILON  ((float)AI_DEG_TO_RAD(0.5))
 
 // ---------------------------------------------------------------------------
@@ -83,7 +81,6 @@ struct TTUpdateInfo {
     //! Texture type and index
     unsigned int semantic, index;
 };
-
 
 // ---------------------------------------------------------------------------
 /** Helper class representing texture coordinate transformations
@@ -112,8 +109,7 @@ struct STransformVecInfo : public aiUVTransform {
     //! that are referencing this transform setup
     std::list<TTUpdateInfo> updateList;
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Compare two transform setups
     */
     inline bool operator== (const STransformVecInfo& other) const
@@ -145,8 +141,7 @@ struct STransformVecInfo : public aiUVTransform {
             return !(*this == other);
     }
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Returns whether this is an untransformed texture coordinate set
     */
     inline bool IsUntransformed() const
@@ -188,7 +183,6 @@ struct STransformVecInfo : public aiUVTransform {
     }
 };
 
-
 // ---------------------------------------------------------------------------
 /** Helper step to compute final UV coordinate sets if there are scalings
  *  or rotations in the original data read from the file.
@@ -211,11 +205,9 @@ public:
     // -------------------------------------------------------------------
     void SetupProperties(const Importer* pImp);
 
-
 protected:
 
-
-    // -------------------------------------------------------------------
+// -------------------------------------------------------------------
     /** Preprocess a specific UV transformation setup
      *
      *  @param info Transformation setup to be preprocessed.

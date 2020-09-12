@@ -1,8 +1,6 @@
 
 /*  mono_gc_handle.cpp                                                   */
 
-
-
 #include "mono_gc_handle.h"
 
 #include "mono_gd/gd_mono.h"

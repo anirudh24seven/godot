@@ -24,7 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-
 #include <ft2build.h>
 
 #include FT_INTERNAL_DEBUG_H
@@ -52,8 +51,7 @@ THE SOFTWARE.
 #include FT_SERVICE_PROPERTIES_H
 #include FT_DRIVER_H
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -62,8 +60,7 @@ THE SOFTWARE.
 #undef  FT_COMPONENT
 #define FT_COMPONENT  pcfdriver
 
-
-  /*
+/*
    * This file uses X11 terminology for PCF data; an `encoding' in X11 speak
    * is the same as a `character code' in FreeType speak.
    */
@@ -74,8 +71,7 @@ THE SOFTWARE.
 
   } PCF_CMapRec, *PCF_CMap;
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   pcf_cmap_init( FT_CMap     pcfcmap,   /* PCF_CMap */
                  FT_Pointer  init_data )
   {
@@ -84,24 +80,20 @@ THE SOFTWARE.
 
     FT_UNUSED( init_data );
 
-
-    cmap->enc = &face->enc;
+cmap->enc = &face->enc;
 
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( void )
+FT_CALLBACK_DEF( void )
   pcf_cmap_done( FT_CMap  pcfcmap )         /* PCF_CMap */
   {
     PCF_CMap  cmap = (PCF_CMap)pcfcmap;
 
-
-    cmap->enc = NULL;
+cmap->enc = NULL;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   pcf_cmap_char_index( FT_CMap    pcfcmap,  /* PCF_CMap */
                        FT_UInt32  charcode )
   {
@@ -110,8 +102,7 @@ THE SOFTWARE.
     FT_UShort  charcodeRow;
     FT_UShort  charcodeCol;
 
-
-    if ( charcode > (FT_UInt32)( enc->lastRow  * 256 + enc->lastCol  ) ||
+if ( charcode > (FT_UInt32)( enc->lastRow  * 256 + enc->lastCol  ) ||
          charcode < (FT_UInt32)( enc->firstRow * 256 + enc->firstCol ) )
       return 0;
 
@@ -127,8 +118,7 @@ THE SOFTWARE.
                                 charcodeCol - enc->firstCol];
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   pcf_cmap_char_next( FT_CMap    pcfcmap,   /* PCF_CMap */
                       FT_UInt32  *acharcode )
   {
@@ -139,8 +129,7 @@ THE SOFTWARE.
     FT_UShort  charcodeCol;
     FT_Int     result = 0;
 
-
-    while ( charcode < (FT_UInt32)( enc->lastRow * 256 + enc->lastCol ) )
+while ( charcode < (FT_UInt32)( enc->lastRow * 256 + enc->lastCol ) )
     {
       charcode++;
 
@@ -172,8 +161,7 @@ THE SOFTWARE.
     return result;
   }
 
-
-  static
+static
   const FT_CMap_ClassRec  pcf_cmap_class =
   {
     sizeof ( PCF_CMapRec ),
@@ -185,15 +173,13 @@ THE SOFTWARE.
     NULL, NULL, NULL, NULL, NULL
   };
 
-
-  FT_CALLBACK_DEF( void )
+FT_CALLBACK_DEF( void )
   PCF_Face_Done( FT_Face  pcfface )         /* PCF_Face */
   {
     PCF_Face   face = (PCF_Face)pcfface;
     FT_Memory  memory;
 
-
-    if ( !face )
+if ( !face )
       return;
 
     memory = FT_FACE_MEMORY( face );
@@ -206,13 +192,11 @@ THE SOFTWARE.
     {
       FT_Int  i;
 
-
-      for ( i = 0; i < face->nprops; i++ )
+for ( i = 0; i < face->nprops; i++ )
       {
         PCF_Property  prop = &face->properties[i];
 
-
-        if ( prop )
+if ( prop )
         {
           FT_FREE( prop->name );
           if ( prop->isString )
@@ -238,8 +222,7 @@ THE SOFTWARE.
     }
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   PCF_Face_Init( FT_Stream      stream,
                  FT_Face        pcfface,        /* PCF_Face */
                  FT_Int         face_index,
@@ -252,8 +235,7 @@ THE SOFTWARE.
     FT_UNUSED( num_params );
     FT_UNUSED( params );
 
-
-    FT_TRACE2(( "PCF driver\n" ));
+FT_TRACE2(( "PCF driver\n" ));
 
     error = pcf_load_font( stream, face, face_index );
     if ( error )
@@ -268,8 +250,7 @@ THE SOFTWARE.
       {
         FT_Error  error2;
 
-
-        /* this didn't work, try gzip support! */
+/* this didn't work, try gzip support! */
         FT_TRACE2(( "  ... try gzip stream\n" ));
         error2 = FT_Stream_OpenGzip( &face->comp_stream, stream );
         if ( FT_ERR_EQ( error2, Unimplemented_Feature ) )
@@ -284,8 +265,7 @@ THE SOFTWARE.
       {
         FT_Error  error3;
 
-
-        /* this didn't work, try LZW support! */
+/* this didn't work, try LZW support! */
         FT_TRACE2(( "  ... try LZW stream\n" ));
         error3 = FT_Stream_OpenLZW( &face->comp_stream, stream );
         if ( FT_ERR_EQ( error3, Unimplemented_Feature ) )
@@ -300,8 +280,7 @@ THE SOFTWARE.
       {
         FT_Error  error4;
 
-
-        /* this didn't work, try Bzip2 support! */
+/* this didn't work, try Bzip2 support! */
         FT_TRACE2(( "  ... try Bzip2 stream\n" ));
         error4 = FT_Stream_OpenBzip2( &face->comp_stream, stream );
         if ( FT_ERR_EQ( error4, Unimplemented_Feature ) )
@@ -353,13 +332,11 @@ THE SOFTWARE.
       FT_String  *charset_encoding = face->charset_encoding;
       FT_Bool     unicode_charmap  = 0;
 
-
-      if ( charset_registry && charset_encoding )
+if ( charset_registry && charset_encoding )
       {
         char*  s = charset_registry;
 
-
-        /* Uh, oh, compare first letters manually to avoid dependency
+/* Uh, oh, compare first letters manually to avoid dependency
            on locales. */
         if ( ( s[0] == 'i' || s[0] == 'I' ) &&
              ( s[1] == 's' || s[1] == 'S' ) &&
@@ -380,8 +357,7 @@ THE SOFTWARE.
       {
         FT_CharMapRec  charmap;
 
-
-        charmap.face        = FT_FACE( face );
+charmap.face        = FT_FACE( face );
         charmap.encoding    = FT_ENCODING_NONE;
         /* initial platform/encoding should indicate unset status? */
         charmap.platform_id = TT_PLATFORM_APPLE_UNICODE;
@@ -408,15 +384,13 @@ THE SOFTWARE.
     goto Exit;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   PCF_Size_Select( FT_Size   size,
                    FT_ULong  strike_index )
   {
     PCF_Accel  accel = &( (PCF_Face)size->face )->accel;
 
-
-    FT_Select_Metrics( size->face, strike_index );
+FT_Select_Metrics( size->face, strike_index );
 
     size->metrics.ascender    =  accel->fontAscent * 64;
     size->metrics.descender   = -accel->fontDescent * 64;
@@ -425,8 +399,7 @@ THE SOFTWARE.
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   PCF_Size_Request( FT_Size          size,
                     FT_Size_Request  req )
   {
@@ -435,8 +408,7 @@ THE SOFTWARE.
     FT_Error         error = FT_ERR( Invalid_Pixel_Size );
     FT_Long          height;
 
-
-    height = FT_REQUEST_HEIGHT( req );
+height = FT_REQUEST_HEIGHT( req );
     height = ( height + 32 ) >> 6;
 
     switch ( req->type )
@@ -463,8 +435,7 @@ THE SOFTWARE.
       return PCF_Size_Select( size, 0 );
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   PCF_Glyph_Load( FT_GlyphSlot  slot,
                   FT_Size       size,
                   FT_UInt       glyph_index,
@@ -477,8 +448,7 @@ THE SOFTWARE.
     PCF_Metric  metric;
     FT_ULong    bytes;
 
-
-    FT_TRACE1(( "PCF_Glyph_Load: glyph index %d\n", glyph_index ));
+FT_TRACE1(( "PCF_Glyph_Load: glyph index %d\n", glyph_index ));
 
     if ( !face )
     {
@@ -579,8 +549,7 @@ THE SOFTWARE.
     return error;
   }
 
-
-  /*
+/*
    *
    * BDF SERVICE
    *
@@ -593,8 +562,7 @@ THE SOFTWARE.
   {
     PCF_Property  prop;
 
-
-    prop = pcf_find_property( face, prop_name );
+prop = pcf_find_property( face, prop_name );
     if ( prop )
     {
       if ( prop->isString )
@@ -626,8 +594,7 @@ THE SOFTWARE.
     return FT_THROW( Invalid_Argument );
   }
 
-
-  static FT_Error
+static FT_Error
   pcf_get_charset_id( PCF_Face      face,
                       const char*  *acharset_encoding,
                       const char*  *acharset_registry )
@@ -638,15 +605,13 @@ THE SOFTWARE.
     return FT_Err_Ok;
   }
 
-
-  static const FT_Service_BDFRec  pcf_service_bdf =
+static const FT_Service_BDFRec  pcf_service_bdf =
   {
     (FT_BDF_GetCharsetIdFunc)pcf_get_charset_id,     /* get_charset_id */
     (FT_BDF_GetPropertyFunc) pcf_get_bdf_property    /* get_property   */
   };
 
-
-  /*
+/*
    * PROPERTY SERVICE
    *
    */
@@ -665,8 +630,7 @@ THE SOFTWARE.
     FT_UNUSED( value_is_string );
 #endif
 
-
-    if ( !ft_strcmp( property_name, "no-long-family-names" ) )
+if ( !ft_strcmp( property_name, "no-long-family-names" ) )
     {
 #ifdef FT_CONFIG_OPTION_ENVIRONMENT_PROPERTIES
       if ( value_is_string )
@@ -674,8 +638,7 @@ THE SOFTWARE.
         const char*  s   = (const char*)value;
         long         lfn = ft_strtol( s, NULL, 10 );
 
-
-        if ( lfn == 0 )
+if ( lfn == 0 )
           driver->no_long_family_names = 0;
         else if ( lfn == 1 )
           driver->no_long_family_names = 1;
@@ -687,8 +650,7 @@ THE SOFTWARE.
       {
         FT_Bool*  no_long_family_names = (FT_Bool*)value;
 
-
-        driver->no_long_family_names = *no_long_family_names;
+driver->no_long_family_names = *no_long_family_names;
       }
 
       return error;
@@ -710,8 +672,7 @@ THE SOFTWARE.
     return FT_THROW( Missing_Property );
   }
 
-
-  static FT_Error
+static FT_Error
   pcf_property_get( FT_Module    module,         /* PCF_Driver */
                     const char*  property_name,
                     const void*  value )
@@ -721,14 +682,12 @@ THE SOFTWARE.
     FT_Error    error  = FT_Err_Ok;
     PCF_Driver  driver = (PCF_Driver)module;
 
-
-    if ( !ft_strcmp( property_name, "no-long-family-names" ) )
+if ( !ft_strcmp( property_name, "no-long-family-names" ) )
     {
       FT_Bool   no_long_family_names = driver->no_long_family_names;
       FT_Bool*  val                  = (FT_Bool*)value;
 
-
-      *val = no_long_family_names;
+*val = no_long_family_names;
 
       return error;
     }
@@ -748,15 +707,13 @@ THE SOFTWARE.
     return FT_THROW( Missing_Property );
   }
 
-
-  FT_DEFINE_SERVICE_PROPERTIESREC(
+FT_DEFINE_SERVICE_PROPERTIESREC(
     pcf_service_properties,
 
     (FT_Properties_SetFunc)pcf_property_set,      /* set_property */
     (FT_Properties_GetFunc)pcf_property_get )     /* get_property */
 
-
-  /*
+/*
    *
    * SERVICE LIST
    *
@@ -770,8 +727,7 @@ THE SOFTWARE.
     { NULL, NULL }
   };
 
-
-  FT_CALLBACK_DEF( FT_Module_Interface )
+FT_CALLBACK_DEF( FT_Module_Interface )
   pcf_driver_requester( FT_Module    module,
                         const char*  name )
   {
@@ -780,15 +736,13 @@ THE SOFTWARE.
     return ft_service_list_lookup( pcf_services, name );
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   pcf_driver_init( FT_Module  module )      /* PCF_Driver */
   {
 #ifdef PCF_CONFIG_OPTION_LONG_FAMILY_NAMES
     PCF_Driver  driver = (PCF_Driver)module;
 
-
-    driver->no_long_family_names = 0;
+driver->no_long_family_names = 0;
 #else
     FT_UNUSED( module );
 #endif
@@ -796,15 +750,13 @@ THE SOFTWARE.
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( void )
+FT_CALLBACK_DEF( void )
   pcf_driver_done( FT_Module  module )      /* PCF_Driver */
   {
     FT_UNUSED( module );
   }
 
-
-  FT_CALLBACK_TABLE_DEF
+FT_CALLBACK_TABLE_DEF
   const FT_Driver_ClassRec  pcf_driver_class =
   {
     {
@@ -843,6 +795,5 @@ THE SOFTWARE.
     PCF_Size_Request,           /* FT_Size_RequestFunc  request_size */
     PCF_Size_Select             /* FT_Size_SelectFunc   select_size  */
   };
-
 
 /* END */

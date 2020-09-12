@@ -1,8 +1,6 @@
 
 /*  editor_debugger_tree.cpp                                             */
 
-
-
 #include "editor_debugger_tree.h"
 
 #include "editor/editor_node.h"

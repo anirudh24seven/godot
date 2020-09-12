@@ -1,8 +1,6 @@
 
 /*  generic_6dof_joint_bullet.h                                          */
 
-
-
 #ifndef GENERIC_6DOF_JOINT_BULLET_H
 #define GENERIC_6DOF_JOINT_BULLET_H
 

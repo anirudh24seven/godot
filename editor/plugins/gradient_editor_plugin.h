@@ -1,8 +1,6 @@
 
 /*  gradient_editor_plugin.h                                             */
 
-
-
 #ifndef TOOLS_EDITOR_PLUGINS_COLOR_RAMP_EDITOR_PLUGIN_H_
 #define TOOLS_EDITOR_PLUGINS_COLOR_RAMP_EDITOR_PLUGIN_H_
 

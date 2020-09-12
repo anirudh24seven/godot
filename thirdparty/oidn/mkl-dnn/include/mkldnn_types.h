@@ -1411,5 +1411,4 @@ typedef const struct mkldnn_stream *const_mkldnn_stream_t;
 }
 #endif
 
-
 #endif

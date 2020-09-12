@@ -127,7 +127,6 @@ void vp9_idct4x4_add(const tran_low_t *input, uint8_t *dest, int stride,
     vpx_idct4x4_1_add(input, dest, stride);
 }
 
-
 void vp9_iwht4x4_add(const tran_low_t *input, uint8_t *dest, int stride,
                      int eob) {
   if (eob > 1)
@@ -321,7 +320,6 @@ void vp9_highbd_idct4x4_add(const tran_low_t *input, uint8_t *dest, int stride,
   else
     vpx_highbd_idct4x4_1_add(input, dest, stride, bd);
 }
-
 
 void vp9_highbd_iwht4x4_add(const tran_low_t *input, uint8_t *dest, int stride,
                             int eob, int bd) {

@@ -1,8 +1,6 @@
 
 /*  visual_script_editor.h                                               */
 
-
-
 #ifndef VISUALSCRIPT_EDITOR_H
 #define VISUALSCRIPT_EDITOR_H
 

@@ -20,8 +20,6 @@
 #include <limits.h>
 #include "decint.h"
 
-
-
 /*Unpacks a series of octets from a given byte array into the pack buffer.
   No checking is done to ensure the buffer contains enough data.
   _opb: The pack buffer to read the octets from.
@@ -224,7 +222,6 @@ static int oc_dec_headerin(oc_pack_buf *_opb,th_info *_info,
   }
   return ret;
 }
-
 
 /*Decodes one header packet.
   This should be called repeatedly with the packets at the beginning of the

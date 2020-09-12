@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -115,7 +114,6 @@ Property* ReadTypedProperty(const Element& element)
     return NULL;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // peek into an element and check if it contains a FBX property, if so return its name.
 std::string PeekPropertyName(const Element& element)
@@ -130,7 +128,6 @@ std::string PeekPropertyName(const Element& element)
 }
 
 } //! anon
-
 
 // ------------------------------------------------------------------------------------------------
 PropertyTable::PropertyTable()
@@ -167,7 +164,6 @@ PropertyTable::PropertyTable(const Element& element, std::shared_ptr<const Prope
     }
 }
 
-
 // ------------------------------------------------------------------------------------------------
 PropertyTable::~PropertyTable()
 {
@@ -175,7 +171,6 @@ PropertyTable::~PropertyTable()
         delete v.second;
     }
 }
-
 
 // ------------------------------------------------------------------------------------------------
 const Property* PropertyTable::Get(const std::string& name) const

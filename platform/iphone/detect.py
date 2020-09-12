@@ -2,14 +2,11 @@ import os
 import sys
 from methods import detect_darwin_sdk_path
 
-
 def is_active():
     return True
 
-
 def get_name():
     return "iOS"
-
 
 def can_build():
 
@@ -17,7 +14,6 @@ def can_build():
         return True
 
     return False
-
 
 def get_opts():
     from SCons.Variables import BoolVariable
@@ -42,13 +38,11 @@ def get_opts():
         ("ios_triple", "Triple for ios toolchain", ""),
     ]
 
-
 def get_flags():
 
     return [
         ("tools", False),
     ]
-
 
 def configure(env):
 

@@ -1,8 +1,6 @@
 
 /*  path_utils.h                                                         */
 
-
-
 #ifndef PATH_UTILS_H
 #define PATH_UTILS_H
 

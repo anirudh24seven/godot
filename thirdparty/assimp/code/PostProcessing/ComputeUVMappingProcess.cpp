@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -41,7 +40,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 /** @file GenUVCoords step */
-
 
 #include "ComputeUVMappingProcess.h"
 #include "ProcessHelper.h"
@@ -241,8 +239,7 @@ void ComputeUVMappingProcess::ComputeSphereMapping(aiMesh* mesh,const aiVector3D
         }
     }
 
-
-    // Now find and remove UV seams. A seam occurs if a face has a tcoord
+// Now find and remove UV seams. A seam occurs if a face has a tcoord
     // close to zero on the one side, and a tcoord close to one on the
     // other side.
     RemoveUVSeams(mesh,out);

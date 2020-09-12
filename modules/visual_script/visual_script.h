@@ -1,8 +1,6 @@
 
 /*  visual_script.h                                                      */
 
-
-
 #ifndef VISUAL_SCRIPT_H
 #define VISUAL_SCRIPT_H
 

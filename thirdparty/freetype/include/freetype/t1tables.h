@@ -16,10 +16,8 @@
  *
  */
 
-
 #ifndef T1TABLES_H_
 #define T1TABLES_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -30,11 +28,9 @@
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   type1_tables
@@ -71,12 +67,10 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /* Note that we separate font data in PS_FontInfoRec and PS_PrivateRec */
+/* Note that we separate font data in PS_FontInfoRec and PS_PrivateRec */
   /* structures in order to support Multiple Master fonts.               */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   PS_FontInfoRec
@@ -100,8 +94,7 @@ FT_BEGIN_HEADER
 
   } PS_FontInfoRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   PS_FontInfo
@@ -111,8 +104,7 @@ FT_BEGIN_HEADER
    */
   typedef struct PS_FontInfoRec_*  PS_FontInfo;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   T1_FontInfo
@@ -123,8 +115,7 @@ FT_BEGIN_HEADER
    */
   typedef PS_FontInfoRec  T1_FontInfo;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   PS_PrivateRec
@@ -174,8 +165,7 @@ FT_BEGIN_HEADER
 
   } PS_PrivateRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   PS_Private
@@ -185,8 +175,7 @@ FT_BEGIN_HEADER
    */
   typedef struct PS_PrivateRec_*  PS_Private;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   T1_Private
@@ -197,8 +186,7 @@ FT_BEGIN_HEADER
    */
   typedef PS_PrivateRec  T1_Private;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   T1_Blend_Flags
@@ -248,8 +236,7 @@ FT_BEGIN_HEADER
 
   } T1_Blend_Flags;
 
-
-  /* these constants are deprecated; use the corresponding */
+/* these constants are deprecated; use the corresponding */
   /* `T1_Blend_Flags` values instead                       */
 #define t1_blend_underline_position   T1_BLEND_UNDERLINE_POSITION
 #define t1_blend_underline_thickness  T1_BLEND_UNDERLINE_THICKNESS
@@ -269,8 +256,7 @@ FT_BEGIN_HEADER
 
   /* */
 
-
-  /* maximum number of Multiple Masters designs, as defined in the spec */
+/* maximum number of Multiple Masters designs, as defined in the spec */
 #define T1_MAX_MM_DESIGNS     16
 
   /* maximum number of Multiple Masters axes, as defined in the spec */
@@ -279,8 +265,7 @@ FT_BEGIN_HEADER
   /* maximum number of elements in a design map */
 #define T1_MAX_MM_MAP_POINTS  20
 
-
-  /* this structure is used to store the BlendDesignMap entry for an axis */
+/* this structure is used to store the BlendDesignMap entry for an axis */
   typedef struct  PS_DesignMap_
   {
     FT_Byte    num_points;
@@ -292,8 +277,7 @@ FT_BEGIN_HEADER
   /* backward compatible definition */
   typedef PS_DesignMapRec  T1_DesignMap;
 
-
-  typedef struct  PS_BlendRec_
+typedef struct  PS_BlendRec_
   {
     FT_UInt          num_designs;
     FT_UInt          num_axis;
@@ -323,12 +307,10 @@ FT_BEGIN_HEADER
 
   } PS_BlendRec, *PS_Blend;
 
-
-  /* backward compatible definition */
+/* backward compatible definition */
   typedef PS_BlendRec  T1_Blend;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   CID_FaceDictRec
@@ -365,8 +347,7 @@ FT_BEGIN_HEADER
 
   } CID_FaceDictRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   CID_FaceDict
@@ -376,8 +357,7 @@ FT_BEGIN_HEADER
    */
   typedef struct CID_FaceDictRec_*  CID_FaceDict;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   CID_FontDict
@@ -389,8 +369,7 @@ FT_BEGIN_HEADER
    */
   typedef CID_FaceDictRec  CID_FontDict;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   CID_FaceInfoRec
@@ -427,8 +406,7 @@ FT_BEGIN_HEADER
 
   } CID_FaceInfoRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   CID_FaceInfo
@@ -438,8 +416,7 @@ FT_BEGIN_HEADER
    */
   typedef struct CID_FaceInfoRec_*  CID_FaceInfo;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   CID_Info
@@ -450,8 +427,7 @@ FT_BEGIN_HEADER
    */
   typedef CID_FaceInfoRec  CID_Info;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_Has_PS_Glyph_Names
@@ -475,8 +451,7 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Int )
   FT_Has_PS_Glyph_Names( FT_Face  face );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_Get_PS_Font_Info
@@ -509,8 +484,7 @@ FT_BEGIN_HEADER
   FT_Get_PS_Font_Info( FT_Face      face,
                        PS_FontInfo  afont_info );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_Get_PS_Font_Private
@@ -542,8 +516,7 @@ FT_BEGIN_HEADER
   FT_Get_PS_Font_Private( FT_Face     face,
                           PS_Private  afont_private );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   T1_EncodingType
@@ -571,8 +544,7 @@ FT_BEGIN_HEADER
 
   } T1_EncodingType;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   PS_Dict_Keys
@@ -690,8 +662,7 @@ FT_BEGIN_HEADER
 
   } PS_Dict_Keys;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_Get_PS_Font_Value
@@ -769,6 +740,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* T1TABLES_H_ */
-
 
 /* END */

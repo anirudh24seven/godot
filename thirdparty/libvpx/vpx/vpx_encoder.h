@@ -64,8 +64,7 @@ extern "C" {
    */
 #define VPX_ENCODER_ABI_VERSION (5 + VPX_CODEC_ABI_VERSION) /**<\hideinitializer*/
 
-
-  /*! \brief Encoder capabilities bitfield
+/*! \brief Encoder capabilities bitfield
    *
    *  Each encoder advertises the capabilities it supports as part of its
    *  ::vpx_codec_iface_t interface structure. Capabilities are extra
@@ -99,8 +98,7 @@ extern "C" {
   partition at a time. */
 #define VPX_CODEC_USE_HIGHBITDEPTH 0x40000 /**< Use high bitdepth */
 
-
-  /*!\brief Generic fixed size buffer structure
+/*!\brief Generic fixed size buffer structure
    *
    * This structure is able to hold a reference to any fixed size buffer.
    */
@@ -109,16 +107,14 @@ extern "C" {
     size_t         sz;  /**< Length of the buffer, in chars */
   } vpx_fixed_buf_t; /**< alias for struct vpx_fixed_buf */
 
-
-  /*!\brief Time Stamp Type
+/*!\brief Time Stamp Type
    *
    * An integer, which when multiplied by the stream's time base, provides
    * the absolute time of a sample.
    */
   typedef int64_t vpx_codec_pts_t;
 
-
-  /*!\brief Compressed Frame Flags
+/*!\brief Compressed Frame Flags
    *
    * This type represents a bitfield containing information about a compressed
    * frame that may be useful to an application. The most significant 16 bits
@@ -173,8 +169,7 @@ extern "C" {
     VPX_CODEC_CUSTOM_PKT = 256 /**< Algorithm extensions  */
   };
 
-
-  /*!\brief Encoder output packet
+/*!\brief Encoder output packet
    *
    * This structure contains the different kinds of output data the encoder
    * may produce while compressing a frame.
@@ -222,8 +217,7 @@ extern "C" {
     } data; /**< packet data */
   } vpx_codec_cx_pkt_t; /**< alias for struct vpx_codec_cx_pkt */
 
-
-  /*!\brief Encoder return output buffer callback
+/*!\brief Encoder return output buffer callback
    *
    * This callback function, when registered, returns with packets when each
    * spatial layer is encoded.
@@ -248,16 +242,14 @@ extern "C" {
     int den; /**< fraction denominator */
   } vpx_rational_t; /**< alias for struct vpx_rational */
 
-
-  /*!\brief Multi-pass Encoding Pass */
+/*!\brief Multi-pass Encoding Pass */
   enum vpx_enc_pass {
     VPX_RC_ONE_PASS,   /**< Single pass mode */
     VPX_RC_FIRST_PASS, /**< First pass of multi-pass mode */
     VPX_RC_LAST_PASS   /**< Final pass of multi-pass mode */
   };
 
-
-  /*!\brief Rate control mode */
+/*!\brief Rate control mode */
   enum vpx_rc_mode {
     VPX_VBR,  /**< Variable Bit Rate (VBR) mode */
     VPX_CBR,  /**< Constant Bit Rate (CBR) mode */
@@ -265,8 +257,7 @@ extern "C" {
     VPX_Q,    /**< Constant Quality (Q) mode */
   };
 
-
-  /*!\brief Keyframe placement mode.
+/*!\brief Keyframe placement mode.
    *
    * This enumeration determines whether keyframes are placed automatically by
    * the encoder or whether this behavior is disabled. Older releases of this
@@ -280,8 +271,7 @@ extern "C" {
     VPX_KF_DISABLED = 0 /**< Encoder does not place keyframes. */
   };
 
-
-  /*!\brief Encoded Frame Flags
+/*!\brief Encoded Frame Flags
    *
    * This type indicates a bitfield to be passed to vpx_codec_encode(), defining
    * per-frame boolean values. By convention, bits common to all codecs will be
@@ -291,8 +281,7 @@ extern "C" {
   typedef long vpx_enc_frame_flags_t;
 #define VPX_EFLAG_FORCE_KF (1<<0)  /**< Force this frame to be a keyframe */
 
-
-  /*!\brief Encoder configuration structure
+/*!\brief Encoder configuration structure
    *
    * This structure contains the encoder settings that have common representations
    * across all codecs. This doesn't imply that all codecs support all features,
@@ -312,8 +301,7 @@ extern "C" {
      */
     unsigned int           g_usage;
 
-
-    /*!\brief Maximum number of threads to use
+/*!\brief Maximum number of threads to use
      *
      * For multi-threaded implementations, use no more than this number of
      * threads. The codec may use fewer threads than allowed. The value
@@ -321,8 +309,7 @@ extern "C" {
      */
     unsigned int           g_threads;
 
-
-    /*!\brief Bitstream profile to use
+/*!\brief Bitstream profile to use
      *
      * Some codecs support a notion of multiple bitstream profiles. Typically
      * this maps to a set of features that are turned on or off. Often the
@@ -332,9 +319,7 @@ extern "C" {
      */
     unsigned int           g_profile;  /**< profile of bitstream to use */
 
-
-
-    /*!\brief Width of the frame
+/*!\brief Width of the frame
      *
      * This value identifies the presentation resolution of the frame,
      * in pixels. Note that the frames passed as input to the encoder must
@@ -343,8 +328,7 @@ extern "C" {
      */
     unsigned int           g_w;
 
-
-    /*!\brief Height of the frame
+/*!\brief Height of the frame
      *
      * This value identifies the presentation resolution of the frame,
      * in pixels. Note that the frames passed as input to the encoder must
@@ -383,8 +367,7 @@ extern "C" {
      */
     struct vpx_rational    g_timebase;
 
-
-    /*!\brief Enable error resilient modes.
+/*!\brief Enable error resilient modes.
      *
      * The error resilient bitfield indicates to the encoder which features
      * it should enable to take measures for streaming over lossy or noisy
@@ -392,16 +375,14 @@ extern "C" {
      */
     vpx_codec_er_flags_t   g_error_resilient;
 
-
-    /*!\brief Multi-pass Encoding Mode
+/*!\brief Multi-pass Encoding Mode
      *
      * This value should be set to the current phase for multi-pass encoding.
      * For single pass, set to #VPX_RC_ONE_PASS.
      */
     enum vpx_enc_pass      g_pass;
 
-
-    /*!\brief Allow lagged encoding
+/*!\brief Allow lagged encoding
      *
      * If set, this value allows the encoder to consume a number of input
      * frames before producing output frames. This allows the encoder to
@@ -415,8 +396,7 @@ extern "C" {
      */
     unsigned int           g_lag_in_frames;
 
-
-    /*
+/*
      * rate control settings (rc)
      */
 
@@ -438,8 +418,7 @@ extern "C" {
      */
     unsigned int           rc_dropframe_thresh;
 
-
-    /*!\brief Enable/disable spatial resampling, if supported by the codec.
+/*!\brief Enable/disable spatial resampling, if supported by the codec.
      *
      * Spatial resampling allows the codec to compress a lower resolution
      * version of the frame, which is then upscaled by the encoder to the
@@ -470,8 +449,7 @@ extern "C" {
      */
     unsigned int           rc_resize_up_thresh;
 
-
-    /*!\brief Spatial resampling down watermark.
+/*!\brief Spatial resampling down watermark.
      *
      * This threshold is described as a percentage of the target data buffer.
      * When the data buffer falls below this percentage of fullness, the
@@ -479,8 +457,7 @@ extern "C" {
      */
     unsigned int           rc_resize_down_thresh;
 
-
-    /*!\brief Rate control algorithm to use.
+/*!\brief Rate control algorithm to use.
      *
      * Indicates whether the end usage of this stream is to be streamed over
      * a bandwidth constrained link, indicating that Constant Bit Rate (CBR)
@@ -490,8 +467,7 @@ extern "C" {
      */
     enum vpx_rc_mode       rc_end_usage;
 
-
-    /*!\brief Two-pass stats buffer.
+/*!\brief Two-pass stats buffer.
      *
      * A buffer containing all of the stats packets produced in the first
      * pass, concatenated.
@@ -511,13 +487,11 @@ extern "C" {
      */
     unsigned int           rc_target_bitrate;
 
-
-    /*
+/*
      * quantizer settings
      */
 
-
-    /*!\brief Minimum (Best Quality) Quantizer
+/*!\brief Minimum (Best Quality) Quantizer
      *
      * The quantizer is the most direct control over the quality of the
      * encoded image. The range of valid values for the quantizer is codec
@@ -527,8 +501,7 @@ extern "C" {
      */
     unsigned int           rc_min_quantizer;
 
-
-    /*!\brief Maximum (Worst Quality) Quantizer
+/*!\brief Maximum (Worst Quality) Quantizer
      *
      * The quantizer is the most direct control over the quality of the
      * encoded image. The range of valid values for the quantizer is codec
@@ -538,13 +511,11 @@ extern "C" {
      */
     unsigned int           rc_max_quantizer;
 
-
-    /*
+/*
      * bitrate tolerance
      */
 
-
-    /*!\brief Rate control adaptation undershoot control
+/*!\brief Rate control adaptation undershoot control
      *
      * This value, expressed as a percentage of the target bitrate,
      * controls the maximum allowed adaptation speed of the codec.
@@ -556,8 +527,7 @@ extern "C" {
      */
     unsigned int           rc_undershoot_pct;
 
-
-    /*!\brief Rate control adaptation overshoot control
+/*!\brief Rate control adaptation overshoot control
      *
      * This value, expressed as a percentage of the target bitrate,
      * controls the maximum allowed adaptation speed of the codec.
@@ -569,13 +539,11 @@ extern "C" {
      */
     unsigned int           rc_overshoot_pct;
 
-
-    /*
+/*
      * decoder buffer model parameters
      */
 
-
-    /*!\brief Decoder Buffer Size
+/*!\brief Decoder Buffer Size
      *
      * This value indicates the amount of data that may be buffered by the
      * decoding application. Note that this value is expressed in units of
@@ -586,8 +554,7 @@ extern "C" {
      */
     unsigned int           rc_buf_sz;
 
-
-    /*!\brief Decoder Buffer Initial Size
+/*!\brief Decoder Buffer Initial Size
      *
      * This value indicates the amount of data that will be buffered by the
      * decoding application prior to beginning playback. This value is
@@ -596,8 +563,7 @@ extern "C" {
      */
     unsigned int           rc_buf_initial_sz;
 
-
-    /*!\brief Decoder Buffer Optimal Size
+/*!\brief Decoder Buffer Optimal Size
      *
      * This value indicates the amount of data that the encoder should try
      * to maintain in the decoder's buffer. This value is expressed in units
@@ -606,13 +572,11 @@ extern "C" {
      */
     unsigned int           rc_buf_optimal_sz;
 
-
-    /*
+/*
      * 2 pass rate control parameters
      */
 
-
-    /*!\brief Two-pass mode CBR/VBR bias
+/*!\brief Two-pass mode CBR/VBR bias
      *
      * Bias, expressed on a scale of 0 to 100, for determining target size
      * for the current frame. The value 0 indicates the optimal CBR mode
@@ -622,24 +586,21 @@ extern "C" {
      */
     unsigned int           rc_2pass_vbr_bias_pct;       /**< RC mode bias between CBR and VBR(0-100: 0->CBR, 100->VBR)   */
 
-
-    /*!\brief Two-pass mode per-GOP minimum bitrate
+/*!\brief Two-pass mode per-GOP minimum bitrate
      *
      * This value, expressed as a percentage of the target bitrate, indicates
      * the minimum bitrate to be used for a single GOP (aka "section")
      */
     unsigned int           rc_2pass_vbr_minsection_pct;
 
-
-    /*!\brief Two-pass mode per-GOP maximum bitrate
+/*!\brief Two-pass mode per-GOP maximum bitrate
      *
      * This value, expressed as a percentage of the target bitrate, indicates
      * the maximum bitrate to be used for a single GOP (aka "section")
      */
     unsigned int           rc_2pass_vbr_maxsection_pct;
 
-
-    /*
+/*
      * keyframing settings (kf)
      */
 
@@ -651,8 +612,7 @@ extern "C" {
      */
     enum vpx_kf_mode       kf_mode;
 
-
-    /*!\brief Keyframe minimum interval
+/*!\brief Keyframe minimum interval
      *
      * This value, expressed as a number of frames, prevents the encoder from
      * placing a keyframe nearer than kf_min_dist to the previous keyframe. At
@@ -661,8 +621,7 @@ extern "C" {
      */
     unsigned int           kf_min_dist;
 
-
-    /*!\brief Keyframe maximum interval
+/*!\brief Keyframe maximum interval
      *
      * This value, expressed as a number of frames, forces the encoder to code
      * a keyframe if one has not been coded in the last kf_max_dist frames.
@@ -763,8 +722,7 @@ extern "C" {
     int temporal_layering_mode; /**< Temporal layering mode */
   } vpx_svc_extra_cfg_t;
 
-
-  /*!\brief Initialize an encoder instance
+/*!\brief Initialize an encoder instance
    *
    * Initializes a encoder context using the given interface. Applications
    * should call the vpx_codec_enc_init convenience macro instead of this
@@ -792,16 +750,14 @@ extern "C" {
                                          vpx_codec_flags_t     flags,
                                          int                   ver);
 
-
-  /*!\brief Convenience macro for vpx_codec_enc_init_ver()
+/*!\brief Convenience macro for vpx_codec_enc_init_ver()
    *
    * Ensures the ABI version parameter is properly set.
    */
 #define vpx_codec_enc_init(ctx, iface, cfg, flags) \
   vpx_codec_enc_init_ver(ctx, iface, cfg, flags, VPX_ENCODER_ABI_VERSION)
 
-
-  /*!\brief Initialize multi-encoder instance
+/*!\brief Initialize multi-encoder instance
    *
    * Initializes multi-encoder context using the given interface.
    * Applications should call the vpx_codec_enc_init_multi convenience macro
@@ -829,8 +785,7 @@ extern "C" {
                                                vpx_rational_t       *dsf,
                                                int                   ver);
 
-
-  /*!\brief Convenience macro for vpx_codec_enc_init_multi_ver()
+/*!\brief Convenience macro for vpx_codec_enc_init_multi_ver()
    *
    * Ensures the ABI version parameter is properly set.
    */
@@ -838,8 +793,7 @@ extern "C" {
   vpx_codec_enc_init_multi_ver(ctx, iface, cfg, num_enc, flags, dsf, \
                                VPX_ENCODER_ABI_VERSION)
 
-
-  /*!\brief Get a default configuration
+/*!\brief Get a default configuration
    *
    * Initializes a encoder configuration structure with default values. Supports
    * the notion of "usages" so that an algorithm may offer different default
@@ -862,8 +816,7 @@ extern "C" {
                                                 vpx_codec_enc_cfg_t  *cfg,
                                                 unsigned int          reserved);
 
-
-  /*!\brief Set or change configuration
+/*!\brief Set or change configuration
    *
    * Reconfigures an encoder instance according to the given configuration.
    *
@@ -880,8 +833,7 @@ extern "C" {
   vpx_codec_err_t  vpx_codec_enc_config_set(vpx_codec_ctx_t            *ctx,
                                             const vpx_codec_enc_cfg_t  *cfg);
 
-
-  /*!\brief Get global stream headers
+/*!\brief Get global stream headers
    *
    * Retrieves a stream level global header packet, if supported by the codec.
    *
@@ -893,7 +845,6 @@ extern "C" {
    *     Pointer to buffer containing global header packet
    */
   vpx_fixed_buf_t *vpx_codec_get_global_headers(vpx_codec_ctx_t   *ctx);
-
 
 #define VPX_DL_REALTIME     (1)        /**< deadline parameter analogous to
   *   VPx REALTIME mode. */
@@ -992,8 +943,7 @@ extern "C" {
                                             unsigned int           pad_before,
                                             unsigned int           pad_after);
 
-
-  /*!\brief Encoded data iterator
+/*!\brief Encoded data iterator
    *
    * Iterates over a list of data packets to be passed from the encoder to the
    * application. The different kinds of packets available are enumerated in
@@ -1019,8 +969,7 @@ extern "C" {
   const vpx_codec_cx_pkt_t *vpx_codec_get_cx_data(vpx_codec_ctx_t   *ctx,
                                                   vpx_codec_iter_t  *iter);
 
-
-  /*!\brief Get Preview Frame
+/*!\brief Get Preview Frame
    *
    * Returns an image that can be used as a preview. Shows the image as it would
    * exist at the decompressor. The application \ref MUST NOT write into this
@@ -1034,8 +983,7 @@ extern "C" {
    */
   const vpx_image_t *vpx_codec_get_preview_frame(vpx_codec_ctx_t   *ctx);
 
-
-  /*!@} - end defgroup encoder*/
+/*!@} - end defgroup encoder*/
 #ifdef __cplusplus
 }
 #endif

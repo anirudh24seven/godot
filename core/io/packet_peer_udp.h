@@ -1,8 +1,6 @@
 
 /*  packet_peer_udp.h                                                    */
 
-
-
 #ifndef PACKET_PEER_UDP_H
 #define PACKET_PEER_UDP_H
 

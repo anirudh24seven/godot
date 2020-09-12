@@ -1,8 +1,6 @@
 
 /*  convex_polygon_shape_3d.cpp                                          */
 
-
-
 #include "convex_polygon_shape_3d.h"
 #include "core/math/quick_hull.h"
 #include "servers/physics_server_3d.h"

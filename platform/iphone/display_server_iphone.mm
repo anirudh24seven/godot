@@ -1,8 +1,6 @@
 
 /*  display_server_iphone.mm                                             */
 
-
-
 #include "display_server_iphone.h"
 #import "app_delegate.h"
 #include "core/io/file_access_pack.h"

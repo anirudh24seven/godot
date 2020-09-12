@@ -1,8 +1,6 @@
 
 /*  rendering_device_binds.h                                             */
 
-
-
 #ifndef RENDERING_DEVICE_BINDS_H
 #define RENDERING_DEVICE_BINDS_H
 

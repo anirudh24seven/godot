@@ -2,14 +2,10 @@
 #if !defined(_modedec_H)
 # define _modedec_H (1)
 
-
-
 # if defined(OC_COLLECT_METRICS)
 typedef struct oc_mode_metrics oc_mode_metrics;
 # endif
 typedef struct oc_mode_rd      oc_mode_rd;
-
-
 
 /*The number of extra bits of precision at which to store rate metrics.*/
 # define OC_BIT_SCALE  (6)
@@ -21,8 +17,6 @@ typedef struct oc_mode_rd      oc_mode_rd;
 /*The number of bits of precision to drop from SAD scores to assign them to a
    bin.*/
 # define OC_SAD_SHIFT  (9)
-
-
 
 # if defined(OC_COLLECT_METRICS)
 struct oc_mode_metrics{
@@ -37,18 +31,14 @@ struct oc_mode_metrics{
   double rmse2;
 };
 
-
 int             oc_has_mode_metrics;
 oc_mode_metrics OC_MODE_METRICS[64][3][2][OC_SAD_BINS];
 # endif
-
-
 
 struct oc_mode_rd{
   ogg_int16_t rate;
   ogg_int16_t rmse;
 };
-
 
 # if !defined(OC_COLLECT_METRICS)
 static const

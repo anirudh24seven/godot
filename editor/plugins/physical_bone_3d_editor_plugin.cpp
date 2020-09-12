@@ -1,8 +1,6 @@
 
 /*  physical_bone_3d_editor_plugin.cpp                                   */
 
-
-
 #include "physical_bone_3d_editor_plugin.h"
 
 #include "editor/plugins/node_3d_editor_plugin.h"

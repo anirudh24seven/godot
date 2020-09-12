@@ -1,8 +1,6 @@
 
 /*  abstract_polygon_2d_editor.h                                         */
 
-
-
 #ifndef ABSTRACT_POLYGON_2D_EDITOR_H
 #define ABSTRACT_POLYGON_2D_EDITOR_H
 

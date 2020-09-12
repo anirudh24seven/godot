@@ -1,8 +1,6 @@
 
 /*  dynamic_font.cpp                                                     */
 
-
-
 #include "modules/modules_enabled.gen.h"
 #ifdef MODULE_FREETYPE_ENABLED
 

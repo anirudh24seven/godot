@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This header file contains a number of macro definitions that are used by
    * the rest of the engine.  Most of the macros here are automatically
@@ -41,11 +40,9 @@
 #include FT_CONFIG_OPTIONS_H
 #include FT_CONFIG_STANDARD_LIBRARY_H
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *              PLATFORM-SPECIFIC CONFIGURATION MACROS
    *
@@ -56,8 +53,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /* There are systems (like the Texas Instruments 'C54x) where a `char`  */
+/* There are systems (like the Texas Instruments 'C54x) where a `char`  */
   /* has 16~bits.  ANSI~C says that `sizeof(char)` is always~1.  Since an */
   /* `int` has 16~bits also for this system, `sizeof(int)` gives~1 which  */
   /* is probably unexpected.                                              */
@@ -69,8 +65,7 @@ FT_BEGIN_HEADER
 #define FT_CHAR_BIT  CHAR_BIT
 #endif
 
-
-  /* The size of an `int` type. */
+/* The size of an `int` type. */
 #if                                 FT_UINT_MAX == 0xFFFFUL
 #define FT_SIZEOF_INT  ( 16 / FT_CHAR_BIT )
 #elif                               FT_UINT_MAX == 0xFFFFFFFFUL
@@ -93,15 +88,13 @@ FT_BEGIN_HEADER
 #error "Unsupported size of `long' type!"
 #endif
 
-
-  /* `FT_UNUSED` indicates that a given parameter is not used --   */
+/* `FT_UNUSED` indicates that a given parameter is not used --   */
   /* this is only used to get rid of unpleasant compiler warnings. */
 #ifndef FT_UNUSED
 #define FT_UNUSED( arg )  ( (arg) = (arg) )
 #endif
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                    AUTOMATIC CONFIGURATION MACROS
    *
@@ -111,8 +104,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Mac support
    *
@@ -141,24 +133,21 @@ FT_BEGIN_HEADER
 
 #endif
 
-
-  /* Fix compiler warning with sgi compiler. */
+/* Fix compiler warning with sgi compiler. */
 #if defined( __sgi ) && !defined( __GNUC__ )
 #if defined( _COMPILER_VERSION ) && ( _COMPILER_VERSION >= 730 )
 #pragma set woff 3505
 #endif
 #endif
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   basic_types
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_Int16
@@ -168,8 +157,7 @@ FT_BEGIN_HEADER
    */
   typedef signed short  FT_Int16;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_UInt16
@@ -181,8 +169,7 @@ FT_BEGIN_HEADER
 
   /* */
 
-
-  /* this #if 0 ... #endif clause is for documentation purposes */
+/* this #if 0 ... #endif clause is for documentation purposes */
 #if 0
 
   /**************************************************************************
@@ -196,8 +183,7 @@ FT_BEGIN_HEADER
    */
   typedef signed XXX  FT_Int32;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_UInt32
@@ -207,8 +193,7 @@ FT_BEGIN_HEADER
    */
   typedef unsigned XXX  FT_UInt32;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_Int64
@@ -219,8 +204,7 @@ FT_BEGIN_HEADER
    */
   typedef signed XXX  FT_Int64;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_UInt64
@@ -249,8 +233,7 @@ FT_BEGIN_HEADER
 #error "no 32bit type found -- please check your configuration files"
 #endif
 
-
-  /* look up an integer type that is at least 32~bits */
+/* look up an integer type that is at least 32~bits */
 #if FT_SIZEOF_INT >= ( 32 / FT_CHAR_BIT )
 
   typedef int            FT_Fast;
@@ -263,8 +246,7 @@ FT_BEGIN_HEADER
 
 #endif
 
-
-  /* determine whether we have a 64-bit `int` type for platforms without */
+/* determine whether we have a 64-bit `int` type for platforms without */
   /* Autoconf                                                            */
 #if FT_SIZEOF_LONG == ( 64 / FT_CHAR_BIT )
 
@@ -331,7 +313,6 @@ FT_BEGIN_HEADER
   typedef FT_UINT64  FT_UInt64;
 #endif
 
-
 #ifdef _WIN64
   /* only 64bit Windows uses the LLP64 data model, i.e., */
   /* 32bit integers, 64bit pointers                      */
@@ -340,20 +321,17 @@ FT_BEGIN_HEADER
 #define FT_UINT_TO_POINTER( x ) (void*)(unsigned long)(x)
 #endif
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * miscellaneous
    *
    */
 
-
 #define FT_BEGIN_STMNT  do {
 #define FT_END_STMNT    } while ( 0 )
 #define FT_DUMMY_STMNT  FT_BEGIN_STMNT FT_END_STMNT
 
-
-  /* `typeof` condition taken from gnulib's `intprops.h` header file */
+/* `typeof` condition taken from gnulib's `intprops.h` header file */
 #if ( ( defined( __GNUC__ ) && __GNUC__ >= 2 )                       || \
       ( defined( __IBMC__ ) && __IBMC__ >= 1210 &&                      \
         defined( __IBM__TYPEOF__ ) )                                 || \
@@ -363,8 +341,7 @@ FT_BEGIN_HEADER
 #define FT_TYPEOF( type )  /* empty */
 #endif
 
-
-  /* Use `FT_LOCAL` and `FT_LOCAL_DEF` to declare and define,            */
+/* Use `FT_LOCAL` and `FT_LOCAL_DEF` to declare and define,            */
   /* respectively, a function that gets used only within the scope of a  */
   /* module.  Normally, both the header and source code files for such a */
   /* function are within a single module directory.                      */
@@ -392,8 +369,7 @@ FT_BEGIN_HEADER
 #define FT_LOCAL_ARRAY( x )      extern const  x
 #define FT_LOCAL_ARRAY_DEF( x )  const  x
 
-
-  /* Use `FT_BASE` and `FT_BASE_DEF` to declare and define, respectively, */
+/* Use `FT_BASE` and `FT_BASE_DEF` to declare and define, respectively, */
   /* functions that are used in more than a single module.  In the        */
   /* current setup this implies that the declaration is in a header file  */
   /* in the `include/freetype/internal` directory, and the function body  */
@@ -409,7 +385,6 @@ FT_BEGIN_HEADER
 
 #endif /* !FT_BASE */
 
-
 #ifndef FT_BASE_DEF
 
 #ifdef __cplusplus
@@ -420,8 +395,7 @@ FT_BEGIN_HEADER
 
 #endif /* !FT_BASE_DEF */
 
-
-  /* When compiling FreeType as a DLL or DSO with hidden visibility    */
+/* When compiling FreeType as a DLL or DSO with hidden visibility    */
   /* some systems/compilers need a special attribute in front OR after */
   /* the return type of function declarations.                         */
   /*                                                                   */
@@ -485,7 +459,6 @@ FT_BEGIN_HEADER
 
 #endif /* !FT_EXPORT */
 
-
 #ifndef FT_EXPORT_DEF
 
 #ifdef __cplusplus
@@ -495,7 +468,6 @@ FT_BEGIN_HEADER
 #endif
 
 #endif /* !FT_EXPORT_DEF */
-
 
 #ifndef FT_EXPORT_VAR
 
@@ -507,8 +479,7 @@ FT_BEGIN_HEADER
 
 #endif /* !FT_EXPORT_VAR */
 
-
-  /* The following macros are needed to compile the library with a   */
+/* The following macros are needed to compile the library with a   */
   /* C++ compiler and with 16bit compilers.                          */
   /*                                                                 */
 
@@ -565,11 +536,8 @@ FT_BEGIN_HEADER
 #endif
 #endif /* FT_CALLBACK_TABLE */
 
-
 FT_END_HEADER
 
-
 #endif /* FTCONFIG_H_ */
-
 
 /* END */

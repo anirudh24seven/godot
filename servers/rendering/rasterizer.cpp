@@ -1,8 +1,6 @@
 
 /*  rasterizer.cpp                                                       */
 
-
-
 #include "rasterizer.h"
 
 #include "core/os/os.h"

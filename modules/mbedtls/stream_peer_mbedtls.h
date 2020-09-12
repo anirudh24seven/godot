@@ -1,8 +1,6 @@
 
 /*  stream_peer_mbedtls.h                                                */
 
-
-
 #ifndef STREAM_PEER_OPEN_SSL_H
 #define STREAM_PEER_OPEN_SSL_H
 

@@ -1,8 +1,6 @@
 
 /*  gdscript_workspace.cpp                                               */
 
-
-
 #include "gdscript_workspace.h"
 
 #include "../gdscript.h"

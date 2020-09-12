@@ -1,8 +1,6 @@
 
 /*  websocket_server.cpp                                                 */
 
-
-
 #include "websocket_server.h"
 
 GDCINULL(WebSocketServer);

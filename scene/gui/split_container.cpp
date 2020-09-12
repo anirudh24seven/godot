@@ -1,8 +1,6 @@
 
 /*  split_container.cpp                                                  */
 
-
-
 #include "split_container.h"
 
 #include "label.h"

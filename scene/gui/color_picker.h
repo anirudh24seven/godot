@@ -1,8 +1,6 @@
 
 /*  color_picker.h                                                       */
 
-
-
 #ifndef COLOR_PICKER_H
 #define COLOR_PICKER_H
 

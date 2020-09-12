@@ -1,8 +1,6 @@
 
 /*  path_3d_editor_plugin.cpp                                            */
 
-
-
 #include "path_3d_editor_plugin.h"
 
 #include "core/math/geometry_2d.h"

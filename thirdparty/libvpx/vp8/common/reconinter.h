@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_RECONINTER_H_
 #define VP8_COMMON_RECONINTER_H_
 
@@ -23,7 +22,6 @@ extern void vp8_build_inter16x16_predictors_mb(MACROBLOCKD *x,
                                                unsigned char *dst_v,
                                                int dst_ystride,
                                                int dst_uvstride);
-
 
 extern void vp8_build_inter16x16_predictors_mby(MACROBLOCKD *x,
                                                 unsigned char *dst_y,

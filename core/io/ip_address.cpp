@@ -1,8 +1,6 @@
 
 /*  ip_address.cpp                                                       */
 
-
-
 #include "ip_address.h"
 /*
 IP_Address::operator Variant() const {

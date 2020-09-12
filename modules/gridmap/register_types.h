@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef GRIDMAP_REGISTER_TYPES_H
 #define GRIDMAP_REGISTER_TYPES_H
 

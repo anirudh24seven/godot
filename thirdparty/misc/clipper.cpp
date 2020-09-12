@@ -292,8 +292,7 @@ class Int128
       if (_lo < 0)  hi = -1; else hi = 0; 
     }
 
-
-    Int128(const Int128 &val): lo(val.lo), hi(val.hi){}
+Int128(const Int128 &val): lo(val.lo), hi(val.hi){}
 
     Int128(const long64& _hi, const ulong64& _lo): lo(_lo), hi(_hi){}
     
@@ -2933,7 +2932,6 @@ void Clipper::BuildIntersectList(const cInt topY)
   m_SortedEdges = 0; //important
 }
 //------------------------------------------------------------------------------
-
 
 void Clipper::ProcessIntersectList()
 {

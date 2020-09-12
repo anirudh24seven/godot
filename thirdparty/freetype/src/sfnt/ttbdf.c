@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_STREAM_H
@@ -23,7 +22,6 @@
 #include "ttbdf.h"
 
 #include "sferrors.h"
-
 
 #ifdef TT_CONFIG_OPTION_BDF
 
@@ -36,19 +34,16 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  ttbdf
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   tt_face_free_bdf_props( TT_Face  face )
   {
     TT_BDF  bdf = &face->bdf;
 
-
-    if ( bdf->loaded )
+if ( bdf->loaded )
     {
       FT_Stream  stream = FT_FACE( face )->stream;
 
-
-      if ( bdf->table )
+if ( bdf->table )
         FT_FRAME_RELEASE( bdf->table );
 
       bdf->table_end    = NULL;
@@ -57,8 +52,7 @@
     }
   }
 
-
-  static FT_Error
+static FT_Error
   tt_face_load_bdf_props( TT_Face    face,
                           FT_Stream  stream )
   {
@@ -66,8 +60,7 @@
     FT_ULong  length;
     FT_Error  error;
 
-
-    FT_ZERO( bdf );
+FT_ZERO( bdf );
 
     error = tt_face_goto_table( face, TTAG_BDF, stream, &length );
     if ( error                                  ||
@@ -88,8 +81,7 @@
       FT_UInt    count;
       FT_Byte*   strike;
 
-
-      if ( version != 0x0001                 ||
+if ( version != 0x0001                 ||
            strings < 8                       ||
            ( strings - 8 ) / 4 < num_strikes ||
            strings + 1 > length              )
@@ -105,8 +97,7 @@
       p      = bdf->table + 8;
       strike = p + count * 4;
 
-
-      for ( ; count > 0; count-- )
+for ( ; count > 0; count-- )
       {
         FT_UInt  num_items = FT_PEEK_USHORT( p + 2 );
 
@@ -135,8 +126,7 @@
     goto Exit;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   tt_face_find_bdf_prop( TT_Face           face,
                          const char*       property_name,
                          BDF_PropertyRec  *aprop )
@@ -149,8 +139,7 @@
     FT_Byte*   strike;
     FT_Offset  property_len;
 
-
-    aprop->type = BDF_PROPERTY_TYPE_NONE;
+aprop->type = BDF_PROPERTY_TYPE_NONE;
 
     if ( bdf->loaded == 0 )
     {
@@ -177,8 +166,7 @@
       FT_UInt  _ppem  = FT_NEXT_USHORT( p );
       FT_UInt  _count = FT_NEXT_USHORT( p );
 
-
-      if ( _ppem == size->metrics.y_ppem )
+if ( _ppem == size->metrics.y_ppem )
       {
         count = _count;
         goto FoundStrike;
@@ -194,8 +182,7 @@
     {
       FT_UInt  type = FT_PEEK_USHORT( p + 4 );
 
-
-      if ( ( type & 0x10 ) != 0 )
+if ( ( type & 0x10 ) != 0 )
       {
         FT_UInt32  name_offset = FT_PEEK_ULONG( p     );
         FT_UInt32  value       = FT_PEEK_ULONG( p + 6 );
@@ -252,6 +239,5 @@
   typedef int  _tt_bdf_dummy;
 
 #endif /* !TT_CONFIG_OPTION_BDF */
-
 
 /* END */

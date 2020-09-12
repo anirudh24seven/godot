@@ -1,8 +1,6 @@
 
 /*  array.h                                                              */
 
-
-
 #ifndef GODOT_ARRAY_H
 #define GODOT_ARRAY_H
 

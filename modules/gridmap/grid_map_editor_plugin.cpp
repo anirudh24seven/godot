@@ -1,8 +1,6 @@
 
 /*  grid_map_editor_plugin.cpp                                           */
 
-
-
 #include "grid_map_editor_plugin.h"
 #include "core/input/input.h"
 #include "editor/editor_scale.h"

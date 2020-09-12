@@ -1,8 +1,6 @@
 
 /*  safe_refcount.h                                                      */
 
-
-
 #ifndef SAFE_REFCOUNT_H
 #define SAFE_REFCOUNT_H
 

@@ -1,8 +1,6 @@
 
 /*  config_file.h                                                        */
 
-
-
 #ifndef CONFIG_FILE_H
 #define CONFIG_FILE_H
 

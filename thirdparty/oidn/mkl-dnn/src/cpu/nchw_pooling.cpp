@@ -138,8 +138,7 @@ void nchw_pooling_fwd_t<data_type>::execute_forward(
         d[0] = math::out_round<data_t>((float)d[0] / num_summands);
     };
 
-
-    if (pd()->desc()->alg_kind == pooling_max) {
+if (pd()->desc()->alg_kind == pooling_max) {
         parallel_nd(MB, C, OD, OH, OW,
             [&](int mb, int c, int od, int oh, int ow) {
             size_t dst_offset

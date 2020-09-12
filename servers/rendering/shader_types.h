@@ -1,8 +1,6 @@
 
 /*  shader_types.h                                                       */
 
-
-
 #ifndef SHADERTYPES_H
 #define SHADERTYPES_H
 

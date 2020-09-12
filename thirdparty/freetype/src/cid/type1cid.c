@@ -15,7 +15,6 @@
  *
  */
 
-
 #define FT_MAKE_OPTION_SINGLE_OBJECT
 #include <ft2build.h>
 
@@ -24,6 +23,5 @@
 #include "cidobjs.c"
 #include "cidparse.c"
 #include "cidriver.c"
-
 
 /* END */

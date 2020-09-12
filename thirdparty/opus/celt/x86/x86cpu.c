@@ -40,7 +40,6 @@
   (defined(OPUS_X86_MAY_HAVE_SSE4_1) && !defined(OPUS_X86_PRESUME_SSE4_1)) || \
   (defined(OPUS_X86_MAY_HAVE_AVX) && !defined(OPUS_X86_PRESUME_AVX))
 
-
 #if defined(_MSC_VER)
 
 #include <intrin.h>

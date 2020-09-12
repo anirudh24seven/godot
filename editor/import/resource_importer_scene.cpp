@@ -1,8 +1,6 @@
 
 /*  resource_importer_scene.cpp                                          */
 
-
-
 #include "resource_importer_scene.h"
 
 #include "core/io/resource_saver.h"

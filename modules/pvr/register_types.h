@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef PVR_REGISTER_TYPES_H
 #define PVR_REGISTER_TYPES_H
 

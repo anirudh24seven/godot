@@ -2048,8 +2048,7 @@ mkldnn_status_t jit_avx512_common_gemm_f32(
         }
     });
 
-
-    // handle C summation later
+// handle C summation later
     if (nthr_k > 1 && ompstatus[0] == 0) {
 
         parallel_nd(nthr, [&](const int ithr) {

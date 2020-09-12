@@ -1,8 +1,6 @@
 
 /*  tween.h                                                              */
 
-
-
 #ifndef TWEEN_H
 #define TWEEN_H
 

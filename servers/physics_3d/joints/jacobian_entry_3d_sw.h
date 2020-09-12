@@ -1,8 +1,6 @@
 
 /*  jacobian_entry_3d_sw.h                                               */
 
-
-
 /*
 Adapted to Godot from the Bullet library.
 */

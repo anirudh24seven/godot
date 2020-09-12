@@ -1,8 +1,6 @@
 
 /*  remote_debugger.h                                                    */
 
-
-
 #ifndef REMOTE_DEBUGGER_H
 #define REMOTE_DEBUGGER_H
 

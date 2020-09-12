@@ -1,8 +1,6 @@
 
 /*  gdscript_language_protocol.h                                         */
 
-
-
 #ifndef GDSCRIPT_PROTOCAL_SERVER_H
 #define GDSCRIPT_PROTOCAL_SERVER_H
 

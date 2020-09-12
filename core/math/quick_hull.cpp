@@ -1,8 +1,6 @@
 
 /*  quick_hull.cpp                                                       */
 
-
-
 #include "quick_hull.h"
 
 #include "core/map.h"

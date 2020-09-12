@@ -1,8 +1,6 @@
 
 /*  RegularContextFactory.java                                           */
 
-
-
 package org.godotengine.godot.xr.regular;
 
 import org.godotengine.godot.GodotLib;

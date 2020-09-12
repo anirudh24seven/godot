@@ -1,8 +1,6 @@
 
 /*  collision_solver_3d_sat.cpp                                          */
 
-
-
 #include "collision_solver_3d_sat.h"
 #include "core/math/geometry_3d.h"
 

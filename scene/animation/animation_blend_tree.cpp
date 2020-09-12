@@ -1,8 +1,6 @@
 
 /*  animation_blend_tree.cpp                                             */
 
-
-
 #include "animation_blend_tree.h"
 
 #include "scene/scene_string_names.h"

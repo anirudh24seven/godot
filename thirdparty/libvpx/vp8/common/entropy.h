@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_ENTROPY_H_
 #define VP8_COMMON_ENTROPY_H_
 
@@ -56,7 +55,6 @@ extern const vp8_extra_bit_struct vp8_extra_bits[12];    /* indexed by token val
 #define MAX_PROB                255
 #define DCT_MAX_VALUE           2048
 
-
 /* Coefficients are predicted via a 3-dimensional probability table. */
 
 /* Outside dimension.  0 = Y no DC, 1 = Y2, 2 = UV, 3 = Y with DC */
@@ -91,7 +89,6 @@ extern DECLARE_ALIGNED(16, const unsigned char, vp8_coef_bands[16]);
 extern DECLARE_ALIGNED(16, const unsigned char, vp8_prev_token_class[MAX_ENTROPY_TOKENS]);
 
 extern const vp8_prob vp8_coef_update_probs [BLOCK_TYPES] [COEF_BANDS] [PREV_COEF_CONTEXTS] [ENTROPY_NODES];
-
 
 struct VP8Common;
 void vp8_default_coef_probs(struct VP8Common *);

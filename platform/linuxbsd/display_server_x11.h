@@ -1,8 +1,6 @@
 
 /*  display_server_x11.h                                                 */
 
-
-
 #ifndef DISPLAY_SERVER_X11_H
 #define DISPLAY_SERVER_X11_H
 

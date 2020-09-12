@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -69,8 +68,7 @@ class ASSIMP_API StandardShapes
 
 public:
 
-
-    // ----------------------------------------------------------------
+// ----------------------------------------------------------------
     /** Generates a mesh from an array of vertex positions.
      *
      *  @param positions List of vertex positions
@@ -80,8 +78,7 @@ public:
     static aiMesh* MakeMesh(const std::vector<aiVector3D>& positions,
         unsigned int numIndices);
 
-
-    static aiMesh* MakeMesh ( unsigned int (*GenerateFunc)
+static aiMesh* MakeMesh ( unsigned int (*GenerateFunc)
         (std::vector<aiVector3D>&));
 
     static aiMesh* MakeMesh ( unsigned int (*GenerateFunc)
@@ -111,8 +108,7 @@ public:
     static unsigned int MakeIcosahedron(
         std::vector<aiVector3D>& positions);
 
-
-    // ----------------------------------------------------------------
+// ----------------------------------------------------------------
     /** @brief Generates a dodecahedron
      *
      *  @param positions Receives output triangles
@@ -123,8 +119,7 @@ public:
         std::vector<aiVector3D>& positions,
         bool polygons = false);
 
-
-    // ----------------------------------------------------------------
+// ----------------------------------------------------------------
     /** @brief Generates an octahedron
      *
      *  @param positions Receives output triangles.
@@ -133,8 +128,7 @@ public:
     static unsigned int MakeOctahedron(
         std::vector<aiVector3D>& positions);
 
-
-    // ----------------------------------------------------------------
+// ----------------------------------------------------------------
     /** @brief Generates a tetrahedron
      *
      *  @param positions Receives output triangles.
@@ -143,9 +137,7 @@ public:
     static unsigned int MakeTetrahedron(
         std::vector<aiVector3D>& positions);
 
-
-
-    // ----------------------------------------------------------------
+// ----------------------------------------------------------------
     /** @brief Generates a sphere
      *
      *  @param tess Number of subdivions - 0 generates a octahedron
@@ -154,8 +146,7 @@ public:
     static void MakeSphere(unsigned int tess,
         std::vector<aiVector3D>& positions);
 
-
-    // ----------------------------------------------------------------
+// ----------------------------------------------------------------
     /** @brief Generates a cone or a cylinder, either open or closed.
      *
      *  @code
@@ -185,8 +176,7 @@ public:
         ai_real radius2,unsigned int tess,
         std::vector<aiVector3D>& positions,bool bOpen= false);
 
-
-    // ----------------------------------------------------------------
+// ----------------------------------------------------------------
     /** @brief Generates a flat circle
      *
      *  The circle is constructed in the planned formed by the x,z

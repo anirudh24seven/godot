@@ -1,8 +1,6 @@
 
 /*  ip_unix.cpp                                                          */
 
-
-
 #include "ip_unix.h"
 
 #if defined(UNIX_ENABLED) || defined(WINDOWS_ENABLED)

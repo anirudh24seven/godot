@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -138,7 +137,6 @@ static BOOL
 static int
   check_lookbehinds(uint32_t *, uint32_t **, parsed_recurse_check *,
     compile_block *);
-
 
 /*************************************************
 *      Code parameters and static tables         *
@@ -492,7 +490,6 @@ static const uint8_t xdigitab[] =
   0x08,0x09,0xff,0xff,0xff,0xff,0xff,0xff};/*  8 -255    */
 #endif  /* EBCDIC */
 
-
 /* Table for handling alphanumeric escaped characters. Positive returns are
 simple data values; negative values are for special things like \d and so on.
 Zero means further processing is needed (for things like \x), or the escape is
@@ -589,7 +586,6 @@ environment for characters 0-31. */
 static unsigned char ebcdic_escape_c[] = "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_";
 
 #endif   /* EBCDIC */
-
 
 /* Table of special "verbs" like (*PRUNE). This is a short table, so it is
 searched linearly. Put all the names into a single string, in order to reduce
@@ -905,7 +901,6 @@ static const uint8_t opcode_possessify[] = {
   0, 0                     /* RECURSE, CALLOUT */
 };
 
-
 #ifdef DEBUG_SHOW_PARSED
 /*************************************************
 *     Show the parsed pattern for debugging      *
@@ -1176,8 +1171,6 @@ return;
 }
 #endif  /* DEBUG_SHOW_PARSED */
 
-
-
 /*************************************************
 *               Copy compiled code               *
 *************************************************/
@@ -1208,8 +1201,6 @@ if ((code->flags & PCRE2_DEREF_TABLES) != 0)
 
 return newcode;
 }
-
-
 
 /*************************************************
 *     Copy compiled code and character tables    *
@@ -1248,8 +1239,6 @@ newcode->flags |= PCRE2_DEREF_TABLES;
 return newcode;
 }
 
-
-
 /*************************************************
 *               Free compiled code               *
 *************************************************/
@@ -1282,8 +1271,6 @@ if (code != NULL)
   code->memctl.free(code, code->memctl.memory_data);
   }
 }
-
-
 
 /*************************************************
 *         Read a number, possibly signed         *
@@ -1370,8 +1357,6 @@ EXIT:
 return yield;
 }
 
-
-
 /*************************************************
 *         Read repeat counts                     *
 *************************************************/
@@ -1445,8 +1430,6 @@ EXIT:
 if (yield || *errorcodeptr != 0) *ptrptr = p;
 return yield;
 }
-
-
 
 /*************************************************
 *            Handle escapes                      *
@@ -2037,8 +2020,6 @@ else
 return escape;
 }
 
-
-
 #ifdef SUPPORT_UNICODE
 /*************************************************
 *               Handle \P and \p                 *
@@ -2136,8 +2117,6 @@ return FALSE;
 }
 #endif
 
-
-
 /*************************************************
 *           Check for POSIX class syntax         *
 *************************************************/
@@ -2208,8 +2187,6 @@ for (; ptrend - ptr >= 2; ptr++)
 return FALSE;
 }
 
-
-
 /*************************************************
 *          Check POSIX class name                *
 *************************************************/
@@ -2238,8 +2215,6 @@ while (posix_name_lengths[yield] != 0)
   }
 return -1;
 }
-
-
 
 /*************************************************
 *       Read a subpattern or VERB name           *
@@ -2372,8 +2347,6 @@ FAILED:
 return FALSE;
 }
 
-
-
 /*************************************************
 *          Manage callouts at start of cycle     *
 *************************************************/
@@ -2421,8 +2394,6 @@ if (!auto_callout) previous_callout = NULL; else
 *pcalloutptr = previous_callout;
 return parsed_pattern;
 }
-
-
 
 /*************************************************
 *      Parse regex and identify named groups     *
@@ -2887,8 +2858,7 @@ while (ptr < ptrend)
     continue;  /* Next character in pattern */
     }
 
-
-  /* Process the next item in the main part of a pattern. */
+/* Process the next item in the main part of a pattern. */
 
   switch(c)
     {
@@ -2896,8 +2866,7 @@ while (ptr < ptrend)
     PARSED_LITERAL(c, parsed_pattern);
     break;
 
-
-    /* ---- Escape sequence ---- */
+/* ---- Escape sequence ---- */
 
     case CHAR_BACKSLASH:
     tempptr = ptr;
@@ -3117,8 +3086,7 @@ while (ptr < ptrend)
       }
     break;    /* End escape sequence processing */
 
-
-    /* ---- Single-character special items ---- */
+/* ---- Single-character special items ---- */
 
     case CHAR_CIRCUMFLEX_ACCENT:
     *parsed_pattern++ = META_CIRCUMFLEX;
@@ -3133,8 +3101,7 @@ while (ptr < ptrend)
     okquantifier = TRUE;
     break;
 
-
-    /* ---- Single-character quantifiers ---- */
+/* ---- Single-character quantifiers ---- */
 
     case CHAR_ASTERISK:
     meta_quantifier = META_ASTERISK;
@@ -3148,8 +3115,7 @@ while (ptr < ptrend)
     meta_quantifier = META_QUERY;
     goto CHECK_QUANTIFIER;
 
-
-    /* ---- Potential {n,m} quantifier ---- */
+/* ---- Potential {n,m} quantifier ---- */
 
     case CHAR_LEFT_CURLY_BRACKET:
     if (!read_repeat_counts(&ptr, ptrend, &min_repeat, &max_repeat,
@@ -3162,8 +3128,7 @@ while (ptr < ptrend)
     meta_quantifier = META_MINMAX;
     /* Fall through */
 
-
-    /* ---- Quantifier post-processing ---- */
+/* ---- Quantifier post-processing ---- */
 
     /* Check that a quantifier is allowed after the previous item. */
 
@@ -3202,8 +3167,7 @@ while (ptr < ptrend)
       }
     break;
 
-
-    /* ---- Character class ---- */
+/* ---- Character class ---- */
 
     case CHAR_LEFT_SQUARE_BRACKET:
     okquantifier = TRUE;
@@ -3646,8 +3610,7 @@ while (ptr < ptrend)
     *parsed_pattern++ = META_CLASS_END;
     break;  /* End of character class */
 
-
-    /* ---- Opening parenthesis ---- */
+/* ---- Opening parenthesis ---- */
 
     case CHAR_LEFT_PARENTHESIS:
     if (ptr >= ptrend) goto UNCLOSED_PARENTHESIS;
@@ -3793,8 +3756,7 @@ while (ptr < ptrend)
           }
         }
 
-
-      /* ---- Handle (*VERB) and (*VERB:NAME) ---- */
+/* ---- Handle (*VERB) and (*VERB:NAME) ---- */
 
       else
         {
@@ -3886,8 +3848,7 @@ while (ptr < ptrend)
       break;  /* Done with this parenthesis */
       }       /* End of groups that don't start with (? */
 
-
-    /* ---- Items starting (? ---- */
+/* ---- Items starting (? ---- */
 
     /* The type of item is determined by what follows (?. Handle (?| and option
     changes under "default" because both need a new block on the nest stack.
@@ -4034,8 +3995,7 @@ while (ptr < ptrend)
         }     /* End options processing */
       break;  /* End default case after (? */
 
-
-      /* ---- Python syntax support ---- */
+/* ---- Python syntax support ---- */
 
       case CHAR_P:
       if (++ptr >= ptrend) goto UNCLOSED_PARENTHESIS;
@@ -4069,8 +4029,7 @@ while (ptr < ptrend)
       okquantifier = TRUE;
       break;   /* End of (?P processing */
 
-
-      /* ---- Recursion/subroutine calls by number ---- */
+/* ---- Recursion/subroutine calls by number ---- */
 
       case CHAR_R:
       i = 0;         /* (?R) == (?R0) */
@@ -4116,8 +4075,7 @@ while (ptr < ptrend)
       okquantifier = TRUE;
       break;  /* End of recursive call by number handling */
 
-
-      /* ---- Recursion/subroutine calls by name ---- */
+/* ---- Recursion/subroutine calls by name ---- */
 
       case CHAR_AMPERSAND:
       RECURSE_BY_NAME:
@@ -4245,8 +4203,7 @@ while (ptr < ptrend)
       previous_callout[2] = 0;
       break;                  /* End callout */
 
-
-      /* ---- Conditional group ---- */
+/* ---- Conditional group ---- */
 
       /* A condition can be an assertion, a number (referring to a numbered
       group's having been set), a name (referring to a named group), or 'R',
@@ -4419,8 +4376,7 @@ while (ptr < ptrend)
       ptr++;
       break;  /* End of condition processing */
 
-
-      /* ---- Atomic group ---- */
+/* ---- Atomic group ---- */
 
       case CHAR_GREATER_THAN_SIGN:
       ATOMIC_GROUP:                          /* Come from (*atomic: */
@@ -4429,8 +4385,7 @@ while (ptr < ptrend)
       ptr++;
       break;
 
-
-      /* ---- Lookahead assertions ---- */
+/* ---- Lookahead assertions ---- */
 
       case CHAR_EQUALS_SIGN:
       POSITIVE_LOOK_AHEAD:                   /* Come from (*pla: */
@@ -4444,8 +4399,7 @@ while (ptr < ptrend)
       ptr++;
       goto POST_ASSERTION;
 
-
-      /* ---- Lookbehind assertions ---- */
+/* ---- Lookbehind assertions ---- */
 
       /* (?< followed by = or ! is a lookbehind assertion. Otherwise (?< is the
       start of the name of a capturing group. */
@@ -4492,8 +4446,7 @@ while (ptr < ptrend)
         }
       break;
 
-
-      /* ---- Define a named group ---- */
+/* ---- Define a named group ---- */
 
       /* A named group may be defined as (?'name') or (?<name>). In the latter
       case we jump to DEFINE_NAME from the disambiguation of (?< above with the
@@ -4597,8 +4550,7 @@ while (ptr < ptrend)
       }        /* End of (? switch */
     break;     /* End of ( handling */
 
-
-    /* ---- Branch terminators ---- */
+/* ---- Branch terminators ---- */
 
     /* Alternation: reset the capture count if we are in a (?| group. */
 
@@ -4633,9 +4585,7 @@ while (ptr < ptrend)
         *parsed_pattern++ = META_KET;
         }
 
-
-
-      if (top_nest == (nest_save *)(cb->start_workspace)) top_nest = NULL;
+if (top_nest == (nest_save *)(cb->start_workspace)) top_nest = NULL;
         else top_nest--;
       }
     if (nest_depth == 0)    /* Unmatched closing parenthesis */
@@ -4710,8 +4660,6 @@ BAD_VERSION_CONDITION:
 errorcode = ERR79;
 goto FAILED;
 }
-
-
 
 /*************************************************
 *       Find first significant opcode            *
@@ -4792,8 +4740,6 @@ for (;;)
 /* Control never reaches here */
 }
 
-
-
 #ifdef SUPPORT_UNICODE
 /*************************************************
 *           Get othercase range                  *
@@ -4857,8 +4803,6 @@ for (++c; c <= d; c++)
 return 0;
 }
 #endif  /* SUPPORT_UNICODE */
-
-
 
 /*************************************************
 * Add a character or range to a class (internal) *
@@ -5013,8 +4957,6 @@ if (end >= start)
 return n8;    /* Number of 8-bit characters */
 }
 
-
-
 #ifdef SUPPORT_UNICODE
 /*************************************************
 * Add a list of characters to a class (internal) *
@@ -5057,8 +4999,6 @@ return n8;
 }
 #endif
 
-
-
 /*************************************************
 *   External entry point for add range to class  *
 *************************************************/
@@ -5086,7 +5026,6 @@ cb->class_range_start = start;
 cb->class_range_end = end;
 return add_to_class_internal(classbits, uchardptr, options, cb, start, end);
 }
-
 
 /*************************************************
 *   External entry point for add list to class   *
@@ -5132,8 +5071,6 @@ while (p[0] < NOTACHAR)
 return n8;
 }
 
-
-
 /*************************************************
 *    Add characters not in a list to a class     *
 *************************************************/
@@ -5169,8 +5106,6 @@ while (p[0] < NOTACHAR)
   }
 return n8;
 }
-
-
 
 /*************************************************
 *    Find details of duplicate group names       *
@@ -5239,8 +5174,6 @@ for (;;)
 *countptr = count;
 return TRUE;
 }
-
-
 
 /*************************************************
 *           Compile one branch                   *
@@ -5461,8 +5394,7 @@ for (;; pptr++)
     *pptrptr = pptr;
     return okreturn;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle single-character metacharacters. In multiline mode, ^ disables
     the setting of any following char as a first character. */
 
@@ -5493,8 +5425,7 @@ for (;; pptr++)
     *code++ = ((options & PCRE2_DOTALL) != 0)? OP_ALLANY: OP_ANY;
     break;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Empty character classes are allowed if PCRE2_ALLOW_EMPTY_CLASS is set.
     Otherwise, an initial ']' is taken as a data character. When empty classes
     are allowed, [] must always fail, so generate OP_FAIL, whereas [^] must
@@ -5509,8 +5440,7 @@ for (;; pptr++)
     zerofirstcuflags = firstcuflags;
     break;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Non-empty character class. If the included characters are all < 256, we
     build a 32-byte bitmap of the permitted characters, except in the special
     case where there is only one such character. For negated classes, we build
@@ -5958,8 +5888,7 @@ for (;; pptr++)
           goto CONTINUE_CLASS;   /* Go get the next char in the class */
           }  /* End of range handling */
 
-
-        /* Handle a single character. */
+/* Handle a single character. */
 
         class_has_8bitchar +=
           add_to_class(classbits, &class_uchardata, options, cb, meta, meta);
@@ -6103,8 +6032,7 @@ for (;; pptr++)
     code += 32 / sizeof(PCRE2_UCHAR);
     break;  /* End of class processing */
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Deal with (*VERB)s. */
 
     /* Check for open captures before ACCEPT and close those that are within
@@ -6192,8 +6120,7 @@ for (;; pptr++)
     *code++ = 0;             /* Terminating zero */
     break;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle options change. The new setting must be passed back for use in
     subsequent branches. Reset the greedy defaults and the case value for
     firstcu and reqcu. */
@@ -6205,8 +6132,7 @@ for (;; pptr++)
     req_caseopt = ((options & PCRE2_CASELESS) != 0)? REQ_CASELESS : 0;
     break;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle conditional subpatterns. The case of (?(Rdigits) is ambiguous
     because it could be a numerical check on recursion, or a name check on a
     group's being set. The pre-pass sets up META_COND_RNUMBER as a name so that
@@ -6362,8 +6288,7 @@ for (;; pptr++)
     bravalue = OP_COND;
     goto GROUP_PROCESS_NOTE_EMPTY;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle all kinds of nested bracketed groups. The non-capturing,
     non-conditional cases are here; others come to GROUP_PROCESS via goto. */
 
@@ -6630,8 +6555,7 @@ for (;; pptr++)
 
     break;  /* End of nested group handling */
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle named backreferences and recursions. */
 
     case META_BACKREF_BYNAME:
@@ -6725,8 +6649,7 @@ for (;; pptr++)
       }
     break;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle a numerical callout. */
 
     case META_CALLOUT_NUMBER:
@@ -6738,8 +6661,7 @@ for (;; pptr++)
     code += PRIV(OP_lengths)[OP_CALLOUT];
     break;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle a callout with a string argument. In the pre-pass we just compute
     the length without generating anything. The length in pptr[3] includes both
     delimiters; in the actual compile only the first one is copied, but a
@@ -6802,8 +6724,7 @@ for (;; pptr++)
       }
     break;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle repetition. The different types are all sorted out in the parsing
     pass. */
 
@@ -7532,8 +7453,7 @@ for (;; pptr++)
       break;
       }  /* End of switch on different op_previous values */
 
-
-    /* If the character following a repeat is '+', possessive_quantifier is
+/* If the character following a repeat is '+', possessive_quantifier is
     TRUE. For some opcodes, there are special alternative opcodes for this
     case. For anything else, we wrap the entire repeated item inside OP_ONCE
     brackets. Logically, the '+' notation is just syntactic sugar, taken from
@@ -7637,16 +7557,14 @@ for (;; pptr++)
     cb->req_varyopt |= reqvary;
     break;
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle a 32-bit data character with a value greater than META_END. */
 
     case META_BIGVALUE:
     pptr++;
     goto NORMAL_CHAR;
 
-
-    /* ===============================================================*/
+/* ===============================================================*/
     /* Handle a back reference by number, which is the meta argument. The
     pattern offsets for back references to group numbers less than 10 are held
     in a special vector, to avoid using more than two parsed pattern elements
@@ -7697,8 +7615,7 @@ for (;; pptr++)
       }
     break;
 
-
-    /* ===============================================================*/
+/* ===============================================================*/
     /* Handle recursion by inserting the number of the called group (which is
     the meta argument) after OP_RECURSE. At the end of compiling the pattern is
     scanned and these numbers are replaced by offsets within the pattern. It is
@@ -7726,8 +7643,7 @@ for (;; pptr++)
     zerofirstcuflags = firstcuflags;
     break;
 
-
-    /* ===============================================================*/
+/* ===============================================================*/
     /* Handle capturing parentheses; the number is the meta argument. */
 
     case META_CAPTURE:
@@ -7737,8 +7653,7 @@ for (;; pptr++)
     cb->lastcapture = meta_arg;
     goto GROUP_PROCESS_NOTE_EMPTY;
 
-
-    /* ===============================================================*/
+/* ===============================================================*/
     /* Handle escape sequence items. For ones like \d, the ESC_values are
     arranged to be the same as the corresponding OP_values in the default case
     when PCRE2_UCP is not set (which is the only case in which they will appear
@@ -7817,8 +7732,7 @@ for (;; pptr++)
 #endif
     break;  /* End META_ESCAPE */
 
-
-    /* ===================================================================*/
+/* ===================================================================*/
     /* Handle an unrecognized meta value. A parsed pattern value less than
     META_END is a literal. Otherwise we have a problem. */
 
@@ -7947,8 +7861,6 @@ for (;; pptr++)
 
 /* Control never reaches here. */
 }
-
-
 
 /*************************************************
 *   Compile regex: a sequence of alternatives    *
@@ -8254,8 +8166,6 @@ for (;;)
 /* Control never reaches here */
 }
 
-
-
 /*************************************************
 *          Check for anchored pattern            *
 *************************************************/
@@ -8375,8 +8285,6 @@ do {
 while (*code == OP_ALT);   /* Loop for each alternative */
 return TRUE;
 }
-
-
 
 /*************************************************
 *         Check for starting with ^ or .*        *
@@ -8508,8 +8416,6 @@ do {
 while (*code == OP_ALT);  /* Loop for each alternative */
 return TRUE;
 }
-
-
 
 /*************************************************
 *   Scan compiled regex for recursion reference  *
@@ -8657,8 +8563,6 @@ for (;;)
   }
 }
 
-
-
 /*************************************************
 *    Check for asserted fixed first code unit    *
 *************************************************/
@@ -8767,8 +8671,6 @@ while (*code == OP_ALT);
 return c;
 }
 
-
-
 /*************************************************
 *     Add an entry to the name/number table      *
 *************************************************/
@@ -8827,8 +8729,6 @@ memory when saving serialized compiled patterns. */
 memset(slot + IMM2_SIZE + length, 0,
   CU2BYTES(cb->name_entry_size - length - IMM2_SIZE));
 }
-
-
 
 /*************************************************
 *             Skip in parsed pattern             *
@@ -8950,8 +8850,6 @@ for (;; pptr++)
 return pptr;
 }
 
-
-
 /*************************************************
 *       Find length of a parsed group            *
 *************************************************/
@@ -9017,8 +8915,6 @@ ISNOTFIXED:
 if (group > 0) cb->groupinfo[group] |= GI_NOT_FIXED_LENGTH;
 return -1;
 }
-
-
 
 /*************************************************
 *        Find length of a parsed branch          *
@@ -9415,8 +9311,6 @@ PARSED_SKIP_FAILED:
 return -1;
 }
 
-
-
 /*************************************************
 *        Set lengths in a lookbehind             *
 *************************************************/
@@ -9472,8 +9366,6 @@ while (*bptr == META_ALT);
 
 return TRUE;
 }
-
-
 
 /*************************************************
 *         Check parsed pattern lookbehinds       *
@@ -9634,8 +9526,6 @@ for (; *pptr != META_END; pptr++)
 return 0;
 }
 
-
-
 /*************************************************
 *     External function to compile a pattern     *
 *************************************************/
@@ -9705,7 +9595,6 @@ It needs to be 16-bit aligned for the preliminary parsing scan. */
 uint32_t c16workspace[C16_WORK_SIZE];
 PCRE2_UCHAR *cworkspace = (PCRE2_UCHAR *)c16workspace;
 
-
 /* -------------- Check arguments and set up the pattern ----------------- */
 
 /* There must be error code and offset pointers. */
@@ -9763,7 +9652,6 @@ if (patlen > ccontext->max_pattern_length)
 /* From here on, all returns from this function should end up going via the
 EXIT label. */
 
-
 /* ------------ Initialize the "static" compile data -------------- */
 
 tables = (ccontext->tables != NULL)? ccontext->tables : PRIV(default_tables);
@@ -9817,7 +9705,6 @@ references have enough space for the offset to be put into the parsed pattern.
 */
 
 for (i = 0; i < 10; i++) cb.small_ref_offset[i] = PCRE2_UNSET;
-
 
 /* --------------- Start looking at the pattern --------------- */
 

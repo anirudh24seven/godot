@@ -1,8 +1,6 @@
 
 /*  audio_effect_record.cpp                                              */
 
-
-
 #include "audio_effect_record.h"
 
 void AudioEffectRecordInstance::process(const AudioFrame *p_src_frames, AudioFrame *p_dst_frames, int p_frame_count) {

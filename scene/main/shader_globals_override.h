@@ -1,8 +1,6 @@
 
 /*  shader_globals_override.h                                            */
 
-
-
 #ifndef SHADER_GLOBALS_OVERRIDE_H
 #define SHADER_GLOBALS_OVERRIDE_H
 

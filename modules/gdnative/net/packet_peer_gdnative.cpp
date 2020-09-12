@@ -1,8 +1,6 @@
 
 /*  packet_peer_gdnative.cpp                                             */
 
-
-
 #include "packet_peer_gdnative.h"
 
 PacketPeerGDNative::PacketPeerGDNative() {

@@ -1,8 +1,6 @@
 
 /*  node_3d_editor_plugin.h                                              */
 
-
-
 #ifndef SPATIAL_EDITOR_PLUGIN_H
 #define SPATIAL_EDITOR_PLUGIN_H
 

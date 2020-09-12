@@ -34,7 +34,6 @@
 #define ETC_UNIX (0)
 #endif
 
-
 // short names for common types
 #include <stdint.h>
 typedef int8_t i8;

@@ -1,8 +1,6 @@
 
 /*  lightmapper_rd.h                                                     */
 
-
-
 #ifndef LIGHTMAPPER_RD_H
 #define LIGHTMAPPER_RD_H
 

@@ -492,7 +492,6 @@ struct btOptimizedBvhNodeDoubleData
 	char m_pad[4];
 };
 
-
 struct btQuantizedBvhNodeData
 {
 	unsigned short m_quantizedAabbMin[3];

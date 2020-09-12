@@ -166,7 +166,6 @@ void btDeformableBodySolver::updateEnergy(btScalar scale)
     updateState();
 }
 
-
 btScalar btDeformableBodySolver::computeDescentStep(TVStack& ddv, const TVStack& residual, bool verbose)
 {
     m_cg.solve(*m_objective, ddv, residual, false);
@@ -383,7 +382,6 @@ bool btDeformableBodySolver::updateNodes()
     return false;
 }
 
-
 void btDeformableBodySolver::predictMotion(btScalar solverdt)
 {
     // apply explicit forces to velocity
@@ -458,7 +456,6 @@ void btDeformableBodySolver::predictDeformableMotion(btSoftBody* psb, btScalar d
 //    psb->m_ndbvt.optimizeIncremental(1);
 //    psb->m_fdbvt.optimizeIncremental(1);
 }
-
 
 void btDeformableBodySolver::updateSoftBodies()
 {

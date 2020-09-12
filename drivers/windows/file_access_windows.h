@@ -1,8 +1,6 @@
 
 /*  file_access_windows.h                                                */
 
-
-
 #ifndef FILE_ACCESS_WINDOWS_H
 #define FILE_ACCESS_WINDOWS_H
 

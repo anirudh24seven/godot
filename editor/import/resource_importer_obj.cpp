@@ -1,8 +1,6 @@
 
 /*  resource_importer_obj.cpp                                            */
 
-
-
 #include "resource_importer_obj.h"
 
 #include "core/io/resource_saver.h"

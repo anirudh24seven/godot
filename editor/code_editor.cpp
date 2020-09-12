@@ -1,8 +1,6 @@
 
 /*  code_editor.cpp                                                      */
 
-
-
 #include "code_editor.h"
 
 #include "core/input/input.h"

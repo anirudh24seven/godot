@@ -43,7 +43,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *  @brief Implementation of the aiProcess_OptimizGraph step
  */
 
-
 #ifndef ASSIMP_BUILD_NO_OPTIMIZEGRAPH_PROCESS
 
 #include "OptimizeGraph.h"

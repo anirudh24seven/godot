@@ -1,8 +1,6 @@
 
 /*  joypad_osx.h                                                         */
 
-
-
 #ifndef JOYPADOSX_H
 #define JOYPADOSX_H
 

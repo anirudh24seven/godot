@@ -116,8 +116,7 @@ void res0_free_look(vorbis_look_residue *i){
             (float)(look->postbits+look->phrasebits)/look->frames);*/
 #endif
 
-
-    /*vorbis_info_residue0 *info=look->info;
+/*vorbis_info_residue0 *info=look->info;
 
     fprintf(stderr,
             "%ld frames encoded in %ld phrasebits and %ld residue bits "
@@ -159,7 +158,6 @@ static int icount(unsigned int v){
   }
   return(ret);
 }
-
 
 void res0_pack(vorbis_info_residue *vr,oggpack_buffer *opb){
   vorbis_info_residue0 *info=(vorbis_info_residue0 *)vr;
@@ -853,7 +851,6 @@ int res2_inverse(vorbis_block *vb,vorbis_look_residue *vl,
  eopbreak:
   return(0);
 }
-
 
 const vorbis_func_residue residue0_exportbundle={
   NULL,

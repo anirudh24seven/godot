@@ -1,8 +1,6 @@
 
 /*  texture_loader_dds.cpp                                               */
 
-
-
 #include "texture_loader_dds.h"
 
 #include "core/os/file_access.h"

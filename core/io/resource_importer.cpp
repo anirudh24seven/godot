@@ -1,8 +1,6 @@
 
 /*  resource_importer.cpp                                                */
 
-
-
 #include "resource_importer.h"
 
 #include "core/os/os.h"

@@ -1,8 +1,6 @@
 
 /*  area_3d.cpp                                                          */
 
-
-
 #include "area_3d.h"
 
 #include "scene/scene_string_names.h"

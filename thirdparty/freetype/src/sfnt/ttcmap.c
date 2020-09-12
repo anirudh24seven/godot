@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 
@@ -28,8 +27,7 @@
 #include "ttcmap.h"
 #include "ttpost.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -37,7 +35,6 @@
    */
 #undef  FT_COMPONENT
 #define FT_COMPONENT  ttcmap
-
 
 #define TT_PEEK_SHORT   FT_PEEK_SHORT
 #define TT_PEEK_USHORT  FT_PEEK_USHORT
@@ -51,15 +48,13 @@
 #define TT_NEXT_LONG    FT_NEXT_LONG
 #define TT_NEXT_ULONG   FT_NEXT_ULONG
 
-
-  /* Too large glyph index return values are caught in `FT_Get_Char_Index' */
+/* Too large glyph index return values are caught in `FT_Get_Char_Index' */
   /* and `FT_Get_Next_Char' (the latter calls the internal `next' function */
   /* again in this case).  To mark character code return values as invalid */
   /* it is sufficient to set the corresponding glyph index return value to */
   /* zero.                                                                 */
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap_init( TT_CMap   cmap,
                 FT_Byte*  table )
   {
@@ -67,16 +62,11 @@
     return FT_Err_Ok;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                           FORMAT 0                            *****/
   /*****                                                               *****/
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TABLE OVERVIEW
    * --------------
@@ -99,8 +89,7 @@
     FT_Byte*  p;
     FT_UInt   length;
 
-
-    if ( table + 2 + 2 > valid->limit )
+if ( table + 2 + 2 > valid->limit )
       FT_INVALID_TOO_SHORT;
 
     p      = table + 2;           /* skip format */
@@ -114,8 +103,7 @@
     {
       FT_UInt  n, idx;
 
-
-      p = table + 6;
+p = table + 6;
       for ( n = 0; n < 256; n++ )
       {
         idx = *p++;
@@ -127,19 +115,16 @@
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap0_char_index( TT_CMap    cmap,
                        FT_UInt32  char_code )
   {
     FT_Byte*  table = cmap->data;
 
-
-    return char_code < 256 ? table[6 + char_code] : 0;
+return char_code < 256 ? table[6 + char_code] : 0;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap0_char_next( TT_CMap     cmap,
                       FT_UInt32  *pchar_code )
   {
@@ -148,8 +133,7 @@
     FT_UInt32  result   = 0;
     FT_UInt    gindex   = 0;
 
-
-    table += 6;  /* go to glyph IDs */
+table += 6;  /* go to glyph IDs */
     while ( ++charcode < 256 )
     {
       gindex = table[charcode];
@@ -164,22 +148,19 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap0_get_info( TT_CMap       cmap,
                      TT_CMapInfo  *cmap_info )
   {
     FT_Byte*  p = cmap->data + 4;
 
-
-    cmap_info->format   = 0;
+cmap_info->format   = 0;
     cmap_info->language = (FT_ULong)TT_PEEK_USHORT( p );
 
     return FT_Err_Ok;
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap0_class_rec,
 
       sizeof ( TT_CMapRec ),
@@ -202,10 +183,7 @@
 
 #endif /* TT_CONFIG_CMAP_FORMAT_0 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          FORMAT 2                             *****/
   /*****                                                               *****/
   /***** This is used for certain CJK encodings that encode text in a  *****/
@@ -235,9 +213,7 @@
   /***** arguments.                                                    *****/
   /*****                                                               *****/
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TABLE OVERVIEW
    * --------------
@@ -303,8 +279,7 @@
     FT_Byte*  subs;        /* sub-headers    */
     FT_Byte*  glyph_ids;   /* glyph ID array */
 
-
-    if ( table + 2 + 2 > valid->limit )
+if ( table + 2 + 2 > valid->limit )
       FT_INVALID_TOO_SHORT;
 
     p      = table + 2;           /* skip format */
@@ -322,8 +297,7 @@
     {
       FT_UInt  idx = TT_NEXT_USHORT( p );
 
-
-      /* value must be multiple of 8 */
+/* value must be multiple of 8 */
       if ( valid->level >= FT_VALIDATE_PARANOID && ( idx & 7 ) != 0 )
         FT_INVALID_DATA;
 
@@ -346,8 +320,7 @@
       FT_UInt  first_code, code_count, offset;
       FT_Int   delta;
 
-
-      first_code = TT_NEXT_USHORT( p );
+first_code = TT_NEXT_USHORT( p );
       code_count = TT_NEXT_USHORT( p );
       delta      = TT_NEXT_SHORT( p );
       offset     = TT_NEXT_USHORT( p );
@@ -368,8 +341,7 @@
       {
         FT_Byte*  ids;
 
-
-        ids = p - 2 + offset;
+ids = p - 2 + offset;
         if ( ids < glyph_ids || ids + code_count * 2 > table + length )
           FT_INVALID_OFFSET;
 
@@ -379,8 +351,7 @@
           FT_Byte*  limit = p + code_count * 2;
           FT_UInt   idx;
 
-
-          for ( ; p < limit; )
+for ( ; p < limit; )
           {
             idx = TT_NEXT_USHORT( p );
             if ( idx != 0 )
@@ -397,8 +368,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* return sub header corresponding to a given character code */
+/* return sub header corresponding to a given character code */
   /* NULL on invalid charcode                                  */
   static FT_Byte*
   tt_cmap2_get_subheader( FT_Byte*   table,
@@ -406,8 +376,7 @@
   {
     FT_Byte*  result = NULL;
 
-
-    if ( char_code < 0x10000UL )
+if ( char_code < 0x10000UL )
     {
       FT_UInt   char_lo = (FT_UInt)( char_code & 0xFF );
       FT_UInt   char_hi = (FT_UInt)( char_code >> 8 );
@@ -415,8 +384,7 @@
       FT_Byte*  subs    = table + 518;  /* subheaders table */
       FT_Byte*  sub;
 
-
-      if ( char_hi == 0 )
+if ( char_hi == 0 )
       {
         /* an 8-bit character code -- we use subHeader 0 in this case */
         /* to test whether the character code is in the charmap       */
@@ -452,8 +420,7 @@
     return result;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap2_char_index( TT_CMap    cmap,
                        FT_UInt32  char_code )
   {
@@ -461,8 +428,7 @@
     FT_UInt   result  = 0;
     FT_Byte*  subheader;
 
-
-    subheader = tt_cmap2_get_subheader( table, char_code );
+subheader = tt_cmap2_get_subheader( table, char_code );
     if ( subheader )
     {
       FT_Byte*  p   = subheader;
@@ -471,8 +437,7 @@
       FT_Int    delta;
       FT_UInt   offset;
 
-
-      start  = TT_NEXT_USHORT( p );
+start  = TT_NEXT_USHORT( p );
       count  = TT_NEXT_USHORT( p );
       delta  = TT_NEXT_SHORT ( p );
       offset = TT_PEEK_USHORT( p );
@@ -491,8 +456,7 @@
     return result;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap2_char_next( TT_CMap     cmap,
                       FT_UInt32  *pcharcode )
   {
@@ -502,8 +466,7 @@
     FT_UInt32  charcode = *pcharcode + 1;
     FT_Byte*   subheader;
 
-
-    while ( charcode < 0x10000UL )
+while ( charcode < 0x10000UL )
     {
       subheader = tt_cmap2_get_subheader( table, charcode );
       if ( subheader )
@@ -516,8 +479,7 @@
         FT_UInt   char_lo = (FT_UInt)( charcode & 0xFF );
         FT_UInt   pos, idx;
 
-
-        if ( char_lo >= start + count && charcode <= 0xFF )
+if ( char_lo >= start + count && charcode <= 0xFF )
         {
           /* this happens only for a malformed cmap */
           charcode = 0x100;
@@ -578,22 +540,19 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap2_get_info( TT_CMap       cmap,
                      TT_CMapInfo  *cmap_info )
   {
     FT_Byte*  p = cmap->data + 4;
 
-
-    cmap_info->format   = 2;
+cmap_info->format   = 2;
     cmap_info->language = (FT_ULong)TT_PEEK_USHORT( p );
 
     return FT_Err_Ok;
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap2_class_rec,
 
       sizeof ( TT_CMapRec ),
@@ -616,16 +575,11 @@
 
 #endif /* TT_CONFIG_CMAP_FORMAT_2 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                           FORMAT 4                            *****/
   /*****                                                               *****/
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TABLE OVERVIEW
    * --------------
@@ -705,15 +659,13 @@
 
   } TT_CMap4Rec, *TT_CMap4;
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap4_init( TT_CMap4  cmap,
                  FT_Byte*  table )
   {
     FT_Byte*  p;
 
-
-    cmap->cmap.data    = table;
+cmap->cmap.data    = table;
 
     p                  = table + 6;
     cmap->num_ranges   = FT_PEEK_USHORT( p ) >> 1;
@@ -723,8 +675,7 @@
     return FT_Err_Ok;
   }
 
-
-  static FT_Int
+static FT_Int
   tt_cmap4_set_range( TT_CMap4  cmap,
                       FT_UInt   range_index )
   {
@@ -732,13 +683,11 @@
     FT_Byte*  p;
     FT_UInt   num_ranges = cmap->num_ranges;
 
-
-    while ( range_index < num_ranges )
+while ( range_index < num_ranges )
     {
       FT_UInt  offset;
 
-
-      p             = table + 14 + range_index * 2;
+p             = table + 14 + range_index * 2;
       cmap->cur_end = FT_PEEK_USHORT( p );
 
       p              += 2 + num_ranges * 2;
@@ -759,8 +708,7 @@
         TT_Face   face  = (TT_Face)cmap->cmap.cmap.charmap.face;
         FT_Byte*  limit = face->cmap_table + face->cmap_size;
 
-
-        if ( offset && p + offset + 2 > limit )
+if ( offset && p + offset + 2 > limit )
         {
           cmap->cur_delta = 1;
           offset          = 0;
@@ -781,8 +729,7 @@
     return -1;
   }
 
-
-  /* search the index of the charcode next to cmap->cur_charcode; */
+/* search the index of the charcode next to cmap->cur_charcode; */
   /* caller should call tt_cmap4_set_range with proper range      */
   /* before calling this function                                 */
   /*                                                              */
@@ -794,8 +741,7 @@
 
     FT_UInt  charcode;
 
-
-    if ( cmap->cur_charcode >= 0xFFFFUL )
+if ( cmap->cur_charcode >= 0xFFFFUL )
       goto Fail;
 
     charcode = (FT_UInt)cmap->cur_charcode + 1;
@@ -809,15 +755,13 @@
       FT_UInt   end    = cmap->cur_end;
       FT_Int    delta  = cmap->cur_delta;
 
-
-      if ( charcode <= end )
+if ( charcode <= end )
       {
         if ( values )
         {
           FT_Byte*  p = values + 2 * ( charcode - cmap->cur_start );
 
-
-          /* if p > limit, the whole segment is invalid */
+/* if p > limit, the whole segment is invalid */
           if ( p > limit )
             goto Next_Segment;
 
@@ -825,8 +769,7 @@
           {
             FT_UInt  gindex = FT_NEXT_USHORT( p );
 
-
-            if ( gindex )
+if ( gindex )
             {
               gindex = (FT_UInt)( (FT_Int)gindex + delta ) & 0xFFFFU;
               if ( gindex )
@@ -844,8 +787,7 @@
           {
             FT_UInt  gindex = (FT_UInt)( (FT_Int)charcode + delta ) & 0xFFFFU;
 
-
-            if ( gindex >= (FT_UInt)face->root.num_glyphs )
+if ( gindex >= (FT_UInt)face->root.num_glyphs )
             {
               /* we have an invalid glyph index; if there is an overflow, */
               /* we can adjust `charcode', otherwise the whole segment is */
@@ -888,8 +830,7 @@
     cmap->cur_gindex   = 0;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap4_validate( FT_Byte*      table,
                      FT_Validator  valid )
   {
@@ -900,8 +841,7 @@
     FT_UInt   num_segs;
     FT_Error  error = FT_Err_Ok;
 
-
-    if ( table + 2 + 2 > valid->limit )
+if ( table + 2 + 2 > valid->limit )
       FT_INVALID_TOO_SHORT;
 
     p      = table + 2;           /* skip format */
@@ -944,8 +884,7 @@
       FT_UInt  entry_selector = TT_NEXT_USHORT( p );
       FT_UInt  range_shift    = TT_NEXT_USHORT( p );
 
-
-      if ( ( search_range | range_shift ) & 1 )  /* must be even values */
+if ( ( search_range | range_shift ) & 1 )  /* must be even values */
         FT_INVALID_DATA;
 
       search_range /= 2;
@@ -983,8 +922,7 @@
       FT_Byte*  p_delta   = deltas;
       FT_Byte*  p_offset  = offsets;
 
-
-      for ( n = 0; n < num_segs; n++ )
+for ( n = 0; n < num_segs; n++ )
       {
         p      = p_offset;
         start  = TT_NEXT_USHORT( p_start );
@@ -1049,8 +987,7 @@
           {
             FT_UInt  i, idx;
 
-
-            for ( i = start; i < end; i++ )
+for ( i = start; i < end; i++ )
             {
               idx = FT_NEXT_USHORT( p );
               if ( idx != 0 )
@@ -1082,8 +1019,7 @@
     return error;
   }
 
-
-  static FT_UInt
+static FT_UInt
   tt_cmap4_char_map_linear( TT_CMap     cmap,
                             FT_UInt32*  pcharcode,
                             FT_Bool     next )
@@ -1091,8 +1027,7 @@
     TT_Face   face  = (TT_Face)cmap->cmap.charmap.face;
     FT_Byte*  limit = face->cmap_table + face->cmap_size;
 
-
-    FT_UInt    num_segs2, start, end, offset;
+FT_UInt    num_segs2, start, end, offset;
     FT_Int     delta;
     FT_UInt    i, num_segs;
     FT_UInt32  charcode = *pcharcode;
@@ -1100,8 +1035,7 @@
     FT_Byte*   p;
     FT_Byte*   q;
 
-
-    p = cmap->data + 6;
+p = cmap->data + 6;
     num_segs2 = FT_PAD_FLOOR( TT_PEEK_USHORT( p ), 2 );
 
     num_segs = num_segs2 >> 1;
@@ -1137,8 +1071,7 @@
       {
         FT_Byte*  r;
 
-
-        r       = q - 2 + num_segs2;
+r       = q - 2 + num_segs2;
         delta   = TT_PEEK_SHORT( r );
         r      += num_segs2;
         offset  = TT_PEEK_USHORT( r );
@@ -1217,8 +1150,7 @@
     return gindex;
   }
 
-
-  static FT_UInt
+static FT_UInt
   tt_cmap4_char_map_binary( TT_CMap     cmap,
                             FT_UInt32*  pcharcode,
                             FT_Bool     next )
@@ -1233,8 +1165,7 @@
     FT_UInt   gindex   = 0;
     FT_Byte*  p;
 
-
-    p = cmap->data + 6;
+p = cmap->data + 6;
     num_segs2 = FT_PAD_FLOOR( TT_PEEK_USHORT( p ), 2 );
 
     if ( !num_segs2 )
@@ -1289,8 +1220,7 @@
         {
           FT_UInt  i;
 
-
-          /* call the current segment `max' */
+/* call the current segment `max' */
           max = mid;
 
           if ( offset == 0xFFFFU )
@@ -1302,8 +1232,7 @@
             FT_UInt   prev_end;
             FT_Byte*  old_p;
 
-
-            old_p    = p;
+old_p    = p;
             p        = cmap->data + 14 + ( i - 1 ) * 2;
             prev_end = TT_PEEK_USHORT( p );
 
@@ -1347,8 +1276,7 @@
             {
               FT_UInt  next_end, next_start;
 
-
-              p          = cmap->data + 14 + i * 2;
+p          = cmap->data + 14 + i * 2;
               next_end   = TT_PEEK_USHORT( p );
               p         += 2 + num_segs2;
               next_start = TT_PEEK_USHORT( p );
@@ -1441,8 +1369,7 @@
     {
       TT_CMap4  cmap4 = (TT_CMap4)cmap;
 
-
-      /* if `charcode' is not in any segment, then `mid' is */
+/* if `charcode' is not in any segment, then `mid' is */
       /* the segment nearest to `charcode'                  */
 
       if ( charcode > end )
@@ -1478,8 +1405,7 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap4_char_index( TT_CMap    cmap,
                        FT_UInt32  char_code )
   {
@@ -1492,15 +1418,13 @@
       return tt_cmap4_char_map_binary( cmap, &char_code, 0 );
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap4_char_next( TT_CMap     cmap,
                       FT_UInt32  *pchar_code )
   {
     FT_UInt  gindex;
 
-
-    if ( *pchar_code >= 0xFFFFU )
+if ( *pchar_code >= 0xFFFFU )
       return 0;
 
     if ( cmap->flags & TT_CMAP_FLAG_UNSORTED )
@@ -1509,8 +1433,7 @@
     {
       TT_CMap4  cmap4 = (TT_CMap4)cmap;
 
-
-      /* no need to search */
+/* no need to search */
       if ( *pchar_code == cmap4->cur_charcode )
       {
         tt_cmap4_next( cmap4 );
@@ -1525,22 +1448,19 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap4_get_info( TT_CMap       cmap,
                      TT_CMapInfo  *cmap_info )
   {
     FT_Byte*  p = cmap->data + 4;
 
-
-    cmap_info->format   = 4;
+cmap_info->format   = 4;
     cmap_info->language = (FT_ULong)TT_PEEK_USHORT( p );
 
     return FT_Err_Ok;
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap4_class_rec,
 
       sizeof ( TT_CMap4Rec ),
@@ -1563,16 +1483,11 @@
 
 #endif /* TT_CONFIG_CMAP_FORMAT_4 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          FORMAT 6                             *****/
   /*****                                                               *****/
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TABLE OVERVIEW
    * --------------
@@ -1599,8 +1514,7 @@
     FT_Byte*  p;
     FT_UInt   length, count;
 
-
-    if ( table + 10 > valid->limit )
+if ( table + 10 > valid->limit )
       FT_INVALID_TOO_SHORT;
 
     p      = table + 2;
@@ -1617,8 +1531,7 @@
     {
       FT_UInt  gindex;
 
-
-      for ( ; count > 0; count-- )
+for ( ; count > 0; count-- )
       {
         gindex = TT_NEXT_USHORT( p );
         if ( gindex >= TT_VALID_GLYPH_COUNT( valid ) )
@@ -1629,8 +1542,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap6_char_index( TT_CMap    cmap,
                        FT_UInt32  char_code )
   {
@@ -1641,8 +1553,7 @@
     FT_UInt   count  = TT_NEXT_USHORT( p );
     FT_UInt   idx    = (FT_UInt)( char_code - start );
 
-
-    if ( idx < count )
+if ( idx < count )
     {
       p += 2 * idx;
       result = TT_PEEK_USHORT( p );
@@ -1651,8 +1562,7 @@
     return result;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap6_char_next( TT_CMap     cmap,
                       FT_UInt32  *pchar_code )
   {
@@ -1666,8 +1576,7 @@
     FT_UInt    count     = TT_NEXT_USHORT( p );
     FT_UInt    idx;
 
-
-    if ( char_code >= 0x10000UL )
+if ( char_code >= 0x10000UL )
       return 0;
 
     if ( char_code < start )
@@ -1695,22 +1604,19 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap6_get_info( TT_CMap       cmap,
                      TT_CMapInfo  *cmap_info )
   {
     FT_Byte*  p = cmap->data + 4;
 
-
-    cmap_info->format   = 6;
+cmap_info->format   = 6;
     cmap_info->language = (FT_ULong)TT_PEEK_USHORT( p );
 
     return FT_Err_Ok;
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap6_class_rec,
 
       sizeof ( TT_CMapRec ),
@@ -1733,10 +1639,7 @@
 
 #endif /* TT_CONFIG_CMAP_FORMAT_6 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          FORMAT 8                             *****/
   /*****                                                               *****/
   /***** It is hard to completely understand what the OpenType spec    *****/
@@ -1765,9 +1668,7 @@
   /*****   `is32[char_hi] != 0' and `is32[char_lo] != 0'.              *****/
   /*****                                                               *****/
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TABLE OVERVIEW
    * --------------
@@ -1799,8 +1700,7 @@
     FT_UInt32  length;
     FT_UInt32  num_groups;
 
-
-    if ( table + 16 + 8192 > valid->limit )
+if ( table + 16 + 8192 > valid->limit )
       FT_INVALID_TOO_SHORT;
 
     length = TT_NEXT_ULONG( p );
@@ -1819,13 +1719,11 @@
     {
       FT_UInt32  n, start, end, start_id, count, last = 0;
 
-
-      for ( n = 0; n < num_groups; n++ )
+for ( n = 0; n < num_groups; n++ )
       {
         FT_UInt   hi, lo;
 
-
-        start    = TT_NEXT_ULONG( p );
+start    = TT_NEXT_ULONG( p );
         end      = TT_NEXT_ULONG( p );
         start_id = TT_NEXT_ULONG( p );
 
@@ -1839,8 +1737,7 @@
         {
           FT_UInt32  d = end - start;
 
-
-          /* start_id + end - start >= TT_VALID_GLYPH_COUNT( valid ) ? */
+/* start_id + end - start >= TT_VALID_GLYPH_COUNT( valid ) ? */
           if ( d > TT_VALID_GLYPH_COUNT( valid )             ||
                start_id >= TT_VALID_GLYPH_COUNT( valid ) - d )
             FT_INVALID_GLYPH_ID;
@@ -1889,8 +1786,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap8_char_index( TT_CMap    cmap,
                        FT_UInt32  char_code )
   {
@@ -1900,8 +1796,7 @@
     FT_UInt32  num_groups = TT_NEXT_ULONG( p );
     FT_UInt32  start, end, start_id;
 
-
-    for ( ; num_groups > 0; num_groups-- )
+for ( ; num_groups > 0; num_groups-- )
     {
       start    = TT_NEXT_ULONG( p );
       end      = TT_NEXT_ULONG( p );
@@ -1922,8 +1817,7 @@
     return result;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap8_char_next( TT_CMap     cmap,
                       FT_UInt32  *pchar_code )
   {
@@ -1936,8 +1830,7 @@
     FT_UInt32  num_groups = TT_NEXT_ULONG( p );
     FT_UInt32  start, end, start_id;
 
-
-    if ( *pchar_code >= 0xFFFFFFFFUL )
+if ( *pchar_code >= 0xFFFFFFFFUL )
       return 0;
 
     char_code = *pchar_code + 1;
@@ -1989,22 +1882,19 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap8_get_info( TT_CMap       cmap,
                      TT_CMapInfo  *cmap_info )
   {
     FT_Byte*  p = cmap->data + 8;
 
-
-    cmap_info->format   = 8;
+cmap_info->format   = 8;
     cmap_info->language = (FT_ULong)TT_PEEK_ULONG( p );
 
     return FT_Err_Ok;
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap8_class_rec,
 
       sizeof ( TT_CMapRec ),
@@ -2027,16 +1917,11 @@
 
 #endif /* TT_CONFIG_CMAP_FORMAT_8 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          FORMAT 10                            *****/
   /*****                                                               *****/
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TABLE OVERVIEW
    * --------------
@@ -2062,8 +1947,7 @@
     FT_Byte*  p = table + 4;
     FT_ULong  length, count;
 
-
-    if ( table + 20 > valid->limit )
+if ( table + 20 > valid->limit )
       FT_INVALID_TOO_SHORT;
 
     length = TT_NEXT_ULONG( p );
@@ -2081,8 +1965,7 @@
     {
       FT_UInt  gindex;
 
-
-      for ( ; count > 0; count-- )
+for ( ; count > 0; count-- )
       {
         gindex = TT_NEXT_USHORT( p );
         if ( gindex >= TT_VALID_GLYPH_COUNT( valid ) )
@@ -2093,8 +1976,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap10_char_index( TT_CMap    cmap,
                         FT_UInt32  char_code )
   {
@@ -2105,8 +1987,7 @@
     FT_UInt32  count  = TT_NEXT_ULONG( p );
     FT_UInt32  idx;
 
-
-    if ( char_code < start )
+if ( char_code < start )
       return 0;
 
     idx = char_code - start;
@@ -2120,8 +2001,7 @@
     return result;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap10_char_next( TT_CMap     cmap,
                        FT_UInt32  *pchar_code )
   {
@@ -2133,8 +2013,7 @@
     FT_UInt32  count     = TT_NEXT_ULONG( p );
     FT_UInt32  idx;
 
-
-    if ( *pchar_code >= 0xFFFFFFFFUL )
+if ( *pchar_code >= 0xFFFFFFFFUL )
       return 0;
 
     char_code = *pchar_code + 1;
@@ -2161,22 +2040,19 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap10_get_info( TT_CMap       cmap,
                       TT_CMapInfo  *cmap_info )
   {
     FT_Byte*  p = cmap->data + 8;
 
-
-    cmap_info->format   = 10;
+cmap_info->format   = 10;
     cmap_info->language = (FT_ULong)TT_PEEK_ULONG( p );
 
     return FT_Err_Ok;
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap10_class_rec,
 
       sizeof ( TT_CMapRec ),
@@ -2199,16 +2075,11 @@
 
 #endif /* TT_CONFIG_CMAP_FORMAT_10 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          FORMAT 12                            *****/
   /*****                                                               *****/
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TABLE OVERVIEW
    * --------------
@@ -2242,8 +2113,7 @@
 
   } TT_CMap12Rec, *TT_CMap12;
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap12_init( TT_CMap12  cmap,
                   FT_Byte*   table )
   {
@@ -2257,8 +2127,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap12_validate( FT_Byte*      table,
                       FT_Validator  valid )
   {
@@ -2266,8 +2135,7 @@
     FT_ULong  length;
     FT_ULong  num_groups;
 
-
-    if ( table + 16 > valid->limit )
+if ( table + 16 > valid->limit )
       FT_INVALID_TOO_SHORT;
 
     p      = table + 4;
@@ -2286,8 +2154,7 @@
     {
       FT_ULong  n, start, end, start_id, last = 0;
 
-
-      for ( n = 0; n < num_groups; n++ )
+for ( n = 0; n < num_groups; n++ )
       {
         start    = TT_NEXT_ULONG( p );
         end      = TT_NEXT_ULONG( p );
@@ -2303,8 +2170,7 @@
         {
           FT_UInt32  d = end - start;
 
-
-          /* start_id + end - start >= TT_VALID_GLYPH_COUNT( valid ) ? */
+/* start_id + end - start >= TT_VALID_GLYPH_COUNT( valid ) ? */
           if ( d > TT_VALID_GLYPH_COUNT( valid )             ||
                start_id >= TT_VALID_GLYPH_COUNT( valid ) - d )
             FT_INVALID_GLYPH_ID;
@@ -2317,8 +2183,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* search the index of the charcode next to cmap->cur_charcode */
+/* search the index of the charcode next to cmap->cur_charcode */
   /* cmap->cur_group should be set up properly by caller         */
   /*                                                             */
   static void
@@ -2330,8 +2195,7 @@
     FT_ULong  n;
     FT_UInt   gindex;
 
-
-    if ( cmap->cur_charcode >= 0xFFFFFFFFUL )
+if ( cmap->cur_charcode >= 0xFFFFFFFFUL )
       goto Fail;
 
     char_code = cmap->cur_charcode + 1;
@@ -2382,8 +2246,7 @@
     cmap->valid = 0;
   }
 
-
-  static FT_UInt
+static FT_UInt
   tt_cmap12_char_map_binary( TT_CMap     cmap,
                              FT_UInt32*  pchar_code,
                              FT_Bool     next )
@@ -2395,8 +2258,7 @@
     FT_UInt32  start, end, start_id;
     FT_UInt32  max, min, mid;
 
-
-    if ( !num_groups )
+if ( !num_groups )
       return 0;
 
     /* make compiler happy */
@@ -2445,8 +2307,7 @@
       FT_Face    face   = cmap->cmap.charmap.face;
       TT_CMap12  cmap12 = (TT_CMap12)cmap;
 
-
-      /* if `char_code' is not in any group, then `mid' is */
+/* if `char_code' is not in any group, then `mid' is */
       /* the group nearest to `char_code'                  */
 
       if ( char_code > end )
@@ -2479,24 +2340,21 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap12_char_index( TT_CMap    cmap,
                         FT_UInt32  char_code )
   {
     return tt_cmap12_char_map_binary( cmap, &char_code, 0 );
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap12_char_next( TT_CMap     cmap,
                        FT_UInt32  *pchar_code )
   {
     TT_CMap12  cmap12 = (TT_CMap12)cmap;
     FT_UInt    gindex;
 
-
-    /* no need to search */
+/* no need to search */
     if ( cmap12->valid && cmap12->cur_charcode == *pchar_code )
     {
       tt_cmap12_next( cmap12 );
@@ -2514,22 +2372,19 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap12_get_info( TT_CMap       cmap,
                       TT_CMapInfo  *cmap_info )
   {
     FT_Byte*  p = cmap->data + 8;
 
-
-    cmap_info->format   = 12;
+cmap_info->format   = 12;
     cmap_info->language = (FT_ULong)TT_PEEK_ULONG( p );
 
     return FT_Err_Ok;
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap12_class_rec,
 
       sizeof ( TT_CMap12Rec ),
@@ -2552,16 +2407,11 @@
 
 #endif /* TT_CONFIG_CMAP_FORMAT_12 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          FORMAT 13                            *****/
   /*****                                                               *****/
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TABLE OVERVIEW
    * --------------
@@ -2595,8 +2445,7 @@
 
   } TT_CMap13Rec, *TT_CMap13;
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap13_init( TT_CMap13  cmap,
                   FT_Byte*   table )
   {
@@ -2610,8 +2459,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap13_validate( FT_Byte*      table,
                       FT_Validator  valid )
   {
@@ -2619,8 +2467,7 @@
     FT_ULong  length;
     FT_ULong  num_groups;
 
-
-    if ( table + 16 > valid->limit )
+if ( table + 16 > valid->limit )
       FT_INVALID_TOO_SHORT;
 
     p      = table + 4;
@@ -2639,8 +2486,7 @@
     {
       FT_ULong  n, start, end, glyph_id, last = 0;
 
-
-      for ( n = 0; n < num_groups; n++ )
+for ( n = 0; n < num_groups; n++ )
       {
         start    = TT_NEXT_ULONG( p );
         end      = TT_NEXT_ULONG( p );
@@ -2665,8 +2511,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* search the index of the charcode next to cmap->cur_charcode */
+/* search the index of the charcode next to cmap->cur_charcode */
   /* cmap->cur_group should be set up properly by caller         */
   /*                                                             */
   static void
@@ -2678,8 +2523,7 @@
     FT_ULong  n;
     FT_UInt   gindex;
 
-
-    if ( cmap->cur_charcode >= 0xFFFFFFFFUL )
+if ( cmap->cur_charcode >= 0xFFFFFFFFUL )
       goto Fail;
 
     char_code = cmap->cur_charcode + 1;
@@ -2713,8 +2557,7 @@
     cmap->valid = 0;
   }
 
-
-  static FT_UInt
+static FT_UInt
   tt_cmap13_char_map_binary( TT_CMap     cmap,
                              FT_UInt32*  pchar_code,
                              FT_Bool     next )
@@ -2726,8 +2569,7 @@
     FT_UInt32  start, end;
     FT_UInt32  max, min, mid;
 
-
-    if ( !num_groups )
+if ( !num_groups )
       return 0;
 
     /* make compiler happy */
@@ -2771,8 +2613,7 @@
       FT_Face    face   = cmap->cmap.charmap.face;
       TT_CMap13  cmap13 = (TT_CMap13)cmap;
 
-
-      /* if `char_code' is not in any group, then `mid' is */
+/* if `char_code' is not in any group, then `mid' is */
       /* the group nearest to `char_code'                  */
 
       if ( char_code > end )
@@ -2805,24 +2646,21 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap13_char_index( TT_CMap    cmap,
                         FT_UInt32  char_code )
   {
     return tt_cmap13_char_map_binary( cmap, &char_code, 0 );
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap13_char_next( TT_CMap     cmap,
                        FT_UInt32  *pchar_code )
   {
     TT_CMap13  cmap13 = (TT_CMap13)cmap;
     FT_UInt    gindex;
 
-
-    /* no need to search */
+/* no need to search */
     if ( cmap13->valid && cmap13->cur_charcode == *pchar_code )
     {
       tt_cmap13_next( cmap13 );
@@ -2840,22 +2678,19 @@
     return gindex;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap13_get_info( TT_CMap       cmap,
                       TT_CMapInfo  *cmap_info )
   {
     FT_Byte*  p = cmap->data + 8;
 
-
-    cmap_info->format   = 13;
+cmap_info->format   = 13;
     cmap_info->language = (FT_ULong)TT_PEEK_ULONG( p );
 
     return FT_Err_Ok;
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap13_class_rec,
 
       sizeof ( TT_CMap13Rec ),
@@ -2878,16 +2713,11 @@
 
 #endif /* TT_CONFIG_CMAP_FORMAT_13 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                           FORMAT 14                           *****/
   /*****                                                               *****/
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * TABLE OVERVIEW
    * --------------
@@ -2958,20 +2788,17 @@
 
   } TT_CMap14Rec, *TT_CMap14;
 
-
-  FT_CALLBACK_DEF( void )
+FT_CALLBACK_DEF( void )
   tt_cmap14_done( TT_CMap14  cmap )
   {
     FT_Memory  memory = cmap->memory;
 
-
-    cmap->max_results = 0;
+cmap->max_results = 0;
     if ( memory && cmap->results )
       FT_FREE( cmap->results );
   }
 
-
-  static FT_Error
+static FT_Error
   tt_cmap14_ensure( TT_CMap14  cmap,
                     FT_UInt32  num_results,
                     FT_Memory  memory )
@@ -2979,8 +2806,7 @@
     FT_UInt32  old_max = cmap->max_results;
     FT_Error   error   = FT_Err_Ok;
 
-
-    if ( num_results > cmap->max_results )
+if ( num_results > cmap->max_results )
     {
        cmap->memory = memory;
 
@@ -2993,8 +2819,7 @@
     return error;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap14_init( TT_CMap14  cmap,
                   FT_Byte*   table )
   {
@@ -3008,8 +2833,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap14_validate( FT_Byte*      table,
                       FT_Validator  valid )
   {
@@ -3017,8 +2841,7 @@
     FT_ULong  length;
     FT_ULong  num_selectors;
 
-
-    if ( table + 2 + 4 + 4 > valid->limit )
+if ( table + 2 + 4 + 4 > valid->limit )
       FT_INVALID_TOO_SHORT;
 
     p             = table + 2;
@@ -3038,15 +2861,13 @@
        */
       FT_ULong  n, lastVarSel = 1;
 
-
-      for ( n = 0; n < num_selectors; n++ )
+for ( n = 0; n < num_selectors; n++ )
       {
         FT_ULong  varSel    = TT_NEXT_UINT24( p );
         FT_ULong  defOff    = TT_NEXT_ULONG( p );
         FT_ULong  nondefOff = TT_NEXT_ULONG( p );
 
-
-        if ( defOff >= length || nondefOff >= length )
+if ( defOff >= length || nondefOff >= length )
           FT_INVALID_TOO_SHORT;
 
         if ( varSel < lastVarSel )
@@ -3063,8 +2884,7 @@
           FT_ULong  i;
           FT_ULong  lastBase = 0;
 
-
-          if ( defp + 4 > valid->limit )
+if ( defp + 4 > valid->limit )
             FT_INVALID_TOO_SHORT;
 
           numRanges = TT_NEXT_ULONG( defp );
@@ -3078,8 +2898,7 @@
             FT_ULong  base = TT_NEXT_UINT24( defp );
             FT_ULong  cnt  = FT_NEXT_BYTE( defp );
 
-
-            if ( base + cnt >= 0x110000UL )              /* end of Unicode */
+if ( base + cnt >= 0x110000UL )              /* end of Unicode */
               FT_INVALID_DATA;
 
             if ( base < lastBase )
@@ -3096,8 +2915,7 @@
           FT_ULong  numMappings;
           FT_ULong  i, lastUni = 0;
 
-
-          if ( ndp + 4 > valid->limit )
+if ( ndp + 4 > valid->limit )
             FT_INVALID_TOO_SHORT;
 
           numMappings = TT_NEXT_ULONG( ndp );
@@ -3111,8 +2929,7 @@
             FT_ULong  uni = TT_NEXT_UINT24( ndp );
             FT_ULong  gid = TT_NEXT_USHORT( ndp );
 
-
-            if ( uni >= 0x110000UL )                     /* end of Unicode */
+if ( uni >= 0x110000UL )                     /* end of Unicode */
               FT_INVALID_DATA;
 
             if ( uni < lastUni )
@@ -3131,8 +2948,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap14_char_index( TT_CMap    cmap,
                         FT_UInt32  char_code )
   {
@@ -3143,8 +2959,7 @@
     return 0;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap14_char_next( TT_CMap     cmap,
                        FT_UInt32  *pchar_code )
   {
@@ -3155,8 +2970,7 @@
     return 0;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap14_get_info( TT_CMap       cmap,
                       TT_CMapInfo  *cmap_info )
   {
@@ -3169,16 +2983,14 @@
     return FT_Err_Ok;
   }
 
-
-  static FT_UInt
+static FT_UInt
   tt_cmap14_char_map_def_binary( FT_Byte    *base,
                                  FT_UInt32   char_code )
   {
     FT_UInt32  numRanges = TT_PEEK_ULONG( base );
     FT_UInt32  max, min;
 
-
-    min = 0;
+min = 0;
     max = numRanges;
 
     base += 4;
@@ -3191,8 +3003,7 @@
       FT_ULong   start = TT_NEXT_UINT24( p );
       FT_UInt    cnt   = FT_NEXT_BYTE( p );
 
-
-      if ( char_code < start )
+if ( char_code < start )
         max = mid;
       else if ( char_code > start + cnt )
         min = mid + 1;
@@ -3203,16 +3014,14 @@
     return FALSE;
   }
 
-
-  static FT_UInt
+static FT_UInt
   tt_cmap14_char_map_nondef_binary( FT_Byte    *base,
                                     FT_UInt32   char_code )
   {
     FT_UInt32  numMappings = TT_PEEK_ULONG( base );
     FT_UInt32  max, min;
 
-
-    min = 0;
+min = 0;
     max = numMappings;
 
     base += 4;
@@ -3224,8 +3033,7 @@
       FT_Byte*   p   = base + 5 * mid;
       FT_UInt32  uni = (FT_UInt32)TT_NEXT_UINT24( p );
 
-
-      if ( char_code < uni )
+if ( char_code < uni )
         max = mid;
       else if ( char_code > uni )
         min = mid + 1;
@@ -3236,16 +3044,14 @@
     return 0;
   }
 
-
-  static FT_Byte*
+static FT_Byte*
   tt_cmap14_find_variant( FT_Byte    *base,
                           FT_UInt32   variantCode )
   {
     FT_UInt32  numVar = TT_PEEK_ULONG( base );
     FT_UInt32  max, min;
 
-
-    min = 0;
+min = 0;
     max = numVar;
 
     base += 4;
@@ -3257,8 +3063,7 @@
       FT_Byte*   p      = base + 11 * mid;
       FT_ULong   varSel = TT_NEXT_UINT24( p );
 
-
-      if ( variantCode < varSel )
+if ( variantCode < varSel )
         max = mid;
       else if ( variantCode > varSel )
         min = mid + 1;
@@ -3269,8 +3074,7 @@
     return NULL;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap14_char_var_index( TT_CMap    cmap,
                             TT_CMap    ucmap,
                             FT_UInt32  charcode,
@@ -3280,8 +3084,7 @@
     FT_ULong  defOff;
     FT_ULong  nondefOff;
 
-
-    if ( !p )
+if ( !p )
       return 0;
 
     defOff    = TT_NEXT_ULONG( p );
@@ -3302,8 +3105,7 @@
     return 0;
   }
 
-
-  FT_CALLBACK_DEF( FT_Int )
+FT_CALLBACK_DEF( FT_Int )
   tt_cmap14_char_var_isdefault( TT_CMap    cmap,
                                 FT_UInt32  charcode,
                                 FT_UInt32  variantSelector )
@@ -3312,8 +3114,7 @@
     FT_ULong  defOff;
     FT_ULong  nondefOff;
 
-
-    if ( !p )
+if ( !p )
       return -1;
 
     defOff    = TT_NEXT_ULONG( p );
@@ -3331,8 +3132,7 @@
     return -1;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32* )
+FT_CALLBACK_DEF( FT_UInt32* )
   tt_cmap14_variants( TT_CMap    cmap,
                       FT_Memory  memory )
   {
@@ -3342,8 +3142,7 @@
     FT_UInt32*  result;
     FT_UInt32   i;
 
-
-    if ( tt_cmap14_ensure( cmap14, ( count + 1 ), memory ) )
+if ( tt_cmap14_ensure( cmap14, ( count + 1 ), memory ) )
       return NULL;
 
     result = cmap14->results;
@@ -3357,8 +3156,7 @@
     return result;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 * )
+FT_CALLBACK_DEF( FT_UInt32 * )
   tt_cmap14_char_variants( TT_CMap    cmap,
                            FT_Memory  memory,
                            FT_UInt32  charCode )
@@ -3368,8 +3166,7 @@
     FT_Byte*    p      = cmap->data + 10;
     FT_UInt32*  q;
 
-
-    if ( tt_cmap14_ensure( cmap14, ( count + 1 ), memory ) )
+if ( tt_cmap14_ensure( cmap14, ( count + 1 ), memory ) )
       return NULL;
 
     for ( q = cmap14->results; count > 0; count-- )
@@ -3378,8 +3175,7 @@
       FT_ULong   defOff    = TT_NEXT_ULONG( p );
       FT_ULong   nondefOff = TT_NEXT_ULONG( p );
 
-
-      if ( ( defOff != 0                                               &&
+if ( ( defOff != 0                                               &&
              tt_cmap14_char_map_def_binary( cmap->data + defOff,
                                             charCode )                 ) ||
            ( nondefOff != 0                                            &&
@@ -3395,15 +3191,13 @@
     return cmap14->results;
   }
 
-
-  static FT_UInt
+static FT_UInt
   tt_cmap14_def_char_count( FT_Byte  *p )
   {
     FT_UInt32  numRanges = (FT_UInt32)TT_NEXT_ULONG( p );
     FT_UInt    tot       = 0;
 
-
-    p += 3;  /* point to the first `cnt' field */
+p += 3;  /* point to the first `cnt' field */
     for ( ; numRanges > 0; numRanges-- )
     {
       tot += 1 + p[0];
@@ -3413,8 +3207,7 @@
     return tot;
   }
 
-
-  static FT_UInt32*
+static FT_UInt32*
   tt_cmap14_get_def_chars( TT_CMap    cmap,
                            FT_Byte*   p,
                            FT_Memory  memory )
@@ -3424,8 +3217,7 @@
     FT_UInt     cnt;
     FT_UInt32*  q;
 
-
-    cnt       = tt_cmap14_def_char_count( p );
+cnt       = tt_cmap14_def_char_count( p );
     numRanges = (FT_UInt32)TT_NEXT_ULONG( p );
 
     if ( tt_cmap14_ensure( cmap14, ( cnt + 1 ), memory ) )
@@ -3435,8 +3227,7 @@
     {
       FT_UInt32  uni = (FT_UInt32)TT_NEXT_UINT24( p );
 
-
-      cnt = FT_NEXT_BYTE( p ) + 1;
+cnt = FT_NEXT_BYTE( p ) + 1;
       do
       {
         q[0]  = uni;
@@ -3450,8 +3241,7 @@
     return cmap14->results;
   }
 
-
-  static FT_UInt32*
+static FT_UInt32*
   tt_cmap14_get_nondef_chars( TT_CMap     cmap,
                               FT_Byte    *p,
                               FT_Memory   memory )
@@ -3461,8 +3251,7 @@
     FT_UInt     i;
     FT_UInt32  *ret;
 
-
-    numMappings = (FT_UInt32)TT_NEXT_ULONG( p );
+numMappings = (FT_UInt32)TT_NEXT_ULONG( p );
 
     if ( tt_cmap14_ensure( cmap14, ( numMappings + 1 ), memory ) )
       return NULL;
@@ -3478,8 +3267,7 @@
     return ret;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 * )
+FT_CALLBACK_DEF( FT_UInt32 * )
   tt_cmap14_variant_chars( TT_CMap    cmap,
                            FT_Memory  memory,
                            FT_UInt32  variantSelector )
@@ -3490,8 +3278,7 @@
     FT_ULong    defOff;
     FT_ULong    nondefOff;
 
-
-    if ( !p )
+if ( !p )
       return NULL;
 
     defOff    = TT_NEXT_ULONG( p );
@@ -3521,8 +3308,7 @@
 
       FT_UInt32  *ret;
 
-
-      p  = cmap->data + nondefOff;
+p  = cmap->data + nondefOff;
       dp = cmap->data + defOff;
 
       numMappings = (FT_UInt32)TT_NEXT_ULONG( p );
@@ -3616,8 +3402,7 @@
     }
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap14_class_rec,
 
       sizeof ( TT_CMap14Rec ),
@@ -3641,16 +3426,11 @@
 
 #endif /* TT_CONFIG_CMAP_FORMAT_14 */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                       SYNTHETIC UNICODE                       *****/
   /*****                                                               *****/
 
-
-
-  /*        This charmap is generated using postscript glyph names.        */
+/*        This charmap is generated using postscript glyph names.        */
 
 #ifdef FT_CONFIG_OPTION_POSTSCRIPT_NAMES
 
@@ -3660,14 +3440,12 @@
   {
     FT_String*  PSname = NULL;
 
-
-    tt_face_get_ps_name( face, idx, &PSname );
+tt_face_get_ps_name( face, idx, &PSname );
 
     return PSname;
   }
 
-
-  FT_CALLBACK_DEF( FT_Error )
+FT_CALLBACK_DEF( FT_Error )
   tt_cmap_unicode_init( PS_Unicodes  unicodes,
                         FT_Pointer   pointer )
   {
@@ -3677,8 +3455,7 @@
 
     FT_UNUSED( pointer );
 
-
-    if ( !psnames->unicodes_init )
+if ( !psnames->unicodes_init )
       return FT_THROW( Unimplemented_Feature );
 
     return psnames->unicodes_init( memory,
@@ -3689,44 +3466,37 @@
                                    (FT_Pointer)face );
   }
 
-
-  FT_CALLBACK_DEF( void )
+FT_CALLBACK_DEF( void )
   tt_cmap_unicode_done( PS_Unicodes  unicodes )
   {
     FT_Face    face   = FT_CMAP_FACE( unicodes );
     FT_Memory  memory = FT_FACE_MEMORY( face );
 
-
-    FT_FREE( unicodes->maps );
+FT_FREE( unicodes->maps );
     unicodes->num_maps = 0;
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt )
+FT_CALLBACK_DEF( FT_UInt )
   tt_cmap_unicode_char_index( PS_Unicodes  unicodes,
                               FT_UInt32    char_code )
   {
     TT_Face             face    = (TT_Face)FT_CMAP_FACE( unicodes );
     FT_Service_PsCMaps  psnames = (FT_Service_PsCMaps)face->psnames;
 
-
-    return psnames->unicodes_char_index( unicodes, char_code );
+return psnames->unicodes_char_index( unicodes, char_code );
   }
 
-
-  FT_CALLBACK_DEF( FT_UInt32 )
+FT_CALLBACK_DEF( FT_UInt32 )
   tt_cmap_unicode_char_next( PS_Unicodes  unicodes,
                              FT_UInt32   *pchar_code )
   {
     TT_Face             face    = (TT_Face)FT_CMAP_FACE( unicodes );
     FT_Service_PsCMaps  psnames = (FT_Service_PsCMaps)face->psnames;
 
-
-    return psnames->unicodes_char_next( unicodes, pchar_code );
+return psnames->unicodes_char_next( unicodes, pchar_code );
   }
 
-
-  FT_DEFINE_TT_CMAP(
+FT_DEFINE_TT_CMAP(
     tt_cmap_unicode_class_rec,
 
       sizeof ( PS_UnicodesRec ),
@@ -3749,16 +3519,14 @@
 
 #endif /* FT_CONFIG_OPTION_POSTSCRIPT_NAMES */
 
-
-  static const TT_CMap_Class  tt_cmap_classes[] =
+static const TT_CMap_Class  tt_cmap_classes[] =
   {
 #define TTCMAPCITEM( a )  &a,
 #include "ttcmapc.h"
     NULL,
   };
 
-
-  /* parse the `cmap' table and build the corresponding TT_CMap objects */
+/* parse the `cmap' table and build the corresponding TT_CMap objects */
   /* in the current face                                                */
   /*                                                                    */
   FT_LOCAL_DEF( FT_Error )
@@ -3772,8 +3540,7 @@
 
     FT_UNUSED( library );
 
-
-    if ( !p || face->cmap_size < 4 )
+if ( !p || face->cmap_size < 4 )
       return FT_THROW( Invalid_Table );
 
     /* Version 1.8.3 of the OpenType specification contains the following */
@@ -3795,8 +3562,7 @@
       FT_CharMapRec  charmap;
       FT_UInt32      offset;
 
-
-      charmap.platform_id = TT_NEXT_USHORT( p );
+charmap.platform_id = TT_NEXT_USHORT( p );
       charmap.encoding_id = TT_NEXT_USHORT( p );
       charmap.face        = FT_FACE( face );
       charmap.encoding    = FT_ENCODING_NONE;  /* will be filled later */
@@ -3809,8 +3575,7 @@
         const TT_CMap_Class* volatile  pclazz = tt_cmap_classes;
         TT_CMap_Class volatile         clazz;
 
-
-        for ( ; *pclazz; pclazz++ )
+for ( ; *pclazz; pclazz++ )
         {
           clazz = *pclazz;
           if ( clazz->format == format )
@@ -3818,8 +3583,7 @@
             volatile TT_ValidatorRec  valid;
             volatile FT_Error         error = FT_Err_Ok;
 
-
-            ft_validator_init( FT_VALIDATOR( &valid ), cmap, limit,
+ft_validator_init( FT_VALIDATOR( &valid ), cmap, limit,
                                FT_VALIDATE_DEFAULT );
 
             valid.num_glyphs = (FT_UInt)face->max_profile.numGlyphs;
@@ -3834,8 +3598,7 @@
             {
               FT_CMap  ttcmap;
 
-
-              /* It might make sense to store the single variation         */
+/* It might make sense to store the single variation         */
               /* selector cmap somewhere special.  But it would have to be */
               /* in the public FT_FaceRec, and we can't change that.       */
 
@@ -3867,8 +3630,7 @@
     return FT_Err_Ok;
   }
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   tt_get_cmap_info( FT_CharMap    charmap,
                     TT_CMapInfo  *cmap_info )
   {
@@ -3880,6 +3642,5 @@
     else
       return FT_THROW( Invalid_CharMap_Format );
   }
-
 
 /* END */

@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -43,7 +41,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /** @file  DefaultIOStream.cpp
  *  @brief Default File I/O implementation for #Importer
  */
-
 
 #include <assimp/ai_assert.h>
 #include <assimp/DefaultIOStream.h>

@@ -1,8 +1,6 @@
 
 /*  navigation_mesh_generator.cpp                                        */
 
-
-
 #ifndef _3D_DISABLED
 
 #include "navigation_mesh_generator.h"

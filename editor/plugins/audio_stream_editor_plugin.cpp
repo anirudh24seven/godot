@@ -1,8 +1,6 @@
 
 /*  audio_stream_editor_plugin.cpp                                       */
 
-
-
 #include "audio_stream_editor_plugin.h"
 
 #include "core/io/resource_loader.h"

@@ -50,7 +50,6 @@ struct btSolverAnalyticsData
 ATTRIBUTE_ALIGNED16(class)
 btSequentialImpulseConstraintSolver : public btConstraintSolver
 {
-	
 
 protected:
 	btAlignedObjectArray<btSolverBody> m_tmpSolverBodyPool;
@@ -198,9 +197,7 @@ public:
 		m_resolveSingleConstraintRowLowerLimit = rowSolver;
 	}
 
-
-
-	///Various implementations of solving a single constraint row using a generic equality constraint, using scalar reference, SSE2 or SSE4
+///Various implementations of solving a single constraint row using a generic equality constraint, using scalar reference, SSE2 or SSE4
 	btSingleConstraintRowSolver getScalarConstraintRowSolverGeneric();
 	btSingleConstraintRowSolver getSSE2ConstraintRowSolverGeneric();
 	btSingleConstraintRowSolver getSSE4_1ConstraintRowSolverGeneric();

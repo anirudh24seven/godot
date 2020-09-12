@@ -1,8 +1,6 @@
 
 /*  test_physics_3d.h                                                    */
 
-
-
 #ifndef TEST_PHYSICS_H
 #define TEST_PHYSICS_H
 

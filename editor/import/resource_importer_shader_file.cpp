@@ -1,8 +1,6 @@
 
 /*  resource_importer_shader_file.cpp                                    */
 
-
-
 #include "resource_importer_shader_file.h"
 
 #include "core/io/marshalls.h"

@@ -1,8 +1,6 @@
 
 /*  scene_tree_editor.cpp                                                */
 
-
-
 #include "scene_tree_editor.h"
 
 #include "core/message_queue.h"

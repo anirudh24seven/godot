@@ -1,8 +1,6 @@
 
 /*  line_2d_editor_plugin.cpp                                            */
 
-
-
 #include "line_2d_editor_plugin.h"
 
 Node2D *Line2DEditor::_get_node() const {

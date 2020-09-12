@@ -27,10 +27,8 @@
    *
    */
 
-
 #ifndef FTSERV_H_
 #define FTSERV_H_
-
 
 FT_BEGIN_HEADER
 
@@ -85,8 +83,7 @@ FT_BEGIN_HEADER
 
 #endif /* !C++ */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @macro:
    *   FT_FACE_FIND_GLOBAL_SERVICE
@@ -136,16 +133,11 @@ FT_BEGIN_HEADER
 
 #endif /* !C++ */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****         S E R V I C E   D E S C R I P T O R S                 *****/
   /*****                                                               *****/
 
-
-
-  /*
+/*
    * The following structure is used to _describe_ a given service to the
    * library.  This is useful to build simple static service lists.
    */
@@ -158,8 +150,7 @@ FT_BEGIN_HEADER
 
   typedef const FT_ServiceDescRec*  FT_ServiceDesc;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @macro:
    *   FT_DEFINE_SERVICEDESCREC1
@@ -349,8 +340,7 @@ FT_BEGIN_HEADER
     { NULL, NULL }                                                          \
   };
 
-
-  /*
+/*
    * Parse a list of FT_ServiceDescRec descriptors and look for a specific
    * service by ID.  Note that the last element in the array must be { NULL,
    * NULL }, and that the function should return NULL if the service isn't
@@ -363,16 +353,11 @@ FT_BEGIN_HEADER
   ft_service_list_lookup( FT_ServiceDesc  service_descriptors,
                           const char*     service_id );
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****             S E R V I C E S   C A C H E                       *****/
   /*****                                                               *****/
 
-
-
-  /*
+/*
    * This structure is used to store a cache for several frequently used
    * services.  It is the type of `face->internal->services'.  You should
    * only use FT_FACE_LOOKUP_SERVICE to access it.
@@ -396,16 +381,14 @@ FT_BEGIN_HEADER
 
   } FT_ServiceCacheRec, *FT_ServiceCache;
 
-
-  /*
+/*
    * A magic number used within the services cache.
    */
 
   /* ensure that value `1' has the same width as a pointer */
 #define FT_SERVICE_UNAVAILABLE  ((FT_Pointer)~(FT_PtrDist)1)
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @macro:
    *   FT_FACE_LOOKUP_SERVICE
@@ -516,6 +499,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* FTSERV_H_ */
-
 
 /* END */

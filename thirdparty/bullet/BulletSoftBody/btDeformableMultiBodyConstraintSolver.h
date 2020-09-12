@@ -13,7 +13,6 @@
  3. This notice may not be removed or altered from any source distribution.
  */
 
-
 #ifndef BT_DEFORMABLE_MULTIBODY_CONSTRAINT_SOLVER_H
 #define BT_DEFORMABLE_MULTIBODY_CONSTRAINT_SOLVER_H
 

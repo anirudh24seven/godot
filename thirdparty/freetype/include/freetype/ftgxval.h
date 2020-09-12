@@ -24,7 +24,6 @@
  *
  */
 
-
 #ifndef FTGXVAL_H_
 #define FTGXVAL_H_
 
@@ -37,11 +36,9 @@
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   gx_validation
@@ -91,8 +88,7 @@ FT_BEGIN_HEADER
 #define FT_VALIDATE_lcar_INDEX     9
 #define FT_VALIDATE_GX_LAST_INDEX  FT_VALIDATE_lcar_INDEX
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @macro:
    *   FT_VALIDATE_GX_LENGTH
@@ -111,8 +107,7 @@ FT_BEGIN_HEADER
 #define FT_VALIDATE_GX_BITFIELD( tag ) \
           ( FT_VALIDATE_GX_START << FT_VALIDATE_##tag##_INDEX )
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *    FT_VALIDATE_GXXXX
@@ -180,8 +175,7 @@ FT_BEGIN_HEADER
                           FT_VALIDATE_prop | \
                           FT_VALIDATE_lcar )
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_TrueTypeGX_Validate
@@ -228,8 +222,7 @@ FT_BEGIN_HEADER
                           FT_Bytes  tables[FT_VALIDATE_GX_LENGTH],
                           FT_UInt   table_length );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_TrueTypeGX_Free
@@ -252,8 +245,7 @@ FT_BEGIN_HEADER
   FT_TrueTypeGX_Free( FT_Face   face,
                       FT_Bytes  table );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *    FT_VALIDATE_CKERNXXX
@@ -278,8 +270,7 @@ FT_BEGIN_HEADER
 
 #define FT_VALIDATE_CKERN  ( FT_VALIDATE_MS | FT_VALIDATE_APPLE )
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_ClassicKern_Validate
@@ -319,8 +310,7 @@ FT_BEGIN_HEADER
                            FT_UInt    validation_flags,
                            FT_Bytes  *ckern_table );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_ClassicKern_Free
@@ -346,10 +336,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTGXVAL_H_ */
-
 
 /* END */

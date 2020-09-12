@@ -1,8 +1,6 @@
 
 /*  body_pair_3d_sw.cpp                                                  */
 
-
-
 #include "body_pair_3d_sw.h"
 
 #include "collision_solver_3d_sw.h"

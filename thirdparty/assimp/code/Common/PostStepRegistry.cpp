@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -137,8 +135,6 @@ corresponding preprocessor flag to selectively disable steps.
 #if (!defined ASSIMP_BUILD_NO_GENBOUNDINGBOXES_PROCESS)
 #   include "PostProcessing/GenBoundingBoxesProcess.h"
 #endif
-
-
 
 namespace Assimp {
 

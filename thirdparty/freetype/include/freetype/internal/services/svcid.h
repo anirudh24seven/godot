@@ -15,15 +15,12 @@
  *
  */
 
-
 #ifndef SVCID_H_
 #define SVCID_H_
 
 #include FT_INTERNAL_SERVICE_H
 
-
 FT_BEGIN_HEADER
-
 
 #define FT_SERVICE_ID_CID  "CID"
 
@@ -47,7 +44,6 @@ FT_BEGIN_HEADER
     FT_CID_GetCIDFromGlyphIndexFunc           get_cid_from_glyph_index;
   };
 
-
 #define FT_DEFINE_SERVICE_CIDREC( class_,                                   \
                                   get_ros_,                                 \
                                   get_is_cid_,                              \
@@ -59,11 +55,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
-
 #endif /* SVCID_H_ */
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  dir_access.cpp                                                       */
 
-
-
 #include "dir_access.h"
 
 #include "core/os/file_access.h"

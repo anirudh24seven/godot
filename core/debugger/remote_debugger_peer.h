@@ -1,8 +1,6 @@
 
 /*  remote_debugger_peer.h                                               */
 
-
-
 #ifndef REMOTE_DEBUGGER_PEER_H
 #define REMOTE_DEBUGGER_PEER_H
 

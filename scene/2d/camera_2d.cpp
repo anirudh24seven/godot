@@ -1,8 +1,6 @@
 
 /*  camera_2d.cpp                                                        */
 
-
-
 #include "camera_2d.h"
 
 #include "core/engine.h"

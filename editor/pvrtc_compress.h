@@ -1,8 +1,6 @@
 
 /*  pvrtc_compress.h                                                     */
 
-
-
 #ifndef PVRTC_COMPRESS_H
 #define PVRTC_COMPRESS_H
 

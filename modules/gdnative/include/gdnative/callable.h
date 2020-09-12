@@ -1,8 +1,6 @@
 
 /*  callable.h                                                           */
 
-
-
 #ifndef GODOT_CALLABLE_H
 #define GODOT_CALLABLE_H
 

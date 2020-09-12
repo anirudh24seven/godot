@@ -15,12 +15,10 @@
  *
  */
 
-
-  /* The following part can be included multiple times. */
+/* The following part can be included multiple times. */
   /* Define `STYLE' as needed.                          */
 
-
-  /* Add new styles here.  The first and second arguments are the  */
+/* Add new styles here.  The first and second arguments are the  */
   /* style name in lowercase and uppercase, respectively, followed */
   /* by a description string.  The next arguments are the          */
   /* corresponding writing system, script, blue stringset, and     */
@@ -82,8 +80,7 @@
                        "default",                        \
                        DEFAULT )
 
-
-  STYLE( adlm_dflt, ADLM_DFLT,
+STYLE( adlm_dflt, ADLM_DFLT,
          "Adlam default style",
          AF_WRITING_SYSTEM_LATIN,
          AF_SCRIPT_ADLM,
@@ -484,6 +481,5 @@
          AF_COVERAGE_DEFAULT )
 
 #endif /* AF_CONFIG_OPTION_CJK */
-
 
 /* END */

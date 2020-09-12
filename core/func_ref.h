@@ -1,8 +1,6 @@
 
 /*  func_ref.h                                                           */
 
-
-
 #ifndef FUNC_REF_H
 #define FUNC_REF_H
 

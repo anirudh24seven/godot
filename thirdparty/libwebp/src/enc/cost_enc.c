@@ -277,7 +277,6 @@ int VP8GetCostUV(VP8EncIterator* const it, const VP8ModeScore* const rd) {
   return R;
 }
 
-
 //------------------------------------------------------------------------------
 // Recording of token probabilities.
 

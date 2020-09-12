@@ -1,8 +1,6 @@
 
 /*  navigation_region_2d.cpp                                             */
 
-
-
 #include "navigation_region_2d.h"
 
 #include "core/core_string_names.h"

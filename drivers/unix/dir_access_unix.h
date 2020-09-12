@@ -1,8 +1,6 @@
 
 /*  dir_access_unix.h                                                    */
 
-
-
 #ifndef DIR_ACCESS_UNIX_H
 #define DIR_ACCESS_UNIX_H
 

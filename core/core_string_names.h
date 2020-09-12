@@ -1,8 +1,6 @@
 
 /*  core_string_names.h                                                  */
 
-
-
 #ifndef CORE_STRING_NAMES_H
 #define CORE_STRING_NAMES_H
 

@@ -1,8 +1,6 @@
 
 /*  webrtc_data_channel_js.cpp                                           */
 
-
-
 #ifdef JAVASCRIPT_ENABLED
 
 #include "webrtc_data_channel_js.h"

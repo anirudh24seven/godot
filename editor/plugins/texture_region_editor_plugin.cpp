@@ -1,8 +1,6 @@
 
 /*  texture_region_editor_plugin.cpp                                     */
 
-
-
 #include "texture_region_editor_plugin.h"
 
 #include "core/core_string_names.h"

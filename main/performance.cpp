@@ -1,8 +1,6 @@
 
 /*  performance.cpp                                                      */
 
-
-
 #include "performance.h"
 
 #include "core/message_queue.h"

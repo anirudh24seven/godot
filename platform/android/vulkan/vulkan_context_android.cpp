@@ -1,8 +1,6 @@
 
 /*  vulkan_context_android.cpp                                           */
 
-
-
 #include "vulkan_context_android.h"
 #include <vulkan/vulkan_android.h>
 

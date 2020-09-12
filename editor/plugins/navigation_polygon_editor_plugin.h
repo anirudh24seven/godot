@@ -1,8 +1,6 @@
 
 /*  navigation_polygon_editor_plugin.h                                   */
 
-
-
 #ifndef NAVIGATIONPOLYGONEDITORPLUGIN_H
 #define NAVIGATIONPOLYGONEDITORPLUGIN_H
 

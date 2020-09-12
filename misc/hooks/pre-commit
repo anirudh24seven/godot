@@ -7,7 +7,6 @@
 # Link:    https://github.com/githubbrowser/Pre-commit-hooks
 # Contact: David Martin, david.martin.mailbox@googlemail.com
 
-
 ###########################################################
 # CONFIGURATION:
 # pre-commit hooks to be executed. They should be in the same .git/hooks/ folder
@@ -28,7 +27,6 @@ SCRIPT="$(canonicalize_filename "$0")"
 
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH="$(dirname -- "$SCRIPT")"
-
 
 for hook in $HOOKS
 do

@@ -1,8 +1,6 @@
 
 /*  icloud.mm                                                            */
 
-
-
 #ifdef ICLOUD_ENABLED
 
 #include "icloud.h"

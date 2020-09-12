@@ -1,8 +1,6 @@
 
 /*  zip_io.cpp                                                           */
 
-
-
 #include "zip_io.h"
 
 #include "core/os/copymem.h"

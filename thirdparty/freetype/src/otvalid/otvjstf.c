@@ -15,13 +15,11 @@
  *
  */
 
-
 #include "otvalid.h"
 #include "otvcommn.h"
 #include "otvgpos.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -29,7 +27,6 @@
    */
 #undef  FT_COMPONENT
 #define FT_COMPONENT  otvjstf
-
 
 #define JstfPriorityFunc  otv_JstfPriority_validate
 #define JstfLookupFunc    otv_GPOS_subtable_validate
@@ -57,8 +54,7 @@
     OTV_OPTIONAL_TABLE( ShrinkageJstfMax );
     OTV_OPTIONAL_TABLE( ExtensionJstfMax );
 
-
-    OTV_ENTER;
+OTV_ENTER;
     OTV_TRACE(( "JstfPriority table\n" ));
 
     OTV_LIMIT_CHECK( 20 );
@@ -140,8 +136,7 @@
     OTV_EXIT;
   }
 
-
-  /* sets otvalid->extra (glyph count)               */
+/* sets otvalid->extra (glyph count)               */
   /* sets otvalid->func1 (otv_JstfPriority_validate) */
 
   static void
@@ -155,8 +150,7 @@
     OTV_OPTIONAL_TABLE( ExtGlyph );
     OTV_OPTIONAL_TABLE( DefJstfLangSys );
 
-
-    OTV_NAME_ENTER( "JstfScript" );
+OTV_NAME_ENTER( "JstfScript" );
 
     OTV_LIMIT_CHECK( 6 );
     OTV_OPTIONAL_OFFSET( ExtGlyph );
@@ -196,8 +190,7 @@
     OTV_EXIT;
   }
 
-
-  /* sets otvalid->extra1 (GSUB lookup count) */
+/* sets otvalid->extra1 (GSUB lookup count) */
   /* sets otvalid->extra2 (GPOS lookup count) */
   /* sets otvalid->glyph_count                */
 
@@ -213,11 +206,9 @@
     FT_Bytes          p     = table;
     FT_UInt           JstfScriptCount;
 
+otvalid->root = ftvalid;
 
-    otvalid->root = ftvalid;
-
-
-    FT_TRACE3(( "validating JSTF table\n" ));
+FT_TRACE3(( "validating JSTF table\n" ));
     OTV_INIT;
 
     OTV_LIMIT_CHECK( 6 );
@@ -254,6 +245,5 @@
 
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

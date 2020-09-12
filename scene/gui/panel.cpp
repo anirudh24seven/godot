@@ -1,8 +1,6 @@
 
 /*  panel.cpp                                                            */
 
-
-
 #include "panel.h"
 
 #include "core/print_string.h"

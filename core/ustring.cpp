@@ -1,8 +1,6 @@
 
 /*  ustring.cpp                                                          */
 
-
-
 #include "ustring.h"
 
 #include "core/color.h"
@@ -1579,7 +1577,6 @@ String::String(CharType p_char) {
 	shared=nullptr;
 	copy_from(p_char);
 }
-
 
 */
 

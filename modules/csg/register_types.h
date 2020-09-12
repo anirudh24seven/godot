@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef CSG_REGISTER_TYPES_H
 #define CSG_REGISTER_TYPES_H
 

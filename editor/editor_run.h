@@ -1,8 +1,6 @@
 
 /*  editor_run.h                                                         */
 
-
-
 #ifndef EDITOR_RUN_H
 #define EDITOR_RUN_H
 

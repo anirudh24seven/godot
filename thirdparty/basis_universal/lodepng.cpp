@@ -268,7 +268,6 @@ static unsigned ucvector_push_back(ucvector* p, unsigned char c) {
 }
 #endif /*defined(LODEPNG_COMPILE_PNG) || defined(LODEPNG_COMPILE_ENCODER)*/
 
-
 /* ////////////////////////////////////////////////////////////////////////// */
 
 #ifdef LODEPNG_COMPILE_PNG
@@ -1285,8 +1284,6 @@ static void hash_cleanup(Hash* hash) {
   lodepng_free(hash->chainz);
 }
 
-
-
 static unsigned getHash(const unsigned char* data, size_t size, size_t pos) {
   unsigned result = 0;
   if(pos + 2 < size) {
@@ -2061,7 +2058,6 @@ void lodepng_compress_settings_init(LodePNGCompressSettings* settings) {
 
 const LodePNGCompressSettings lodepng_default_compress_settings = {2, 1, DEFAULT_WINDOWSIZE, 3, 128, 1, 0, 0, 0};
 
-
 #endif /*LODEPNG_COMPILE_ENCODER*/
 
 #ifdef LODEPNG_COMPILE_DECODER
@@ -2089,7 +2085,6 @@ const LodePNGDecompressSettings lodepng_default_decompress_settings = {0, 0, 0, 
 /* ////////////////////////////////////////////////////////////////////////// */
 /* / CRC32                                                                  / */
 /* ////////////////////////////////////////////////////////////////////////// */
-
 
 #ifndef LODEPNG_NO_COMPILE_CRC
 /* CRC polynomial: 0xedb88320 */
@@ -2473,7 +2468,6 @@ size_t lodepng_get_raw_size_lct(unsigned w, unsigned h, LodePNGColorType colorty
 size_t lodepng_get_raw_size(unsigned w, unsigned h, const LodePNGColorMode* color) {
   return lodepng_get_raw_size_lct(w, h, color->colortype, color->bitdepth);
 }
-
 
 #ifdef LODEPNG_COMPILE_PNG
 #ifdef LODEPNG_COMPILE_DECODER
@@ -3204,7 +3198,6 @@ unsigned lodepng_convert(unsigned char* out, const unsigned char* in,
 
   return error;
 }
-
 
 /* Converts a single rgb color without alpha from one type to another, color bits truncated to
 their bitdepth. In case of single channel (gray or palette), only the r channel is used. Slow
@@ -3960,7 +3953,6 @@ static unsigned readChunk_tRNS(LodePNGColorMode* color, const unsigned char* dat
   return 0; /* OK */
 }
 
-
 #ifdef LODEPNG_COMPILE_ANCILLARY_CHUNKS
 /*background color chunk (bKGD)*/
 static unsigned readChunk_bKGD(LodePNGInfo* info, const unsigned char* data, size_t chunkLength) {
@@ -4345,8 +4337,7 @@ static void decodeGeneric(unsigned char** out, unsigned* w, unsigned* h,
   unsigned critical_pos = 1; /*1 = after IHDR, 2 = after PLTE, 3 = after IDAT*/
 #endif /*LODEPNG_COMPILE_ANCILLARY_CHUNKS*/
 
-
-  /* safe output values in case error happens */
+/* safe output values in case error happens */
   *out = 0;
   *w = *h = 0;
 
@@ -5867,7 +5858,6 @@ unsigned compress(std::vector<unsigned char>& out, const std::vector<unsigned ch
 }
 #endif /* LODEPNG_COMPILE_ENCODER */
 #endif /* LODEPNG_COMPILE_ZLIB */
-
 
 #ifdef LODEPNG_COMPILE_PNG
 

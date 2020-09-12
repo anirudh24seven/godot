@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -53,7 +52,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "FBXImporter.h"
 #include "FBXImportSettings.h"
 #include "FBXDocumentUtil.h"
-
 
 namespace Assimp {
 namespace FBX {
@@ -285,7 +283,6 @@ void MeshGeometry::ReadLayer(const Scope& layer)
         ReadLayerElement(elayer);
     }
 }
-
 
 // ------------------------------------------------------------------------------------------------
 void MeshGeometry::ReadLayerElement(const Scope& layerElement)
@@ -602,7 +599,6 @@ void MeshGeometry::ReadVertexDataBinormals(std::vector<aiVector3D>& binormals_ou
         m_mapping_offsets,
         m_mappings);
 }
-
 
 // ------------------------------------------------------------------------------------------------
 void MeshGeometry::ReadVertexDataMaterials(std::vector<int>& materials_out, const Scope& source,

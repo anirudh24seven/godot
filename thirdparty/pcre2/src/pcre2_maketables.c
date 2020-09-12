@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 /* This module contains the external function pcre2_maketables(), which builds
 character tables for PCRE2 in the current locale. The file is compiled on its
 own as part of the PCRE2 library. However, it is also included in the
@@ -50,8 +49,6 @@ compilation of dftables.c, in which case the macro DFTABLES is defined. */
 #  endif
 #  include "pcre2_internal.h"
 #endif
-
-
 
 /*************************************************
 *           Create PCRE2 character tables        *

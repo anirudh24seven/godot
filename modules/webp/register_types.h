@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef WEBP_REGISTER_TYPES_H
 #define WEBP_REGISTER_TYPES_H
 

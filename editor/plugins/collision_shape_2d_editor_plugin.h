@@ -1,8 +1,6 @@
 
 /*  collision_shape_2d_editor_plugin.h                                   */
 
-
-
 #ifndef COLLISION_SHAPE_2D_EDITOR_PLUGIN_H
 #define COLLISION_SHAPE_2D_EDITOR_PLUGIN_H
 

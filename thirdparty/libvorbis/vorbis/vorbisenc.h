@@ -288,7 +288,6 @@ struct ovectl_ratemanage2_arg {
   double bitrate_average_damping;
 };
 
-
 /**
  * \name vorbis_encode_ctl() codes
  *
@@ -425,8 +424,6 @@ struct ovectl_ratemanage2_arg {
 #define OV_ECTL_RATEMANAGE_HARD      0x13
 
 /*@}*/
-
-
 
 #ifdef __cplusplus
 }

@@ -1,8 +1,6 @@
 
 /*  resource.cpp                                                         */
 
-
-
 #include "resource.h"
 
 #include "core/core_string_names.h"

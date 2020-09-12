@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef TGA_REGISTER_TYPES_H
 #define TGA_REGISTER_TYPES_H
 

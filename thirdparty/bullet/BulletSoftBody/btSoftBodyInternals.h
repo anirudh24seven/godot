@@ -958,7 +958,6 @@ static inline btMatrix3x3 OuterProduct(const btVector3& v1,const btVector3& v2)
     return (m);
 }
 
-
 //
 static inline btMatrix3x3 Add(const btMatrix3x3& a,
 							  const btMatrix3x3& b)
@@ -1157,7 +1156,6 @@ static inline bool lineIntersectsTriangle(const btVector3& rayStart, const btVec
     }
     return ret;
 }
-
 
 //
 template <typename T>
@@ -1889,9 +1887,8 @@ struct btSoftColliders
 		btSoftBody* psb[2];
 		btScalar mrg;
 	};
-    
-    
-    //
+
+//
     // CollideVF_DD
     //
     struct CollideVF_DD : btDbvt::ICollide

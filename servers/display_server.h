@@ -1,8 +1,6 @@
 
 /*  display_server.h                                                     */
 
-
-
 #ifndef DISPLAY_SERVER_H
 #define DISPLAY_SERVER_H
 

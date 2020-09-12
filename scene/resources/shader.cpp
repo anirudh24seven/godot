@@ -1,8 +1,6 @@
 
 /*  shader.cpp                                                           */
 
-
-
 #include "shader.h"
 #include "core/os/file_access.h"
 #include "scene/scene_string_names.h"

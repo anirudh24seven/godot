@@ -1,8 +1,6 @@
 
 /*  csharp_script.cpp                                                    */
 
-
-
 #include "csharp_script.h"
 
 #include <mono/metadata/threads.h>

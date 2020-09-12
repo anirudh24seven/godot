@@ -1,8 +1,6 @@
 
 /*  velocity_tracker_3d.cpp                                              */
 
-
-
 #include "velocity_tracker_3d.h"
 #include "core/engine.h"
 

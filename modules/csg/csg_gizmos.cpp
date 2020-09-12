@@ -1,8 +1,6 @@
 
 /*  csg_gizmos.cpp                                                       */
 
-
-
 #include "csg_gizmos.h"
 
 ///////////

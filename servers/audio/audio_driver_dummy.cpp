@@ -1,8 +1,6 @@
 
 /*  audio_driver_dummy.cpp                                               */
 
-
-
 #include "audio_driver_dummy.h"
 
 #include "core/os/os.h"

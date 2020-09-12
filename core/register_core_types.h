@@ -1,8 +1,6 @@
 
 /*  register_core_types.h                                                */
 
-
-
 #ifndef REGISTER_CORE_TYPES_H
 #define REGISTER_CORE_TYPES_H
 

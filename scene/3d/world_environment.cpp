@@ -1,8 +1,6 @@
 
 /*  world_environment.cpp                                                */
 
-
-
 #include "world_environment.h"
 
 #include "scene/main/window.h"

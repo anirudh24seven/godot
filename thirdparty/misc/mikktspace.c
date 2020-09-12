@@ -60,7 +60,6 @@ static SVec3		vadd( const SVec3 v1, const SVec3 v2 )
 	return vRes;
 }
 
-
 static SVec3		vsub( const SVec3 v1, const SVec3 v2 )
 {
 	SVec3 vRes;
@@ -103,7 +102,6 @@ static float		vdot( const SVec3 v1, const SVec3 v2)
 	return v1.x*v2.x + v1.y*v2.y + v1.z*v2.z;
 }
 
-
 static tbool NotZero(const float fX)
 {
 	// could possibly use FLT_EPSILON instead
@@ -115,8 +113,6 @@ static tbool VNotZero(const SVec3 v)
 	// might change this to an epsilon based test
 	return NotZero(v.x) || NotZero(v.y) || NotZero(v.z);
 }
-
-
 
 typedef struct {
 	int iNrFaces;
@@ -135,8 +131,6 @@ typedef struct {
 #define QUAD_ONE_DEGEN_TRI			2
 #define GROUP_WITH_ANY				4
 #define ORIENT_PRESERVING			8
-
-
 
 typedef struct {
 	int FaceNeighbors[3];
@@ -209,17 +203,13 @@ static STSpace AvgTSpace(const STSpace * pTS0, const STSpace * pTS1)
 	return ts_res;
 }
 
-
-
 static SVec3 GetPosition(const SMikkTSpaceContext * pContext, const int index);
 static SVec3 GetNormal(const SMikkTSpaceContext * pContext, const int index);
 static SVec3 GetTexCoord(const SMikkTSpaceContext * pContext, const int index);
 
-
 // degen triangles
 static void DegenPrologue(STriInfo pTriInfos[], int piTriList_out[], const int iNrTrianglesIn, const int iTotTris);
 static void DegenEpilogue(STSpace psTspace[], STriInfo pTriInfos[], int piTriListIn[], const SMikkTSpaceContext * pContext, const int iNrTrianglesIn, const int iTotTris);
-
 
 tbool genTangSpaceDefault(const SMikkTSpaceContext * pContext)
 {
@@ -301,14 +291,12 @@ tbool genTangSpace(const SMikkTSpaceContext * pContext, const float fAngularThre
 	// put the degenerate triangles last.
 	DegenPrologue(pTriInfos, piTriListIn, iNrTrianglesIn, iTotTris);
 
-	
-	// evaluate triangle level attributes and neighbor list
+// evaluate triangle level attributes and neighbor list
 	//printf("gen neighbors list begin\n");
 	InitTriInfo(pTriInfos, piTriListIn, pContext, iNrTrianglesIn);
 	//printf("gen neighbors list end\n");
 
-	
-	// based on the 4 rules, identify groups based on connectivity
+// based on the 4 rules, identify groups based on connectivity
 	iNrMaxGroups = iNrTrianglesIn*3;
 	pGroups = (SGroup *) malloc(sizeof(SGroup)*iNrMaxGroups);
 	piGroupTrianglesBuffer = (int *) malloc(sizeof(int)*iNrTrianglesIn*3);
@@ -361,8 +349,7 @@ tbool genTangSpace(const SMikkTSpaceContext * pContext, const float fAngularThre
 		return TFALSE;
 	}
 
-
-	// degenerate quads with one good triangle will be fixed by copying a space from
+// degenerate quads with one good triangle will be fixed by copying a space from
 	// the good triangle to the coinciding vertex.
 	// all other degenerate triangles will just copy a space from any good triangle
 	// with the same welded index in piTriListIn[].
@@ -375,9 +362,8 @@ tbool genTangSpace(const SMikkTSpaceContext * pContext, const float fAngularThre
 	{
 		const int verts = pContext->m_pInterface->m_getNumVerticesOfFace(pContext, f);
 		if (verts!=3 && verts!=4) continue;
-		
 
-		// I've decided to let degenerate triangles and group-with-anythings
+// I've decided to let degenerate triangles and group-with-anythings
 		// vary between left/right hand coordinate systems at the vertices.
 		// All healthy triangles on the other hand are built to always be either or.
 
@@ -415,8 +401,7 @@ tbool genTangSpace(const SMikkTSpaceContext * pContext, const float fAngularThre
 
 	free(psTspace);
 
-	
-	return TTRUE;
+return TTRUE;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -542,9 +527,8 @@ static void GenerateSharedVerticesIndexList(int piTriList_in_and_out[], const SM
 		if (iMaxCount<piHashCount[k])
 			iMaxCount=piHashCount[k];
 	pTmpVert = (STmpVert *) malloc(sizeof(STmpVert)*iMaxCount);
-	
 
-	// complete the merge
+// complete the merge
 	for (k=0; k<g_iCells; k++)
 	{
 		// extract table of cell k and amount of entries in it
@@ -1175,9 +1159,7 @@ static tbool AssignRecur(const int piTriListIn[], STriInfo psTriInfos[],
 			AssignRecur(piTriListIn, psTriInfos, neigh_indexR, pGroup);
 	}
 
-
-
-	return TTRUE;
+return TTRUE;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1213,8 +1195,7 @@ static tbool GenerateTSpaces(STSpace psTspace[], const STriInfo pTriInfos[], con
 		return TFALSE;
 	}
 
-
-	iUniqueTspaces = 0;
+iUniqueTspaces = 0;
 	for (g=0; g<iNrActiveGroups; g++)
 	{
 		const SGroup * pGroup = &pGroups[g];
@@ -1460,8 +1441,7 @@ static void QuickSort(int* pSortBuffer, int iLeft, int iRight, unsigned int uSee
 
 	iMid=pSortBuffer[index + iL];
 
-
-	do
+do
 	{
 		while (pSortBuffer[iL] < iMid)
 			++iL;
@@ -1720,7 +1700,6 @@ static void GetEdge(int * i0_out, int * i1_out, int * edgenum_out, const int ind
 		i1_out[0]=indices[2];
 	}
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// Degenerate triangles ////////////////////////////////////

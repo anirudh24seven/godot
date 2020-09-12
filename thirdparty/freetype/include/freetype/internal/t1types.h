@@ -16,10 +16,8 @@
  *
  */
 
-
 #ifndef T1TYPES_H_
 #define T1TYPES_H_
-
 
 #include <ft2build.h>
 #include FT_TYPE1_TABLES_H
@@ -28,24 +26,15 @@
 #include FT_INTERNAL_HASH_H
 #include FT_SERVICE_POSTSCRIPT_CMAPS_H
 
-
 FT_BEGIN_HEADER
 
-
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***              REQUIRED TYPE1/TYPE2 TABLES DEFINITIONS              ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   T1_EncodingRec
@@ -81,8 +70,7 @@ FT_BEGIN_HEADER
 
   } T1_EncodingRec, *T1_Encoding;
 
-
-  /* used to hold extra data of PS_FontInfoRec that
+/* used to hold extra data of PS_FontInfoRec that
    * cannot be stored in the publicly defined structure.
    *
    * Note these can't be blended with multiple-masters.
@@ -93,8 +81,7 @@ FT_BEGIN_HEADER
 
   } PS_FontExtraRec;
 
-
-  typedef struct  T1_FontRec_
+typedef struct  T1_FontRec_
   {
     PS_FontInfoRec   font_info;         /* font info dictionary   */
     PS_FontExtraRec  font_extra;        /* font info extra fields */
@@ -129,28 +116,20 @@ FT_BEGIN_HEADER
 
   } T1_FontRec, *T1_Font;
 
-
-  typedef struct  CID_SubrsRec_
+typedef struct  CID_SubrsRec_
   {
     FT_Int     num_subrs;
     FT_Byte**  code;
 
   } CID_SubrsRec, *CID_Subrs;
 
-
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***                AFM FONT INFORMATION STRUCTURES                    ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-  typedef struct  AFM_TrackKernRec_
+typedef struct  AFM_TrackKernRec_
   {
     FT_Int    degree;
     FT_Fixed  min_ptsize;
@@ -182,25 +161,16 @@ FT_BEGIN_HEADER
 
   } AFM_FontInfoRec, *AFM_FontInfo;
 
-
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***                ORIGINAL T1_FACE CLASS DEFINITION                  ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-
-  typedef struct T1_FaceRec_*   T1_Face;
+typedef struct T1_FaceRec_*   T1_Face;
   typedef struct CID_FaceRec_*  CID_Face;
 
-
-  typedef struct  T1_FaceRec_
+typedef struct  T1_FaceRec_
   {
     FT_FaceRec      root;
     T1_FontRec      type1;
@@ -229,8 +199,7 @@ FT_BEGIN_HEADER
 
   } T1_FaceRec;
 
-
-  typedef struct  CID_FaceRec_
+typedef struct  CID_FaceRec_
   {
     FT_FaceRec       root;
     void*            psnames;
@@ -251,10 +220,8 @@ FT_BEGIN_HEADER
 
   } CID_FaceRec;
 
-
 FT_END_HEADER
 
 #endif /* T1TYPES_H_ */
-
 
 /* END */

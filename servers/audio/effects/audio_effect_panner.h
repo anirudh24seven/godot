@@ -1,8 +1,6 @@
 
 /*  audio_effect_panner.h                                                */
 
-
-
 #ifndef AUDIOEFFECTPANNER_H
 #define AUDIOEFFECTPANNER_H
 

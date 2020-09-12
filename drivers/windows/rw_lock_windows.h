@@ -1,8 +1,6 @@
 
 /*  rw_lock_windows.h                                                    */
 
-
-
 #ifndef RWLOCKWINDOWS_H
 #define RWLOCKWINDOWS_H
 

@@ -1,8 +1,6 @@
 
 /*  gpu_particles_3d.h                                                   */
 
-
-
 #ifndef PARTICLES_H
 #define PARTICLES_H
 

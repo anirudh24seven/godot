@@ -1,8 +1,6 @@
 
 /*  y_sort.h                                                             */
 
-
-
 #ifndef Y_SORT_H
 #define Y_SORT_H
 

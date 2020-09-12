@@ -42,7 +42,6 @@
  *
  */
 
-
 /****************************************************************************
  *
  * This file is compiled as a stand-alone executable.
@@ -69,18 +68,12 @@
    * WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
    */
 
-
 #include <stdio.h>
 #include <string.h>
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      Data and Types                           *****/
   /*****                                                               *****/
-
-
 
 #define APPLE_RESERVED         "Apple Reserved"
 #define APPLE_RESERVED_LENGTH  14
@@ -93,11 +86,9 @@
 
   } GX_Feature_RegistryRec;
 
-
 #define EMPTYFEAT {0, 0, {NULL}}
 
-
-  static GX_Feature_RegistryRec featreg_table[] = {
+static GX_Feature_RegistryRec featreg_table[] = {
     {                                       /* 0 */
       "All Typographic Features",
       0,
@@ -431,22 +422,16 @@
     }
   };
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                         Generator                             *****/
   /*****                                                               *****/
 
-
-
-  int
+int
   main( void )
   {
     int  i;
 
-
-    printf( "  {\n" );
+printf( "  {\n" );
     printf( "   /* Generated from %s */\n", __FILE__ );
 
     for ( i = 0;
@@ -456,8 +441,7 @@
       const char*  feat_name;
       int          nSettings;
 
-
-      feat_name = featreg_table[i].feat_name;
+feat_name = featreg_table[i].feat_name;
       for ( nSettings = 0;
             featreg_table[i].setting_name[nSettings];
             nSettings++)
@@ -478,6 +462,5 @@
 
     return 0;
   }
-
 
 /* END */

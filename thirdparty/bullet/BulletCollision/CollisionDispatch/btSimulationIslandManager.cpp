@@ -280,8 +280,7 @@ void btSimulationIslandManager::buildIslands(btDispatcher* dispatcher, btCollisi
 
                  btAssert((colObj0->getIslandTag() == islandId) || (colObj0->getIslandTag() == -1));
 
-
-				if (colObj0->getIslandTag() == islandId)
+if (colObj0->getIslandTag() == islandId)
 				{
 					if (colObj0->getActivationState() == ISLAND_SLEEPING)
 					{
@@ -337,7 +336,6 @@ void btSimulationIslandManager::buildIslands(btDispatcher* dispatcher, btCollisi
 		}
 	}
 }
-
 
 ///@todo: this is random access, it can be walked 'cache friendly'!
 void btSimulationIslandManager::buildAndProcessIslands(btDispatcher* dispatcher, btCollisionWorld* collisionWorld, IslandCallback* callback)

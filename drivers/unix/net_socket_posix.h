@@ -1,8 +1,6 @@
 
 /*  net_socket_posix.h                                                   */
 
-
-
 #ifndef NET_SOCKET_UNIX_H
 #define NET_SOCKET_UNIX_H
 

@@ -91,7 +91,6 @@ static INLINE void write_2x8(unsigned char *dst, int pitch,
 }
 #endif  // VPX_INCOMPATIBLE_GCC
 
-
 #ifdef VPX_INCOMPATIBLE_GCC
 static INLINE
 uint8x8x4_t read_4x8(unsigned char *src, int pitch) {

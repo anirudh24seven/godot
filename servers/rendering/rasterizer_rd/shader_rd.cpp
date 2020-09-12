@@ -1,8 +1,6 @@
 
 /*  shader_rd.cpp                                                        */
 
-
-
 #include "shader_rd.h"
 
 #include "core/string_builder.h"

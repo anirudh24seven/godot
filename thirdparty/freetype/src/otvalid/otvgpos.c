@@ -15,13 +15,11 @@
  *
  */
 
-
 #include "otvalid.h"
 #include "otvcommn.h"
 #include "otvgpos.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -30,8 +28,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  otvgpos
 
-
-  static void
+static void
   otv_Anchor_validate( FT_Bytes       table,
                        OTV_Validator  valid );
 
@@ -39,14 +36,9 @@
   otv_MarkArray_validate( FT_Bytes       table,
                           OTV_Validator  valid );
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      UTILITY FUNCTIONS                        *****/
   /*****                                                               *****/
-
-
 
 #define BaseArrayFunc       otv_x_sxy
 #define LigatureAttachFunc  otv_x_sxy
@@ -62,8 +54,7 @@
     FT_Bytes  p = table;
     FT_UInt   Count, count1, table_size;
 
-
-    OTV_ENTER;
+OTV_ENTER;
 
     OTV_LIMIT_CHECK( 2 );
 
@@ -80,8 +71,7 @@
       {
         OTV_OPTIONAL_TABLE( anchor_offset );
 
-
-        OTV_OPTIONAL_OFFSET( anchor_offset );
+OTV_OPTIONAL_OFFSET( anchor_offset );
 
         if ( otvalid->extra2 )
         {
@@ -95,7 +85,6 @@
 
     OTV_EXIT;
   }
-
 
 #define MarkBasePosFormat1Func  otv_u_O_O_u_O_O
 #define MarkLigPosFormat1Func   otv_u_O_O_u_O_O
@@ -112,8 +101,7 @@
     FT_UInt            Array1, Array2;
     OTV_Validate_Func  func;
 
-
-    OTV_ENTER;
+OTV_ENTER;
 
     p += 2;     /* skip PosFormat */
 
@@ -140,30 +128,23 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                        VALUE RECORDS                          *****/
   /*****                                                               *****/
 
-
-
-  static FT_UInt
+static FT_UInt
   otv_value_length( FT_UInt  format )
   {
     FT_UInt  count;
 
-
-    count = ( ( format & 0xAA ) >> 1 ) + ( format & 0x55 );
+count = ( ( format & 0xAA ) >> 1 ) + ( format & 0x55 );
     count = ( ( count  & 0xCC ) >> 2 ) + ( count  & 0x33 );
     count = ( ( count  & 0xF0 ) >> 4 ) + ( count  & 0x0F );
 
     return count * 2;
   }
 
-
-  /* uses otvalid->extra3 (pointer to base table) */
+/* uses otvalid->extra3 (pointer to base table) */
 
   static void
   otv_ValueRecord_validate( FT_Bytes       table,
@@ -177,8 +158,7 @@
     FT_Int    loop;
     FT_ULong  res = 0;
 
-
-    OTV_NAME_ENTER( "ValueRecord" );
+OTV_NAME_ENTER( "ValueRecord" );
 
     /* display `format' in dual representation */
     for ( loop = 7; loop >= 0; loop-- )
@@ -213,8 +193,7 @@
 
         OTV_OPTIONAL_TABLE( device );
 
-
-        /* XPlaDevice, YPlaDevice, XAdvDevice, YAdvDevice */
+/* XPlaDevice, YPlaDevice, XAdvDevice, YAdvDevice */
         OTV_LIMIT_CHECK( 2 );
         OTV_OPTIONAL_OFFSET( device );
 
@@ -230,24 +209,18 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                           ANCHORS                             *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   otv_Anchor_validate( FT_Bytes       table,
                        OTV_Validator  otvalid )
   {
     FT_Bytes  p = table;
     FT_UInt   AnchorFormat;
 
-
-    OTV_NAME_ENTER( "Anchor");
+OTV_NAME_ENTER( "Anchor");
 
     OTV_LIMIT_CHECK( 6 );
     AnchorFormat = FT_NEXT_USHORT( p );
@@ -272,8 +245,7 @@
         OTV_OPTIONAL_TABLE( XDeviceTable );
         OTV_OPTIONAL_TABLE( YDeviceTable );
 
-
-        OTV_LIMIT_CHECK( 4 );
+OTV_LIMIT_CHECK( 4 );
         OTV_OPTIONAL_OFFSET( XDeviceTable );
         OTV_OPTIONAL_OFFSET( YDeviceTable );
 
@@ -296,24 +268,18 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                         MARK ARRAYS                           *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   otv_MarkArray_validate( FT_Bytes       table,
                           OTV_Validator  otvalid )
   {
     FT_Bytes  p = table;
     FT_UInt   MarkCount;
 
-
-    OTV_NAME_ENTER( "MarkArray" );
+OTV_NAME_ENTER( "MarkArray" );
 
     OTV_LIMIT_CHECK( 2 );
     MarkCount = FT_NEXT_USHORT( p );
@@ -333,16 +299,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     GPOS LOOKUP TYPE 1                        *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra3 (pointer to base table) */
+/* sets otvalid->extra3 (pointer to base table) */
 
   static void
   otv_SinglePos_validate( FT_Bytes       table,
@@ -351,8 +312,7 @@
     FT_Bytes  p = table;
     FT_UInt   PosFormat;
 
-
-    OTV_NAME_ENTER( "SinglePos" );
+OTV_NAME_ENTER( "SinglePos" );
 
     OTV_LIMIT_CHECK( 2 );
     PosFormat = FT_NEXT_USHORT( p );
@@ -367,8 +327,7 @@
       {
         FT_UInt  Coverage, ValueFormat;
 
-
-        OTV_LIMIT_CHECK( 4 );
+OTV_LIMIT_CHECK( 4 );
         Coverage    = FT_NEXT_USHORT( p );
         ValueFormat = FT_NEXT_USHORT( p );
 
@@ -381,8 +340,7 @@
       {
         FT_UInt  Coverage, ValueFormat, ValueCount, len_value;
 
-
-        OTV_LIMIT_CHECK( 6 );
+OTV_LIMIT_CHECK( 6 );
         Coverage    = FT_NEXT_USHORT( p );
         ValueFormat = FT_NEXT_USHORT( p );
         ValueCount  = FT_NEXT_USHORT( p );
@@ -413,16 +371,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     GPOS LOOKUP TYPE 2                        *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra3 (pointer to base table) */
+/* sets otvalid->extra3 (pointer to base table) */
 
   static void
   otv_PairSet_validate( FT_Bytes       table,
@@ -433,8 +386,7 @@
     FT_Bytes  p = table;
     FT_UInt   value_len1, value_len2, PairValueCount;
 
-
-    OTV_NAME_ENTER( "PairSet" );
+OTV_NAME_ENTER( "PairSet" );
 
     otvalid->extra3 = table;
 
@@ -465,8 +417,7 @@
     OTV_EXIT;
   }
 
-
-  /* sets otvalid->extra3 (pointer to base table) */
+/* sets otvalid->extra3 (pointer to base table) */
 
   static void
   otv_PairPos_validate( FT_Bytes       table,
@@ -475,8 +426,7 @@
     FT_Bytes  p = table;
     FT_UInt   PosFormat;
 
-
-    OTV_NAME_ENTER( "PairPos" );
+OTV_NAME_ENTER( "PairPos" );
 
     OTV_LIMIT_CHECK( 2 );
     PosFormat = FT_NEXT_USHORT( p );
@@ -489,8 +439,7 @@
       {
         FT_UInt  Coverage, ValueFormat1, ValueFormat2, PairSetCount;
 
-
-        OTV_LIMIT_CHECK( 8 );
+OTV_LIMIT_CHECK( 8 );
         Coverage     = FT_NEXT_USHORT( p );
         ValueFormat1 = FT_NEXT_USHORT( p );
         ValueFormat2 = FT_NEXT_USHORT( p );
@@ -514,8 +463,7 @@
         FT_UInt  Coverage, ValueFormat1, ValueFormat2, ClassDef1, ClassDef2;
         FT_UInt  ClassCount1, ClassCount2, len_value1, len_value2, count;
 
-
-        OTV_LIMIT_CHECK( 14 );
+OTV_LIMIT_CHECK( 14 );
         Coverage     = FT_NEXT_USHORT( p );
         ValueFormat1 = FT_NEXT_USHORT( p );
         ValueFormat2 = FT_NEXT_USHORT( p );
@@ -566,24 +514,18 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     GPOS LOOKUP TYPE 3                        *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   otv_CursivePos_validate( FT_Bytes       table,
                            OTV_Validator  otvalid )
   {
     FT_Bytes  p = table;
     FT_UInt   PosFormat;
 
-
-    OTV_NAME_ENTER( "CursivePos" );
+OTV_NAME_ENTER( "CursivePos" );
 
     OTV_LIMIT_CHECK( 2 );
     PosFormat = FT_NEXT_USHORT( p );
@@ -600,8 +542,7 @@
         OTV_OPTIONAL_TABLE( EntryAnchor );
         OTV_OPTIONAL_TABLE( ExitAnchor  );
 
-
-        OTV_LIMIT_CHECK( 4 );
+OTV_LIMIT_CHECK( 4 );
         Coverage       = FT_NEXT_USHORT( p );
         EntryExitCount = FT_NEXT_USHORT( p );
 
@@ -639,16 +580,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     GPOS LOOKUP TYPE 4                        *****/
   /*****                                                               *****/
 
-
-
-  /* UNDOCUMENTED (in OpenType 1.5):              */
+/* UNDOCUMENTED (in OpenType 1.5):              */
   /* BaseRecord tables can contain NULL pointers. */
 
   /* sets otvalid->extra2 (1) */
@@ -660,8 +596,7 @@
     FT_Bytes  p = table;
     FT_UInt   PosFormat;
 
-
-    OTV_NAME_ENTER( "MarkBasePos" );
+OTV_NAME_ENTER( "MarkBasePos" );
 
     OTV_LIMIT_CHECK( 2 );
     PosFormat = FT_NEXT_USHORT( p );
@@ -683,16 +618,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     GPOS LOOKUP TYPE 5                        *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra2 (1) */
+/* sets otvalid->extra2 (1) */
 
   static void
   otv_MarkLigPos_validate( FT_Bytes       table,
@@ -701,8 +631,7 @@
     FT_Bytes  p = table;
     FT_UInt   PosFormat;
 
-
-    OTV_NAME_ENTER( "MarkLigPos" );
+OTV_NAME_ENTER( "MarkLigPos" );
 
     OTV_LIMIT_CHECK( 2 );
     PosFormat = FT_NEXT_USHORT( p );
@@ -724,16 +653,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     GPOS LOOKUP TYPE 6                        *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra2 (0) */
+/* sets otvalid->extra2 (0) */
 
   static void
   otv_MarkMarkPos_validate( FT_Bytes       table,
@@ -742,8 +666,7 @@
     FT_Bytes  p = table;
     FT_UInt   PosFormat;
 
-
-    OTV_NAME_ENTER( "MarkMarkPos" );
+OTV_NAME_ENTER( "MarkMarkPos" );
 
     OTV_LIMIT_CHECK( 2 );
     PosFormat = FT_NEXT_USHORT( p );
@@ -765,16 +688,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     GPOS LOOKUP TYPE 7                        *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra1 (lookup count) */
+/* sets otvalid->extra1 (lookup count) */
 
   static void
   otv_ContextPos_validate( FT_Bytes       table,
@@ -783,8 +701,7 @@
     FT_Bytes  p = table;
     FT_UInt   PosFormat;
 
-
-    OTV_NAME_ENTER( "ContextPos" );
+OTV_NAME_ENTER( "ContextPos" );
 
     OTV_LIMIT_CHECK( 2 );
     PosFormat = FT_NEXT_USHORT( p );
@@ -824,16 +741,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     GPOS LOOKUP TYPE 8                        *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->extra1 (lookup count) */
+/* sets otvalid->extra1 (lookup count) */
 
   static void
   otv_ChainContextPos_validate( FT_Bytes       table,
@@ -842,8 +754,7 @@
     FT_Bytes  p = table;
     FT_UInt   PosFormat;
 
-
-    OTV_NAME_ENTER( "ChainContextPos" );
+OTV_NAME_ENTER( "ChainContextPos" );
 
     OTV_LIMIT_CHECK( 2 );
     PosFormat = FT_NEXT_USHORT( p );
@@ -885,16 +796,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     GPOS LOOKUP TYPE 9                        *****/
   /*****                                                               *****/
 
-
-
-  /* uses otvalid->type_funcs */
+/* uses otvalid->type_funcs */
 
   static void
   otv_ExtensionPos_validate( FT_Bytes       table,
@@ -903,8 +809,7 @@
     FT_Bytes  p = table;
     FT_UInt   PosFormat;
 
-
-    OTV_NAME_ENTER( "ExtensionPos" );
+OTV_NAME_ENTER( "ExtensionPos" );
 
     OTV_LIMIT_CHECK( 2 );
     PosFormat = FT_NEXT_USHORT( p );
@@ -919,8 +824,7 @@
         FT_ULong           ExtensionOffset;
         OTV_Validate_Func  validate;
 
-
-        OTV_LIMIT_CHECK( 6 );
+OTV_LIMIT_CHECK( 6 );
         ExtensionLookupType = FT_NEXT_USHORT( p );
         ExtensionOffset     = FT_NEXT_ULONG( p );
 
@@ -939,8 +843,7 @@
     OTV_EXIT;
   }
 
-
-  static const OTV_Validate_Func  otv_gpos_validate_funcs[9] =
+static const OTV_Validate_Func  otv_gpos_validate_funcs[9] =
   {
     otv_SinglePos_validate,
     otv_PairPos_validate,
@@ -953,8 +856,7 @@
     otv_ExtensionPos_validate
   };
 
-
-  /* sets otvalid->type_count */
+/* sets otvalid->type_count */
   /* sets otvalid->type_funcs */
 
   FT_LOCAL_DEF( void )
@@ -967,16 +869,11 @@
     otv_Lookup_validate( table, otvalid );
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          GPOS TABLE                           *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->glyph_count */
+/* sets otvalid->glyph_count */
 
   FT_LOCAL_DEF( void )
   otv_GPOS_validate( FT_Bytes      table,
@@ -992,8 +889,7 @@
 
     OTV_OPTIONAL_TABLE32( featureVariations );
 
-
-    otvalid->root = ftvalid;
+otvalid->root = ftvalid;
 
     FT_TRACE3(( "validating GPOS table\n" ));
     OTV_INIT;
@@ -1046,6 +942,5 @@
 
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

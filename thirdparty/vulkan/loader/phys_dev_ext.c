@@ -540,7 +540,6 @@ VKAPI_ATTR void VKAPI_CALL vkPhysDevExtTermin247(VkPhysicalDevice);
 VKAPI_ATTR void VKAPI_CALL vkPhysDevExtTermin248(VkPhysicalDevice);
 VKAPI_ATTR void VKAPI_CALL vkPhysDevExtTermin249(VkPhysicalDevice);
 
-
 void *loader_get_phys_dev_ext_tramp(uint32_t index) {
     switch (index) {
 #define TRAMP_CASE_HANDLE(num) case num: return vkPhysDevExtTramp##num

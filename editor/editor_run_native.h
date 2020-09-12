@@ -1,8 +1,6 @@
 
 /*  editor_run_native.h                                                  */
 
-
-
 #ifndef EDITOR_RUN_NATIVE_H
 #define EDITOR_RUN_NATIVE_H
 

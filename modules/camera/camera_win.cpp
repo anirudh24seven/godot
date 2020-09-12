@@ -1,8 +1,6 @@
 
 /*  camera_win.cpp                                                       */
 
-
-
 #include "camera_win.h"
 
 ///@TODO sorry guys, I got about 80% through implementing this using DirectShow only

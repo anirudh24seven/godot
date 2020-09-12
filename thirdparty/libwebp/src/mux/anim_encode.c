@@ -1232,8 +1232,7 @@ static int CacheFrame(WebPAnimEncoder* const enc,
       if (frame_skipped) goto Skip;
       prev_rect_sub = enc->prev_rect_;
 
-
-      // Add this as a key-frame to enc, too.
+// Add this as a key-frame to enc, too.
       error_code = SetFrame(enc, config, 1, encoded_frame, &frame_skipped);
       if (error_code != VP8_ENC_OK) goto End;
       assert(frame_skipped == 0);  // Key-frame cannot be an empty rectangle.

@@ -1,8 +1,6 @@
 
 /*  websocket_macros.h                                                   */
 
-
-
 #ifndef WEBSOCKETMACTOS_H
 #define WEBSOCKETMACTOS_H
 

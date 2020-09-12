@@ -1,8 +1,6 @@
 
 /*  resource_importer_bitmask.h                                          */
 
-
-
 #ifndef RESOURCE_IMPORTER_BITMASK_H
 #define RESOURCE_IMPORTER_BITMASK_H
 

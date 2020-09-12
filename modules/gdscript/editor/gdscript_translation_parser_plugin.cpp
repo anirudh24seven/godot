@@ -1,8 +1,6 @@
 
 /*  gdscript_translation_parser_plugin.cpp                               */
 
-
-
 #include "gdscript_translation_parser_plugin.h"
 
 #include "core/io/resource_loader.h"

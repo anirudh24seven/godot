@@ -1,8 +1,6 @@
 
 /*  editor_profiler.cpp                                                  */
 
-
-
 #include "editor_profiler.h"
 
 #include "core/os/os.h"

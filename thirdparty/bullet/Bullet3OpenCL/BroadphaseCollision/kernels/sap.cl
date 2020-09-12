@@ -31,7 +31,6 @@ typedef struct
 	};
 } btAabbCL;
 
-
 /// conservative test for overlap between two aabbs
 bool TestAabbAgainstAabb2(const btAabbCL* aabb1, __local const btAabbCL* aabb2);
 bool TestAabbAgainstAabb2(const btAabbCL* aabb1, __local const btAabbCL* aabb2)
@@ -62,7 +61,6 @@ bool TestAabbAgainstAabb2Global(const btAabbCL* aabb1, __global const btAabbCL* 
 	return overlap;
 }
 
-
 __kernel void   computePairsKernelTwoArrays( __global const btAabbCL* unsortedAabbs, __global const int* unsortedAabbMapping,  __global const int* unsortedAabbMapping2, volatile __global int4* pairsOut,volatile  __global int* pairCount, int numUnsortedAabbs, int numUnSortedAabbs2, int axis, int maxPairs)
 {
 	int i = get_global_id(0);
@@ -73,8 +71,7 @@ __kernel void   computePairsKernelTwoArrays( __global const btAabbCL* unsortedAa
 	if (j>=numUnSortedAabbs2)
 		return;
 
-
-	__global const btAabbCL* unsortedAabbPtr = &unsortedAabbs[unsortedAabbMapping[i]];
+__global const btAabbCL* unsortedAabbPtr = &unsortedAabbs[unsortedAabbMapping[i]];
 	__global const btAabbCL* unsortedAabbPtr2 = &unsortedAabbs[unsortedAabbMapping2[j]];
 
 	if (TestAabbAgainstAabb2GlobalGlobal(unsortedAabbPtr,unsortedAabbPtr2))
@@ -95,16 +92,13 @@ __kernel void   computePairsKernelTwoArrays( __global const btAabbCL* unsortedAa
 		myPair.z = NEW_PAIR_MARKER;
 		myPair.w = NEW_PAIR_MARKER;
 
-
-		int curPair = atomic_inc (pairCount);
+int curPair = atomic_inc (pairCount);
 		if (curPair<maxPairs)
 		{
 				pairsOut[curPair] = myPair; //flush to main memory
 		}
 	}
 }
-
-
 
 __kernel void   computePairsKernelBruteForce( __global const btAabbCL* aabbs, volatile __global int4* pairsOut,volatile  __global int* pairCount, int numObjects, int axis, int maxPairs)
 {
@@ -157,9 +151,6 @@ __kernel void   computePairsKernelOriginal( __global const btAabbCL* aabbs, vola
 		}
 	}
 }
-
-
-
 
 __kernel void   computePairsKernelBarrier( __global const btAabbCL* aabbs, volatile __global int4* pairsOut,volatile  __global int* pairCount, int numObjects, int axis, int maxPairs)
 {
@@ -226,7 +217,6 @@ __kernel void   computePairsKernelBarrier( __global const btAabbCL* aabbs, volat
 
 	} while (breakRequest[0]<numActiveWgItems[0]);
 }
-
 
 __kernel void   computePairsKernelLocalSharedMemory( __global const btAabbCL* aabbs, volatile __global int4* pairsOut,volatile  __global int* pairCount, int numObjects, int axis, int maxPairs)
 {
@@ -317,9 +307,6 @@ __kernel void   computePairsKernelLocalSharedMemory( __global const btAabbCL* aa
 	
 }
 
-
-
-
 //http://stereopsis.com/radix.html
 unsigned int FloatFlip(float fl);
 unsigned int FloatFlip(float fl)
@@ -336,9 +323,6 @@ float IFloatFlip(unsigned int f)
 	return *(float*)&fl;
 }
 
-
-
-
 __kernel void   copyAabbsKernel( __global const btAabbCL* allAabbs, __global btAabbCL* destAabbs, int numObjects)
 {
 	int i = get_global_id(0);
@@ -349,19 +333,16 @@ __kernel void   copyAabbsKernel( __global const btAabbCL* allAabbs, __global btA
 	destAabbs[i].m_maxIndices[3] = src;
 }
 
-
 __kernel void   flipFloatKernel( __global const btAabbCL* allAabbs, __global const int* smallAabbMapping, __global int2* sortData, int numObjects, int axis)
 {
 	int i = get_global_id(0);
 	if (i>=numObjects)
 		return;
-	
-	
-	sortData[i].x = FloatFlip(allAabbs[smallAabbMapping[i]].m_minElems[axis]);
+
+sortData[i].x = FloatFlip(allAabbs[smallAabbMapping[i]].m_minElems[axis]);
 	sortData[i].y = i;
 		
 }
-
 
 __kernel void   scatterKernel( __global const btAabbCL* allAabbs, __global const int* smallAabbMapping, volatile __global const int2* sortData, __global btAabbCL* sortedAabbs, int numObjects)
 {
@@ -371,8 +352,6 @@ __kernel void   scatterKernel( __global const btAabbCL* allAabbs, __global const
 	
 	sortedAabbs[i] = allAabbs[smallAabbMapping[sortData[i].y]];
 }
-
-
 
 __kernel void   prepareSumVarianceKernel( __global const btAabbCL* allAabbs, __global const int* smallAabbMapping, __global float4* sum, __global float4* sum2,int numAabbs)
 {

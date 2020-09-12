@@ -1611,8 +1611,7 @@ btScalar btMultiBodyConstraintSolver::solveGroupCacheFriendlyFinish(btCollisionO
 		writeBackSolverBodyToMultiBody(solverConstraint, infoGlobal.m_timeStep);
 	}
 
-
-	{
+{
 		BT_PROFILE("warm starting write back");
 		for (int j = 0; j < numPoolConstraints; j++)
 		{

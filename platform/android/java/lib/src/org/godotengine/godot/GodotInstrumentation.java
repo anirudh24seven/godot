@@ -1,8 +1,6 @@
 
 /*  GodotInstrumentation.java                                            */
 
-
-
 package org.godotengine.godot;
 
 import android.app.Instrumentation;

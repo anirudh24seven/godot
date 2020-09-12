@@ -1,8 +1,6 @@
 
 /*  udp_server.cpp                                                       */
 
-
-
 #include "udp_server.h"
 
 void UDPServer::_bind_methods() {

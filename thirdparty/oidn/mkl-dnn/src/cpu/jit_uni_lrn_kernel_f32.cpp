@@ -937,8 +937,7 @@ void jit_uni_lrn_fwd_kernel_f32<avx2>::nchw_body(
     else
         vmovups(ptr[dst], ydst);
 
-
-    vfnmadd231ps(ysum, ya, ya);
+vfnmadd231ps(ysum, ya, ya);
     vmovups(ya, yb);
     vmovups(yb, yc);
     vmovups(yc, yd);

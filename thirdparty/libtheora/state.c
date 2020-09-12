@@ -463,7 +463,6 @@ static void oc_state_frarray_clear(oc_theora_state *_state){
   _ogg_free(_state->frags);
 }
 
-
 /*Initializes the buffers used for reconstructed frames.
   These buffers are padded with 16 extra pixels on each side, to allow
    unrestricted motion vectors without special casing the boundary.
@@ -589,7 +588,6 @@ static void oc_state_ref_bufs_clear(oc_theora_state *_state){
   _ogg_free(_state->ref_frame_data[0]);
 }
 
-
 void oc_state_vtable_init_c(oc_theora_state *_state){
   _state->opt_vtable.frag_copy=oc_frag_copy_c;
   _state->opt_vtable.frag_recon_intra=oc_frag_recon_intra_c;
@@ -612,7 +610,6 @@ void oc_state_vtable_init(oc_theora_state *_state){
   oc_state_vtable_init_c(_state);
 #endif
 }
-
 
 int oc_state_init(oc_theora_state *_state,const th_info *_info,int _nrefs){
   int ret;
@@ -674,7 +671,6 @@ void oc_state_clear(oc_theora_state *_state){
   oc_state_ref_bufs_clear(_state);
   oc_state_frarray_clear(_state);
 }
-
 
 /*Duplicates the pixels on the border of the image plane out into the
    surrounding padding for use by unrestricted motion vectors.
@@ -1196,8 +1192,6 @@ int oc_state_dump_frame(const oc_theora_state *_state,int _frame,
   return 0;
 }
 #endif
-
-
 
 ogg_int64_t th_granule_frame(void *_encdec,ogg_int64_t _granpos){
   oc_theora_state *state;

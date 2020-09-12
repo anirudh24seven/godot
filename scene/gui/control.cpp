@@ -1,8 +1,6 @@
 
 /*  control.cpp                                                          */
 
-
-
 #include "control.h"
 
 #include "core/math/geometry_2d.h"

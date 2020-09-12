@@ -1,8 +1,6 @@
 
 /*  rich_text_label.h                                                    */
 
-
-
 #ifndef RICH_TEXT_LABEL_H
 #define RICH_TEXT_LABEL_H
 

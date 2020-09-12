@@ -1,8 +1,6 @@
 
 /*  stream_peer_gdnative.h                                               */
 
-
-
 #ifndef STREAM_PEER_GDNATIVE_H
 #define STREAM_PEER_GDNATIVE_H
 

@@ -1,8 +1,6 @@
 
 /*  gi_probe.h                                                           */
 
-
-
 #ifndef GIPROBE_H
 #define GIPROBE_H
 

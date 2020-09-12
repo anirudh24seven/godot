@@ -1,8 +1,6 @@
 
 /*  color_rect.cpp                                                       */
 
-
-
 #include "color_rect.h"
 
 void ColorRect::set_frame_color(const Color &p_color) {

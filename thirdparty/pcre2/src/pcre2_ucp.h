@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 #ifndef PCRE2_UCP_H_IDEMPOTENT_GUARD
 #define PCRE2_UCP_H_IDEMPOTENT_GUARD
 

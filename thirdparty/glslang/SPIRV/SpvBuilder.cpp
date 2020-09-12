@@ -426,7 +426,6 @@ Id Builder::makeCooperativeMatrixType(Id component, Id scope, Id rows, Id cols)
     return type->getResultId();
 }
 
-
 // TODO: performance: track arrays per stride
 // If a stride is supplied (non-zero) make an array.
 // If no stride (0), reuse previous array types.

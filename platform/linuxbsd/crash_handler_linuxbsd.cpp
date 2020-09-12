@@ -1,8 +1,6 @@
 
 /*  crash_handler_linuxbsd.cpp                                           */
 
-
-
 #include "crash_handler_linuxbsd.h"
 
 #include "core/os/os.h"

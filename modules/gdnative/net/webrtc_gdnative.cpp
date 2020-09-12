@@ -1,8 +1,6 @@
 
 /*  webrtc_gdnative.cpp                                                  */
 
-
-
 #include "modules/gdnative/gdnative.h"
 #include "modules/gdnative/include/net/godot_net.h"
 

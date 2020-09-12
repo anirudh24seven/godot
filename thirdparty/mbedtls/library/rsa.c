@@ -549,7 +549,6 @@ size_t mbedtls_rsa_get_len( const mbedtls_rsa_context *ctx )
     return( ctx->len );
 }
 
-
 #if defined(MBEDTLS_GENPRIME)
 
 /*
@@ -832,7 +831,6 @@ static int rsa_prepare_blinding( mbedtls_rsa_context *ctx,
     /* Blinding value: Vi =  Vf^(-e) mod N */
     MBEDTLS_MPI_CHK( mbedtls_mpi_inv_mod( &ctx->Vi, &ctx->Vf, &ctx->N ) );
     MBEDTLS_MPI_CHK( mbedtls_mpi_exp_mod( &ctx->Vi, &ctx->Vi, &ctx->E, &ctx->N, &ctx->RN ) );
-
 
 cleanup:
     return( ret );

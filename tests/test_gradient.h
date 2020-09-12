@@ -1,8 +1,6 @@
 
 /*  test_gradient.h                                                      */
 
-
-
 #ifndef TEST_GRADIENT_H
 #define TEST_GRADIENT_H
 

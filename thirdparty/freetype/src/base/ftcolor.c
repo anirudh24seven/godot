@@ -15,21 +15,18 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_SFNT_H
 #include FT_INTERNAL_TRUETYPE_TYPES_H
 #include FT_COLOR_H
 
-
 #ifdef TT_CONFIG_OPTION_COLOR_LAYERS
 
   static
   const FT_Palette_Data  null_palette_data = { 0, NULL, NULL, 0, NULL };
 
-
-  /* documentation is in ftcolor.h */
+/* documentation is in ftcolor.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Palette_Data_Get( FT_Face           face,
@@ -48,8 +45,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* documentation is in ftcolor.h */
+/* documentation is in ftcolor.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Palette_Select( FT_Face     face,
@@ -61,8 +57,7 @@
     TT_Face       ttface;
     SFNT_Service  sfnt;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     if ( !FT_IS_SFNT( face ) )
@@ -88,8 +83,7 @@
     return FT_Err_Ok;
   }
 
-
-  /* documentation is in ftcolor.h */
+/* documentation is in ftcolor.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Palette_Set_Foreground_Color( FT_Face   face,
@@ -97,8 +91,7 @@
   {
     TT_Face  ttface;
 
-
-    if ( !face )
+if ( !face )
       return FT_THROW( Invalid_Face_Handle );
 
     if ( !FT_IS_SFNT( face ) )
@@ -121,12 +114,10 @@
     FT_UNUSED( face );
     FT_UNUSED( apalette_data );
 
-
-    return FT_THROW( Unimplemented_Feature );
+return FT_THROW( Unimplemented_Feature );
   }
 
-
-  FT_EXPORT_DEF( FT_Error )
+FT_EXPORT_DEF( FT_Error )
   FT_Palette_Select( FT_Face     face,
                      FT_UShort   palette_index,
                      FT_Color*  *apalette )
@@ -135,23 +126,19 @@
     FT_UNUSED( palette_index );
     FT_UNUSED( apalette );
 
-
-    return FT_THROW( Unimplemented_Feature );
+return FT_THROW( Unimplemented_Feature );
   }
 
-
-  FT_EXPORT_DEF( FT_Error )
+FT_EXPORT_DEF( FT_Error )
   FT_Palette_Set_Foreground_Color( FT_Face   face,
                                    FT_Color  foreground_color )
   {
     FT_UNUSED( face );
     FT_UNUSED( foreground_color );
 
-
-    return FT_THROW( Unimplemented_Feature );
+return FT_THROW( Unimplemented_Feature );
   }
 
 #endif /* !TT_CONFIG_OPTION_COLOR_LAYERS */
-
 
 /* END */

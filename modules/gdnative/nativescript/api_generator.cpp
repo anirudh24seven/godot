@@ -1,8 +1,6 @@
 
 /*  api_generator.cpp                                                    */
 
-
-
 #include "api_generator.h"
 
 #ifdef TOOLS_ENABLED

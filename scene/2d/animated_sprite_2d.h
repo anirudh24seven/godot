@@ -1,8 +1,6 @@
 
 /*  animated_sprite_2d.h                                                 */
 
-
-
 #ifndef ANIMATED_SPRITE_2D_H
 #define ANIMATED_SPRITE_2D_H
 

@@ -1,8 +1,6 @@
 
 /*  audio_driver_pulseaudio.cpp                                          */
 
-
-
 #include "audio_driver_pulseaudio.h"
 
 #ifdef PULSEAUDIO_ENABLED

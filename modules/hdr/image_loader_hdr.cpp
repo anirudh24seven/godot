@@ -1,8 +1,6 @@
 
 /*  image_loader_hdr.cpp                                                 */
 
-
-
 #include "image_loader_hdr.h"
 
 #include "core/os/os.h"

@@ -1,8 +1,6 @@
 
 /*  rasterizer_canvas_rd.cpp                                             */
 
-
-
 #include "rasterizer_canvas_rd.h"
 #include "core/math/math_funcs.h"
 #include "core/project_settings.h"

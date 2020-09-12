@@ -1,8 +1,6 @@
 
 /*  animation_bezier_editor.h                                            */
 
-
-
 #ifndef ANIMATION_BEZIER_EDITOR_H
 #define ANIMATION_BEZIER_EDITOR_H
 

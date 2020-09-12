@@ -1,8 +1,6 @@
 
 /*  light_cluster_builder.cpp                                            */
 
-
-
 #include "light_cluster_builder.h"
 
 void LightClusterBuilder::begin(const Transform &p_view_transform, const CameraMatrix &p_cam_projection) {

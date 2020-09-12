@@ -1,8 +1,6 @@
 
 /*  rasterizer_scene_rd.cpp                                              */
 
-
-
 #include "rasterizer_scene_rd.h"
 
 #include "core/os/os.h"

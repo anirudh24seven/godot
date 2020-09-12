@@ -1,8 +1,6 @@
 
 /*  VkRenderer.kt                                                        */
 
-
-
 @file:JvmName("VkRenderer")
 package org.godotengine.godot.vulkan
 

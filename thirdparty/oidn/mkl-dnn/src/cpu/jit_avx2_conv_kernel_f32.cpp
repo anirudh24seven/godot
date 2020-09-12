@@ -497,8 +497,7 @@ status_t jit_avx2_conv_fwd_kernel_f32::init_conf(jit_conv_conf_t &jcp,
     const bool flat = jcp.ic < simd_w;
     const bool mimo = !flat;
 
-
-    /* Grouped channel offset to support 'non-blocked data' format for
+/* Grouped channel offset to support 'non-blocked data' format for
      * convolution sizes with '(input_channel / ngroups) < simd' */
     jcp.nonblk_group_off =
         one_of(jcp.src_tag, ncw, nchw, ncdhw) && jcp.ngroups > 1 ? jcp.ic : 1;

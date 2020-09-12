@@ -1,8 +1,6 @@
 
 /*  version_control_editor_plugin.cpp                                    */
 
-
-
 #include "version_control_editor_plugin.h"
 
 #include "core/script_language.h"

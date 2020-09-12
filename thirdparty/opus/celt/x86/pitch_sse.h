@@ -98,7 +98,6 @@ opus_val32 celt_inner_prod_sse(
     int               N);
 #endif
 
-
 #if defined(OPUS_X86_PRESUME_SSE4_1) && defined(FIXED_POINT)
 #define OVERRIDE_CELT_INNER_PROD
 #define celt_inner_prod(x, y, N, arch) \
@@ -113,7 +112,6 @@ opus_val32 celt_inner_prod_sse(
 #define OVERRIDE_CELT_INNER_PROD
 #define celt_inner_prod(x, y, N, arch) \
     ((void)arch, celt_inner_prod_sse(x, y, N))
-
 
 #elif ((defined(OPUS_X86_MAY_HAVE_SSE4_1) || defined(OPUS_X86_MAY_HAVE_SSE2)) && defined(FIXED_POINT)) || \
     (defined(OPUS_X86_MAY_HAVE_SSE) && !defined(FIXED_POINT))
@@ -151,7 +149,6 @@ void comb_filter_const_sse(opus_val32 *y,
     opus_val16  g10,
     opus_val16  g11,
     opus_val16  g12);
-
 
 #if defined(OPUS_X86_PRESUME_SSE)
 # define dual_inner_prod(x, y01, y02, N, xy1, xy2, arch) \

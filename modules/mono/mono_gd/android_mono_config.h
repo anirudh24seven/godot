@@ -1,8 +1,6 @@
 
 /*  android_mono_config.h                                                */
 
-
-
 #ifndef ANDROID_MONO_CONFIG_H
 #define ANDROID_MONO_CONFIG_H
 

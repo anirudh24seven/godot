@@ -1,8 +1,6 @@
 
 /*  OvrContextFactory.java                                               */
 
-
-
 package org.godotengine.godot.xr.ovr;
 
 import android.opengl.EGL14;

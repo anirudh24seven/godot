@@ -15,7 +15,6 @@
  *
  */
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  CID_FaceInfoRec
 #undef  T1CODE
@@ -35,7 +34,6 @@
   T1_FIELD_NUM      ( "FDBytes",        fd_bytes,      0 )
   T1_FIELD_NUM      ( "GDBytes",        gd_bytes,      0 )
   T1_FIELD_NUM      ( "CIDCount",       cid_count,     0 )
-
 
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  PS_FontInfoRec
@@ -59,7 +57,6 @@
 
   T1_FIELD_NUM   ( "FSType",             fs_type,             0 )
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  CID_FaceDictRec
 #undef  T1CODE
@@ -73,7 +70,6 @@
   T1_FIELD_NUM  ( "lenBuildCharArray",  len_buildchar,       0 )
   T1_FIELD_FIXED( "ForceBoldThreshold", forcebold_threshold, 0 )
   T1_FIELD_FIXED( "StrokeWidth",        stroke_width,        0 )
-
 
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  PS_PrivateRec
@@ -103,13 +99,11 @@
 
   T1_FIELD_BOOL      ( "ForceBold",        force_bold,          0 )
 
-
 #undef  FT_STRUCTURE
 #define FT_STRUCTURE  FT_BBox
 #undef  T1CODE
 #define T1CODE        T1_FIELD_LOCATION_BBOX
 
   T1_FIELD_BBOX( "FontBBox", xMin, 0 )
-
 
 /* END */

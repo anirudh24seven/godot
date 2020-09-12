@@ -1,8 +1,6 @@
 
 /*  input_map.h                                                          */
 
-
-
 #ifndef INPUT_MAP_H
 #define INPUT_MAP_H
 

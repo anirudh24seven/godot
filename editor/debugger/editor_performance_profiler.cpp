@@ -1,8 +1,6 @@
 
 /*  editor_performance_profiler.cpp                                      */
 
-
-
 #include "editor_performance_profiler.h"
 
 #include "editor/editor_scale.h"

@@ -1,8 +1,6 @@
 
 /*  api.cpp                                                              */
 
-
-
 #include "api.h"
 
 #include "core/engine.h"

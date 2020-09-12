@@ -13,7 +13,6 @@ subject to the following restrictions:
 */
 //Originally written by Takahiro Harada
 
-
 #include "Bullet3Collision/NarrowPhaseCollision/shared/b3Contact4Data.h"
 
 #pragma OPENCL EXTENSION cl_amd_printf : enable
@@ -21,7 +20,6 @@ subject to the following restrictions:
 #pragma OPENCL EXTENSION cl_khr_global_int32_base_atomics : enable
 #pragma OPENCL EXTENSION cl_khr_local_int32_extended_atomics : enable
 #pragma OPENCL EXTENSION cl_khr_global_int32_extended_atomics : enable
-
 
 #ifdef cl_ext_atomic_counters_32
 #pragma OPENCL EXTENSION cl_ext_atomic_counters_32 : enable
@@ -47,7 +45,6 @@ typedef unsigned char u8;
 #define AtomCmpxhg(x, cmp, value) atom_cmpxchg( &(x), cmp, value )
 #define AtomXhg(x, value) atom_xchg ( &(x), value )
 
-
 #define SELECT_UINT4( b, a, condition ) select( b,a,condition )
 
 #define make_float4 (float4)
@@ -57,10 +54,8 @@ typedef unsigned char u8;
 #define make_uint2 (uint2)
 #define make_int2 (int2)
 
-
 #define max2 max
 #define min2 min
-
 
 ///////////////////////////////////////
 //	Vector
@@ -102,7 +97,6 @@ float4 fastNormalize4(float4 v)
 {
 	return fast_normalize(v);
 }
-
 
 __inline
 float sqrtf(float a)
@@ -292,10 +286,6 @@ float4 qtRotate(Quaternion q, float4 vec);
 __inline
 Quaternion qtInvert(Quaternion q);
 
-
-
-
-
 __inline
 Quaternion qtMul(Quaternion a, Quaternion b)
 {
@@ -335,9 +325,6 @@ float4 qtInvRotate(const Quaternion q, float4 vec)
 {
 	return qtRotate( qtInvert( q ), vec );
 }
-
-
-
 
 #define WG_SIZE 64
 
@@ -379,8 +366,6 @@ typedef struct
 	u32 m_paddings[1];
 } Constraint4;
 
-
-
 typedef struct
 {
 	int m_nConstraints;
@@ -399,11 +384,7 @@ typedef struct
 //	int m_paddings[1];
 } ConstBufferBatchSolve;
 
-
- 
-
-
-typedef struct 
+typedef struct
 {
 	int m_valInt0;
 	int m_valInt1;
@@ -415,9 +396,6 @@ typedef struct
 	float m_val2;
 	float m_val3;
 } SolverDebugInfo;
-
-
-
 
 //	others
 __kernel
@@ -480,7 +458,6 @@ void SetDeterminismSortDataBodyA(__global struct b3Contact4Data* contactsIn, __g
 	}
 }
 
-
 __kernel
 __attribute__((reqd_work_group_size(WG_SIZE,1,1)))
 void SetDeterminismSortDataBodyB(__global struct b3Contact4Data* contactsIn, __global int2* sortDataInOut, int nContacts)
@@ -498,9 +475,6 @@ void SetDeterminismSortDataBodyB(__global struct b3Contact4Data* contactsIn, __g
 	}
 }
 
-
-
-
 typedef struct
 {
 	int m_nContacts;
@@ -509,8 +483,7 @@ typedef struct
 	int m_nSplit;
 } ConstBufferSSD;
 
-
-__constant const int gridTable4x4[] = 
+__constant const int gridTable4x4[] =
 {
     0,1,17,16,
 	1,2,18,19,
@@ -530,9 +503,6 @@ __constant const int gridTable8x8[] =
 	197,27,214,213,212,199,198,196
 	
 };
-
-
-
 
 #define USE_SPATIAL_BATCHING 1
 #define USE_4x4_GRID 1
@@ -588,8 +558,7 @@ int nContacts,float scale,int4 nSplit,int staticIdx)
 	#endif//USE_4x4_GRID
 #endif//USE_SPATIAL_BATCHING
 
-
-		gSortDataOut[gIdx].x = newIndex;
+gSortDataOut[gIdx].x = newIndex;
 		gSortDataOut[gIdx].y = gIdx;
 	}
 	else
@@ -608,6 +577,4 @@ void CopyConstraintKernel(__global struct b3Contact4Data* gIn, __global struct b
 		gOut[gIdx] = gIn[gIdx];
 	}
 }
-
-
 

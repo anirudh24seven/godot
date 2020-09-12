@@ -1,8 +1,6 @@
 
 /*  error_list.h                                                         */
 
-
-
 #ifndef ERROR_LIST_H
 #define ERROR_LIST_H
 

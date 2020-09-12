@@ -1,8 +1,6 @@
 
 /*  visual_instance_3d.h                                                 */
 
-
-
 #ifndef VISUAL_INSTANCE_H
 #define VISUAL_INSTANCE_H
 

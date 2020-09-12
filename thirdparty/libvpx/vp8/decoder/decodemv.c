@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "treereader.h"
 #include "vp8/common/entropymv.h"
 #include "vp8/common/entropymode.h"
@@ -114,7 +113,6 @@ static void read_mv(vp8_reader *r, MV *mv, const MV_CONTEXT *mvc)
     mv->col = (short)(read_mvcomponent(r, ++mvc) * 2);
 }
 
-
 static void read_mvcontexts(vp8_reader *bc, MV_CONTEXT *mvc)
 {
     int i = 0;
@@ -146,7 +144,6 @@ static const unsigned char mbsplit_fill_offset[4][16] = {
     { 0,  1,  4,  5,  2,  3,  6,  7,  8,  9,  12, 13, 10, 11, 14, 15},
     { 0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15}
 };
-
 
 static void mb_mode_mv_init(VP8D_COMP *pbi)
 {

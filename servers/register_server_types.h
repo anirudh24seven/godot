@@ -1,8 +1,6 @@
 
 /*  register_server_types.h                                              */
 
-
-
 #ifndef REGISTER_SERVER_TYPES_H
 #define REGISTER_SERVER_TYPES_H
 

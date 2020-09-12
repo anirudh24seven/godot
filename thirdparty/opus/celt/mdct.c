@@ -57,7 +57,6 @@
 #include "mips/mdct_mipsr1.h"
 #endif
 
-
 #ifdef CUSTOM_MODES
 
 int clt_mdct_init(mdct_lookup *l,int N, int maxshift, int arch)

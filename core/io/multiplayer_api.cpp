@@ -1,8 +1,6 @@
 
 /*  multiplayer_api.cpp                                                  */
 
-
-
 #include "multiplayer_api.h"
 
 #include "core/debugger/engine_debugger.h"

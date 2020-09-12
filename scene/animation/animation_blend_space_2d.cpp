@@ -1,8 +1,6 @@
 
 /*  animation_blend_space_2d.cpp                                         */
 
-
-
 #include "animation_blend_space_2d.h"
 
 #include "core/math/geometry_2d.h"

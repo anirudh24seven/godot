@@ -137,7 +137,6 @@ extern "C" {
 #endif
 #endif /* MBEDTLS_PLATFORM_NO_STD_FUNCTIONS */
 
-
 /* \} name SECTION: Module settings */
 
 /*

@@ -1,8 +1,6 @@
 
 /*  noise_texture.h                                                      */
 
-
-
 #ifndef NOISE_TEXTURE_H
 #define NOISE_TEXTURE_H
 

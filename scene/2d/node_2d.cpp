@@ -1,8 +1,6 @@
 
 /*  node_2d.cpp                                                          */
 
-
-
 #include "node_2d.h"
 
 #include "core/message_queue.h"

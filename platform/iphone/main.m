@@ -1,8 +1,6 @@
 
 /*  main.m                                                               */
 
-
-
 #import "app_delegate.h"
 
 #import <UIKit/UIKit.h>

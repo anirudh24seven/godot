@@ -314,7 +314,6 @@ struct btPersistentManifoldDoubleData
 	btCollisionObjectDoubleData *m_body1;
 };
 
-
 struct btPersistentManifoldFloatData
 {
 	btVector3FloatData m_pointCacheLocalPointA[4];

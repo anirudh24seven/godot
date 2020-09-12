@@ -1,8 +1,6 @@
 
 /*  vulkan_context_osx.h                                                 */
 
-
-
 #ifndef VULKAN_DEVICE_OSX_H
 #define VULKAN_DEVICE_OSX_H
 

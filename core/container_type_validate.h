@@ -1,8 +1,6 @@
 
 /*  container_type_validate.h                                            */
 
-
-
 #ifndef CONTAINER_TYPE_VALIDATE_H
 #define CONTAINER_TYPE_VALIDATE_H
 

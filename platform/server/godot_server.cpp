@@ -1,8 +1,6 @@
 
 /*  godot_server.cpp                                                     */
 
-
-
 #include "main/main.h"
 #include "os_server.h"
 

@@ -1,8 +1,6 @@
 
 /*  windows_terminal_logger.cpp                                          */
 
-
-
 #include "windows_terminal_logger.h"
 
 #ifdef WINDOWS_ENABLED

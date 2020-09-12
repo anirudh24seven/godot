@@ -19,7 +19,6 @@ package com.google.android.vending.expansion.downloader;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
 /**
  * This class contains progress information about the active download(s).
  *

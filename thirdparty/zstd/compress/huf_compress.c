@@ -39,7 +39,6 @@
 #  pragma warning(disable : 4127)        /* disable: C4127: conditional expression is constant */
 #endif
 
-
 /* **************************************************************
 *  Includes
 ****************************************************************/
@@ -54,7 +53,6 @@
 #include "huf.h"
 #include "error_private.h"
 
-
 /* **************************************************************
 *  Error Management
 ****************************************************************/
@@ -63,7 +61,6 @@
 #define CHECK_V_F(e, f) size_t const e = f; if (ERR_isError(e)) return e
 #define CHECK_F(f)   { CHECK_V_F(_var_err__, f); }
 
-
 /* **************************************************************
 *  Utils
 ****************************************************************/
@@ -71,7 +68,6 @@ unsigned HUF_optimalTableLog(unsigned maxTableLog, size_t srcSize, unsigned maxS
 {
     return FSE_optimalTableLog_internal(maxTableLog, srcSize, maxSymbolValue, 1);
 }
-
 
 /* *******************************************************
 *  HUF : Huffman block compression
@@ -124,7 +120,6 @@ static size_t HUF_compressWeights (void* dst, size_t dstSize, const void* weight
     return op-ostart;
 }
 
-
 struct HUF_CElt_s {
   U16  val;
   BYTE nbBits;
@@ -167,7 +162,6 @@ size_t HUF_writeCTable (void* dst, size_t maxDstSize,
         op[(n/2)+1] = (BYTE)((huffWeight[n] << 4) + huffWeight[n+1]);
     return ((maxSymbolValue+1)/2) + 1;
 }
-
 
 size_t HUF_readCTable (HUF_CElt* CTable, unsigned* maxSymbolValuePtr, const void* src, size_t srcSize)
 {
@@ -223,7 +217,6 @@ U32 HUF_getNbBits(const void* symbolTable, U32 symbolValue)
     assert(symbolValue <= HUF_SYMBOLVALUE_MAX);
     return table[symbolValue].nbBits;
 }
-
 
 typedef struct nodeElt_s {
     U32 count;
@@ -309,7 +302,6 @@ static U32 HUF_setMaxHeight(nodeElt* huffNode, U32 lastNonNull, U32 maxNbBits)
     return maxNbBits;
 }
 
-
 typedef struct {
     U32 base;
     U32 current;
@@ -339,7 +331,6 @@ static void HUF_sort(nodeElt* huffNode, const unsigned* count, U32 maxSymbolValu
         huffNode[pos].byte  = (BYTE)n;
     }
 }
-
 
 /** HUF_buildCTable_wksp() :
  *  Same as HUF_buildCTable(), but using externally allocated scratch buffer.
@@ -556,7 +547,6 @@ size_t HUF_compress1X_usingCTable(void* dst, size_t dstSize, const void* src, si
     return HUF_compress1X_usingCTable_internal(dst, dstSize, src, srcSize, CTable, /* bmi2 */ 0);
 }
 
-
 static size_t
 HUF_compress4X_usingCTable_internal(void* dst, size_t dstSize,
                               const void* src, size_t srcSize,
@@ -722,7 +712,6 @@ HUF_compress_internal (void* dst, size_t dstSize,
                                        src, srcSize,
                                        nbStreams, table->CTable, bmi2);
 }
-
 
 size_t HUF_compress1X_wksp (void* dst, size_t dstSize,
                       const void* src, size_t srcSize,

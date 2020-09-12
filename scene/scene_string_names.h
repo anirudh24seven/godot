@@ -1,8 +1,6 @@
 
 /*  scene_string_names.h                                                 */
 
-
-
 #ifndef SCENE_STRING_NAMES_H
 #define SCENE_STRING_NAMES_H
 

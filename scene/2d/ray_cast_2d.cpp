@@ -1,8 +1,6 @@
 
 /*  ray_cast_2d.cpp                                                      */
 
-
-
 #include "ray_cast_2d.h"
 
 #include "collision_object_2d.h"

@@ -1,8 +1,6 @@
 
 /*  dependency_editor.h                                                  */
 
-
-
 #ifndef DEPENDENCY_EDITOR_H
 #define DEPENDENCY_EDITOR_H
 

@@ -1,8 +1,6 @@
 
 /*  position_3d.h                                                        */
 
-
-
 #ifndef POSITION_3D_H
 #define POSITION_3D_H
 

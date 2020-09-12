@@ -1,8 +1,6 @@
 
 /*  cpu_particles_2d.h                                                   */
 
-
-
 #ifndef CPU_PARTICLES_2D_H
 #define CPU_PARTICLES_2D_H
 

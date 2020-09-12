@@ -28,7 +28,6 @@
 extern "C" {
 #endif
 
-
 /*-*************************************
 *  Constants
 ***************************************/
@@ -41,7 +40,6 @@ extern "C" {
                                        But candidate 1 cannot hide a large tree of candidates, so it's a minimal loss.
                                        The benefit is that ZSTD_DUBT_UNSORTED_MARK cannot be mishandled after table re-use with a different strategy.
                                        This constant is required by ZSTD_compressBlock_btlazy2() and ZSTD_reduceTable_internal() */
-
 
 /*-*************************************
 *  Context memory management
@@ -286,12 +284,10 @@ typedef enum { ZSTD_dtlm_fast, ZSTD_dtlm_full } ZSTD_dictTableLoadMethod_e;
 
 typedef enum { ZSTD_noDict = 0, ZSTD_extDict = 1, ZSTD_dictMatchState = 2 } ZSTD_dictMode_e;
 
-
 typedef size_t (*ZSTD_blockCompressor) (
         ZSTD_matchState_t* bs, seqStore_t* seqStore, U32 rep[ZSTD_REP_NUM],
         void const* src, size_t srcSize);
 ZSTD_blockCompressor ZSTD_selectBlockCompressor(ZSTD_strategy strat, ZSTD_dictMode_e dictMode);
-
 
 MEM_STATIC U32 ZSTD_LLcode(U32 litLength)
 {
@@ -423,7 +419,6 @@ void ZSTD_storeSeq(seqStore_t* seqStorePtr, size_t litLength, const BYTE* litera
     seqStorePtr->sequences++;
 }
 
-
 /*-*************************************
 *  Match length counter
 ***************************************/
@@ -495,7 +490,6 @@ static unsigned ZSTD_NbCommonBytes (size_t val)
     }   }
 }
 
-
 MEM_STATIC size_t ZSTD_count(const BYTE* pIn, const BYTE* pMatch, const BYTE* const pInLimit)
 {
     const BYTE* const pStart = pIn;
@@ -535,7 +529,6 @@ ZSTD_count_2segments(const BYTE* ip, const BYTE* match,
     DEBUGLOG(7, "final match length = %zu", matchLength + ZSTD_count(ip+matchLength, iStart, iEnd));
     return matchLength + ZSTD_count(ip+matchLength, iStart, iEnd);
 }
-
 
 /*-*************************************
  *  Hashes
@@ -893,8 +886,6 @@ MEM_STATIC U32 ZSTD_getLowestMatchIndex(const ZSTD_matchState_t* ms, U32 current
     return matchLowest;
 }
 
-
-
 /* debug functions */
 #if (DEBUGLEVEL>=2)
 
@@ -926,11 +917,9 @@ MEM_STATIC void ZSTD_debugTable(const U32* table, U32 max)
 
 #endif
 
-
 #if defined (__cplusplus)
 }
 #endif
-
 
 /* ==============================================================
  * Private declarations
@@ -978,14 +967,12 @@ size_t ZSTD_compress_advanced_internal(ZSTD_CCtx* cctx,
                                  const void* dict,size_t dictSize,
                                  const ZSTD_CCtx_params* params);
 
-
 /* ZSTD_writeLastEmptyBlock() :
  * output an empty Block with end-of-frame mark to complete a frame
  * @return : size of data written into `dst` (== ZSTD_blockHeaderSize (defined in zstd_internal.h))
  *           or an error code if `dstCapacity` is too small (<ZSTD_blockHeaderSize)
  */
 size_t ZSTD_writeLastEmptyBlock(void* dst, size_t dstCapacity);
-
 
 /* ZSTD_referenceExternalSequences() :
  * Must be called before starting a compression operation.
@@ -998,6 +985,5 @@ size_t ZSTD_writeLastEmptyBlock(void* dst, size_t dstCapacity);
  * access and data corruption.
  */
 size_t ZSTD_referenceExternalSequences(ZSTD_CCtx* cctx, rawSeq* seq, size_t nbSeq);
-
 
 #endif /* ZSTD_COMPRESS_H */

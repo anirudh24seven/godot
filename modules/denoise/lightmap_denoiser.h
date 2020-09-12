@@ -1,8 +1,6 @@
 
 /*  lightmap_denoiser.h                                                  */
 
-
-
 #ifndef LIGHTMAP_DENOISER_H
 #define LIGHTMAP_DENOISER_H
 

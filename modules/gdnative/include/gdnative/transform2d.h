@@ -1,8 +1,6 @@
 
 /*  transform2d.h                                                        */
 
-
-
 #ifndef GODOT_TRANSFORM2D_H
 #define GODOT_TRANSFORM2D_H
 

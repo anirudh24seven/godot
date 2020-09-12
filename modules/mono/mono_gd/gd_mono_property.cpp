@@ -1,8 +1,6 @@
 
 /*  gd_mono_property.cpp                                                 */
 
-
-
 #include "gd_mono_property.h"
 
 #include "gd_mono_cache.h"

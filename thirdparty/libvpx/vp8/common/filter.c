@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "filter.h"
 #include "./vp8_rtcd.h"
 
@@ -127,7 +126,6 @@ static void filter_block2d_second_pass
     }
 }
 
-
 static void filter_block2d
 (
     unsigned char  *src_ptr,
@@ -146,7 +144,6 @@ static void filter_block2d
     /* then filter verticaly... */
     filter_block2d_second_pass(FData + 8, output_ptr, output_pitch, 4, 4, 4, 4, VFilter);
 }
-
 
 void vp8_sixtap_predict4x4_c
 (
@@ -186,8 +183,7 @@ void vp8_sixtap_predict8x8_c
     /* First filter 1-D horizontally... */
     filter_block2d_first_pass(src_ptr - (2 * src_pixels_per_line), FData, src_pixels_per_line, 1, 13, 8, HFilter);
 
-
-    /* then filter verticaly... */
+/* then filter verticaly... */
     filter_block2d_second_pass(FData + 16, dst_ptr, dst_pitch, 8, 8, 8, 8, VFilter);
 
 }
@@ -212,8 +208,7 @@ void vp8_sixtap_predict8x4_c
     /* First filter 1-D horizontally... */
     filter_block2d_first_pass(src_ptr - (2 * src_pixels_per_line), FData, src_pixels_per_line, 1, 9, 8, HFilter);
 
-
-    /* then filter verticaly... */
+/* then filter verticaly... */
     filter_block2d_second_pass(FData + 16, dst_ptr, dst_pitch, 8, 8, 4, 8, VFilter);
 
 }
@@ -232,8 +227,7 @@ void vp8_sixtap_predict16x16_c
     const short  *VFilter;
     int FData[21*24];   /* Temp data buffer used in filtering */
 
-
-    HFilter = vp8_sub_pel_filters[xoffset];   /* 6 tap */
+HFilter = vp8_sub_pel_filters[xoffset];   /* 6 tap */
     VFilter = vp8_sub_pel_filters[yoffset];   /* 6 tap */
 
     /* First filter 1-D horizontally... */
@@ -243,7 +237,6 @@ void vp8_sixtap_predict16x16_c
     filter_block2d_second_pass(FData + 32, dst_ptr, dst_pitch, 16, 16, 16, 16, VFilter);
 
 }
-
 
 /****************************************************************************
  *
@@ -348,7 +341,6 @@ static void filter_block2d_bil_second_pass
     }
 }
 
-
 /****************************************************************************
  *
  *  ROUTINE       : filter_block2d_bil
@@ -393,7 +385,6 @@ static void filter_block2d_bil
     /* then 1-D vertically... */
     filter_block2d_bil_second_pass(FData, dst_ptr, dst_pitch, Height, Width, VFilter);
 }
-
 
 void vp8_bilinear_predict4x4_c
 (

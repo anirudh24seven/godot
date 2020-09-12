@@ -1,8 +1,6 @@
 
 /*  gdscript_cache.cpp                                                   */
 
-
-
 #include "gdscript_cache.h"
 
 #include "core/os/file_access.h"

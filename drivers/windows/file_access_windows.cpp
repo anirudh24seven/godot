@@ -1,8 +1,6 @@
 
 /*  file_access_windows.cpp                                              */
 
-
-
 #ifdef WINDOWS_ENABLED
 
 #include "file_access_windows.h"

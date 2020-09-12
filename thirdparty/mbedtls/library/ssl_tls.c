@@ -856,8 +856,7 @@ int mbedtls_ssl_derive_keys( mbedtls_ssl_context *ssl )
         taglen = transform->ciphersuite_info->flags &
                   MBEDTLS_CIPHERSUITE_SHORT_TAG ? 8 : 16;
 
-
-        /* Minimum length of encrypted record */
+/* Minimum length of encrypted record */
         explicit_ivlen = transform->ivlen - transform->fixed_ivlen;
         transform->minlen = explicit_ivlen + taglen;
     }
@@ -4228,8 +4227,7 @@ static int ssl_parse_record_header( mbedtls_ssl_context *ssl )
     }
 #endif /* MBEDTLS_SSL_PROTO_DTLS */
 
-
-    /* Check length against bounds of the current transform and version */
+/* Check length against bounds of the current transform and version */
     if( ssl->transform_in == NULL )
     {
         if( ssl->in_msglen < 1 ||

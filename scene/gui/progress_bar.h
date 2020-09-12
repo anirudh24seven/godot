@@ -1,8 +1,6 @@
 
 /*  progress_bar.h                                                       */
 
-
-
 #ifndef PROGRESS_BAR_H
 #define PROGRESS_BAR_H
 

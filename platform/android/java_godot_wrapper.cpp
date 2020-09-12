@@ -1,8 +1,6 @@
 
 /*  java_godot_wrapper.cpp                                               */
 
-
-
 #include "java_godot_wrapper.h"
 
 // JNIEnv is only valid within the thread it belongs to, in a multi threading environment

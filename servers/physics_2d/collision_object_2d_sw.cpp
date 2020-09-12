@@ -1,8 +1,6 @@
 
 /*  collision_object_2d_sw.cpp                                           */
 
-
-
 #include "collision_object_2d_sw.h"
 #include "servers/physics_2d/physics_server_2d_sw.h"
 #include "space_2d_sw.h"

@@ -1,8 +1,6 @@
 
 /*  base_button.cpp                                                      */
 
-
-
 #include "base_button.h"
 
 #include "core/os/keyboard.h"

@@ -1,8 +1,6 @@
 
 /*  gd_mono_marshal.h                                                    */
 
-
-
 #ifndef GDMONOMARSHAL_H
 #define GDMONOMARSHAL_H
 

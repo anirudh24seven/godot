@@ -1,8 +1,6 @@
 
 /*  height_map_shape_3d.cpp                                              */
 
-
-
 #include "height_map_shape_3d.h"
 #include "servers/physics_server_3d.h"
 

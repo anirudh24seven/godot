@@ -15,18 +15,15 @@
  *
  */
 
-
 #ifndef SVTTENG_H_
 #define SVTTENG_H_
 
 #include FT_INTERNAL_SERVICE_H
 #include FT_MODULE_H
 
-
 FT_BEGIN_HEADER
 
-
-  /*
+/*
    * SFNT table loading service.
    */
 
@@ -43,11 +40,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
-
 #endif /* SVTTENG_H_ */
-
 
 /* END */

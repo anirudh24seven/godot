@@ -1,8 +1,6 @@
 
 /*  gi_probe_editor_plugin.h                                             */
 
-
-
 #ifndef GIPROBEEDITORPLUGIN_H
 #define GIPROBEEDITORPLUGIN_H
 

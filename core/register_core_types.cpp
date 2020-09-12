@@ -1,8 +1,6 @@
 
 /*  register_core_types.cpp                                              */
 
-
-
 #include "register_core_types.h"
 
 #include "core/bind/core_bind.h"

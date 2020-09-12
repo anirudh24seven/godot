@@ -1,8 +1,6 @@
 
 /*  os_iphone.mm                                                         */
 
-
-
 #ifdef IPHONE_ENABLED
 
 #include "os_iphone.h"

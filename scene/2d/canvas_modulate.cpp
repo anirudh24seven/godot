@@ -1,8 +1,6 @@
 
 /*  canvas_modulate.cpp                                                  */
 
-
-
 #include "canvas_modulate.h"
 
 void CanvasModulate::_notification(int p_what) {

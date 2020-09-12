@@ -1,8 +1,6 @@
 
 /*  test_physics_2d.cpp                                                  */
 
-
-
 #include "test_physics_2d.h"
 
 #include "core/map.h"

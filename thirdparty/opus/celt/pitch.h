@@ -60,7 +60,6 @@ void pitch_search(const opus_val16 * OPUS_RESTRICT x_lp, opus_val16 * OPUS_RESTR
 opus_val16 remove_doubling(opus_val16 *x, int maxperiod, int minperiod,
       int N, int *T0, int prev_period, opus_val16 prev_gain, int arch);
 
-
 /* OPT: This is the kernel you really want to optimize. It gets used a lot
    by the prefilter and by the PLC. */
 static OPUS_INLINE void xcorr_kernel_c(const opus_val16 * x, const opus_val16 * y, opus_val32 sum[4], int len)
@@ -134,7 +133,6 @@ static OPUS_INLINE void xcorr_kernel_c(const opus_val16 * x, const opus_val16 * 
     ((void)(arch),xcorr_kernel_c(x, y, sum, len))
 #endif /* OVERRIDE_XCORR_KERNEL */
 
-
 static OPUS_INLINE void dual_inner_prod_c(const opus_val16 *x, const opus_val16 *y01, const opus_val16 *y02,
       int N, opus_val32 *xy1, opus_val32 *xy2)
 {
@@ -176,7 +174,6 @@ static OPUS_INLINE opus_val32 celt_inner_prod_c(const opus_val16 *x,
 void comb_filter_const_c(opus_val32 *y, opus_val32 *x, int T, int N,
      opus_val16 g10, opus_val16 g11, opus_val16 g12);
 #endif
-
 
 #ifdef FIXED_POINT
 opus_val32

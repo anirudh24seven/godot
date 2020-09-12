@@ -1,8 +1,6 @@
 
 /*  resource_saver_png.cpp                                               */
 
-
-
 #include "resource_saver_png.h"
 
 #include "core/image.h"

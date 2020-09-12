@@ -1,8 +1,6 @@
 
 /*  collision_polygon_3d_editor_plugin.h                                 */
 
-
-
 #ifndef COLLISION_POLYGON_EDITOR_PLUGIN_H
 #define COLLISION_POLYGON_EDITOR_PLUGIN_H
 

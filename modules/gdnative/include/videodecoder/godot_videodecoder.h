@@ -1,8 +1,6 @@
 
 /*  godot_videodecoder.h                                                 */
 
-
-
 #ifndef GODOT_NATIVEVIDEODECODER_H
 #define GODOT_NATIVEVIDEODECODER_H
 

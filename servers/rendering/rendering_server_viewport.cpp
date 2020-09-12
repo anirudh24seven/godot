@@ -1,8 +1,6 @@
 
 /*  rendering_server_viewport.cpp                                        */
 
-
-
 #include "rendering_server_viewport.h"
 
 #include "core/project_settings.h"

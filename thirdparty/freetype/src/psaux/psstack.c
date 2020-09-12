@@ -35,7 +35,6 @@
  *
  */
 
-
 #include "psft.h"
 #include FT_INTERNAL_DEBUG_H
 
@@ -45,8 +44,7 @@
 
 #include "pserror.h"
 
-
-  /* Allocate and initialize an instance of CF2_Stack.       */
+/* Allocate and initialize an instance of CF2_Stack.       */
   /* Note: This function returns NULL on error (does not set */
   /* `error').                                               */
   FT_LOCAL_DEF( CF2_Stack )
@@ -58,8 +56,7 @@
 
     CF2_Stack  stack = NULL;
 
-
-    if ( !FT_NEW( stack ) )
+if ( !FT_NEW( stack ) )
     {
       /* initialize the structure; FT_NEW zeroes it */
       stack->memory = memory;
@@ -79,8 +76,7 @@
     return stack;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cf2_stack_free( CF2_Stack  stack )
   {
     if ( stack )
@@ -95,15 +91,13 @@
     }
   }
 
-
-  FT_LOCAL_DEF( CF2_UInt )
+FT_LOCAL_DEF( CF2_UInt )
   cf2_stack_count( CF2_Stack  stack )
   {
     return (CF2_UInt)( stack->top - stack->buffer );
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cf2_stack_pushInt( CF2_Stack  stack,
                      CF2_Int    val )
   {
@@ -118,8 +112,7 @@
     stack->top++;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cf2_stack_pushFixed( CF2_Stack  stack,
                        CF2_Fixed  val )
   {
@@ -134,8 +127,7 @@
     stack->top++;
   }
 
-
-  /* this function is only allowed to pop an integer type */
+/* this function is only allowed to pop an integer type */
   FT_LOCAL_DEF( CF2_Int )
   cf2_stack_popInt( CF2_Stack  stack )
   {
@@ -155,8 +147,7 @@
     return stack->top->u.i;
   }
 
-
-  /* Note: type mismatch is silently cast */
+/* Note: type mismatch is silently cast */
   /* TODO: check this                     */
   FT_LOCAL_DEF( CF2_Fixed )
   cf2_stack_popFixed( CF2_Stack  stack )
@@ -180,8 +171,7 @@
     }
   }
 
-
-  /* Note: type mismatch is silently cast */
+/* Note: type mismatch is silently cast */
   /* TODO: check this                     */
   FT_LOCAL_DEF( CF2_Fixed )
   cf2_stack_getReal( CF2_Stack  stack,
@@ -206,8 +196,7 @@
     }
   }
 
-
-  /* provide random access to stack */
+/* provide random access to stack */
   FT_LOCAL_DEF( void )
   cf2_stack_setReal( CF2_Stack  stack,
                      CF2_UInt   idx,
@@ -223,8 +212,7 @@
     stack->buffer[idx].type = CF2_NumberFixed;
   }
 
-
-  /* discard (pop) num values from stack */
+/* discard (pop) num values from stack */
   FT_LOCAL_DEF( void )
   cf2_stack_pop( CF2_Stack  stack,
                  CF2_UInt   num )
@@ -237,8 +225,7 @@
     stack->top -= num;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cf2_stack_roll( CF2_Stack  stack,
                   CF2_Int    count,
                   CF2_Int    shift )
@@ -248,8 +235,7 @@
 
     CF2_Int  start_idx, idx, i;
 
-
-    if ( count < 2 )
+if ( count < 2 )
       return; /* nothing to do (values 0 and 1), or undefined value */
 
     if ( (CF2_UInt)count > cf2_stack_count( stack ) )
@@ -300,8 +286,7 @@
     {
       CF2_StackNumber  tmp;
 
-
-      if ( start_idx == idx )
+if ( start_idx == idx )
       {
         start_idx++;
         idx  = start_idx;
@@ -320,12 +305,10 @@
     }
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cf2_stack_clear( CF2_Stack  stack )
   {
     stack->top = stack->buffer;
   }
-
 
 /* END */

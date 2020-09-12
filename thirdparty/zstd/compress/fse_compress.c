@@ -46,12 +46,10 @@
 #include "fse.h"
 #include "error_private.h"
 
-
 /* **************************************************************
 *  Error Management
 ****************************************************************/
 #define FSE_isError ERR_isError
-
 
 /* **************************************************************
 *  Templates
@@ -74,7 +72,6 @@
 #define FSE_CAT(X,Y) X##Y
 #define FSE_FUNCTION_NAME(X,Y) FSE_CAT(X,Y)
 #define FSE_TYPE_NAME(X,Y) FSE_CAT(X,Y)
-
 
 /* Function templates */
 
@@ -188,17 +185,13 @@ size_t FSE_buildCTable_wksp(FSE_CTable* ct,
     return 0;
 }
 
-
 size_t FSE_buildCTable(FSE_CTable* ct, const short* normalizedCounter, unsigned maxSymbolValue, unsigned tableLog)
 {
     FSE_FUNCTION_TYPE tableSymbol[FSE_MAX_TABLESIZE];   /* memset() is not necessary, even if static analyzer complain about it */
     return FSE_buildCTable_wksp(ct, normalizedCounter, maxSymbolValue, tableLog, tableSymbol, sizeof(tableSymbol));
 }
 
-
-
 #ifndef FSE_COMMONDEFS_ONLY
-
 
 /*-**************************************************************
 *  FSE NCount encoding
@@ -304,7 +297,6 @@ FSE_writeNCount_generic (void* header, size_t headerBufferSize,
     return (out-ostart);
 }
 
-
 size_t FSE_writeNCount (void* buffer, size_t bufferSize,
                   const short* normalizedCounter, unsigned maxSymbolValue, unsigned tableLog)
 {
@@ -316,7 +308,6 @@ size_t FSE_writeNCount (void* buffer, size_t bufferSize,
 
     return FSE_writeNCount_generic(buffer, bufferSize, normalizedCounter, maxSymbolValue, tableLog, 1 /* write in buffer is safe */);
 }
-
 
 /*-**************************************************************
 *  FSE Compression Code
@@ -360,7 +351,6 @@ unsigned FSE_optimalTableLog(unsigned maxTableLog, size_t srcSize, unsigned maxS
 {
     return FSE_optimalTableLog_internal(maxTableLog, srcSize, maxSymbolValue, 2);
 }
-
 
 /* Secondary normalization method.
    To be used when primary method fails. */
@@ -451,7 +441,6 @@ static size_t FSE_normalizeM2(short* norm, U32 tableLog, const unsigned* count, 
     return 0;
 }
 
-
 size_t FSE_normalizeCount (short* normalizedCounter, unsigned tableLog,
                            const unsigned* count, size_t total,
                            unsigned maxSymbolValue)
@@ -513,7 +502,6 @@ size_t FSE_normalizeCount (short* normalizedCounter, unsigned tableLog,
     return tableLog;
 }
 
-
 /* fake FSE_CTable, for raw (uncompressed) input */
 size_t FSE_buildCTable_raw (FSE_CTable* ct, unsigned nbBits)
 {
@@ -569,7 +557,6 @@ size_t FSE_buildCTable_rle (FSE_CTable* ct, BYTE symbolValue)
 
     return 0;
 }
-
 
 static size_t FSE_compress_usingCTable_generic (void* dst, size_t dstSize,
                            const void* src, size_t srcSize,
@@ -641,7 +628,6 @@ size_t FSE_compress_usingCTable (void* dst, size_t dstSize,
     else
         return FSE_compress_usingCTable_generic(dst, dstSize, src, srcSize, ct, 0);
 }
-
 
 size_t FSE_compressBound(size_t size) { return FSE_COMPRESSBOUND(size); }
 
@@ -716,6 +702,5 @@ size_t FSE_compress (void* dst, size_t dstCapacity, const void* src, size_t srcS
 {
     return FSE_compress2(dst, dstCapacity, src, srcSize, FSE_MAX_SYMBOL_VALUE, FSE_DEFAULT_TABLELOG);
 }
-
 
 #endif   /* FSE_COMMONDEFS_ONLY */

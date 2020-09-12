@@ -24,8 +24,7 @@
 #include FT_SERVICE_SFNT_H
 #include FT_SERVICE_TRUETYPE_GLYF_H
 
-
-  /* documentation is in freetype.h */
+/* documentation is in freetype.h */
 
   FT_EXPORT_DEF( FT_Bool )
   FT_Face_CheckTrueTypePatents( FT_Face  face )
@@ -35,8 +34,7 @@
     return FALSE;
   }
 
-
-  /* documentation is in freetype.h */
+/* documentation is in freetype.h */
 
   FT_EXPORT_DEF( FT_Bool )
   FT_Face_SetUnpatentedHinting( FT_Face  face,

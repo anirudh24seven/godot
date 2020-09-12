@@ -1,8 +1,6 @@
 
 /*  script_editor_plugin.h                                               */
 
-
-
 #ifndef SCRIPT_EDITOR_PLUGIN_H
 #define SCRIPT_EDITOR_PLUGIN_H
 

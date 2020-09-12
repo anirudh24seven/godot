@@ -139,7 +139,6 @@ public:
     virtual void setPenetrationScale(btScalar scale){}
 };
 
-
 //
 // Constraint between rigid/multi body and deformable objects
 class btDeformableRigidContactConstraint : public btDeformableContactConstraint

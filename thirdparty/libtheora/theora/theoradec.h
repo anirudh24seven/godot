@@ -28,8 +28,6 @@
 extern "C" {
 #endif
 
-
-
 /**\name th_decode_ctl() codes
  * \anchor decctlcodes
  * These are the available request codes for th_decode_ctl().
@@ -102,8 +100,6 @@ extern "C" {
 #define TH_DECCTL_SET_TELEMETRY_BITS (15)
 /*@}*/
 
-
-
 /**A callback function for striped decode.
  * This is a function pointer to an application-provided function that will be
  *  called each time a section of the image is fully decoded in
@@ -147,8 +143,6 @@ typedef struct{
   th_stripe_decoded_func  stripe_decoded;
 }th_stripe_callback;
 
-
-
 /**\name Decoder state
    The following data structures are opaque, and their contents are not
     publicly defined by this API.
@@ -165,8 +159,6 @@ typedef struct th_dec_ctx    th_dec_ctx;
     via th_setup_free() at any time.*/
 typedef struct th_setup_info th_setup_info;
 /*@}*/
-
-
 
 /**\defgroup decfuncs Functions for Decoding*/
 /*@{*/
@@ -315,8 +307,6 @@ extern int th_decode_ycbcr_out(th_dec_ctx *_dec,
 extern void th_decode_free(th_dec_ctx *_dec);
 /*@}*/
 /*@}*/
-
-
 
 #if defined(__cplusplus)
 }

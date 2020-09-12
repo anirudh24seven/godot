@@ -1,8 +1,6 @@
 
 /*  pool_allocator.h                                                     */
 
-
-
 #ifndef POOL_ALLOCATOR_H
 #define POOL_ALLOCATOR_H
 

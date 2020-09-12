@@ -1,8 +1,6 @@
 
 /*  test_gui.cpp                                                         */
 
-
-
 #ifndef _3D_DISABLED
 
 #include "test_gui.h"

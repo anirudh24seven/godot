@@ -1,8 +1,6 @@
 
 /*  navigation_region_3d.cpp                                             */
 
-
-
 #include "navigation_region_3d.h"
 
 #include "core/os/thread.h"

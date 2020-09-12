@@ -1,8 +1,6 @@
 
 /*  link_button.cpp                                                      */
 
-
-
 #include "link_button.h"
 
 void LinkButton::set_text(const String &p_text) {

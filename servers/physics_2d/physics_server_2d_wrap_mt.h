@@ -1,8 +1,6 @@
 
 /*  physics_server_2d_wrap_mt.h                                          */
 
-
-
 #ifndef PHYSICS2DSERVERWRAPMT_H
 #define PHYSICS2DSERVERWRAPMT_H
 

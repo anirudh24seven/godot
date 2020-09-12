@@ -1,8 +1,6 @@
 
 /*  basis.h                                                              */
 
-
-
 #ifndef GODOT_BASIS_H
 #define GODOT_BASIS_H
 

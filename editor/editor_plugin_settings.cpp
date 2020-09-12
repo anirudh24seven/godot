@@ -1,8 +1,6 @@
 
 /*  editor_plugin_settings.cpp                                           */
 
-
-
 #include "editor_plugin_settings.h"
 
 #include "core/io/config_file.h"

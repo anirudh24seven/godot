@@ -41,5 +41,4 @@
 
 #endif /* BDFERROR_H_ */
 
-
 /* END */

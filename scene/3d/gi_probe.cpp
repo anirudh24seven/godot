@@ -1,8 +1,6 @@
 
 /*  gi_probe.cpp                                                         */
 
-
-
 #include "gi_probe.h"
 
 #include "core/os/os.h"

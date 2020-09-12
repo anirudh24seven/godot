@@ -1,8 +1,6 @@
 
 /*  udp_server.h                                                         */
 
-
-
 #ifndef UDP_SERVER_H
 #define UDP_SERVER_H
 

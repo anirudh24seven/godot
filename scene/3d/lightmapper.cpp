@@ -1,8 +1,6 @@
 
 /*  lightmapper.cpp                                                      */
 
-
-
 #include "lightmapper.h"
 
 LightmapDenoiser *(*LightmapDenoiser::create_function)() = nullptr;

@@ -1,8 +1,6 @@
 
 /*  animation_tree_editor_plugin.h                                       */
 
-
-
 #ifndef ANIMATION_TREE_EDITOR_PLUGIN_H
 #define ANIMATION_TREE_EDITOR_PLUGIN_H
 

@@ -1,7 +1,6 @@
 #ifndef GIM_PAIR_H
 #define GIM_PAIR_H
 
-
 //! Overlapping pair
 struct GIM_PAIR
 {

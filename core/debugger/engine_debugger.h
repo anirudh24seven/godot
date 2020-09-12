@@ -1,8 +1,6 @@
 
 /*  engine_debugger.h                                                    */
 
-
-
 #ifndef ENGINE_DEBUGGER_H
 #define ENGINE_DEBUGGER_H
 

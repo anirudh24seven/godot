@@ -1,8 +1,6 @@
 
 /*  editor_debugger_server.cpp                                           */
 
-
-
 #include "editor_debugger_server.h"
 
 #include "core/io/marshalls.h"

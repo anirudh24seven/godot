@@ -19,10 +19,6 @@
 
 #include "vorbis/codec.h"
 
-
-
-
-
 /*#define MDCT_INTEGERIZED  <- be warned there could be some hurt left here*/
 #ifdef MDCT_INTEGERIZED
 
@@ -50,7 +46,6 @@
 #define HALVE(x) ((x)*.5f)
 
 #endif
-
 
 typedef struct {
   int n;

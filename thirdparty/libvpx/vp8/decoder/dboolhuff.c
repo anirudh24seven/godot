@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "dboolhuff.h"
 #include "vp8/common/common.h"
 #include "vpx_dsp/vpx_dsp_common.h"

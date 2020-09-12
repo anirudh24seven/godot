@@ -1,8 +1,6 @@
 
 /*  style_box_editor_plugin.h                                            */
 
-
-
 #ifndef STYLE_BOX_EDITOR_PLUGIN_H
 #define STYLE_BOX_EDITOR_PLUGIN_H
 

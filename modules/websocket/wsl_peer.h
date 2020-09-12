@@ -1,8 +1,6 @@
 
 /*  wsl_peer.h                                                           */
 
-
-
 #ifndef WSLPEER_H
 #define WSLPEER_H
 

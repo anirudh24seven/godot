@@ -1,8 +1,6 @@
 
 /*  rendering_server_viewport.h                                          */
 
-
-
 #ifndef VISUALSERVERVIEWPORT_H
 #define VISUALSERVERVIEWPORT_H
 

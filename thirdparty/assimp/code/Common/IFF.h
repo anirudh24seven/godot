@@ -22,7 +22,6 @@ struct ChunkHeader
     uint32_t length;
 };
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //! Describes an IFF sub chunk header
 /////////////////////////////////////////////////////////////////////////////////
@@ -35,13 +34,10 @@ struct SubChunkHeader
     uint16_t length;
 };
 
-
 #define AI_IFF_FOURCC(a,b,c,d) ((uint32_t) (((uint8_t)a << 24u) | \
     ((uint8_t)b << 16u) | ((uint8_t)c << 8u) | ((uint8_t)d)))
 
-
 #define AI_IFF_FOURCC_FORM AI_IFF_FOURCC('F','O','R','M')
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //! Load a chunk header
@@ -95,7 +91,6 @@ inline const char* ReadHeader(uint8_t* outFile, uint32_t& fileType)
     AI_LSWAP4(fileType);
     return 0;
 }
-
 
 }}
 

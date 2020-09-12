@@ -36,15 +36,13 @@
    *
    */
 
-
 #include <ft2build.h>
 #include FT_CONFIG_CONFIG_H
 #include FT_INTERNAL_OBJECTS_H
 #include FT_INTERNAL_DEBUG_H
 #include FT_MODULE_H
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -52,7 +50,6 @@
    */
 #undef  FT_COMPONENT
 #define FT_COMPONENT  init
-
 
 #undef  FT_USE_MODULE
 #ifdef __cplusplus
@@ -73,8 +70,7 @@
     0
   };
 
-
-  /* documentation is in ftmodapi.h */
+/* documentation is in ftmodapi.h */
 
   FT_EXPORT_DEF( void )
   FT_Add_Default_Modules( FT_Library  library )
@@ -82,8 +78,7 @@
     FT_Error                       error;
     const FT_Module_Class* const*  cur;
 
-
-    /* GCC 4.6 warns the type difference:
+/* GCC 4.6 warns the type difference:
      *   FT_Module_Class** != const FT_Module_Class* const*
      */
     cur = (const FT_Module_Class* const*)ft_default_modules;
@@ -100,7 +95,6 @@
       cur++;
     }
   }
-
 
 #ifdef FT_CONFIG_OPTION_ENVIRONMENT_PROPERTIES
 
@@ -121,8 +115,7 @@
 
     int  i;
 
-
-    env = ft_getenv( "FREETYPE_PROPERTIES" );
+env = ft_getenv( "FREETYPE_PROPERTIES" );
     if ( !env )
       return;
 
@@ -192,8 +185,7 @@
 
 #endif
 
-
-  /* documentation is in freetype.h */
+/* documentation is in freetype.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Init_FreeType( FT_Library  *alibrary )
@@ -201,8 +193,7 @@
     FT_Error   error;
     FT_Memory  memory;
 
-
-    /* check of `alibrary' delayed to `FT_New_Library' */
+/* check of `alibrary' delayed to `FT_New_Library' */
 
     /* First of all, allocate a new system object -- this function is part */
     /* of the system-specific component, i.e. `ftsystem.c'.                */
@@ -228,16 +219,14 @@
     return error;
   }
 
-
-  /* documentation is in freetype.h */
+/* documentation is in freetype.h */
 
   FT_EXPORT_DEF( FT_Error )
   FT_Done_FreeType( FT_Library  library )
   {
     FT_Memory  memory;
 
-
-    if ( !library )
+if ( !library )
       return FT_THROW( Invalid_Library_Handle );
 
     memory = library->memory;
@@ -250,6 +239,5 @@
 
     return FT_Err_Ok;
   }
-
 
 /* END */

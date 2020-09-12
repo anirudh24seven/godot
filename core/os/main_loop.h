@@ -1,8 +1,6 @@
 
 /*  main_loop.h                                                          */
 
-
-
 #ifndef MAIN_LOOP_H
 #define MAIN_LOOP_H
 

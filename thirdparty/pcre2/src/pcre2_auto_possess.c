@@ -41,14 +41,11 @@ POSSIBILITY OF SUCH DAMAGE.
 /* This module contains functions that scan a compiled pattern and change
 repeats into possessive repeats where possible. */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
-
 #include "pcre2_internal.h"
-
 
 /*************************************************
 *        Tables for auto-possessification        *
@@ -173,8 +170,6 @@ static const uint8_t posspropstab[3][4] = {
 };
 #endif  /* SUPPORT_UNICODE */
 
-
-
 #ifdef SUPPORT_UNICODE
 /*************************************************
 *        Check a character and a property        *
@@ -257,8 +252,6 @@ return FALSE;
 }
 #endif  /* SUPPORT_UNICODE */
 
-
-
 /*************************************************
 *        Base opcode of repeated opcodes         *
 *************************************************/
@@ -280,7 +273,6 @@ return (c > OP_TYPEPOSUPTO)? c :
        (c >= OP_STARI)?      OP_STARI :
                              OP_STAR;
 }
-
 
 /*************************************************
 *        Fill the character property list        *
@@ -490,8 +482,6 @@ switch(c)
   }
 return NULL;    /* Opcode not accepted */
 }
-
-
 
 /*************************************************
 *    Scan further character sets for match       *
@@ -1084,8 +1074,6 @@ for(;;)
 /* Control never reaches here. There used to be a fail-save return FALSE; here,
 but some compilers complain about an unreachable statement. */
 }
-
-
 
 /*************************************************
 *    Scan compiled regex for auto-possession     *

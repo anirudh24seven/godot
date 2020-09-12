@@ -1,8 +1,6 @@
 
 /*  skeleton_3d.cpp                                                      */
 
-
-
 #include "skeleton_3d.h"
 
 #include "core/engine.h"

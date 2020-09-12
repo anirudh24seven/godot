@@ -1,8 +1,6 @@
 
 /*  camera_osx.h                                                         */
 
-
-
 #ifndef CAMERAOSX_H
 #define CAMERAOSX_H
 

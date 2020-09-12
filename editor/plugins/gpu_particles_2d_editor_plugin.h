@@ -1,8 +1,6 @@
 
 /*  gpu_particles_2d_editor_plugin.h                                     */
 
-
-
 #ifndef PARTICLES_2D_EDITOR_PLUGIN_H
 #define PARTICLES_2D_EDITOR_PLUGIN_H
 

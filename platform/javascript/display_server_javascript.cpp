@@ -1,8 +1,6 @@
 
 /*  display_server_javascript.cpp                                        */
 
-
-
 #include "platform/javascript/display_server_javascript.h"
 
 #include "drivers/dummy/rasterizer_dummy.h"
@@ -656,7 +654,6 @@ bool DisplayServerJavaScript::is_joy_known(int p_device) {
 
 	return Input::get_singleton()->is_joy_mapped(p_device);
 }
-
 
 String DisplayServerJavaScript::get_joy_guid(int p_device) const {
 

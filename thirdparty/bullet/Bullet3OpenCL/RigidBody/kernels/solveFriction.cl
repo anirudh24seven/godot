@@ -13,13 +13,11 @@ subject to the following restrictions:
 */
 //Originally written by Takahiro Harada
 
-
 //#pragma OPENCL EXTENSION cl_amd_printf : enable
 #pragma OPENCL EXTENSION cl_khr_local_int32_base_atomics : enable
 #pragma OPENCL EXTENSION cl_khr_global_int32_base_atomics : enable
 #pragma OPENCL EXTENSION cl_khr_local_int32_extended_atomics : enable
 #pragma OPENCL EXTENSION cl_khr_global_int32_extended_atomics : enable
-
 
 #ifdef cl_ext_atomic_counters_32
 #pragma OPENCL EXTENSION cl_ext_atomic_counters_32 : enable
@@ -45,7 +43,6 @@ typedef unsigned char u8;
 #define AtomCmpxhg(x, cmp, value) atom_cmpxchg( &(x), cmp, value )
 #define AtomXhg(x, value) atom_xchg ( &(x), value )
 
-
 #define SELECT_UINT4( b, a, condition ) select( b,a,condition )
 
 #define mymake_float4 (float4)
@@ -55,25 +52,18 @@ typedef unsigned char u8;
 //#define make_uint2 (uint2)
 //#define make_int2 (int2)
 
-
 #define max2 max
 #define min2 min
-
 
 ///////////////////////////////////////
 //	Vector
 ///////////////////////////////////////
-
-
-
 
 __inline
 float4 fastNormalize4(float4 v)
 {
 	return fast_normalize(v);
 }
-
-
 
 __inline
 float4 cross3(float4 a, float4 b)
@@ -89,9 +79,6 @@ float dot3F4(float4 a, float4 b)
 	return dot(a1, b1);
 }
 
-
-
-
 __inline
 float4 normalize3(const float4 a)
 {
@@ -100,9 +87,6 @@ float4 normalize3(const float4 a)
 //	float length = sqrtf(dot3F4(a, a));
 //	return 1.f/length * a;
 }
-
-
-
 
 ///////////////////////////////////////
 //	Matrix3x3
@@ -113,19 +97,11 @@ typedef struct
 	float4 m_row[3];
 }Matrix3x3;
 
-
-
-
-
-
 __inline
 float4 mtMul1(Matrix3x3 a, float4 b);
 
 __inline
 float4 mtMul3(float4 a, Matrix3x3 b);
-
-
-
 
 __inline
 float4 mtMul1(Matrix3x3 a, float4 b)
@@ -157,12 +133,6 @@ float4 mtMul3(float4 a, Matrix3x3 b)
 ///////////////////////////////////////
 
 typedef float4 Quaternion;
-
-
-
-
-
-
 
 #define WG_SIZE 64
 
@@ -204,8 +174,6 @@ typedef struct
 	u32 m_paddings[1];
 } Constraint4;
 
-
-
 typedef struct
 {
 	int m_nConstraints;
@@ -239,7 +207,6 @@ float calcRelVel( float4 l0, float4 l1, float4 a0, float4 a1, float4 linVel0, fl
 {
 	return dot3F4(l0, linVel0) + dot3F4(a0, angVel0) + dot3F4(l1, linVel1) + dot3F4(a1, angVel1);
 }
-
 
 float calcJacCoeff(const float4 linear0, const float4 linear1, const float4 angular0, const float4 angular1,
 				   float invMass0, const Matrix3x3* invInertia0, float invMass1, const Matrix3x3* invInertia1);
@@ -283,7 +250,6 @@ void btPlaneSpace1 (const float4* n, float4* p, float4* q);
   }
 }
 
-
 void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __global Constraint4* ldsCs);
 void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __global Constraint4* ldsCs)
 {
@@ -291,8 +257,7 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 	int aIdx = ldsCs[0].m_bodyA;
 	int bIdx = ldsCs[0].m_bodyB;
 
-
-	float4 posA = gBodies[aIdx].m_pos;
+float4 posA = gBodies[aIdx].m_pos;
 	float4 linVelA = gBodies[aIdx].m_linVel;
 	float4 angVelA = gBodies[aIdx].m_angVel;
 	float invMassA = gBodies[aIdx].m_invMass;
@@ -303,9 +268,8 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 	float4 angVelB = gBodies[bIdx].m_angVel;
 	float invMassB = gBodies[bIdx].m_invMass;
 	Matrix3x3 invInertiaB = gShapes[bIdx].m_invInertia;
-	
 
-	{
+{
 		float maxRambdaDt[4] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
 		float minRambdaDt[4] = {0.f,0.f,0.f,0.f};
 
@@ -321,12 +285,10 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 			minRambdaDt[j] = -maxRambdaDt[j];
 		}
 
-		
 //		solveFriction( ldsCs, posA, &linVelA, &angVelA, invMassA, invInertiaA,
 //			posB, &linVelB, &angVelB, invMassB, invInertiaB, maxRambdaDt, minRambdaDt );
-		
-		
-		{
+
+{
 			
 			__global Constraint4* cs = ldsCs;
 			
@@ -381,9 +343,7 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 			}
 		}
 
-		
-		
-	}
+}
 
 	if (gBodies[aIdx].m_invMass)
 	{
@@ -403,7 +363,6 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 		gBodies[bIdx].m_linVel = mymake_float4(0,0,0,0);
 		gBodies[bIdx].m_angVel = mymake_float4(0,0,0,0);
 	}
- 
 
 }
 
@@ -419,9 +378,6 @@ typedef struct
 	float m_val2;
 	float m_val3;
 } SolverDebugInfo;
-
-
-
 
 __kernel
 __attribute__((reqd_work_group_size(WG_SIZE,1,1)))
@@ -448,15 +404,13 @@ void BatchSolveKernelFriction(__global Body* gBodies,
 //	debugInfo[gIdx].m_valInt0 = gIdx;
 	//debugInfo[gIdx].m_valInt1 = GET_GROUP_SIZE;
 
-
-	int zIdx = (wgIdx/((nSplit.x*nSplit.y)/4))*2+((cellBatch&4)>>2);
+int zIdx = (wgIdx/((nSplit.x*nSplit.y)/4))*2+((cellBatch&4)>>2);
 	int remain= (wgIdx%((nSplit.x*nSplit.y)/4));
 	int yIdx = (remain/(nSplit.x/2))*2 + ((cellBatch&2)>>1);
 	int xIdx = (remain%(nSplit.x/2))*2 + (cellBatch&1);
 	int cellIdx = xIdx+yIdx*nSplit.x+zIdx*(nSplit.x*nSplit.y);
 
-	
-	if( gN[cellIdx] == 0 ) 
+if( gN[cellIdx] == 0 )
 		return;
 
 	int maxBatch = batchSizes[cellIdx];
@@ -464,16 +418,14 @@ void BatchSolveKernelFriction(__global Body* gBodies,
 	const int start = gOffsets[cellIdx];
 	const int end = start + gN[cellIdx];
 
-	
-	if( lIdx == 0 )
+if( lIdx == 0 )
 	{
 		ldsCurBatch = 0;
 		ldsNextBatch = 0;
 		ldsStart = start;
 	}
 
-
-	GROUP_LDS_BARRIER;
+GROUP_LDS_BARRIER;
 
 	int idx=ldsStart+lIdx;
 	while (ldsCurBatch < maxBatch)
@@ -498,14 +450,8 @@ void BatchSolveKernelFriction(__global Body* gBodies,
 		}
 		GROUP_LDS_BARRIER;
 	}
-	
-    
+
 }
-
-
-
-
-
 
 __kernel void solveSingleFrictionKernel(__global Body* gBodies,
                       __global Shape* gShapes,

@@ -1,8 +1,6 @@
 
 /*  remote_transform_3d.h                                                */
 
-
-
 #ifndef REMOTETRANSFORM_H
 #define REMOTETRANSFORM_H
 

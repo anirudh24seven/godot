@@ -2,14 +2,11 @@ import methods
 import os
 import sys
 
-
 def is_active():
     return True
 
-
 def get_name():
     return "UWP"
-
 
 def can_build():
     if os.name == "nt":
@@ -22,12 +19,10 @@ def can_build():
             return True
     return False
 
-
 def get_opts():
     return [
         ("msvc_version", "MSVC version to use (ignored if the VCINSTALLDIR environment variable is set)", None),
     ]
-
 
 def get_flags():
 
@@ -36,7 +31,6 @@ def get_flags():
         ("xaudio2", True),
         ("builtin_pcre2_with_jit", False),
     ]
-
 
 def configure(env):
 

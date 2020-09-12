@@ -1,8 +1,6 @@
 
 /*  check_button.h                                                       */
 
-
-
 #ifndef CHECK_BUTTON_H
 #define CHECK_BUTTON_H
 

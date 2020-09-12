@@ -1,8 +1,6 @@
 
 /*  root_motion_editor_plugin.h                                          */
 
-
-
 #ifndef ROOT_MOTION_EDITOR_PLUGIN_H
 #define ROOT_MOTION_EDITOR_PLUGIN_H
 

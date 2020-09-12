@@ -1,8 +1,6 @@
 
 /*  input_map_editor.cpp                                                 */
 
-
-
 #include "input_map_editor.h"
 
 #include "core/input/input_map.h"

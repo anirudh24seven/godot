@@ -1,8 +1,6 @@
 
 /*  GodotDownloaderAlarmReceiver.java                                    */
 
-
-
 package org.godotengine.godot;
 
 import android.content.BroadcastReceiver;

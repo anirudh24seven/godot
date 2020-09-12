@@ -1,8 +1,6 @@
 
 /*  gradle_export_util.h                                                 */
 
-
-
 #ifndef GODOT_GRADLE_EXPORT_UTIL_H
 #define GODOT_GRADLE_EXPORT_UTIL_H
 

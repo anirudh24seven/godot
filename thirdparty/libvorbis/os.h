@@ -78,7 +78,6 @@ void *_alloca(size_t size);
 #  define max(x,y)  ((x)<(y)?(y):(x))
 #endif
 
-
 /* Special i386 GCC implementation */
 #if defined(__i386__) && defined(__GNUC__) && !defined(__BEOS__)
 #  define VORBIS_FPU_CONTROL
@@ -116,7 +115,6 @@ static inline int vorbis_ftoi(double f){  /* yes, double!  Otherwise,
 }
 #endif /* Special i386 GCC implementation */
 
-
 /* MSVC inline assembly. 32 bit only; inline ASM isn't implemented in the
  * 64 bit compiler and doesn't work on arm. */
 #if defined(_MSC_VER) && !defined(_WIN64) && \
@@ -144,7 +142,6 @@ static __inline void vorbis_fpu_restore(vorbis_fpu_control fpu){
 
 #endif /* Special MSVC 32 bit implementation */
 
-
 /* Optimized code path for x86_64 builds. Uses SSE2 intrinsics. This can be
    done safely because all x86_64 CPUs supports SSE2. */
 #if (defined(_MSC_VER) && defined(_WIN64)) || (defined(__GNUC__) && defined (__x86_64__))
@@ -166,7 +163,6 @@ static __inline void vorbis_fpu_restore(vorbis_fpu_control fpu){
 }
 
 #endif /* Special MSVC x64 implementation */
-
 
 /* If no special implementation was found for the current compiler / platform,
    use the default implementation here: */

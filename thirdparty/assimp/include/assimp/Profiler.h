@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -72,15 +71,13 @@ public:
         // empty
     }
 
-
-    /** Start a named timer */
+/** Start a named timer */
     void BeginRegion(const std::string& region) {
         regions[region] = std::chrono::system_clock::now();
         ASSIMP_LOG_DEBUG((format("START `"),region,"`"));
     }
 
-
-    /** End a specific named timer and write its end time to the log */
+/** End a specific named timer and write its end time to the log */
     void EndRegion(const std::string& region) {
         RegionMap::const_iterator it = regions.find(region);
         if (it == regions.end()) {

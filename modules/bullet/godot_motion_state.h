@@ -1,8 +1,6 @@
 
 /*  godot_motion_state.h                                                 */
 
-
-
 #ifndef GODOT_MOTION_STATE_H
 #define GODOT_MOTION_STATE_H
 

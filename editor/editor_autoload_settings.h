@@ -1,8 +1,6 @@
 
 /*  editor_autoload_settings.h                                           */
 
-
-
 #ifndef EDITOR_AUTOLOAD_SETTINGS_H
 #define EDITOR_AUTOLOAD_SETTINGS_H
 

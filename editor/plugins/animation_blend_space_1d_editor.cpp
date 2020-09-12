@@ -1,8 +1,6 @@
 
 /*  animation_blend_space_1d_editor.cpp                                  */
 
-
-
 #include "animation_blend_space_1d_editor.h"
 
 #include "core/os/keyboard.h"

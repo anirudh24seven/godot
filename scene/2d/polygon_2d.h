@@ -1,8 +1,6 @@
 
 /*  polygon_2d.h                                                         */
 
-
-
 #ifndef POLYGON_2D_H
 #define POLYGON_2D_H
 

@@ -1,8 +1,6 @@
 
 /*  bullet_physics_server.h                                              */
 
-
-
 #ifndef BULLET_PHYSICS_SERVER_H
 #define BULLET_PHYSICS_SERVER_H
 

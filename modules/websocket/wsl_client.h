@@ -1,8 +1,6 @@
 
 /*  wsl_client.h                                                         */
 
-
-
 #ifndef WSLCLIENT_H
 #define WSLCLIENT_H
 

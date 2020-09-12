@@ -1,8 +1,6 @@
 
 /*  immediate_geometry_3d.cpp                                            */
 
-
-
 #include "immediate_geometry_3d.h"
 
 void ImmediateGeometry3D::begin(Mesh::PrimitiveType p_primitive, const Ref<Texture2D> &p_texture) {

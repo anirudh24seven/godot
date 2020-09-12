@@ -1,8 +1,6 @@
 
 /*  hinge_joint_bullet.h                                                 */
 
-
-
 #ifndef HINGE_JOINT_BULLET_H
 #define HINGE_JOINT_BULLET_H
 

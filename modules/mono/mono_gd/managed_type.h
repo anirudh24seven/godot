@@ -1,8 +1,6 @@
 
 /*  managed_type.h                                                       */
 
-
-
 #ifndef MANAGED_TYPE_H
 #define MANAGED_TYPE_H
 

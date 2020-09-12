@@ -1,8 +1,6 @@
 
 /*  midi_driver_winmidi.cpp                                              */
 
-
-
 #ifdef WINMIDI_ENABLED
 
 #include "midi_driver_winmidi.h"

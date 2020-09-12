@@ -1,8 +1,6 @@
 
 /*  editor_scene_importer_assimp.h                                       */
 
-
-
 #ifndef EDITOR_SCENE_IMPORTER_ASSIMP_H
 #define EDITOR_SCENE_IMPORTER_ASSIMP_H
 

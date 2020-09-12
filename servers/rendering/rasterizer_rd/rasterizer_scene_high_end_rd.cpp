@@ -1,8 +1,6 @@
 
 /*  rasterizer_scene_high_end_rd.cpp                                     */
 
-
-
 #include "rasterizer_scene_high_end_rd.h"
 #include "core/project_settings.h"
 #include "servers/rendering/rendering_device.h"

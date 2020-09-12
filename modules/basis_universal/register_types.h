@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef BASIS_UNIVERSAL_REGISTER_TYPES_H
 #define BASIS_UNIVERSAL_REGISTER_TYPES_H
 

@@ -1,8 +1,6 @@
 
 /*  body_2d_sw.cpp                                                       */
 
-
-
 #include "body_2d_sw.h"
 #include "area_2d_sw.h"
 #include "physics_server_2d_sw.h"

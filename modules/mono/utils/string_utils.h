@@ -1,8 +1,6 @@
 
 /*  string_utils.h                                                       */
 
-
-
 #ifndef STRING_FORMAT_H
 #define STRING_FORMAT_H
 

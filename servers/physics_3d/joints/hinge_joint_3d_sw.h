@@ -1,8 +1,6 @@
 
 /*  hinge_joint_3d_sw.h                                                  */
 
-
-
 /*
 Adapted to Godot from the Bullet library.
 */

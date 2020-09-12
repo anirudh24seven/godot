@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #define  FT_MAKE_OPTION_SINGLE_OBJECT
 
@@ -37,6 +36,5 @@
 #include "ftstream.c"
 #include "fttrigon.c"
 #include "ftutil.c"
-
 
 /* END */

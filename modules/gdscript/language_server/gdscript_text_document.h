@@ -1,8 +1,6 @@
 
 /*  gdscript_text_document.h                                             */
 
-
-
 #ifndef GDSCRIPT_TEXT_DOCUMENT_H
 #define GDSCRIPT_TEXT_DOCUMENT_H
 

@@ -1,8 +1,6 @@
 
 /*  animation_track_editor_plugins.h                                     */
 
-
-
 #ifndef ANIMATION_TRACK_EDITOR_PLUGINS_H
 #define ANIMATION_TRACK_EDITOR_PLUGINS_H
 

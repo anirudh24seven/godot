@@ -1,8 +1,6 @@
 
 /*  OvrConfigChooser.java                                                */
 
-
-
 package org.godotengine.godot.xr.ovr;
 
 import android.opengl.EGLExt;

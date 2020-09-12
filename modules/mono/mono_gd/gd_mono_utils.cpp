@@ -1,8 +1,6 @@
 
 /*  gd_mono_utils.cpp                                                    */
 
-
-
 #include "gd_mono_utils.h"
 
 #include <mono/metadata/debug-helpers.h>

@@ -1,8 +1,6 @@
 
 /*  navigation_agent_2d.cpp                                              */
 
-
-
 #include "navigation_agent_2d.h"
 
 #include "core/engine.h"

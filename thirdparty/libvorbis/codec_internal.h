@@ -132,8 +132,6 @@ typedef struct codec_setup_info {
 extern vorbis_look_psy_global *_vp_global_look(vorbis_info *vi);
 extern void _vp_global_free(vorbis_look_psy_global *look);
 
-
-
 typedef struct {
   int sorted_index[VIF_POSIT+2];
   int forward_index[VIF_POSIT+2];
@@ -151,8 +149,6 @@ typedef struct {
   long postbits;
   long frames;
 } vorbis_look_floor1;
-
-
 
 extern int *floor1_fit(vorbis_block *vb,vorbis_look_floor1 *look,
                           const float *logmdct,   /* in */

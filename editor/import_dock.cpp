@@ -1,8 +1,6 @@
 
 /*  import_dock.cpp                                                      */
 
-
-
 #include "import_dock.h"
 #include "editor_node.h"
 #include "editor_resource_preview.h"

@@ -1,8 +1,6 @@
 
 /*  line_builder.h                                                       */
 
-
-
 #ifndef LINE_BUILDER_H
 #define LINE_BUILDER_H
 

@@ -37,7 +37,6 @@
 #ifndef _COMMON_INCLUDED_
 #define _COMMON_INCLUDED_
 
-
 #if defined(__ANDROID__) || (defined(_MSC_VER) && _MSC_VER < 1700)
 #include <sstream>
 namespace std {

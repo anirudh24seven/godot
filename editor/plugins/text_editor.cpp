@@ -1,8 +1,6 @@
 
 /*  text_editor.cpp                                                      */
 
-
-
 #include "text_editor.h"
 
 #include "core/os/keyboard.h"

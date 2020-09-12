@@ -1,8 +1,6 @@
 
 /*  resource_importer_texture_atlas.h                                    */
 
-
-
 #ifndef RESOURCE_IMPORTER_TEXTURE_ATLAS_H
 #define RESOURCE_IMPORTER_TEXTURE_ATLAS_H
 

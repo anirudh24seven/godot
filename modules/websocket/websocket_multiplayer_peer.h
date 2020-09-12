@@ -1,8 +1,6 @@
 
 /*  websocket_multiplayer_peer.h                                         */
 
-
-
 #ifndef WEBSOCKET_MULTIPLAYER_PEER_H
 #define WEBSOCKET_MULTIPLAYER_PEER_H
 

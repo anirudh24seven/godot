@@ -818,7 +818,6 @@ mkldnn_dilated_convolution_backward_weights_desc_init(
  *
  * @{ */
 
-
 /** Initializes a deconvolution descriptor @p deconv_desc for forward
  * propagation using @p prop_kind (possible values are #mkldnn_forward_training
  * and #mkldnn_forward_inference), @p alg_kind, memory descriptors, @p strides,

@@ -1,8 +1,6 @@
 
 /*  skeleton_2d_editor_plugin.cpp                                        */
 
-
-
 #include "skeleton_2d_editor_plugin.h"
 
 #include "canvas_item_editor_plugin.h"

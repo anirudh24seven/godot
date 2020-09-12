@@ -340,8 +340,7 @@ int mbedtls_mpi_safe_cond_swap( mbedtls_mpi *X, mbedtls_mpi *Y, unsigned char sw
     X->s = X->s * ( 1 - swap ) + Y->s * swap;
     Y->s = Y->s * ( 1 - swap ) +    s * swap;
 
-
-    for( i = 0; i < X->n; i++ )
+for( i = 0; i < X->n; i++ )
     {
         tmp = X->p[i];
         X->p[i] = X->p[i] * ( 1 - swap ) + Y->p[i] * swap;
@@ -778,7 +777,6 @@ cleanup:
 }
 #endif /* MBEDTLS_FS_IO */
 
-
 /* Convert a big-endian byte array aligned to the size of mbedtls_mpi_uint
  * into the storage form used by mbedtls_mpi. */
 
@@ -1143,8 +1141,7 @@ static unsigned ct_lt_mpi_uint( const mbedtls_mpi_uint x,
      */
     ret |= y & cond;
 
-
-    ret = ret >> ( biL - 1 );
+ret = ret >> ( biL - 1 );
 
     return (unsigned) ret;
 }

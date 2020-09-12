@@ -210,6 +210,5 @@ if env["builtin_bullet"]:
     env_thirdparty.disable_warnings()
     env_thirdparty.add_source_files(env.modules_sources, thirdparty_sources)
 
-
 # Godot source files
 env_bullet.add_source_files(env.modules_sources, "*.cpp")

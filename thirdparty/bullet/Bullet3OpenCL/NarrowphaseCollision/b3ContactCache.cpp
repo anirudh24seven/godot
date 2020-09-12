@@ -26,9 +26,6 @@ b3Scalar					gContactBreakingThreshold = b3Scalar(0.02);
 ///when setting it to false, it will use 4 points to compute the area: it is more accurate but slower
 bool						gContactCalcArea3Points = true;
 
-
-
-
 static inline b3Scalar calcArea4Points(const b3Vector3 &p0,const b3Vector3 &p1,const b3Vector3 &p2,const b3Vector3 &p3)
 {
 	// It calculates possible 3 area constructed from random 4 points and returns the biggest one.
@@ -129,7 +126,6 @@ int b3ContactCache::sortCachedPoints(const b3Vector3& pt)
 	
 }
 
-
 int b3ContactCache::getCacheEntry(const b3Vector3& newPoint) const
 {
 	b3Scalar shortestDist =  getContactBreakingThreshold() * getContactBreakingThreshold();
@@ -169,8 +165,7 @@ int b3ContactCache::addManifoldPoint(const b3Vector3& newPoint)
 	{
 		m_cachedPoints++;
 
-		
-	}
+}
 	if (insertIndex<0)
 		insertIndex=0;
 
@@ -199,14 +194,12 @@ void b3ContactCache::removeContactPoint(struct b3Contact4Data& newContactCache,i
 
 }
 
-
 void b3ContactCache::refreshContactPoints(const b3Transform& trA,const b3Transform& trB, struct b3Contact4Data& contacts)
 {
 
 	int numContacts = b3Contact4Data_getNumPoints(&contacts);
-	
 
-	int i;
+int i;
 	/// first refresh worldspace positions and distance
 	for (i=numContacts-1;i>=0;i--)
 	{
@@ -246,7 +239,6 @@ void b3ContactCache::refreshContactPoints(const b3Transform& trA,const b3Transfo
 			}
 		}
 	}
-	
 
 }
 

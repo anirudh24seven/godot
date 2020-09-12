@@ -1,8 +1,6 @@
 
 /*  dir_access_jandroid.h                                                */
 
-
-
 #ifndef DIR_ACCESS_JANDROID_H
 #define DIR_ACCESS_JANDROID_H
 

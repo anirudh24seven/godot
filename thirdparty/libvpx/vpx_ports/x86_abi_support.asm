@@ -8,7 +8,6 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_config.asm"
 
 ; 32/64 bit compatibility macros
@@ -76,7 +75,6 @@
   %endif
 %endmacro
 %endif
-
 
 ; LIBVPX_YASM_WIN64
 ; Set LIBVPX_YASM_WIN64 if output is Windows 64bit so the code will work if x64
@@ -159,7 +157,6 @@
 %define REG_SZ_BITS  64
 %endif
 
-
 ; ALIGN_STACK <alignment> <register>
 ; This macro aligns the stack to the given alignment (in bytes). The stack
 ; is left such that the previous value of the stack pointer is the first
@@ -172,7 +169,6 @@
     lea         rsp, [rsp - (%1 - REG_SZ_BYTES)]
     push        %2
 %endmacro
-
 
 ;
 ; The Microsoft assembler tries to impose a certain amount of type safety in
@@ -377,7 +373,6 @@ section .text
 %else
 %define SECTION_RODATA section .rodata
 %endif
-
 
 ; Tell GNU ld that we don't require an executable stack.
 %ifidn __OUTPUT_FORMAT__,elf32

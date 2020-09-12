@@ -1,8 +1,6 @@
 
 /*  navigation_2d.h                                                      */
 
-
-
 #ifndef NAVIGATION_2D_H
 #define NAVIGATION_2D_H
 

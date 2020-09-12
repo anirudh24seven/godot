@@ -1,8 +1,6 @@
 
 /*  remote_debugger.cpp                                                  */
 
-
-
 #include "remote_debugger.h"
 
 #include "core/debugger/debugger_marshalls.h"

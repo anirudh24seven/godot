@@ -592,7 +592,6 @@ static int mbedtls_entropy_source_self_test_gather( unsigned char *buf, size_t b
     return( ret );
 }
 
-
 static int mbedtls_entropy_source_self_test_check_bits( const unsigned char *buf,
                                                         size_t buf_len )
 {

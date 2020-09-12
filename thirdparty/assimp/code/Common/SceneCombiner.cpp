@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -539,8 +538,7 @@ void SceneCombiner::MergeScenes(aiScene** _dest, aiScene* master, std::vector<At
             }
             else *ppLights = (*cur)->mLights[i];
 
-
-            // Add name prefixes?
+// Add name prefixes?
             if (flags & AI_INT_MERGE_SCENE_GEN_UNIQUE_NAMES) {
                 if (flags & AI_INT_MERGE_SCENE_GEN_UNIQUE_NAMES_IF_NECESSARY) {
                     if (!FindNameMatch((*ppLights)->mName,src,n))

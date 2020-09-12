@@ -1,8 +1,6 @@
 
 /*  node_dock.cpp                                                        */
 
-
-
 #include "node_dock.h"
 
 #include "editor_node.h"

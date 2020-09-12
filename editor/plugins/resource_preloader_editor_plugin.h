@@ -1,8 +1,6 @@
 
 /*  resource_preloader_editor_plugin.h                                   */
 
-
-
 #ifndef RESOURCE_PRELOADER_EDITOR_PLUGIN_H
 #define RESOURCE_PRELOADER_EDITOR_PLUGIN_H
 

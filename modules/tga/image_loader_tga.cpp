@@ -1,8 +1,6 @@
 
 /*  image_loader_tga.cpp                                                 */
 
-
-
 #include "image_loader_tga.h"
 
 #include "core/error_macros.h"

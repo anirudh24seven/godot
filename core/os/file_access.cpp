@@ -1,8 +1,6 @@
 
 /*  file_access.cpp                                                      */
 
-
-
 #include "file_access.h"
 
 #include "core/crypto/crypto_core.h"

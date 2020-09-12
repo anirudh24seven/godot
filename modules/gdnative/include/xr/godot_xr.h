@@ -1,8 +1,6 @@
 
 /*  godot_xr.h                                                           */
 
-
-
 #ifndef GODOT_NATIVEXR_H
 #define GODOT_NATIVEXR_H
 

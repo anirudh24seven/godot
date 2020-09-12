@@ -142,7 +142,6 @@ data(void * d, const char * data, int l)
 	}
 }
 
-
 /* Parse the PortMappingList XML document for IGD version 2
  */
 void

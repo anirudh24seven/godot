@@ -1,8 +1,6 @@
 
 /*  midi_driver_alsamidi.cpp                                             */
 
-
-
 #ifdef ALSAMIDI_ENABLED
 
 #include "midi_driver_alsamidi.h"

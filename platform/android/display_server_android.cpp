@@ -1,8 +1,6 @@
 
 /*  display_server_android.cpp                                           */
 
-
-
 #include "display_server_android.h"
 
 #include "android_keys_utils.h"

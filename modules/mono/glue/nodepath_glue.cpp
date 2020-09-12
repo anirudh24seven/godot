@@ -1,8 +1,6 @@
 
 /*  nodepath_glue.cpp                                                    */
 
-
-
 #ifdef MONO_GLUE_ENABLED
 
 #include "core/node_path.h"

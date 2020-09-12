@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -437,8 +435,7 @@ struct aiAnimation {
      *  The array is mNumChannels in size. */
     C_STRUCT aiNodeAnim** mChannels;
 
-
-    /** The number of mesh animation channels. Each channel affects
+/** The number of mesh animation channels. Each channel affects
      *  a single mesh and defines vertex-based animation. */
     unsigned int mNumMeshChannels;
 

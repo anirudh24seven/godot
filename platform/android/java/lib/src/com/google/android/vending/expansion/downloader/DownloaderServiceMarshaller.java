@@ -29,7 +29,6 @@ import android.os.RemoteException;
 import java.lang.ref.WeakReference;
 // -- GODOT end --
 
-
 /**
  * This class is used by the client activity to proxy requests to the Downloader
  * Service.

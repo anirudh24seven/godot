@@ -21,7 +21,6 @@ namespace RAYCAST_MESH
 	(a)[1] = (b)[2] * (c)[0] - (c)[2] * (b)[0]; \
 	(a)[2] = (b)[0] * (c)[1] - (c)[0] * (b)[1];
 
-
 static inline bool rayIntersectsTriangle(const double *p,const double *d,const double *v0,const double *v1,const double *v2,double &t)
 {
 	double e1[3],e2[3],h[3],s[3],q[3];
@@ -94,8 +93,7 @@ public:
         }
 	}
 
-
-	~MyRaycastMesh(void)
+~MyRaycastMesh(void)
 	{
         delete[]mVertices;
         delete[]mIndices;
@@ -179,8 +177,6 @@ public:
 
 };
 
-
-
 using namespace RAYCAST_MESH;
 
 namespace VHACD
@@ -203,6 +199,5 @@ namespace VHACD
         MyRaycastMesh *m = new MyRaycastMesh(vcount, vertices, tcount, indices);
         return static_cast<RaycastMesh *>(m);
     }
-
 
 } // end of VHACD namespace

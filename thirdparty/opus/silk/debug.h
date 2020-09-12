@@ -60,7 +60,6 @@ unsigned long GetHighResolutionTime(void); /* O  time in usec*/
 /* Flag for using timers */
 #define SILK_TIC_TOC    0
 
-
 #if SILK_TIC_TOC
 
 #if (defined(_WIN32) || defined(_WINCE))
@@ -232,7 +231,6 @@ extern opus_int64    silk_Timer_depth[silk_NUM_TIMERS_MAX];
 #define silk_TimerSave(FILE_NAME)
 
 #endif /* SILK_TIC_TOC */
-
 
 #if SILK_DEBUG
 /************************************/

@@ -1,8 +1,6 @@
 
 /*  net_socket_android.cpp                                               */
 
-
-
 #include "net_socket_android.h"
 
 #include "thread_jandroid.h"

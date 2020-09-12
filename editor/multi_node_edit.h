@@ -1,8 +1,6 @@
 
 /*  multi_node_edit.h                                                    */
 
-
-
 #ifndef MULTI_NODE_EDIT_H
 #define MULTI_NODE_EDIT_H
 

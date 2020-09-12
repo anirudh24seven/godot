@@ -1,8 +1,6 @@
 
 /*  api.h                                                                */
 
-
-
 #ifndef JAVASCRIPT_API_H
 #define JAVASCRIPT_API_H
 

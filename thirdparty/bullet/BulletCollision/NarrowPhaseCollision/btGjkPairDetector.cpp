@@ -36,7 +36,6 @@ btScalar gGjkEpaPenetrationTolerance = 1.0e-12;
 btScalar gGjkEpaPenetrationTolerance = 0.001;
 #endif
 
-
 btGjkPairDetector::btGjkPairDetector(const btConvexShape *objectA, const btConvexShape *objectB, btSimplexSolverInterface *simplexSolver, btConvexPenetrationDepthSolver *penetrationDepthSolver)
 	: m_cachedSeparatingAxis(btScalar(0.), btScalar(1.), btScalar(0.)),
 	  m_penetrationDepthSolver(penetrationDepthSolver),
@@ -705,8 +704,7 @@ void btGjkPairDetector::getClosestPointsNonVirtual(const ClosestPointInput &inpu
 	btScalar marginA = m_marginA;
 	btScalar marginB = m_marginB;
 
-
-	//for CCD we don't use margins
+//for CCD we don't use margins
 	if (m_ignoreMargin)
 	{
 		marginA = btScalar(0.);

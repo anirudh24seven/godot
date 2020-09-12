@@ -32,7 +32,6 @@
     - Public forum : https://groups.google.com/forum/#!forum/lz4c
 ****************************************************************** */
 
-
 /* **************************************************************
 *  Includes
 ****************************************************************/
@@ -44,7 +43,6 @@
 #include "fse.h"
 #include "error_private.h"
 
-
 /* **************************************************************
 *  Error Management
 ****************************************************************/
@@ -55,7 +53,6 @@
 #ifndef CHECK_F
 #define CHECK_F(f) { size_t const e = f; if (FSE_isError(e)) return e; }
 #endif
-
 
 /* **************************************************************
 *  Templates
@@ -78,7 +75,6 @@
 #define FSE_CAT(X,Y) X##Y
 #define FSE_FUNCTION_NAME(X,Y) FSE_CAT(X,Y)
 #define FSE_TYPE_NAME(X,Y) FSE_CAT(X,Y)
-
 
 /* Function templates */
 FSE_DTable* FSE_createDTable (unsigned tableLog)
@@ -149,7 +145,6 @@ size_t FSE_buildDTable(FSE_DTable* dt, const short* normalizedCounter, unsigned 
     return 0;
 }
 
-
 #ifndef FSE_COMMONDEFS_ONLY
 
 /*-*******************************************************
@@ -171,7 +166,6 @@ size_t FSE_buildDTable_rle (FSE_DTable* dt, BYTE symbolValue)
 
     return 0;
 }
-
 
 size_t FSE_buildDTable_raw (FSE_DTable* dt, unsigned nbBits)
 {
@@ -261,7 +255,6 @@ FORCE_INLINE_TEMPLATE size_t FSE_decompress_usingDTable_generic(
     return op-ostart;
 }
 
-
 size_t FSE_decompress_usingDTable(void* dst, size_t originalSize,
                             const void* cSrc, size_t cSrcSize,
                             const FSE_DTable* dt)
@@ -274,7 +267,6 @@ size_t FSE_decompress_usingDTable(void* dst, size_t originalSize,
     if (fastMode) return FSE_decompress_usingDTable_generic(dst, originalSize, cSrc, cSrcSize, dt, 1);
     return FSE_decompress_usingDTable_generic(dst, originalSize, cSrc, cSrcSize, dt, 0);
 }
-
 
 size_t FSE_decompress_wksp(void* dst, size_t dstCapacity, const void* cSrc, size_t cSrcSize, FSE_DTable* workSpace, unsigned maxLog)
 {
@@ -297,7 +289,6 @@ size_t FSE_decompress_wksp(void* dst, size_t dstCapacity, const void* cSrc, size
     return FSE_decompress_usingDTable (dst, dstCapacity, ip, cSrcSize, workSpace);   /* always return, even if it is an error code */
 }
 
-
 typedef FSE_DTable DTable_max_t[FSE_DTABLE_SIZE_U32(FSE_MAX_TABLELOG)];
 
 size_t FSE_decompress(void* dst, size_t dstCapacity, const void* cSrc, size_t cSrcSize)
@@ -305,7 +296,5 @@ size_t FSE_decompress(void* dst, size_t dstCapacity, const void* cSrc, size_t cS
     DTable_max_t dt;   /* Static analyzer seems unable to understand this table will be properly initialized later */
     return FSE_decompress_wksp(dst, dstCapacity, cSrc, cSrcSize, dt, FSE_MAX_TABLELOG);
 }
-
-
 
 #endif   /* FSE_COMMONDEFS_ONLY */

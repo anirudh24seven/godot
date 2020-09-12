@@ -1,8 +1,6 @@
 
 /*  osx_utils.cpp                                                        */
 
-
-
 #include "osx_utils.h"
 
 #ifdef OSX_ENABLED

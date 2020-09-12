@@ -1,8 +1,6 @@
 
 /*  math_fieldwise.h                                                     */
 
-
-
 #ifndef MATH_FIELDWISE_H
 #define MATH_FIELDWISE_H
 

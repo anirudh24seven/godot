@@ -1,8 +1,6 @@
 
 /*  rect2.cpp                                                            */
 
-
-
 #include "core/math/transform_2d.h" // Includes rect2.h but Rect2 needs Transform2D
 
 bool Rect2::is_equal_approx(const Rect2 &p_rect) const {

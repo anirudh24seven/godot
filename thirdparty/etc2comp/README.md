@@ -169,7 +169,6 @@ The default options are clamping in both x and y.
 Note: Path names can use slashes or backslashes.  The tool will convert the 
 slashes to the appropriate polarity for the current platform.
 
-
 ## API
 
 The library supports two different APIs - a C-like API that is not heavily 
@@ -179,7 +178,6 @@ main() in EtcTool.cpp contains an example of both APIs.
 
 The Encode() method now returns an EncodingStatus that contains bit flags for
 reporting various warnings and flags encountered when encoding.
-
 
 ## Copyright
 Copyright 2015 Etc2Comp Authors.

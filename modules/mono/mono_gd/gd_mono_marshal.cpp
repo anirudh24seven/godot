@@ -1,8 +1,6 @@
 
 /*  gd_mono_marshal.cpp                                                  */
 
-
-
 #include "gd_mono_marshal.h"
 
 #include "../signal_awaiter_utils.h"

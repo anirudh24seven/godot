@@ -28,8 +28,6 @@
 #  endif
 # endif
 
-
-
 /**
  * oc_ilog32 - Integer binary logarithm of a 32-bit value.
  * @_v: A 32-bit value.
@@ -50,7 +48,6 @@ int oc_ilog32(ogg_uint32_t _v);
  *  function instead, which should be faster.
  */
 int oc_ilog64(ogg_int64_t _v);
-
 
 # if defined(OC_CLZ32)
 /**

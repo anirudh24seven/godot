@@ -1,8 +1,6 @@
 
 /*  editor_dir_dialog.h                                                  */
 
-
-
 #ifndef EDITOR_DIR_DIALOG_H
 #define EDITOR_DIR_DIALOG_H
 

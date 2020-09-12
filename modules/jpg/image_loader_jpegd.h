@@ -1,8 +1,6 @@
 
 /*  image_loader_jpegd.h                                                 */
 
-
-
 #ifndef IMAGE_LOADER_JPG_H
 #define IMAGE_LOADER_JPG_H
 

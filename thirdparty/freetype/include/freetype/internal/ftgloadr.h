@@ -15,19 +15,15 @@
  *
  */
 
-
 #ifndef FTGLOADR_H_
 #define FTGLOADR_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_GlyphLoader
@@ -46,8 +42,7 @@ FT_BEGIN_HEADER
 
   } FT_SubGlyphRec;
 
-
-  typedef struct  FT_GlyphLoadRec_
+typedef struct  FT_GlyphLoadRec_
   {
     FT_Outline   outline;       /* outline                   */
     FT_Vector*   extra_points;  /* extra points table        */
@@ -57,8 +52,7 @@ FT_BEGIN_HEADER
 
   } FT_GlyphLoadRec, *FT_GlyphLoad;
 
-
-  typedef struct  FT_GlyphLoaderRec_
+typedef struct  FT_GlyphLoaderRec_
   {
     FT_Memory        memory;
     FT_UInt          max_points;
@@ -73,8 +67,7 @@ FT_BEGIN_HEADER
 
   } FT_GlyphLoaderRec, *FT_GlyphLoader;
 
-
-  /* create new empty glyph loader */
+/* create new empty glyph loader */
   FT_BASE( FT_Error )
   FT_GlyphLoader_New( FT_Memory        memory,
                       FT_GlyphLoader  *aloader );
@@ -102,7 +95,6 @@ FT_BEGIN_HEADER
                               FT_UInt         n_points,
                               FT_UInt         n_contours );
 
-
 #define FT_GLYPHLOADER_CHECK_P( _loader, _count )       \
   ( (_count) == 0                                    || \
     ( (FT_UInt)(_loader)->base.outline.n_points    +    \
@@ -123,8 +115,7 @@ FT_BEGIN_HEADER
                                   (FT_UInt)(_points),              \
                                   (FT_UInt)(_contours) ) )
 
-
-  /* check that there is enough space to add `n_subs' sub-glyphs to */
+/* check that there is enough space to add `n_subs' sub-glyphs to */
   /* a glyph loader                                                 */
   FT_BASE( FT_Error )
   FT_GlyphLoader_CheckSubGlyphs( FT_GlyphLoader  loader,
@@ -140,10 +131,8 @@ FT_BEGIN_HEADER
 
  /* */
 
-
 FT_END_HEADER
 
 #endif /* FTGLOADR_H_ */
-
 
 /* END */

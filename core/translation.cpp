@@ -1,8 +1,6 @@
 
 /*  translation.cpp                                                      */
 
-
-
 #include "translation.h"
 
 #include "core/io/resource_loader.h"

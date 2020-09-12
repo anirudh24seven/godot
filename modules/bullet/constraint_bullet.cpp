@@ -1,8 +1,6 @@
 
 /*  constraint_bullet.cpp                                                */
 
-
-
 #include "constraint_bullet.h"
 
 #include "collision_object_bullet.h"

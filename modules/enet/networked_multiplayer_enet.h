@@ -1,8 +1,6 @@
 
 /*  networked_multiplayer_enet.h                                         */
 
-
-
 #ifndef NETWORKED_MULTIPLAYER_ENET_H
 #define NETWORKED_MULTIPLAYER_ENET_H
 

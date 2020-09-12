@@ -1,8 +1,6 @@
 
 /*  packet_peer_mbed_dtls.cpp                                            */
 
-
-
 #include "packet_peer_mbed_dtls.h"
 #include "mbedtls/platform_util.h"
 

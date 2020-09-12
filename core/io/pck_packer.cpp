@@ -1,8 +1,6 @@
 
 /*  pck_packer.cpp                                                       */
 
-
-
 #include "pck_packer.h"
 
 #include "core/io/file_access_pack.h" // PACK_HEADER_MAGIC, PACK_FORMAT_VERSION

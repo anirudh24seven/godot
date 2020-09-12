@@ -1,8 +1,6 @@
 
 /*  vector3.cpp                                                          */
 
-
-
 #include "gdnative/vector3.h"
 
 #include "core/variant.h"

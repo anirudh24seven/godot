@@ -1,8 +1,6 @@
 
 /*  stream_peer_gdnative.cpp                                             */
 
-
-
 #include "stream_peer_gdnative.h"
 
 StreamPeerGDNative::StreamPeerGDNative() {

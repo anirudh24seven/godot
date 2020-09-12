@@ -1,8 +1,6 @@
 
 /*  editor_export.cpp                                                    */
 
-
-
 #include "editor_export.h"
 
 #include "core/crypto/crypto_core.h"

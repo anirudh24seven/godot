@@ -1,8 +1,6 @@
 
 /*  os_unix.cpp                                                          */
 
-
-
 #include "os_unix.h"
 
 #ifdef UNIX_ENABLED

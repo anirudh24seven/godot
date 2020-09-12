@@ -1,8 +1,6 @@
 
 /*  polygon_path_finder.h                                                */
 
-
-
 #ifndef POLYGON_PATH_FINDER_H
 #define POLYGON_PATH_FINDER_H
 

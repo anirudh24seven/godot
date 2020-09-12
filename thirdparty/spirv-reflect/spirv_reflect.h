@@ -267,7 +267,6 @@ typedef struct SpvReflectTypeDescription {
   struct SpvReflectTypeDescription* members;
 } SpvReflectTypeDescription;
 
-
 /*! @struct SpvReflectInterfaceVariable
 
 */
@@ -441,14 +440,12 @@ SpvReflectResult spvReflectGetShaderModule(
   SpvReflectShaderModule*  p_module
 );
 
-
 /*! @fn spvReflectDestroyShaderModule
 
  @param  p_module  Pointer to an instance of SpvReflectShaderModule.
 
 */
 void spvReflectDestroyShaderModule(SpvReflectShaderModule* p_module);
-
 
 /*! @fn spvReflectGetCodeSize
 
@@ -457,7 +454,6 @@ void spvReflectDestroyShaderModule(SpvReflectShaderModule* p_module);
 
 */
 uint32_t spvReflectGetCodeSize(const SpvReflectShaderModule* p_module);
-
 
 /*! @fn spvReflectGetCode
 
@@ -581,7 +577,6 @@ SpvReflectResult spvReflectEnumerateEntryPointDescriptorSets(
   SpvReflectDescriptorSet**     pp_sets
 );
 
-
 /*! @fn spvReflectEnumerateInputVariables
  @brief  If the module contains multiple entry points, this will only get
          the input variables for the first one.
@@ -633,7 +628,6 @@ SpvReflectResult spvReflectEnumerateEntryPointInputVariables(
   SpvReflectInterfaceVariable** pp_variables
 );
 
-
 /*! @fn spvReflectEnumerateOutputVariables
  @brief  Note: If the module contains multiple entry points, this will only get
          the output variables for the first one.
@@ -684,7 +678,6 @@ SpvReflectResult spvReflectEnumerateEntryPointOutputVariables(
   uint32_t*                     p_count,
   SpvReflectInterfaceVariable** pp_variables
 );
-
 
 /*! @fn spvReflectEnumeratePushConstantBlocks
  @brief  Note: If the module contains multiple entry points, this will only get
@@ -744,7 +737,6 @@ SpvReflectResult spvReflectEnumerateEntryPointPushConstantBlocks(
   uint32_t*                     p_count,
   SpvReflectBlockVariable**     pp_blocks
 );
-
 
 /*! @fn spvReflectGetDescriptorBinding
 
@@ -808,7 +800,6 @@ const SpvReflectDescriptorBinding* spvReflectGetEntryPointDescriptorBinding(
   SpvReflectResult*             p_result
 );
 
-
 /*! @fn spvReflectGetDescriptorSet
 
  @param  p_module    Pointer to an instance of SpvReflectShaderModule.
@@ -854,7 +845,6 @@ const SpvReflectDescriptorSet* spvReflectGetEntryPointDescriptorSet(
   uint32_t                      set_number,
   SpvReflectResult*             p_result
 );
-
 
 /* @fn spvReflectGetInputVariableByLocation
 
@@ -1142,7 +1132,6 @@ const SpvReflectBlockVariable* spvReflectGetEntryPointPushConstantBlock(
   SpvReflectResult*              p_result
 );
 
-
 /*! @fn spvReflectChangeDescriptorBindingNumbers
  @brief  Assign new set and/or binding numbers to a descriptor binding.
          In addition to updating the reflection data, this function modifies
@@ -1231,7 +1220,6 @@ SpvReflectResult spvReflectChangeInputVariableLocation(
   uint32_t                           new_location
 );
 
-
 /*! @fn spvReflectChangeOutputVariableLocation
  @brief  Assign a new location to an output interface variable.
          In addition to updating the reflection data, this function modifies
@@ -1254,7 +1242,6 @@ SpvReflectResult spvReflectChangeOutputVariableLocation(
   const SpvReflectInterfaceVariable*  p_output_variable,
   uint32_t                            new_location
 );
-
 
 /*! @fn spvReflectSourceLanguage
 
@@ -1365,7 +1352,6 @@ private:
   SpvReflectShaderModule    m_module = {};
 };
 
-
 // =================================================================================================
 // ShaderModule
 // =================================================================================================
@@ -1374,7 +1360,6 @@ private:
 
 */
 inline ShaderModule::ShaderModule() {}
-
 
 /*! @fn ShaderModule
 
@@ -1420,7 +1405,6 @@ inline ShaderModule::~ShaderModule() {
   spvReflectDestroyShaderModule(&m_module);
 }
 
-
 /*! @fn GetResult
 
   @return
@@ -1429,7 +1413,6 @@ inline ShaderModule::~ShaderModule() {
 inline SpvReflectResult ShaderModule::GetResult() const {
   return m_result;
 }
-
 
 /*! @fn GetShaderModule
 
@@ -1440,7 +1423,6 @@ inline const SpvReflectShaderModule& ShaderModule::GetShaderModule() const {
   return m_module;
 }
 
-
 /*! @fn GetCodeSize
 
   @return
@@ -1450,7 +1432,6 @@ inline uint32_t ShaderModule::GetCodeSize() const {
   return spvReflectGetCodeSize(&m_module);
 }
 
-
 /*! @fn GetCode
 
   @return
@@ -1459,7 +1440,6 @@ inline uint32_t ShaderModule::GetCodeSize() const {
 inline const uint32_t* ShaderModule::GetCode() const {
   return spvReflectGetCode(&m_module);
 }
-
 
 /*! @fn GetEntryPoint
 
@@ -1548,7 +1528,6 @@ inline SpvReflectResult ShaderModule::EnumerateEntryPointDescriptorBindings(
   return m_result;
 }
 
-
 /*! @fn EnumerateDescriptorSets
 
   @param  count
@@ -1589,7 +1568,6 @@ inline SpvReflectResult ShaderModule::EnumerateEntryPointDescriptorSets(
       pp_sets);
   return m_result;
 }
-
 
 /*! @fn EnumerateInputVariables
 
@@ -1632,7 +1610,6 @@ inline SpvReflectResult ShaderModule::EnumerateEntryPointInputVariables(
   return m_result;
 }
 
-
 /*! @fn EnumerateOutputVariables
 
   @param  count
@@ -1674,7 +1651,6 @@ inline SpvReflectResult ShaderModule::EnumerateEntryPointOutputVariables(
   return m_result;
 }
 
-
 /*! @fn EnumeratePushConstantBlocks
 
   @param  count
@@ -1715,7 +1691,6 @@ inline SpvReflectResult ShaderModule::EnumerateEntryPointPushConstantBlocks(
       pp_blocks);
   return m_result;
 }
-
 
 /*! @fn GetDescriptorBinding
 
@@ -1762,7 +1737,6 @@ inline const SpvReflectDescriptorBinding* ShaderModule::GetEntryPointDescriptorB
     p_result);
 }
 
-
 /*! @fn GetDescriptorSet
 
   @param  set_number
@@ -1801,7 +1775,6 @@ inline const SpvReflectDescriptorSet* ShaderModule::GetEntryPointDescriptorSet(
     set_number,
     p_result);
 }
-
 
 /*! @fn GetInputVariable
 
@@ -1864,7 +1837,6 @@ inline const SpvReflectInterfaceVariable* ShaderModule::GetEntryPointInputVariab
     p_result);
 }
 
-
 /*! @fn GetOutputVariable
 
   @param  location
@@ -1925,7 +1897,6 @@ inline const SpvReflectInterfaceVariable* ShaderModule::GetEntryPointOutputVaria
     p_result);
 }
 
-
 /*! @fn GetPushConstant
 
   @param  index
@@ -1963,7 +1934,6 @@ inline const SpvReflectBlockVariable* ShaderModule::GetEntryPointPushConstantBlo
     p_result);
 }
 
-
 /*! @fn ChangeDescriptorBindingNumbers
 
   @param  p_binding
@@ -1985,7 +1955,6 @@ inline SpvReflectResult ShaderModule::ChangeDescriptorBindingNumbers(
     new_set_number);
 }
 
-
 /*! @fn ChangeDescriptorSetNumber
 
   @param  p_set
@@ -2004,7 +1973,6 @@ inline SpvReflectResult ShaderModule::ChangeDescriptorSetNumber(
     new_set_number);
 }
 
-
 /*! @fn ChangeInputVariableLocation
 
   @param  p_input_variable
@@ -2021,7 +1989,6 @@ inline SpvReflectResult ShaderModule::ChangeInputVariableLocation(
     p_input_variable,
     new_location);
 }
-
 
 /*! @fn ChangeOutputVariableLocation
 

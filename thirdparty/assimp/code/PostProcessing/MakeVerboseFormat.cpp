@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -42,7 +40,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 /** @file Implementation of the post processing step "MakeVerboseFormat"
 */
-
 
 #include "MakeVerboseFormat.h"
 #include <assimp/scene.h>
@@ -173,9 +170,7 @@ bool MakeVerboseFormatProcess::MakeVerboseFormat(aiMesh* pcMesh)
         }
     }
 
-
-
-    // build output vertex weights
+// build output vertex weights
     for (unsigned int i = 0;i < pcMesh->mNumBones;++i)
     {
         delete [] pcMesh->mBones[i]->mWeights;
@@ -224,7 +219,6 @@ bool MakeVerboseFormatProcess::MakeVerboseFormat(aiMesh* pcMesh)
     }
     return (pcMesh->mNumVertices != iOldNumVertices);
 }
-
 
 // ------------------------------------------------------------------------------------------------
 bool IsMeshInVerboseFormat(const aiMesh* mesh) {

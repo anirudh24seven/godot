@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -72,13 +71,11 @@ NodeAttribute::NodeAttribute(uint64_t id, const Element& element, const Document
     props = GetPropertyTable(doc,"NodeAttribute.Fbx" + classname,element,sc, is_null_or_limb);
 }
 
-
 // ------------------------------------------------------------------------------------------------
 NodeAttribute::~NodeAttribute()
 {
     // empty
 }
-
 
 // ------------------------------------------------------------------------------------------------
 CameraSwitcher::CameraSwitcher(uint64_t id, const Element& element, const Document& doc, const std::string& name)
@@ -128,12 +125,10 @@ Light::Light(uint64_t id, const Element& element, const Document& doc, const std
     // empty
 }
 
-
 // ------------------------------------------------------------------------------------------------
 Light::~Light()
 {
 }
-
 
 // ------------------------------------------------------------------------------------------------
 Null::Null(uint64_t id, const Element& element, const Document& doc, const std::string& name)
@@ -142,13 +137,11 @@ Null::Null(uint64_t id, const Element& element, const Document& doc, const std::
 
 }
 
-
 // ------------------------------------------------------------------------------------------------
 Null::~Null()
 {
 
 }
-
 
 // ------------------------------------------------------------------------------------------------
 LimbNode::LimbNode(uint64_t id, const Element& element, const Document& doc, const std::string& name)
@@ -156,7 +149,6 @@ LimbNode::LimbNode(uint64_t id, const Element& element, const Document& doc, con
 {
 
 }
-
 
 // ------------------------------------------------------------------------------------------------
 LimbNode::~LimbNode()

@@ -1,8 +1,6 @@
 
 /*  editor_log.h                                                         */
 
-
-
 #ifndef EDITOR_LOG_H
 #define EDITOR_LOG_H
 

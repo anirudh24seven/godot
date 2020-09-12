@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef XATLAS_UNWRAP_REGISTER_TYPES_H
 #define XATLAS_UNWRAP_REGISTER_TYPES_H
 

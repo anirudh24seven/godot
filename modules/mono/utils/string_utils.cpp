@@ -1,8 +1,6 @@
 
 /*  string_utils.cpp                                                     */
 
-
-
 #include "string_utils.h"
 
 #include "core/os/file_access.h"

@@ -308,8 +308,7 @@ long _ve_envelope_search(vorbis_dsp_state *v){
             for(l=0;l<last;l++)marker[l*ve->searchstep]=ve->mark[l]*.4;
             _analysis_output_always("mark",seq,marker,v->pcm_current,0,0,totalshift);
 
-
-            seq++;
+seq++;
 
           }
 #endif

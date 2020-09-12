@@ -15,15 +15,12 @@
  *
  */
 
-
 #ifndef CFFGLOAD_H_
 #define CFFGLOAD_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_INTERNAL_CFF_OBJECTS_TYPES_H
-
 
 FT_BEGIN_HEADER
 
@@ -37,7 +34,6 @@ FT_BEGIN_HEADER
                        FT_Byte**  pointer,
                        FT_ULong   length );
 
-
 #if 0  /* unused until we support pure CFF fonts */
 
   /* Compute the maximum advance width of a font through quick parsing */
@@ -47,17 +43,14 @@ FT_BEGIN_HEADER
 
 #endif /* 0 */
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   cff_slot_load( CFF_GlyphSlot  glyph,
                  CFF_Size       size,
                  FT_UInt        glyph_index,
                  FT_Int32       load_flags );
 
-
 FT_END_HEADER
 
 #endif /* CFFGLOAD_H_ */
-
 
 /* END */

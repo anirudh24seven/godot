@@ -1176,7 +1176,6 @@ int WebPPictureImportBGRA(WebPPicture* picture,
              : 0;
 }
 
-
 int WebPPictureImportBGRX(WebPPicture* picture,
                           const uint8_t* rgba, int rgba_stride) {
   return (picture != NULL && rgba != NULL)

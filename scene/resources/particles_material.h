@@ -1,8 +1,6 @@
 
 /*  particles_material.h                                                 */
 
-
-
 #include "core/rid.h"
 #include "scene/resources/material.h"
 

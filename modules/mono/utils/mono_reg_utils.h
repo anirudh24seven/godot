@@ -1,8 +1,6 @@
 
 /*  mono_reg_utils.h                                                     */
 
-
-
 #ifndef MONO_REG_UTILS_H
 #define MONO_REG_UTILS_H
 

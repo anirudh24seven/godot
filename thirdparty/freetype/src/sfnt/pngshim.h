@@ -16,14 +16,11 @@
  *
  */
 
-
 #ifndef PNGSHIM_H_
 #define PNGSHIM_H_
 
-
 #include <ft2build.h>
 #include "ttload.h"
-
 
 FT_BEGIN_HEADER
 
@@ -46,6 +43,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* PNGSHIM_H_ */
-
 
 /* END */

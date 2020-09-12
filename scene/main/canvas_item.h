@@ -1,8 +1,6 @@
 
 /*  canvas_item.h                                                        */
 
-
-
 #ifndef CANVAS_ITEM_H
 #define CANVAS_ITEM_H
 

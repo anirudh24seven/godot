@@ -15,10 +15,8 @@
  *
  */
 
-
 /* Greg Hitchcock from Microsoft has helped a lot in resolving unclear */
 /* issues; many thanks!                                                */
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
@@ -35,11 +33,9 @@
 #include "ttgxvar.h"
 #endif
 
-
 #ifdef TT_USE_BYTECODE_INTERPRETER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -47,7 +43,6 @@
    */
 #undef  FT_COMPONENT
 #define FT_COMPONENT  ttinterp
-
 
 #define NO_SUBPIXEL_HINTING                                                  \
           ( ((TT_Driver)FT_FACE_DRIVER( exc->face ))->interpreter_version == \
@@ -81,14 +76,12 @@
 #define FAST_DUALPROJ( v )                          \
           exc->func_dualproj( exc, (v)->x, (v)->y )
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Two simple bounds-checking macros.
    */
 #define BOUNDS( x, n )   ( (FT_UInt)(x)  >= (FT_UInt)(n)  )
 #define BOUNDSL( x, n )  ( (FT_ULong)(x) >= (FT_ULong)(n) )
-
 
 #undef  SUCCESS
 #define SUCCESS  0
@@ -96,15 +89,13 @@
 #undef  FAILURE
 #define FAILURE  1
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                       CODERANGE FUNCTIONS
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   TT_Goto_CodeRange
@@ -131,8 +122,7 @@
   {
     TT_CodeRange*  coderange;
 
-
-    FT_ASSERT( range >= 1 && range <= 3 );
+FT_ASSERT( range >= 1 && range <= 3 );
 
     coderange = &exec->codeRangeTable[range - 1];
 
@@ -150,8 +140,7 @@
     exec->curRange = range;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   TT_Set_CodeRange
@@ -185,8 +174,7 @@
     exec->codeRangeTable[range - 1].size = length;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   TT_Clear_CodeRange
@@ -212,15 +200,13 @@
     exec->codeRangeTable[range - 1].size = 0;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                  EXECUTION CONTEXT ROUTINES
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   TT_Done_Context
@@ -243,8 +229,7 @@
   {
     FT_Memory  memory = exec->memory;
 
-
-    /* points zone */
+/* points zone */
     exec->maxPoints   = 0;
     exec->maxContours = 0;
 
@@ -267,8 +252,7 @@
     FT_FREE( exec );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Init_Context
@@ -293,8 +277,7 @@
   {
     FT_Error  error;
 
-
-    FT_TRACE1(( "Init_Context: new object at 0x%08p\n", exec ));
+FT_TRACE1(( "Init_Context: new object at 0x%08p\n", exec ));
 
     exec->memory   = memory;
     exec->callSize = 32;
@@ -325,8 +308,7 @@
     return error;
  }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Update_Max
@@ -365,8 +347,7 @@
     FT_Error  error;
     void**    pbuff = (void**)_pbuff;
 
-
-    if ( *size < new_max )
+if ( *size < new_max )
     {
       if ( FT_REALLOC( *pbuff, *size * multiplier, new_max * multiplier ) )
         return error;
@@ -376,8 +357,7 @@
     return FT_Err_Ok;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   TT_Load_Context
@@ -412,8 +392,7 @@
     TT_MaxProfile*  maxp;
     FT_Error        error;
 
-
-    exec->face = face;
+exec->face = face;
     maxp       = &face->max_profile;
     exec->size = size;
 
@@ -487,8 +466,7 @@
     return FT_Err_Ok;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   TT_Save_Context
@@ -513,8 +491,7 @@
   {
     FT_Int  i;
 
-
-    /* XXX: Will probably disappear soon with all the code range */
+/* XXX: Will probably disappear soon with all the code range */
     /*      management, which is now rather obsolete.            */
     /*                                                           */
     size->num_function_defs    = exec->numFDefs;
@@ -527,8 +504,7 @@
       size->codeRangeTable[i] = exec->codeRangeTable[i];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   TT_Run_Context
@@ -573,8 +549,7 @@
     return exec->face->interpreter( exec );
   }
 
-
-  /* The default value for `scan_control' is documented as FALSE in the */
+/* The default value for `scan_control' is documented as FALSE in the */
   /* TrueType specification.  This is confusing since it implies a      */
   /* Boolean value.  However, this is not the case, thus both the       */
   /* default values of our `scan_type' and `scan_control' fields (which */
@@ -593,8 +568,7 @@
     0, FALSE, 0, 1, 1, 1
   };
 
-
-  /* documentation is in ttinterp.h */
+/* documentation is in ttinterp.h */
 
   FT_EXPORT_DEF( TT_ExecContext )
   TT_New_Context( TT_Driver  driver )
@@ -604,8 +578,7 @@
 
     TT_ExecContext  exec = NULL;
 
-
-    if ( !driver )
+if ( !driver )
       goto Fail;
 
     memory = driver->root.root.memory;
@@ -625,8 +598,7 @@
     return NULL;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Before an opcode is executed, the interpreter verifies that there are
    * enough arguments on the stack, with the help of the `Pop_Push_Count'
@@ -643,12 +615,10 @@
    *
    */
 
-
 #undef  PACK
 #define PACK( x, y )  ( ( x << 4 ) | y )
 
-
-  static
+static
   const FT_Byte  Pop_Push_Count[256] =
   {
     /* opcodes are gathered in groups of 16 */
@@ -942,7 +912,6 @@
     /*  MIRP[30]  */  PACK( 2, 0 ),
     /*  MIRP[31]  */  PACK( 2, 0 )
   };
-
 
 #ifdef FT_DEBUG_LEVEL_TRACE
 
@@ -1249,8 +1218,7 @@
 
 #endif /* FT_DEBUG_LEVEL_TRACE */
 
-
-  static
+static
   const FT_Char  opcode_length[256] =
   {
     1, 1, 1, 1,  1, 1, 1, 1,  1, 1, 1, 1,  1, 1, 1, 1,
@@ -1276,7 +1244,6 @@
 
 #undef PACK
 
-
 #ifndef FT_CONFIG_OPTION_NO_ASSEMBLER
 
 #if defined( __arm__ )                                 && \
@@ -1289,7 +1256,6 @@
                    FT_Int    b )
   {
     FT_Int32  t, t2;
-
 
 #if defined( __CC_ARM ) || defined( __ARMCC__ )
 
@@ -1331,7 +1297,6 @@
 
 #endif /* !FT_CONFIG_OPTION_NO_ASSEMBLER */
 
-
 #if defined( __GNUC__ )                              && \
     ( defined( __i386__ ) || defined( __x86_64__ ) )
 
@@ -1359,8 +1324,7 @@
     /* undefined, but this is true on x86 and x86_64.                  */
     long long  tmp = ret >> 63;
 
-
-    ret += 0x2000 + tmp;
+ret += 0x2000 + tmp;
 
     return (FT_Int32)( ret >> 14 );
   }
@@ -1370,7 +1334,6 @@
 #endif
 
 #endif /* __GNUC__ && ( __i386__ || __x86_64__ ) */
-
 
 #ifndef TT_MulFix14
 
@@ -1384,8 +1347,7 @@
     FT_Int32   sign;
     FT_UInt32  ah, al, mid, lo, hi;
 
-
-    sign = a ^ b;
+sign = a ^ b;
 
     if ( a < 0 )
       a = -a;
@@ -1409,7 +1371,6 @@
   }
 
 #endif  /* !TT_MulFix14 */
-
 
 #if defined( __GNUC__ )        && \
     ( defined( __i386__ )   ||    \
@@ -1435,8 +1396,7 @@
     long long  temp1 = (long long)ax * bx;
     long long  temp2 = (long long)ay * by;
 
-
-    temp1 += temp2;
+temp1 += temp2;
     temp2  = temp1 >> 63;
     temp1 += 0x2000 + temp2;
 
@@ -1450,7 +1410,6 @@
 
 #endif /* __GNUC__ && (__arm__ || __i386__ || __x86_64__) */
 
-
 #ifndef TT_DotFix14
 
   /* compute (ax*bx+ay*by)/2^14 with maximum accuracy and rounding */
@@ -1463,8 +1422,7 @@
     FT_Int32   m, s, hi1, hi2, hi;
     FT_UInt32  l, lo1, lo2, lo;
 
-
-    /* compute ax*bx as 64-bit value */
+/* compute ax*bx as 64-bit value */
     l = (FT_UInt32)( ( ax & 0xFFFFU ) * bx );
     m = ( ax >> 16 ) * bx;
 
@@ -1496,8 +1454,7 @@
 
 #endif /* TT_DotFix14 */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Current_Ratio
@@ -1524,8 +1481,7 @@
       {
         FT_F26Dot6  x, y;
 
-
-        x = TT_MulFix14( exc->tt_metrics.x_ratio,
+x = TT_MulFix14( exc->tt_metrics.x_ratio,
                          exc->GS.projVector.x );
         y = TT_MulFix14( exc->tt_metrics.y_ratio,
                          exc->GS.projVector.y );
@@ -1535,45 +1491,39 @@
     return exc->tt_metrics.ratio;
   }
 
-
-  FT_CALLBACK_DEF( FT_Long )
+FT_CALLBACK_DEF( FT_Long )
   Current_Ppem( TT_ExecContext  exc )
   {
     return exc->tt_metrics.ppem;
   }
 
-
-  FT_CALLBACK_DEF( FT_Long )
+FT_CALLBACK_DEF( FT_Long )
   Current_Ppem_Stretched( TT_ExecContext  exc )
   {
     return FT_MulFix( exc->tt_metrics.ppem, Current_Ratio( exc ) );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Functions related to the control value table (CVT).
    *
    */
 
-
-  FT_CALLBACK_DEF( FT_F26Dot6 )
+FT_CALLBACK_DEF( FT_F26Dot6 )
   Read_CVT( TT_ExecContext  exc,
             FT_ULong        idx )
   {
     return exc->cvt[idx];
   }
 
-
-  FT_CALLBACK_DEF( FT_F26Dot6 )
+FT_CALLBACK_DEF( FT_F26Dot6 )
   Read_CVT_Stretched( TT_ExecContext  exc,
                       FT_ULong        idx )
   {
     return FT_MulFix( exc->cvt[idx], Current_Ratio( exc ) );
   }
 
-
-  FT_CALLBACK_DEF( void )
+FT_CALLBACK_DEF( void )
   Write_CVT( TT_ExecContext  exc,
              FT_ULong        idx,
              FT_F26Dot6      value )
@@ -1581,8 +1531,7 @@
     exc->cvt[idx] = value;
   }
 
-
-  FT_CALLBACK_DEF( void )
+FT_CALLBACK_DEF( void )
   Write_CVT_Stretched( TT_ExecContext  exc,
                        FT_ULong        idx,
                        FT_F26Dot6      value )
@@ -1590,8 +1539,7 @@
     exc->cvt[idx] = FT_DivFix( value, Current_Ratio( exc ) );
   }
 
-
-  FT_CALLBACK_DEF( void )
+FT_CALLBACK_DEF( void )
   Move_CVT( TT_ExecContext  exc,
             FT_ULong        idx,
             FT_F26Dot6      value )
@@ -1599,8 +1547,7 @@
     exc->cvt[idx] = ADD_LONG( exc->cvt[idx], value );
   }
 
-
-  FT_CALLBACK_DEF( void )
+FT_CALLBACK_DEF( void )
   Move_CVT_Stretched( TT_ExecContext  exc,
                       FT_ULong        idx,
                       FT_F26Dot6      value )
@@ -1609,8 +1556,7 @@
                               FT_DivFix( value, Current_Ratio( exc ) ) );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   GetShortIns
@@ -1634,8 +1580,7 @@
                          exc->code[exc->IP - 1]      );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Ins_Goto_CodeRange
@@ -1660,8 +1605,7 @@
   {
     TT_CodeRange*  range;
 
-
-    if ( aRange < 1 || aRange > 3 )
+if ( aRange < 1 || aRange > 3 )
     {
       exc->error = FT_THROW( Bad_Argument );
       return FAILURE;
@@ -1693,8 +1637,7 @@
     return SUCCESS;
   }
 
-
-  /*
+/*
    *
    * Apple's TrueType specification at
    *
@@ -1719,8 +1662,7 @@
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Direct_Move
@@ -1752,8 +1694,7 @@
   {
     FT_F26Dot6  v;
 
-
-    v = exc->GS.freeVector.x;
+v = exc->GS.freeVector.x;
 
     if ( v != 0 )
     {
@@ -1808,8 +1749,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Direct_Move_Orig
@@ -1837,8 +1777,7 @@
   {
     FT_F26Dot6  v;
 
-
-    v = exc->GS.freeVector.x;
+v = exc->GS.freeVector.x;
 
     if ( v != 0 )
       zone->org[point].x = ADD_LONG( zone->org[point].x,
@@ -1855,8 +1794,7 @@
                                                 exc->F_dot_P ) );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Special versions of Direct_Move()
    *
@@ -1866,8 +1804,7 @@
    *
    */
 
-
-  static void
+static void
   Direct_Move_X( TT_ExecContext  exc,
                  TT_GlyphZone    zone,
                  FT_UShort       point,
@@ -1891,8 +1828,7 @@
     zone->tags[point]  |= FT_CURVE_TAG_TOUCH_X;
   }
 
-
-  static void
+static void
   Direct_Move_Y( TT_ExecContext  exc,
                  TT_GlyphZone    zone,
                  FT_UShort       point,
@@ -1910,8 +1846,7 @@
     zone->tags[point] |= FT_CURVE_TAG_TOUCH_Y;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Special versions of Direct_Move_Orig()
    *
@@ -1920,8 +1855,7 @@
    *
    */
 
-
-  static void
+static void
   Direct_Move_Orig_X( TT_ExecContext  exc,
                       TT_GlyphZone    zone,
                       FT_UShort       point,
@@ -1932,8 +1866,7 @@
     zone->org[point].x = ADD_LONG( zone->org[point].x, distance );
   }
 
-
-  static void
+static void
   Direct_Move_Orig_Y( TT_ExecContext  exc,
                       TT_GlyphZone    zone,
                       FT_UShort       point,
@@ -1971,8 +1904,7 @@
 
     FT_UNUSED( exc );
 
-
-    if ( distance >= 0 )
+if ( distance >= 0 )
     {
       val = ADD_LONG( distance, compensation );
       if ( val < 0 )
@@ -1987,8 +1919,7 @@
     return val;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Round_To_Grid
@@ -2015,8 +1946,7 @@
 
     FT_UNUSED( exc );
 
-
-    if ( distance >= 0 )
+if ( distance >= 0 )
     {
       val = FT_PIX_ROUND_LONG( ADD_LONG( distance, compensation ) );
       if ( val < 0 )
@@ -2033,8 +1963,7 @@
     return val;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Round_To_Half_Grid
@@ -2061,8 +1990,7 @@
 
     FT_UNUSED( exc );
 
-
-    if ( distance >= 0 )
+if ( distance >= 0 )
     {
       val = ADD_LONG( FT_PIX_FLOOR( ADD_LONG( distance, compensation ) ),
                       32 );
@@ -2081,8 +2009,7 @@
     return val;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Round_Down_To_Grid
@@ -2109,8 +2036,7 @@
 
     FT_UNUSED( exc );
 
-
-    if ( distance >= 0 )
+if ( distance >= 0 )
     {
       val = FT_PIX_FLOOR( ADD_LONG( distance, compensation ) );
       if ( val < 0 )
@@ -2126,8 +2052,7 @@
     return val;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Round_Up_To_Grid
@@ -2154,8 +2079,7 @@
 
     FT_UNUSED( exc );
 
-
-    if ( distance >= 0 )
+if ( distance >= 0 )
     {
       val = FT_PIX_CEIL_LONG( ADD_LONG( distance, compensation ) );
       if ( val < 0 )
@@ -2172,8 +2096,7 @@
     return val;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Round_To_Double_Grid
@@ -2200,8 +2123,7 @@
 
     FT_UNUSED( exc );
 
-
-    if ( distance >= 0 )
+if ( distance >= 0 )
     {
       val = FT_PAD_ROUND_LONG( ADD_LONG( distance, compensation ), 32 );
       if ( val < 0 )
@@ -2218,8 +2140,7 @@
     return val;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Round_Super
@@ -2250,8 +2171,7 @@
   {
     FT_F26Dot6  val;
 
-
-    if ( distance >= 0 )
+if ( distance >= 0 )
     {
       val = ADD_LONG( distance,
                       exc->threshold - exc->phase + compensation ) &
@@ -2273,8 +2193,7 @@
     return val;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Round_Super_45
@@ -2303,8 +2222,7 @@
   {
     FT_F26Dot6  val;
 
-
-    if ( distance >= 0 )
+if ( distance >= 0 )
     {
       val = ( ADD_LONG( distance,
                         exc->threshold - exc->phase + compensation ) /
@@ -2326,8 +2244,7 @@
     return val;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Compute_Round
@@ -2379,8 +2296,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   SetSuperRound
@@ -2450,8 +2366,7 @@
     exc->threshold >>= 8;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Project
@@ -2479,8 +2394,7 @@
                         exc->GS.projVector.y );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Dual_Project
@@ -2508,8 +2422,7 @@
                         exc->GS.dualVector.y );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Project_x
@@ -2538,8 +2451,7 @@
     return dx;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Project_y
@@ -2568,8 +2480,7 @@
     return dy;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Compute_Funcs
@@ -2631,8 +2542,7 @@
     exc->tt_metrics.ratio = 0;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   Normalize
@@ -2664,8 +2574,7 @@
   {
     FT_Vector V;
 
-
-    if ( Vx == 0 && Vy == 0 )
+if ( Vx == 0 && Vy == 0 )
     {
       /* XXX: UNDOCUMENTED! It seems that it is possible to try   */
       /*      to normalize the vector (0,0).  Return immediately. */
@@ -2683,13 +2592,11 @@
     return SUCCESS;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * Here we start with the implementation of the various opcodes.
    *
    */
-
 
 #define ARRAY_BOUND_ERROR                         \
     do                                            \
@@ -2698,8 +2605,7 @@
       return;                                     \
     } while (0)
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MPPEM[]:      Measure Pixel Per EM
    * Opcode range: 0x4B
@@ -2712,8 +2618,7 @@
     args[0] = exc->func_cur_ppem( exc );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MPS[]:        Measure Point Size
    * Opcode range: 0x4C
@@ -2739,8 +2644,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * DUP[]:        DUPlicate the stack's top element
    * Opcode range: 0x20
@@ -2752,8 +2656,7 @@
     args[1] = args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * POP[]:        POP the stack's top element
    * Opcode range: 0x21
@@ -2765,8 +2668,7 @@
     /* nothing to do */
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * CLEAR[]:      CLEAR the entire stack
    * Opcode range: 0x22
@@ -2778,8 +2680,7 @@
     exc->new_top = 0;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SWAP[]:       SWAP the stack's top two elements
    * Opcode range: 0x23
@@ -2790,14 +2691,12 @@
   {
     FT_Long  L;
 
-
-    L       = args[0];
+L       = args[0];
     args[0] = args[1];
     args[1] = L;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * DEPTH[]:      return the stack DEPTH
    * Opcode range: 0x24
@@ -2810,8 +2709,7 @@
     args[0] = exc->top;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * LT[]:         Less Than
    * Opcode range: 0x50
@@ -2823,8 +2721,7 @@
     args[0] = ( args[0] < args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * LTEQ[]:       Less Than or EQual
    * Opcode range: 0x51
@@ -2836,8 +2733,7 @@
     args[0] = ( args[0] <= args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * GT[]:         Greater Than
    * Opcode range: 0x52
@@ -2849,8 +2745,7 @@
     args[0] = ( args[0] > args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * GTEQ[]:       Greater Than or EQual
    * Opcode range: 0x53
@@ -2862,8 +2757,7 @@
     args[0] = ( args[0] >= args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * EQ[]:         EQual
    * Opcode range: 0x54
@@ -2875,8 +2769,7 @@
     args[0] = ( args[0] == args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * NEQ[]:        Not EQual
    * Opcode range: 0x55
@@ -2888,8 +2781,7 @@
     args[0] = ( args[0] != args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ODD[]:        Is ODD
    * Opcode range: 0x56
@@ -2902,8 +2794,7 @@
     args[0] = ( ( exc->func_round( exc, args[0], 0 ) & 127 ) == 64 );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * EVEN[]:       Is EVEN
    * Opcode range: 0x57
@@ -2916,8 +2807,7 @@
     args[0] = ( ( exc->func_round( exc, args[0], 0 ) & 127 ) == 0 );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * AND[]:        logical AND
    * Opcode range: 0x5A
@@ -2929,8 +2819,7 @@
     args[0] = ( args[0] && args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * OR[]:         logical OR
    * Opcode range: 0x5B
@@ -2942,8 +2831,7 @@
     args[0] = ( args[0] || args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * NOT[]:        logical NOT
    * Opcode range: 0x5C
@@ -2955,8 +2843,7 @@
     args[0] = !args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ADD[]:        ADD
    * Opcode range: 0x60
@@ -2968,8 +2855,7 @@
     args[0] = ADD_LONG( args[0], args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SUB[]:        SUBtract
    * Opcode range: 0x61
@@ -2981,8 +2867,7 @@
     args[0] = SUB_LONG( args[0], args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * DIV[]:        DIVide
    * Opcode range: 0x62
@@ -2998,8 +2883,7 @@
       args[0] = FT_MulDiv_No_Round( args[0], 64L, args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MUL[]:        MULtiply
    * Opcode range: 0x63
@@ -3011,8 +2895,7 @@
     args[0] = FT_MulDiv( args[0], args[1], 64L );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ABS[]:        ABSolute value
    * Opcode range: 0x64
@@ -3025,8 +2908,7 @@
       args[0] = NEG_LONG( args[0] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * NEG[]:        NEGate
    * Opcode range: 0x65
@@ -3038,8 +2920,7 @@
     args[0] = NEG_LONG( args[0] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * FLOOR[]:      FLOOR
    * Opcode range: 0x66
@@ -3051,8 +2932,7 @@
     args[0] = FT_PIX_FLOOR( args[0] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * CEILING[]:    CEILING
    * Opcode range: 0x67
@@ -3064,8 +2944,7 @@
     args[0] = FT_PIX_CEIL_LONG( args[0] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * RS[]:         Read Store
    * Opcode range: 0x43
@@ -3077,8 +2956,7 @@
   {
     FT_ULong  I = (FT_ULong)args[0];
 
-
-    if ( BOUNDSL( I, exc->storeSize ) )
+if ( BOUNDSL( I, exc->storeSize ) )
     {
       if ( exc->pedantic_hinting )
         ARRAY_BOUND_ERROR;
@@ -3110,8 +2988,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * WS[]:         Write Store
    * Opcode range: 0x42
@@ -3123,8 +3000,7 @@
   {
     FT_ULong  I = (FT_ULong)args[0];
 
-
-    if ( BOUNDSL( I, exc->storeSize ) )
+if ( BOUNDSL( I, exc->storeSize ) )
     {
       if ( exc->pedantic_hinting )
         ARRAY_BOUND_ERROR;
@@ -3133,8 +3009,7 @@
       exc->storage[I] = args[1];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * WCVTP[]:      Write CVT in Pixel units
    * Opcode range: 0x44
@@ -3146,8 +3021,7 @@
   {
     FT_ULong  I = (FT_ULong)args[0];
 
-
-    if ( BOUNDSL( I, exc->cvtSize ) )
+if ( BOUNDSL( I, exc->cvtSize ) )
     {
       if ( exc->pedantic_hinting )
         ARRAY_BOUND_ERROR;
@@ -3156,8 +3030,7 @@
       exc->func_write_cvt( exc, I, args[1] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * WCVTF[]:      Write CVT in Funits
    * Opcode range: 0x70
@@ -3169,8 +3042,7 @@
   {
     FT_ULong  I = (FT_ULong)args[0];
 
-
-    if ( BOUNDSL( I, exc->cvtSize ) )
+if ( BOUNDSL( I, exc->cvtSize ) )
     {
       if ( exc->pedantic_hinting )
         ARRAY_BOUND_ERROR;
@@ -3179,8 +3051,7 @@
       exc->cvt[I] = FT_MulFix( args[1], exc->tt_metrics.scale );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * RCVT[]:       Read CVT
    * Opcode range: 0x45
@@ -3192,8 +3063,7 @@
   {
     FT_ULong  I = (FT_ULong)args[0];
 
-
-    if ( BOUNDSL( I, exc->cvtSize ) )
+if ( BOUNDSL( I, exc->cvtSize ) )
     {
       if ( exc->pedantic_hinting )
         ARRAY_BOUND_ERROR;
@@ -3204,8 +3074,7 @@
       args[0] = exc->func_read_cvt( exc, I );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * AA[]:         Adjust Angle
    * Opcode range: 0x7F
@@ -3217,8 +3086,7 @@
     /* intentionally no longer supported */
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * DEBUG[]:      DEBUG.  Unsupported.
    * Opcode range: 0x4F
@@ -3232,8 +3100,7 @@
     exc->error = FT_THROW( Debug_OpCode );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ROUND[ab]:    ROUND value
    * Opcode range: 0x68-0x6B
@@ -3249,8 +3116,7 @@
                 exc->tt_metrics.compensations[exc->opcode - 0x68] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * NROUND[ab]:   No ROUNDing of value
    * Opcode range: 0x6C-0x6F
@@ -3266,8 +3132,7 @@
                 exc->tt_metrics.compensations[exc->opcode - 0x6C] );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MAX[]:        MAXimum
    * Opcode range: 0x8B
@@ -3280,8 +3145,7 @@
       args[0] = args[1];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MIN[]:        MINimum
    * Opcode range: 0x8C
@@ -3294,8 +3158,7 @@
       args[0] = args[1];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MINDEX[]:     Move INDEXed element
    * Opcode range: 0x26
@@ -3307,8 +3170,7 @@
   {
     FT_Long  L, K;
 
-
-    L = args[0];
+L = args[0];
 
     if ( L <= 0 || L > exc->args )
     {
@@ -3327,8 +3189,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * CINDEX[]:     Copy INDEXed element
    * Opcode range: 0x25
@@ -3340,8 +3201,7 @@
   {
     FT_Long  L;
 
-
-    L = args[0];
+L = args[0];
 
     if ( L <= 0 || L > exc->args )
     {
@@ -3353,8 +3213,7 @@
       args[0] = exc->stack[exc->args - L];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ROLL[]:       ROLL top three elements
    * Opcode range: 0x8A
@@ -3365,8 +3224,7 @@
   {
     FT_Long  A, B, C;
 
-
-    A = args[2];
+A = args[2];
     B = args[1];
     C = args[0];
 
@@ -3375,15 +3233,13 @@
     args[0] = B;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MANAGING THE FLOW OF CONTROL
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SLOOP[]:      Set LOOP variable
    * Opcode range: 0x17
@@ -3402,8 +3258,7 @@
     }
   }
 
-
-  static FT_Bool
+static FT_Bool
   SkipCode( TT_ExecContext  exc )
   {
     exc->IP += exc->length;
@@ -3429,8 +3284,7 @@
     return FAILURE;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * IF[]:         IF test
    * Opcode range: 0x58
@@ -3443,8 +3297,7 @@
     FT_Int   nIfs;
     FT_Bool  Out;
 
-
-    if ( args[0] != 0 )
+if ( args[0] != 0 )
       return;
 
     nIfs = 1;
@@ -3473,8 +3326,7 @@
     } while ( Out == 0 );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ELSE[]:       ELSE
    * Opcode range: 0x1B
@@ -3485,8 +3337,7 @@
   {
     FT_Int  nIfs;
 
-
-    nIfs = 1;
+nIfs = 1;
 
     do
     {
@@ -3506,8 +3357,7 @@
     } while ( nIfs != 0 );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * EIF[]:        End IF
    * Opcode range: 0x59
@@ -3519,8 +3369,7 @@
     /* nothing to do */
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * JMPR[]:       JuMP Relative
    * Opcode range: 0x1C
@@ -3554,8 +3403,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * JROT[]:       Jump Relative On True
    * Opcode range: 0x78
@@ -3569,8 +3417,7 @@
       Ins_JMPR( exc, args );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * JROF[]:       Jump Relative On False
    * Opcode range: 0x79
@@ -3584,15 +3431,13 @@
       Ins_JMPR( exc, args );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * DEFINING AND USING FUNCTIONS AND INSTRUCTIONS
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * FDEF[]:       Function DEFinition
    * Opcode range: 0x2C
@@ -3706,8 +3551,7 @@
     FT_UShort  i;
 #endif /* TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY */
 
-
-    /* FDEF is only allowed in `prep' or `fpgm' */
+/* FDEF is only allowed in `prep' or `fpgm' */
     if ( exc->curRange == tt_coderange_glyph )
     {
       exc->error = FT_THROW( DEF_In_Glyf_Bytecode );
@@ -3894,8 +3738,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ENDF[]:       END Function definition
    * Opcode range: 0x2D
@@ -3905,7 +3748,6 @@
   Ins_ENDF( TT_ExecContext  exc )
   {
     TT_CallRec*  pRec;
-
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY
     exc->sph_in_func_flags = 0x0000;
@@ -3943,8 +3785,7 @@
     /*       the result of Ins_Goto_CodeRange() here!    */
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * CALL[]:       CALL function
    * Opcode range: 0x2B
@@ -3958,8 +3799,7 @@
     TT_CallRec*    pCrec;
     TT_DefRecord*  def;
 
-
-    /* first of all, check the index */
+/* first of all, check the index */
 
     F = (FT_ULong)args[0];
     if ( BOUNDSL( F, exc->maxFunc + 1 ) )
@@ -3983,8 +3823,7 @@
       /* look up the FDefs table */
       TT_DefRecord*  limit;
 
-
-      def   = exc->FDefs;
+def   = exc->FDefs;
       limit = def + exc->numFDefs;
 
       while ( def < limit && def->opc != F )
@@ -4035,8 +3874,7 @@
     exc->error = FT_THROW( Invalid_Reference );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * LOOPCALL[]:   LOOP and CALL function
    * Opcode range: 0x2A
@@ -4050,8 +3888,7 @@
     TT_CallRec*    pCrec;
     TT_DefRecord*  def;
 
-
-    /* first of all, check the index */
+/* first of all, check the index */
     F = (FT_ULong)args[1];
     if ( BOUNDSL( F, exc->maxFunc + 1 ) )
       goto Fail;
@@ -4071,8 +3908,7 @@
       /* look up the FDefs table */
       TT_DefRecord*  limit;
 
-
-      def   = exc->FDefs;
+def   = exc->FDefs;
       limit = FT_OFFSET( def, exc->numFDefs );
 
       while ( def < limit && def->opc != F )
@@ -4128,8 +3964,7 @@
     exc->error = FT_THROW( Invalid_Reference );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * IDEF[]:       Instruction DEFinition
    * Opcode range: 0x89
@@ -4142,8 +3977,7 @@
     TT_DefRecord*  def;
     TT_DefRecord*  limit;
 
-
-    /* we enable IDEF only in `prep' or `fpgm' */
+/* we enable IDEF only in `prep' or `fpgm' */
     if ( exc->curRange == tt_coderange_glyph )
     {
       exc->error = FT_THROW( DEF_In_Glyf_Bytecode );
@@ -4203,15 +4037,13 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * PUSHING DATA ONTO THE INTERPRETER STACK
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * NPUSHB[]:     PUSH N Bytes
    * Opcode range: 0x40
@@ -4223,8 +4055,7 @@
   {
     FT_UShort  L, K;
 
-
-    L = (FT_UShort)exc->code[exc->IP + 1];
+L = (FT_UShort)exc->code[exc->IP + 1];
 
     if ( BOUNDS( L, exc->stackSize + 1 - exc->top ) )
     {
@@ -4238,8 +4069,7 @@
     exc->new_top += L;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * NPUSHW[]:     PUSH N Words
    * Opcode range: 0x41
@@ -4251,8 +4081,7 @@
   {
     FT_UShort  L, K;
 
-
-    L = (FT_UShort)exc->code[exc->IP + 1];
+L = (FT_UShort)exc->code[exc->IP + 1];
 
     if ( BOUNDS( L, exc->stackSize + 1 - exc->top ) )
     {
@@ -4269,8 +4098,7 @@
     exc->new_top += L;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * PUSHB[abc]:   PUSH Bytes
    * Opcode range: 0xB0-0xB7
@@ -4282,8 +4110,7 @@
   {
     FT_UShort  L, K;
 
-
-    L = (FT_UShort)( exc->opcode - 0xB0 + 1 );
+L = (FT_UShort)( exc->opcode - 0xB0 + 1 );
 
     if ( BOUNDS( L, exc->stackSize + 1 - exc->top ) )
     {
@@ -4295,8 +4122,7 @@
       args[K - 1] = exc->code[exc->IP + K];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * PUSHW[abc]:   PUSH Words
    * Opcode range: 0xB8-0xBF
@@ -4308,8 +4134,7 @@
   {
     FT_UShort  L, K;
 
-
-    L = (FT_UShort)( exc->opcode - 0xB8 + 1 );
+L = (FT_UShort)( exc->opcode - 0xB8 + 1 );
 
     if ( BOUNDS( L, exc->stackSize + 1 - exc->top ) )
     {
@@ -4325,15 +4150,13 @@
     exc->step_ins = FALSE;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MANAGING THE GRAPHICS STATE
    *
    */
 
-
-  static FT_Bool
+static FT_Bool
   Ins_SxVTL( TT_ExecContext  exc,
              FT_UShort       aIdx1,
              FT_UShort       aIdx2,
@@ -4345,8 +4168,7 @@
 
     FT_Byte  opcode = exc->opcode;
 
-
-    if ( BOUNDS( aIdx1, exc->zp2.n_points ) ||
+if ( BOUNDS( aIdx1, exc->zp2.n_points ) ||
          BOUNDS( aIdx2, exc->zp1.n_points ) )
     {
       if ( exc->pedantic_hinting )
@@ -4383,8 +4205,7 @@
     return SUCCESS;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SVTCA[a]:     Set (F and P) Vectors to Coordinate Axis
    * Opcode range: 0x00-0x01
@@ -4405,8 +4226,7 @@
 
     FT_Byte  opcode = exc->opcode;
 
-
-    AA = (FT_Short)( ( opcode & 1 ) << 14 );
+AA = (FT_Short)( ( opcode & 1 ) << 14 );
     BB = (FT_Short)( AA ^ 0x4000 );
 
     if ( opcode < 4 )
@@ -4427,8 +4247,7 @@
     Compute_Funcs( exc );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SPvTL[a]:     Set PVector To Line
    * Opcode range: 0x06-0x07
@@ -4448,8 +4267,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SFvTL[a]:     Set FVector To Line
    * Opcode range: 0x08-0x09
@@ -4468,8 +4286,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SFvTPv[]:     Set FVector To PVector
    * Opcode range: 0x0E
@@ -4482,8 +4299,7 @@
     Compute_Funcs( exc );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SPvFS[]:      Set PVector From Stack
    * Opcode range: 0x0A
@@ -4496,8 +4312,7 @@
     FT_Short  S;
     FT_Long   X, Y;
 
-
-    /* Only use low 16bits, then sign extend */
+/* Only use low 16bits, then sign extend */
     S = (FT_Short)args[1];
     Y = (FT_Long)S;
     S = (FT_Short)args[0];
@@ -4509,8 +4324,7 @@
     Compute_Funcs( exc );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SFvFS[]:      Set FVector From Stack
    * Opcode range: 0x0B
@@ -4523,8 +4337,7 @@
     FT_Short  S;
     FT_Long   X, Y;
 
-
-    /* Only use low 16bits, then sign extend */
+/* Only use low 16bits, then sign extend */
     S = (FT_Short)args[1];
     Y = (FT_Long)S;
     S = (FT_Short)args[0];
@@ -4534,8 +4347,7 @@
     Compute_Funcs( exc );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * GPv[]:        Get Projection Vector
    * Opcode range: 0x0C
@@ -4549,8 +4361,7 @@
     args[1] = exc->GS.projVector.y;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * GFv[]:        Get Freedom Vector
    * Opcode range: 0x0D
@@ -4564,8 +4375,7 @@
     args[1] = exc->GS.freeVector.y;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SRP0[]:       Set Reference Point 0
    * Opcode range: 0x10
@@ -4578,8 +4388,7 @@
     exc->GS.rp0 = (FT_UShort)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SRP1[]:       Set Reference Point 1
    * Opcode range: 0x11
@@ -4592,8 +4401,7 @@
     exc->GS.rp1 = (FT_UShort)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SRP2[]:       Set Reference Point 2
    * Opcode range: 0x12
@@ -4606,8 +4414,7 @@
     exc->GS.rp2 = (FT_UShort)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SMD[]:        Set Minimum Distance
    * Opcode range: 0x1A
@@ -4620,8 +4427,7 @@
     exc->GS.minimum_distance = args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SCVTCI[]:     Set Control Value Table Cut In
    * Opcode range: 0x1D
@@ -4634,8 +4440,7 @@
     exc->GS.control_value_cutin = (FT_F26Dot6)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SSWCI[]:      Set Single Width Cut In
    * Opcode range: 0x1E
@@ -4648,8 +4453,7 @@
     exc->GS.single_width_cutin = (FT_F26Dot6)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SSW[]:        Set Single Width
    * Opcode range: 0x1F
@@ -4663,8 +4467,7 @@
                                             exc->tt_metrics.scale );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * FLIPON[]:     Set auto-FLIP to ON
    * Opcode range: 0x4D
@@ -4676,8 +4479,7 @@
     exc->GS.auto_flip = TRUE;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * FLIPOFF[]:    Set auto-FLIP to OFF
    * Opcode range: 0x4E
@@ -4689,8 +4491,7 @@
     exc->GS.auto_flip = FALSE;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SANGW[]:      Set ANGle Weight
    * Opcode range: 0x7E
@@ -4702,8 +4503,7 @@
     /* instruction not supported anymore */
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SDB[]:        Set Delta Base
    * Opcode range: 0x5E
@@ -4716,8 +4516,7 @@
     exc->GS.delta_base = (FT_UShort)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SDS[]:        Set Delta Shift
    * Opcode range: 0x5F
@@ -4733,8 +4532,7 @@
       exc->GS.delta_shift = (FT_UShort)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * RTHG[]:       Round To Half Grid
    * Opcode range: 0x19
@@ -4747,8 +4545,7 @@
     exc->func_round     = (TT_Round_Func)Round_To_Half_Grid;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * RTG[]:        Round To Grid
    * Opcode range: 0x18
@@ -4761,8 +4558,7 @@
     exc->func_round     = (TT_Round_Func)Round_To_Grid;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    * RTDG[]:       Round To Double Grid
    * Opcode range: 0x3D
    * Stack:        -->
@@ -4774,8 +4570,7 @@
     exc->func_round     = (TT_Round_Func)Round_To_Double_Grid;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    * RUTG[]:       Round Up To Grid
    * Opcode range: 0x7C
    * Stack:        -->
@@ -4787,8 +4582,7 @@
     exc->func_round     = (TT_Round_Func)Round_Up_To_Grid;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * RDTG[]:       Round Down To Grid
    * Opcode range: 0x7D
@@ -4801,8 +4595,7 @@
     exc->func_round     = (TT_Round_Func)Round_Down_To_Grid;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ROFF[]:       Round OFF
    * Opcode range: 0x7A
@@ -4815,8 +4608,7 @@
     exc->func_round     = (TT_Round_Func)Round_None;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SROUND[]:     Super ROUND
    * Opcode range: 0x76
@@ -4832,8 +4624,7 @@
     exc->func_round     = (TT_Round_Func)Round_Super;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * S45ROUND[]:   Super ROUND 45 degrees
    * Opcode range: 0x77
@@ -4849,8 +4640,7 @@
     exc->func_round     = (TT_Round_Func)Round_Super_45;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * GC[a]:        Get Coordinate projected onto
    * Opcode range: 0x46-0x47
@@ -4866,8 +4656,7 @@
     FT_ULong    L;
     FT_F26Dot6  R;
 
-
-    L = (FT_ULong)args[0];
+L = (FT_ULong)args[0];
 
     if ( BOUNDSL( L, exc->zp2.n_points ) )
     {
@@ -4886,8 +4675,7 @@
     args[0] = R;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SCFS[]:       Set Coordinate From Stack
    * Opcode range: 0x48
@@ -4904,8 +4692,7 @@
     FT_Long    K;
     FT_UShort  L;
 
-
-    L = (FT_UShort)args[0];
+L = (FT_UShort)args[0];
 
     if ( BOUNDS( L, exc->zp2.n_points ) )
     {
@@ -4924,8 +4711,7 @@
       exc->zp2.org[L] = exc->zp2.cur[L];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MD[a]:        Measure Distance
    * Opcode range: 0x49-0x4A
@@ -4947,8 +4733,7 @@
     FT_UShort   K, L;
     FT_F26Dot6  D;
 
-
-    K = (FT_UShort)args[1];
+K = (FT_UShort)args[1];
     L = (FT_UShort)args[0];
 
     if ( BOUNDS( L, exc->zp0.n_points ) ||
@@ -4971,16 +4756,14 @@
           FT_Vector*  vec1 = exc->zp0.org + L;
           FT_Vector*  vec2 = exc->zp1.org + K;
 
-
-          D = DUALPROJ( vec1, vec2 );
+D = DUALPROJ( vec1, vec2 );
         }
         else
         {
           FT_Vector*  vec1 = exc->zp0.orus + L;
           FT_Vector*  vec2 = exc->zp1.orus + K;
 
-
-          if ( exc->metrics.x_scale == exc->metrics.y_scale )
+if ( exc->metrics.x_scale == exc->metrics.y_scale )
           {
             /* this should be faster */
             D = DUALPROJ( vec1, vec2 );
@@ -4990,8 +4773,7 @@
           {
             FT_Vector  vec;
 
-
-            vec.x = FT_MulFix( vec1->x - vec2->x, exc->metrics.x_scale );
+vec.x = FT_MulFix( vec1->x - vec2->x, exc->metrics.x_scale );
             vec.y = FT_MulFix( vec1->y - vec2->y, exc->metrics.y_scale );
 
             D = FAST_DUALPROJ( &vec );
@@ -5011,8 +4793,7 @@
     args[0] = D;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SDPvTL[a]:    Set Dual PVector to Line
    * Opcode range: 0x86-0x87
@@ -5027,8 +4808,7 @@
 
     FT_Byte  opcode = exc->opcode;
 
-
-    p1 = (FT_UShort)args[1];
+p1 = (FT_UShort)args[1];
     p2 = (FT_UShort)args[0];
 
     if ( BOUNDS( p2, exc->zp1.n_points ) ||
@@ -5043,8 +4823,7 @@
       FT_Vector*  v1 = exc->zp1.org + p2;
       FT_Vector*  v2 = exc->zp2.org + p1;
 
-
-      A = SUB_LONG( v1->x, v2->x );
+A = SUB_LONG( v1->x, v2->x );
       B = SUB_LONG( v1->y, v2->y );
 
       /* If v1 == v2, SDPvTL behaves the same as */
@@ -5072,8 +4851,7 @@
       FT_Vector*  v1 = exc->zp1.cur + p2;
       FT_Vector*  v2 = exc->zp2.cur + p1;
 
-
-      A = SUB_LONG( v1->x, v2->x );
+A = SUB_LONG( v1->x, v2->x );
       B = SUB_LONG( v1->y, v2->y );
 
       if ( A == 0 && B == 0 )
@@ -5094,8 +4872,7 @@
     Compute_Funcs( exc );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SZP0[]:       Set Zone Pointer 0
    * Opcode range: 0x13
@@ -5124,8 +4901,7 @@
     exc->GS.gep0 = (FT_UShort)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SZP1[]:       Set Zone Pointer 1
    * Opcode range: 0x14
@@ -5154,8 +4930,7 @@
     exc->GS.gep1 = (FT_UShort)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SZP2[]:       Set Zone Pointer 2
    * Opcode range: 0x15
@@ -5184,8 +4959,7 @@
     exc->GS.gep2 = (FT_UShort)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SZPS[]:       Set Zone PointerS
    * Opcode range: 0x16
@@ -5219,8 +4993,7 @@
     exc->GS.gep2 = (FT_UShort)args[0];
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * INSTCTRL[]:   INSTruction ConTRoL
    * Opcode range: 0x8E
@@ -5232,8 +5005,7 @@
   {
     FT_ULong  K, L, Kf;
 
-
-    K = (FT_ULong)args[1];
+K = (FT_ULong)args[1];
     L = (FT_ULong)args[0];
 
     /* selector values cannot be `OR'ed;                 */
@@ -5281,8 +5053,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SCANCTRL[]:   SCAN ConTRoL
    * Opcode range: 0x85
@@ -5294,8 +5065,7 @@
   {
     FT_Int  A;
 
-
-    /* Get Threshold */
+/* Get Threshold */
     A = (FT_Int)( args[0] & 0xFF );
 
     if ( A == 0xFF )
@@ -5328,8 +5098,7 @@
       exc->GS.scan_control = FALSE;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SCANTYPE[]:   SCAN TYPE
    * Opcode range: 0x8D
@@ -5343,15 +5112,13 @@
       exc->GS.scan_type = (FT_Int)args[0] & 0xFFFF;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MANAGING OUTLINES
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * FLIPPT[]:     FLIP PoinT
    * Opcode range: 0x80
@@ -5361,7 +5128,6 @@
   Ins_FLIPPT( TT_ExecContext  exc )
   {
     FT_UShort  point;
-
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_MINIMAL
     /* See `ttinterp.h' for details on backward compatibility mode. */
@@ -5404,8 +5170,7 @@
     exc->new_top = exc->args;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * FLIPRGON[]:   FLIP RanGe ON
    * Opcode range: 0x81
@@ -5416,7 +5181,6 @@
                 FT_Long*        args )
   {
     FT_UShort  I, K, L;
-
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_MINIMAL
     /* See `ttinterp.h' for details on backward compatibility mode. */
@@ -5442,8 +5206,7 @@
       exc->pts.tags[I] |= FT_CURVE_TAG_ON;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * FLIPRGOFF:    FLIP RanGe OFF
    * Opcode range: 0x82
@@ -5454,7 +5217,6 @@
                  FT_Long*        args )
   {
     FT_UShort  I, K, L;
-
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_MINIMAL
     /* See `ttinterp.h' for details on backward compatibility mode. */
@@ -5480,8 +5242,7 @@
       exc->pts.tags[I] &= ~FT_CURVE_TAG_ON;
   }
 
-
-  static FT_Bool
+static FT_Bool
   Compute_Point_Displacement( TT_ExecContext  exc,
                               FT_F26Dot6*     x,
                               FT_F26Dot6*     y,
@@ -5492,8 +5253,7 @@
     FT_UShort        p;
     FT_F26Dot6       d;
 
-
-    if ( exc->opcode & 1 )
+if ( exc->opcode & 1 )
     {
       zp = exc->zp0;
       p  = exc->GS.rp1;
@@ -5523,8 +5283,7 @@
     return SUCCESS;
   }
 
-
-  /* See `ttinterp.h' for details on backward compatibility mode. */
+/* See `ttinterp.h' for details on backward compatibility mode. */
   static void
   Move_Zp2_Point( TT_ExecContext  exc,
                   FT_UShort       point,
@@ -5559,8 +5318,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SHP[a]:       SHift Point by the last point
    * Opcode range: 0x32-0x33
@@ -5575,8 +5333,7 @@
     FT_F26Dot6       dx, dy;
     FT_UShort        point;
 
-
-    if ( exc->top < exc->GS.loop )
+if ( exc->top < exc->GS.loop )
     {
       if ( exc->pedantic_hinting )
         exc->error = FT_THROW( Invalid_Reference );
@@ -5616,8 +5373,7 @@
     exc->new_top = exc->args;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SHC[a]:       SHift Contour
    * Opcode range: 0x34-35
@@ -5638,8 +5394,7 @@
     FT_Short         contour, bounds;
     FT_UShort        start, limit, i;
 
-
-    contour = (FT_Short)args[0];
+contour = (FT_Short)args[0];
     bounds  = ( exc->GS.gep2 == 0 ) ? 1 : exc->zp2.n_contours;
 
     if ( BOUNDS( contour, bounds ) )
@@ -5672,8 +5427,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SHZ[a]:       SHift Zone
    * Opcode range: 0x36-37
@@ -5690,8 +5444,7 @@
 
     FT_UShort        limit, i;
 
-
-    if ( BOUNDS( args[0], 2 ) )
+if ( BOUNDS( args[0], 2 ) )
     {
       if ( exc->pedantic_hinting )
         exc->error = FT_THROW( Invalid_Reference );
@@ -5720,8 +5473,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * SHPIX[]:      SHift points by a PIXel amount
    * Opcode range: 0x38
@@ -5742,9 +5494,7 @@
                                        exc->GS.gep2 == 0 );
 #endif
 
-
-
-    if ( exc->top < exc->GS.loop + 1 )
+if ( exc->top < exc->GS.loop + 1 )
     {
       if ( exc->pedantic_hinting )
         exc->error = FT_THROW( Invalid_Reference );
@@ -5880,8 +5630,7 @@
     exc->new_top = exc->args;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MSIRP[a]:     Move Stack Indirect Relative Position
    * Opcode range: 0x3A-0x3B
@@ -5897,8 +5646,7 @@
     FT_F26Dot6  control_value_cutin = 0;
     FT_F26Dot6  delta;
 
-
-    if ( SUBPIXEL_HINTING_INFINALITY )
+if ( SUBPIXEL_HINTING_INFINALITY )
     {
       control_value_cutin = exc->GS.control_value_cutin;
 
@@ -5955,8 +5703,7 @@
       exc->GS.rp0 = point;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MDAP[a]:      Move Direct Absolute Point
    * Opcode range: 0x2E-0x2F
@@ -5970,8 +5717,7 @@
     FT_F26Dot6  cur_dist;
     FT_F26Dot6  distance;
 
-
-    point = (FT_UShort)args[0];
+point = (FT_UShort)args[0];
 
     if ( BOUNDS( point, exc->zp0.n_points ) )
     {
@@ -6009,8 +5755,7 @@
     exc->GS.rp1 = point;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MIAP[a]:      Move Indirect Absolute Point
    * Opcode range: 0x3E-0x3F
@@ -6026,8 +5771,7 @@
     FT_F26Dot6  org_dist;
     FT_F26Dot6  control_value_cutin;
 
-
-    control_value_cutin = exc->GS.control_value_cutin;
+control_value_cutin = exc->GS.control_value_cutin;
     cvtEntry            = (FT_ULong)args[1];
     point               = (FT_UShort)args[0];
 
@@ -6100,8 +5844,7 @@
     {
       FT_F26Dot6  delta;
 
-
-      delta = SUB_LONG( distance, org_dist );
+delta = SUB_LONG( distance, org_dist );
       if ( delta < 0 )
         delta = NEG_LONG( delta );
 
@@ -6129,8 +5872,7 @@
     exc->GS.rp1 = point;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MDRP[abcde]:  Move Direct Relative Point
    * Opcode range: 0xC0-0xDF
@@ -6143,8 +5885,7 @@
     FT_UShort   point = 0;
     FT_F26Dot6  org_dist, distance, minimum_distance;
 
-
-    minimum_distance = exc->GS.minimum_distance;
+minimum_distance = exc->GS.minimum_distance;
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY
     if ( SUBPIXEL_HINTING_INFINALITY                        &&
@@ -6174,16 +5915,14 @@
       FT_Vector*  vec1 = &exc->zp1.org[point];
       FT_Vector*  vec2 = &exc->zp0.org[exc->GS.rp0];
 
-
-      org_dist = DUALPROJ( vec1, vec2 );
+org_dist = DUALPROJ( vec1, vec2 );
     }
     else
     {
       FT_Vector*  vec1 = &exc->zp1.orus[point];
       FT_Vector*  vec2 = &exc->zp0.orus[exc->GS.rp0];
 
-
-      if ( exc->metrics.x_scale == exc->metrics.y_scale )
+if ( exc->metrics.x_scale == exc->metrics.y_scale )
       {
         /* this should be faster */
         org_dist = DUALPROJ( vec1, vec2 );
@@ -6193,8 +5932,7 @@
       {
         FT_Vector  vec;
 
-
-        vec.x = FT_MulFix( SUB_LONG( vec1->x, vec2->x ),
+vec.x = FT_MulFix( SUB_LONG( vec1->x, vec2->x ),
                            exc->metrics.x_scale );
         vec.y = FT_MulFix( SUB_LONG( vec1->y, vec2->y ),
                            exc->metrics.y_scale );
@@ -6273,8 +6011,7 @@
       exc->GS.rp0 = point;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MIRP[abcde]:  Move Indirect Relative Point
    * Opcode range: 0xE0-0xFF
@@ -6301,8 +6038,7 @@
 
     FT_F26Dot6  delta;
 
-
-    minimum_distance    = exc->GS.minimum_distance;
+minimum_distance    = exc->GS.minimum_distance;
     control_value_cutin = exc->GS.control_value_cutin;
     point               = (FT_UShort)args[0];
     cvtEntry            = (FT_ULong)( ADD_LONG( args[1], 1 ) );
@@ -6522,8 +6258,7 @@
     exc->GS.rp2 = point;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ALIGNRP[]:    ALIGN Relative Point
    * Opcode range: 0x3C
@@ -6534,7 +6269,6 @@
   {
     FT_UShort   point;
     FT_F26Dot6  distance;
-
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY
     if ( SUBPIXEL_HINTING_INFINALITY                               &&
@@ -6585,8 +6319,7 @@
     exc->new_top = exc->args;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ISECT[]:      moves point to InterSECTion
    * Opcode range: 0x0F
@@ -6610,8 +6343,7 @@
 
     FT_Vector   R;
 
-
-    point = (FT_UShort)args[0];
+point = (FT_UShort)args[0];
 
     a0 = (FT_UShort)args[1];
     a1 = (FT_UShort)args[2];
@@ -6681,8 +6413,7 @@
     exc->zp2.tags[point] |= FT_CURVE_TAG_TOUCH_BOTH;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * ALIGNPTS[]:   ALIGN PoinTS
    * Opcode range: 0x27
@@ -6695,8 +6426,7 @@
     FT_UShort   p1, p2;
     FT_F26Dot6  distance;
 
-
-    p1 = (FT_UShort)args[0];
+p1 = (FT_UShort)args[0];
     p2 = (FT_UShort)args[1];
 
     if ( BOUNDS( p1, exc->zp1.n_points ) ||
@@ -6713,8 +6443,7 @@
     exc->func_move( exc, &exc->zp0, p2, NEG_LONG( distance ) );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * IP[]:         Interpolate Point
    * Opcode range: 0x39
@@ -6731,8 +6460,7 @@
     FT_Vector*  cur_base;
     FT_Int      twilight;
 
-
-    if ( exc->top < exc->GS.loop )
+if ( exc->top < exc->GS.loop )
     {
       if ( exc->pedantic_hinting )
         exc->error = FT_THROW( Invalid_Reference );
@@ -6782,8 +6510,7 @@
       {
         FT_Vector  vec;
 
-
-        vec.x = FT_MulFix( SUB_LONG( exc->zp1.orus[exc->GS.rp2].x,
+vec.x = FT_MulFix( SUB_LONG( exc->zp1.orus[exc->GS.rp2].x,
                                      orus_base->x ),
                            exc->metrics.x_scale );
         vec.y = FT_MulFix( SUB_LONG( exc->zp1.orus[exc->GS.rp2].y,
@@ -6801,8 +6528,7 @@
       FT_UInt     point = (FT_UInt)exc->stack[--exc->args];
       FT_F26Dot6  org_dist, cur_dist, new_dist;
 
-
-      /* check point bounds */
+/* check point bounds */
       if ( BOUNDS( point, exc->zp2.n_points ) )
       {
         if ( exc->pedantic_hinting )
@@ -6821,8 +6547,7 @@
       {
         FT_Vector  vec;
 
-
-        vec.x = FT_MulFix( SUB_LONG( exc->zp2.orus[point].x,
+vec.x = FT_MulFix( SUB_LONG( exc->zp2.orus[point].x,
                                      orus_base->x ),
                            exc->metrics.x_scale );
         vec.y = FT_MulFix( SUB_LONG( exc->zp2.orus[point].y,
@@ -6873,8 +6598,7 @@
     exc->new_top = exc->args;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * UTP[a]:       UnTouch Point
    * Opcode range: 0x29
@@ -6887,8 +6611,7 @@
     FT_UShort  point;
     FT_Byte    mask;
 
-
-    point = (FT_UShort)args[0];
+point = (FT_UShort)args[0];
 
     if ( BOUNDS( point, exc->zp0.n_points ) )
     {
@@ -6908,8 +6631,7 @@
     exc->zp0.tags[point] &= mask;
   }
 
-
-  /* Local variables for Ins_IUP: */
+/* Local variables for Ins_IUP: */
   typedef struct  IUP_WorkerRec_
   {
     FT_Vector*  orgs;   /* original and current coordinate */
@@ -6919,8 +6641,7 @@
 
   } IUP_WorkerRec, *IUP_Worker;
 
-
-  static void
+static void
   _iup_worker_shift( IUP_Worker  worker,
                      FT_UInt     p1,
                      FT_UInt     p2,
@@ -6929,8 +6650,7 @@
     FT_UInt     i;
     FT_F26Dot6  dx;
 
-
-    dx = SUB_LONG( worker->curs[p].x, worker->orgs[p].x );
+dx = SUB_LONG( worker->curs[p].x, worker->orgs[p].x );
     if ( dx != 0 )
     {
       for ( i = p1; i < p; i++ )
@@ -6941,8 +6661,7 @@
     }
   }
 
-
-  static void
+static void
   _iup_worker_interpolate( IUP_Worker  worker,
                            FT_UInt     p1,
                            FT_UInt     p2,
@@ -6952,8 +6671,7 @@
     FT_UInt     i;
     FT_F26Dot6  orus1, orus2, org1, org2, cur1, cur2, delta1, delta2;
 
-
-    if ( p1 > p2 )
+if ( p1 > p2 )
       return;
 
     if ( BOUNDS( ref1, worker->max_points ) ||
@@ -6968,8 +6686,7 @@
       FT_F26Dot6  tmp_o;
       FT_UInt     tmp_r;
 
-
-      tmp_o = orus1;
+tmp_o = orus1;
       orus1 = orus2;
       orus2 = tmp_o;
 
@@ -6993,8 +6710,7 @@
       {
         FT_F26Dot6  x = worker->orgs[i].x;
 
-
-        if ( x <= org1 )
+if ( x <= org1 )
           x = ADD_LONG( x, delta1 );
 
         else if ( x >= org2 )
@@ -7011,14 +6727,12 @@
       FT_Fixed  scale       = 0;
       FT_Bool   scale_valid = 0;
 
-
-      /* interpolation */
+/* interpolation */
       for ( i = p1; i <= p2; i++ )
       {
         FT_F26Dot6  x = worker->orgs[i].x;
 
-
-        if ( x <= org1 )
+if ( x <= org1 )
           x = ADD_LONG( x, delta1 );
 
         else if ( x >= org2 )
@@ -7042,8 +6756,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * IUP[a]:       Interpolate Untouched Points
    * Opcode range: 0x30-0x31
@@ -7063,7 +6776,6 @@
 
     FT_UInt   point;         /* current point   */
     FT_Short  contour;       /* current contour */
-
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_MINIMAL
     /* See `ttinterp.h' for details on backward compatibility mode.  */
@@ -7170,8 +6882,7 @@
     } while ( contour < exc->pts.n_contours );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * DELTAPn[]:    DELTA exceptions P1, P2, P3
    * Opcode range: 0x5D,0x71,0x72
@@ -7188,8 +6899,7 @@
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY
     FT_UShort  B1, B2;
 
-
-    if ( SUBPIXEL_HINTING_INFINALITY                              &&
+if ( SUBPIXEL_HINTING_INFINALITY                              &&
          exc->ignore_x_mode                                       &&
          exc->iup_called                                          &&
          ( exc->sph_tweak_flags & SPH_TWEAK_NO_DELTAP_AFTER_IUP ) )
@@ -7337,8 +7047,7 @@
     exc->new_top = exc->args;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * DELTACn[]:    DELTA exceptions C1, C2, C3
    * Opcode range: 0x73,0x74,0x75
@@ -7352,8 +7061,7 @@
     FT_ULong  A, C, P;
     FT_Long   B;
 
-
-    P    = (FT_ULong)exc->func_cur_ppem( exc );
+P    = (FT_ULong)exc->func_cur_ppem( exc );
     nump = (FT_ULong)args[0];
 
     for ( k = 1; k <= nump; k++ )
@@ -7415,15 +7123,13 @@
     exc->new_top = exc->args;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * MISC. INSTRUCTIONS
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * GETINFO[]:    GET INFOrmation
    * Opcode range: 0x88
@@ -7444,8 +7150,7 @@
     FT_Long    K;
     TT_Driver  driver = (TT_Driver)FT_FACE_DRIVER( exc->face );
 
-
-    K = 0;
+K = 0;
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY
     /*********************************
@@ -7656,7 +7361,6 @@
     args[0] = K;
   }
 
-
 #ifdef TT_CONFIG_OPTION_GX_VAR_SUPPORT
 
   /**************************************************************************
@@ -7678,8 +7382,7 @@
 
     FT_UInt  i;
 
-
-    if ( BOUNDS( num_axes, exc->stackSize + 1 - exc->top ) )
+if ( BOUNDS( num_axes, exc->stackSize + 1 - exc->top ) )
     {
       exc->error = FT_THROW( Stack_Overflow );
       return;
@@ -7697,8 +7400,7 @@
     }
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * GETDATA[]:    no idea what this is good for
    * Opcode range: 0x92
@@ -7715,22 +7417,19 @@
 
 #endif /* TT_CONFIG_OPTION_GX_VAR_SUPPORT */
 
-
-  static void
+static void
   Ins_UNKNOWN( TT_ExecContext  exc )
   {
     TT_DefRecord*  def   = exc->IDefs;
     TT_DefRecord*  limit = FT_OFFSET( def, exc->numIDefs );
 
-
-    for ( ; def < limit; def++ )
+for ( ; def < limit; def++ )
     {
       if ( (FT_Byte)def->opc == exc->opcode && def->active )
       {
         TT_CallRec*  call;
 
-
-        if ( exc->callTop >= exc->callSize )
+if ( exc->callTop >= exc->callSize )
         {
           exc->error = FT_THROW( Stack_Overflow );
           return;
@@ -7753,8 +7452,7 @@
     exc->error = FT_THROW( Invalid_Opcode );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * RUN
    *
@@ -7783,8 +7481,7 @@
    *
    */
 
-
-  /* documentation is in ttinterp.h */
+/* documentation is in ttinterp.h */
 
   FT_EXPORT_DEF( FT_Error )
   TT_RunIns( TT_ExecContext  exc )
@@ -7805,7 +7502,6 @@
     FT_UShort  opcode_pointer[1] = { 0 };
     FT_UShort  opcode_size[1]    = { 1 };
 #endif /* TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY */
-
 
 #ifdef TT_SUPPORT_SUBPIXEL_HINTING_INFINALITY
     exc->iup_called = FALSE;
@@ -7918,8 +7614,7 @@
         FT_Long  cnt = FT_MIN( 8, exc->top );
         FT_Long  n;
 
-
-        /* if tracing level is 7, show current code position */
+/* if tracing level is 7, show current code position */
         /* and the first few stack elements also             */
         FT_TRACE6(( "  " ));
         FT_TRACE7(( "%06d ", exc->IP ));
@@ -8029,8 +7724,7 @@
         FT_Long*  args   = exc->stack + exc->args;
         FT_Byte   opcode = exc->opcode;
 
-
-        switch ( opcode )
+switch ( opcode )
         {
         case 0x00:  /* SVTCA y  */
         case 0x01:  /* SVTCA x  */
@@ -8574,15 +8268,13 @@
             TT_DefRecord*  def   = exc->IDefs;
             TT_DefRecord*  limit = FT_OFFSET( def, exc->numIDefs );
 
-
-            for ( ; def < limit; def++ )
+for ( ; def < limit; def++ )
             {
               if ( def->active && exc->opcode == (FT_Byte)def->opc )
               {
                 TT_CallRec*  callrec;
 
-
-                if ( exc->callTop >= exc->callSize )
+if ( exc->callTop >= exc->callSize )
                 {
                   exc->error = FT_THROW( Invalid_Reference );
                   goto LErrorLabel_;
@@ -8668,6 +8360,5 @@
   typedef int  _tt_interp_dummy;
 
 #endif /* !TT_USE_BYTECODE_INTERPRETER */
-
 
 /* END */

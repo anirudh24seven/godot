@@ -1,8 +1,6 @@
 
 /*  error_macros.h                                                       */
 
-
-
 #ifndef ERROR_MACROS_H
 #define ERROR_MACROS_H
 

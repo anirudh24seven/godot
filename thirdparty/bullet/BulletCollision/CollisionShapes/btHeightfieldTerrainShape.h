@@ -191,8 +191,7 @@ public:
 	//debugging
 	virtual const char* getName() const { return "HEIGHTFIELD"; }
 
-	
-	void setUserIndex2(int index)
+void setUserIndex2(int index)
 	{
 		m_userIndex2 = index;
 	}

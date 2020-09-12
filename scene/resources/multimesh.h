@@ -1,8 +1,6 @@
 
 /*  multimesh.h                                                          */
 
-
-
 #ifndef MULTIMESH_H
 #define MULTIMESH_H
 

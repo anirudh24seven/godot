@@ -15,12 +15,10 @@
  *
  */
 
-
 #include "otvalid.h"
 #include "otvcommn.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -29,14 +27,9 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  otvgdef
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      UTILITY FUNCTIONS                        *****/
   /*****                                                               *****/
-
-
 
 #define AttachListFunc    otv_O_x_Ox
 #define LigCaretListFunc  otv_O_x_Ox
@@ -52,8 +45,7 @@
     FT_UInt            GlyphCount;
     OTV_Validate_Func  func;
 
-
-    OTV_ENTER;
+OTV_ENTER;
 
     OTV_LIMIT_CHECK( 4 );
     Coverage   = table + FT_NEXT_USHORT( p );
@@ -79,14 +71,9 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                       LIGATURE CARETS                         *****/
   /*****                                                               *****/
-
-
 
 #define CaretValueFunc  otv_CaretValue_validate
 
@@ -97,8 +84,7 @@
     FT_Bytes  p = table;
     FT_UInt   CaretValueFormat;
 
-
-    OTV_ENTER;
+OTV_ENTER;
 
     OTV_LIMIT_CHECK( 4 );
 
@@ -132,24 +118,18 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                       MARK GLYPH SETS                         *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   otv_MarkGlyphSets_validate( FT_Bytes       table,
                               OTV_Validator  otvalid )
   {
     FT_Bytes  p = table;
     FT_UInt   MarkGlyphSetCount;
 
-
-    OTV_NAME_ENTER( "MarkGlyphSets" );
+OTV_NAME_ENTER( "MarkGlyphSets" );
 
     p += 2;     /* skip Format */
 
@@ -166,16 +146,11 @@
     OTV_EXIT;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                         GDEF TABLE                            *****/
   /*****                                                               *****/
 
-
-
-  /* sets otvalid->glyph_count */
+/* sets otvalid->glyph_count */
 
   FT_LOCAL_DEF( void )
   otv_GDEF_validate( FT_Bytes      table,
@@ -199,8 +174,7 @@
 
     OTV_OPTIONAL_TABLE32( itemVarStore );
 
-
-    otvalid->root = ftvalid;
+otvalid->root = ftvalid;
 
     FT_TRACE3(( "validating GDEF table\n" ));
     OTV_INIT;
@@ -298,6 +272,5 @@
 
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

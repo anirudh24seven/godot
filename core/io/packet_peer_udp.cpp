@@ -1,8 +1,6 @@
 
 /*  packet_peer_udp.cpp                                                  */
 
-
-
 #include "packet_peer_udp.h"
 
 #include "core/io/ip.h"

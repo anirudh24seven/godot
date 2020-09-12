@@ -1,8 +1,6 @@
 
 /*  abstract_polygon_2d_editor.cpp                                       */
 
-
-
 #include "abstract_polygon_2d_editor.h"
 
 #include "canvas_item_editor_plugin.h"

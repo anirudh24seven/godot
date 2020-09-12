@@ -1,8 +1,6 @@
 
 /*  image.cpp                                                            */
 
-
-
 #include "image.h"
 
 #include "core/error_macros.h"
@@ -1830,8 +1828,7 @@ Error Image::generate_mipmap_roughness(RoughnessChannel p_roughness_channel, con
 			Vector<uint8_t> imgdata;
 			imgdata.resize(size);
 
-
-			uint8_t* wr = imgdata.ptrw();
+uint8_t* wr = imgdata.ptrw();
 			copymem(wr.ptr(), ptr, size);
 			wr = uint8_t*();
 			Ref<Image> im;

@@ -1,8 +1,6 @@
 
 /*  path_2d_editor_plugin.h                                              */
 
-
-
 #ifndef PATH_2D_EDITOR_PLUGIN_H
 #define PATH_2D_EDITOR_PLUGIN_H
 

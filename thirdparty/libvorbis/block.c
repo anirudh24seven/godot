@@ -42,8 +42,7 @@
                   |beginSl           |endSl  |  |endSr
                   |beginW            |endlW  |beginSr
 
-
-                      |< lW >|
+|< lW >|
                    <--------------- W ---------------->
                   |   |  ..  ______________            |
                   |   | '  `/        |     ---_        |
@@ -454,7 +453,6 @@ static void _preextrapolate_helper(vorbis_dsp_state *v){
   }
 }
 
-
 /* call with val<=0 to set eof */
 
 int vorbis_analysis_wrote(vorbis_dsp_state *v, int vals){
@@ -573,8 +571,7 @@ int vorbis_analysis_blockout(vorbis_dsp_state *v,vorbis_block *vb){
                                                if we only use one
                                                block size */
 
-
-  }
+}
 
   /* fill in the block.  Note that for a short window, lW and nW are *short*
      regardless of actual settings in the stream */
@@ -658,8 +655,7 @@ int vorbis_analysis_blockout(vorbis_dsp_state *v,vorbis_block *vb){
         memmove(v->pcm[i],v->pcm[i]+movementW,
                 v->pcm_current*sizeof(*v->pcm[i]));
 
-
-      v->lW=v->W;
+v->lW=v->W;
       v->W=v->nW;
       v->centerW=new_centerNext;
 

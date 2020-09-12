@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef OPENSIMPLEX_REGISTER_TYPES_H
 #define OPENSIMPLEX_REGISTER_TYPES_H
 

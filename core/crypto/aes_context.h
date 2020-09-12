@@ -1,8 +1,6 @@
 
 /*  aes_context.h                                                        */
 
-
-
 #ifndef AES_CONTEXT_H
 #define AES_CONTEXT_H
 

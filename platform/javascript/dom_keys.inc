@@ -1,8 +1,6 @@
 
 /*  dom_keys.inc                                                         */
 
-
-
 #include "core/os/keyboard.h"
 
 // See https://w3c.github.io/uievents-code/#code-value-tables

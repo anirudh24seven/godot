@@ -1,8 +1,6 @@
 
 /*  id_handler.js                                                        */
 
-
-
 var IDHandler = /** @constructor */ function() {
 
 	var ids = {};

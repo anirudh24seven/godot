@@ -48,7 +48,6 @@
 #define MIN(x,y) (((x)<(y))?(x):(y))
 #endif /* MIN */
 
-
 #include "miniupnpcstrings.h"
 #include "miniwget.h"
 #include "connecthostport.h"
@@ -502,9 +501,6 @@ miniwget2(const char * host,
 #endif
 	return respbuffer;
 }
-
-
-
 
 /* parseURL()
  * arguments :

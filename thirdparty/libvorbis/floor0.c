@@ -43,7 +43,6 @@ typedef struct {
   long frames;
 } vorbis_look_floor0;
 
-
 /***********************************************/
 
 static void floor0_free_info(vorbis_info_floor *i){

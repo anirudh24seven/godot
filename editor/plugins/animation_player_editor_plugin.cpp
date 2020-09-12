@@ -1,8 +1,6 @@
 
 /*  animation_player_editor_plugin.cpp                                   */
 
-
-
 #include "animation_player_editor_plugin.h"
 
 #include "core/input/input.h"

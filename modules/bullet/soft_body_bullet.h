@@ -1,8 +1,6 @@
 
 /*  soft_body_bullet.h                                                   */
 
-
-
 #ifndef SOFT_BODY_BULLET_H
 #define SOFT_BODY_BULLET_H
 

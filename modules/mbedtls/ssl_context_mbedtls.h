@@ -1,8 +1,6 @@
 
 /*  ssl_context_mbedtls.h                                                */
 
-
-
 #ifndef SSL_CONTEXT_MBED_TLS_H
 #define SSL_CONTEXT_MBED_TLS_H
 

@@ -1,8 +1,6 @@
 
 /*  editor_spin_slider.cpp                                               */
 
-
-
 #include "editor_spin_slider.h"
 
 #include "core/input/input.h"

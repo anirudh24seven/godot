@@ -1,8 +1,6 @@
 
 /*  texture_basisu.cpp                                                   */
 
-
-
 #include "texture_basisu.h"
 #if 0
 #include "core/os/os.h"
@@ -38,7 +36,6 @@ RID TextureBasisU::get_rid() const {
 	return texture;
 };
 
-
 bool TextureBasisU::has_alpha() const {
 
 	return false;
@@ -54,7 +51,6 @@ uint32_t TextureBasisU::get_flags() const {
 
 	return flags;
 };
-
 
 void TextureBasisU::set_basisu_data(const Vector<uint8_t>& p_data) {
 
@@ -187,7 +183,6 @@ Error TextureBasisU::import(const Ref<Image>& p_img) {
 #endif
 };
 
-
 Vector<uint8_t> TextureBasisU::get_basisu_data() const {
 
 	return data;
@@ -198,7 +193,6 @@ TextureBasisU::TextureBasisU() {
 	flags = FLAGS_DEFAULT;
 	texture = RenderingServer::get_singleton()->texture_create();
 };
-
 
 TextureBasisU::~TextureBasisU() {
 

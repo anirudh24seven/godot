@@ -1,8 +1,6 @@
 
 /*  test_shader_lang.h                                                   */
 
-
-
 #ifndef TEST_SHADER_LANG_H
 #define TEST_SHADER_LANG_H
 

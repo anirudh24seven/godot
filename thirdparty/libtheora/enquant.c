@@ -18,8 +18,6 @@
 #include <string.h>
 #include "encint.h"
 
-
-
 void oc_quant_params_pack(oggpack_buffer *_opb,const th_quant_info *_qinfo){
   const th_quant_ranges *qranges;
   const th_quant_base   *base_mats[2*3*64];
@@ -173,8 +171,6 @@ void oc_enquant_tables_init(ogg_uint16_t *_dequant[64][3][2],
   }
 }
 
-
-
 /*This table gives the square root of the fraction of the squared magnitude of
    each DCT coefficient relative to the total, scaled by 2**16, for both INTRA
    and INTER modes.
@@ -234,7 +230,6 @@ static const ogg_uint16_t OC_PCD[4][3]={
   {55201, 5597, 4738},
   {47682, 9669, 8185}
 };
-
 
 /*Compute an "average" quantizer for each qi level.
   We do one for INTER and one for INTRA, since their behavior is very

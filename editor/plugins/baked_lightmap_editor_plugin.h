@@ -1,8 +1,6 @@
 
 /*  baked_lightmap_editor_plugin.h                                       */
 
-
-
 #ifndef BAKED_LIGHTMAP_EDITOR_PLUGIN_H
 #define BAKED_LIGHTMAP_EDITOR_PLUGIN_H
 

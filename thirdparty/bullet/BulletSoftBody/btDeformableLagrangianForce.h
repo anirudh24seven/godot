@@ -177,9 +177,8 @@ public:
             {
                 dphi += dphi_dx[i].dot(dx[i]);
             }
-            
 
-            for (int i = 0; i<m_softBodies.size();++i)
+for (int i = 0; i<m_softBodies.size();++i)
             {
                 btSoftBody* psb = m_softBodies[i];
                 for (int j = 0; j < psb->m_nodes.size(); ++j)
@@ -240,9 +239,8 @@ public:
             }
             psb->updateDeformation();
         }
-        
-        
-        TVStack dx;
+
+TVStack dx;
         dx.resize(getNumNodes());
         TVStack df;
         df.resize(dx.size());
@@ -250,9 +248,8 @@ public:
         f1.resize(dx.size());
         TVStack f2;
         f2.resize(dx.size());
-        
-        
-        // write down the current position
+
+// write down the current position
         TVStack x;
         x.resize(dx.size());
         int counter = 0;

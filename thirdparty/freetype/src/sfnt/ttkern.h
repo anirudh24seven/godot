@@ -16,20 +16,16 @@
  *
  */
 
-
 #ifndef TTKERN_H_
 #define TTKERN_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_STREAM_H
 #include FT_INTERNAL_TRUETYPE_TYPES_H
 
-
 FT_BEGIN_HEADER
 
-
-  FT_LOCAL( FT_Error  )
+FT_LOCAL( FT_Error  )
   tt_face_load_kern( TT_Face    face,
                      FT_Stream  stream );
 
@@ -43,10 +39,8 @@ FT_BEGIN_HEADER
 
 #define TT_FACE_HAS_KERNING( face )  ( (face)->kern_avail_bits != 0 )
 
-
 FT_END_HEADER
 
 #endif /* TTKERN_H_ */
-
 
 /* END */

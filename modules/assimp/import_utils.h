@@ -1,8 +1,6 @@
 
 /*  import_utils.h                                                       */
 
-
-
 #ifndef IMPORT_UTILS_IMPORTER_ASSIMP_H
 #define IMPORT_UTILS_IMPORTER_ASSIMP_H
 

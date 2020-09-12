@@ -39,7 +39,6 @@
 #include "error_private.h"   /* ERROR */
 #include "hist.h"
 
-
 /* --- Error management --- */
 unsigned HIST_isError(size_t code) { return ERR_isError(code); }
 

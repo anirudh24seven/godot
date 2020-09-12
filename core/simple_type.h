@@ -1,8 +1,6 @@
 
 /*  simple_type.h                                                        */
 
-
-
 #ifndef SIMPLE_TYPE_H
 #define SIMPLE_TYPE_H
 

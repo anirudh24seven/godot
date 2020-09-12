@@ -1,8 +1,6 @@
 
 /*  joints_3d_sw.h                                                       */
 
-
-
 #ifndef JOINTS_SW_H
 #define JOINTS_SW_H
 

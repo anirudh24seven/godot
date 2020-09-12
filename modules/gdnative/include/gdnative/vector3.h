@@ -1,8 +1,6 @@
 
 /*  vector3.h                                                            */
 
-
-
 #ifndef GODOT_VECTOR3_H
 #define GODOT_VECTOR3_H
 

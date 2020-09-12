@@ -1,8 +1,6 @@
 
 /*  csharp_script.h                                                      */
 
-
-
 #ifndef CSHARP_SCRIPT_H
 #define CSHARP_SCRIPT_H
 

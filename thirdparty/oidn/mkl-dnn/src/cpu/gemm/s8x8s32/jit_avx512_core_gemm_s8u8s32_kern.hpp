@@ -19,7 +19,6 @@
 
 #include "jit_generator.hpp"
 
-
 namespace mkldnn {
 namespace impl {
 namespace cpu {
@@ -59,7 +58,6 @@ protected:
     void outerloop(int unroll_x, int unroll_y, Xbyak::Label *&outerloop_label);
 
     void generate();
-
 
 private:
     static const int IGEMM_UNROLL_M = 48;

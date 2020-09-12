@@ -1,8 +1,6 @@
 
 /*  gdscript_cache.h                                                     */
 
-
-
 #ifndef GDSCRIPT_CACHE_H
 #define GDSCRIPT_CACHE_H
 

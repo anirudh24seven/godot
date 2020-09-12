@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef VHACD_REGISTER_TYPES_H
 #define VHACD_REGISTER_TYPES_H
 

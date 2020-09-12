@@ -162,7 +162,6 @@ local const config configuration_table[10] = {
  */
 #define UPDATE_HASH(s,h,c) (h = (((h)<<s->hash_shift) ^ (c)) & s->hash_mask)
 
-
 /* ===========================================================================
  * Insert string str in the dictionary and set match_head to the previous head
  * of the hash chain (the most recent string with same hash key). Return
@@ -1110,8 +1109,7 @@ int ZEXPORT deflateCopy (dest, source)
     deflate_state *ss;
     ushf *overlay;
 
-
-    if (deflateStateCheck(source) || dest == Z_NULL) {
+if (deflateStateCheck(source) || dest == Z_NULL) {
         return Z_STREAM_ERROR;
     }
 

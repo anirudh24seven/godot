@@ -15,17 +15,14 @@
  *
  */
 
-
 #ifndef SVMM_H_
 #define SVMM_H_
 
 #include FT_INTERNAL_SERVICE_H
 
-
 FT_BEGIN_HEADER
 
-
-  /*
+/*
    * A service used to manage multiple-masters data in a given face.
    *
    * See the related APIs in `ftmm.h' (FT_MULTIPLE_MASTERS_H).
@@ -34,8 +31,7 @@ FT_BEGIN_HEADER
 
 #define FT_SERVICE_ID_MULTI_MASTERS  "multi-masters"
 
-
-  typedef FT_Error
+typedef FT_Error
   (*FT_Get_MM_Func)( FT_Face           face,
                      FT_Multi_Master*  master );
 
@@ -96,8 +92,7 @@ FT_BEGIN_HEADER
                                   FT_UInt*   len,
                                   FT_Fixed*  weight_vector );
 
-
-  FT_DEFINE_SERVICE( MultiMasters )
+FT_DEFINE_SERVICE( MultiMasters )
   {
     FT_Get_MM_Func               get_mm;
     FT_Set_MM_Design_Func        set_mm_design;
@@ -114,7 +109,6 @@ FT_BEGIN_HEADER
     FT_Get_Var_Blend_Func  get_var_blend;
     FT_Done_Blend_Func     done_blend;
   };
-
 
 #define FT_DEFINE_SERVICE_MULTIMASTERSREC( class_,            \
                                            get_mm_,           \
@@ -147,10 +141,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* SVMM_H_ */
-
 
 /* END */

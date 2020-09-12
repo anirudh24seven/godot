@@ -1,8 +1,6 @@
 
 /*  xr_interface.h                                                       */
 
-
-
 #ifndef XR_INTERFACE_H
 #define XR_INTERFACE_H
 

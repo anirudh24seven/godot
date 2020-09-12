@@ -1,8 +1,6 @@
 
 /*  audio_filter_sw.h                                                    */
 
-
-
 #ifndef AUDIO_FILTER_SW_H
 #define AUDIO_FILTER_SW_H
 

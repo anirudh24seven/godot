@@ -1,8 +1,6 @@
 
 /*  os_uwp.h                                                             */
 
-
-
 #ifndef OS_UWP_H
 #define OS_UWP_H
 

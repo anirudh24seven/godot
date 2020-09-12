@@ -32,8 +32,7 @@ public:
 		mVHACD->Release();
 	}
 
-	
-	virtual bool Compute(const double* const _points,
+virtual bool Compute(const double* const _points,
 		const uint32_t countPoints,
 		const uint32_t* const _triangles,
 		const uint32_t countTriangles,
@@ -146,8 +145,7 @@ public:
 		mIndices = nullptr;
 	}
 
-
-	virtual void release(void) // release the HACD_API interface
+virtual void release(void) // release the HACD_API interface
 	{
 		delete this;
 	}
@@ -328,7 +326,6 @@ IVHACD* CreateVHACD_ASYNC(void)
 	MyHACD_API *m = new MyHACD_API;
 	return static_cast<IVHACD *>(m);
 }
-
 
 }; // end of VHACD namespace
 

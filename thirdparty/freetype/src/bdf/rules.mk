@@ -2,7 +2,6 @@
 # FreeType 2 bdf driver configuration rules
 #
 
-
 # Copyright (C) 2001, 2002, 2003, 2008 by
 # Francesco Zappa Nardelli
 #
@@ -24,25 +23,19 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-
-
-
 # bdf driver directory
 #
 BDF_DIR := $(SRC_DIR)/bdf
-
 
 BDF_COMPILE := $(CC) $(ANSIFLAGS)                            \
                      $I$(subst /,$(COMPILER_SEP),$(BDF_DIR)) \
                      $(INCLUDE_FLAGS)                        \
                      $(FT_CFLAGS)
 
-
 # bdf driver sources (i.e., C files)
 #
 BDF_DRV_SRC := $(BDF_DIR)/bdflib.c \
                $(BDF_DIR)/bdfdrivr.c
-
 
 # bdf driver headers
 #
@@ -62,23 +55,19 @@ BDF_DRV_OBJ_S := $(OBJ_DIR)/bdf.$O
 #
 BDF_DRV_SRC_S := $(BDF_DIR)/bdf.c
 
-
 # bdf driver - single object
 #
 $(BDF_DRV_OBJ_S): $(BDF_DRV_SRC_S) $(BDF_DRV_SRC) $(FREETYPE_H) $(BDF_DRV_H)
 	$(BDF_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $(BDF_DRV_SRC_S))
-
 
 # bdf driver - multiple objects
 #
 $(OBJ_DIR)/%.$O: $(BDF_DIR)/%.c $(FREETYPE_H) $(BDF_DRV_H)
 	$(BDF_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $<)
 
-
 # update main driver object lists
 #
 DRV_OBJS_S += $(BDF_DRV_OBJ_S)
 DRV_OBJS_M += $(BDF_DRV_OBJ_M)
-
 
 # EOF

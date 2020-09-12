@@ -1,8 +1,6 @@
 
 /*  callable.cpp                                                         */
 
-
-
 #include "callable.h"
 
 #include "core/script_language.h"

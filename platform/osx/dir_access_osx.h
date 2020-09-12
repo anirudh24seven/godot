@@ -1,8 +1,6 @@
 
 /*  dir_access_osx.h                                                     */
 
-
-
 #ifndef DIR_ACCESS_OSX_H
 #define DIR_ACCESS_OSX_H
 

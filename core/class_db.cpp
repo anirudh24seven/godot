@@ -1,8 +1,6 @@
 
 /*  class_db.cpp                                                         */
 
-
-
 #include "class_db.h"
 
 #include "core/engine.h"

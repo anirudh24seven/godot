@@ -1,8 +1,6 @@
 
 /*  gdscript_workspace.h                                                 */
 
-
-
 #ifndef GDSCRIPT_WORKSPACE_H
 #define GDSCRIPT_WORKSPACE_H
 

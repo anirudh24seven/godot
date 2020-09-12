@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_BLOCKD_H_
 #define VP8_COMMON_BLOCKD_H_
 
@@ -48,7 +47,6 @@ typedef struct
 #define PLANE_TYPE_UV         2
 #define PLANE_TYPE_Y_WITH_DC  3
 
-
 typedef char ENTROPY_CONTEXT;
 typedef struct
 {
@@ -63,7 +61,6 @@ extern const unsigned char vp8_block2above[25];
 
 #define VP8_COMBINEENTROPYCONTEXTS( Dest, A, B) \
     Dest = (A)+(B);
-
 
 typedef enum
 {
@@ -281,9 +278,7 @@ typedef struct macroblockd
     int mb_to_top_edge;
     int mb_to_bottom_edge;
 
-
-
-    vp8_subpix_fn_t  subpixel_predict;
+vp8_subpix_fn_t  subpixel_predict;
     vp8_subpix_fn_t  subpixel_predict8x4;
     vp8_subpix_fn_t  subpixel_predict8x8;
     vp8_subpix_fn_t  subpixel_predict16x16;
@@ -300,7 +295,6 @@ typedef struct macroblockd
     DECLARE_ALIGNED(32, unsigned char, y_buf[22*32]);
 #endif
 } MACROBLOCKD;
-
 
 extern void vp8_build_block_doffsets(MACROBLOCKD *x);
 extern void vp8_setup_block_dptrs(MACROBLOCKD *x);

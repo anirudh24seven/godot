@@ -1,8 +1,6 @@
 
 /*  audio_effect_phaser.h                                                */
 
-
-
 #ifndef AUDIO_EFFECT_PHASER_H
 #define AUDIO_EFFECT_PHASER_H
 

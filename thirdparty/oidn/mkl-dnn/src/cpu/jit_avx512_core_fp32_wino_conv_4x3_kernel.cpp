@@ -802,8 +802,7 @@ void _jit_avx512_core_fp32_wino_conv_4x3_data_kernel
             }
         };
 
-
-        for (int j = 0; j < tile_size; j++) {
+for (int j = 0; j < tile_size; j++) {
             Label next, unaligned;
             mov(oreg_temp, oreg_ydim);
             add(oreg_temp, j);

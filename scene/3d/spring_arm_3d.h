@@ -1,8 +1,6 @@
 
 /*  spring_arm_3d.h                                                      */
 
-
-
 #ifndef SPRING_ARM_H
 #define SPRING_ARM_H
 

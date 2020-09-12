@@ -16,22 +16,17 @@
  *
  */
 
-
 #ifndef AFGLOBAL_H_
 #define AFGLOBAL_H_
-
 
 #include "aftypes.h"
 #include "afmodule.h"
 #include "afshaper.h"
 
-
 FT_BEGIN_HEADER
 
-
-  FT_LOCAL_ARRAY( AF_WritingSystemClass )
+FT_LOCAL_ARRAY( AF_WritingSystemClass )
   af_writing_system_classes[];
-
 
 #undef  SCRIPT
 #define SCRIPT( s, S, d, h, H, ss )                            \
@@ -42,7 +37,6 @@ FT_BEGIN_HEADER
   FT_LOCAL_ARRAY( AF_ScriptClass )
   af_script_classes[];
 
-
 #undef  STYLE
 #define STYLE( s, S, d, ws, sc, ss, c )                      \
           AF_DECLARE_STYLE_CLASS( af_ ## s ## _style_class )
@@ -52,14 +46,12 @@ FT_BEGIN_HEADER
   FT_LOCAL_ARRAY( AF_StyleClass )
   af_style_classes[];
 
-
 #ifdef FT_DEBUG_LEVEL_TRACE
   FT_LOCAL_ARRAY( char* )
   af_style_names[];
 #endif
 
-
-  /*
+/*
    * Default values and flags for both autofitter globals (found in
    * AF_ModuleRec) and face globals (in AF_FaceGlobalsRec).
    */
@@ -87,8 +79,7 @@ FT_BEGIN_HEADER
 #define AF_PROP_INCREASE_X_HEIGHT_MIN  6
 #define AF_PROP_INCREASE_X_HEIGHT_MAX  0
 
-
-  /************************************************************************/
+/************************************************************************/
   /************************************************************************/
   /*****                                                              *****/
   /*****                  F A C E   G L O B A L S                     *****/
@@ -96,8 +87,7 @@ FT_BEGIN_HEADER
   /************************************************************************/
   /************************************************************************/
 
-
-  /*
+/*
    * Note that glyph_styles[] maps each glyph to an index into the
    * `af_style_classes' array.
    *
@@ -138,8 +128,7 @@ FT_BEGIN_HEADER
 
   } AF_FaceGlobalsRec;
 
-
-  /*
+/*
    * model the global hints data for a given face, decomposed into
    * style-specific items
    */
@@ -164,10 +153,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* AFGLOBAL_H_ */
-
 
 /* END */

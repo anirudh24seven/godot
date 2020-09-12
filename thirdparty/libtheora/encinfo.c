@@ -4,8 +4,6 @@
 #include "enquant.h"
 #include "huffenc.h"
 
-
-
 /*Packs a series of octets from a given byte array into the pack buffer.
   _opb: The pack buffer to store the octets in.
   _buf: The byte array containing the bytes to pack.
@@ -14,8 +12,6 @@ static void oc_pack_octets(oggpack_buffer *_opb,const char *_buf,int _len){
   int i;
   for(i=0;i<_len;i++)oggpackB_write(_opb,_buf[i],8);
 }
-
-
 
 int oc_state_flushheader(oc_theora_state *_state,int *_packet_state,
  oggpack_buffer *_opb,const th_quant_info *_qinfo,

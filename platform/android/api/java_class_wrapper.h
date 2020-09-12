@@ -1,8 +1,6 @@
 
 /*  java_class_wrapper.h                                                 */
 
-
-
 #ifndef JAVA_CLASS_WRAPPER_H
 #define JAVA_CLASS_WRAPPER_H
 

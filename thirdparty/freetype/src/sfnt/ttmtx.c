@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_STREAM_H
@@ -29,16 +28,14 @@
 
 #include "sferrors.h"
 
-
-  /* IMPORTANT: The TT_HoriHeader and TT_VertHeader structures should   */
+/* IMPORTANT: The TT_HoriHeader and TT_VertHeader structures should   */
   /*            be identical except for the names of their fields,      */
   /*            which are different.                                    */
   /*                                                                    */
   /*            This ensures that `tt_face_load_hmtx' is able to read   */
   /*            both the horizontal and vertical headers.               */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -47,8 +44,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  ttmtx
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   tt_face_load_hmtx
@@ -79,8 +75,7 @@
     FT_ULong*  ptable_offset;
     FT_ULong*  ptable_size;
 
-
-    if ( vertical )
+if ( vertical )
     {
       tag           = TTAG_vmtx;
       ptable_offset = &face->vert_metrics_offset;
@@ -104,8 +99,7 @@
     return error;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   tt_face_load_hhea
@@ -160,13 +154,11 @@
       FT_FRAME_END
     };
 
-
-    if ( vertical )
+if ( vertical )
     {
       void  *v = &face->vertical;
 
-
-      error = face->goto_table( face, TTAG_vhea, stream, 0 );
+error = face->goto_table( face, TTAG_vhea, stream, 0 );
       if ( error )
         goto Fail;
 
@@ -195,8 +187,7 @@
     return error;
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @Function:
    *   tt_face_get_metrics
@@ -243,13 +234,11 @@
       (FT_Service_MetricsVariations)face->var;
 #endif
 
-
-    if ( vertical )
+if ( vertical )
     {
       void*  v = &face->vertical;
 
-
-      header     = (TT_HoriHeader*)v;
+header     = (TT_HoriHeader*)v;
       table_pos  = face->vert_metrics_offset;
       table_size = face->vert_metrics_size;
     }
@@ -313,8 +302,7 @@
       FT_Int   a = (FT_Int)*aadvance;
       FT_Int   b = (FT_Int)*abearing;
 
-
-      if ( vertical )
+if ( vertical )
       {
         if ( var->vadvance_adjust )
           var->vadvance_adjust( f, gindex, &a );
@@ -334,6 +322,5 @@
     }
 #endif
   }
-
 
 /* END */

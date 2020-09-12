@@ -1,8 +1,6 @@
 
 /*  script_language.cpp                                                  */
 
-
-
 #include "script_language.h"
 
 #include "core/core_string_names.h"

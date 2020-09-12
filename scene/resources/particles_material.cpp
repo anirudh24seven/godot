@@ -1,8 +1,6 @@
 
 /*  particles_material.cpp                                               */
 
-
-
 #include "particles_material.h"
 
 Mutex ParticlesMaterial::material_mutex;

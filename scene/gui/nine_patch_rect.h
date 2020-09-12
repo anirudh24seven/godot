@@ -1,8 +1,6 @@
 
 /*  nine_patch_rect.h                                                    */
 
-
-
 #ifndef NINE_PATCH_RECT_H
 #define NINE_PATCH_RECT_H
 

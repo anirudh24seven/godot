@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "blockd.h"
 
 void vp8_setup_block_dptrs(MACROBLOCKD *x)

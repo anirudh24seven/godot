@@ -1,8 +1,6 @@
 
 /*  stream_peer_ssl.h                                                    */
 
-
-
 #ifndef STREAM_PEER_SSL_H
 #define STREAM_PEER_SSL_H
 

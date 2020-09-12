@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -70,8 +69,7 @@ struct FaceWithSmoothingGroup {
 #endif
     }
 
-
-    //! Indices. .3ds is using uint16. However, after
+//! Indices. .3ds is using uint16. However, after
     //! an unique vertex set has been generated,
     //! individual index values might exceed 2^16
     uint32_t mIndices[3];
@@ -106,7 +104,6 @@ struct MeshWithSmoothingGroups
  */
 template <class T>
 void ComputeNormalsWithSmoothingsGroups(MeshWithSmoothingGroups<T>& sMesh);
-
 
 // include implementations
 #include "SmoothingGroups.inl"

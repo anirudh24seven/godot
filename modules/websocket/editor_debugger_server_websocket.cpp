@@ -1,8 +1,6 @@
 
 /*  editor_debugger_server_websocket.cpp                                 */
 
-
-
 #include "editor_debugger_server_websocket.h"
 
 #include "core/project_settings.h"

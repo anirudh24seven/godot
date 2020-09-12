@@ -1,8 +1,6 @@
 
 /*  func_ref.cpp                                                         */
 
-
-
 #include "func_ref.h"
 
 Variant FuncRef::call_func(const Variant **p_args, int p_argcount, Callable::CallError &r_error) {

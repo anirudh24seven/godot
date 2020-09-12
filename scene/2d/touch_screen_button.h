@@ -1,8 +1,6 @@
 
 /*  touch_screen_button.h                                                */
 
-
-
 #ifndef TOUCH_SCREEN_BUTTON_H
 #define TOUCH_SCREEN_BUTTON_H
 

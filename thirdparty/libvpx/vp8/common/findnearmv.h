@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_COMMON_FINDNEARMV_H_
 #define VP8_COMMON_FINDNEARMV_H_
 
@@ -21,7 +20,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 static INLINE void mv_bias(int refmb_ref_frame_sign_bias, int refframe,
                            int_mv *mvp, const int *ref_frame_sign_bias)
@@ -84,7 +82,6 @@ void vp8_find_near_mvs
     int *ref_frame_sign_bias
 );
 
-
 int vp8_find_near_mvs_bias
 (
     MACROBLOCKD *xd,
@@ -96,13 +93,11 @@ int vp8_find_near_mvs_bias
     int *ref_frame_sign_bias
 );
 
-
 vp8_prob *vp8_mv_ref_probs(
     vp8_prob p[VP8_MVREFS-1], const int near_mv_ref_ct[4]
 );
 
 extern const unsigned char vp8_mbsplit_offset[4][16];
-
 
 static INLINE uint32_t left_block_mv(const MODE_INFO *cur_mb, int b)
 {

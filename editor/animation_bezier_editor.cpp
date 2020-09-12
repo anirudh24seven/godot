@@ -1,8 +1,6 @@
 
 /*  animation_bezier_editor.cpp                                          */
 
-
-
 #include "animation_bezier_editor.h"
 
 #include "editor/editor_node.h"

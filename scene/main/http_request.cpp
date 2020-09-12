@@ -1,8 +1,6 @@
 
 /*  http_request.cpp                                                     */
 
-
-
 #include "http_request.h"
 
 void HTTPRequest::_redirect_request(const String &p_new_url) {

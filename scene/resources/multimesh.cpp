@@ -1,8 +1,6 @@
 
 /*  multimesh.cpp                                                        */
 
-
-
 #include "multimesh.h"
 
 #include "servers/rendering_server.h"

@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_GLYPH_LOADER_H
@@ -25,20 +24,13 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gloader
 
-
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                                                               *****/
   /*****                    G L Y P H   L O A D E R                    *****/
   /*****                                                               *****/
   /*****                                                               *****/
 
-
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The glyph loader is a simple object which is used to load a set of
    * glyphs easily.  It is critical for the correct loading of composites.
@@ -64,8 +56,7 @@
    *
    */
 
-
-  /* create a new glyph loader */
+/* create a new glyph loader */
   FT_BASE_DEF( FT_Error )
   FT_GlyphLoader_New( FT_Memory        memory,
                       FT_GlyphLoader  *aloader )
@@ -73,8 +64,7 @@
     FT_GlyphLoader  loader = NULL;
     FT_Error        error;
 
-
-    if ( !FT_NEW( loader ) )
+if ( !FT_NEW( loader ) )
     {
       loader->memory = memory;
       *aloader       = loader;
@@ -82,32 +72,28 @@
     return error;
   }
 
-
-  /* rewind the glyph loader - reset counters to 0 */
+/* rewind the glyph loader - reset counters to 0 */
   FT_BASE_DEF( void )
   FT_GlyphLoader_Rewind( FT_GlyphLoader  loader )
   {
     FT_GlyphLoad  base    = &loader->base;
     FT_GlyphLoad  current = &loader->current;
 
-
-    base->outline.n_points   = 0;
+base->outline.n_points   = 0;
     base->outline.n_contours = 0;
     base->num_subglyphs      = 0;
 
     *current = *base;
   }
 
-
-  /* reset glyph loader, free all allocated tables, */
+/* reset glyph loader, free all allocated tables, */
   /* and start from zero                            */
   FT_BASE_DEF( void )
   FT_GlyphLoader_Reset( FT_GlyphLoader  loader )
   {
     FT_Memory  memory = loader->memory;
 
-
-    FT_FREE( loader->base.outline.points );
+FT_FREE( loader->base.outline.points );
     FT_FREE( loader->base.outline.tags );
     FT_FREE( loader->base.outline.contours );
     FT_FREE( loader->base.extra_points );
@@ -122,8 +108,7 @@
     FT_GlyphLoader_Rewind( loader );
   }
 
-
-  /* delete a glyph loader */
+/* delete a glyph loader */
   FT_BASE_DEF( void )
   FT_GlyphLoader_Done( FT_GlyphLoader  loader )
   {
@@ -131,22 +116,19 @@
     {
       FT_Memory  memory = loader->memory;
 
-
-      FT_GlyphLoader_Reset( loader );
+FT_GlyphLoader_Reset( loader );
       FT_FREE( loader );
     }
   }
 
-
-  /* re-adjust the `current' outline fields */
+/* re-adjust the `current' outline fields */
   static void
   FT_GlyphLoader_Adjust_Points( FT_GlyphLoader  loader )
   {
     FT_Outline*  base    = &loader->base.outline;
     FT_Outline*  current = &loader->current.outline;
 
-
-    current->points   = FT_OFFSET( base->points,   base->n_points );
+current->points   = FT_OFFSET( base->points,   base->n_points );
     current->tags     = FT_OFFSET( base->tags,     base->n_points );
     current->contours = FT_OFFSET( base->contours, base->n_contours );
 
@@ -161,15 +143,13 @@
     }
   }
 
-
-  FT_BASE_DEF( FT_Error )
+FT_BASE_DEF( FT_Error )
   FT_GlyphLoader_CreateExtra( FT_GlyphLoader  loader )
   {
     FT_Error   error;
     FT_Memory  memory = loader->memory;
 
-
-    if ( loader->max_points == 0           ||
+if ( loader->max_points == 0           ||
          loader->base.extra_points != NULL )
       return FT_Err_Ok;
 
@@ -184,20 +164,17 @@
     return error;
   }
 
-
-  /* re-adjust the `current' subglyphs field */
+/* re-adjust the `current' subglyphs field */
   static void
   FT_GlyphLoader_Adjust_Subglyphs( FT_GlyphLoader  loader )
   {
     FT_GlyphLoad  base    = &loader->base;
     FT_GlyphLoad  current = &loader->current;
 
-
-    current->subglyphs = FT_OFFSET( base->subglyphs, base->num_subglyphs );
+current->subglyphs = FT_OFFSET( base->subglyphs, base->num_subglyphs );
   }
 
-
-  /* Ensure that we can add `n_points' and `n_contours' to our glyph.      */
+/* Ensure that we can add `n_points' and `n_contours' to our glyph.      */
   /* This function reallocates its outline tables if necessary.  Note that */
   /* it DOESN'T change the number of points within the loader!             */
   /*                                                                       */
@@ -214,8 +191,7 @@
 
     FT_UInt      new_max, old_max;
 
-
-    error = FT_GlyphLoader_CreateExtra( loader );
+error = FT_GlyphLoader_CreateExtra( loader );
     if ( error )
       return error;
 
@@ -284,8 +260,7 @@
     return error;
   }
 
-
-  /* Ensure that we can add `n_subglyphs' to our glyph. this function */
+/* Ensure that we can add `n_subglyphs' to our glyph. this function */
   /* reallocates its subglyphs table if necessary.  Note that it DOES */
   /* NOT change the number of subglyphs within the loader!            */
   /*                                                                  */
@@ -300,8 +275,7 @@
     FT_GlyphLoad  base    = &loader->base;
     FT_GlyphLoad  current = &loader->current;
 
-
-    new_max = base->num_subglyphs + current->num_subglyphs + n_subs;
+new_max = base->num_subglyphs + current->num_subglyphs + n_subs;
     old_max = loader->max_subglyphs;
     if ( new_max > old_max )
     {
@@ -318,15 +292,13 @@
     return error;
   }
 
-
-  /* prepare loader for the addition of a new glyph on top of the base one */
+/* prepare loader for the addition of a new glyph on top of the base one */
   FT_BASE_DEF( void )
   FT_GlyphLoader_Prepare( FT_GlyphLoader  loader )
   {
     FT_GlyphLoad  current = &loader->current;
 
-
-    current->outline.n_points   = 0;
+current->outline.n_points   = 0;
     current->outline.n_contours = 0;
     current->num_subglyphs      = 0;
 
@@ -334,8 +306,7 @@
     FT_GlyphLoader_Adjust_Subglyphs( loader );
   }
 
-
-  /* add current glyph to the base image -- and prepare for another */
+/* add current glyph to the base image -- and prepare for another */
   FT_BASE_DEF( void )
   FT_GlyphLoader_Add( FT_GlyphLoader  loader )
   {
@@ -346,8 +317,7 @@
     FT_Int        n_base_points;
     FT_Int        n;
 
-
-    if ( !loader )
+if ( !loader )
       return;
 
     base    = &loader->base;
@@ -371,6 +341,5 @@
     /* prepare for another new glyph image */
     FT_GlyphLoader_Prepare( loader );
   }
-
 
 /* END */

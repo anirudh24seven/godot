@@ -100,7 +100,6 @@ const Zmm _jit_avx512_core_x8s8s32x_fwd_kernel<Zmm>::
                      : zmm_in;
 }
 
-
 template<typename Vmm>
 void _jit_avx512_core_x8s8s32x_fwd_kernel<Vmm>::cvt2ps(data_type_t type_in,
         const Vmm vmm_in, const Operand &op, bool mask_flag) {

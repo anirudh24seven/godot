@@ -1,8 +1,6 @@
 
 /*  crypto_mbedtls.h                                                     */
 
-
-
 #ifndef CRYPTO_MBEDTLS_H
 #define CRYPTO_MBEDTLS_H
 

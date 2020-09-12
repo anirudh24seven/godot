@@ -1,8 +1,6 @@
 
 /*  midi_driver.h                                                        */
 
-
-
 #ifndef MIDI_DRIVER_H
 #define MIDI_DRIVER_H
 

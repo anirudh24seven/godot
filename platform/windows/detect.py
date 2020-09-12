@@ -4,14 +4,11 @@ import os
 # To match other platforms
 STACK_SIZE = 8388608
 
-
 def is_active():
     return True
 
-
 def get_name():
     return "Windows"
-
 
 def can_build():
     if os.name == "nt":
@@ -42,7 +39,6 @@ def can_build():
 
     return False
 
-
 def get_opts():
     from SCons.Variables import BoolVariable, EnumVariable
 
@@ -72,11 +68,9 @@ def get_opts():
         BoolVariable("use_thinlto", "Use ThinLTO", False),
     ]
 
-
 def get_flags():
 
     return []
-
 
 def build_res_file(target, source, env):
 
@@ -96,7 +90,6 @@ def build_res_file(target, source, env):
         except:
             return 1
     return 0
-
 
 def setup_msvc_manual(env):
     """Set up env to use MSVC manually, using VCINSTALLDIR"""
@@ -133,7 +126,6 @@ def setup_msvc_manual(env):
             " build is compiled for. You should check your settings/compilation setup, or avoid setting VCINSTALLDIR."
         )
 
-
 def setup_msvc_auto(env):
     """Set up MSVC using SCons's auto-detection logic"""
 
@@ -165,13 +157,11 @@ def setup_msvc_auto(env):
     if env["TARGET_ARCH"] in ("amd64", "x86_64"):
         env["x86_libtheora_opt_vc"] = False
 
-
 def setup_mingw(env):
     """Set up env for use with mingw"""
     # Nothing to do here
     print("Using MinGW")
     pass
-
 
 def configure_msvc(env, manual_msvc_config):
     """Configure env to work with MSVC"""
@@ -293,7 +283,6 @@ def configure_msvc(env, manual_msvc_config):
     env["BUILDERS"]["Program"] = methods.precious_program
 
     env.AppendUnique(LINKFLAGS=["/STACK:" + str(STACK_SIZE)])
-
 
 def configure_mingw(env):
     # Workaround for MinGW. See:
@@ -433,7 +422,6 @@ def configure_mingw(env):
 
     # resrc
     env.Append(BUILDERS={"RES": env.Builder(action=build_res_file, suffix=".o", src_suffix=".rc")})
-
 
 def configure(env):
     # At this point the env has been set up with basic tools/compilers.

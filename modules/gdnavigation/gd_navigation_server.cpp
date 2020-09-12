@@ -1,8 +1,6 @@
 
 /*  gd_navigation_server.cpp                                             */
 
-
-
 #include "gd_navigation_server.h"
 
 #include "core/os/mutex.h"

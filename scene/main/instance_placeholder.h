@@ -1,8 +1,6 @@
 
 /*  instance_placeholder.h                                               */
 
-
-
 #ifndef INSTANCE_PLACEHOLDER_H
 #define INSTANCE_PLACEHOLDER_H
 

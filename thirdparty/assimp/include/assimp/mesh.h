@@ -5,7 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -210,7 +209,6 @@ struct aiFace
 #endif // __cplusplus
 }; // struct aiFace
 
-
 // ---------------------------------------------------------------------------
 /** @brief A single influence of a bone on a vertex.
  */
@@ -250,7 +248,6 @@ struct aiVertexWeight {
 
 #endif // __cplusplus
 };
-
 
 // Forward declare aiNode (pointer use only)
 struct aiNode;
@@ -320,8 +317,7 @@ struct aiBone {
         }
     }
 
-
-    //! Assignment operator
+//! Assignment operator
     aiBone &operator=(const aiBone& other) {
         if (this == &other) {
             return *this;
@@ -364,7 +360,6 @@ struct aiBone {
 #endif // __cplusplus
 };
 
-
 // ---------------------------------------------------------------------------
 /** @brief Enumerates the types of geometric primitives supported by Assimp.
  *
@@ -404,8 +399,7 @@ enum aiPrimitiveType
      */
     aiPrimitiveType_POLYGON     = 0x8,
 
-
-    /** This value is not used. It is just here to force the
+/** This value is not used. It is just here to force the
      *  compiler to map this enum to a 32 Bit integer.
      */
 #ifndef SWIG
@@ -416,8 +410,6 @@ enum aiPrimitiveType
 // Get the #aiPrimitiveType flag for a specific number of face indices
 #define AI_PRIMITIVE_TYPE_FOR_N_INDICES(n) \
     ((n) > 3 ? aiPrimitiveType_POLYGON : (aiPrimitiveType)(1u << ((n)-1)))
-
-
 
 // ---------------------------------------------------------------------------
 /** @brief An AnimMesh is an attachment to an #aiMesh stores per-vertex
@@ -718,8 +710,7 @@ struct aiMesh
      **/
     C_STRUCT aiString mName;
 
-
-    /** The number of attachment meshes. Note! Currently only works with Collada loader. */
+/** The number of attachment meshes. Note! Currently only works with Collada loader. */
     unsigned int mNumAnimMeshes;
 
     /** Attachment meshes for this mesh, for vertex-based animation.

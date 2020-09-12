@@ -1,8 +1,6 @@
 
 /*  string_name_glue.cpp                                                 */
 
-
-
 #ifdef MONO_GLUE_ENABLED
 
 #include "core/string_name.h"

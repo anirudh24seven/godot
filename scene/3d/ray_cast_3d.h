@@ -1,8 +1,6 @@
 
 /*  ray_cast_3d.h                                                        */
 
-
-
 #ifndef RAY_CAST_3D_H
 #define RAY_CAST_3D_H
 

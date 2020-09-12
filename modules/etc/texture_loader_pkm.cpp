@@ -1,8 +1,6 @@
 
 /*  texture_loader_pkm.cpp                                               */
 
-
-
 #include "texture_loader_pkm.h"
 
 #include "core/os/file_access.h"

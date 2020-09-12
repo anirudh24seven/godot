@@ -15,21 +15,17 @@
  *
  */
 
-
 #ifndef SVPSINFO_H_
 #define SVPSINFO_H_
 
 #include FT_INTERNAL_SERVICE_H
 #include FT_INTERNAL_TYPE1_TYPES_H
 
-
 FT_BEGIN_HEADER
-
 
 #define FT_SERVICE_ID_POSTSCRIPT_INFO  "postscript-info"
 
-
-  typedef FT_Error
+typedef FT_Error
   (*PS_GetFontInfoFunc)( FT_Face          face,
                          PS_FontInfoRec*  afont_info );
 
@@ -51,8 +47,7 @@ FT_BEGIN_HEADER
                           void         *value,
                           FT_Long       value_len );
 
-
-  FT_DEFINE_SERVICE( PsInfo )
+FT_DEFINE_SERVICE( PsInfo )
   {
     PS_GetFontInfoFunc     ps_get_font_info;
     PS_GetFontExtraFunc    ps_get_font_extra;
@@ -60,7 +55,6 @@ FT_BEGIN_HEADER
     PS_GetFontPrivateFunc  ps_get_font_private;
     PS_GetFontValueFunc    ps_get_font_value;
   };
-
 
 #define FT_DEFINE_SERVICE_PSINFOREC( class_,                     \
                                      get_font_info_,             \
@@ -76,11 +70,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
-
 #endif /* SVPSINFO_H_ */
-
 
 /* END */

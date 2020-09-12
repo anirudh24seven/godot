@@ -1,8 +1,6 @@
 
 /*  joypad_linux.cpp                                                     */
 
-
-
 #ifdef JOYDEV_ENABLED
 
 #include "joypad_linux.h"

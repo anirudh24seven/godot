@@ -1,8 +1,6 @@
 
 /*  base_button.h                                                        */
 
-
-
 #ifndef BASE_BUTTON_H
 #define BASE_BUTTON_H
 

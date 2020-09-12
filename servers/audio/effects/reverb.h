@@ -1,8 +1,6 @@
 
 /*  reverb.h                                                             */
 
-
-
 // Author: Juan Linietsky <reduzio@gmail.com>, (C) 2006
 
 #ifndef REVERB_H

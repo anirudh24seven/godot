@@ -1,8 +1,6 @@
 
 /*  multimesh_instance_2d.h                                              */
 
-
-
 #ifndef MULTIMESH_INSTANCE_2D_H
 #define MULTIMESH_INSTANCE_2D_H
 

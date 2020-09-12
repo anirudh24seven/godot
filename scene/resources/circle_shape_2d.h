@@ -1,8 +1,6 @@
 
 /*  circle_shape_2d.h                                                    */
 
-
-
 #ifndef CIRCLE_SHAPE_2D_H
 #define CIRCLE_SHAPE_2D_H
 

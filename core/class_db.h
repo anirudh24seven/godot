@@ -1,8 +1,6 @@
 
 /*  class_db.h                                                           */
 
-
-
 #ifndef CLASS_DB_H
 #define CLASS_DB_H
 

@@ -26,11 +26,9 @@ int g_ZSTD_threading_useless_symbol;
  * http://www.cse.wustl.edu/~schmidt/win32-cv-1.html
  */
 
-
 /* ===  Dependencies  === */
 #include <process.h>
 #include <errno.h>
-
 
 /* ===  Implementation  === */
 

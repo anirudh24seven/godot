@@ -1,8 +1,6 @@
 
 /*  quat.cpp                                                             */
 
-
-
 #include "quat.h"
 
 #include "core/math/basis.h"

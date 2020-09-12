@@ -1,8 +1,6 @@
 
 /*  random_number_generator.cpp                                          */
 
-
-
 #include "random_number_generator.h"
 
 void RandomNumberGenerator::_bind_methods() {

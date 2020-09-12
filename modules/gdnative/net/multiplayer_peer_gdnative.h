@@ -1,8 +1,6 @@
 
 /*  multiplayer_peer_gdnative.h                                          */
 
-
-
 #ifndef MULTIPLAYER_PEER_GDNATIVE_H
 #define MULTIPLAYER_PEER_GDNATIVE_H
 

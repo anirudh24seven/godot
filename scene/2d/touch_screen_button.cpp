@@ -1,8 +1,6 @@
 
 /*  touch_screen_button.cpp                                              */
 
-
-
 #include "touch_screen_button.h"
 
 #include "core/input/input.h"

@@ -15,7 +15,6 @@
  extern "C" {
  #endif
 
-
 /* Note : This is an internal API.
  *        These APIs used to be exposed with ZSTDLIB_API,
  *        because it used to be the only way to invoke MT compression.
@@ -42,7 +41,6 @@
 #define ZSTD_STATIC_LINKING_ONLY   /* ZSTD_parameters */
 #include "zstd.h"            /* ZSTD_inBuffer, ZSTD_outBuffer, ZSTDLIB_API */
 
-
 /* ===   Constants   === */
 #ifndef ZSTDMT_NBWORKERS_MAX
 #  define ZSTDMT_NBWORKERS_MAX 200
@@ -52,7 +50,6 @@
 #endif
 #define ZSTDMT_JOBLOG_MAX   (MEM_32bits() ? 29 : 30)
 #define ZSTDMT_JOBSIZE_MAX  (MEM_32bits() ? (512 MB) : (1024 MB))
-
 
 /* ===   Memory management   === */
 typedef struct ZSTDMT_CCtx_s ZSTDMT_CCtx;
@@ -65,15 +62,12 @@ ZSTDMT_API size_t ZSTDMT_freeCCtx(ZSTDMT_CCtx* mtctx);
 
 ZSTDMT_API size_t ZSTDMT_sizeof_CCtx(ZSTDMT_CCtx* mtctx);
 
-
 /* ===   Simple one-pass compression function   === */
 
 ZSTDMT_API size_t ZSTDMT_compressCCtx(ZSTDMT_CCtx* mtctx,
                                        void* dst, size_t dstCapacity,
                                  const void* src, size_t srcSize,
                                        int compressionLevel);
-
-
 
 /* ===   Streaming functions   === */
 
@@ -85,7 +79,6 @@ ZSTDMT_API size_t ZSTDMT_compressStream(ZSTDMT_CCtx* mtctx, ZSTD_outBuffer* outp
 
 ZSTDMT_API size_t ZSTDMT_flushStream(ZSTDMT_CCtx* mtctx, ZSTD_outBuffer* output);   /**< @return : 0 == all flushed; >0 : still some data to be flushed; or an error code (ZSTD_isError()) */
 ZSTDMT_API size_t ZSTDMT_endStream(ZSTDMT_CCtx* mtctx, ZSTD_outBuffer* output);     /**< @return : 0 == all flushed; >0 : still some data to be flushed; or an error code (ZSTD_isError()) */
-
 
 /* ===   Advanced functions and parameters  === */
 
@@ -126,7 +119,6 @@ ZSTDMT_API size_t ZSTDMT_setMTCtxParameter(ZSTDMT_CCtx* mtctx, ZSTDMT_parameter 
  * @return : 0, or an error code (which can be tested using ZSTD_isError()) */
 ZSTDMT_API size_t ZSTDMT_getMTCtxParameter(ZSTDMT_CCtx* mtctx, ZSTDMT_parameter parameter, int* value);
 
-
 /*! ZSTDMT_compressStream_generic() :
  *  Combines ZSTDMT_compressStream() with optional ZSTDMT_flushStream() or ZSTDMT_endStream()
  *  depending on flush directive.
@@ -138,7 +130,6 @@ ZSTDMT_API size_t ZSTDMT_compressStream_generic(ZSTDMT_CCtx* mtctx,
                                                 ZSTD_outBuffer* output,
                                                 ZSTD_inBuffer* input,
                                                 ZSTD_EndDirective endOp);
-
 
 /* ========================================================
  * ===  Private interface, for use by ZSTD_compress.c   ===
@@ -173,7 +164,6 @@ void ZSTDMT_updateCParams_whileCompressing(ZSTDMT_CCtx* mtctx, const ZSTD_CCtx_p
  */
 ZSTD_frameProgression ZSTDMT_getFrameProgression(ZSTDMT_CCtx* mtctx);
 
-
 /*! ZSTDMT_initCStream_internal() :
  *  Private use only. Init streaming operation.
  *  expects params to be valid.
@@ -183,7 +173,6 @@ size_t ZSTDMT_initCStream_internal(ZSTDMT_CCtx* zcs,
                     const void* dict, size_t dictSize, ZSTD_dictContentType_e dictContentType,
                     const ZSTD_CDict* cdict,
                     ZSTD_CCtx_params params, unsigned long long pledgedSrcSize);
-
 
 #if defined (__cplusplus)
 }

@@ -1,8 +1,6 @@
 
 /*  godot_plugin_jni.cpp                                                 */
 
-
-
 #include "godot_plugin_jni.h"
 
 #include <core/engine.h>

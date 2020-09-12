@@ -4933,8 +4933,7 @@ spv::Id TGlslangToSpvTraverser::createImageTextureFunctionCall(glslang::TIntermO
         builder.addExtension(spv::E_SPV_NV_shader_image_footprint);
         builder.addCapability(spv::CapabilityImageFootprintNV);
 
-
-        //resultStructType(OpenGL type) contains 5 elements:
+//resultStructType(OpenGL type) contains 5 elements:
         //struct gl_TextureFootprint2DNV {
         //    uvec2 anchor;
         //    uvec2 offset;
@@ -6919,8 +6918,7 @@ spv::Id TGlslangToSpvTraverser::createSubgroupOperation(glslang::TOperator op, s
     default: assert(0 && "Unhandled subgroup operation!");
     }
 
-
-    const bool isUnsigned = isTypeUnsignedInt(typeProxy);
+const bool isUnsigned = isTypeUnsignedInt(typeProxy);
     const bool isFloat = isTypeFloat(typeProxy);
     const bool isBool = typeProxy == glslang::EbtBool;
 

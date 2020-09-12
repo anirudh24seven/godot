@@ -1,8 +1,6 @@
 
 /*  file_access_compressed.h                                             */
 
-
-
 #ifndef FILE_ACCESS_COMPRESSED_H
 #define FILE_ACCESS_COMPRESSED_H
 

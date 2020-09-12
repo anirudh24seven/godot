@@ -15,13 +15,11 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_ERRORS_H
 
-
-  /* documentation is in fterrors.h */
+/* documentation is in fterrors.h */
 
   FT_EXPORT_DEF( const char* )
   FT_Error_String( FT_Error  error_code )

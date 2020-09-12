@@ -1,8 +1,6 @@
 
 /*  rendering_server_canvas.h                                            */
 
-
-
 #ifndef VISUALSERVERCANVAS_H
 #define VISUALSERVERCANVAS_H
 

@@ -1,8 +1,6 @@
 
 /*  vulkan_context_x11.cpp                                               */
 
-
-
 #include "vulkan_context_x11.h"
 #include <vulkan/vulkan_xlib.h>
 

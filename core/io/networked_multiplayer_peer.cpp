@@ -1,8 +1,6 @@
 
 /*  networked_multiplayer_peer.cpp                                       */
 
-
-
 #include "networked_multiplayer_peer.h"
 
 void NetworkedMultiplayerPeer::_bind_methods() {

@@ -1,8 +1,6 @@
 
 /*  editor_performance_profiler.h                                        */
 
-
-
 #ifndef EDITOR_PERFORMANCE_PROFILER_H
 #define EDITOR_PERFORMANCE_PROFILER_H
 

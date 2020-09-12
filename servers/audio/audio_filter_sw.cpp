@@ -1,8 +1,6 @@
 
 /*  audio_filter_sw.cpp                                                  */
 
-
-
 #include "audio_filter_sw.h"
 
 void AudioFilterSW::set_mode(Mode p_mode) {

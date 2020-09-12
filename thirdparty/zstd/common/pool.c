@@ -8,7 +8,6 @@
  * You may select, at your option, one of the above-listed licenses.
  */
 
-
 /* ======   Dependencies   ======= */
 #include <stddef.h>    /* size_t */
 #include "debug.h"     /* assert */
@@ -19,7 +18,6 @@
 #if defined(_MSC_VER)
 #  pragma warning(disable : 4204)        /* disable: C4204: non-constant aggregate initializer */
 #endif
-
 
 #ifdef ZSTD_MULTITHREAD
 
@@ -184,15 +182,12 @@ void POOL_free(POOL_ctx *ctx) {
     ZSTD_free(ctx, ctx->customMem);
 }
 
-
-
 size_t POOL_sizeof(POOL_ctx *ctx) {
     if (ctx==NULL) return 0;  /* supports sizeof NULL */
     return sizeof(*ctx)
         + ctx->queueSize * sizeof(POOL_job)
         + ctx->threadCapacity * sizeof(ZSTD_pthread_t);
 }
-
 
 /* @return : 0 on success, 1 on error */
 static int POOL_resize_internal(POOL_ctx* ctx, size_t numThreads)
@@ -250,7 +245,6 @@ static int isQueueFull(POOL_ctx const* ctx) {
     }
 }
 
-
 static void POOL_add_internal(POOL_ctx* ctx, POOL_function function, void *opaque)
 {
     POOL_job const job = {function, opaque};
@@ -275,7 +269,6 @@ void POOL_add(POOL_ctx* ctx, POOL_function function, void* opaque)
     ZSTD_pthread_mutex_unlock(&ctx->queueMutex);
 }
 
-
 int POOL_tryAdd(POOL_ctx* ctx, POOL_function function, void* opaque)
 {
     assert(ctx != NULL);
@@ -289,13 +282,11 @@ int POOL_tryAdd(POOL_ctx* ctx, POOL_function function, void* opaque)
     return 1;
 }
 
-
 #else  /* ZSTD_MULTITHREAD  not defined */
 
 /* ========================== */
 /* No multi-threading support */
 /* ========================== */
-
 
 /* We don't need any data, but if it is empty, malloc() might return NULL. */
 struct POOL_ctx_s {

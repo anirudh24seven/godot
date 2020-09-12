@@ -1,8 +1,6 @@
 
 /*  rich_text_label.cpp                                                  */
 
-
-
 #include "rich_text_label.h"
 
 #include "core/math/math_defs.h"

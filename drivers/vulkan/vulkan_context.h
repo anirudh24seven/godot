@@ -1,8 +1,6 @@
 
 /*  vulkan_context.h                                                     */
 
-
-
 #ifndef VULKAN_CONTEXT_H
 #define VULKAN_CONTEXT_H
 

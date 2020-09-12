@@ -23,29 +23,24 @@
    *
    */
 
-
 #ifndef FTIMAGE_H_
 #define FTIMAGE_H_
 
-
-  /* STANDALONE_ is from ftgrays.c */
+/* STANDALONE_ is from ftgrays.c */
 #ifndef STANDALONE_
 #include <ft2build.h>
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   basic_types
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_Pos
@@ -57,8 +52,7 @@ FT_BEGIN_HEADER
    */
   typedef signed long  FT_Pos;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_Vector
@@ -80,8 +74,7 @@ FT_BEGIN_HEADER
 
   } FT_Vector;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_BBox
@@ -123,8 +116,7 @@ FT_BEGIN_HEADER
 
   } FT_BBox;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   FT_Pixel_Mode
@@ -193,8 +185,7 @@ FT_BEGIN_HEADER
 
   } FT_Pixel_Mode;
 
-
-  /* these constants are deprecated; use the corresponding `FT_Pixel_Mode` */
+/* these constants are deprecated; use the corresponding `FT_Pixel_Mode` */
   /* values instead.                                                       */
 #define ft_pixel_mode_none   FT_PIXEL_MODE_NONE
 #define ft_pixel_mode_mono   FT_PIXEL_MODE_MONO
@@ -202,8 +193,7 @@ FT_BEGIN_HEADER
 #define ft_pixel_mode_pal2   FT_PIXEL_MODE_GRAY2
 #define ft_pixel_mode_pal4   FT_PIXEL_MODE_GRAY4
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_Bitmap
@@ -271,16 +261,14 @@ FT_BEGIN_HEADER
 
   } FT_Bitmap;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   outline_processing
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_Outline
@@ -354,8 +342,7 @@ FT_BEGIN_HEADER
 #define FT_OUTLINE_CONTOURS_MAX  SHRT_MAX
 #define FT_OUTLINE_POINTS_MAX    SHRT_MAX
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   FT_OUTLINE_XXX
@@ -436,8 +423,7 @@ FT_BEGIN_HEADER
 #define FT_OUTLINE_HIGH_PRECISION   0x100
 #define FT_OUTLINE_SINGLE_PASS      0x200
 
-
-  /* these constants are deprecated; use the corresponding */
+/* these constants are deprecated; use the corresponding */
   /* `FT_OUTLINE_XXX` values instead                       */
 #define ft_outline_none             FT_OUTLINE_NONE
 #define ft_outline_owner            FT_OUTLINE_OWNER
@@ -465,8 +451,7 @@ FT_BEGIN_HEADER
                                      FT_CURVE_TAG_TOUCH_Y )
   /* values 0x20, 0x40, and 0x80 are reserved */
 
-
-  /* these constants are deprecated; use the corresponding */
+/* these constants are deprecated; use the corresponding */
   /* `FT_CURVE_TAG_XXX` values instead                     */
 #define FT_Curve_Tag_On       FT_CURVE_TAG_ON
 #define FT_Curve_Tag_Conic    FT_CURVE_TAG_CONIC
@@ -474,8 +459,7 @@ FT_BEGIN_HEADER
 #define FT_Curve_Tag_Touch_X  FT_CURVE_TAG_TOUCH_X
 #define FT_Curve_Tag_Touch_Y  FT_CURVE_TAG_TOUCH_Y
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Outline_MoveToFunc
@@ -503,8 +487,7 @@ FT_BEGIN_HEADER
 
 #define FT_Outline_MoveTo_Func  FT_Outline_MoveToFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Outline_LineToFunc
@@ -532,8 +515,7 @@ FT_BEGIN_HEADER
 
 #define FT_Outline_LineTo_Func  FT_Outline_LineToFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Outline_ConicToFunc
@@ -567,8 +549,7 @@ FT_BEGIN_HEADER
 
 #define FT_Outline_ConicTo_Func  FT_Outline_ConicToFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Outline_CubicToFunc
@@ -604,8 +585,7 @@ FT_BEGIN_HEADER
 
 #define FT_Outline_CubicTo_Func  FT_Outline_CubicToFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_Outline_Funcs
@@ -660,16 +640,14 @@ FT_BEGIN_HEADER
 
   } FT_Outline_Funcs;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   basic_types
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @macro:
    *   FT_IMAGE_TAG
@@ -695,8 +673,7 @@ FT_BEGIN_HEADER
                       (unsigned long)_x4         )
 #endif /* FT_IMAGE_TAG */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   FT_Glyph_Format
@@ -744,8 +721,7 @@ FT_BEGIN_HEADER
 
   } FT_Glyph_Format;
 
-
-  /* these constants are deprecated; use the corresponding */
+/* these constants are deprecated; use the corresponding */
   /* `FT_Glyph_Format` values instead.                     */
 #define ft_glyph_format_none       FT_GLYPH_FORMAT_NONE
 #define ft_glyph_format_composite  FT_GLYPH_FORMAT_COMPOSITE
@@ -753,19 +729,11 @@ FT_BEGIN_HEADER
 #define ft_glyph_format_outline    FT_GLYPH_FORMAT_OUTLINE
 #define ft_glyph_format_plotter    FT_GLYPH_FORMAT_PLOTTER
 
-
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****            R A S T E R   D E F I N I T I O N S                *****/
   /*****                                                               *****/
 
-
-
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * A raster is a scan converter, in charge of rendering an outline into a
    * bitmap.  This section contains the public API for rasters.
@@ -776,8 +744,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   raster
@@ -808,8 +775,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   FT_Raster
@@ -820,8 +786,7 @@ FT_BEGIN_HEADER
    */
   typedef struct FT_RasterRec_*  FT_Raster;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_Span
@@ -856,8 +821,7 @@ FT_BEGIN_HEADER
 
   } FT_Span;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_SpanFunc
@@ -895,8 +859,7 @@ FT_BEGIN_HEADER
 
 #define FT_Raster_Span_Func  FT_SpanFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Raster_BitTest_Func
@@ -909,8 +872,7 @@ FT_BEGIN_HEADER
                              int    x,
                              void*  user );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Raster_BitSet_Func
@@ -923,8 +885,7 @@ FT_BEGIN_HEADER
                             int    x,
                             void*  user );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   FT_RASTER_FLAG_XXX
@@ -968,8 +929,7 @@ FT_BEGIN_HEADER
 #define ft_raster_flag_direct   FT_RASTER_FLAG_DIRECT
 #define ft_raster_flag_clip     FT_RASTER_FLAG_CLIP
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_Raster_Params
@@ -1033,8 +993,7 @@ FT_BEGIN_HEADER
 
   } FT_Raster_Params;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Raster_NewFunc
@@ -1066,8 +1025,7 @@ FT_BEGIN_HEADER
 
 #define FT_Raster_New_Func  FT_Raster_NewFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Raster_DoneFunc
@@ -1084,8 +1042,7 @@ FT_BEGIN_HEADER
 
 #define FT_Raster_Done_Func  FT_Raster_DoneFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Raster_ResetFunc
@@ -1120,8 +1077,7 @@ FT_BEGIN_HEADER
 
 #define FT_Raster_Reset_Func  FT_Raster_ResetFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Raster_SetModeFunc
@@ -1148,8 +1104,7 @@ FT_BEGIN_HEADER
 
 #define FT_Raster_Set_Mode_Func  FT_Raster_SetModeFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Raster_RenderFunc
@@ -1185,8 +1140,7 @@ FT_BEGIN_HEADER
 
 #define FT_Raster_Render_Func  FT_Raster_RenderFunc
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_Raster_Funcs
@@ -1224,14 +1178,11 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTIMAGE_H_ */
 
-
 /* END */
-
 
 /* Local Variables: */
 /* coding: utf-8    */

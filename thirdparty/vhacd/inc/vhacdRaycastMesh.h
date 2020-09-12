@@ -22,8 +22,7 @@ namespace VHACD
             uint32_t tcount,		// The number of triangles in the source triangle mesh
             const uint32_t *indices); // The triangle indices in the format of i1,i2,i3 ... i4,i5,i6, ...
 
-
-        virtual bool raycast(const double *from,			// The starting point of the raycast
+virtual bool raycast(const double *from,			// The starting point of the raycast
             const double *to,				// The ending point of the raycast
             const double *closestToPoint,	// The point to match the nearest hit location (can just be the 'from' location of no specific point)
             double *hitLocation,			// The point where the ray hit nearest to the 'closestToPoint' location

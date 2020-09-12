@@ -1,8 +1,6 @@
 
 /*  resource_importer_ogg_vorbis.cpp                                     */
 
-
-
 #include "resource_importer_ogg_vorbis.h"
 
 #include "core/io/resource_saver.h"

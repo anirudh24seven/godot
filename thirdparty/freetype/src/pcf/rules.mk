@@ -2,7 +2,6 @@
 # FreeType 2 pcf driver configuration rules
 #
 
-
 # Copyright (C) 2000, 2001, 2003, 2008 by
 # Francesco Zappa Nardelli
 #
@@ -24,17 +23,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-
 # pcf driver directory
 #
 PCF_DIR := $(SRC_DIR)/pcf
-
 
 PCF_COMPILE := $(CC) $(ANSIFLAGS)                            \
                      $I$(subst /,$(COMPILER_SEP),$(PCF_DIR)) \
                      $(INCLUDE_FLAGS)                        \
                      $(FT_CFLAGS)
-
 
 # pcf driver sources (i.e., C files)
 #
@@ -60,23 +56,19 @@ PCF_DRV_OBJ_S := $(OBJ_DIR)/pcf.$O
 #
 PCF_DRV_SRC_S := $(PCF_DIR)/pcf.c
 
-
 # pcf driver - single object
 #
 $(PCF_DRV_OBJ_S): $(PCF_DRV_SRC_S) $(PCF_DRV_SRC) $(FREETYPE_H) $(PCF_DRV_H)
 	$(PCF_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $(PCF_DRV_SRC_S))
-
 
 # pcf driver - multiple objects
 #
 $(OBJ_DIR)/%.$O: $(PCF_DIR)/%.c $(FREETYPE_H) $(PCF_DRV_H)
 	$(PCF_COMPILE) $T$(subst /,$(COMPILER_SEP),$@ $<)
 
-
 # update main driver object lists
 #
 DRV_OBJS_S += $(PCF_DRV_OBJ_S)
 DRV_OBJS_M += $(PCF_DRV_OBJ_M)
-
 
 # EOF

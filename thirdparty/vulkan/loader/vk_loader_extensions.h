@@ -454,4 +454,3 @@ union loader_instance_extension_enables {
     uint64_t padding[4];
 };
 
-

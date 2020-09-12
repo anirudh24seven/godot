@@ -1,8 +1,6 @@
 
 /*  java_godot_lib_jni.h                                                 */
 
-
-
 #ifndef JAVA_GODOT_LIB_JNI_H
 #define JAVA_GODOT_LIB_JNI_H
 

@@ -1,8 +1,6 @@
 
 /*  image_loader_svg.h                                                   */
 
-
-
 #ifndef IMAGE_LOADER_SVG_H
 #define IMAGE_LOADER_SVG_H
 

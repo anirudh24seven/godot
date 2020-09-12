@@ -1,8 +1,6 @@
 
 /*  rendering_server_scene.cpp                                           */
 
-
-
 #include "rendering_server_scene.h"
 
 #include "core/os/os.h"

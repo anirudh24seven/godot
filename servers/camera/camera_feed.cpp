@@ -1,8 +1,6 @@
 
 /*  camera_feed.cpp                                                      */
 
-
-
 #include "camera_feed.h"
 
 #include "servers/rendering_server.h"

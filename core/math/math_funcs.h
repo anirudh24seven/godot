@@ -1,8 +1,6 @@
 
 /*  math_funcs.h                                                         */
 
-
-
 #ifndef MATH_FUNCS_H
 #define MATH_FUNCS_H
 

@@ -19,7 +19,6 @@ void idct_dequant_full_2x_neon(short *q, short *dq,
 void idct_dequant_0_2x_neon(short *q, short dq,
                             unsigned char *dst, int stride);
 
-
 void vp8_dequant_idct_add_y_block_neon(short *q, short *dq,
                                        unsigned char *dst,
                                        int stride, char *eobs)

@@ -1,8 +1,6 @@
 
 /*  canvas_item_editor_plugin.h                                          */
 
-
-
 #ifndef CONTROL_EDITOR_PLUGIN_H
 #define CONTROL_EDITOR_PLUGIN_H
 

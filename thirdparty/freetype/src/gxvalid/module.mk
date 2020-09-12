@@ -12,7 +12,6 @@
 # indicate that you have read the license and understand and accept it
 # fully.
 
-
 FTMODULE_H_COMMANDS += GXVALID_MODULE
 
 define GXVALID_MODULE

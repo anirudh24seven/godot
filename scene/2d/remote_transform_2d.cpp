@@ -1,8 +1,6 @@
 
 /*  remote_transform_2d.cpp                                              */
 
-
-
 #include "remote_transform_2d.h"
 #include "scene/scene_string_names.h"
 

@@ -1,8 +1,6 @@
 
 /*  editor_folding.cpp                                                   */
 
-
-
 #include "editor_folding.h"
 
 #include "core/os/file_access.h"

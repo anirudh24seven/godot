@@ -1,8 +1,6 @@
 
 /*  cone_twist_joint_bullet.cpp                                          */
 
-
-
 #include "cone_twist_joint_bullet.h"
 
 #include "bullet_types_converter.h"

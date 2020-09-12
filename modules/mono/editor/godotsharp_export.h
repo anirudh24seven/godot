@@ -1,8 +1,6 @@
 
 /*  godotsharp_export.h                                                  */
 
-
-
 #ifndef GODOTSHARP_EXPORT_H
 #define GODOTSHARP_EXPORT_H
 

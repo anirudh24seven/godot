@@ -1,8 +1,6 @@
 
 /*  canvas_layer.h                                                       */
 
-
-
 #ifndef CANVAS_LAYER_H
 #define CANVAS_LAYER_H
 

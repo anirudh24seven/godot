@@ -75,7 +75,6 @@ void xcorr_kernel_sse(const opus_val16 *x, const opus_val16 *y, opus_val32 sum[4
    _mm_storeu_ps(sum,_mm_add_ps(xsum1,xsum2));
 }
 
-
 void dual_inner_prod_sse(const opus_val16 *x, const opus_val16 *y01, const opus_val16 *y02,
       int N, opus_val32 *xy1, opus_val32 *xy2)
 {
@@ -180,6 +179,5 @@ void comb_filter_const_sse(opus_val32 *y, opus_val32 *x, int T, int N,
    }
 #endif
 }
-
 
 #endif

@@ -1,8 +1,6 @@
 
 /*  register_server_types.cpp                                            */
 
-
-
 #include "register_server_types.h"
 
 #include "core/engine.h"

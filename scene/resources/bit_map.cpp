@@ -1,8 +1,6 @@
 
 /*  bit_map.cpp                                                          */
 
-
-
 #include "bit_map.h"
 
 #include "core/io/image_loader.h"

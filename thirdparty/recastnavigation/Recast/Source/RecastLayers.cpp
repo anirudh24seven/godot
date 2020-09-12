@@ -26,7 +26,6 @@
 #include "RecastAlloc.h"
 #include "RecastAssert.h"
 
-
 // Must be 255 or smaller (not 256) because layer IDs are stored as
 // a byte where 255 is a special value.
 static const int RC_MAX_LAYERS = 63;
@@ -42,7 +41,6 @@ struct rcLayerRegion
 	unsigned char nneis;		// Neighbour count
 	unsigned char base;		// Flag indicating if the region is the base of merged regions.
 };
-
 
 static bool contains(const unsigned char* a, const unsigned char an, const unsigned char v)
 {
@@ -68,14 +66,11 @@ static bool addUnique(unsigned char* a, unsigned char& an, int anMax, unsigned c
 	return true;
 }
 
-
 inline bool overlapRange(const unsigned short amin, const unsigned short amax,
 						 const unsigned short bmin, const unsigned short bmax)
 {
 	return (amin > bmax || amax < bmin) ? false : true;
 }
-
-
 
 struct rcLayerSweepSpan
 {
@@ -115,9 +110,8 @@ bool rcBuildHeightfieldLayers(rcContext* ctx, rcCompactHeightfield& chf,
 		ctx->log(RC_LOG_ERROR, "rcBuildHeightfieldLayers: Out of memory 'sweeps' (%d).", nsweeps);
 		return false;
 	}
-	
-	
-	// Partition walkable area into monotone regions.
+
+// Partition walkable area into monotone regions.
 	int prevCount[256];
 	unsigned char regId = 0;
 
@@ -504,8 +498,7 @@ bool rcBuildHeightfieldLayers(rcContext* ctx, rcCompactHeightfield& chf,
 	}
 	memset(lset.layers, 0, sizeof(rcHeightfieldLayer)*lset.nlayers);
 
-	
-	// Store layers.
+// Store layers.
 	for (int i = 0; i < lset.nlayers; ++i)
 	{
 		unsigned char curId = (unsigned char)i;

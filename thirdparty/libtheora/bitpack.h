@@ -18,20 +18,14 @@
 # define _bitpack_H (1)
 # include <limits.h>
 
-
-
 typedef unsigned long      oc_pb_window;
 typedef struct oc_pack_buf oc_pack_buf;
-
-
 
 # define OC_PB_WINDOW_SIZE ((int)sizeof(oc_pb_window)*CHAR_BIT)
 /*This is meant to be a large, positive constant that can still be efficiently
    loaded as an immediate (on platforms like ARM, for example).
   Even relatively modest values like 100 would work fine.*/
 # define OC_LOTS_OF_BITS (0x40000000)
-
-
 
 struct oc_pack_buf{
   oc_pb_window         window;

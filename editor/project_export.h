@@ -1,8 +1,6 @@
 
 /*  project_export.h                                                     */
 
-
-
 #ifndef PROJECT_EXPORT_SETTINGS_H
 #define PROJECT_EXPORT_SETTINGS_H
 

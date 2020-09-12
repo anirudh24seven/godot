@@ -1,8 +1,6 @@
 
 /*  file_access_encrypted.h                                              */
 
-
-
 #ifndef FILE_ACCESS_ENCRYPTED_H
 #define FILE_ACCESS_ENCRYPTED_H
 

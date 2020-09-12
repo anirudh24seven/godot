@@ -1,8 +1,6 @@
 
 /*  world_margin_shape_3d.h                                              */
 
-
-
 #ifndef WORLD_MARGIN_SHAPE_3D_H
 #define WORLD_MARGIN_SHAPE_3D_H
 

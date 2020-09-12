@@ -14,8 +14,7 @@
  @  be found in the AUTHORS file in the root of the source tree.
  @
 
-
-    .globl _vpx_push_neon
+.globl _vpx_push_neon
 	.globl vpx_push_neon
     .globl _vpx_pop_neon
 	.globl vpx_pop_neon
@@ -42,5 +41,4 @@ _vpx_pop_neon:
     bx              lr
 
     @
-
 

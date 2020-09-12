@@ -1,8 +1,6 @@
 
 /*  pvrtc_compress.cpp                                                   */
 
-
-
 #include "pvrtc_compress.h"
 
 #include "core/io/resource_loader.h"

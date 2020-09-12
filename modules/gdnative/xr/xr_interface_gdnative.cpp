@@ -1,8 +1,6 @@
 
 /*  xr_interface_gdnative.cpp                                            */
 
-
-
 #include "xr_interface_gdnative.h"
 #include "core/input/input.h"
 #include "servers/rendering/rendering_server_globals.h"

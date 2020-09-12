@@ -1,8 +1,6 @@
 
 /*  file_access_jandroid.h                                               */
 
-
-
 #ifndef FILE_ACCESS_JANDROID_H
 #define FILE_ACCESS_JANDROID_H
 

@@ -1,8 +1,6 @@
 
 /*  collision_polygon_2d_editor_plugin.cpp                               */
 
-
-
 #include "collision_polygon_2d_editor_plugin.h"
 
 Node2D *CollisionPolygon2DEditor::_get_node() const {

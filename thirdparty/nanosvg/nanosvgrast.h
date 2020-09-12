@@ -65,7 +65,6 @@ void nsvgRasterize(NSVGrasterizer* r,
 // Deletes rasterizer context.
 void nsvgDeleteRasterizer(NSVGrasterizer*);
 
-
 #ifndef NANOSVGRAST_CPLUSPLUS
 #ifdef __cplusplus
 }
@@ -851,7 +850,6 @@ static int nsvg__cmpEdge(const void *p, const void *q)
 	return 0;
 }
 
-
 static NSVGactiveEdge* nsvg__addActive(NSVGrasterizer* r, NSVGedge* e, float startPoint)
 {
 	 NSVGactiveEdge* z;
@@ -1258,7 +1256,6 @@ static void nsvg__unpremultiplyAlpha(unsigned char* image, int w, int h, int str
 		}
 	}
 }
-
 
 static void nsvg__initPaint(NSVGcachedPaint* cache, NSVGpaint* paint, float opacity)
 {

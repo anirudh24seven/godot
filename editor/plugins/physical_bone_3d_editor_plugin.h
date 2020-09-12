@@ -1,8 +1,6 @@
 
 /*  physical_bone_3d_editor_plugin.h                                     */
 
-
-
 #ifndef PHYSICAL_BONE_PLUGIN_H
 #define PHYSICAL_BONE_PLUGIN_H
 

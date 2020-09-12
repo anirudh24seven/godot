@@ -1,8 +1,6 @@
 
 /*  vulkan_context.cpp                                                   */
 
-
-
 #include "vulkan_context.h"
 
 #include "core/engine.h"

@@ -1,8 +1,6 @@
 
 /*  script_create_dialog.h                                               */
 
-
-
 #ifndef SCRIPT_CREATE_DIALOG_H
 #define SCRIPT_CREATE_DIALOG_H
 

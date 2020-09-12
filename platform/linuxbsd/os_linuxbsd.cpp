@@ -1,8 +1,6 @@
 
 /*  os_linuxbsd.cpp                                                      */
 
-
-
 #include "os_linuxbsd.h"
 
 #include "core/os/dir_access.h"

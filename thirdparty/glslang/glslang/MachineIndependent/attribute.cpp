@@ -54,7 +54,6 @@ bool TAttributeArgs::getInt(int& value, int argNum) const
     return true;
 }
 
-
 // extract strings out of attribute arguments stored in attribute aggregate.
 // convert to lower case if converToLower is true (for case-insensitive compare convenience)
 bool TAttributeArgs::getString(TString& value, int argNum, bool convertToLower) const 

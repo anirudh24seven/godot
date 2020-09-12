@@ -30,7 +30,6 @@ size_t ZSTD_compressBlock_doubleFast_extDict(
         ZSTD_matchState_t* ms, seqStore_t* seqStore, U32 rep[ZSTD_REP_NUM],
         void const* src, size_t srcSize);
 
-
 #if defined (__cplusplus)
 }
 #endif

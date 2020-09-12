@@ -236,8 +236,7 @@ static int ccm_auth_crypt( mbedtls_ccm_context *ctx, int mode, size_t length,
     if( len_left > 0 )
         return( MBEDTLS_ERR_CCM_BAD_INPUT );
 
-
-    /* Start CBC-MAC with first block */
+/* Start CBC-MAC with first block */
     memset( y, 0, 16 );
     UPDATE_CBC_MAC;
 

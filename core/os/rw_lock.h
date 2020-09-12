@@ -1,8 +1,6 @@
 
 /*  rw_lock.h                                                            */
 
-
-
 #ifndef RW_LOCK_H
 #define RW_LOCK_H
 

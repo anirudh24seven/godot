@@ -1,8 +1,6 @@
 
 /*  transform_2d.h                                                       */
 
-
-
 #ifndef TRANSFORM_2D_H
 #define TRANSFORM_2D_H
 

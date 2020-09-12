@@ -1,8 +1,6 @@
 
 /*  check_box.h                                                          */
 
-
-
 #ifndef CHECK_BOX_H
 #define CHECK_BOX_H
 

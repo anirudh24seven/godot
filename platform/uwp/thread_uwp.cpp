@@ -1,8 +1,6 @@
 
 /*  thread_uwp.cpp                                                       */
 
-
-
 #include "thread_uwp.h"
 
 #include "core/os/memory.h"

@@ -15,10 +15,8 @@
  *
  */
 
-
 #ifndef FTMODAPI_H_
 #define FTMODAPI_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -29,11 +27,9 @@
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   module_management
@@ -105,8 +101,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /* module bit flags */
+/* module bit flags */
 #define FT_MODULE_FONT_DRIVER         1  /* this module is a font driver  */
 #define FT_MODULE_RENDERER            2  /* this module is a renderer     */
 #define FT_MODULE_HINTER              4  /* this module is a glyph hinter */
@@ -121,8 +116,7 @@ FT_BEGIN_HEADER
 #define FT_MODULE_DRIVER_HINTS_LIGHTLY 0x800  /* the driver's hinter      */
                                               /* produces LIGHT hints     */
 
-
-  /* deprecated values */
+/* deprecated values */
 #define ft_module_font_driver         FT_MODULE_FONT_DRIVER
 #define ft_module_renderer            FT_MODULE_RENDERER
 #define ft_module_hinter              FT_MODULE_HINTER
@@ -133,11 +127,9 @@ FT_BEGIN_HEADER
 #define ft_module_driver_has_hinter     FT_MODULE_DRIVER_HAS_HINTER
 #define ft_module_driver_hints_lightly  FT_MODULE_DRIVER_HINTS_LIGHTLY
 
+typedef FT_Pointer  FT_Module_Interface;
 
-  typedef FT_Pointer  FT_Module_Interface;
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Module_Constructor
@@ -152,8 +144,7 @@ FT_BEGIN_HEADER
   typedef FT_Error
   (*FT_Module_Constructor)( FT_Module  module );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Module_Destructor
@@ -168,8 +159,7 @@ FT_BEGIN_HEADER
   typedef void
   (*FT_Module_Destructor)( FT_Module  module );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_Module_Requester
@@ -188,8 +178,7 @@ FT_BEGIN_HEADER
   (*FT_Module_Requester)( FT_Module    module,
                           const char*  name );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   FT_Module_Class
@@ -246,8 +235,7 @@ FT_BEGIN_HEADER
 
   } FT_Module_Class;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Add_Module
@@ -274,8 +262,7 @@ FT_BEGIN_HEADER
   FT_Add_Module( FT_Library              library,
                  const FT_Module_Class*  clazz );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Get_Module
@@ -301,8 +288,7 @@ FT_BEGIN_HEADER
   FT_Get_Module( FT_Library   library,
                  const char*  module_name );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Remove_Module
@@ -328,8 +314,7 @@ FT_BEGIN_HEADER
   FT_Remove_Module( FT_Library  library,
                     FT_Module   module );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_Property_Set
@@ -392,8 +377,7 @@ FT_BEGIN_HEADER
                    const FT_String*  property_name,
                    const void*       value );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_Property_Get
@@ -455,8 +439,7 @@ FT_BEGIN_HEADER
                    const FT_String*  property_name,
                    void*             value );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Set_Default_Properties
@@ -500,8 +483,7 @@ FT_BEGIN_HEADER
   FT_EXPORT( void )
   FT_Set_Default_Properties( FT_Library  library );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Reference_Library
@@ -528,8 +510,7 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Error )
   FT_Reference_Library( FT_Library  library );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_New_Library
@@ -568,8 +549,7 @@ FT_BEGIN_HEADER
   FT_New_Library( FT_Memory    memory,
                   FT_Library  *alibrary );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Done_Library
@@ -592,8 +572,7 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Error )
   FT_Done_Library( FT_Library  library );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   FT_DebugHook_Func
@@ -626,8 +605,7 @@ FT_BEGIN_HEADER
   typedef FT_Error
   (*FT_DebugHook_Func)( void*  arg );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *   FT_DEBUG_HOOK_XXX
@@ -641,8 +619,7 @@ FT_BEGIN_HEADER
    */
 #define FT_DEBUG_HOOK_TRUETYPE  0
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Set_Debug_Hook
@@ -678,8 +655,7 @@ FT_BEGIN_HEADER
                      FT_UInt            hook_index,
                      FT_DebugHook_Func  debug_hook );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Add_Default_Modules
@@ -696,9 +672,7 @@ FT_BEGIN_HEADER
   FT_EXPORT( void )
   FT_Add_Default_Modules( FT_Library  library );
 
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   truetype_engine
@@ -715,8 +689,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @enum:
    *    FT_TrueTypeEngineType
@@ -750,8 +723,7 @@ FT_BEGIN_HEADER
 
   } FT_TrueTypeEngineType;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *    FT_Get_TrueType_Engine_Type
@@ -776,10 +748,8 @@ FT_BEGIN_HEADER
 
   /* */
 
-
 FT_END_HEADER
 
 #endif /* FTMODAPI_H_ */
-
 
 /* END */

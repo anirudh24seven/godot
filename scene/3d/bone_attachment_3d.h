@@ -1,8 +1,6 @@
 
 /*  bone_attachment_3d.h                                                 */
 
-
-
 #ifndef BONE_ATTACHMENT_H
 #define BONE_ATTACHMENT_H
 

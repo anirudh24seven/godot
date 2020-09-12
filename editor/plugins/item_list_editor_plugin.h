@@ -1,8 +1,6 @@
 
 /*  item_list_editor_plugin.h                                            */
 
-
-
 #ifndef ITEM_LIST_EDITOR_PLUGIN_H
 #define ITEM_LIST_EDITOR_PLUGIN_H
 

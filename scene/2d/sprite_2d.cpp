@@ -1,8 +1,6 @@
 
 /*  sprite_2d.cpp                                                        */
 
-
-
 #include "sprite_2d.h"
 
 #include "core/core_string_names.h"

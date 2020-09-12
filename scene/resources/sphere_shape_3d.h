@@ -1,8 +1,6 @@
 
 /*  sphere_shape_3d.h                                                    */
 
-
-
 #ifndef SPHERE_SHAPE_3D_H
 #define SPHERE_SHAPE_3D_H
 

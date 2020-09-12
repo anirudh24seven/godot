@@ -429,8 +429,7 @@ void jit_avx512_core_x8s8s32x_1x1_conv_kernel::generate()
     mov(reg_reduce_loop_work, ptr[param1 + GET_OFF(reduce_dim)]);
     mov(reg_reduce_pos_flag, ptr[param1 + GET_OFF(first_last_flag)]);
 
-
-    auto load_loop_body = [=](int load_loop_blk) {
+auto load_loop_body = [=](int load_loop_blk) {
         bcast_loop(load_loop_blk);
         add(reg_load_data, load_loop_blk * jcp.load_loop_load_step);
         if (jcp.with_bias) {

@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef ASSIMP_REGISTER_TYPES_H
 #define ASSIMP_REGISTER_TYPES_H
 

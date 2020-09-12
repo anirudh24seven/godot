@@ -80,7 +80,6 @@ public:
     }
 };
 
-
 class KKTPreconditioner : public Preconditioner
 {
     const btAlignedObjectArray<btSoftBody *>& m_softBodies;

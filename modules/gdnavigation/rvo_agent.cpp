@@ -1,8 +1,6 @@
 
 /*  rvo_agent.cpp                                                        */
 
-
-
 #include "rvo_agent.h"
 
 #include "nav_map.h"

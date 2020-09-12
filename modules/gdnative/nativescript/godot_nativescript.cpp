@@ -1,8 +1,6 @@
 
 /*  godot_nativescript.cpp                                               */
 
-
-
 #include "nativescript/godot_nativescript.h"
 
 #include "core/class_db.h"

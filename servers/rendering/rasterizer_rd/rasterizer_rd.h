@@ -1,8 +1,6 @@
 
 /*  rasterizer_rd.h                                                      */
 
-
-
 #ifndef RASTERIZER_RD_H
 #define RASTERIZER_RD_H
 

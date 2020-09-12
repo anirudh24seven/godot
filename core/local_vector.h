@@ -1,8 +1,6 @@
 
 /*  local_vector.h                                                       */
 
-
-
 #ifndef LOCAL_VECTOR_H
 #define LOCAL_VECTOR_H
 

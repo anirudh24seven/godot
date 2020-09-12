@@ -1,8 +1,6 @@
 
 /*  editor_feature_profile.cpp                                           */
 
-
-
 #include "editor_feature_profile.h"
 
 #include "core/io/json.h"

@@ -1,8 +1,6 @@
 
 /*  sprite_frames_editor_plugin.cpp                                      */
 
-
-
 #include "sprite_frames_editor_plugin.h"
 
 #include "core/io/resource_loader.h"

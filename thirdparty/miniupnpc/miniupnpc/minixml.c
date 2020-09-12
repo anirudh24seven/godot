@@ -228,4 +228,3 @@ void parsexml(struct xmlparser * parser)
 	parseelt(parser);
 }
 
-

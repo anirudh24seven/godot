@@ -1,8 +1,6 @@
 
 /*  camera_3d.h                                                          */
 
-
-
 #ifndef CAMERA_3D_H
 #define CAMERA_3D_H
 

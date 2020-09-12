@@ -1,8 +1,6 @@
 
 /*  visual_script_flow_control.h                                         */
 
-
-
 #ifndef VISUAL_SCRIPT_FLOW_CONTROL_H
 #define VISUAL_SCRIPT_FLOW_CONTROL_H
 

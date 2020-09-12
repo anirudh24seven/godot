@@ -1,8 +1,6 @@
 
 /*  GodotTextInputWrapper.java                                           */
 
-
-
 package org.godotengine.godot.input;
 
 import org.godotengine.godot.*;

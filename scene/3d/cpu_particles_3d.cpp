@@ -1,8 +1,6 @@
 
 /*  cpu_particles_3d.cpp                                                 */
 
-
-
 #include "cpu_particles_3d.h"
 
 #include "scene/3d/camera_3d.h"

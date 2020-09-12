@@ -1,8 +1,6 @@
 
 /*  global_constants.h                                                   */
 
-
-
 #ifndef GLOBAL_CONSTANTS_H
 #define GLOBAL_CONSTANTS_H
 

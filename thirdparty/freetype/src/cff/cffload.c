@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_DEBUG_H
 #include FT_INTERNAL_OBJECTS_H
@@ -34,9 +33,7 @@
 
 #include "cfferrs.h"
 
-
 #define FT_FIXED_ONE  ( (FT_Fixed)0x10000 )
-
 
 #if 1
 
@@ -187,16 +184,14 @@
 
 #endif /* 1 */
 
-
-  FT_LOCAL_DEF( FT_UShort )
+FT_LOCAL_DEF( FT_UShort )
   cff_get_standard_encoding( FT_UInt  charcode )
   {
     return (FT_UShort)( charcode < 256 ? cff_standard_encoding[charcode]
                                        : 0 );
   }
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -205,8 +200,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  cffload
 
-
-  /* read an offset from the index's stream current position */
+/* read an offset from the index's stream current position */
   static FT_ULong
   cff_index_read_offset( CFF_Index  idx,
                          FT_Error  *errorp )
@@ -216,13 +210,11 @@
     FT_Byte    tmp[4];
     FT_ULong   result = 0;
 
-
-    if ( !FT_STREAM_READ( tmp, idx->off_size ) )
+if ( !FT_STREAM_READ( tmp, idx->off_size ) )
     {
       FT_Int  nn;
 
-
-      for ( nn = 0; nn < idx->off_size; nn++ )
+for ( nn = 0; nn < idx->off_size; nn++ )
         result = ( result << 8 ) | tmp[nn];
     }
 
@@ -230,8 +222,7 @@
     return result;
   }
 
-
-  static FT_Error
+static FT_Error
   cff_index_init( CFF_Index  idx,
                   FT_Stream  stream,
                   FT_Bool    load,
@@ -241,8 +232,7 @@
     FT_Memory  memory = stream->memory;
     FT_UInt    count;
 
-
-    FT_ZERO( idx );
+FT_ZERO( idx );
 
     idx->stream = stream;
     idx->start  = FT_STREAM_POS();
@@ -265,8 +255,7 @@
       FT_Byte   offsize;
       FT_ULong  size;
 
-
-      /* there is at least one element; read the offset size,           */
+/* there is at least one element; read the offset size,           */
       /* then access the offset table to compute the index's total size */
       if ( FT_READ_BYTE( offsize ) )
         goto Exit;
@@ -319,8 +308,7 @@
     return error;
   }
 
-
-  static void
+static void
   cff_index_done( CFF_Index  idx )
   {
     if ( idx->stream )
@@ -328,8 +316,7 @@
       FT_Stream  stream = idx->stream;
       FT_Memory  memory = stream->memory;
 
-
-      if ( idx->bytes )
+if ( idx->bytes )
         FT_FRAME_RELEASE( idx->bytes );
 
       FT_FREE( idx->offsets );
@@ -337,16 +324,14 @@
     }
   }
 
-
-  static FT_Error
+static FT_Error
   cff_index_load_offsets( CFF_Index  idx )
   {
     FT_Error   error  = FT_Err_Ok;
     FT_Stream  stream = idx->stream;
     FT_Memory  memory = stream->memory;
 
-
-    if ( idx->count > 0 && !idx->offsets )
+if ( idx->count > 0 && !idx->offsets )
     {
       FT_Byte    offsize = idx->off_size;
       FT_ULong   data_size;
@@ -354,8 +339,7 @@
       FT_Byte*   p_end;
       FT_ULong*  poff;
 
-
-      data_size = (FT_ULong)( idx->count + 1 ) * offsize;
+data_size = (FT_ULong)( idx->count + 1 ) * offsize;
 
       if ( FT_NEW_ARRAY( idx->offsets, idx->count + 1 ) ||
            FT_STREAM_SEEK( idx->start + idx->hdr_size ) ||
@@ -398,8 +382,7 @@
     return error;
   }
 
-
-  /* Allocate a table containing pointers to an index's elements. */
+/* Allocate a table containing pointers to an index's elements. */
   /* The `pool' argument makes this function convert the index    */
   /* entries to C-style strings (this is, NULL-terminated).       */
   static FT_Error
@@ -415,8 +398,7 @@
     FT_Byte*   new_bytes = NULL;
     FT_ULong   new_size;
 
-
-    *table = NULL;
+*table = NULL;
 
     if ( !idx->offsets )
     {
@@ -435,8 +417,7 @@
       FT_ULong  extra = 0;
       FT_Byte*  org_bytes = idx->bytes;
 
-
-      /* at this point, `idx->offsets' can't be NULL */
+/* at this point, `idx->offsets' can't be NULL */
       cur_offset = idx->offsets[0] - 1;
 
       /* sanity check */
@@ -457,8 +438,7 @@
       {
         FT_ULong  next_offset = idx->offsets[n] - 1;
 
-
-        /* two sanity checks for invalid offset tables */
+/* two sanity checks for invalid offset tables */
         if ( next_offset < cur_offset )
           next_offset = cur_offset;
         else if ( next_offset > idx->data_size )
@@ -493,8 +473,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   cff_index_access_element( CFF_Index  idx,
                             FT_UInt    element,
                             FT_Byte**  pbytes,
@@ -502,21 +481,18 @@
   {
     FT_Error  error = FT_Err_Ok;
 
-
-    if ( idx && idx->count > element )
+if ( idx && idx->count > element )
     {
       /* compute start and end offsets */
       FT_Stream  stream = idx->stream;
       FT_ULong   off1, off2 = 0;
 
-
-      /* load offsets from file or the offset table */
+/* load offsets from file or the offset table */
       if ( !idx->offsets )
       {
         FT_ULong  pos = element * idx->off_size;
 
-
-        if ( FT_STREAM_SEEK( idx->start + idx->hdr_size + pos ) )
+if ( FT_STREAM_SEEK( idx->start + idx->hdr_size + pos ) )
           goto Exit;
 
         off1 = cff_index_read_offset( idx, &error );
@@ -591,8 +567,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cff_index_forget_element( CFF_Index  idx,
                             FT_Byte**  pbytes )
   {
@@ -600,13 +575,11 @@
     {
       FT_Stream  stream = idx->stream;
 
-
-      FT_FRAME_RELEASE( *pbytes );
+FT_FRAME_RELEASE( *pbytes );
     }
   }
 
-
-  /* get an entry from Name INDEX */
+/* get an entry from Name INDEX */
   FT_LOCAL_DEF( FT_String* )
   cff_index_get_name( CFF_Font  font,
                       FT_UInt   element )
@@ -618,8 +591,7 @@
     FT_Error    error;
     FT_String*  name = 0;
 
-
-    if ( !idx->stream )  /* CFF2 does not include a name index */
+if ( !idx->stream )  /* CFF2 does not include a name index */
       goto Exit;
 
     memory = idx->stream->memory;
@@ -640,8 +612,7 @@
     return name;
   }
 
-
-  /* get an entry from String INDEX */
+/* get an entry from String INDEX */
   FT_LOCAL_DEF( FT_String* )
   cff_index_get_string( CFF_Font  font,
                         FT_UInt   element )
@@ -651,8 +622,7 @@
              : NULL;
   }
 
-
-  FT_LOCAL_DEF( FT_String* )
+FT_LOCAL_DEF( FT_String* )
   cff_index_get_sid_string( CFF_Font  font,
                             FT_UInt   sid )
   {
@@ -672,17 +642,11 @@
     return (FT_String *)font->psnames->adobe_std_strings( sid );
   }
 
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***   FD Select table support                                         ***/
   /***                                                                   ***/
 
-
-
-
-  static void
+static void
   CFF_Done_FD_Select( CFF_FDSelect  fdselect,
                       FT_Stream     stream )
   {
@@ -694,8 +658,7 @@
     fdselect->range_count = 0;
   }
 
-
-  static FT_Error
+static FT_Error
   CFF_Load_FD_Select( CFF_FDSelect  fdselect,
                       FT_UInt       num_glyphs,
                       FT_Stream     stream,
@@ -705,8 +668,7 @@
     FT_Byte   format;
     FT_UInt   num_ranges;
 
-
-    /* read format */
+/* read format */
     if ( FT_STREAM_SEEK( offset ) || FT_READ_BYTE( format ) )
       goto Exit;
 
@@ -745,15 +707,13 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Byte )
+FT_LOCAL_DEF( FT_Byte )
   cff_fd_select_get( CFF_FDSelect  fdselect,
                      FT_UInt       glyph_index )
   {
     FT_Byte  fd = 0;
 
-
-    /* if there is no FDSelect, return zero               */
+/* if there is no FDSelect, return zero               */
     /* Note: CFF2 with just one Font Dict has no FDSelect */
     if ( !fdselect->data )
       goto Exit;
@@ -780,8 +740,7 @@
         FT_Byte   fd2;
         FT_UInt   first, limit;
 
-
-        first = FT_NEXT_USHORT( p );
+first = FT_NEXT_USHORT( p );
         do
         {
           if ( glyph_index < first )
@@ -814,16 +773,11 @@
     return fd;
   }
 
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***   CFF font support                                                ***/
   /***                                                                   ***/
 
-
-
-  static FT_Error
+static FT_Error
   cff_charset_compute_cids( CFF_Charset  charset,
                             FT_UInt      num_glyphs,
                             FT_Memory    memory )
@@ -833,8 +787,7 @@
     FT_Long    j;
     FT_UShort  max_cid = 0;
 
-
-    if ( charset->max_cid > 0 )
+if ( charset->max_cid > 0 )
       goto Exit;
 
     for ( i = 0; i < num_glyphs; i++ )
@@ -859,22 +812,19 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_UInt )
+FT_LOCAL_DEF( FT_UInt )
   cff_charset_cid_to_gindex( CFF_Charset  charset,
                              FT_UInt      cid )
   {
     FT_UInt  result = 0;
 
-
-    if ( cid <= charset->max_cid )
+if ( cid <= charset->max_cid )
       result = charset->cids[cid];
 
     return result;
   }
 
-
-  static void
+static void
   cff_charset_free_cids( CFF_Charset  charset,
                          FT_Memory    memory )
   {
@@ -882,23 +832,20 @@
     charset->max_cid = 0;
   }
 
-
-  static void
+static void
   cff_charset_done( CFF_Charset  charset,
                     FT_Stream    stream )
   {
     FT_Memory  memory = stream->memory;
 
-
-    cff_charset_free_cids( charset, memory );
+cff_charset_free_cids( charset, memory );
 
     FT_FREE( charset->sids );
     charset->format = 0;
     charset->offset = 0;
   }
 
-
-  static FT_Error
+static FT_Error
   cff_charset_load( CFF_Charset  charset,
                     FT_UInt      num_glyphs,
                     FT_Stream    stream,
@@ -910,15 +857,13 @@
     FT_Error   error  = FT_Err_Ok;
     FT_UShort  glyph_sid;
 
-
-    /* If the offset is greater than 2, we have to parse the charset */
+/* If the offset is greater than 2, we have to parse the charset */
     /* table.                                                        */
     if ( offset > 2 )
     {
       FT_UInt  j;
 
-
-      charset->offset = base_offset + offset;
+charset->offset = base_offset + offset;
 
       /* Get the format of the table. */
       if ( FT_STREAM_SEEK( charset->offset ) ||
@@ -953,8 +898,7 @@
           FT_UInt  nleft;
           FT_UInt  i;
 
-
-          j = 1;
+j = 1;
 
           while ( j < num_glyphs )
           {
@@ -1087,15 +1031,13 @@
     return error;
   }
 
-
-  static void
+static void
   cff_vstore_done( CFF_VStoreRec*  vstore,
                    FT_Memory       memory )
   {
     FT_UInt  i;
 
-
-    /* free regionList and axisLists */
+/* free regionList and axisLists */
     if ( vstore->varRegionList )
     {
       for ( i = 0; i < vstore->regionCount; i++ )
@@ -1112,12 +1054,10 @@
     FT_FREE( vstore->varData );
   }
 
-
-  /* convert 2.14 to Fixed */
+/* convert 2.14 to Fixed */
   #define FT_fdot14ToFixed( x )  ( (FT_Fixed)( (FT_ULong)(x) << 2 ) )
 
-
-  static FT_Error
+static FT_Error
   cff_vstore_load( CFF_VStoreRec*  vstore,
                    FT_Stream       stream,
                    FT_ULong        base_offset,
@@ -1129,16 +1069,14 @@
     FT_ULong*  dataOffsetArray = NULL;
     FT_UInt    i, j;
 
-
-    /* no offset means no vstore to parse */
+/* no offset means no vstore to parse */
     if ( offset )
     {
       FT_UInt   vsOffset;
       FT_UInt   format;
       FT_ULong  regionListOffset;
 
-
-      /* we need to parse the table to determine its size; */
+/* we need to parse the table to determine its size; */
       /* skip table length                                 */
       if ( FT_STREAM_SEEK( base_offset + offset ) ||
            FT_STREAM_SKIP( 2 )                    )
@@ -1185,8 +1123,7 @@
       {
         CFF_VarRegion*  region = &vstore->varRegionList[i];
 
-
-        if ( FT_NEW_ARRAY( region->axisList, vstore->axisCount ) )
+if ( FT_NEW_ARRAY( region->axisList, vstore->axisCount ) )
           goto Exit;
 
         for ( j = 0; j < vstore->axisCount; j++ )
@@ -1195,8 +1132,7 @@
 
           FT_Int16  start14, peak14, end14;
 
-
-          if ( FT_READ_SHORT( start14 ) ||
+if ( FT_READ_SHORT( start14 ) ||
                FT_READ_SHORT( peak14 )  ||
                FT_READ_SHORT( end14 )   )
             goto Exit;
@@ -1215,8 +1151,7 @@
       {
         CFF_VarData*  data = &vstore->varData[i];
 
-
-        if ( FT_STREAM_SEEK( vsOffset + dataOffsetArray[i] ) )
+if ( FT_STREAM_SEEK( vsOffset + dataOffsetArray[i] ) )
           goto Exit;
 
         /* ignore `itemCount' and `shortDeltaCount' */
@@ -1251,8 +1186,7 @@
     return error;
   }
 
-
-  /* Clear blend stack (after blend values are consumed). */
+/* Clear blend stack (after blend values are consumed). */
   /*                                                      */
   /* TODO: Should do this in cff_run_parse, but subFont   */
   /*       ref is not available there.                    */
@@ -1265,8 +1199,7 @@
     subFont->blend_used = 0;
   }
 
-
-  /* Blend numOperands on the stack,                       */
+/* Blend numOperands on the stack,                       */
   /* store results into the first numBlends values,        */
   /* then pop remaining arguments.                         */
   /*                                                       */
@@ -1295,8 +1228,7 @@
     FT_UInt  numOperands = (FT_UInt)( numBlends * blend->lenBV );
     FT_UInt  count       = (FT_UInt)( parser->top - 1 - parser->stack );
 
-
-    if ( numOperands > count )
+if ( numOperands > count )
     {
       FT_TRACE4(( " cff_blend_doBlend: Stack underflow %d argument%s\n",
                   count,
@@ -1313,8 +1245,7 @@
       FT_Byte*  blend_stack_old = subFont->blend_stack;
       FT_Byte*  blend_top_old   = subFont->blend_top;
 
-
-      /* increase or allocate `blend_stack' and reset `blend_top'; */
+/* increase or allocate `blend_stack' and reset `blend_top'; */
       /* prepare to append `numBlends' values to the buffer        */
       if ( FT_REALLOC( subFont->blend_stack,
                        subFont->blend_alloc,
@@ -1332,8 +1263,7 @@
         FT_PtrDist  offset = subFont->blend_stack - blend_stack_old;
         FT_Byte**   p;
 
-
-        for ( p = parser->stack; p < parser->top; p++ )
+for ( p = parser->stack; p < parser->top; p++ )
         {
           if ( *p >= blend_stack_old && *p < blend_top_old )
             *p += offset;
@@ -1350,8 +1280,7 @@
       const FT_Int32*  weight = &blend->BV[1];
       FT_UInt32        sum;
 
-
-      /* convert inputs to 16.16 fixed point */
+/* convert inputs to 16.16 fixed point */
       sum = cff_parse_num( parser, &parser->stack[i + base] ) * 0x10000;
 
       for ( j = 1; j < blend->lenBV; j++ )
@@ -1378,8 +1307,7 @@
     return error;
   }
 
-
-  /* Compute a blend vector from variation store index and normalized  */
+/* Compute a blend vector from variation store index and normalized  */
   /* vector based on pseudo-code in OpenType Font Variations Overview. */
   /*                                                                   */
   /* Note: lenNDV == 0 produces a default blend vector, (1,0,0,...).   */
@@ -1397,8 +1325,7 @@
     CFF_VarData*  varData;
     FT_UInt       master;
 
-
-    /* protect against malformed fonts */
+/* protect against malformed fonts */
     if ( !( lenNDV == 0 || NDV ) )
     {
       FT_TRACE4(( " cff_blend_build_vector:"
@@ -1445,8 +1372,7 @@
       FT_UInt         idx;
       CFF_VarRegion*  varRegion;
 
-
-      /* default factor is always one */
+/* default factor is always one */
       if ( master == 0 )
       {
         blend->BV[master] = FT_FIXED_ONE;
@@ -1487,8 +1413,7 @@
         CFF_AxisCoords*  axis = &varRegion->axisList[j];
         FT_Fixed         axisScalar;
 
-
-        /* compute the scalar contribution of this axis; */
+/* compute the scalar contribution of this axis; */
         /* ignore invalid ranges                         */
         if ( axis->startCoord > axis->peakCoord ||
              axis->peakCoord > axis->endCoord   )
@@ -1554,8 +1479,7 @@
     return error;
   }
 
-
-  /* `lenNDV' is zero for default vector;           */
+/* `lenNDV' is zero for default vector;           */
   /* return TRUE if blend vector needs to be built. */
   FT_LOCAL_DEF( FT_Bool )
   cff_blend_check_vector( CFF_Blend  blend,
@@ -1578,7 +1502,6 @@
     return FALSE;
   }
 
-
 #ifdef TT_CONFIG_OPTION_GX_VAR_SUPPORT
 
   FT_LOCAL_DEF( FT_Error )
@@ -1590,29 +1513,25 @@
   {
     FT_Service_MultiMasters  mm = (FT_Service_MultiMasters)face->mm;
 
-
-    return mm->get_var_blend( FT_FACE( face ),
+return mm->get_var_blend( FT_FACE( face ),
                               num_coords,
                               coords,
                               normalizedcoords,
                               mm_var );
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cff_done_blend( CFF_Face  face )
   {
     FT_Service_MultiMasters  mm = (FT_Service_MultiMasters)face->mm;
 
-
-    if (mm)
+if (mm)
       mm->done_blend( FT_FACE( face ) );
   }
 
 #endif /* TT_CONFIG_OPTION_GX_VAR_SUPPORT */
 
-
-  static void
+static void
   cff_encoding_done( CFF_Encoding  encoding )
   {
     encoding->format = 0;
@@ -1620,8 +1539,7 @@
     encoding->count  = 0;
   }
 
-
-  static FT_Error
+static FT_Error
   cff_encoding_load( CFF_Encoding  encoding,
                      CFF_Charset   charset,
                      FT_UInt       num_glyphs,
@@ -1635,8 +1553,7 @@
     FT_UShort  glyph_sid;
     FT_UInt    glyph_code;
 
-
-    /* Check for charset->sids.  If we do not have this, we fail. */
+/* Check for charset->sids.  If we do not have this, we fail. */
     if ( !charset->sids )
     {
       error = FT_THROW( Invalid_File_Format );
@@ -1678,8 +1595,7 @@
         {
           FT_Byte*  p;
 
-
-          /* By convention, GID 0 is always ".notdef" and is never */
+/* By convention, GID 0 is always ".notdef" and is never */
           /* coded in the font.  Hence, the number of codes found  */
           /* in the table is `count+1'.                            */
           /*                                                       */
@@ -1715,8 +1631,7 @@
           FT_UInt  i = 1;
           FT_UInt  k;
 
-
-          encoding->count = 0;
+encoding->count = 0;
 
           /* Parse the Format1 ranges. */
           for ( j = 0;  j < count; j++, i += nleft )
@@ -1768,8 +1683,7 @@
       {
         FT_UInt  gindex;
 
-
-        /* count supplements */
+/* count supplements */
         if ( FT_READ_BYTE( count ) )
           goto Exit;
 
@@ -1833,8 +1747,7 @@
           FT_UInt  sid = encoding->sids[j];
           FT_UInt  gid = 0;
 
-
-          if ( sid )
+if ( sid )
             gid = cff_charset_cid_to_gindex( charset, sid );
 
           if ( gid != 0 )
@@ -1863,8 +1776,7 @@
     return error;
   }
 
-
-  /* Parse private dictionary; first call is always from `cff_face_init', */
+/* Parse private dictionary; first call is always from `cff_face_init', */
   /* so NDV has not been set for CFF2 variation.                          */
   /*                                                                      */
   /* `cff_slot_load' must call this function each time NDV changes.       */
@@ -1881,8 +1793,7 @@
     FT_Stream        stream = font->stream;
     FT_UInt          stackSize;
 
-
-    /* store handle needed to access memory, vstore for blend;    */
+/* store handle needed to access memory, vstore for blend;    */
     /* we need this for clean-up even if there is no private DICT */
     subfont->blend.font   = font;
     subfont->blend.usedBV = FALSE;  /* clear state */
@@ -1968,8 +1879,7 @@
     return error;
   }
 
-
-  /* There are 3 ways to call this function, distinguished by code.  */
+/* There are 3 ways to call this function, distinguished by code.  */
   /*                                                                 */
   /* . CFF_CODE_TOPDICT for either a CFF Top DICT or a CFF Font DICT */
   /* . CFF2_CODE_TOPDICT for CFF2 Top DICT                           */
@@ -1999,8 +1909,7 @@
     FT_UInt  stackSize = cff2 ? CFF2_DEFAULT_STACK
                               : CFF_MAX_STACK_DEPTH;
 
-
-    /* Note: We use default stack size for CFF2 Font DICT because        */
+/* Note: We use default stack size for CFF2 Font DICT because        */
     /*       Top and Font DICTs are not allowed to have blend operators. */
     error = cff_parser_init( &parser,
                              code,
@@ -2101,8 +2010,7 @@
       {
         PS_Driver  driver = (PS_Driver)FT_FACE_DRIVER( face );
 
-
-        subfont->random = (FT_UInt32)driver->random_seed;
+subfont->random = (FT_UInt32)driver->random_seed;
         if ( driver->random_seed )
         {
           do
@@ -2155,8 +2063,7 @@
     return error;
   }
 
-
-  static void
+static void
   cff_subfont_done( FT_Memory    memory,
                     CFF_SubFont  subfont )
   {
@@ -2171,8 +2078,7 @@
     }
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   cff_font_load( FT_Library library,
                  FT_Stream  stream,
                  FT_Int     face_index,
@@ -2200,8 +2106,7 @@
     CFF_IndexRec     string_index;
     FT_UInt          subfont_index;
 
-
-    FT_ZERO( font );
+FT_ZERO( font );
     FT_ZERO( &string_index );
 
     dict        = &font->top_font.font_dict;
@@ -2234,8 +2139,7 @@
     {
       FT_Byte  absolute_offset;
 
-
-      if ( FT_READ_BYTE( absolute_offset ) )
+if ( FT_READ_BYTE( absolute_offset ) )
         goto Exit;
 
       if ( font->version_major != 1 ||
@@ -2397,8 +2301,7 @@
       CFF_SubFont   sub = NULL;
       FT_UInt       idx;
 
-
-      /* for CFF2, read the Variation Store if available;                 */
+/* for CFF2, read the Variation Store if available;                 */
       /* this must follow the Top DICT parse and precede any Private DICT */
       error = cff_vstore_load( &font->vstore,
                                stream,
@@ -2489,8 +2392,7 @@
     {
       FT_Bool  invert = FT_BOOL( dict->cid_registry != 0xFFFFU && pure_cff );
 
-
-      error = cff_charset_load( &font->charset, font->num_glyphs, stream,
+error = cff_charset_load( &font->charset, font->num_glyphs, stream,
                                 base_offset, dict->charset_offset, invert );
       if ( error )
         goto Exit;
@@ -2519,15 +2421,13 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   cff_font_done( CFF_Font  font )
   {
     FT_Memory  memory = font->memory;
     FT_UInt    idx;
 
-
-    cff_index_done( &font->global_subrs_index );
+cff_index_done( &font->global_subrs_index );
     cff_index_done( &font->font_dict_index );
     cff_index_done( &font->name_index );
     cff_index_done( &font->charstrings_index );
@@ -2566,6 +2466,5 @@
 
     FT_FREE( font->font_extra );
   }
-
 
 /* END */

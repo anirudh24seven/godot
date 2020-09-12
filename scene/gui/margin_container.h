@@ -1,8 +1,6 @@
 
 /*  margin_container.h                                                   */
 
-
-
 #ifndef MARGIN_CONTAINER_H
 #define MARGIN_CONTAINER_H
 

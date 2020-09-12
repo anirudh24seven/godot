@@ -1,8 +1,6 @@
 
 /*  expression.cpp                                                       */
 
-
-
 #include "expression.h"
 
 #include "core/class_db.h"

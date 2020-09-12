@@ -1,8 +1,6 @@
 
 /*  skeleton_ik_3d.h                                                     */
 
-
-
 #ifndef SKELETON_IK_H
 #define SKELETON_IK_H
 

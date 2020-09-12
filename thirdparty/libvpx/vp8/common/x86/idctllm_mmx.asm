@@ -8,7 +8,6 @@
 ;  be found in the AUTHORS file in the root of the source tree.
 ;
 
-
 %include "vpx_ports/x86_abi_support.asm"
 
 ; /****************************************************************************
@@ -30,7 +29,6 @@
 ; *        (x * (unsigned)35468 >> 16) = x * (signed)35468 >> 16 + x
 ; *
 ; **************************************************************************/
-
 
 ;void vp8_short_idct4x4llm_mmx(short *input, unsigned char *pred,
 ;int pitch, unsigned char *dest,int stride)
@@ -63,8 +61,7 @@ sym(vp8_short_idct4x4llm_mmx):
     mov         rdx,    arg(3)              ;dest
     movsxd      rdi,    dword ptr arg(4)    ;stride
 
-
-    psubw       mm0,            mm2             ; b1= 0-2
+psubw       mm0,            mm2             ; b1= 0-2
     paddw       mm2,            mm2             ;
 
     movq        mm5,            mm1

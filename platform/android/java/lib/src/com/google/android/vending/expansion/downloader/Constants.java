@@ -18,7 +18,6 @@ package com.google.android.vending.expansion.downloader;
 
 import java.io.File;
 
-
 /**
  * Contains the internal constants that are used in the download manager.
  * As a general rule, modifying these constants should be done with care.

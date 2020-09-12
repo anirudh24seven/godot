@@ -1,8 +1,6 @@
 
 /*  create_dialog.cpp                                                    */
 
-
-
 #include "create_dialog.h"
 
 #include "core/class_db.h"

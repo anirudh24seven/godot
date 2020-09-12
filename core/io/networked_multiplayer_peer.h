@@ -1,8 +1,6 @@
 
 /*  networked_multiplayer_peer.h                                         */
 
-
-
 #ifndef NETWORKED_MULTIPLAYER_PEER_H
 #define NETWORKED_MULTIPLAYER_PEER_H
 

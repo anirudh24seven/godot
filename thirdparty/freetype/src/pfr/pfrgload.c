@@ -15,7 +15,6 @@
  *
  */
 
-
 #include "pfrgload.h"
 #include "pfrsbit.h"
 #include "pfrload.h"            /* for macro definitions */
@@ -26,17 +25,11 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  pfr
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      PFR GLYPH BUILDER                        *****/
   /*****                                                               *****/
 
-
-
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   pfr_glyph_init( PFR_Glyph       glyph,
                   FT_GlyphLoader  loader )
   {
@@ -48,14 +41,12 @@
     FT_GlyphLoader_Rewind( loader );
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   pfr_glyph_done( PFR_Glyph  glyph )
   {
     FT_Memory  memory = glyph->loader->memory;
 
-
-    FT_FREE( glyph->x_control );
+FT_FREE( glyph->x_control );
     glyph->y_control = NULL;
 
     glyph->max_xy_control = 0;
@@ -73,8 +64,7 @@
     glyph->path_begun = 0;
   }
 
-
-  /* close current contour, if any */
+/* close current contour, if any */
   static void
   pfr_glyph_close_contour( PFR_Glyph  glyph )
   {
@@ -82,8 +72,7 @@
     FT_Outline*     outline = &loader->current.outline;
     FT_Int          last, first;
 
-
-    if ( !glyph->path_begun )
+if ( !glyph->path_begun )
       return;
 
     /* compute first and last point indices in current glyph outline */
@@ -99,8 +88,7 @@
       FT_Vector*  p1 = outline->points + first;
       FT_Vector*  p2 = outline->points + last;
 
-
-      if ( p1->x == p2->x && p1->y == p2->y )
+if ( p1->x == p2->x && p1->y == p2->y )
       {
         outline->n_points--;
         last--;
@@ -114,16 +102,14 @@
     glyph->path_begun = 0;
   }
 
-
-  /* reset glyph to start the loading of a new glyph */
+/* reset glyph to start the loading of a new glyph */
   static void
   pfr_glyph_start( PFR_Glyph  glyph )
   {
     glyph->path_begun = 0;
   }
 
-
-  static FT_Error
+static FT_Error
   pfr_glyph_line_to( PFR_Glyph   glyph,
                      FT_Vector*  to )
   {
@@ -131,8 +117,7 @@
     FT_Outline*     outline = &loader->current.outline;
     FT_Error        error;
 
-
-    /* check that we have begun a new path */
+/* check that we have begun a new path */
     if ( !glyph->path_begun )
     {
       error = FT_THROW( Invalid_Table );
@@ -145,8 +130,7 @@
     {
       FT_Int  n = outline->n_points;
 
-
-      outline->points[n] = *to;
+outline->points[n] = *to;
       outline->tags  [n] = FT_CURVE_TAG_ON;
 
       outline->n_points++;
@@ -156,8 +140,7 @@
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   pfr_glyph_curve_to( PFR_Glyph   glyph,
                       FT_Vector*  control1,
                       FT_Vector*  control2,
@@ -167,8 +150,7 @@
     FT_Outline*     outline = &loader->current.outline;
     FT_Error        error;
 
-
-    /* check that we have begun a new path */
+/* check that we have begun a new path */
     if ( !glyph->path_begun )
     {
       error = FT_THROW( Invalid_Table );
@@ -182,8 +164,7 @@
       FT_Vector*  vec = outline->points         + outline->n_points;
       FT_Byte*    tag = (FT_Byte*)outline->tags + outline->n_points;
 
-
-      vec[0] = *control1;
+vec[0] = *control1;
       vec[1] = *control2;
       vec[2] = *to;
       tag[0] = FT_CURVE_TAG_CUBIC;
@@ -197,16 +178,14 @@
     return error;
   }
 
-
-  static FT_Error
+static FT_Error
   pfr_glyph_move_to( PFR_Glyph   glyph,
                      FT_Vector*  to )
   {
     FT_GlyphLoader  loader  = glyph->loader;
     FT_Error        error;
 
-
-    /* close current contour if any */
+/* close current contour if any */
     pfr_glyph_close_contour( glyph );
 
     /* indicate that a new contour has started */
@@ -223,8 +202,7 @@
     return error;
   }
 
-
-  static void
+static void
   pfr_glyph_end( PFR_Glyph  glyph )
   {
     /* close current contour if any */
@@ -234,17 +212,11 @@
     FT_GlyphLoader_Add( glyph->loader );
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      PFR GLYPH LOADER                         *****/
   /*****                                                               *****/
 
-
-
-
-  /* load a simple glyph */
+/* load a simple glyph */
   static FT_Error
   pfr_glyph_load_simple( PFR_Glyph  glyph,
                          FT_Byte*   p,
@@ -255,8 +227,7 @@
     FT_UInt    flags, x_count, y_count, i, count, mask;
     FT_Int     x;
 
-
-    PFR_CHECK( 1 );
+PFR_CHECK( 1 );
     flags = PFR_NEXT_BYTE( p );
 
     /* test for composite glyphs */
@@ -295,8 +266,7 @@
     {
       FT_UInt  new_max = FT_PAD_CEIL( count, 8 );
 
-
-      if ( FT_RENEW_ARRAY( glyph->x_control,
+if ( FT_RENEW_ARRAY( glyph->x_control,
                            glyph->max_xy_control,
                            new_max ) )
         goto Exit;
@@ -350,16 +320,14 @@
       FT_Vector   pos[4];
       FT_Vector*  cur;
 
-
-      pos[0].x = pos[0].y = 0;
+pos[0].x = pos[0].y = 0;
       pos[3]   = pos[0];
 
       for (;;)
       {
         FT_UInt  format, format_low, args_format = 0, args_count, n;
 
-
-        /****************************************************************
+/****************************************************************
          * read instruction
          */
         PFR_CHECK( 1 );
@@ -435,8 +403,7 @@
           FT_UInt  idx;
           FT_Int   delta;
 
-
-          /* read the X argument */
+/* read the X argument */
           switch ( args_format & 3 )
           {
           case 0:                           /* 8-bit index */
@@ -553,8 +520,7 @@
     goto Exit;
   }
 
-
-  /* load a composite/compound glyph */
+/* load a composite/compound glyph */
   static FT_Error
   pfr_glyph_load_compound( PFR_Glyph  glyph,
                            FT_Byte*   p,
@@ -567,8 +533,7 @@
     FT_UInt         flags, i, count, org_count;
     FT_Int          x_pos, y_pos;
 
-
-    PFR_CHECK( 1 );
+PFR_CHECK( 1 );
     flags = PFR_NEXT_BYTE( p );
 
     /* test for composite glyphs */
@@ -600,8 +565,7 @@
     {
       FT_UInt  new_max = ( org_count + count + 3 ) & (FT_UInt)-4;
 
-
-      /* we arbitrarily limit the number of subglyphs */
+/* we arbitrarily limit the number of subglyphs */
       /* to avoid endless recursion                   */
       if ( new_max > 64 )
       {
@@ -623,8 +587,7 @@
     {
       FT_UInt  format;
 
-
-      x_pos = 0;
+x_pos = 0;
       y_pos = 0;
 
       PFR_CHECK( 1 );
@@ -717,8 +680,7 @@
     goto Exit;
   }
 
-
-  static FT_Error
+static FT_Error
   pfr_glyph_load_rec( PFR_Glyph  glyph,
                       FT_Stream  stream,
                       FT_ULong   gps_offset,
@@ -729,8 +691,7 @@
     FT_Byte*  p;
     FT_Byte*  limit;
 
-
-    if ( FT_STREAM_SEEK( gps_offset + offset ) ||
+if ( FT_STREAM_SEEK( gps_offset + offset ) ||
          FT_FRAME_ENTER( size )                )
       goto Exit;
 
@@ -743,8 +704,7 @@
       FT_GlyphLoader  loader = glyph->loader;
       FT_Outline*     base   = &loader->base.outline;
 
-
-      old_count = glyph->num_subs;
+old_count = glyph->num_subs;
 
       /* this is a compound glyph - load it */
       error = pfr_glyph_load_compound( glyph, p, limit );
@@ -767,8 +727,7 @@
         FT_Int        i, old_points, num_points;
         PFR_SubGlyph  subglyph;
 
-
-        FT_TRACE4(( "  subglyph %d:\n", n ));
+FT_TRACE4(( "  subglyph %d:\n", n ));
 
         subglyph   = glyph->subs + old_count + n;
         old_points = base->n_points;
@@ -788,8 +747,7 @@
         {
           FT_Vector*  vec = base->points + old_points;
 
-
-          for ( i = 0; i < num_points; i++, vec++ )
+for ( i = 0; i < num_points; i++, vec++ )
           {
             vec->x = FT_MulFix( vec->x, subglyph->x_scale ) +
                        subglyph->x_delta;
@@ -801,8 +759,7 @@
         {
           FT_Vector*  vec = loader->base.outline.points + old_points;
 
-
-          for ( i = 0; i < num_points; i++, vec++ )
+for ( i = 0; i < num_points; i++, vec++ )
           {
             vec->x += subglyph->x_delta;
             vec->y += subglyph->y_delta;
@@ -830,8 +787,7 @@
     return error;
   }
 
-
-  FT_LOCAL_DEF( FT_Error )
+FT_LOCAL_DEF( FT_Error )
   pfr_glyph_load( PFR_Glyph  glyph,
                   FT_Stream  stream,
                   FT_ULong   gps_offset,
@@ -846,6 +802,5 @@
     /* load the glyph, recursively when needed */
     return pfr_glyph_load_rec( glyph, stream, gps_offset, offset, size );
   }
-
 
 /* END */

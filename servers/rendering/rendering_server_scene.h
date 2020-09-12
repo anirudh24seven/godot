@@ -1,8 +1,6 @@
 
 /*  rendering_server_scene.h                                             */
 
-
-
 #ifndef VISUALSERVERSCENE_H
 #define VISUALSERVERSCENE_H
 

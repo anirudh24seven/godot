@@ -16,22 +16,17 @@
 
 #include "jit_avx512_core_gemm_s8u8s32_kern.hpp"
 
-
 #ifdef _WIN32
 static const bool is_windows = 1;
 #else
 static const bool is_windows = 0;
 #endif
 
-
 namespace mkldnn {
 namespace impl {
 namespace cpu {
 
 using namespace Xbyak;
-
-
-
 
 // Convert between vector register lengths.
 static inline Xmm make_xmm(const Xmm &v) { return Xmm(v.getIdx()); }
@@ -471,7 +466,6 @@ void jit_avx512_core_gemm_s8u8s32_kern::generate()
     add(rsp, stack_alloc_size);
     postamble();
 }
-
 
 jit_avx512_core_gemm_s8u8s32_kern::jit_avx512_core_gemm_s8u8s32_kern(bool
         beta_zero_, bool enable_offset_c_, bool enable_offset_r_) :

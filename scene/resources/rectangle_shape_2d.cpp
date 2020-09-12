@@ -1,8 +1,6 @@
 
 /*  rectangle_shape_2d.cpp                                               */
 
-
-
 #include "rectangle_shape_2d.h"
 
 #include "servers/physics_server_2d.h"

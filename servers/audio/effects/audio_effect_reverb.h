@@ -1,8 +1,6 @@
 
 /*  audio_effect_reverb.h                                                */
 
-
-
 #ifndef AUDIOEFFECTREVERB_H
 #define AUDIOEFFECTREVERB_H
 

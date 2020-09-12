@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <ft2build.h>
 #include FT_INTERNAL_OBJECTS_H
 #include FT_INTERNAL_DEBUG_H
@@ -24,10 +23,8 @@
 
 #include "pshnterr.h"
 
-
 #undef  FT_COMPONENT
 #define FT_COMPONENT  pshalgo
-
 
 #ifdef DEBUG_HINTER
   PSH_Hint_Table  ps_debug_hint_table = NULL;
@@ -35,20 +32,14 @@
   PSH_Glyph       ps_debug_glyph      = NULL;
 #endif
 
-
 #define  COMPUTE_INFLEXS  /* compute inflection points to optimize `S' */
                           /* and similar glyphs                        */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                  BASIC HINTS RECORDINGS                       *****/
   /*****                                                               *****/
 
-
-
-  /* return true if two stem hints overlap */
+/* return true if two stem hints overlap */
   static FT_Int
   psh_hint_overlap( PSH_Hint  hint1,
                     PSH_Hint  hint2 )
@@ -57,8 +48,7 @@
            ADD_INT( hint2->org_pos, hint2->org_len ) >= hint1->org_pos;
   }
 
-
-  /* destroy hints table */
+/* destroy hints table */
   static void
   psh_hint_table_done( PSH_Hint_Table  table,
                        FT_Memory       memory )
@@ -74,32 +64,28 @@
     table->sort_global = NULL;
   }
 
-
-  /* deactivate all hints in a table */
+/* deactivate all hints in a table */
   static void
   psh_hint_table_deactivate( PSH_Hint_Table  table )
   {
     FT_UInt   count = table->max_hints;
     PSH_Hint  hint  = table->hints;
 
-
-    for ( ; count > 0; count--, hint++ )
+for ( ; count > 0; count--, hint++ )
     {
       psh_hint_deactivate( hint );
       hint->order = -1;
     }
   }
 
-
-  /* internal function to record a new hint */
+/* internal function to record a new hint */
   static void
   psh_hint_table_record( PSH_Hint_Table  table,
                          FT_UInt         idx )
   {
     PSH_Hint  hint = table->hints + idx;
 
-
-    if ( idx >= table->max_hints )
+if ( idx >= table->max_hints )
     {
       FT_TRACE0(( "psh_hint_table_record: invalid hint index %d\n", idx ));
       return;
@@ -118,8 +104,7 @@
       FT_UInt    count  = table->num_hints;
       PSH_Hint   hint2;
 
-
-      hint->parent = NULL;
+hint->parent = NULL;
       for ( ; count > 0; count--, sorted++ )
       {
         hint2 = sorted[0];
@@ -138,8 +123,7 @@
       FT_TRACE0(( "psh_hint_table_record: too many sorted hints!  BUG!\n" ));
   }
 
-
-  static void
+static void
   psh_hint_table_record_mask( PSH_Hint_Table  table,
                               PS_Mask         hint_mask )
   {
@@ -147,8 +131,7 @@
     FT_Byte*  cursor = hint_mask->bytes;
     FT_UInt   idx, limit;
 
-
-    limit = hint_mask->num_bits;
+limit = hint_mask->num_bits;
 
     for ( idx = 0; idx < limit; idx++ )
     {
@@ -165,8 +148,7 @@
     }
   }
 
-
-  /* create hints table */
+/* create hints table */
   static FT_Error
   psh_hint_table_init( PSH_Hint_Table  table,
                        PS_Hint_Table   hints,
@@ -179,8 +161,7 @@
 
     FT_UNUSED( counter_masks );
 
-
-    count = hints->num_hints;
+count = hints->num_hints;
 
     /* allocate our tables */
     if ( FT_NEW_ARRAY( table->sort,  2 * count     ) ||
@@ -199,8 +180,7 @@
       PSH_Hint  write = table->hints;
       PS_Hint   read  = hints->hints;
 
-
-      for ( ; count > 0; count--, write++, read++ )
+for ( ; count > 0; count--, write++, read++ )
       {
         write->org_pos = read->pos;
         write->org_len = read->len;
@@ -214,8 +194,7 @@
     {
       PS_Mask  mask = hint_masks->masks;
 
-
-      count             = hint_masks->num_masks;
+count             = hint_masks->num_masks;
       table->hint_masks = hint_masks;
 
       for ( ; count > 0; count--, mask++ )
@@ -227,8 +206,7 @@
     {
       FT_UInt  idx;
 
-
-      FT_TRACE0(( "psh_hint_table_init: missing/incorrect hint masks\n" ));
+FT_TRACE0(( "psh_hint_table_init: missing/incorrect hint masks\n" ));
 
       count = table->max_hints;
       for ( idx = 0; idx < count; idx++ )
@@ -239,8 +217,7 @@
     return error;
   }
 
-
-  static void
+static void
   psh_hint_table_activate_mask( PSH_Hint_Table  table,
                                 PS_Mask         hint_mask )
   {
@@ -248,8 +225,7 @@
     FT_Byte*  cursor = hint_mask->bytes;
     FT_UInt   idx, limit, count;
 
-
-    limit = hint_mask->num_bits;
+limit = hint_mask->num_bits;
     count = 0;
 
     psh_hint_table_deactivate( table );
@@ -266,8 +242,7 @@
       {
         PSH_Hint  hint = &table->hints[idx];
 
-
-        if ( !psh_hint_is_active( hint ) )
+if ( !psh_hint_is_active( hint ) )
         {
           FT_UInt     count2;
 
@@ -275,8 +250,7 @@
           PSH_Hint*  sort = table->sort;
           PSH_Hint   hint2;
 
-
-          for ( count2 = count; count2 > 0; count2--, sort++ )
+for ( count2 = count; count2 > 0; count2--, sort++ )
           {
             hint2 = sort[0];
             if ( psh_hint_overlap( hint, hint2 ) )
@@ -310,8 +284,7 @@
       PSH_Hint   hint1, hint2;
       PSH_Hint*  sort = table->sort;
 
-
-      /* a simple bubble sort will do, since in 99% of cases, the hints */
+/* a simple bubble sort will do, since in 99% of cases, the hints */
       /* will be already sorted -- and the sort will be linear          */
       for ( i1 = 1; i1 < (FT_Int)count; i1++ )
       {
@@ -330,14 +303,9 @@
     }
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****               HINTS GRID-FITTING AND OPTIMIZATION             *****/
   /*****                                                               *****/
-
-
 
 #if 1
   static FT_Pos
@@ -351,8 +319,7 @@
     {
       FT_Pos  delta = len - dim->stdw.widths[0].cur;
 
-
-      if ( delta < 0 )
+if ( delta < 0 )
         delta = -delta;
 
       if ( delta < 40 )
@@ -390,7 +357,6 @@
   }
 #endif /* 0 */
 
-
 #ifdef DEBUG_HINTER
 
   static void
@@ -401,13 +367,11 @@
   {
     FT_UInt  count;
 
-
-    for ( count = 0; count < table->max_hints; count++ )
+for ( count = 0; count < table->max_hints; count++ )
     {
       PSH_Hint  hint = table->hints + count;
 
-
-      hint->cur_pos = FT_MulFix( hint->org_pos, scale ) + delta;
+hint->cur_pos = FT_MulFix( hint->org_pos, scale ) + delta;
       hint->cur_len = FT_MulFix( hint->org_len, scale );
 
       if ( ps_debug_hint_func )
@@ -417,23 +381,20 @@
 
 #endif /* DEBUG_HINTER */
 
-
-  static FT_Fixed
+static FT_Fixed
   psh_hint_snap_stem_side_delta( FT_Fixed  pos,
                                  FT_Fixed  len )
   {
     FT_Fixed  delta1 = FT_PIX_ROUND( pos ) - pos;
     FT_Fixed  delta2 = FT_PIX_ROUND( pos + len ) - pos - len;
 
-
-    if ( FT_ABS( delta1 ) <= FT_ABS( delta2 ) )
+if ( FT_ABS( delta1 ) <= FT_ABS( delta2 ) )
       return delta1;
     else
       return delta2;
   }
 
-
-  static void
+static void
   psh_hint_align( PSH_Hint     hint,
                   PSH_Globals  globals,
                   FT_Int       dimension,
@@ -443,8 +404,7 @@
     FT_Fixed       scale = dim->scale_mult;
     FT_Fixed       delta = dim->scale_delta;
 
-
-    if ( !psh_hint_is_fitted( hint ) )
+if ( !psh_hint_is_fitted( hint ) )
     {
       FT_Pos  pos = FT_MulFix( hint->org_pos, scale ) + delta;
       FT_Pos  len = FT_MulFix( hint->org_len, scale );
@@ -453,8 +413,7 @@
       FT_Pos            fit_len;
       PSH_AlignmentRec  align;
 
-
-      /* ignore stem alignments when requested through the hint flags */
+/* ignore stem alignments when requested through the hint flags */
       if ( ( dimension == 0 && !glyph->do_horz_hints ) ||
            ( dimension == 1 && !glyph->do_vert_hints ) )
       {
@@ -505,14 +464,12 @@
         {
           PSH_Hint  parent = hint->parent;
 
-
-          if ( parent )
+if ( parent )
           {
             FT_Pos  par_org_center, par_cur_center;
             FT_Pos  cur_org_center, cur_delta;
 
-
-            /* ensure that parent is already fitted */
+/* ensure that parent is already fitted */
             if ( !psh_hint_is_fitted( parent ) )
               psh_hint_align( parent, globals, dimension, glyph );
 
@@ -578,8 +535,7 @@
                 FT_Pos  left_disp     = left_nearest - pos;
                 FT_Pos  right_disp    = right_nearest - ( pos + len );
 
-
-                if ( left_disp < 0 )
+if ( left_disp < 0 )
                   left_disp = -left_disp;
                 if ( right_disp < 0 )
                   right_disp = -right_disp;
@@ -632,8 +588,7 @@
             /* don't touch */
             break;
 
-
-          default:
+default:
             hint->cur_len = len;
             if ( len & 64 )
               pos = FT_PIX_FLOOR( pos + ( len >> 1 ) ) + 32;
@@ -654,7 +609,6 @@
     }
   }
 
-
 #if 0  /* not used for now, experimental */
 
  /*
@@ -671,8 +625,7 @@
     FT_Fixed       scale = dim->scale_mult;
     FT_Fixed       delta = dim->scale_delta;
 
-
-    if ( !psh_hint_is_fitted( hint ) )
+if ( !psh_hint_is_fitted( hint ) )
     {
       FT_Pos  pos = FT_MulFix( hint->org_pos, scale ) + delta;
       FT_Pos  len = FT_MulFix( hint->org_len, scale );
@@ -681,8 +634,7 @@
 
       PSH_AlignmentRec  align;
 
-
-      /* ignore stem alignments when requested through the hint flags */
+/* ignore stem alignments when requested through the hint flags */
       if ( ( dimension == 0 && !glyph->do_horz_hints ) ||
            ( dimension == 1 && !glyph->do_vert_hints ) )
       {
@@ -729,14 +681,12 @@
         {
           PSH_Hint  parent = hint->parent;
 
-
-          if ( parent )
+if ( parent )
           {
             FT_Pos  par_org_center, par_cur_center;
             FT_Pos  cur_org_center, cur_delta;
 
-
-            /* ensure that parent is already fitted */
+/* ensure that parent is already fitted */
             if ( !psh_hint_is_fitted( parent ) )
               psh_hint_align_light( parent, globals, dimension, glyph );
 
@@ -789,8 +739,7 @@
             FT_Fixed  center = pos + ( len >> 1 );
             FT_Fixed  delta_a, delta_b;
 
-
-            if ( ( len / 64 ) & 1 )
+if ( ( len / 64 ) & 1 )
             {
               delta_a = FT_PIX_FLOOR( center ) + 32 - center;
               delta_b = FT_PIX_ROUND( center ) - center;
@@ -841,8 +790,7 @@
 
 #endif /* 0 */
 
-
-  static void
+static void
   psh_hint_table_align_hints( PSH_Hint_Table  table,
                               PSH_Globals     globals,
                               FT_Int          dimension,
@@ -857,8 +805,7 @@
     FT_Fixed       scale = dim->scale_mult;
     FT_Fixed       delta = dim->scale_delta;
 
-
-    if ( ps_debug_no_vert_hints && dimension == 0 )
+if ( ps_debug_no_vert_hints && dimension == 0 )
     {
       ps_simple_scale( table, scale, delta, dimension );
       return;
@@ -879,17 +826,11 @@
       psh_hint_align( hint, globals, dimension, glyph );
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                POINTS INTERPOLATION ROUTINES                  *****/
   /*****                                                               *****/
 
-
-
 #define xxDEBUG_ZONES
-
 
 #ifdef DEBUG_ZONES
 
@@ -907,18 +848,12 @@
 
 #endif /* DEBUG_ZONES */
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                    HINTER GLYPH MANAGEMENT                    *****/
   /*****                                                               *****/
 
-
-
 #define  psh_corner_is_flat      ft_corner_is_flat
 #define  psh_corner_orientation  ft_corner_orientation
-
 
 #ifdef COMPUTE_INFLEXS
 
@@ -928,16 +863,14 @@
   {
     FT_UInt  n;
 
-
-    for ( n = 0; n < glyph->num_contours; n++ )
+for ( n = 0; n < glyph->num_contours; n++ )
     {
       PSH_Point  first, start, end, before, after;
       FT_Pos     in_x, in_y, out_x, out_y;
       FT_Int     orient_prev, orient_cur;
       FT_Int     finished = 0;
 
-
-      /* we need at least 4 points to create an inflection point */
+/* we need at least 4 points to create an inflection point */
       if ( glyph->contours[n].count < 4 )
         continue;
 
@@ -1030,14 +963,12 @@
 
 #endif /* COMPUTE_INFLEXS */
 
-
-  static void
+static void
   psh_glyph_done( PSH_Glyph  glyph )
   {
     FT_Memory  memory = glyph->memory;
 
-
-    psh_hint_table_done( &glyph->hint_tables[1], memory );
+psh_hint_table_done( &glyph->hint_tables[1], memory );
     psh_hint_table_done( &glyph->hint_tables[0], memory );
 
     FT_FREE( glyph->points );
@@ -1049,16 +980,14 @@
     glyph->memory = NULL;
   }
 
-
-  static int
+static int
   psh_compute_dir( FT_Pos  dx,
                    FT_Pos  dy )
   {
     FT_Pos  ax, ay;
     int     result = PSH_DIR_NONE;
 
-
-    ax = FT_ABS( dx );
+ax = FT_ABS( dx );
     ay = FT_ABS( dy );
 
     if ( ay * 12 < ax )
@@ -1075,8 +1004,7 @@
     return result;
   }
 
-
-  /* load outline point coordinates into hinter glyph */
+/* load outline point coordinates into hinter glyph */
   static void
   psh_glyph_load_points( PSH_Glyph  glyph,
                          FT_Int     dimension )
@@ -1085,8 +1013,7 @@
     PSH_Point   point = glyph->points;
     FT_UInt     count = glyph->num_points;
 
-
-    for ( ; count > 0; count--, point++, vec++ )
+for ( ; count > 0; count--, point++, vec++ )
     {
       point->flags2 = 0;
       point->hint   = NULL;
@@ -1109,8 +1036,7 @@
     }
   }
 
-
-  /* save hinted point coordinates back to outline */
+/* save hinted point coordinates back to outline */
   static void
   psh_glyph_save_points( PSH_Glyph  glyph,
                          FT_Int     dimension )
@@ -1120,8 +1046,7 @@
     FT_Vector*  vec   = glyph->outline->points;
     char*       tags  = glyph->outline->tags;
 
-
-    for ( n = 0; n < glyph->num_points; n++ )
+for ( n = 0; n < glyph->num_points; n++ )
     {
       if ( dimension == 0 )
         vec[n].x = point->cur_u;
@@ -1150,8 +1075,7 @@
     }
   }
 
-
-  static FT_Error
+static FT_Error
   psh_glyph_init( PSH_Glyph    glyph,
                   FT_Outline*  outline,
                   PS_Hints     ps_hints,
@@ -1160,8 +1084,7 @@
     FT_Error   error;
     FT_Memory  memory;
 
-
-    /* clear all fields */
+/* clear all fields */
     FT_ZERO( glyph );
 
     memory = glyph->memory = globals->memory;
@@ -1179,14 +1102,12 @@
       PSH_Point    points  = glyph->points;
       PSH_Contour  contour = glyph->contours;
 
-
-      for ( n = 0; n < glyph->num_contours; n++ )
+for ( n = 0; n < glyph->num_contours; n++ )
       {
         FT_UInt    count;
         PSH_Point  point;
 
-
-        next  = (FT_UInt)outline->contours[n] + 1;
+next  = (FT_UInt)outline->contours[n] + 1;
         count = next - first;
 
         contour->start = points + first;
@@ -1220,15 +1141,13 @@
       FT_Vector*  vec    = outline->points;
       FT_UInt     n;
 
-
-      for ( n = 0; n < glyph->num_points; n++, point++ )
+for ( n = 0; n < glyph->num_points; n++, point++ )
       {
         FT_Int  n_prev = (FT_Int)( point->prev - points );
         FT_Int  n_next = (FT_Int)( point->next - points );
         FT_Pos  dxi, dyi, dxo, dyo;
 
-
-        if ( !( outline->tags[n] & FT_CURVE_TAG_ON ) )
+if ( !( outline->tags[n] & FT_CURVE_TAG_ON ) )
           point->flags = PSH_POINT_OFF;
 
         dxi = vec[n].x - vec[n_prev].x;
@@ -1283,22 +1202,19 @@
     return error;
   }
 
-
-  /* compute all extrema in a glyph for a given dimension */
+/* compute all extrema in a glyph for a given dimension */
   static void
   psh_glyph_compute_extrema( PSH_Glyph  glyph )
   {
     FT_UInt  n;
 
-
-    /* first of all, compute all local extrema */
+/* first of all, compute all local extrema */
     for ( n = 0; n < glyph->num_contours; n++ )
     {
       PSH_Point  first = glyph->contours[n].start;
       PSH_Point  point, before, after;
 
-
-      if ( glyph->contours[n].count == 0 )
+if ( glyph->contours[n].count == 0 )
         continue;
 
       point  = first;
@@ -1363,8 +1279,7 @@
     {
       PSH_Point  point, before, after;
 
-
-      point  = &glyph->points[n];
+point  = &glyph->points[n];
       before = point;
       after  = point;
 
@@ -1403,8 +1318,7 @@
     }
   }
 
-
-  /* major_dir is the direction for points on the bottom/left of the stem; */
+/* major_dir is the direction for points on the bottom/left of the stem; */
   /* Points on the top/right of the stem will have a direction of          */
   /* -major_dir.                                                           */
 
@@ -1418,14 +1332,12 @@
     PSH_Hint*  sort      = table->sort;
     FT_UInt    num_hints = table->num_hints;
 
-
-    for ( ; count > 0; count--, point++ )
+for ( ; count > 0; count--, point++ )
     {
       FT_Int  point_dir = 0;
       FT_Pos  org_u     = point->org_u;
 
-
-      if ( psh_point_is_strong( point ) )
+if ( psh_point_is_strong( point ) )
         continue;
 
       if ( PSH_DIR_COMPARE( point->dir_in, major_dir ) )
@@ -1440,14 +1352,12 @@
         {
           FT_UInt  nn;
 
-
-          for ( nn = 0; nn < num_hints; nn++ )
+for ( nn = 0; nn < num_hints; nn++ )
           {
             PSH_Hint  hint = sort[nn];
             FT_Pos    d    = org_u - hint->org_pos;
 
-
-            if ( d < threshold && -d < threshold )
+if ( d < threshold && -d < threshold )
             {
               psh_point_set_strong( point );
               point->flags2 |= PSH_POINT_EDGE_MIN;
@@ -1460,14 +1370,12 @@
         {
           FT_UInt  nn;
 
-
-          for ( nn = 0; nn < num_hints; nn++ )
+for ( nn = 0; nn < num_hints; nn++ )
           {
             PSH_Hint  hint = sort[nn];
             FT_Pos    d    = org_u - hint->org_pos - hint->org_len;
 
-
-            if ( d < threshold && -d < threshold )
+if ( d < threshold && -d < threshold )
             {
               psh_point_set_strong( point );
               point->flags2 |= PSH_POINT_EDGE_MAX;
@@ -1484,8 +1392,7 @@
         /* treat extrema as special cases for stem edge alignment */
         FT_UInt  nn, min_flag, max_flag;
 
-
-        if ( major_dir == PSH_DIR_HORIZONTAL )
+if ( major_dir == PSH_DIR_HORIZONTAL )
         {
           min_flag = PSH_POINT_POSITIVE;
           max_flag = PSH_POINT_NEGATIVE;
@@ -1503,8 +1410,7 @@
             PSH_Hint  hint = sort[nn];
             FT_Pos    d    = org_u - hint->org_pos;
 
-
-            if ( d < threshold && -d < threshold )
+if ( d < threshold && -d < threshold )
             {
               point->flags2 |= PSH_POINT_EDGE_MIN;
               point->hint    = hint;
@@ -1520,8 +1426,7 @@
             PSH_Hint  hint = sort[nn];
             FT_Pos    d    = org_u - hint->org_pos - hint->org_len;
 
-
-            if ( d < threshold && -d < threshold )
+if ( d < threshold && -d < threshold )
             {
               point->flags2 |= PSH_POINT_EDGE_MAX;
               point->hint    = hint;
@@ -1537,8 +1442,7 @@
           {
             PSH_Hint  hint = sort[nn];
 
-
-            if ( org_u >=          hint->org_pos                  &&
+if ( org_u >=          hint->org_pos                  &&
                  org_u <= ADD_INT( hint->org_pos, hint->org_len ) )
             {
               point->hint = hint;
@@ -1552,15 +1456,13 @@
     }
   }
 
-
-  /* the accepted shift for strong points in fractional pixels */
+/* the accepted shift for strong points in fractional pixels */
 #define PSH_STRONG_THRESHOLD  32
 
   /* the maximum shift value in font units */
 #define PSH_STRONG_THRESHOLD_MAXIMUM  30
 
-
-  /* find strong points in a glyph */
+/* find strong points in a glyph */
   static void
   psh_glyph_find_strong_points( PSH_Glyph  glyph,
                                 FT_Int     dimension )
@@ -1578,8 +1480,7 @@
     FT_Fixed        scale     = dim->scale_mult;
     FT_Int          threshold;
 
-
-    threshold = (FT_Int)FT_DivFix( PSH_STRONG_THRESHOLD, scale );
+threshold = (FT_Int)FT_DivFix( PSH_STRONG_THRESHOLD, scale );
     if ( threshold > PSH_STRONG_THRESHOLD_MAXIMUM )
       threshold = PSH_STRONG_THRESHOLD_MAXIMUM;
 
@@ -1595,14 +1496,12 @@
       {
         FT_UInt  next = FT_MIN( mask->end_point, glyph->num_points );
 
-
-        if ( next > first )
+if ( next > first )
         {
           FT_UInt    count = next - first;
           PSH_Point  point = glyph->points + first;
 
-
-          psh_hint_table_activate_mask( table, mask );
+psh_hint_table_activate_mask( table, mask );
 
           psh_hint_table_find_strong_points( table, point, count,
                                              threshold, major_dir );
@@ -1617,8 +1516,7 @@
       FT_UInt    count = glyph->num_points;
       PSH_Point  point = glyph->points;
 
-
-      psh_hint_table_activate_mask( table, table->hint_masks->masks );
+psh_hint_table_activate_mask( table, table->hint_masks->masks );
 
       psh_hint_table_find_strong_points( table, point, count,
                                          threshold, major_dir );
@@ -1630,15 +1528,13 @@
       FT_UInt    count = glyph->num_points;
       PSH_Point  point = glyph->points;
 
-
-      for ( ; count > 0; count--, point++ )
+for ( ; count > 0; count--, point++ )
         if ( point->hint && !psh_point_is_strong( point ) )
           psh_point_set_strong( point );
     }
   }
 
-
-  /* find points in a glyph which are in a blue zone and have `in' or */
+/* find points in a glyph which are in a blue zone and have `in' or */
   /* `out' tangents parallel to the horizontal axis                   */
   static void
   psh_glyph_find_blue_points( PSH_Blues  blues,
@@ -1650,13 +1546,11 @@
     FT_UInt         blue_count;
     PSH_Point       point = glyph->points;
 
-
-    for ( ; glyph_count > 0; glyph_count--, point++ )
+for ( ; glyph_count > 0; glyph_count--, point++ )
     {
       FT_Pos  y;
 
-
-      /* check tangents */
+/* check tangents */
       if ( !PSH_DIR_COMPARE( point->dir_in,  PSH_DIR_HORIZONTAL ) &&
            !PSH_DIR_COMPARE( point->dir_out, PSH_DIR_HORIZONTAL ) )
         continue;
@@ -1676,8 +1570,7 @@
       {
         FT_Pos  delta = y - zone->org_bottom;
 
-
-        if ( delta < -blues->blue_fuzz )
+if ( delta < -blues->blue_fuzz )
           break;
 
         if ( y <= zone->org_top + blues->blue_fuzz )
@@ -1698,8 +1591,7 @@
       {
         FT_Pos  delta = zone->org_top - y;
 
-
-        if ( delta < -blues->blue_fuzz )
+if ( delta < -blues->blue_fuzz )
           break;
 
         if ( y >= zone->org_bottom - blues->blue_fuzz )
@@ -1713,8 +1605,7 @@
     }
   }
 
-
-  /* interpolate strong points with the help of hinted coordinates */
+/* interpolate strong points with the help of hinted coordinates */
   static void
   psh_glyph_interpolate_strong_points( PSH_Glyph  glyph,
                                        FT_Int     dimension )
@@ -1725,18 +1616,15 @@
     FT_UInt        count = glyph->num_points;
     PSH_Point      point = glyph->points;
 
-
-    for ( ; count > 0; count--, point++ )
+for ( ; count > 0; count--, point++ )
     {
       PSH_Hint  hint = point->hint;
 
-
-      if ( hint )
+if ( hint )
       {
         FT_Pos  delta;
 
-
-        if ( psh_point_is_edge_min( point ) )
+if ( psh_point_is_edge_min( point ) )
           point->cur_u = hint->cur_pos;
 
         else if ( psh_point_is_edge_max( point ) )
@@ -1763,7 +1651,6 @@
     }
   }
 
-
 #define  PSH_MAX_STRONG_INTERNAL  16
 
   static void
@@ -1786,8 +1673,7 @@
     PSH_Point      points_end = points + glyph->num_points;
     PSH_Point      point;
 
-
-    /* first count the number of strong points */
+/* first count the number of strong points */
     for ( point = points; point < points_end; point++ )
     {
       if ( psh_point_is_strong( point ) )
@@ -1805,8 +1691,7 @@
     {
       FT_Error  error;
 
-
-      if ( FT_NEW_ARRAY( strongs, num_strongs ) )
+if ( FT_NEW_ARRAY( strongs, num_strongs ) )
         return;
     }
 
@@ -1815,8 +1700,7 @@
     {
       PSH_Point*  insert;
 
-
-      if ( !psh_point_is_strong( point ) )
+if ( !psh_point_is_strong( point ) )
         continue;
 
       for ( insert = strongs + num_strongs; insert > strongs; insert-- )
@@ -1855,8 +1739,7 @@
         PSH_Point   before, after;
         FT_UInt     nn;
 
-
-        for ( nn = 0; nn < num_strongs; nn++ )
+for ( nn = 0; nn < num_strongs; nn++ )
           if ( strongs[nn]->org_u > point->org_u )
             break;
 
@@ -1888,8 +1771,7 @@
           {
             FT_Pos  u;
 
-
-            after = strongs[nn];
+after = strongs[nn];
 
             /* now interpolate point between before and after */
             u = point->org_u;
@@ -1918,8 +1800,7 @@
 
   }
 
-
-  /* interpolate other points */
+/* interpolate other points */
   static void
   psh_glyph_interpolate_other_points( PSH_Glyph  glyph,
                                       FT_Int     dimension )
@@ -1930,15 +1811,13 @@
     PSH_Contour    contour      = glyph->contours;
     FT_UInt        num_contours = glyph->num_contours;
 
-
-    for ( ; num_contours > 0; num_contours--, contour++ )
+for ( ; num_contours > 0; num_contours--, contour++ )
     {
       PSH_Point  start = contour->start;
       PSH_Point  first, next, point;
       FT_UInt    fit_count;
 
-
-      /* count the number of strong points in this contour */
+/* count the number of strong points in this contour */
       next      = start + contour->count;
       fit_count = 0;
       first     = NULL;
@@ -1998,8 +1877,7 @@
           FT_Pos    org_c, org_ac, cur_c;
           FT_Fixed  scale_ab;
 
-
-          if ( first->org_u <= next->org_u )
+if ( first->org_u <= next->org_u )
           {
             org_a  = first->org_u;
             cur_a  = first->cur_u;
@@ -2057,16 +1935,11 @@
     }
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     HIGH-LEVEL INTERFACE                      *****/
   /*****                                                               *****/
 
-
-
-  FT_Error
+FT_Error
   ps_hints_apply( PS_Hints        ps_hints,
                   FT_Outline*     outline,
                   PSH_Globals     globals,
@@ -2080,8 +1953,7 @@
 #endif
     FT_Int        dimension;
 
-
-    /* something to do? */
+/* something to do? */
     if ( outline->n_points == 0 || outline->n_contours == 0 )
       return FT_Err_Ok;
 
@@ -2124,8 +1996,7 @@
 
       FT_Bool  rescale = FALSE;
 
-
-      scaled = FT_MulFix( globals->blues.normal_top.zones->org_ref, y_scale );
+scaled = FT_MulFix( globals->blues.normal_top.zones->org_ref, y_scale );
       fitted = FT_PIX_ROUND( scaled );
 
       if ( fitted != 0 && scaled != fitted )
@@ -2190,6 +2061,5 @@
 
     return error;
   }
-
 
 /* END */

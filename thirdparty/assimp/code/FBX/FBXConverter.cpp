@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -137,8 +136,7 @@ namespace Assimp {
             }
         }
 
-
-        FBXConverter::~FBXConverter() {
+FBXConverter::~FBXConverter() {
             std::for_each(meshes.begin(), meshes.end(), Util::delete_fun<aiMesh>());
             std::for_each(materials.begin(), materials.end(), Util::delete_fun<aiMaterial>());
             std::for_each(animations.begin(), animations.end(), Util::delete_fun<aiAnimation>());
@@ -232,8 +230,7 @@ namespace Assimp {
                         // is employed by fbx) means that we may need multiple aiNode's
                         // to represent a fbx node's transformation.
 
-
-                        // generate node transforms - this includes pivot data
+// generate node transforms - this includes pivot data
                         // if need_additional_node is true then you t
                         const bool need_additional_node = GenerateTransformationNodeChain(*model, node_name, nodes_chain, post_nodes_chain);
 
@@ -336,8 +333,7 @@ namespace Assimp {
             }
         }
 
-
-        void FBXConverter::ConvertLights(const Model& model, const std::string &orig_name) {
+void FBXConverter::ConvertLights(const Model& model, const std::string &orig_name) {
             const std::vector<const NodeAttribute*>& node_attrs = model.GetAttributes();
             for (const NodeAttribute* attr : node_attrs) {
                 const Light* const light = dynamic_cast<const Light*>(attr);
@@ -1306,8 +1302,7 @@ namespace Assimp {
             out_mesh->mNumFaces = count_faces;
             aiFace* fac = out_mesh->mFaces = new aiFace[count_faces]();
 
-
-            // allocate normals
+// allocate normals
             const std::vector<aiVector3D>& normals = mesh.GetNormals();
             if (normals.size()) {
                 ai_assert(normals.size() == vertices.size());
@@ -1514,8 +1509,7 @@ namespace Assimp {
                     index_out_indices.clear();
                     out_indices.clear();
 
-
-                    // now check if *any* of these weights is contained in the output mesh,
+// now check if *any* of these weights is contained in the output mesh,
                     // taking notes so we don't need to do it twice.
                     for (WeightIndexArray::value_type index : indices) {
 
@@ -1613,8 +1607,7 @@ namespace Assimp {
 
                 bone->mOffsetMatrix = bone->mOffsetMatrix * matrix; // * mesh_offset
 
-
-                //
+//
                 // Now calculate the aiVertexWeights
                 //
 
@@ -1698,8 +1691,7 @@ namespace Assimp {
             return defaultMaterialIndex - 1;
         }
 
-
-        unsigned int FBXConverter::ConvertMaterial(const Material& material, const MeshGeometry* const mesh)
+unsigned int FBXConverter::ConvertMaterial(const Material& material, const MeshGeometry* const mesh)
         {
             const PropertyTable& props = material.Props();
 
@@ -1856,8 +1848,7 @@ namespace Assimp {
                             std::find(materials.begin(), materials.end(), out_mat)
                         ));
 
-
-                        uvIndex = -1;
+uvIndex = -1;
                         if (!mesh)
                         {
                             for (const MeshMap::value_type& v : meshes_converted) {
@@ -2255,7 +2246,6 @@ namespace Assimp {
     }
 }
 
-
 void FBXConverter::SetShadingPropertiesRaw(aiMaterial* out_mat, const PropertyTable& props, const TextureMap& textures, const MeshGeometry* const mesh)
 {
     // Add all the unparsed properties with a "$raw." prefix
@@ -2429,8 +2419,7 @@ void FBXConverter::SetShadingPropertiesRaw(aiMaterial* out_mat, const PropertyTa
             }
         }
 
-
-        double FBXConverter::FrameRateToDouble(FileGlobalSettings::FrameRate fp, double customFPSVal) {
+double FBXConverter::FrameRateToDouble(FileGlobalSettings::FrameRate fp, double customFPSVal) {
             switch (fp) {
             case FileGlobalSettings::FrameRate_DEFAULT:
                 return 1.0;
@@ -2482,8 +2471,7 @@ void FBXConverter::SetShadingPropertiesRaw(aiMaterial* out_mat, const PropertyTa
             return -1.0f;
         }
 
-
-        void FBXConverter::ConvertAnimations()
+void FBXConverter::ConvertAnimations()
         {
             // first of all determine framerate
             const FileGlobalSettings::FrameRate fps = doc.GlobalSettings().TimeMode();
@@ -2998,8 +2986,7 @@ void FBXConverter::SetShadingPropertiesRaw(aiMaterial* out_mat, const PropertyTa
             node_anim_chain_bits[fixed_name] = flags;
         }
 
-
-        bool FBXConverter::IsRedundantAnimationData(const Model& target,
+bool FBXConverter::IsRedundantAnimationData(const Model& target,
             TransformationComp comp,
             const std::vector<const AnimationCurveNode*>& curves) {
             ai_assert(curves.size());
@@ -3043,8 +3030,7 @@ void FBXConverter::SetShadingPropertiesRaw(aiMaterial* out_mat, const PropertyTa
             return (dyn_val - static_val).SquareLength() < epsilon;
         }
 
-
-        aiNodeAnim* FBXConverter::GenerateRotationNodeAnim(const std::string& name,
+aiNodeAnim* FBXConverter::GenerateRotationNodeAnim(const std::string& name,
             const Model& target,
             const std::vector<const AnimationCurveNode*>& curves,
             const LayerMap& layer_map,
@@ -3331,8 +3317,7 @@ void FBXConverter::SetShadingPropertiesRaw(aiMaterial* out_mat, const PropertyTa
             return inputs; // pray for NRVO :-)
         }
 
-
-        KeyTimeList FBXConverter::GetKeyTimeList(const KeyFrameListList& inputs) {
+KeyTimeList FBXConverter::GetKeyTimeList(const KeyFrameListList& inputs) {
             ai_assert(!inputs.empty());
 
             // reserve some space upfront - it is likely that the key-frame lists
@@ -3370,8 +3355,7 @@ void FBXConverter::SetShadingPropertiesRaw(aiMaterial* out_mat, const PropertyTa
                 for (size_t i = 0; i < count; ++i) {
                     const KeyFrameList& kfl = inputs[i];
 
-
-                    while (std::get<0>(kfl)->size() > next_pos[i] && std::get<0>(kfl)->at(next_pos[i]) == min_tick) {
+while (std::get<0>(kfl)->size() > next_pos[i] && std::get<0>(kfl)->at(next_pos[i]) == min_tick) {
                         ++next_pos[i];
                     }
                 }

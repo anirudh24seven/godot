@@ -1,8 +1,6 @@
 
 /*  javascript_main.cpp                                                  */
 
-
-
 #include "core/io/resource_loader.h"
 #include "main/main.h"
 #include "platform/javascript/display_server_javascript.h"

@@ -33,7 +33,6 @@
 #include "opus_private.h"
 #include "os_support.h"
 
-
 int opus_repacketizer_get_size(void)
 {
    return sizeof(OpusRepacketizer);

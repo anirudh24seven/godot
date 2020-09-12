@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -86,8 +85,7 @@ public:
     */
     void Execute( aiScene* pScene);
 
-
-    // setter for configMaxAngle
+// setter for configMaxAngle
     inline void SetMaxSmoothAngle(ai_real f) {
         configMaxAngle =f;
     }

@@ -33,7 +33,6 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "stack_alloc.h"
 #include "NSQ.h"
 
-
 static OPUS_INLINE void silk_nsq_scale_states(
     const silk_encoder_state *psEncC,           /* I    Encoder State                   */
     silk_nsq_state      *NSQ,                   /* I/O  NSQ state                       */

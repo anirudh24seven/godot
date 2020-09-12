@@ -37,7 +37,6 @@ typedef unsigned short ush;
 typedef ush FAR ushf;
 typedef unsigned long  ulg;
 
-
 #define ERR_RETURN(strm,err) \
   return (strm->msg = (char*)ERR_MSG(err), (err))
 /* To be used only when the state is known to be valid */
@@ -132,8 +131,7 @@ typedef unsigned long  ulg;
 #  define fdopen(fd,type)  _fdopen(fd,type)
 #endif
 
-
-        /* Common defaults */
+/* Common defaults */
 
 #ifndef OS_CODE
 #  define OS_CODE  0x03  /* assume Unix */
@@ -200,7 +198,6 @@ typedef unsigned long  ulg;
 #  define Tracec(c,x)
 #  define Tracecv(c,x)
 #endif
-
 
 typedef uLong (*check_func) OF((uLong check, const Bytef *buf,
                                 uInt len));

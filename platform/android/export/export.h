@@ -1,8 +1,6 @@
 
 /*  export.h                                                             */
 
-
-
 #ifndef ANDROID_EXPORT_H
 #define ANDROID_EXPORT_H
 

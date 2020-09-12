@@ -1,8 +1,6 @@
 
 /*  vulkan_context_iphone.h                                              */
 
-
-
 #ifndef VULKAN_CONTEXT_IPHONE_H
 #define VULKAN_CONTEXT_IPHONE_H
 

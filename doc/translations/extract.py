@@ -64,9 +64,7 @@ class LineNumberingParser(ET.XMLParser):
         element._end_byte_index = self.parser.CurrentByteIndex
         return element
 
-
 ## </xml-line-number-hack>
-
 
 class Desc:
     def __init__(self, line_no, msg, desc_list=None):
@@ -77,7 +75,6 @@ class Desc:
         self.msg = msg
         self.desc_list = desc_list
 
-
 class DescList:
     def __init__(self, doc, path):
         ## doc  : root xml element of the document
@@ -87,10 +84,8 @@ class DescList:
         self.path = path
         self.list = []
 
-
 def print_error(error):
     print("ERROR: {}".format(error))
-
 
 ## build classes with xml elements recursively
 def _collect_classes_dir(path, classes):
@@ -105,7 +100,6 @@ def _collect_classes_dir(path, classes):
                 # print("Got non-.xml file '{}', skipping.".format(path))
                 continue
             _collect_classes_file(_dir, classes)
-
 
 ## opens a file and parse xml add to classes
 def _collect_classes_file(path, classes):
@@ -134,7 +128,6 @@ def _collect_classes_file(path, classes):
     else:
         print_error("Unknown XML file {}, skipping".format(path))
 
-
 ## regions are list of tuples with size 3 (start_index, end_index, indent)
 ## indication in string where the codeblock starts, ends, and it's indent
 ## if i inside the region returns the indent, else returns -1
@@ -143,7 +136,6 @@ def _get_xml_indent(i, regions):
         if region[0] < i < region[1]:
             return region[2]
     return -1
-
 
 ## find and build all regions of codeblock which we need later
 def _make_codeblock_regions(desc, path=""):
@@ -169,7 +161,6 @@ def _make_codeblock_regions(desc, path=""):
         code_block_regions.append((code_block_index, end_index, xml_indent))
         code_block_index += 1
     return code_block_regions
-
 
 def _strip_and_split_desc(desc, code_block_regions):
     desc_strip = ""  ## a stripped desc msg
@@ -197,7 +188,6 @@ def _strip_and_split_desc(desc, code_block_regions):
             total_indent = 0
     return desc_strip
 
-
 ## make catalog strings from xml elements
 def _make_translation_catalog(classes):
     unique_msgs = OrderedDict()
@@ -219,7 +209,6 @@ def _make_translation_catalog(classes):
                 else:
                     unique_msgs[desc_msg].append(desc_obj)
     return unique_msgs
-
 
 ## generate the catalog file
 def _generate_translation_catalog_file(unique_msgs, output):
@@ -251,7 +240,6 @@ def _generate_translation_catalog_file(unique_msgs, output):
         os.system("msgmerge -w79 {0} {0} > {0}.wrap".format(output))
         shutil.move("{}.wrap".format(output), output)
 
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -280,7 +268,6 @@ def main():
     classes = OrderedDict(sorted(classes.items(), key=lambda kv: kv[0].lower()))
     unique_msgs = _make_translation_catalog(classes)
     _generate_translation_catalog_file(unique_msgs, output)
-
 
 if __name__ == "__main__":
     main()

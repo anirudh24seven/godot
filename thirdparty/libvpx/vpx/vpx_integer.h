@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VPX_VPX_INTEGER_H_
 #define VPX_VPX_INTEGER_H_
 

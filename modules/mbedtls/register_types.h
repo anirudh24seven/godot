@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef MBEDTLS_REGISTER_TYPES_H
 #define MBEDTLS_REGISTER_TYPES_H
 

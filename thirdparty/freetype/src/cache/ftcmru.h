@@ -15,8 +15,7 @@
  *
  */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * An MRU is a list that cannot hold more than a certain number of
    * elements (`max_elements').  All elements in the list are sorted in
@@ -39,10 +38,8 @@
    *
    */
 
-
 #ifndef FTCMRU_H_
 #define FTCMRU_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -67,8 +64,7 @@ FT_BEGIN_HEADER
 
   } FTC_MruNodeRec;
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   FTC_MruNode_Prepend( FTC_MruNode  *plist,
                        FTC_MruNode   node );
 
@@ -80,13 +76,11 @@ FT_BEGIN_HEADER
   FTC_MruNode_Remove( FTC_MruNode  *plist,
                       FTC_MruNode   node );
 
-
-  typedef struct FTC_MruListRec_*              FTC_MruList;
+typedef struct FTC_MruListRec_*              FTC_MruList;
 
   typedef struct FTC_MruListClassRec_ const *  FTC_MruListClass;
 
-
-  typedef FT_Bool
+typedef FT_Bool
   (*FTC_MruNode_CompareFunc)( FTC_MruNode  node,
                               FT_Pointer   key );
 
@@ -104,8 +98,7 @@ FT_BEGIN_HEADER
   (*FTC_MruNode_DoneFunc)( FTC_MruNode  node,
                            FT_Pointer   data );
 
-
-  typedef struct  FTC_MruListClassRec_
+typedef struct  FTC_MruListClassRec_
   {
     FT_Offset                node_size;
 
@@ -116,8 +109,7 @@ FT_BEGIN_HEADER
 
   } FTC_MruListClassRec;
 
-
-  typedef struct  FTC_MruListRec_
+typedef struct  FTC_MruListRec_
   {
     FT_UInt              num_nodes;
     FT_UInt              max_nodes;
@@ -128,8 +120,7 @@ FT_BEGIN_HEADER
 
   } FTC_MruListRec;
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   FTC_MruList_Init( FTC_MruList       list,
                     FTC_MruListClass  clazz,
                     FT_UInt           max_nodes,
@@ -139,12 +130,10 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   FTC_MruList_Reset( FTC_MruList  list );
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   FTC_MruList_Done( FTC_MruList  list );
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   FTC_MruList_New( FTC_MruList   list,
                    FT_Pointer    key,
                    FTC_MruNode  *anode );
@@ -157,7 +146,6 @@ FT_BEGIN_HEADER
   FTC_MruList_RemoveSelection( FTC_MruList              list,
                                FTC_MruNode_CompareFunc  selection,
                                FT_Pointer               key );
-
 
 #ifdef FTC_INLINE
 
@@ -214,7 +202,6 @@ FT_BEGIN_HEADER
 
 #endif /* !FTC_INLINE */
 
-
 #define FTC_MRULIST_LOOP( list, node )        \
   FT_BEGIN_STMNT                              \
     FTC_MruNode  _first = (list)->nodes;      \
@@ -229,7 +216,6 @@ FT_BEGIN_HEADER
       {                                       \
         *(FTC_MruNode*)&(node) = _node;
 
-
 #define FTC_MRULIST_LOOP_END()               \
         _node = _node->next;                 \
                                              \
@@ -241,8 +227,6 @@ FT_BEGIN_HEADER
 
 FT_END_HEADER
 
-
 #endif /* FTCMRU_H_ */
-
 
 /* END */

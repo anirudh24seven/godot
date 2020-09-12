@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #include "entropymv.h"
 
 const MV_CONTEXT vp8_mv_update_probs[2] =
@@ -36,9 +35,7 @@ const MV_CONTEXT vp8_default_mv_context[2] =
         128, 129, 132,  75, 145, 178, 206, 239, 254, 254 /* long bits */
     }},
 
-
-
-    {{
+{{
         /* same for column */
         164,                                        /* is short */
         128,

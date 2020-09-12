@@ -1,6 +1,5 @@
 import os
 
-
 def parse_config():
     em_config_file = os.getenv("EM_CONFIG") or os.path.expanduser("~/.emscripten")
     if not os.path.exists(em_config_file):
@@ -19,7 +18,6 @@ def parse_config():
     normalized["CLOSURE_BIN"] = os.path.join(normalized["EMCC_ROOT"], "node_modules", ".bin", "google-closure-compiler")
     return normalized
 
-
 def run_closure_compiler(target, source, env, for_signature):
     cfg = parse_config()
     cmd = [cfg["NODE_JS"], cfg["CLOSURE_BIN"]]
@@ -30,7 +28,6 @@ def run_closure_compiler(target, source, env, for_signature):
         cmd.extend(["--js", f.get_abspath()])
     cmd.extend(["--js_output_file", target[0].get_abspath()])
     return " ".join(cmd)
-
 
 def create_engine_file(env, target, source, externs):
     if env["use_closure_compiler"]:

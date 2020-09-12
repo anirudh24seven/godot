@@ -1,8 +1,6 @@
 
 /*  image_loader_webp.h                                                  */
 
-
-
 #ifndef IMAGE_LOADER_WEBP_H
 #define IMAGE_LOADER_WEBP_H
 

@@ -1,8 +1,6 @@
 
 /*  math_funcs.cpp                                                       */
 
-
-
 #include "math_funcs.h"
 
 #include "core/error_macros.h"

@@ -15,34 +15,27 @@
  *
  */
 
-
 #ifndef AFMPARSE_H_
 #define AFMPARSE_H_
-
 
 #include <ft2build.h>
 #include FT_INTERNAL_POSTSCRIPT_AUX_H
 
-
 FT_BEGIN_HEADER
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   afm_parser_init( AFM_Parser  parser,
                    FT_Memory   memory,
                    FT_Byte*    base,
                    FT_Byte*    limit );
 
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   afm_parser_done( AFM_Parser  parser );
 
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   afm_parser_parse( AFM_Parser  parser );
 
-
-  enum  AFM_ValueType_
+enum  AFM_ValueType_
   {
     AFM_VALUE_TYPE_STRING,
     AFM_VALUE_TYPE_NAME,
@@ -52,8 +45,7 @@ FT_BEGIN_HEADER
     AFM_VALUE_TYPE_INDEX    /* glyph index */
   };
 
-
-  typedef struct  AFM_ValueRec_
+typedef struct  AFM_ValueRec_
   {
     enum AFM_ValueType_  type;
     union
@@ -84,6 +76,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* AFMPARSE_H_ */
-
 
 /* END */

@@ -1,8 +1,6 @@
 
 /*  rendering_server.cpp                                                 */
 
-
-
 #include "rendering_server.h"
 
 #include "core/method_bind_ext.gen.inc"

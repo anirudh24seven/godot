@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -97,7 +96,6 @@ void ArmaturePopulate::Execute(aiScene *out) {
     bone->mNode = bone_node;
   }
 }
-
 
 /* Reprocess all nodes to calculate bone transforms properly based on the REAL
  * mOffsetMatrix not the local. */
@@ -192,7 +190,6 @@ void ArmaturePopulate::BuildBoneStack(aiNode *current_node,
   }
 }
 
-
 /* Returns the armature root node */
 /* This is required to be detected for a bone initially, it will recurse up
  * until it cannot find another bone and return the node No known failure
@@ -213,8 +210,6 @@ aiNode *ArmaturePopulate::GetArmatureRoot(aiNode *bone_node,
   
   return nullptr;
 }
-
-
 
 /* Simple IsBoneNode check if this could be a bone */
 bool ArmaturePopulate::IsBoneNode(const aiString &bone_name,
@@ -261,8 +256,5 @@ aiNode *ArmaturePopulate::GetNodeFromStack(const aiString &node_name,
 
   return nullptr;
 }
-
-
-
 
 } // Namespace Assimp

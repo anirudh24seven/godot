@@ -1,8 +1,6 @@
 
 /*  game_center.h                                                        */
 
-
-
 #ifdef GAME_CENTER_ENABLED
 
 #ifndef GAME_CENTER_H

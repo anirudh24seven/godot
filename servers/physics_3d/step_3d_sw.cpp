@@ -1,8 +1,6 @@
 
 /*  step_3d_sw.cpp                                                       */
 
-
-
 #include "step_3d_sw.h"
 #include "joints_3d_sw.h"
 

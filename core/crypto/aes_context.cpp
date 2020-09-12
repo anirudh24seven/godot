@@ -1,8 +1,6 @@
 
 /*  aes_context.cpp                                                      */
 
-
-
 #include "core/crypto/aes_context.h"
 
 Error AESContext::start(Mode p_mode, PackedByteArray p_key, PackedByteArray p_iv) {

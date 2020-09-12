@@ -1,8 +1,6 @@
 
 /*  node_dock.h                                                          */
 
-
-
 #ifndef NODE_DOCK_H
 #define NODE_DOCK_H
 

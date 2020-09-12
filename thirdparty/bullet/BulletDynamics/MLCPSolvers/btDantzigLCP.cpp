@@ -22,7 +22,6 @@
 
 /*
 
-
 THE ALGORITHM
 -------------
 
@@ -60,7 +59,6 @@ we restrict lo(i) <= 0 and hi(i) >= 0. this makes the algorithm a bit
 simpler, because the starting point for x(i),w(i) is always on the dotted
 line x=0 and x will only ever increase in one direction, so it can only hit
 two out of the three line segments.
-
 
 NOTES
 -----

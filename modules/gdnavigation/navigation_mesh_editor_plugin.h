@@ -1,8 +1,6 @@
 
 /*  navigation_mesh_editor_plugin.h                                      */
 
-
-
 #ifndef NAVIGATION_MESH_EDITOR_PLUGIN_H
 #define NAVIGATION_MESH_EDITOR_PLUGIN_H
 

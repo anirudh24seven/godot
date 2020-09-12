@@ -1,8 +1,6 @@
 
 /*  quick_open.cpp                                                       */
 
-
-
 #include "quick_open.h"
 
 #include "core/os/keyboard.h"

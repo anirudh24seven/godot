@@ -1509,8 +1509,7 @@ png_XYZ_from_xy(png_XYZ *XYZ, const png_xy *xy)
    if (blue_scale <= 0)
       return 1;
 
-
-   /* And fill in the png_XYZ: */
+/* And fill in the png_XYZ: */
    if (png_muldiv(&XYZ->red_X, xy->redx, PNG_FP_1, red_inverse) == 0)
       return 1;
    if (png_muldiv(&XYZ->red_Y, xy->redy, PNG_FP_1, red_inverse) == 0)
@@ -2832,7 +2831,6 @@ PNG_FP_End:
 
    return (state & PNG_FP_SAW_DIGIT) != 0;
 }
-
 
 /* The same but for a complete string. */
 int

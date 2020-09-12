@@ -1,8 +1,6 @@
 
 /*  area_pair_2d_sw.cpp                                                  */
 
-
-
 #include "area_pair_2d_sw.h"
 #include "collision_solver_2d_sw.h"
 

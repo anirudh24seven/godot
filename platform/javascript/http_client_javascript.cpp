@@ -1,8 +1,6 @@
 
 /*  http_client_javascript.cpp                                           */
 
-
-
 #include "core/io/http_client.h"
 
 #include "http_request.h"

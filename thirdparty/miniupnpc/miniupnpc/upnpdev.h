@@ -27,10 +27,8 @@ struct UPNPDev {
  * free list returned by upnpDiscover() */
 MINIUPNP_LIBSPEC void freeUPNPDevlist(struct UPNPDev * devlist);
 
-
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif /* UPNPDEV_H_INCLUDED */

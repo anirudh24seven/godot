@@ -1,8 +1,6 @@
 
 /*  area_3d.h                                                            */
 
-
-
 #ifndef AREA_3D_H
 #define AREA_3D_H
 

@@ -1,8 +1,6 @@
 
 /*  reference.h                                                          */
 
-
-
 #ifndef REFERENCE_H
 #define REFERENCE_H
 

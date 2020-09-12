@@ -1,8 +1,6 @@
 
 /*  baked_lightmap.h                                                     */
 
-
-
 #ifndef BAKED_LIGHTMAP_H
 #define BAKED_LIGHTMAP_H
 

@@ -1,8 +1,6 @@
 
 /*  string_name.h                                                        */
 
-
-
 #ifndef STRING_NAME_H
 #define STRING_NAME_H
 

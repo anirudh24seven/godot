@@ -1,8 +1,6 @@
 
 /*  collision_polygon_2d.h                                               */
 
-
-
 #ifndef COLLISION_POLYGON_2D_H
 #define COLLISION_POLYGON_2D_H
 

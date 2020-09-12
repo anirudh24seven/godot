@@ -1,8 +1,6 @@
 
 /*  text_file.cpp                                                        */
 
-
-
 #include "text_file.h"
 
 #include "core/os/file_access.h"

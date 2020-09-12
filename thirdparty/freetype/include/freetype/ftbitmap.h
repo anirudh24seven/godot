@@ -15,10 +15,8 @@
  *
  */
 
-
 #ifndef FTBITMAP_H_
 #define FTBITMAP_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -30,11 +28,9 @@
 #error "so that freetype.h of FreeType 2 is found first."
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @section:
    *   bitmap_handling
@@ -58,8 +54,7 @@ FT_BEGIN_HEADER
    *   described here.
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Bitmap_Init
@@ -77,13 +72,11 @@ FT_BEGIN_HEADER
   FT_EXPORT( void )
   FT_Bitmap_Init( FT_Bitmap  *abitmap );
 
-
-  /* deprecated */
+/* deprecated */
   FT_EXPORT( void )
   FT_Bitmap_New( FT_Bitmap  *abitmap );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Bitmap_Copy
@@ -114,8 +107,7 @@ FT_BEGIN_HEADER
                   const FT_Bitmap  *source,
                   FT_Bitmap        *target );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Bitmap_Embolden
@@ -160,8 +152,7 @@ FT_BEGIN_HEADER
                       FT_Pos      xStrength,
                       FT_Pos      yStrength );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Bitmap_Convert
@@ -207,8 +198,7 @@ FT_BEGIN_HEADER
                      FT_Bitmap        *target,
                      FT_Int            alignment );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Bitmap_Blend
@@ -269,8 +259,7 @@ FT_BEGIN_HEADER
                    FT_Vector         *atarget_offset,
                    FT_Color           color );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_GlyphSlot_Own_Bitmap
@@ -291,8 +280,7 @@ FT_BEGIN_HEADER
   FT_EXPORT( FT_Error )
   FT_GlyphSlot_Own_Bitmap( FT_GlyphSlot  slot );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_Bitmap_Done
@@ -318,13 +306,10 @@ FT_BEGIN_HEADER
   FT_Bitmap_Done( FT_Library  library,
                   FT_Bitmap  *bitmap );
 
-
-  /* */
-
+/* */
 
 FT_END_HEADER
 
 #endif /* FTBITMAP_H_ */
-
 
 /* END */

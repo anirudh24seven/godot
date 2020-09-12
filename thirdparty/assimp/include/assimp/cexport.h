@@ -82,7 +82,6 @@ struct aiExportFormatDesc
     const char* fileExtension;
 };
 
-
 // --------------------------------------------------------------------------------
 /** Returns the number of export file formats available in the current Assimp build.
  * Use aiGetExportFormatDescription() to retrieve infos of a specific export format.
@@ -117,7 +116,6 @@ ASSIMP_API void aiReleaseExportFormatDescription( const C_STRUCT aiExportFormatD
  */
 ASSIMP_API void aiCopyScene(const C_STRUCT aiScene* pIn,
     C_STRUCT aiScene** pOut);
-
 
 // --------------------------------------------------------------------------------
 /** Frees a scene copy created using aiCopyScene() */
@@ -166,7 +164,6 @@ ASSIMP_API aiReturn aiExportScene( const C_STRUCT aiScene* pScene,
     const char* pFormatId,
     const char* pFileName,
     unsigned int pPreprocessing);
-
 
 // --------------------------------------------------------------------------------
 /** Exports the given scene to a chosen file format using custom IO logic supplied by you.

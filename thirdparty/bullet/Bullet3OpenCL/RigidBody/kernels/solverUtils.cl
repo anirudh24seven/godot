@@ -21,7 +21,6 @@ subject to the following restrictions:
 #pragma OPENCL EXTENSION cl_khr_local_int32_extended_atomics : enable
 #pragma OPENCL EXTENSION cl_khr_global_int32_extended_atomics : enable
 
-
 #ifdef cl_ext_atomic_counters_32
 #pragma OPENCL EXTENSION cl_ext_atomic_counters_32 : enable
 #else
@@ -46,7 +45,6 @@ typedef unsigned char u8;
 #define AtomCmpxhg(x, cmp, value) atom_cmpxchg( &(x), cmp, value )
 #define AtomXhg(x, value) atom_xchg ( &(x), value )
 
-
 #define SELECT_UINT4( b, a, condition ) select( b,a,condition )
 
 #define make_float4 (float4)
@@ -56,10 +54,8 @@ typedef unsigned char u8;
 #define make_uint2 (uint2)
 #define make_int2 (int2)
 
-
 #define max2 max
 #define min2 min
-
 
 ///////////////////////////////////////
 //	Vector
@@ -101,7 +97,6 @@ float4 fastNormalize4(float4 v)
 {
 	return fast_normalize(v);
 }
-
 
 __inline
 float sqrtf(float a)
@@ -296,10 +291,6 @@ float4 qtRotate(Quaternion q, float4 vec);
 __inline
 Quaternion qtInvert(Quaternion q);
 
-
-
-
-
 __inline
 Quaternion qtMul(Quaternion a, Quaternion b)
 {
@@ -340,9 +331,6 @@ float4 qtInvRotate(const Quaternion q, float4 vec)
 	return qtRotate( qtInvert( q ), vec );
 }
 
-
-
-
 #define WG_SIZE 64
 
 typedef struct
@@ -357,8 +345,6 @@ typedef struct
 	float m_restituitionCoeff;
 	float m_frictionCoeff;
 } Body;
-
-
 
 typedef struct
 {
@@ -383,11 +369,6 @@ typedef struct
 	int m_batchIdx;
 	u32 m_paddings;
 } Constraint4;
-
-
-
-
-
 
 __kernel void CountBodiesKernel(__global struct b3Contact4Data* manifoldPtr, __global unsigned int* bodyCount, __global int2* contactConstraintOffsets, int numContactManifolds, int fixedBodyIndex)
 {
@@ -424,7 +405,6 @@ __kernel void ClearVelocitiesKernel(__global float4* linearVelocities,__global f
 	}
 }
 
-
 __kernel void AverageVelocitiesKernel(__global Body* gBodies,__global int* offsetSplitBodies,__global const unsigned int* bodyCount,
 __global float4* deltaLinearVelocities, __global float4* deltaAngularVelocities, int numBodies)
 {
@@ -455,8 +435,6 @@ __global float4* deltaLinearVelocities, __global float4* deltaAngularVelocities,
 	}//i<numBodies
 }
 
-
-
 void setLinearAndAngular( float4 n, float4 r0, float4 r1, float4* linear, float4* angular0, float4* angular1)
 {
 	*linear = make_float4(n.xyz,0.f);
@@ -464,12 +442,10 @@ void setLinearAndAngular( float4 n, float4 r0, float4 r1, float4* linear, float4
 	*angular1 = -cross3(r1, n);
 }
 
-
 float calcRelVel( float4 l0, float4 l1, float4 a0, float4 a1, float4 linVel0, float4 angVel0, float4 linVel1, float4 angVel1 )
 {
 	return dot3F4(l0, linVel0) + dot3F4(a0, angVel0) + dot3F4(l1, linVel1) + dot3F4(a1, angVel1);
 }
-
 
 float calcJacCoeff(const float4 linear0, const float4 linear1, const float4 angular0, const float4 angular1,
 					float invMass0, const Matrix3x3* invInertia0, float invMass1, const Matrix3x3* invInertia1, float countA, float countB)
@@ -481,7 +457,6 @@ float calcJacCoeff(const float4 linear0, const float4 linear1, const float4 angu
 	float jmj3 = dot3F4(mtMul3(angular1,*invInertia1), angular1);
 	return -1.f/((jmj0+jmj1)*countA+(jmj2+jmj3)*countB);
 }
-
 
 void btPlaneSpace1 (float4 n, float4* p, float4* q);
  void btPlaneSpace1 (float4 n, float4* p, float4* q)
@@ -512,10 +487,6 @@ void btPlaneSpace1 (float4 n, float4* p, float4* q);
   }
 }
 
-
-
-
-
 void solveContact(__global Constraint4* cs,
 			float4 posA, float4* linVelA, float4* angVelA, float invMassA, Matrix3x3 invInertiaA,
 			float4 posB, float4* linVelB, float4* angVelB, float invMassB, Matrix3x3 invInertiaB,
@@ -532,15 +503,12 @@ void solveContact(__global Constraint4* cs,
 		float4 r0 = cs->m_worldPos[ic] - posA;
 		float4 r1 = cs->m_worldPos[ic] - posB;
 		setLinearAndAngular( cs->m_linear, r0, r1, &linear, &angular0, &angular1 );
-	
 
-
-		float rambdaDt = calcRelVel( cs->m_linear, -cs->m_linear, angular0, angular1, 
+float rambdaDt = calcRelVel( cs->m_linear, -cs->m_linear, angular0, angular1,
 			*linVelA+*dLinVelA, *angVelA+*dAngVelA, *linVelB+*dLinVelB, *angVelB+*dAngVelB ) + cs->m_b[ic];
 		rambdaDt *= cs->m_jacCoeffInv[ic];
 
-		
-		{
+{
 			float prevSum = cs->m_appliedRambdaDt[ic];
 			float updated = prevSum;
 			updated += rambdaDt;
@@ -550,14 +518,12 @@ void solveContact(__global Constraint4* cs,
 			cs->m_appliedRambdaDt[ic] = updated;
 		}
 
-			
-		float4 linImp0 = invMassA*linear*rambdaDt;
+float4 linImp0 = invMassA*linear*rambdaDt;
 		float4 linImp1 = invMassB*(-linear)*rambdaDt;
 		float4 angImp0 = mtMul1(invInertiaA, angular0)*rambdaDt;
 		float4 angImp1 = mtMul1(invInertiaB, angular1)*rambdaDt;
 
-		
-		if (invMassA)
+if (invMassA)
 		{
 			*dLinVelA += linImp0;
 			*dAngVelA += angImp0;
@@ -570,11 +536,9 @@ void solveContact(__global Constraint4* cs,
 	}
 }
 
-
 //	solveContactConstraint( gBodies, gShapes, &gConstraints[i] ,contactConstraintOffsets,offsetSplitBodies, deltaLinearVelocities, deltaAngularVelocities);
 
-
-void solveContactConstraint(__global Body* gBodies, __global Shape* gShapes, __global Constraint4* ldsCs, 
+void solveContactConstraint(__global Body* gBodies, __global Shape* gShapes, __global Constraint4* ldsCs,
 __global int2* contactConstraintOffsets,__global unsigned int* offsetSplitBodies,
 __global float4* deltaLinearVelocities, __global float4* deltaAngularVelocities)
 {
@@ -595,8 +559,7 @@ __global float4* deltaLinearVelocities, __global float4* deltaAngularVelocities)
 	float invMassB = gBodies[bIdx].m_invMass;
 	Matrix3x3 invInertiaB = gShapes[bIdx].m_invInertia;
 
-			
-	float4 dLinVelA = make_float4(0,0,0,0);
+float4 dLinVelA = make_float4(0,0,0,0);
 	float4 dAngVelA = make_float4(0,0,0,0);
 	float4 dLinVelB = make_float4(0,0,0,0);
 	float4 dAngVelB = make_float4(0,0,0,0);
@@ -637,7 +600,6 @@ __global float4* deltaLinearVelocities, __global float4* deltaAngularVelocities)
 
 }
 
-
 __kernel void SolveContactJacobiKernel(__global Constraint4* gConstraints, __global Body* gBodies, __global Shape* gShapes ,
 __global int2* contactConstraintOffsets,__global unsigned int* offsetSplitBodies,__global float4* deltaLinearVelocities, __global float4* deltaAngularVelocities,
 float deltaTime, float positionDrift, float positionConstraintCoeff, int fixedBodyIndex, int numManifolds
@@ -650,9 +612,6 @@ float deltaTime, float positionDrift, float positionConstraintCoeff, int fixedBo
 	}
 }
 
-
-
-
 void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __global Constraint4* ldsCs,
 							__global int2* contactConstraintOffsets,__global unsigned int* offsetSplitBodies,
 							__global float4* deltaLinearVelocities, __global float4* deltaAngularVelocities)
@@ -661,8 +620,7 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 	int aIdx = ldsCs[0].m_bodyA;
 	int bIdx = ldsCs[0].m_bodyB;
 
-
-	float4 posA = gBodies[aIdx].m_pos;
+float4 posA = gBodies[aIdx].m_pos;
 	float4 linVelA = gBodies[aIdx].m_linVel;
 	float4 angVelA = gBodies[aIdx].m_angVel;
 	float invMassA = gBodies[aIdx].m_invMass;
@@ -673,9 +631,8 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 	float4 angVelB = gBodies[bIdx].m_angVel;
 	float invMassB = gBodies[bIdx].m_invMass;
 	Matrix3x3 invInertiaB = gShapes[bIdx].m_invInertia;
-	
 
-	float4 dLinVelA = make_float4(0,0,0,0);
+float4 dLinVelA = make_float4(0,0,0,0);
 	float4 dAngVelA = make_float4(0,0,0,0);
 	float4 dLinVelB = make_float4(0,0,0,0);
 	float4 dAngVelB = make_float4(0,0,0,0);
@@ -700,10 +657,7 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 		dAngVelB = deltaAngularVelocities[splitIndexB];
 	}
 
-
-
-
-	{
+{
 		float maxRambdaDt[4] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
 		float minRambdaDt[4] = {0.f,0.f,0.f,0.f};
 
@@ -719,12 +673,10 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 			minRambdaDt[j] = -maxRambdaDt[j];
 		}
 
-		
 //		solveFriction( ldsCs, posA, &linVelA, &angVelA, invMassA, invInertiaA,
 //			posB, &linVelB, &angVelB, invMassB, invInertiaB, maxRambdaDt, minRambdaDt );
-		
-		
-		{
+
+{
 			
 			__global Constraint4* cs = ldsCs;
 			
@@ -779,9 +731,7 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 			}
 		}
 
-		
-		
-	}
+}
 
 	if (invMassA)
 	{
@@ -793,10 +743,8 @@ void solveFrictionConstraint(__global Body* gBodies, __global Shape* gShapes, __
 		deltaLinearVelocities[splitIndexB] = dLinVelB;
 		deltaAngularVelocities[splitIndexB] = dAngVelB;
 	}
- 
 
 }
-
 
 __kernel void SolveFrictionJacobiKernel(__global Constraint4* gConstraints, __global Body* gBodies, __global Shape* gShapes ,
 										__global int2* contactConstraintOffsets,__global unsigned int* offsetSplitBodies,
@@ -810,7 +758,6 @@ __kernel void SolveFrictionJacobiKernel(__global Constraint4* gConstraints, __gl
 		solveFrictionConstraint( gBodies, gShapes, &gConstraints[i] ,&contactConstraintOffsets[i],offsetSplitBodies, deltaLinearVelocities, deltaAngularVelocities);
 	}
 }
-
 
 __kernel void UpdateBodyVelocitiesKernel(__global Body* gBodies,__global int* offsetSplitBodies,__global const unsigned int* bodyCount,
 									__global float4* deltaLinearVelocities, __global float4* deltaAngularVelocities, int numBodies)
@@ -831,8 +778,6 @@ __kernel void UpdateBodyVelocitiesKernel(__global Body* gBodies,__global int* of
 	}
 }
 
-
-
 void setConstraint4( const float4 posA, const float4 linVelA, const float4 angVelA, float invMassA, const Matrix3x3 invInertiaA,
 	const float4 posB, const float4 linVelB, const float4 angVelB, float invMassB, const Matrix3x3 invInertiaB, 
 	__global struct b3Contact4Data* src, float dt, float positionDrift, float positionConstraintCoeff,float countA, float countB,
@@ -848,8 +793,7 @@ void setConstraint4( const float4 posA, const float4 linVelA, const float4 angVe
 	}
 	dstC->m_fJacCoeffInv[0] = dstC->m_fJacCoeffInv[1] = 0.f;
 
-
-	dstC->m_linear = src->m_worldNormalOnB;
+dstC->m_linear = src->m_worldNormalOnB;
 	dstC->m_linear.w = 0.7f ;//src->getFrictionCoeff() );
 	for(int ic=0; ic<4; ic++)
 	{
@@ -921,7 +865,6 @@ void setConstraint4( const float4 posA, const float4 linVelA, const float4 angVe
 		}
 	}
 }
-
 
 __kernel
 __attribute__((reqd_work_group_size(WG_SIZE,1,1)))

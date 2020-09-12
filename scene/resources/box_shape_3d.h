@@ -1,8 +1,6 @@
 
 /*  box_shape_3d.h                                                       */
 
-
-
 #ifndef BOX_SHAPE_H
 #define BOX_SHAPE_H
 

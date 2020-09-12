@@ -176,7 +176,6 @@ private:
     int outer_size_, channels_, inner_size_;
 };
 
-
 }
 }
 }

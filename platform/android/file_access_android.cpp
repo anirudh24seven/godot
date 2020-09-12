@@ -1,8 +1,6 @@
 
 /*  file_access_android.cpp                                              */
 
-
-
 #include "file_access_android.h"
 #include "core/print_string.h"
 

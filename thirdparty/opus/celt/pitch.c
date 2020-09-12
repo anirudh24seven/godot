@@ -143,7 +143,6 @@ static void celt_fir5(const opus_val16 *x,
    mem[4]=mem4;
 }
 
-
 void pitch_downsample(celt_sig * OPUS_RESTRICT x[], opus_val16 * OPUS_RESTRICT x_lp,
       int len, int C, int arch)
 {

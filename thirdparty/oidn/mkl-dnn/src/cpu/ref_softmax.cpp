@@ -199,7 +199,6 @@ void ref_softmax_fwd_t<data_type>::_scal(int n, data_t alpha, data_t *x) const {
 
 template struct ref_softmax_fwd_t<data_type::f32>;
 
-
 // NC/NCHW softmax for along final axe (1 for NC, 3 for NCHW)
 template <impl::data_type_t data_type>
 void ref_softmax_bwd_t<data_type>::execute_backward_dense(

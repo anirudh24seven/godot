@@ -78,7 +78,6 @@ struct OpusDecoder {
    opus_uint32  rangeFinal;
 };
 
-
 int opus_decoder_get_size(int channels)
 {
    int silkDecSizeBytes, celtDecSizeBytes;
@@ -753,7 +752,6 @@ int opus_decode_float(OpusDecoder *st, const unsigned char *data,
 }
 #endif
 
-
 #else
 int opus_decode(OpusDecoder *st, const unsigned char *data,
       opus_int32 len, opus_int16 *pcm, int frame_size, int decode_fec)
@@ -809,8 +807,7 @@ int opus_decoder_ctl(OpusDecoder *st, int request, ...)
    silk_dec = (char*)st+st->silk_dec_offset;
    celt_dec = (CELTDecoder*)((char*)st+st->celt_dec_offset);
 
-
-   va_start(ap, request);
+va_start(ap, request);
 
    switch (request)
    {
@@ -916,7 +913,6 @@ void opus_decoder_destroy(OpusDecoder *st)
 {
    opus_free(st);
 }
-
 
 int opus_packet_get_bandwidth(const unsigned char *data)
 {

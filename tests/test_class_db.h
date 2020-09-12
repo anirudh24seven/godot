@@ -1,8 +1,6 @@
 
 /*  test_class_db.h                                                      */
 
-
-
 #ifndef GODOT_TEST_CLASS_DB_H
 #define GODOT_TEST_CLASS_DB_H
 

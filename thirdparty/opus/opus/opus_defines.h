@@ -211,7 +211,6 @@ extern "C" {
 
 /**@}*/
 
-
 /** @defgroup opus_encoderctls Encoder related CTLs
   *
   * These are convenience macros for use with the \c opus_encode_ctl
@@ -421,7 +420,6 @@ extern "C" {
   * </dl>
   * @hideinitializer */
 #define OPUS_GET_SIGNAL(x) OPUS_GET_SIGNAL_REQUEST, __opus_check_int_ptr(x)
-
 
 /** Configures the encoder's intended application.
   * The initial value is a mandatory argument to the encoder_create function.

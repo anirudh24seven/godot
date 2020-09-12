@@ -5,8 +5,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -100,7 +98,6 @@ enum aiTextureOp
     /** T = T1 + (T2-0.5) */
     aiTextureOp_SignedAdd = 0x5,
 
-
 #ifndef SWIG
     _aiTextureOp_Force32Bit = INT_MAX
 #endif
@@ -170,7 +167,6 @@ enum aiTextureMapping
 
      /** Undefined mapping. Have fun. */
     aiTextureMapping_OTHER = 0x5,
-
 
 #ifndef SWIG
     _aiTextureMapping_Force32Bit = INT_MAX
@@ -304,7 +300,6 @@ enum aiTextureType
     */
     aiTextureType_UNKNOWN = 18,
 
-
 #ifndef SWIG
     _aiTextureType_Force32Bit = INT_MAX
 #endif
@@ -377,12 +372,10 @@ enum aiShadingMode
      */
     aiShadingMode_Fresnel = 0xa,
 
-
 #ifndef SWIG
     _aiShadingMode_Force32Bit = INT_MAX
 #endif
 };
-
 
 // ---------------------------------------------------------------------------
 /** @brief Defines some mixed flags for a particular texture.
@@ -423,7 +416,6 @@ enum aiTextureFlags
       _aiTextureFlags_Force32Bit = INT_MAX
 #endif
 };
-
 
 // ---------------------------------------------------------------------------
 /** @brief Defines alpha-blend flags.
@@ -468,7 +460,6 @@ enum aiBlendMode
 #endif
 };
 
-
 #include "./Compiler/pushpack1.h"
 
 // ---------------------------------------------------------------------------
@@ -502,7 +493,6 @@ struct aiUVTransform
      *  0.f.
      */
     ai_real mRotation;
-
 
 #ifdef __cplusplus
     aiUVTransform() AI_NO_EXCEPT
@@ -556,13 +546,11 @@ enum aiPropertyTypeInfo
     */
     aiPTI_Integer = 0x4,
 
-
-    /** Simple binary buffer, content undefined. Not convertible to anything.
+/** Simple binary buffer, content undefined. Not convertible to anything.
     */
     aiPTI_Buffer  = 0x5,
 
-
-     /** This value is not used. It is just there to force the
+/** This value is not used. It is just there to force the
      *  compiler to map this enum to a 32 Bit integer.
      */
 #ifndef SWIG
@@ -718,8 +706,7 @@ public:
     aiReturn Get(const char* pKey,unsigned int type,
         unsigned int idx,Type& pOut) const;
 
-
-    aiReturn Get(const char* pKey,unsigned int type,
+aiReturn Get(const char* pKey,unsigned int type,
         unsigned int idx, int& pOut) const;
 
     aiReturn Get(const char* pKey,unsigned int type,
@@ -784,11 +771,9 @@ public:
         aiTextureOp* op             = NULL,
         aiTextureMapMode* mapmode   = NULL) const;
 
+// Setters
 
-    // Setters
-
-
-    // ------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
     /** @brief Add a property with a given key and type info to the material
      *  structure
      *
@@ -898,7 +883,6 @@ public:
      */
     static void CopyPropertyList(aiMaterial* pcDest,
         const aiMaterial* pcSrc);
-
 
 #endif
 
@@ -1410,7 +1394,6 @@ ASSIMP_API C_ENUM aiReturn aiGetMaterialFloatArray(
     ai_real* pOut,
     unsigned int* pMax);
 
-
 #ifdef __cplusplus
 
 // ---------------------------------------------------------------------------
@@ -1449,7 +1432,6 @@ inline aiReturn aiGetMaterialFloat(const aiMaterial* pMat,
 
 #endif //!__cplusplus
 
-
 // ---------------------------------------------------------------------------
 /** @brief Retrieve an array of integer values with a specific key
  *  from a material
@@ -1461,7 +1443,6 @@ ASSIMP_API C_ENUM aiReturn aiGetMaterialIntegerArray(const C_STRUCT aiMaterial* 
      unsigned int  index,
      int* pOut,
      unsigned int* pMax);
-
 
 #ifdef __cplusplus
 
@@ -1498,7 +1479,6 @@ ASSIMP_API C_ENUM aiReturn aiGetMaterialColor(const C_STRUCT aiMaterial* pMat,
     unsigned int index,
     C_STRUCT aiColor4D* pOut);
 
-
 // ---------------------------------------------------------------------------
 /** @brief Retrieve a aiUVTransform value from the material property table
 *
@@ -1509,7 +1489,6 @@ ASSIMP_API C_ENUM aiReturn aiGetMaterialUVTransform(const C_STRUCT aiMaterial* p
     unsigned int type,
     unsigned int index,
     C_STRUCT aiUVTransform* pOut);
-
 
 // ---------------------------------------------------------------------------
 /** @brief Retrieve a string from the material property table
@@ -1592,7 +1571,6 @@ C_ENUM aiReturn aiGetMaterialTexture(const C_STRUCT aiMaterial* mat,
     C_ENUM aiTextureMapMode* mapmode    /*= NULL*/,
     unsigned int* flags                 /*= NULL*/);
 #endif // !#ifdef __cplusplus
-
 
 #ifdef __cplusplus
 }

@@ -1,8 +1,6 @@
 
 /*  node_3d_editor_gizmos.h                                              */
 
-
-
 #ifndef SPATIAL_EDITOR_GIZMOS_H
 #define SPATIAL_EDITOR_GIZMOS_H
 

@@ -1,8 +1,6 @@
 
 /*  physics_server_2d_wrap_mt.cpp                                        */
 
-
-
 #include "physics_server_2d_wrap_mt.h"
 
 #include "core/os/os.h"

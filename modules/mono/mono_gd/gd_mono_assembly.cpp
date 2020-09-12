@@ -1,8 +1,6 @@
 
 /*  gd_mono_assembly.cpp                                                 */
 
-
-
 #include "gd_mono_assembly.h"
 
 #include <mono/metadata/mono-debug.h>

@@ -1,8 +1,6 @@
 
 /*  osx_utils.h                                                          */
 
-
-
 #include "core/ustring.h"
 
 #ifndef OSX_UTILS_H

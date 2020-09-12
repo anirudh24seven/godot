@@ -1,8 +1,6 @@
 
 /*  Crypt.java                                                           */
 
-
-
 package org.godotengine.godot.utils;
 
 import java.security.MessageDigest;

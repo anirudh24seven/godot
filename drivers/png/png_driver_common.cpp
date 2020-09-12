@@ -1,8 +1,6 @@
 
 /*  png_driver_common.cpp                                                */
 
-
-
 #include "png_driver_common.h"
 
 #include "core/os/os.h"

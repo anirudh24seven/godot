@@ -1,8 +1,6 @@
 
 /*  shader_globals_override.cpp                                          */
 
-
-
 #include "shader_globals_override.h"
 
 #include "core/core_string_names.h"

@@ -1,8 +1,6 @@
 
 /*  mesh_data_tool.cpp                                                   */
 
-
-
 #include "mesh_data_tool.h"
 
 void MeshDataTool::clear() {

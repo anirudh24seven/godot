@@ -233,8 +233,7 @@ static float ***setup_tone_curves(float curveatt_dB[P_BANDS],float binHz,int n,
 
       }
 
-
-      for(j=0;j<EHMER_MAX;j++){
+for(j=0;j<EHMER_MAX;j++){
         int bin=fromOC(j*.125+i*.5-2.)/binHz;
         if(bin<0){
           ret[i][m][j+2]=-999.;
@@ -662,8 +661,7 @@ static void bark_noise_hybridmp(int n,const long *b,
     tY = Y[hi] + Y[-lo];
     tXY = XY[hi] - XY[-lo];
 
-
-    A = tY * tXX - tX * tXY;
+A = tY * tXX - tX * tXY;
     B = tN * tXY - tX * tY;
     D = tN * tXX - tX * tX;
     R = (A + x * B) / D;
@@ -786,8 +784,7 @@ void _vp_offset_and_mix(vorbis_look_psy *p,
     if(val>p->vi->noisemaxsupp)val=p->vi->noisemaxsupp;
     logmask[i]=max(val,tone[i]+toneatt);
 
-
-    /* AoTuV */
+/* AoTuV */
     /** @ M1 **
         The following codes improve a noise problem.
         A fundamental idea uses the value of masking and carries out

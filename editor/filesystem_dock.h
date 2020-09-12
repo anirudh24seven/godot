@@ -1,8 +1,6 @@
 
 /*  filesystem_dock.h                                                    */
 
-
-
 #ifndef FILESYSTEM_DOCK_H
 #define FILESYSTEM_DOCK_H
 

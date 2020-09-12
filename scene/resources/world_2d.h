@@ -1,8 +1,6 @@
 
 /*  world_2d.h                                                           */
 
-
-
 #ifndef WORLD_2D_H
 #define WORLD_2D_H
 

@@ -24,12 +24,10 @@
  *
  */
 
-
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -38,34 +36,23 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvlcar
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      Data and Types                           *****/
   /*****                                                               *****/
 
-
-
-  typedef struct  GXV_lcar_DataRec_
+typedef struct  GXV_lcar_DataRec_
   {
     FT_UShort  format;
 
   } GXV_lcar_DataRec, *GXV_lcar_Data;
 
-
 #define GXV_LCAR_DATA( FIELD )  GXV_TABLE_DATA( lcar, FIELD )
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      UTILITY FUNCTIONS                        *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   gxv_lcar_partial_validate( FT_Short       partial,
                              FT_UShort      glyph,
                              GXV_Validator  gxvalid )
@@ -81,8 +68,7 @@
     GXV_EXIT;
   }
 
-
-  static void
+static void
   gxv_lcar_LookupValue_validate( FT_UShort            glyph,
                                  GXV_LookupValueCPtr  value_p,
                                  GXV_Validator        gxvalid )
@@ -93,8 +79,7 @@
     FT_Short   partial;
     FT_UShort  i;
 
-
-    GXV_NAME_ENTER( "element in lookupTable" );
+GXV_NAME_ENTER( "element in lookupTable" );
 
     GXV_LIMIT_CHECK( 2 );
     count = FT_NEXT_USHORT( p );
@@ -109,8 +94,7 @@
     GXV_EXIT;
   }
 
-
-  /*
+/*
     +------ lcar --------------------+
     |                                |
     |      +===============+         |
@@ -170,16 +154,11 @@
     return value;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                          lcar TABLE                           *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   gxv_lcar_validate( FT_Bytes      table,
                      FT_Face       face,
                      FT_Validator  ftvalid )
@@ -194,8 +173,7 @@
 
     FT_Fixed          version;
 
-
-    gxvalid->root       = ftvalid;
+gxvalid->root       = ftvalid;
     gxvalid->table_data = lcar;
     gxvalid->face       = face;
 
@@ -219,6 +197,5 @@
 
     FT_TRACE4(( "\n" ));
   }
-
 
 /* END */

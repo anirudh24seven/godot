@@ -1,8 +1,6 @@
 
 /*  basis.cpp                                                            */
 
-
-
 #include "gdnative/basis.h"
 
 #include "core/math/basis.h"

@@ -1,8 +1,6 @@
 
 /*  gdscript_parser.cpp                                                  */
 
-
-
 #include "gdscript_parser.h"
 
 #include "core/io/resource_loader.h"

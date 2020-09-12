@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef VIDEODECODER_REGISTER_TYPES_H
 #define VIDEODECODER_REGISTER_TYPES_H
 

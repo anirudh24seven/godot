@@ -1,8 +1,6 @@
 
 /*  render_pipeline_vertex_format_cache_rd.cpp                           */
 
-
-
 #include "render_pipeline_vertex_format_cache_rd.h"
 #include "core/os/memory.h"
 

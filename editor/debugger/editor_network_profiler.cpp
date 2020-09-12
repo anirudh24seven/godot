@@ -1,8 +1,6 @@
 
 /*  editor_network_profiler.cpp                                          */
 
-
-
 #include "editor_network_profiler.h"
 
 #include "core/os/os.h"

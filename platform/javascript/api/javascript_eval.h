@@ -1,8 +1,6 @@
 
 /*  javascript_eval.h                                                    */
 
-
-
 #ifndef JAVASCRIPT_EVAL_H
 #define JAVASCRIPT_EVAL_H
 

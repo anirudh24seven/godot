@@ -38,20 +38,17 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 /* This module contains a single function that scans through a compiled pattern
 until it finds a capturing bracket with the given number, or, if the number is
 negative, an instance of OP_REVERSE for a lookbehind. The function is called
 from pcre2_compile.c and also from pcre2_study.c when finding the minimum
 matching length. */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include "pcre2_internal.h"
-
 
 /*************************************************
 *    Scan compiled regex for specific bracket    *

@@ -1,8 +1,6 @@
 
 /*  project_settings_editor.cpp                                          */
 
-
-
 #include "project_settings_editor.h"
 
 #include "core/project_settings.h"

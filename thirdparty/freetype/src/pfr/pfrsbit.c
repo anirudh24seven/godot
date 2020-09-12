@@ -15,7 +15,6 @@
  *
  */
 
-
 #include "pfrsbit.h"
 #include "pfrload.h"
 #include FT_INTERNAL_DEBUG_H
@@ -26,16 +25,11 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  pfr
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      PFR BIT WRITER                           *****/
   /*****                                                               *****/
 
-
-
-  typedef struct  PFR_BitWriter_
+typedef struct  PFR_BitWriter_
   {
     FT_Byte*  line;      /* current line start               */
     FT_Int    pitch;     /* line size in bytes               */
@@ -45,8 +39,7 @@
 
   } PFR_BitWriterRec, *PFR_BitWriter;
 
-
-  static void
+static void
   pfr_bitwriter_init( PFR_BitWriter  writer,
                       FT_Bitmap*     target,
                       FT_Bool        decreasing )
@@ -64,8 +57,7 @@
     }
   }
 
-
-  static void
+static void
   pfr_bitwriter_decode_bytes( PFR_BitWriter  writer,
                               FT_Byte*       p,
                               FT_Byte*       limit )
@@ -77,8 +69,7 @@
     FT_UInt   val  = 0;
     FT_UInt   c    = 0;
 
-
-    n = (FT_UInt)( limit - p ) * 8;
+n = (FT_UInt)( limit - p ) * 8;
     if ( n > writer->total )
       n = writer->total;
 
@@ -118,8 +109,7 @@
       cur[0] = (FT_Byte)c;
   }
 
-
-  static void
+static void
   pfr_bitwriter_decode_rle1( PFR_BitWriter  writer,
                              FT_Byte*       p,
                              FT_Byte*       limit )
@@ -131,8 +121,7 @@
     FT_UInt   mask = 0x80;
     FT_UInt   c    = 0;
 
-
-    n = writer->total;
+n = writer->total;
 
     phase     = 1;
     counts[0] = 0;
@@ -150,8 +139,7 @@
           {
             FT_Int  v;
 
-
-            if ( p >= limit )
+if ( p >= limit )
               break;
 
             v         = *p++;
@@ -199,8 +187,7 @@
       cur[0] = (FT_Byte) c;
   }
 
-
-  static void
+static void
   pfr_bitwriter_decode_rle2( PFR_BitWriter  writer,
                              FT_Byte*       p,
                              FT_Byte*       limit )
@@ -212,8 +199,7 @@
     FT_UInt   mask = 0x80;
     FT_UInt   c    = 0;
 
-
-    n = writer->total;
+n = writer->total;
 
     phase  = 1;
     count  = 0;
@@ -264,16 +250,11 @@
       cur[0] = (FT_Byte) c;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                  BITMAP DATA DECODING                         *****/
   /*****                                                               *****/
 
-
-
-  static void
+static void
   pfr_lookup_bitmap_data( FT_Byte*   base,
                           FT_Byte*   limit,
                           FT_UInt    count,
@@ -286,8 +267,7 @@
     FT_Bool   two = FT_BOOL( *flags & PFR_BITMAP_2BYTE_CHARCODE );
     FT_Byte*  buff;
 
-
-    char_len = 4;
+char_len = 4;
     if ( two )
       char_len += 1;
     if ( *flags & PFR_BITMAP_2BYTE_SIZE )
@@ -302,8 +282,7 @@
       FT_UInt   code;
       FT_Long   prev_code;
 
-
-      *flags    |= PFR_BITMAP_VALID_CHARCODES;
+*flags    |= PFR_BITMAP_VALID_CHARCODES;
       prev_code  = -1;
       lim        = base + count * char_len;
 
@@ -355,8 +334,7 @@
     {
       FT_UInt  mid, code;
 
-
-      mid  = ( min + max ) >> 1;
+mid  = ( min + max ) >> 1;
       buff = base + mid * char_len;
 
       if ( two )
@@ -390,8 +368,7 @@
       *found_offset = PFR_NEXT_USHORT( buff );
   }
 
-
-  /* load bitmap metrics.  `*padvance' must be set to the default value */
+/* load bitmap metrics.  `*padvance' must be set to the default value */
   /* before calling this function                                       */
   /*                                                                    */
   static FT_Error
@@ -412,8 +389,7 @@
     FT_Long   xpos, ypos, advance;
     FT_UInt   xsize, ysize;
 
-
-    PFR_CHECK( 1 );
+PFR_CHECK( 1 );
     flags = PFR_NEXT_BYTE( p );
 
     xpos    = 0;
@@ -528,8 +504,7 @@
     goto Exit;
   }
 
-
-  static FT_Error
+static FT_Error
   pfr_load_bitmap_bits( FT_Byte*    p,
                         FT_Byte*    limit,
                         FT_UInt     format,
@@ -539,8 +514,7 @@
     FT_Error          error = FT_Err_Ok;
     PFR_BitWriterRec  writer;
 
-
-    if ( target->rows > 0 && target->width > 0 )
+if ( target->rows > 0 && target->width > 0 )
     {
       pfr_bitwriter_init( &writer, target, decreasing );
 
@@ -566,16 +540,11 @@
     return error;
   }
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                     BITMAP LOADING                            *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL( FT_Error )
+FT_LOCAL( FT_Error )
   pfr_slot_load_bitmap( PFR_Slot  glyph,
                         PFR_Size  size,
                         FT_UInt   glyph_index,
@@ -590,16 +559,14 @@
     PFR_Char     character;
     PFR_Strike   strike;
 
-
-    character = &phys->chars[glyph_index];
+character = &phys->chars[glyph_index];
 
     /* look up a bitmap strike corresponding to the current */
     /* character dimensions                                 */
     {
       FT_UInt  n;
 
-
-      strike = phys->strikes;
+strike = phys->strikes;
       for ( n = 0; n < phys->num_strikes; n++ )
       {
         if ( strike->x_ppm == (FT_UInt)size->root.metrics.x_ppem &&
@@ -619,8 +586,7 @@
     {
       FT_UInt  char_len;
 
-
-      char_len = 4;
+char_len = 4;
       if ( strike->flags & PFR_BITMAP_2BYTE_CHARCODE )
         char_len += 1;
       if ( strike->flags & PFR_BITMAP_2BYTE_SIZE )
@@ -657,8 +623,7 @@
       FT_UInt   xsize = 0, ysize = 0, format = 0;
       FT_Byte*  p;
 
-
-      /* compute linear advance */
+/* compute linear advance */
       advance = character->advance;
       if ( phys->metrics_resolution != phys->outline_resolution )
         advance = FT_MulDiv( advance,
@@ -783,8 +748,7 @@
         {
           FT_ULong  len = (FT_ULong)glyph->root.bitmap.pitch * ysize;
 
-
-          error = ft_glyphslot_alloc_bitmap( &glyph->root, len );
+error = ft_glyphslot_alloc_bitmap( &glyph->root, len );
           if ( !error )
             error = pfr_load_bitmap_bits(
                       p,
@@ -803,6 +767,5 @@
   Exit:
     return error;
   }
-
 
 /* END */

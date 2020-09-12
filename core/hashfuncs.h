@@ -1,8 +1,6 @@
 
 /*  hashfuncs.h                                                          */
 
-
-
 #ifndef HASHFUNCS_H
 #define HASHFUNCS_H
 

@@ -1,7 +1,6 @@
 gxvalid: TrueType GX validator
 ==============================
 
-
 1. What is this
 ---------------
 
@@ -25,7 +24,6 @@ gxvalid: TrueType GX validator
   - fundamental validation limitations
   - permissive error handling of broken GX tables
   - `kern' table issue.
-
 
 2. Supported tables
 -------------------
@@ -65,8 +63,7 @@ gxvalid: TrueType GX validator
     TPNM
     umif
 
-
-  *)   The `kern'  validator handles both  the classic and the  new kern
+*)   The `kern'  validator handles both  the classic and the  new kern
        formats;  the former  is supported  on both  Microsoft  and Apple
        platforms, while the latter is supported on Apple platforms.
 
@@ -79,8 +76,7 @@ gxvalid: TrueType GX validator
        excluded  from  `Apple  platform'  in the  context  of  TrueType.
        gxvalid ignores it as Apple font tools do so.
 
-
-  We have  checked 183  fonts bundled with  MacOS 9.1, MacOS  9.2, MacOS
+We have  checked 183  fonts bundled with  MacOS 9.1, MacOS  9.2, MacOS
   10.0, MacOS X 10.1, MSIE  for MacOS, and AppleWorks 6.0.  In addition,
   we have  checked 67 Dynalab fonts  (designed for MacOS)  and 189 Ricoh
   fonts (designed for Windows and  MacOS dual platforms).  The number of
@@ -99,7 +95,6 @@ gxvalid: TrueType GX validator
 
   Dynalab  and Ricoh fonts  don't have  GX tables  except of  `feat' and
   `mort'.
-
 
 3. Fundamental validation limitations
 -------------------------------------
@@ -190,7 +185,6 @@ gxvalid: TrueType GX validator
     priority  rules to  validate the  relationship.   Unfortunately, the
     TrueType GX format specification does not give such information even
     for predefined features.
-
 
 4. Permissive error handling of broken GX tables
 ------------------------------------------------
@@ -283,8 +277,7 @@ gxvalid: TrueType GX validator
 
       14 fonts include wrong bracket properties.
 
-
-  4-5. invalid feature number (117/183)
+4-5. invalid feature number (117/183)
   -------------------------------------
 
     The GX/AAT  extension can  include 255 different  layout features,
@@ -505,8 +498,7 @@ gxvalid: TrueType GX validator
     It looks strange that classic Microsoft-dialect fonts are bundled to
     MacOS: they come from MSIE for MacOS, except of MarkerFelt.dfont.
 
-
-  ACKNOWLEDGEMENT
+ACKNOWLEDGEMENT
   ---------------
 
   Some parts of gxvalid are  derived from both the `gxlayout' module and
@@ -527,6 +519,5 @@ modified,  and  distributed under  the  terms  of  the FreeType  project
 license, LICENSE.TXT.  By continuing  to use, modify, or distribute this
 file  you indicate that  you have  read the  license and  understand and
 accept it fully.
-
 
 --- end of README ---

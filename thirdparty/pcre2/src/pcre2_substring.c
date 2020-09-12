@@ -38,14 +38,11 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include "pcre2_internal.h"
-
-
 
 /*************************************************
 *   Copy named captured string to given buffer   *
@@ -94,8 +91,6 @@ for (entry = first; entry <= last; entry += entrysize)
 return failrc;
 }
 
-
-
 /*************************************************
 *  Copy numbered captured string to given buffer *
 *************************************************/
@@ -132,8 +127,6 @@ buffer[size] = 0;
 *sizeptr = size;
 return 0;
 }
-
-
 
 /*************************************************
 *          Extract named captured string         *
@@ -182,8 +175,6 @@ for (entry = first; entry <= last; entry += entrysize)
 return failrc;
 }
 
-
-
 /*************************************************
 *      Extract captured string to new memory     *
 *************************************************/
@@ -226,8 +217,6 @@ yield[size] = 0;
 return 0;
 }
 
-
-
 /*************************************************
 *       Free memory obtained by get_substring    *
 *************************************************/
@@ -246,8 +235,6 @@ if (string != NULL)
   memctl->free(memctl, memctl->memory_data);
   }
 }
-
-
 
 /*************************************************
 *         Get length of a named substring        *
@@ -288,8 +275,6 @@ for (entry = first; entry <= last; entry += entrysize)
   }
 return failrc;
 }
-
-
 
 /*************************************************
 *        Get length of a numbered substring      *
@@ -344,8 +329,6 @@ right = match_data->ovector[stringnumber*2+1];
 if (sizeptr != NULL) *sizeptr = (left > right)? 0 : right - left;
 return 0;
 }
-
-
 
 /*************************************************
 *    Extract all captured strings to new memory  *
@@ -430,8 +413,6 @@ for (i = 0; i < count2; i += 2)
 return 0;
 }
 
-
-
 /*************************************************
 *   Free memory obtained by substring_list_get   *
 *************************************************/
@@ -450,8 +431,6 @@ if (list != NULL)
   memctl->free(memctl, memctl->memory_data);
   }
 }
-
-
 
 /*************************************************
 *     Find (multiple) entries for named string   *
@@ -518,7 +497,6 @@ while (top > bot)
 
 return PCRE2_ERROR_NOSUBSTRING;
 }
-
 
 /*************************************************
 *           Find number for named string         *

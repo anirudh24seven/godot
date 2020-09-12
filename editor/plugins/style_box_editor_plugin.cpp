@@ -1,8 +1,6 @@
 
 /*  style_box_editor_plugin.cpp                                          */
 
-
-
 #include "style_box_editor_plugin.h"
 
 #include "editor/editor_scale.h"

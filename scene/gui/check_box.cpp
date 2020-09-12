@@ -1,8 +1,6 @@
 
 /*  check_box.cpp                                                        */
 
-
-
 #include "check_box.h"
 
 #include "servers/rendering_server.h"

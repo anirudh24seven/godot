@@ -1,8 +1,6 @@
 
 /*  audio_driver_pulseaudio.h                                            */
 
-
-
 #ifdef PULSEAUDIO_ENABLED
 
 #ifndef AUDIO_DRIVER_PULSEAUDIO_H

@@ -1,8 +1,6 @@
 
 /*  midi_driver_coremidi.cpp                                             */
 
-
-
 #ifdef COREMIDI_ENABLED
 
 #include "midi_driver_coremidi.h"

@@ -8,7 +8,6 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-
 #ifndef VP8_DECODER_TREEREADER_H_
 #define VP8_DECODER_TREEREADER_H_
 
@@ -25,7 +24,6 @@ typedef BOOL_DECODER vp8_reader;
 #define vp8_read vp8dx_decode_bool
 #define vp8_read_literal vp8_decode_value
 #define vp8_read_bit(R) vp8_read(R, vp8_prob_half)
-
 
 /* Intent of tree data structure is to make decoding trivial. */
 

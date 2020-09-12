@@ -15,28 +15,20 @@
  *
  */
 
-
 #ifndef OTVCOMMN_H_
 #define OTVCOMMN_H_
-
 
 #include <ft2build.h>
 #include "otvalid.h"
 #include FT_INTERNAL_DEBUG_H
 
-
 FT_BEGIN_HEADER
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                         VALIDATION                            *****/
   /*****                                                               *****/
 
-
-
-  typedef struct OTV_ValidatorRec_*  OTV_Validator;
+typedef struct OTV_ValidatorRec_*  OTV_Validator;
 
   typedef void  (*OTV_Validate_Func)( FT_Bytes       table,
                                       OTV_Validator  otvalid );
@@ -64,7 +56,6 @@ FT_BEGIN_HEADER
 #endif
 
   } OTV_ValidatorRec;
-
 
 #undef  FT_INVALID_
 #define FT_INVALID_( _error )                                     \
@@ -137,7 +128,6 @@ FT_BEGIN_HEADER
               }                                                     \
             }                                                       \
           FT_END_STMNT
-
 
 #define  OTV_NAME_(x)  #x
 #define  OTV_NAME(x)   OTV_NAME_(x)
@@ -231,19 +221,13 @@ FT_BEGIN_HEADER
 
 #endif  /* !FT_DEBUG_LEVEL_TRACE */
 
-
 #define OTV_RUN  otvalid->func[0]
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                       COVERAGE TABLE                          *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   otv_Coverage_validate( FT_Bytes       table,
                          OTV_Validator  otvalid,
                          FT_Int         expected_count );
@@ -260,42 +244,27 @@ FT_BEGIN_HEADER
   FT_LOCAL( FT_UInt )
   otv_Coverage_get_count( FT_Bytes  table );
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                  CLASS DEFINITION TABLE                       *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   otv_ClassDef_validate( FT_Bytes       table,
                          OTV_Validator  otvalid );
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      DEVICE TABLE                             *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   otv_Device_validate( FT_Bytes       table,
                        OTV_Validator  otvalid );
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                           LOOKUPS                             *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   otv_Lookup_validate( FT_Bytes       table,
                        OTV_Validator  otvalid );
 
@@ -303,16 +272,11 @@ FT_BEGIN_HEADER
   otv_LookupList_validate( FT_Bytes       table,
                            OTV_Validator  otvalid );
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                        FEATURES                               *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   otv_Feature_validate( FT_Bytes       table,
                         OTV_Validator  otvalid );
 
@@ -322,29 +286,19 @@ FT_BEGIN_HEADER
                             FT_Bytes       lookups,
                             OTV_Validator  otvalid );
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                       LANGUAGE SYSTEM                         *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   otv_LangSys_validate( FT_Bytes       table,
                         OTV_Validator  otvalid );
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                           SCRIPTS                             *****/
   /*****                                                               *****/
 
-
-
-  FT_LOCAL( void )
+FT_LOCAL( void )
   otv_Script_validate( FT_Bytes       table,
                        OTV_Validator  otvalid );
 
@@ -354,14 +308,9 @@ FT_BEGIN_HEADER
                            FT_Bytes       features,
                            OTV_Validator  otvalid );
 
-
-
-
-  /*****                                                               *****/
+/*****                                                               *****/
   /*****                      UTILITY FUNCTIONS                        *****/
   /*****                                                               *****/
-
-
 
 #define ChainPosClassSetFunc  otv_x_Ox
 #define ChainPosRuleSetFunc   otv_x_Ox
@@ -450,8 +399,7 @@ FT_BEGIN_HEADER
   otv_u_x_Ox_y_Oy_z_Oz_p_sp( FT_Bytes       table,
                              OTV_Validator  otvalid );
 
-
-  FT_LOCAL( FT_UInt )
+FT_LOCAL( FT_UInt )
   otv_GSUBGPOS_get_Lookup_count( FT_Bytes  table );
 
   FT_LOCAL( FT_UInt )
@@ -462,6 +410,5 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 #endif /* OTVCOMMN_H_ */
-
 
 /* END */

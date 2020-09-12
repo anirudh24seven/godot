@@ -1,8 +1,6 @@
 
 /*  register_types.cpp                                                   */
 
-
-
 #include "register_types.h"
 
 // Dummy module as libogg is needed by other modules (vorbis, theora, opus, ...)

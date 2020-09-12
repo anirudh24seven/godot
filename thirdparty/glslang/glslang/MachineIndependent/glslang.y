@@ -58,9 +58,6 @@
 //    m4 -P
 //
 
-
-
-
 /**
  * This is bison grammar and productions for parsing all versions of the
  * GLSL shading languages.
@@ -173,8 +170,6 @@ extern int yylex(YYSTYPE*, TParseContext&);
 %token <lex> ITEXTURE2D ITEXTURE3D ITEXTURECUBE ITEXTURE2DARRAY
 %token <lex> UTEXTURE2D UTEXTURE3D UTEXTURECUBE UTEXTURE2DARRAY
 
-
-
 %token <lex> ATTRIBUTE VARYING
 %token <lex> FLOAT16_T FLOAT32_T DOUBLE FLOAT64_T
 %token <lex> INT64_T UINT64_T INT32_T UINT32_T INT16_T UINT16_T INT8_T UINT8_T
@@ -256,8 +251,6 @@ extern int yylex(YYSTYPE*, TParseContext&);
 %token <lex> SUBPASSINPUT SUBPASSINPUTMS ISUBPASSINPUT ISUBPASSINPUTMS USUBPASSINPUT USUBPASSINPUTMS
 %token <lex> F16SUBPASSINPUT F16SUBPASSINPUTMS
 
-
-
 %token <lex> LEFT_OP RIGHT_OP
 %token <lex> INC_OP DEC_OP LE_OP GE_OP EQ_OP NE_OP
 %token <lex> AND_OP OR_OP XOR_OP MUL_ASSIGN DIV_ASSIGN ADD_ASSIGN
@@ -280,7 +273,6 @@ extern int yylex(YYSTYPE*, TParseContext&);
 %token <lex> UNIFORM SHARED BUFFER
 %token <lex> FLAT SMOOTH LAYOUT
 
-
 %token <lex> DOUBLECONSTANT INT16CONSTANT UINT16CONSTANT FLOAT16CONSTANT INT32CONSTANT UINT32CONSTANT
 %token <lex> INT64CONSTANT UINT64CONSTANT
 %token <lex> SUBROUTINE DEMOTE
@@ -290,7 +282,6 @@ extern int yylex(YYSTYPE*, TParseContext&);
 %token <lex> SUBGROUPCOHERENT NONPRIVATE
 %token <lex> NOPERSPECTIVE EXPLICITINTERPAMD PERVERTEXNV PERPRIMITIVENV PERVIEWNV PERTASKNV
 %token <lex> PRECISE
-
 
 %type <interm> assignment_operator unary_operator
 %type <interm.intermTypedNode> variable_identifier primary_expression postfix_expression
@@ -337,13 +328,11 @@ extern int yylex(YYSTYPE*, TParseContext&);
 
 %type <interm.identifierList> identifier_list
 
-
 %type <interm.type> precise_qualifier non_uniform_qualifier
 %type <interm.typeList> type_name_list
 %type <interm.attributes> attribute attribute_list single_attribute
 %type <interm.intermNode> demote_statement
 %type <interm.intermTypedNode> initializer_list
-
 
 %start translation_unit
 %%
@@ -933,7 +922,6 @@ function_declarator
     }
     ;
 
-
 function_header_with_parameters
     : function_header parameter_declaration {
         // Add the parameter
@@ -1273,7 +1261,6 @@ layout_qualifier_id
     }
     ;
 
-
 precise_qualifier
     : PRECISE {
         parseContext.profileRequires($$.loc, ECoreProfile | ECompatibilityProfile, 400, E_GL_ARB_gpu_shader5, "precise");
@@ -1282,7 +1269,6 @@ precise_qualifier
         $$.qualifier.noContraction = true;
     }
     ;
-
 
 type_qualifier
     : single_type_qualifier {
@@ -1512,7 +1498,6 @@ storage_qualifier
 
     ;
 
-
 non_uniform_qualifier
     : NONUNIFORM {
         $$.init($1.loc);
@@ -1530,7 +1515,6 @@ type_name_list
         // 2) save all of the identifiers for future comparison with the declared function
     }
     ;
-
 
 type_specifier
     : type_specifier_nonarray type_parameter_specifier_opt {
@@ -3394,7 +3378,6 @@ initializer
 
     ;
 
-
 initializer_list
     : initializer {
         $$ = parseContext.intermediate.growAggregate(0, $1, $1->getLoc());
@@ -3403,7 +3386,6 @@ initializer_list
         $$ = parseContext.intermediate.growAggregate($1, $3);
     }
     ;
-
 
 declaration_statement
     : declaration { $$ = $1; }
@@ -3429,7 +3411,6 @@ simple_statement
 
     ;
 
-
 demote_statement
     : DEMOTE SEMICOLON {
         parseContext.requireStage($1.loc, EShLangFragment, "demote");
@@ -3437,7 +3418,6 @@ demote_statement
         $$ = parseContext.intermediate.addBranch(EOpDemote, $1.loc);
     }
     ;
-
 
 compound_statement
     : LEFT_BRACE RIGHT_BRACE { $$ = 0; }
@@ -3527,7 +3507,6 @@ selection_statement
         $$ = $2;
     }
 
-
 selection_statement_nonattributed
     : IF LEFT_PAREN expression RIGHT_PAREN selection_rest_statement {
         parseContext.boolCheck($1.loc, $3);
@@ -3573,7 +3552,6 @@ switch_statement
         parseContext.handleSwitchAttributes(*$1, $2);
         $$ = $2;
     }
-
 
 switch_statement_nonattributed
     : SWITCH LEFT_PAREN expression RIGHT_PAREN {
@@ -3637,7 +3615,6 @@ iteration_statement
         parseContext.handleLoopAttributes(*$1, $2);
         $$ = $2;
     }
-
 
 iteration_statement_nonattributed
     : WHILE LEFT_PAREN {
@@ -3800,7 +3777,6 @@ function_definition
     }
     ;
 
-
 attribute
     : LEFT_BRACKET LEFT_BRACKET attribute_list RIGHT_BRACKET RIGHT_BRACKET {
         $$ = $3;
@@ -3822,6 +3798,5 @@ single_attribute
     | IDENTIFIER LEFT_PAREN constant_expression RIGHT_PAREN {
         $$ = parseContext.makeAttributes(*$1.string, $3);
     }
-
 
 %%

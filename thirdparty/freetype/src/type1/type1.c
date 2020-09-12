@@ -15,7 +15,6 @@
  *
  */
 
-
 #define FT_MAKE_OPTION_SINGLE_OBJECT
 #include <ft2build.h>
 
@@ -25,6 +24,5 @@
 #include "t1load.c"
 #include "t1objs.c"
 #include "t1parse.c"
-
 
 /* END */

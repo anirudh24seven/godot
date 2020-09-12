@@ -1,8 +1,6 @@
 
 /*  physics_joint_3d.h                                                   */
 
-
-
 #ifndef PHYSICS_JOINT_H
 #define PHYSICS_JOINT_H
 

@@ -1,8 +1,6 @@
 
 /*  polygon_path_finder.cpp                                              */
 
-
-
 #include "polygon_path_finder.h"
 #include "core/math/geometry_2d.h"
 

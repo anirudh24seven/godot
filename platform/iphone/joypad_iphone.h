@@ -1,8 +1,6 @@
 
 /*  joypad_iphone.h                                                      */
 
-
-
 #import <GameController/GameController.h>
 
 @interface JoypadIPhoneObserver : NSObject

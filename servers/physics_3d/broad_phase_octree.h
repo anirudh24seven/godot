@@ -1,8 +1,6 @@
 
 /*  broad_phase_octree.h                                                 */
 
-
-
 #ifndef BROAD_PHASE_OCTREE_H
 #define BROAD_PHASE_OCTREE_H
 

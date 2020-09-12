@@ -1,8 +1,6 @@
 
 /*  animated_sprite_2d.cpp                                               */
 
-
-
 #include "animated_sprite_2d.h"
 
 #include "core/os/os.h"

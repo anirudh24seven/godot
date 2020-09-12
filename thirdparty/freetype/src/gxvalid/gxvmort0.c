@@ -25,11 +25,9 @@
  *
  */
 
-
 #include "gxvmort.h"
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * The macro FT_COMPONENT is used in trace mode.  It is an implicit
    * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
@@ -38,8 +36,7 @@
 #undef  FT_COMPONENT
 #define FT_COMPONENT  gxvmort
 
-
-  static const char* GXV_Mort_IndicScript_Msg[] =
+static const char* GXV_Mort_IndicScript_Msg[] =
   {
     "no change",
     "Ax => xA",
@@ -60,8 +57,7 @@
 
   };
 
-
-  static void
+static void
   gxv_mort_subtable_type0_entry_validate(
     FT_Byte                         state,
     FT_UShort                       flags,
@@ -83,8 +79,7 @@
     FT_UNUSED( GXV_Mort_IndicScript_Msg[verb] ); /* for the non-debugging */
     FT_UNUSED( glyphOffset_p );                  /* case                  */
 
-
-    markFirst   = (FT_UShort)( ( flags >> 15 ) & 1 );
+markFirst   = (FT_UShort)( ( flags >> 15 ) & 1 );
     dontAdvance = (FT_UShort)( ( flags >> 14 ) & 1 );
     markLast    = (FT_UShort)( ( flags >> 13 ) & 1 );
 
@@ -122,16 +117,14 @@
       GXV_TRACE(( "\n" ));
   }
 
-
-  FT_LOCAL_DEF( void )
+FT_LOCAL_DEF( void )
   gxv_mort_subtable_type0_validate( FT_Bytes       table,
                                     FT_Bytes       limit,
                                     GXV_Validator  gxvalid )
   {
     FT_Bytes  p = table;
 
-
-    GXV_NAME_ENTER(
+GXV_NAME_ENTER(
       "mort chain subtable type0 (Indic-Script Rearrangement)" );
 
     GXV_LIMIT_CHECK( GXV_STATETABLE_HEADER_SIZE );
@@ -147,6 +140,5 @@
 
     GXV_EXIT;
   }
-
 
 /* END */

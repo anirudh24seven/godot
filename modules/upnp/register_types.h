@@ -1,8 +1,6 @@
 
 /*  register_types.h                                                     */
 
-
-
 #ifndef UPNP_REGISTER_TYPES_H
 #define UPNP_REGISTER_TYPES_H
 

@@ -28,8 +28,6 @@
 /*A row of 8's.*/
 #define OC_EIGHT_OFFSET  (56)
 
-
-
 /*A table of constants used by the MMX routines.*/
 static const __declspec(align(16))ogg_uint16_t
  OC_IDCT_CONSTS[(7+1)*4]={

@@ -1,8 +1,6 @@
 
 /*  collision_object_bullet.h                                            */
 
-
-
 #ifndef COLLISION_OBJECT_BULLET_H
 #define COLLISION_OBJECT_BULLET_H
 

@@ -1,8 +1,6 @@
 
 /*  gd_mono_assembly.h                                                   */
 
-
-
 #ifndef GD_MONO_ASSEMBLY_H
 #define GD_MONO_ASSEMBLY_H
 

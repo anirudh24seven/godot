@@ -1,8 +1,6 @@
 
 /*  ray_shape_2d.h                                                       */
 
-
-
 #ifndef RAY_SHAPE_2D_H
 #define RAY_SHAPE_2D_H
 

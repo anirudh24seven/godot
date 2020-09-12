@@ -1,8 +1,6 @@
 
 /*  skeleton_3d.h                                                        */
 
-
-
 #ifndef SKELETON_3D_H
 #define SKELETON_3D_H
 

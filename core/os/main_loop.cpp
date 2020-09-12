@@ -1,8 +1,6 @@
 
 /*  main_loop.cpp                                                        */
 
-
-
 #include "main_loop.h"
 
 #include "core/script_language.h"

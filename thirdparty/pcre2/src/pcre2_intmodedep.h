@@ -38,7 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 /* This module contains mode-dependent macro and structure definitions. The
 file is #included by pcre2_internal.h if PCRE2_CODE_UNIT_WIDTH is defined.
 These mode-dependent items are kept in a separate file so that they can also be
@@ -80,8 +79,6 @@ just to undefine them all. */
 #undef PUTCHAR
 #undef PUTINC
 #undef TABLE_GET
-
-
 
 /* -------------------------- MACROS ----------------------------- */
 
@@ -132,7 +129,6 @@ values of 3 or 4 are also supported. */
 #error LINK_SIZE must be 2, 3, or 4
 #endif
 
-
 /* ------------------- 16-bit support  ------------------ */
 
 #elif PCRE2_CODE_UNIT_WIDTH == 16
@@ -160,7 +156,6 @@ values of 3 or 4 are also supported. */
 #error LINK_SIZE must be 2, 3, or 4
 #endif
 
-
 /* ------------------- 32-bit support  ------------------ */
 
 #elif PCRE2_CODE_UNIT_WIDTH == 32
@@ -175,7 +170,6 @@ values of 3 or 4 are also supported. */
 #else
 #error Unsupported compiling mode
 #endif
-
 
 /* --------------- Other mode-specific macros ----------------- */
 
@@ -226,7 +220,6 @@ check is needed before accessing these tables. */
 #define SUPPORT_WIDE_CHARS
 #define TABLE_GET(c, table, default) (MAX_255(c)? ((table)[c]):(default))
 #endif
-
 
 /* ----------------- Character-handling macros ----------------- */
 
@@ -357,7 +350,6 @@ because almost all calls are already within a block of UTF-8 only code. */
 #define PUTCHAR(c, p) ((utf && c > MAX_UTF_SINGLE_CU)? \
   PRIV(ord2utf)(c,p) : (*p = c, 1))
 
-
 /* ------------------- 16-bit support  ------------------ */
 
 #elif PCRE2_CODE_UNIT_WIDTH == 16
@@ -463,7 +455,6 @@ code. */
 #define PUTCHAR(c, p) ((utf && c > MAX_UTF_SINGLE_CU)? \
   PRIV(ord2utf)(c,p) : (*p = c, 1))
 
-
 /* ------------------- 32-bit support  ------------------ */
 
 #else
@@ -539,14 +530,12 @@ These are all no-ops since all UTF-32 characters fit into one pcre_uchar. */
 #endif  /* UTF-32 character handling */
 #endif  /* SUPPORT_UNICODE */
 
-
 /* Mode-dependent macros that have the same definition in all modes. */
 
 #define CU2BYTES(x)     ((x)*((PCRE2_CODE_UNIT_WIDTH/8)))
 #define BYTES2CU(x)     ((x)/((PCRE2_CODE_UNIT_WIDTH/8)))
 #define PUTINC(a,n,d)   PUT(a,n,d), a += LINK_SIZE
 #define PUT2INC(a,n,d)  PUT2(a,n,d), a += IMM2_SIZE
-
 
 /* ----------------------- HIDDEN STRUCTURES ----------------------------- */
 
@@ -663,7 +652,6 @@ typedef struct pcre2_real_match_data {
   int              rc;            /* The return code from the match */
   PCRE2_SIZE       ovector[131072]; /* Must be last in the structure */
 } pcre2_real_match_data;
-
 
 /* ----------------------- PRIVATE STRUCTURES ----------------------------- */
 

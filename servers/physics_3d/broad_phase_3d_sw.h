@@ -1,8 +1,6 @@
 
 /*  broad_phase_3d_sw.h                                                  */
 
-
-
 #ifndef BROAD_PHASE_SW_H
 #define BROAD_PHASE_SW_H
 

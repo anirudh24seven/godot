@@ -1,8 +1,6 @@
 
 /*  face3.cpp                                                            */
 
-
-
 #include "face3.h"
 
 #include "core/math/geometry_3d.h"

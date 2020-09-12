@@ -11,7 +11,6 @@
 #include "zstd_compress_internal.h"
 #include "zstd_lazy.h"
 
-
 /*-*************************************
 *  Binary Tree search
 ***************************************/
@@ -55,7 +54,6 @@ ZSTD_updateDUBT(ZSTD_matchState_t* ms,
     ms->nextToUpdate = target;
 }
 
-
 /** ZSTD_insertDUBT1() :
  *  sort one already inserted but unsorted position
  *  assumption : current >= btlow == (current - btmask)
@@ -87,8 +85,7 @@ ZSTD_insertDUBT1(ZSTD_matchState_t* ms,
     U32 const maxDistance = 1U << cParams->windowLog;
     U32 const windowLow = (current - windowValid > maxDistance) ? current - maxDistance : windowValid;
 
-
-    DEBUGLOG(8, "ZSTD_insertDUBT1(%u) (dictLimit=%u, lowLimit=%u)",
+DEBUGLOG(8, "ZSTD_insertDUBT1(%u) (dictLimit=%u, lowLimit=%u)",
                 current, dictLimit, windowLow);
     assert(current >= btLow);
     assert(ip < iend);   /* condition for ZSTD_count */
@@ -147,7 +144,6 @@ ZSTD_insertDUBT1(ZSTD_matchState_t* ms,
 
     *smallerPtr = *largerPtr = 0;
 }
-
 
 static size_t
 ZSTD_DUBT_findBetterDictMatch (
@@ -225,7 +221,6 @@ ZSTD_DUBT_findBetterDictMatch (
     return bestLength;
 
 }
-
 
 static size_t
 ZSTD_DUBT_findBestMatch(ZSTD_matchState_t* ms,
@@ -374,7 +369,6 @@ ZSTD_DUBT_findBestMatch(ZSTD_matchState_t* ms,
     }
 }
 
-
 /** ZSTD_BtFindBestMatch() : Tree updater, providing best match */
 FORCE_INLINE_TEMPLATE size_t
 ZSTD_BtFindBestMatch( ZSTD_matchState_t* ms,
@@ -388,7 +382,6 @@ ZSTD_BtFindBestMatch( ZSTD_matchState_t* ms,
     ZSTD_updateDUBT(ms, ip, iLimit, mls);
     return ZSTD_DUBT_findBestMatch(ms, ip, iLimit, offsetPtr, mls, dictMode);
 }
-
 
 static size_t
 ZSTD_BtFindBestMatch_selectMLS (  ZSTD_matchState_t* ms,
@@ -405,7 +398,6 @@ ZSTD_BtFindBestMatch_selectMLS (  ZSTD_matchState_t* ms,
     }
 }
 
-
 static size_t ZSTD_BtFindBestMatch_dictMatchState_selectMLS (
                         ZSTD_matchState_t* ms,
                         const BYTE* ip, const BYTE* const iLimit,
@@ -421,7 +413,6 @@ static size_t ZSTD_BtFindBestMatch_dictMatchState_selectMLS (
     }
 }
 
-
 static size_t ZSTD_BtFindBestMatch_extDict_selectMLS (
                         ZSTD_matchState_t* ms,
                         const BYTE* ip, const BYTE* const iLimit,
@@ -436,8 +427,6 @@ static size_t ZSTD_BtFindBestMatch_extDict_selectMLS (
     case 6 : return ZSTD_BtFindBestMatch(ms, ip, iLimit, offsetPtr, 6, ZSTD_extDict);
     }
 }
-
-
 
 /* *********************************
 *  Hash Chain
@@ -474,7 +463,6 @@ U32 ZSTD_insertAndFindFirstIndex(ZSTD_matchState_t* ms, const BYTE* ip) {
     const ZSTD_compressionParameters* const cParams = &ms->cParams;
     return ZSTD_insertAndFindFirstIndex_internal(ms, cParams, ip, ms->cParams.minMatch);
 }
-
 
 /* inlining is important to hardwire a hot branch (template emulation) */
 FORCE_INLINE_TEMPLATE
@@ -567,7 +555,6 @@ size_t ZSTD_HcFindBestMatch_generic (
     return ml;
 }
 
-
 FORCE_INLINE_TEMPLATE size_t ZSTD_HcFindBestMatch_selectMLS (
                         ZSTD_matchState_t* ms,
                         const BYTE* ip, const BYTE* const iLimit,
@@ -582,7 +569,6 @@ FORCE_INLINE_TEMPLATE size_t ZSTD_HcFindBestMatch_selectMLS (
     case 6 : return ZSTD_HcFindBestMatch_generic(ms, ip, iLimit, offsetPtr, 6, ZSTD_noDict);
     }
 }
-
 
 static size_t ZSTD_HcFindBestMatch_dictMatchState_selectMLS (
                         ZSTD_matchState_t* ms,
@@ -599,7 +585,6 @@ static size_t ZSTD_HcFindBestMatch_dictMatchState_selectMLS (
     }
 }
 
-
 FORCE_INLINE_TEMPLATE size_t ZSTD_HcFindBestMatch_extDict_selectMLS (
                         ZSTD_matchState_t* ms,
                         const BYTE* ip, const BYTE* const iLimit,
@@ -614,7 +599,6 @@ FORCE_INLINE_TEMPLATE size_t ZSTD_HcFindBestMatch_extDict_selectMLS (
     case 6 : return ZSTD_HcFindBestMatch_generic(ms, ip, iLimit, offsetPtr, 6, ZSTD_extDict);
     }
 }
-
 
 /* *******************************
 *  Common parser - lazy strategy
@@ -857,7 +841,6 @@ _storeSequence:
     return (size_t)(iend - anchor);
 }
 
-
 size_t ZSTD_compressBlock_btlazy2(
         ZSTD_matchState_t* ms, seqStore_t* seqStore, U32 rep[ZSTD_REP_NUM],
         void const* src, size_t srcSize)
@@ -913,7 +896,6 @@ size_t ZSTD_compressBlock_greedy_dictMatchState(
 {
     return ZSTD_compressBlock_lazy_generic(ms, seqStore, rep, src, srcSize, search_hashChain, 0, ZSTD_dictMatchState);
 }
-
 
 FORCE_INLINE_TEMPLATE
 size_t ZSTD_compressBlock_lazy_extDict_generic(
@@ -1081,7 +1063,6 @@ _storeSequence:
     /* Return the last literals size */
     return (size_t)(iend - anchor);
 }
-
 
 size_t ZSTD_compressBlock_greedy_extDict(
         ZSTD_matchState_t* ms, seqStore_t* seqStore, U32 rep[ZSTD_REP_NUM],

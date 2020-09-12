@@ -1,8 +1,6 @@
 
 /*  test_oa_hash_map.cpp                                                 */
 
-
-
 #include "test_oa_hash_map.h"
 
 #include "core/oa_hash_map.h"

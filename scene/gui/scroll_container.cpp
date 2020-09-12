@@ -1,8 +1,6 @@
 
 /*  scroll_container.cpp                                                 */
 
-
-
 #include "scroll_container.h"
 #include "core/os/os.h"
 #include "scene/main/window.h"

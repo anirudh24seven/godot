@@ -1,8 +1,6 @@
 
 /*  webrtc_multiplayer.h                                                 */
 
-
-
 #ifndef WEBRTC_MULTIPLAYER_H
 #define WEBRTC_MULTIPLAYER_H
 

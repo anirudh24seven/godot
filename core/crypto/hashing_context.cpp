@@ -1,8 +1,6 @@
 
 /*  hashing_context.cpp                                                  */
 
-
-
 #include "hashing_context.h"
 
 #include "core/crypto/crypto_core.h"

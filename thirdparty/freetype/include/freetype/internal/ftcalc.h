@@ -15,19 +15,15 @@
  *
  */
 
-
 #ifndef FTCALC_H_
 #define FTCALC_H_
-
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-
 FT_BEGIN_HEADER
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * FT_MulDiv() and FT_MulFix() are declared in freetype.h.
    *
@@ -49,8 +45,7 @@ FT_BEGIN_HEADER
   {
     FT_Int32  t, t2;
 
-
-    __asm
+__asm
     {
       smull t2, t,  b,  a           /* (lo=t2,hi=t) = a*b */
       mov   a,  t,  asr #31         /* a   = (hi >> 31) */
@@ -64,7 +59,6 @@ FT_BEGIN_HEADER
   }
 
 #endif /* __CC_ARM || __ARMCC__ */
-
 
 #ifdef __GNUC__
 
@@ -82,8 +76,7 @@ FT_BEGIN_HEADER
   {
     FT_Int32  t, t2;
 
-
-    __asm__ __volatile__ (
+__asm__ __volatile__ (
       "smull  %1, %2, %4, %3\n\t"       /* (lo=%1,hi=%2) = a*b */
       "mov    %0, %2, asr #31\n\t"      /* %0  = (hi >> 31) */
 #if defined( __clang__ ) && defined( __thumb2__ )
@@ -105,7 +98,6 @@ FT_BEGIN_HEADER
        /* ( __thumb2__ || !__thumb__ ) && */
        /* !( __CC_ARM || __ARMCC__ )      */
 
-
 #if defined( __i386__ )
 
 #define FT_MULFIX_ASSEMBLER  FT_MulFix_i386
@@ -118,8 +110,7 @@ FT_BEGIN_HEADER
   {
     FT_Int32  result;
 
-
-    __asm__ __volatile__ (
+__asm__ __volatile__ (
       "imul  %%edx\n"
       "movl  %%edx, %%ecx\n"
       "sarl  $31, %%ecx\n"
@@ -138,7 +129,6 @@ FT_BEGIN_HEADER
 #endif /* i386 */
 
 #endif /* __GNUC__ */
-
 
 #ifdef _MSC_VER /* Visual C++ */
 
@@ -176,7 +166,6 @@ FT_BEGIN_HEADER
 
 #endif /* _MSC_VER */
 
-
 #if defined( __GNUC__ ) && defined( __x86_64__ )
 
 #define FT_MULFIX_ASSEMBLER  FT_MulFix_x86_64
@@ -197,8 +186,7 @@ FT_BEGIN_HEADER
     /* job at inlining it and generating good machine code for it.      */
     long long  ret, tmp;
 
-
-    ret  = (long long)a * b;
+ret  = (long long)a * b;
     tmp  = ret >> 63;
     ret += 0x8000 + tmp;
 
@@ -215,8 +203,7 @@ FT_BEGIN_HEADER
     long long  wide_b = (long long)b;
     long long  result;
 
-
-    __asm__ __volatile__ (
+__asm__ __volatile__ (
       "imul %2, %1\n"
       "mov %1, %0\n"
       "sar $63, %0\n"
@@ -238,15 +225,13 @@ FT_BEGIN_HEADER
 
 #endif /* !FT_CONFIG_OPTION_NO_ASSEMBLER */
 
-
 #ifdef FT_CONFIG_OPTION_INLINE_MULFIX
 #ifdef FT_MULFIX_ASSEMBLER
 #define FT_MulFix( a, b )  FT_MULFIX_ASSEMBLER( (FT_Int32)(a), (FT_Int32)(b) )
 #endif
 #endif
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @function:
    *   FT_MulDiv_No_Round
@@ -277,8 +262,7 @@ FT_BEGIN_HEADER
                       FT_Long  b,
                       FT_Long  c );
 
-
-  /*
+/*
    * A variant of FT_Matrix_Multiply which scales its result afterwards.  The
    * idea is that both `a' and `b' are scaled by factors of 10 so that the
    * values are as precise as possible to get a correct result during the
@@ -290,8 +274,7 @@ FT_BEGIN_HEADER
                              FT_Matrix        *b,
                              FT_Long           scaling );
 
-
-  /*
+/*
    * Check a matrix.  If the transformation would lead to extreme shear or
    * extreme scaling, for example, return 0.  If everything is OK, return 1.
    *
@@ -305,8 +288,7 @@ FT_BEGIN_HEADER
   FT_BASE( FT_Bool )
   FT_Matrix_Check( const FT_Matrix*  matrix );
 
-
-  /*
+/*
    * A variant of FT_Vector_Transform.  See comments for
    * FT_Matrix_Multiply_Scaled.
    */
@@ -315,8 +297,7 @@ FT_BEGIN_HEADER
                               const FT_Matrix*  matrix,
                               FT_Long           scaling );
 
-
-  /*
+/*
    * This function normalizes a vector and returns its original length.  The
    * normalized vector is a 16.16 fixed-point unit vector with length close
    * to 0x10000.  The accuracy of the returned length is limited to 16 bits
@@ -327,8 +308,7 @@ FT_BEGIN_HEADER
   FT_BASE( FT_UInt32 )
   FT_Vector_NormLen( FT_Vector*  vector );
 
-
-  /*
+/*
    * Return -1, 0, or +1, depending on the orientation of a given corner.  We
    * use the Cartesian coordinate system, with positive vertical values going
    * upwards.  The function returns +1 if the corner turns to the left, -1 to
@@ -340,8 +320,7 @@ FT_BEGIN_HEADER
                          FT_Pos  out_x,
                          FT_Pos  out_y );
 
-
-  /*
+/*
    * Return TRUE if a corner is flat or nearly flat.  This is equivalent to
    * saying that the corner point is close to its neighbors, or inside an
    * ellipse defined by the neighbor focal points to be more precise.
@@ -352,8 +331,7 @@ FT_BEGIN_HEADER
                      FT_Pos  out_x,
                      FT_Pos  out_y );
 
-
-  /*
+/*
    * Return the most significant bit index.
    */
 
@@ -372,7 +350,6 @@ FT_BEGIN_HEADER
 
 #endif /* __GNUC__ */
 
-
 #elif defined( _MSC_VER ) && ( _MSC_VER >= 1400 )
 
 #if FT_SIZEOF_INT == 4
@@ -385,8 +362,7 @@ FT_BEGIN_HEADER
   {
     unsigned long  where;
 
-
-    _BitScanReverse( &where, x );
+_BitScanReverse( &where, x );
 
     return (FT_Int32)where;
   }
@@ -397,7 +373,6 @@ FT_BEGIN_HEADER
 
 #endif /* _MSC_VER */
 
-
 #endif /* !FT_CONFIG_OPTION_NO_ASSEMBLER */
 
 #ifndef FT_MSB
@@ -407,15 +382,13 @@ FT_BEGIN_HEADER
 
 #endif
 
-
-  /*
+/*
    * Return sqrt(x*x+y*y), which is the same as `FT_Vector_Length' but uses
    * two fixed-point arguments instead.
    */
   FT_BASE( FT_Fixed )
   FT_Hypot( FT_Fixed  x,
             FT_Fixed  y );
-
 
 #if 0
 
@@ -441,7 +414,6 @@ FT_BEGIN_HEADER
   FT_SqrtFixed( FT_Int32  x );
 
 #endif /* 0 */
-
 
 #define INT_TO_F26DOT6( x )    ( (FT_Long)(x) * 64  )    /* << 6  */
 #define INT_TO_F2DOT14( x )    ( (FT_Long)(x) * 16384 )  /* << 14 */
@@ -501,10 +473,8 @@ FT_BEGIN_HEADER
 
 #endif /* FT_LONG64 */
 
-
 FT_END_HEADER
 
 #endif /* FTCALC_H_ */
-
 
 /* END */

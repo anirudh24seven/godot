@@ -4,7 +4,6 @@ Open Asset Import Library (assimp)
 
 Copyright (c) 2006-2019, assimp team
 
-
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -91,7 +90,6 @@ AI_WONT_RETURN void TokenizeError(const std::string& message, unsigned int line,
 {
     throw DeadlyImportError(Util::AddLineAndColumn("FBX-Tokenize",message,line,column));
 }
-
 
 // process a potential data token up to 'cur', adding it to 'output_tokens'.
 // ------------------------------------------------------------------------------------------------

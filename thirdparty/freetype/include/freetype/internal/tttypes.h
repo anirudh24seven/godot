@@ -16,10 +16,8 @@
  *
  */
 
-
 #ifndef TTTYPES_H_
 #define TTTYPES_H_
-
 
 #include <ft2build.h>
 #include FT_TRUETYPE_TABLES_H
@@ -30,24 +28,15 @@
 #include FT_MULTIPLE_MASTERS_H
 #endif
 
-
 FT_BEGIN_HEADER
 
-
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***             REQUIRED TRUETYPE/OPENTYPE TABLES DEFINITIONS         ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TTC_HeaderRec
@@ -80,8 +69,7 @@ FT_BEGIN_HEADER
 
   } TTC_HeaderRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   SFNT_HeaderRec
@@ -117,8 +105,7 @@ FT_BEGIN_HEADER
 
   } SFNT_HeaderRec, *SFNT_Header;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_TableRec
@@ -149,8 +136,7 @@ FT_BEGIN_HEADER
 
   } TT_TableRec, *TT_Table;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_LongMetricsRec
@@ -173,8 +159,7 @@ FT_BEGIN_HEADER
 
   } TT_LongMetricsRec, *TT_LongMetrics;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   TT_ShortMetrics
@@ -185,8 +170,7 @@ FT_BEGIN_HEADER
    */
   typedef FT_Short  TT_ShortMetrics;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_NameRec
@@ -235,8 +219,7 @@ FT_BEGIN_HEADER
 
   } TT_NameRec, *TT_Name;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_LangTagRec
@@ -268,8 +251,7 @@ FT_BEGIN_HEADER
 
   } TT_LangTagRec, *TT_LangTag;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_NameTableRec
@@ -311,21 +293,13 @@ FT_BEGIN_HEADER
 
   } TT_NameTableRec, *TT_NameTable;
 
-
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***             OPTIONAL TRUETYPE/OPENTYPE TABLES DEFINITIONS         ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_GaspRangeRec
@@ -349,12 +323,10 @@ FT_BEGIN_HEADER
 
   } TT_GaspRangeRec, *TT_GaspRange;
 
-
 #define TT_GASP_GRIDFIT  0x01
 #define TT_GASP_DOGRAY   0x02
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_GaspRec
@@ -381,21 +353,13 @@ FT_BEGIN_HEADER
 
   } TT_GaspRec;
 
-
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***                    EMBEDDED BITMAPS SUPPORT                       ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_SBit_MetricsRec
@@ -445,8 +409,7 @@ FT_BEGIN_HEADER
 
   } TT_SBit_MetricsRec, *TT_SBit_Metrics;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_SBit_SmallMetricsRec
@@ -483,8 +446,7 @@ FT_BEGIN_HEADER
 
   } TT_SBit_SmallMetricsRec, *TT_SBit_SmallMetrics;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_SBit_LineMetricsRec
@@ -554,8 +516,7 @@ FT_BEGIN_HEADER
 
   } TT_SBit_LineMetricsRec, *TT_SBit_LineMetrics;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_SBit_RangeRec
@@ -622,8 +583,7 @@ FT_BEGIN_HEADER
 
   } TT_SBit_RangeRec, *TT_SBit_Range;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_SBit_StrikeRec
@@ -694,8 +654,7 @@ FT_BEGIN_HEADER
 
   } TT_SBit_StrikeRec, *TT_SBit_Strike;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_SBit_ComponentRec
@@ -721,8 +680,7 @@ FT_BEGIN_HEADER
 
   } TT_SBit_ComponentRec, *TT_SBit_Component;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_SBit_ScaleRec
@@ -763,21 +721,13 @@ FT_BEGIN_HEADER
 
   } TT_SBit_ScaleRec, *TT_SBit_Scale;
 
-
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***                  POSTSCRIPT GLYPH NAMES SUPPORT                   ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_Post_20Rec
@@ -808,8 +758,7 @@ FT_BEGIN_HEADER
 
   } TT_Post_20Rec, *TT_Post_20;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_Post_25Rec
@@ -832,8 +781,7 @@ FT_BEGIN_HEADER
 
   } TT_Post_25Rec, *TT_Post_25;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *   TT_Post_NamesRec
@@ -864,37 +812,23 @@ FT_BEGIN_HEADER
 
   } TT_Post_NamesRec, *TT_Post_Names;
 
-
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***                    GX VARIATION TABLE SUPPORT                     ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-
 #ifdef TT_CONFIG_OPTION_GX_VAR_SUPPORT
   typedef struct GX_BlendRec_  *GX_Blend;
 #endif
 
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***              EMBEDDED BDF PROPERTIES TABLE SUPPORT                ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-  /*
+/*
    * These types are used to support a `BDF ' table that isn't part of the
    * official TrueType specification.  It is mainly used in SFNT-based bitmap
    * fonts that were generated from a set of BDF fonts.
@@ -949,20 +883,13 @@ FT_BEGIN_HEADER
 
 #endif /* TT_CONFIG_OPTION_BDF */
 
-
-
-
-  /***                                                                   ***/
+/***                                                                   ***/
   /***                                                                   ***/
   /***                  ORIGINAL TT_FACE CLASS DEFINITION                ***/
   /***                                                                   ***/
   /***                                                                   ***/
 
-
-
-
-
-  /**************************************************************************
+/**************************************************************************
    *
    * This structure/class is defined here because it is common to the
    * following formats: TTF, OpenType-TT, and OpenType-CFF.
@@ -972,8 +899,7 @@ FT_BEGIN_HEADER
    *
    */
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   TT_Face
@@ -988,16 +914,14 @@ FT_BEGIN_HEADER
    */
   typedef struct TT_FaceRec_*  TT_Face;
 
-
-  /* a function type used for the truetype bytecode interpreter hooks */
+/* a function type used for the truetype bytecode interpreter hooks */
   typedef FT_Error
   (*TT_Interpreter)( void*  exec_context );
 
   /* forward declaration */
   typedef struct TT_LoaderRec_*  TT_Loader;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   TT_Loader_GotoTableFunc
@@ -1031,8 +955,7 @@ FT_BEGIN_HEADER
                               FT_Stream  stream,
                               FT_ULong*  length );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   TT_Loader_StartGlyphFunc
@@ -1068,8 +991,7 @@ FT_BEGIN_HEADER
                                FT_ULong   offset,
                                FT_UInt    byte_count );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   TT_Loader_ReadGlyphFunc
@@ -1088,8 +1010,7 @@ FT_BEGIN_HEADER
   typedef FT_Error
   (*TT_Loader_ReadGlyphFunc)( TT_Loader  loader );
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @functype:
    *   TT_Loader_EndGlyphFunc
@@ -1104,8 +1025,7 @@ FT_BEGIN_HEADER
   typedef void
   (*TT_Loader_EndGlyphFunc)( TT_Loader  loader );
 
-
-  typedef enum TT_SbitTableType_
+typedef enum TT_SbitTableType_
   {
     TT_SBIT_TABLE_TYPE_NONE = 0,
     TT_SBIT_TABLE_TYPE_EBLC, /* `EBLC' (Microsoft), */
@@ -1118,8 +1038,7 @@ FT_BEGIN_HEADER
 
   } TT_SbitTableType;
 
-
-  /* OpenType 1.8 brings new tables for variation font support;  */
+/* OpenType 1.8 brings new tables for variation font support;  */
   /* to make the old MM and GX fonts still work we need to check */
   /* the presence (and validity) of the functionality provided   */
   /* by those tables.  The following flag macros are for the     */
@@ -1146,8 +1065,7 @@ FT_BEGIN_HEADER
   /* MVAR */
 #define TT_FACE_FLAG_VAR_MVAR  ( 1 << 8 )
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    *                        TrueType Face Type
    *
@@ -1516,8 +1434,7 @@ FT_BEGIN_HEADER
     /* a typeless pointer to the PostScript Aux service */
     void*                 psaux;
 
-
-    /************************************************************************
+/************************************************************************
      *
      * Optional TrueType/OpenType tables
      *
@@ -1543,8 +1460,7 @@ FT_BEGIN_HEADER
     FT_Bool               have_foreground_color;
     FT_Color              foreground_color;
 
-
-    /************************************************************************
+/************************************************************************
      *
      * TrueType-specific fields (ignored by the CFF driver)
      *
@@ -1566,8 +1482,7 @@ FT_BEGIN_HEADER
     /* used to hook the debugger for the `ttdebug' utility.        */
     TT_Interpreter        interpreter;
 
-
-    /************************************************************************
+/************************************************************************
      *
      * Other tables or fields. This is used by derivative formats like
      * OpenType.
@@ -1647,8 +1562,7 @@ FT_BEGIN_HEADER
 
   } TT_FaceRec;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @struct:
    *    TT_GlyphZoneRec
@@ -1707,12 +1621,10 @@ FT_BEGIN_HEADER
 
   } TT_GlyphZoneRec, *TT_GlyphZone;
 
-
-  /* handle to execution context */
+/* handle to execution context */
   typedef struct TT_ExecContextRec_*  TT_ExecContext;
 
-
-  /**************************************************************************
+/**************************************************************************
    *
    * @type:
    *   TT_Size
@@ -1722,8 +1634,7 @@ FT_BEGIN_HEADER
    */
   typedef struct TT_SizeRec_*  TT_Size;
 
-
-  /* glyph loader structure */
+/* glyph loader structure */
   typedef struct  TT_LoaderRec_
   {
     TT_Face          face;
@@ -1772,10 +1683,8 @@ FT_BEGIN_HEADER
 
   } TT_LoaderRec;
 
-
 FT_END_HEADER
 
 #endif /* TTTYPES_H_ */
-
 
 /* END */

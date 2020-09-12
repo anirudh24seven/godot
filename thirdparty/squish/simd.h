@@ -36,5 +36,4 @@
 #include "simd_float.h"
 #endif
 
-
 #endif // ndef SQUISH_SIMD_H

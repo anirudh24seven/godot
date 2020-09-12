@@ -5,8 +5,6 @@
 #include "encint.h"
 #include "theora/theoraenc.h"
 
-
-
 static void th_enc_api_clear(th_api_wrapper *_api){
   if(_api->encode)th_encode_free(_api->encode);
   memset(_api,0,sizeof(*_api));

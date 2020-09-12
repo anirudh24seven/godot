@@ -1,8 +1,6 @@
 
 /*  node_3d_editor_gizmos.cpp                                            */
 
-
-
 #include "node_3d_editor_gizmos.h"
 
 #include "core/math/geometry_2d.h"
@@ -1686,8 +1684,7 @@ void Skeleton3DGizmoPlugin::redraw(EditorNode3DGizmo *p_gizmo) {
 
 		for (int i=0;i<6;i++) {
 
-
-			Vector3 face_points[4];
+Vector3 face_points[4];
 
 			for (int j=0;j<4;j++) {
 

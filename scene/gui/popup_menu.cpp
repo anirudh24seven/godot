@@ -1,8 +1,6 @@
 
 /*  popup_menu.cpp                                                       */
 
-
-
 #include "popup_menu.h"
 
 #include "core/input/input.h"

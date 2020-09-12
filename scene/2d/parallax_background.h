@@ -1,8 +1,6 @@
 
 /*  parallax_background.h                                                */
 
-
-
 #ifndef PARALLAX_BACKGROUND_H
 #define PARALLAX_BACKGROUND_H
 

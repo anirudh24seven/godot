@@ -1,8 +1,6 @@
 
 /*  packed_data_container.cpp                                            */
 
-
-
 #include "packed_data_container.h"
 
 #include "core/core_string_names.h"

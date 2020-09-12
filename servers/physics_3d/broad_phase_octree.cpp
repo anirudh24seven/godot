@@ -1,8 +1,6 @@
 
 /*  broad_phase_octree.cpp                                               */
 
-
-
 #include "broad_phase_octree.h"
 #include "collision_object_3d_sw.h"
 

@@ -1,8 +1,6 @@
 
 /*  audio_driver_opensl.cpp                                              */
 
-
-
 #include "audio_driver_opensl.h"
 
 #include <string.h>

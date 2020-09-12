@@ -114,16 +114,14 @@ namespace Etc
 			ulliSelectorBitsG |= (unsigned long long int)m_pencodingbitsRG11->data.selectorsG4 << 8;
 			ulliSelectorBitsG |= (unsigned long long int)m_pencodingbitsRG11->data.selectorsG5;
 
-			
-			for (unsigned int uiPixel = 0; uiPixel < PIXELS; uiPixel++)
+for (unsigned int uiPixel = 0; uiPixel < PIXELS; uiPixel++)
 			{
 				unsigned int uiShift = 45 - (3 * uiPixel);
 				m_auiRedSelectors[uiPixel] = (ulliSelectorBitsR >> uiShift) & (SELECTORS - 1);
 				m_auiGrnSelectors[uiPixel] = (ulliSelectorBitsG >> uiShift) & (SELECTORS - 1);
 			}
 
-			
-			for (unsigned int uiPixel = 0; uiPixel < PIXELS; uiPixel++)
+for (unsigned int uiPixel = 0; uiPixel < PIXELS; uiPixel++)
 			{
 				float fRedDecodedData = 0.0f;
 				float fGrnDecodedData = 0.0f;
