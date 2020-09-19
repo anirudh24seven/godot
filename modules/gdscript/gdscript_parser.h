@@ -582,6 +582,7 @@ public:
 	};
 
 	struct ContinueNode : public Node {
+		bool is_for_match = false;
 		ContinueNode() {
 			type = CONTINUE;
 		}
@@ -1052,6 +1053,7 @@ private:
 	bool panic_mode = false;
 	bool can_break = false;
 	bool can_continue = false;
+	bool is_continue_match = false; // Whether a `continue` will act on a `match`.
 	bool is_ignoring_warnings = false;
 	List<bool> multiline_stack;
 

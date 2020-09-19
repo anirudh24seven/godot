@@ -70,12 +70,12 @@ public:
 
 	virtual RID texture_2d_create(const Ref<Image> &p_image) = 0;
 	virtual RID texture_2d_layered_create(const Vector<Ref<Image>> &p_layers, TextureLayeredType p_layered_type) = 0;
-	virtual RID texture_3d_create(const Vector<Ref<Image>> &p_slices) = 0; //all slices, then all the mipmaps, must be coherent
+	virtual RID texture_3d_create(Image::Format, int p_width, int p_height, int p_depth, bool p_mipmaps, const Vector<Ref<Image>> &p_data) = 0; //all slices, then all the mipmaps, must be coherent
 	virtual RID texture_proxy_create(RID p_base) = 0;
 
 	virtual void texture_2d_update_immediate(RID p_texture, const Ref<Image> &p_image, int p_layer = 0) = 0; //mostly used for video and streaming
 	virtual void texture_2d_update(RID p_texture, const Ref<Image> &p_image, int p_layer = 0) = 0;
-	virtual void texture_3d_update(RID p_texture, const Ref<Image> &p_image, int p_depth, int p_mipmap) = 0;
+	virtual void texture_3d_update(RID p_texture, const Vector<Ref<Image>> &p_data) = 0;
 	virtual void texture_proxy_update(RID p_texture, RID p_proxy_to) = 0;
 
 	//these two APIs can be used together or in combination with the others.
@@ -85,7 +85,7 @@ public:
 
 	virtual Ref<Image> texture_2d_get(RID p_texture) const = 0;
 	virtual Ref<Image> texture_2d_layer_get(RID p_texture, int p_layer) const = 0;
-	virtual Ref<Image> texture_3d_slice_get(RID p_texture, int p_depth, int p_mipmap) const = 0;
+	virtual Vector<Ref<Image>> texture_3d_get(RID p_texture) const = 0;
 
 	virtual void texture_replace(RID p_texture, RID p_by_texture) = 0;
 	virtual void texture_set_size_override(RID p_texture, int p_width, int p_height) = 0;
@@ -536,7 +536,7 @@ public:
 
 	virtual RID particles_create() = 0;
 
-	virtual void particles_set_emitting(RID p_particles, bool p_emitting) = 0;
+	virtual void particles_set_emitting(RID p_particles, bool p_enable) = 0;
 	virtual bool particles_get_emitting(RID p_particles) = 0;
 	virtual void particles_set_amount(RID p_particles, int p_amount) = 0;
 	virtual void particles_set_lifetime(RID p_particles, float p_lifetime) = 0;
@@ -553,6 +553,18 @@ public:
 	virtual bool particles_is_inactive(RID p_particles) = 0;
 	virtual void particles_request_process(RID p_particles) = 0;
 	virtual void particles_restart(RID p_particles) = 0;
+
+	virtual void particles_set_subemitter(RID p_particles, RID p_subemitter_particles) = 0;
+
+	enum ParticlesEmitFlags {
+		PARTICLES_EMIT_FLAG_POSITION = 1,
+		PARTICLES_EMIT_FLAG_ROTATION_SCALE = 2,
+		PARTICLES_EMIT_FLAG_VELOCITY = 4,
+		PARTICLES_EMIT_FLAG_COLOR = 8,
+		PARTICLES_EMIT_FLAG_CUSTOM = 16
+	};
+
+	virtual void particles_emit(RID p_particles, const Transform &p_transform, const Vector3 &p_velocity, const Color &p_color, const Color &p_custom, uint32_t p_emit_flags) = 0;
 
 	enum ParticlesDrawOrder {
 		PARTICLES_DRAW_ORDER_INDEX,
@@ -757,6 +769,7 @@ public:
 	virtual void environment_set_glow(RID p_env, bool p_enable, int p_level_flags, float p_intensity, float p_strength, float p_mix, float p_bloom_threshold, EnvironmentGlowBlendMode p_blend_mode, float p_hdr_bleed_threshold, float p_hdr_bleed_scale, float p_hdr_luminance_cap) = 0;
 
 	virtual void environment_glow_set_use_bicubic_upscale(bool p_enable) = 0;
+	virtual void environment_glow_set_use_high_quality(bool p_enable) = 0;
 
 	enum EnvironmentToneMapper {
 		ENV_TONE_MAPPER_LINEAR,
@@ -844,7 +857,7 @@ public:
 		ENV_VOLUMETRIC_FOG_SHADOW_FILTER_HIGH,
 	};
 
-	virtual void environment_set_volumetric_fog(RID p_env, bool p_enable, float p_density, const Color &p_light, float p_light_energy, float p_lenght, float p_detail_spread, float p_gi_inject, EnvVolumetricFogShadowFilter p_shadow_filter) = 0;
+	virtual void environment_set_volumetric_fog(RID p_env, bool p_enable, float p_density, const Color &p_light, float p_light_energy, float p_length, float p_detail_spread, float p_gi_inject, EnvVolumetricFogShadowFilter p_shadow_filter) = 0;
 	virtual void environment_set_volumetric_fog_volume_size(int p_size, int p_depth) = 0;
 	virtual void environment_set_volumetric_fog_filter_active(bool p_enable) = 0;
 	virtual void environment_set_volumetric_fog_directional_shadow_shrink_size(int p_shrink_size) = 0;

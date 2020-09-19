@@ -23,6 +23,9 @@ public:
 		TYPE_VERTEX,
 		TYPE_FRAGMENT,
 		TYPE_LIGHT,
+		TYPE_EMIT,
+		TYPE_PROCESS,
+		TYPE_END,
 		TYPE_MAX
 	};
 
@@ -39,6 +42,8 @@ public:
 	};
 
 private:
+	Type current_type;
+
 	struct Node {
 		Ref<VisualShaderNode> node;
 		Vector2 position;
@@ -50,7 +55,7 @@ private:
 		List<Connection> connections;
 	} graph[TYPE_MAX];
 
-	Shader::Mode shader_mode;
+	Shader::Mode shader_mode = Shader::MODE_SPATIAL;
 	mutable String previous_code;
 
 	Array _get_node_connections(Type p_type) const;
@@ -67,7 +72,7 @@ private:
 
 	static RenderModeEnums render_mode_enums[];
 
-	volatile mutable bool dirty;
+	volatile mutable bool dirty = true;
 	void _queue_update();
 
 	union ConnectionKey {
@@ -84,6 +89,7 @@ private:
 	Error _write_node(Type p_type, StringBuilder &global_code, StringBuilder &global_code_per_node, Map<Type, StringBuilder> &global_code_per_func, StringBuilder &code, Vector<DefaultTextureParam> &def_tex_params, const VMap<ConnectionKey, const List<Connection>::Element *> &input_connections, const VMap<ConnectionKey, const List<Connection>::Element *> &output_connections, int node, Set<int> &processed, bool for_preview, Set<StringName> &r_classes) const;
 
 	void _input_type_changed(Type p_type, int p_id);
+	bool has_func_name(RenderingServer::ShaderMode p_mode, const String &p_func_name) const;
 
 protected:
 	virtual void _update_shader() const override;
@@ -92,6 +98,10 @@ protected:
 	bool _set(const StringName &p_name, const Variant &p_value);
 	bool _get(const StringName &p_name, Variant &r_ret) const;
 	void _get_property_list(List<PropertyInfo> *p_list) const;
+
+public: // internal methods
+	void set_shader_type(Type p_type);
+	Type get_shader_type() const;
 
 public:
 	void set_version(const String &p_version);
@@ -152,7 +162,7 @@ VARIANT_ENUM_CAST(VisualShader::Type)
 class VisualShaderNode : public Resource {
 	GDCLASS(VisualShaderNode, Resource);
 
-	int port_preview;
+	int port_preview = -1;
 
 	Map<int, Variant> default_input_values;
 	Map<int, bool> connected_input_ports;
@@ -160,7 +170,7 @@ class VisualShaderNode : public Resource {
 	int connected_output_count = 0;
 
 protected:
-	bool simple_decl;
+	bool simple_decl = true;
 	static void _bind_methods();
 
 public:
@@ -262,8 +272,8 @@ class VisualShaderNodeInput : public VisualShaderNode {
 	GDCLASS(VisualShaderNodeInput, VisualShaderNode);
 
 	friend class VisualShader;
-	VisualShader::Type shader_type;
-	Shader::Mode shader_mode;
+	VisualShader::Type shader_type = VisualShader::TYPE_MAX;
+	Shader::Mode shader_mode = Shader::MODE_MAX;
 
 	struct Port {
 		Shader::Mode mode;
@@ -276,7 +286,7 @@ class VisualShaderNodeInput : public VisualShaderNode {
 	static const Port ports[];
 	static const Port preview_ports[];
 
-	String input_name;
+	String input_name = "[None]";
 
 protected:
 	static void _bind_methods();
@@ -360,8 +370,8 @@ public:
 	};
 
 private:
-	String uniform_name;
-	Qualifier qualifier;
+	String uniform_name = "";
+	Qualifier qualifier = QUAL_NONE;
 	bool global_code_generated = false;
 
 protected:
@@ -408,8 +418,8 @@ public:
 	};
 
 private:
-	String uniform_name;
-	UniformType uniform_type;
+	String uniform_name = "[None]";
+	UniformType uniform_type = UniformType::UNIFORM_TYPE_FLOAT;
 
 protected:
 	static void _bind_methods();
@@ -451,10 +461,10 @@ private:
 	void _apply_port_changes();
 
 protected:
-	Vector2 size;
-	String inputs;
-	String outputs;
-	bool editable;
+	Vector2 size = Size2(0, 0);
+	String inputs = "";
+	String outputs = "";
+	bool editable = false;
 
 	struct Port {
 		PortType type;
@@ -522,7 +532,7 @@ class VisualShaderNodeExpression : public VisualShaderNodeGroupBase {
 	GDCLASS(VisualShaderNodeExpression, VisualShaderNodeGroupBase);
 
 protected:
-	String expression;
+	String expression = "";
 
 	static void _bind_methods();
 

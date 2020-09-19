@@ -1097,8 +1097,8 @@ void VisualScriptEditor::_update_members() {
 		TreeItem *ti = members->create_item(variables);
 
 		ti->set_text(0, E->get());
-		Variant var = script->get_variable_default_value(E->get());
-		ti->set_suffix(0, "= " + String(var));
+
+		ti->set_suffix(0, "= " + _sanitized_variant_text(E->get()));
 		ti->set_icon(0, type_icons[script->get_variable_info(E->get()).type]);
 
 		ti->set_selectable(0, true);
@@ -1138,6 +1138,18 @@ void VisualScriptEditor::_update_members() {
 	base_type_select->set_icon(Control::get_theme_icon(icon_type, "EditorIcons"));
 
 	updating_members = false;
+}
+
+String VisualScriptEditor::_sanitized_variant_text(const StringName &property_name) {
+	Variant var = script->get_variable_default_value(property_name);
+
+	if (script->get_variable_info(property_name).type != Variant::NIL) {
+		Callable::CallError ce;
+		const Variant *converted = &var;
+		var = Variant::construct(script->get_variable_info(property_name).type, &converted, 1, ce, false);
+	}
+
+	return String(var);
 }
 
 void VisualScriptEditor::_member_selected() {
@@ -2655,7 +2667,8 @@ void VisualScriptEditor::reload(bool p_soft) {
 	_update_graph();
 }
 
-void VisualScriptEditor::get_breakpoints(List<int> *p_breakpoints) {
+Array VisualScriptEditor::get_breakpoints() {
+	Array breakpoints;
 	List<StringName> functions;
 	script->get_function_list(&functions);
 	for (List<StringName>::Element *E = functions.front(); E; E = E->next()) {
@@ -2664,10 +2677,11 @@ void VisualScriptEditor::get_breakpoints(List<int> *p_breakpoints) {
 		for (List<int>::Element *F = nodes.front(); F; F = F->next()) {
 			Ref<VisualScriptNode> vsn = script->get_node(E->get(), F->get());
 			if (vsn->is_breakpoint()) {
-				p_breakpoints->push_back(F->get() - 1); //subtract 1 because breakpoints in text start from zero
+				breakpoints.push_back(F->get() - 1); //subtract 1 because breakpoints in text start from zero
 			}
 		}
 	}
+	return breakpoints;
 }
 
 void VisualScriptEditor::add_callback(const String &p_function, PackedStringArray p_args) {

@@ -1,8 +1,8 @@
 
 /*  mesh_library.h                                                       */
 
-#ifndef GRID_THEME_H
-#define GRID_THEME_H
+#ifndef MESH_LIBRARY_H
+#define MESH_LIBRARY_H
 
 #include "core/map.h"
 #include "core/resource.h"
@@ -69,4 +69,4 @@ public:
 	~MeshLibrary();
 };
 
-#endif // CUBE_GRID_THEME_H
+#endif // MESH_LIBRARY_H

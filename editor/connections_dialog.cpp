@@ -687,7 +687,7 @@ void ConnectionsDock::_open_connection_dialog(TreeItem &item) {
 	const String &signalname = signal;
 	String midname = selectedNode->get_name();
 	for (int i = 0; i < midname.length(); i++) { //TODO: Regex filter may be cleaner.
-		CharType c = midname[i];
+		char32_t c = midname[i];
 		if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '_')) {
 			if (c == ' ') {
 				// Replace spaces with underlines.
@@ -727,8 +727,9 @@ void ConnectionsDock::_open_connection_dialog(ConnectDialog::ConnectionData cToE
 	Node *dst = static_cast<Node *>(cToEdit.target);
 
 	if (src && dst) {
+		const String &signalname = cToEdit.signal;
 		connect_dialog->set_title(TTR("Edit Connection:") + cToEdit.signal);
-		connect_dialog->popup_centered();
+		connect_dialog->popup_dialog(signalname);
 		connect_dialog->init(cToEdit, true);
 	}
 }

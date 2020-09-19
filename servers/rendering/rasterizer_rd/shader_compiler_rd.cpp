@@ -510,6 +510,7 @@ String ShaderCompilerRD::_dump_node_code(const SL::Node *p_node, int p_level, Ge
 
 				r_gen_code.vertex_global += struct_code;
 				r_gen_code.fragment_global += struct_code;
+				r_gen_code.compute_global += struct_code;
 			}
 
 			int max_texture_uniforms = 0;
@@ -564,6 +565,7 @@ String ShaderCompilerRD::_dump_node_code(const SL::Node *p_node, int p_level, Ge
 				if (SL::is_sampler_type(E->get().type)) {
 					r_gen_code.vertex_global += ucode;
 					r_gen_code.fragment_global += ucode;
+					r_gen_code.compute_global += ucode;
 
 					GeneratedCode::Texture texture;
 					texture.name = E->key();
@@ -673,6 +675,7 @@ String ShaderCompilerRD::_dump_node_code(const SL::Node *p_node, int p_level, Ge
 				vcode += ";\n";
 				r_gen_code.vertex_global += "layout(location=" + itos(index) + ") " + interp_mode + "out " + vcode;
 				r_gen_code.fragment_global += "layout(location=" + itos(index) + ") " + interp_mode + "in " + vcode;
+				r_gen_code.compute_global += "layout(location=" + itos(index) + ") " + interp_mode + "out " + vcode;
 				index++;
 			}
 
@@ -697,6 +700,7 @@ String ShaderCompilerRD::_dump_node_code(const SL::Node *p_node, int p_level, Ge
 				gcode += ";\n";
 				r_gen_code.vertex_global += gcode;
 				r_gen_code.fragment_global += gcode;
+				r_gen_code.compute_global += gcode;
 			}
 
 			Map<StringName, String> function_code;
@@ -714,6 +718,7 @@ String ShaderCompilerRD::_dump_node_code(const SL::Node *p_node, int p_level, Ge
 
 			Set<StringName> added_vtx;
 			Set<StringName> added_fragment; //share for light
+			Set<StringName> added_compute; //share for light
 
 			for (int i = 0; i < pnode->functions.size(); i++) {
 				SL::FunctionNode *fnode = pnode->functions[i].function;
@@ -736,6 +741,12 @@ String ShaderCompilerRD::_dump_node_code(const SL::Node *p_node, int p_level, Ge
 					_dump_function_deps(pnode, fnode->name, function_code, r_gen_code.fragment_global, added_fragment);
 					r_gen_code.light = function_code[light_name];
 				}
+
+				if (fnode->name == compute_name) {
+					_dump_function_deps(pnode, fnode->name, function_code, r_gen_code.compute_global, added_compute);
+					r_gen_code.compute = function_code[compute_name];
+				}
+
 				function = nullptr;
 			}
 
@@ -1218,6 +1229,8 @@ Error ShaderCompilerRD::compile(RS::ShaderMode p_mode, const String &p_code, Ide
 	r_gen_code.vertex_global = String();
 	r_gen_code.fragment = String();
 	r_gen_code.fragment_global = String();
+	r_gen_code.compute = String();
+	r_gen_code.compute_global = String();
 	r_gen_code.light = String();
 	r_gen_code.uses_fragment_time = false;
 	r_gen_code.uses_vertex_time = false;
@@ -1239,6 +1252,7 @@ void ShaderCompilerRD::initialize(DefaultIdentifierActions p_actions) {
 
 	vertex_name = "vertex";
 	fragment_name = "fragment";
+	compute_name = "compute";
 	light_name = "light";
 	time_name = "TIME";
 

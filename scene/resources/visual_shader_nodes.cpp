@@ -60,7 +60,6 @@ void VisualShaderNodeFloatConstant::_bind_methods() {
 }
 
 VisualShaderNodeFloatConstant::VisualShaderNodeFloatConstant() {
-	constant = 0.0;
 }
 
 ////////////// Scalar(Int)
@@ -120,7 +119,6 @@ void VisualShaderNodeIntConstant::_bind_methods() {
 }
 
 VisualShaderNodeIntConstant::VisualShaderNodeIntConstant() {
-	constant = 0;
 }
 
 ////////////// Boolean
@@ -180,7 +178,6 @@ void VisualShaderNodeBooleanConstant::_bind_methods() {
 }
 
 VisualShaderNodeBooleanConstant::VisualShaderNodeBooleanConstant() {
-	constant = false;
 }
 
 ////////////// Color
@@ -244,7 +241,6 @@ void VisualShaderNodeColorConstant::_bind_methods() {
 }
 
 VisualShaderNodeColorConstant::VisualShaderNodeColorConstant() {
-	constant = Color(1, 1, 1, 1);
 }
 
 ////////////// Vector
@@ -750,8 +746,6 @@ void VisualShaderNodeTexture::_bind_methods() {
 }
 
 VisualShaderNodeTexture::VisualShaderNodeTexture() {
-	texture_type = TYPE_DATA;
-	source = SOURCE_TEXTURE;
 }
 
 ////////////// Sample3D
@@ -871,7 +865,6 @@ String VisualShaderNodeSample3D::get_warning(Shader::Mode p_mode, VisualShader::
 }
 
 VisualShaderNodeSample3D::VisualShaderNodeSample3D() {
-	source = SOURCE_TEXTURE;
 	simple_decl = false;
 }
 
@@ -931,6 +924,64 @@ void VisualShaderNodeTexture2DArray::_bind_methods() {
 
 VisualShaderNodeTexture2DArray::VisualShaderNodeTexture2DArray() {
 }
+
+////////////// Texture3D
+
+String VisualShaderNodeTexture3D::get_caption() const {
+	return "Texture3D";
+}
+
+String VisualShaderNodeTexture3D::get_input_port_name(int p_port) const {
+	if (p_port == 2) {
+		return "sampler3D";
+	}
+	return VisualShaderNodeSample3D::get_input_port_name(p_port);
+}
+
+Vector<VisualShader::DefaultTextureParam> VisualShaderNodeTexture3D::get_default_texture_parameters(VisualShader::Type p_type, int p_id) const {
+	VisualShader::DefaultTextureParam dtp;
+	dtp.name = make_unique_id(p_type, p_id, "tex3d");
+	dtp.param = texture;
+	Vector<VisualShader::DefaultTextureParam> ret;
+	ret.push_back(dtp);
+	return ret;
+}
+
+String VisualShaderNodeTexture3D::generate_global(Shader::Mode p_mode, VisualShader::Type p_type, int p_id) const {
+	if (source == SOURCE_TEXTURE) {
+		return "uniform sampler3D " + make_unique_id(p_type, p_id, "tex3d") + ";\n";
+	}
+	return String();
+}
+
+void VisualShaderNodeTexture3D::set_texture(Ref<Texture3D> p_value) {
+	texture = p_value;
+	emit_changed();
+}
+
+Ref<Texture3D> VisualShaderNodeTexture3D::get_texture() const {
+	return texture;
+}
+
+Vector<StringName> VisualShaderNodeTexture3D::get_editable_properties() const {
+	Vector<StringName> props;
+	props.push_back("source");
+	if (source == SOURCE_TEXTURE) {
+		props.push_back("texture");
+	}
+	return props;
+}
+
+void VisualShaderNodeTexture3D::_bind_methods() {
+	ClassDB::bind_method(D_METHOD("set_texture", "value"), &VisualShaderNodeTexture3D::set_texture);
+	ClassDB::bind_method(D_METHOD("get_texture"), &VisualShaderNodeTexture3D::get_texture);
+
+	ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "texture", PROPERTY_HINT_RESOURCE_TYPE, "Texture3D"), "set_texture", "get_texture");
+}
+
+VisualShaderNodeTexture3D::VisualShaderNodeTexture3D() {
+}
+
 ////////////// Cubemap
 
 String VisualShaderNodeCubemap::get_caption() const {
@@ -1116,8 +1167,6 @@ void VisualShaderNodeCubemap::_bind_methods() {
 }
 
 VisualShaderNodeCubemap::VisualShaderNodeCubemap() {
-	texture_type = TYPE_DATA;
-	source = SOURCE_TEXTURE;
 	simple_decl = false;
 }
 
@@ -1223,7 +1272,6 @@ void VisualShaderNodeFloatOp::_bind_methods() {
 }
 
 VisualShaderNodeFloatOp::VisualShaderNodeFloatOp() {
-	op = OP_ADD;
 	set_input_port_default_value(0, 0.0);
 	set_input_port_default_value(1, 0.0);
 }
@@ -1318,7 +1366,6 @@ void VisualShaderNodeIntOp::_bind_methods() {
 }
 
 VisualShaderNodeIntOp::VisualShaderNodeIntOp() {
-	op = OP_ADD;
 	set_input_port_default_value(0, 0);
 	set_input_port_default_value(1, 0);
 }
@@ -1433,7 +1480,6 @@ void VisualShaderNodeVectorOp::_bind_methods() {
 }
 
 VisualShaderNodeVectorOp::VisualShaderNodeVectorOp() {
-	op = OP_ADD;
 	set_input_port_default_value(0, Vector3());
 	set_input_port_default_value(1, Vector3());
 }
@@ -1601,7 +1647,6 @@ void VisualShaderNodeColorOp::_bind_methods() {
 }
 
 VisualShaderNodeColorOp::VisualShaderNodeColorOp() {
-	op = OP_SCREEN;
 	set_input_port_default_value(0, Vector3());
 	set_input_port_default_value(1, Vector3());
 }
@@ -1676,7 +1721,6 @@ void VisualShaderNodeTransformMult::_bind_methods() {
 }
 
 VisualShaderNodeTransformMult::VisualShaderNodeTransformMult() {
-	op = OP_AxB;
 	set_input_port_default_value(0, Transform());
 	set_input_port_default_value(1, Transform());
 }
@@ -1751,7 +1795,6 @@ void VisualShaderNodeTransformVecMult::_bind_methods() {
 }
 
 VisualShaderNodeTransformVecMult::VisualShaderNodeTransformVecMult() {
-	op = OP_AxB;
 	set_input_port_default_value(0, Transform());
 	set_input_port_default_value(1, Vector3());
 }
@@ -1881,7 +1924,6 @@ void VisualShaderNodeFloatFunc::_bind_methods() {
 }
 
 VisualShaderNodeFloatFunc::VisualShaderNodeFloatFunc() {
-	func = FUNC_SIGN;
 	set_input_port_default_value(0, 0.0);
 }
 
@@ -1976,7 +2018,6 @@ void VisualShaderNodeIntFunc::_bind_methods() {
 }
 
 VisualShaderNodeIntFunc::VisualShaderNodeIntFunc() {
-	func = FUNC_SIGN;
 	set_input_port_default_value(0, 0);
 }
 
@@ -2142,7 +2183,6 @@ void VisualShaderNodeVectorFunc::_bind_methods() {
 }
 
 VisualShaderNodeVectorFunc::VisualShaderNodeVectorFunc() {
-	func = FUNC_NORMALIZE;
 	set_input_port_default_value(0, Vector3());
 }
 
@@ -2229,9 +2269,8 @@ void VisualShaderNodeColorFunc::_bind_methods() {
 }
 
 VisualShaderNodeColorFunc::VisualShaderNodeColorFunc() {
-	func = FUNC_GRAYSCALE;
-	set_input_port_default_value(0, Vector3());
 	simple_decl = false;
+	set_input_port_default_value(0, Vector3());
 }
 
 ////////////// Transform Func
@@ -2301,7 +2340,6 @@ void VisualShaderNodeTransformFunc::_bind_methods() {
 }
 
 VisualShaderNodeTransformFunc::VisualShaderNodeTransformFunc() {
-	func = FUNC_INVERSE;
 	set_input_port_default_value(0, Transform());
 }
 
@@ -2489,7 +2527,6 @@ void VisualShaderNodeScalarDerivativeFunc::_bind_methods() {
 }
 
 VisualShaderNodeScalarDerivativeFunc::VisualShaderNodeScalarDerivativeFunc() {
-	func = FUNC_SUM;
 	set_input_port_default_value(0, 0.0);
 }
 
@@ -2562,7 +2599,6 @@ void VisualShaderNodeVectorDerivativeFunc::_bind_methods() {
 }
 
 VisualShaderNodeVectorDerivativeFunc::VisualShaderNodeVectorDerivativeFunc() {
-	func = FUNC_SUM;
 	set_input_port_default_value(0, Vector3());
 }
 
@@ -3534,12 +3570,6 @@ Vector<StringName> VisualShaderNodeFloatUniform::get_editable_properties() const
 }
 
 VisualShaderNodeFloatUniform::VisualShaderNodeFloatUniform() {
-	hint = HINT_NONE;
-	hint_range_min = 0.0;
-	hint_range_max = 1.0;
-	hint_range_step = 0.1;
-	default_value_enabled = false;
-	default_value = 0.0;
 }
 
 ////////////// Integer Uniform
@@ -3699,12 +3729,6 @@ Vector<StringName> VisualShaderNodeIntUniform::get_editable_properties() const {
 }
 
 VisualShaderNodeIntUniform::VisualShaderNodeIntUniform() {
-	hint = HINT_NONE;
-	hint_range_min = 0;
-	hint_range_max = 100;
-	hint_range_step = 1;
-	default_value_enabled = false;
-	default_value = 0;
 }
 
 ////////////// Boolean Uniform
@@ -3797,8 +3821,6 @@ Vector<StringName> VisualShaderNodeBooleanUniform::get_editable_properties() con
 }
 
 VisualShaderNodeBooleanUniform::VisualShaderNodeBooleanUniform() {
-	default_value_enabled = false;
-	default_value = false;
 }
 
 ////////////// Color Uniform
@@ -3889,8 +3911,6 @@ Vector<StringName> VisualShaderNodeColorUniform::get_editable_properties() const
 }
 
 VisualShaderNodeColorUniform::VisualShaderNodeColorUniform() {
-	default_value_enabled = false;
-	default_value = Color(1.0, 1.0, 1.0, 1.0);
 }
 
 ////////////// Vector Uniform
@@ -3979,8 +3999,6 @@ Vector<StringName> VisualShaderNodeVec3Uniform::get_editable_properties() const 
 }
 
 VisualShaderNodeVec3Uniform::VisualShaderNodeVec3Uniform() {
-	default_value_enabled = false;
-	default_value = Vector3(0.0, 0.0, 0.0);
 }
 
 ////////////// Transform Uniform
@@ -4073,8 +4091,6 @@ Vector<StringName> VisualShaderNodeTransformUniform::get_editable_properties() c
 }
 
 VisualShaderNodeTransformUniform::VisualShaderNodeTransformUniform() {
-	default_value_enabled = false;
-	default_value = Transform(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0);
 }
 
 ////////////// Texture Uniform
@@ -4244,8 +4260,6 @@ bool VisualShaderNodeTextureUniform::is_qualifier_supported(Qualifier p_qual) co
 }
 
 VisualShaderNodeTextureUniform::VisualShaderNodeTextureUniform() {
-	texture_type = TYPE_DATA;
-	color_default = COLOR_DEFAULT_WHITE;
 	simple_decl = false;
 }
 
@@ -4318,13 +4332,13 @@ String VisualShaderNodeTextureUniformTriplanar::generate_code(Shader::Mode p_mod
 	String code = "\t{\n";
 
 	if (p_input_vars[0] == String() && p_input_vars[1] == String()) {
-		code += "\t\tvec4 n_tex_read = triplanar_texture( " + id + ", triplanar_power_normal, triplanar_pos );\n";
+		code += "\t\tvec4 n_tex_read = triplanar_texture(" + id + ", triplanar_power_normal, triplanar_pos);\n";
 	} else if (p_input_vars[0] != String() && p_input_vars[1] == String()) {
-		code += "\t\tvec4 n_tex_read = triplanar_texture( " + id + ", " + p_input_vars[0] + ", triplanar_pos );\n";
+		code += "\t\tvec4 n_tex_read = triplanar_texture(" + id + ", " + p_input_vars[0] + ", triplanar_pos);\n";
 	} else if (p_input_vars[0] == String() && p_input_vars[1] != String()) {
-		code += "\t\tvec4 n_tex_read = triplanar_texture( " + id + ", triplanar_power_normal," + p_input_vars[1] + " );\n";
+		code += "\t\tvec4 n_tex_read = triplanar_texture(" + id + ", triplanar_power_normal, " + p_input_vars[1] + ");\n";
 	} else {
-		code += "\t\tvec4 n_tex_read = triplanar_texture( " + id + ", " + p_input_vars[0] + ", " + p_input_vars[1] + " );\n";
+		code += "\t\tvec4 n_tex_read = triplanar_texture(" + id + ", " + p_input_vars[0] + ", " + p_input_vars[1] + ");\n";
 	}
 
 	code += "\t\t" + p_output_vars[0] + " = n_tex_read.rgb;\n";
@@ -4412,6 +4426,74 @@ String VisualShaderNodeTexture2DArrayUniform::generate_code(Shader::Mode p_mode,
 }
 
 VisualShaderNodeTexture2DArrayUniform::VisualShaderNodeTexture2DArrayUniform() {
+}
+
+////////////// Texture3D Uniform
+
+String VisualShaderNodeTexture3DUniform::get_caption() const {
+	return "Texture3DUniform";
+}
+
+int VisualShaderNodeTexture3DUniform::get_output_port_count() const {
+	return 1;
+}
+
+VisualShaderNodeTexture3DUniform::PortType VisualShaderNodeTexture3DUniform::get_output_port_type(int p_port) const {
+	return PORT_TYPE_SAMPLER;
+}
+
+String VisualShaderNodeTexture3DUniform::get_output_port_name(int p_port) const {
+	return "sampler3D";
+}
+
+int VisualShaderNodeTexture3DUniform::get_input_port_count() const {
+	return 0;
+}
+
+VisualShaderNodeTexture3DUniform::PortType VisualShaderNodeTexture3DUniform::get_input_port_type(int p_port) const {
+	return PORT_TYPE_SCALAR;
+}
+
+String VisualShaderNodeTexture3DUniform::get_input_port_name(int p_port) const {
+	return "";
+}
+
+String VisualShaderNodeTexture3DUniform::get_input_port_default_hint(int p_port) const {
+	return "";
+}
+
+String VisualShaderNodeTexture3DUniform::generate_global(Shader::Mode p_mode, VisualShader::Type p_type, int p_id) const {
+	String code = _get_qual_str() + "uniform sampler3D " + get_uniform_name();
+
+	switch (texture_type) {
+		case TYPE_DATA:
+			if (color_default == COLOR_DEFAULT_BLACK)
+				code += " : hint_black;\n";
+			else
+				code += ";\n";
+			break;
+		case TYPE_COLOR:
+			if (color_default == COLOR_DEFAULT_BLACK)
+				code += " : hint_black_albedo;\n";
+			else
+				code += " : hint_albedo;\n";
+			break;
+		case TYPE_NORMALMAP:
+			code += " : hint_normal;\n";
+			break;
+		case TYPE_ANISO:
+			code += " : hint_aniso;\n";
+			break;
+	}
+
+	return code;
+}
+
+String VisualShaderNodeTexture3DUniform::generate_code(Shader::Mode p_mode, VisualShader::Type p_type, int p_id, const String *p_input_vars, const String *p_output_vars, bool p_for_preview) const {
+	return String();
+}
+
+VisualShaderNodeTexture3DUniform::VisualShaderNodeTexture3DUniform() {
 }
 
 ////////////// Cubemap Uniform
@@ -4550,13 +4632,13 @@ String VisualShaderNodeIf::generate_code(Shader::Mode p_mode, VisualShader::Type
 }
 
 VisualShaderNodeIf::VisualShaderNodeIf() {
+	simple_decl = false;
 	set_input_port_default_value(0, 0.0);
 	set_input_port_default_value(1, 0.0);
 	set_input_port_default_value(2, CMP_EPSILON);
 	set_input_port_default_value(3, Vector3(0.0, 0.0, 0.0));
 	set_input_port_default_value(4, Vector3(0.0, 0.0, 0.0));
 	set_input_port_default_value(5, Vector3(0.0, 0.0, 0.0));
-	simple_decl = false;
 }
 
 ////////////// Switch
@@ -4615,10 +4697,10 @@ String VisualShaderNodeSwitch::generate_code(Shader::Mode p_mode, VisualShader::
 }
 
 VisualShaderNodeSwitch::VisualShaderNodeSwitch() {
+	simple_decl = false;
 	set_input_port_default_value(0, false);
 	set_input_port_default_value(1, Vector3(1.0, 1.0, 1.0));
 	set_input_port_default_value(2, Vector3(0.0, 0.0, 0.0));
-	simple_decl = false;
 }
 
 ////////////// Switch(scalar)
@@ -4809,7 +4891,6 @@ void VisualShaderNodeIs::_bind_methods() {
 }
 
 VisualShaderNodeIs::VisualShaderNodeIs() {
-	func = FUNC_IS_INF;
 	set_input_port_default_value(0, 0.0);
 }
 
@@ -5045,9 +5126,6 @@ void VisualShaderNodeCompare::_bind_methods() {
 }
 
 VisualShaderNodeCompare::VisualShaderNodeCompare() {
-	ctype = CTYPE_SCALAR;
-	func = FUNC_EQUAL;
-	condition = COND_ALL;
 	set_input_port_default_value(0, 0.0);
 	set_input_port_default_value(1, 0.0);
 	set_input_port_default_value(2, CMP_EPSILON);
@@ -5140,7 +5218,6 @@ void VisualShaderNodeMultiplyAdd::_bind_methods() {
 }
 
 VisualShaderNodeMultiplyAdd::VisualShaderNodeMultiplyAdd() {
-	type = TYPE_SCALAR;
 	set_input_port_default_value(0, 0.0);
 	set_input_port_default_value(1, 0.0);
 	set_input_port_default_value(2, 0.0);

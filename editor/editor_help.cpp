@@ -217,7 +217,7 @@ void EditorHelp::_add_method(const DocData::MethodDoc &p_method, bool p_overview
 		class_desc->push_cell();
 		class_desc->push_align(RichTextLabel::ALIGN_RIGHT);
 	} else {
-		static const CharType prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
+		static const char32_t prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
 		class_desc->add_text(String(prefix));
 	}
 
@@ -734,7 +734,7 @@ void EditorHelp::_update_doc() {
 			signal_line[cd.signals[i].name] = class_desc->get_line_count() - 2; //gets overridden if description
 			class_desc->push_font(doc_code_font); // monofont
 			class_desc->push_color(headline_color);
-			static const CharType prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
+			static const char32_t prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
 			class_desc->add_text(String(prefix));
 			_add_text(cd.signals[i].name);
 			class_desc->pop();
@@ -849,7 +849,7 @@ void EditorHelp::_update_doc() {
 
 					class_desc->push_font(doc_code_font);
 					class_desc->push_color(headline_color);
-					static const CharType prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
+					static const char32_t prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
 					class_desc->add_text(String(prefix));
 					_add_text(enum_list[i].name);
 					class_desc->pop();
@@ -863,7 +863,7 @@ void EditorHelp::_update_doc() {
 					if (enum_list[i].description != "") {
 						class_desc->push_font(doc_font);
 						class_desc->push_color(comment_color);
-						static const CharType dash[6] = { ' ', ' ', 0x2013 /* en dash */, ' ', ' ', 0 };
+						static const char32_t dash[6] = { ' ', ' ', 0x2013 /* en dash */, ' ', ' ', 0 };
 						class_desc->add_text(String(dash));
 						_add_text(DTR(enum_list[i].description));
 						class_desc->pop();
@@ -910,12 +910,12 @@ void EditorHelp::_update_doc() {
 					Vector<float> color = stripped.split_floats(",");
 					if (color.size() >= 3) {
 						class_desc->push_color(Color(color[0], color[1], color[2]));
-						static const CharType prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
+						static const char32_t prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
 						class_desc->add_text(String(prefix));
 						class_desc->pop();
 					}
 				} else {
-					static const CharType prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
+					static const char32_t prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
 					class_desc->add_text(String(prefix));
 				}
 
@@ -933,7 +933,7 @@ void EditorHelp::_update_doc() {
 				if (constants[i].description != "") {
 					class_desc->push_font(doc_font);
 					class_desc->push_color(comment_color);
-					static const CharType dash[6] = { ' ', ' ', 0x2013 /* en dash */, ' ', ' ', 0 };
+					static const char32_t dash[6] = { ' ', ' ', 0x2013 /* en dash */, ' ', ' ', 0 };
 					class_desc->add_text(String(dash));
 					_add_text(DTR(constants[i].description));
 					class_desc->pop();
@@ -975,7 +975,7 @@ void EditorHelp::_update_doc() {
 
 			class_desc->push_cell();
 			class_desc->push_font(doc_code_font);
-			static const CharType prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
+			static const char32_t prefix[3] = { 0x25CF /* filled circle */, ' ', 0 };
 			class_desc->add_text(String(prefix));
 
 			_add_type(cd.properties[i].type, cd.properties[i].enumeration);

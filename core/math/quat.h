@@ -103,7 +103,7 @@ public:
 			w(q.w) {
 	}
 
-	Quat operator=(const Quat &q) {
+	Quat &operator=(const Quat &q) {
 		x = q.x;
 		y = q.y;
 		z = q.z;

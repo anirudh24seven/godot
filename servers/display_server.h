@@ -193,6 +193,7 @@ public:
 	};
 
 	virtual WindowID create_sub_window(WindowMode p_mode, uint32_t p_flags, const Rect2i &p_rect = Rect2i());
+	virtual void show_window(WindowID p_id);
 	virtual void delete_sub_window(WindowID p_id);
 
 	virtual WindowID get_window_at_screen_position(const Point2i &p_position) const = 0;
@@ -218,6 +219,8 @@ public:
 	virtual void window_set_drop_files_callback(const Callable &p_callable, WindowID p_window = MAIN_WINDOW_ID) = 0;
 
 	virtual void window_set_title(const String &p_title, WindowID p_window = MAIN_WINDOW_ID) = 0;
+
+	virtual void window_set_mouse_passthrough(const Vector<Vector2> &p_region, WindowID p_window = MAIN_WINDOW_ID);
 
 	virtual int window_get_current_screen(WindowID p_window = MAIN_WINDOW_ID) const = 0;
 	virtual void window_set_current_screen(int p_screen, WindowID p_window = MAIN_WINDOW_ID) = 0;

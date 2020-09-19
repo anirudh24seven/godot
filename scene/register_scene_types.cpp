@@ -54,6 +54,7 @@
 #include "scene/gui/center_container.h"
 #include "scene/gui/check_box.h"
 #include "scene/gui/check_button.h"
+#include "scene/gui/code_edit.h"
 #include "scene/gui/color_picker.h"
 #include "scene/gui/color_rect.h"
 #include "scene/gui/control.h"
@@ -203,6 +204,7 @@ static Ref<ResourceFormatLoaderDynamicFont> resource_loader_dynamic_font;
 
 static Ref<ResourceFormatLoaderStreamTexture2D> resource_loader_stream_texture;
 static Ref<ResourceFormatLoaderStreamTextureLayered> resource_loader_texture_layered;
+static Ref<ResourceFormatLoaderStreamTexture3D> resource_loader_texture_3d;
 
 static Ref<ResourceFormatLoaderBMFont> resource_loader_bmfont;
 
@@ -224,6 +226,9 @@ void register_scene_types() {
 
 	resource_loader_texture_layered.instance();
 	ResourceLoader::add_resource_format_loader(resource_loader_texture_layered);
+
+	resource_loader_texture_3d.instance();
+	ResourceLoader::add_resource_format_loader(resource_loader_texture_3d);
 
 	resource_saver_text.instance();
 	ResourceSaver::add_resource_format_saver(resource_saver_text, true);
@@ -264,7 +269,7 @@ void register_scene_types() {
 
 	OS::get_singleton()->yield(); //may take time to init
 
-	ClassDB::register_class<ShortCut>();
+	ClassDB::register_class<Shortcut>();
 	ClassDB::register_class<Control>();
 	ClassDB::register_class<Button>();
 	ClassDB::register_class<Label>();
@@ -320,6 +325,7 @@ void register_scene_types() {
 	ClassDB::register_class<Tree>();
 
 	ClassDB::register_class<TextEdit>();
+	ClassDB::register_class<CodeEdit>();
 	ClassDB::register_class<SyntaxHighlighter>();
 	ClassDB::register_class<CodeHighlighter>();
 
@@ -522,6 +528,7 @@ void register_scene_types() {
 	ClassDB::register_class<VisualShaderNodeTexture>();
 	ClassDB::register_virtual_class<VisualShaderNodeSample3D>();
 	ClassDB::register_class<VisualShaderNodeTexture2DArray>();
+	ClassDB::register_class<VisualShaderNodeTexture3D>();
 	ClassDB::register_class<VisualShaderNodeCubemap>();
 	ClassDB::register_virtual_class<VisualShaderNodeUniform>();
 	ClassDB::register_class<VisualShaderNodeUniformRef>();
@@ -534,6 +541,7 @@ void register_scene_types() {
 	ClassDB::register_class<VisualShaderNodeTextureUniform>();
 	ClassDB::register_class<VisualShaderNodeTextureUniformTriplanar>();
 	ClassDB::register_class<VisualShaderNodeTexture2DArrayUniform>();
+	ClassDB::register_class<VisualShaderNodeTexture3DUniform>();
 	ClassDB::register_class<VisualShaderNodeCubemapUniform>();
 	ClassDB::register_class<VisualShaderNodeIf>();
 	ClassDB::register_class<VisualShaderNodeSwitch>();
@@ -674,6 +682,9 @@ void register_scene_types() {
 	ClassDB::register_class<CameraTexture>();
 	ClassDB::register_virtual_class<TextureLayered>();
 	ClassDB::register_virtual_class<ImageTextureLayered>();
+	ClassDB::register_virtual_class<Texture3D>();
+	ClassDB::register_class<ImageTexture3D>();
+	ClassDB::register_class<StreamTexture3D>();
 	ClassDB::register_class<Cubemap>();
 	ClassDB::register_class<CubemapArray>();
 	ClassDB::register_class<Texture2DArray>();
@@ -837,6 +848,7 @@ void register_scene_types() {
 	ClassDB::add_compatibility_class("RemoteTransform", "RemoteTransform3D");
 	ClassDB::add_compatibility_class("RigidBody", "RigidBody3D");
 	ClassDB::add_compatibility_class("Shape", "Shape3D");
+	ClassDB::add_compatibility_class("ShortCut", "Shortcut");
 	ClassDB::add_compatibility_class("Skeleton", "Skeleton3D");
 	ClassDB::add_compatibility_class("SkeletonIK", "SkeletonIK3D");
 	ClassDB::add_compatibility_class("SliderJoint", "SliderJoint3D");
@@ -918,6 +930,9 @@ void unregister_scene_types() {
 
 	ResourceLoader::remove_resource_format_loader(resource_loader_texture_layered);
 	resource_loader_texture_layered.unref();
+
+	ResourceLoader::remove_resource_format_loader(resource_loader_texture_3d);
+	resource_loader_texture_3d.unref();
 
 	ResourceLoader::remove_resource_format_loader(resource_loader_stream_texture);
 	resource_loader_stream_texture.unref();

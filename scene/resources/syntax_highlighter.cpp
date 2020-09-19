@@ -26,13 +26,13 @@ Dictionary SyntaxHighlighter::get_line_syntax_highlighting(int p_line) {
 	return color_map;
 }
 
-void SyntaxHighlighter::_line_edited_from(int p_line) {
+void SyntaxHighlighter::_lines_edited_from(int p_from_line, int p_to_line) {
 	if (highlighting_cache.size() < 1) {
 		return;
 	}
 
 	int cache_size = highlighting_cache.back()->key();
-	for (int i = p_line - 1; i <= cache_size; i++) {
+	for (int i = MIN(p_from_line, p_to_line) - 1; i <= cache_size; i++) {
 		if (highlighting_cache.has(i)) {
 			highlighting_cache.erase(i);
 		}
@@ -66,7 +66,7 @@ void SyntaxHighlighter::update_cache() {
 
 void SyntaxHighlighter::set_text_edit(TextEdit *p_text_edit) {
 	if (text_edit && ObjectDB::get_instance(text_edit_instance_id)) {
-		text_edit->disconnect("line_edited_from", callable_mp(this, &SyntaxHighlighter::_line_edited_from));
+		text_edit->disconnect("lines_edited_from", callable_mp(this, &SyntaxHighlighter::_lines_edited_from));
 	}
 
 	text_edit = p_text_edit;
@@ -74,7 +74,7 @@ void SyntaxHighlighter::set_text_edit(TextEdit *p_text_edit) {
 		return;
 	}
 	text_edit_instance_id = text_edit->get_instance_id();
-	text_edit->connect("line_edited_from", callable_mp(this, &SyntaxHighlighter::_line_edited_from));
+	text_edit->connect("lines_edited_from", callable_mp(this, &SyntaxHighlighter::_lines_edited_from));
 	update_cache();
 }
 
@@ -98,11 +98,11 @@ void SyntaxHighlighter::_bind_methods() {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static bool _is_char(CharType c) {
+static bool _is_char(char32_t c) {
 	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_';
 }
 
-static bool _is_hex_symbol(CharType c) {
+static bool _is_hex_symbol(char32_t c) {
 	return ((c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'));
 }
 
@@ -168,7 +168,7 @@ Dictionary CodeHighlighter::_get_line_syntax_highlighting(int p_line) {
 
 						/* search the line */
 						bool match = true;
-						const CharType *start_key = color_regions[c].start_key.c_str();
+						const char32_t *start_key = color_regions[c].start_key.get_data();
 						for (int k = 0; k < start_key_length; k++) {
 							if (start_key[k] != str[from + k]) {
 								match = false;
@@ -202,18 +202,16 @@ Dictionary CodeHighlighter::_get_line_syntax_highlighting(int p_line) {
 
 				/* if we are in one find the end key */
 				if (in_region != -1) {
-					/* check there is enough room */
-					int chars_left = line_length - from;
-					int end_key_length = color_regions[in_region].end_key.length();
-					if (chars_left < end_key_length) {
-						continue;
-					}
-
 					/* search the line */
 					int region_end_index = -1;
-					const CharType *end_key = color_regions[in_region].start_key.c_str();
+					int end_key_length = color_regions[in_region].end_key.length();
+					const char32_t *end_key = color_regions[in_region].end_key.get_data();
 					for (; from < line_length; from++) {
-						if (!is_a_symbol) {
+						if (line_length - from < end_key_length) {
+							break;
+						}
+
+						if (!is_symbol(str[from])) {
 							continue;
 						}
 
@@ -222,9 +220,10 @@ Dictionary CodeHighlighter::_get_line_syntax_highlighting(int p_line) {
 							continue;
 						}
 
+						region_end_index = from;
 						for (int k = 0; k < end_key_length; k++) {
-							if (end_key[k] == str[from + k]) {
-								region_end_index = from;
+							if (end_key[k] != str[from + k]) {
+								region_end_index = -1;
 								break;
 							}
 						}
@@ -238,7 +237,7 @@ Dictionary CodeHighlighter::_get_line_syntax_highlighting(int p_line) {
 					highlighter_info["color"] = color_regions[in_region].color;
 					color_map[j] = highlighter_info;
 
-					j = from;
+					j = from + (end_key_length - 1);
 					if (region_end_index == -1) {
 						color_region_cache[p_line] = in_region;
 					}
@@ -457,8 +456,12 @@ void CodeHighlighter::add_color_region(const String &p_start_key, const String &
 		}
 	}
 
+	int at = 0;
 	for (int i = 0; i < color_regions.size(); i++) {
 		ERR_FAIL_COND_MSG(color_regions[i].start_key == p_start_key, "color region with start key '" + p_start_key + "' already exists.");
+		if (p_start_key.length() < color_regions[i].start_key.length()) {
+			at++;
+		}
 	}
 
 	ColorRegion color_region;
@@ -466,7 +469,7 @@ void CodeHighlighter::add_color_region(const String &p_start_key, const String &
 	color_region.start_key = p_start_key;
 	color_region.end_key = p_end_key;
 	color_region.line_only = p_line_only || p_end_key == "";
-	color_regions.push_back(color_region);
+	color_regions.insert(at, color_region);
 	clear_highlighting_cache();
 }
 

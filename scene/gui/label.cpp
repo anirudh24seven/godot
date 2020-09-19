@@ -161,7 +161,7 @@ void Label::_notification(int p_what) {
 			int spaces = 0;
 			while (to && to->char_pos >= 0) {
 				taken += to->pixel_width;
-				if (to != from && to->space_count) {
+				if (to->space_count) {
 					spaces += to->space_count;
 				}
 				to = to->next;
@@ -208,8 +208,8 @@ void Label::_notification(int p_what) {
 					float x_ofs_shadow = x_ofs;
 					for (int i = 0; i < from->word_len; i++) {
 						if (visible_chars < 0 || chars_total_shadow < visible_chars) {
-							CharType c = xl_text[i + pos];
-							CharType n = xl_text[i + pos + 1];
+							char32_t c = xl_text[i + pos];
+							char32_t n = xl_text[i + pos + 1];
 							if (uppercase) {
 								c = String::char_uppercase(c);
 								n = String::char_uppercase(n);
@@ -228,8 +228,8 @@ void Label::_notification(int p_what) {
 				}
 				for (int i = 0; i < from->word_len; i++) {
 					if (visible_chars < 0 || chars_total < visible_chars) {
-						CharType c = xl_text[i + pos];
-						CharType n = xl_text[i + pos + 1];
+						char32_t c = xl_text[i + pos];
+						char32_t n = xl_text[i + pos + 1];
 						if (uppercase) {
 							c = String::char_uppercase(c);
 							n = String::char_uppercase(n);
@@ -281,7 +281,7 @@ int Label::get_longest_line_width() const {
 	real_t line_width = 0;
 
 	for (int i = 0; i < xl_text.size(); i++) {
-		CharType current = xl_text[i];
+		char32_t current = xl_text[i];
 		if (uppercase) {
 			current = String::char_uppercase(current);
 		}
@@ -363,7 +363,7 @@ void Label::regenerate_word_cache() {
 	WordCache *last = nullptr;
 
 	for (int i = 0; i <= xl_text.length(); i++) {
-		CharType current = i < xl_text.length() ? xl_text[i] : L' '; //always a space at the end, so the algo works
+		char32_t current = i < xl_text.length() ? xl_text[i] : L' '; //always a space at the end, so the algo works
 
 		if (uppercase) {
 			current = String::char_uppercase(current);
@@ -390,6 +390,22 @@ void Label::regenerate_word_cache() {
 				wc->pixel_width = current_word_size;
 				wc->char_pos = word_pos;
 				wc->word_len = i - word_pos;
+				wc->space_count = space_count;
+				current_word_size = 0;
+				space_count = 0;
+			} else if ((i == xl_text.length() || current == '\n') && last != nullptr && space_count != 0) {
+				//in case there are trailing white spaces we add a placeholder word cache with just the spaces
+				WordCache *wc = memnew(WordCache);
+				if (word_cache) {
+					last->next = wc;
+				} else {
+					word_cache = wc;
+				}
+				last = wc;
+
+				wc->pixel_width = 0;
+				wc->char_pos = 0;
+				wc->word_len = 0;
 				wc->space_count = space_count;
 				current_word_size = 0;
 				space_count = 0;

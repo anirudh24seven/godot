@@ -295,8 +295,8 @@ bool Vector3::operator!=(const Vector3 &p_v) const {
 }
 
 bool Vector3::operator<(const Vector3 &p_v) const {
-	if (Math::is_equal_approx(x, p_v.x)) {
-		if (Math::is_equal_approx(y, p_v.y)) {
+	if (x == p_v.x) {
+		if (y == p_v.y) {
 			return z < p_v.z;
 		} else {
 			return y < p_v.y;
@@ -307,8 +307,8 @@ bool Vector3::operator<(const Vector3 &p_v) const {
 }
 
 bool Vector3::operator>(const Vector3 &p_v) const {
-	if (Math::is_equal_approx(x, p_v.x)) {
-		if (Math::is_equal_approx(y, p_v.y)) {
+	if (x == p_v.x) {
+		if (y == p_v.y) {
 			return z > p_v.z;
 		} else {
 			return y > p_v.y;
@@ -319,8 +319,8 @@ bool Vector3::operator>(const Vector3 &p_v) const {
 }
 
 bool Vector3::operator<=(const Vector3 &p_v) const {
-	if (Math::is_equal_approx(x, p_v.x)) {
-		if (Math::is_equal_approx(y, p_v.y)) {
+	if (x == p_v.x) {
+		if (y == p_v.y) {
 			return z <= p_v.z;
 		} else {
 			return y < p_v.y;
@@ -331,8 +331,8 @@ bool Vector3::operator<=(const Vector3 &p_v) const {
 }
 
 bool Vector3::operator>=(const Vector3 &p_v) const {
-	if (Math::is_equal_approx(x, p_v.x)) {
-		if (Math::is_equal_approx(y, p_v.y)) {
+	if (x == p_v.x) {
+		if (y == p_v.y) {
 			return z >= p_v.z;
 		} else {
 			return y > p_v.y;

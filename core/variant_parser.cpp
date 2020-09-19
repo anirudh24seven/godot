@@ -8,7 +8,7 @@
 #include "core/os/keyboard.h"
 #include "core/string_buffer.h"
 
-CharType VariantParser::StreamFile::get_char() {
+char32_t VariantParser::StreamFile::get_char() {
 	return f->get_8();
 }
 
@@ -20,7 +20,7 @@ bool VariantParser::StreamFile::is_eof() const {
 	return f->eof_reached();
 }
 
-CharType VariantParser::StreamString::get_char() {
+char32_t VariantParser::StreamString::get_char() {
 	if (pos > s.length()) {
 		return 0;
 	} else if (pos == s.length()) {
@@ -67,7 +67,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 	bool string_name = false;
 
 	while (true) {
-		CharType cchar;
+		char32_t cchar;
 		if (p_stream->saved) {
 			cchar = p_stream->saved;
 			p_stream->saved = 0;
@@ -118,7 +118,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 			}
 			case ';': {
 				while (true) {
-					CharType ch = p_stream->get_char();
+					char32_t ch = p_stream->get_char();
 					if (p_stream->is_eof()) {
 						r_token.type = TK_EOF;
 						return OK;
@@ -146,7 +146,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 				StringBuffer<> color_str;
 				color_str += '#';
 				while (true) {
-					CharType ch = p_stream->get_char();
+					char32_t ch = p_stream->get_char();
 					if (p_stream->is_eof()) {
 						r_token.type = TK_EOF;
 						return OK;
@@ -177,7 +177,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 			case '"': {
 				String str;
 				while (true) {
-					CharType ch = p_stream->get_char();
+					char32_t ch = p_stream->get_char();
 
 					if (ch == 0) {
 						r_err_str = "Unterminated String";
@@ -187,13 +187,13 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 						break;
 					} else if (ch == '\\') {
 						//escaped characters...
-						CharType next = p_stream->get_char();
+						char32_t next = p_stream->get_char();
 						if (next == 0) {
 							r_err_str = "Unterminated String";
 							r_token.type = TK_ERROR;
 							return ERR_PARSE_ERROR;
 						}
-						CharType res = 0;
+						char32_t res = 0;
 
 						switch (next) {
 							case 'b':
@@ -214,7 +214,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 							case 'u': {
 								//hex number
 								for (int j = 0; j < 4; j++) {
-									CharType c = p_stream->get_char();
+									char32_t c = p_stream->get_char();
 									if (c == 0) {
 										r_err_str = "Unterminated String";
 										r_token.type = TK_ERROR;
@@ -225,7 +225,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 										r_token.type = TK_ERROR;
 										return ERR_PARSE_ERROR;
 									}
-									CharType v;
+									char32_t v;
 									if (c >= '0' && c <= '9') {
 										v = c - '0';
 									} else if (c >= 'a' && c <= 'f') {
@@ -294,7 +294,7 @@ Error VariantParser::get_token(Stream *p_stream, Token &r_token, int &line, Stri
 						cchar = p_stream->get_char();
 					}
 
-					CharType c = cchar;
+					char32_t c = cchar;
 					bool exp_sign = false;
 					bool exp_beg = false;
 					bool is_float = false;
@@ -394,7 +394,7 @@ Error VariantParser::_parse_enginecfg(Stream *p_stream, Vector<String> &strings,
 	String accum;
 
 	while (true) {
-		CharType c = p_stream->get_char();
+		char32_t c = p_stream->get_char();
 
 		if (p_stream->is_eof()) {
 			r_err_str = "Unexpected EOF while parsing old-style project.godot construct";
@@ -1179,7 +1179,7 @@ Error VariantParser::_parse_tag(Token &token, Stream *p_stream, int &line, Strin
 		r_tag.fields.clear();
 
 		while (true) {
-			CharType c = p_stream->get_char();
+			char32_t c = p_stream->get_char();
 			if (p_stream->is_eof()) {
 				r_err_str = "Unexpected EOF while parsing simple tag";
 				return ERR_PARSE_ERROR;
@@ -1278,7 +1278,7 @@ Error VariantParser::parse_tag_assign_eof(Stream *p_stream, int &line, String &r
 	String what;
 
 	while (true) {
-		CharType c;
+		char32_t c;
 		if (p_stream->saved) {
 			c = p_stream->saved;
 			p_stream->saved = 0;
@@ -1293,7 +1293,7 @@ Error VariantParser::parse_tag_assign_eof(Stream *p_stream, int &line, String &r
 
 		if (c == ';') { //comment
 			while (true) {
-				CharType ch = p_stream->get_char();
+				char32_t ch = p_stream->get_char();
 				if (p_stream->is_eof()) {
 					return ERR_FILE_EOF;
 				}

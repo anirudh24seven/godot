@@ -91,32 +91,32 @@
 
 /* clang-format on */
 
-#define CASES(PREFIX) static const void *switch_table_##PREFIX[25][Variant::VARIANT_MAX] = { \
-	TYPES(PREFIX, OP_EQUAL),                                                                 \
-	TYPES(PREFIX, OP_NOT_EQUAL),                                                             \
-	TYPES(PREFIX, OP_LESS),                                                                  \
-	TYPES(PREFIX, OP_LESS_EQUAL),                                                            \
-	TYPES(PREFIX, OP_GREATER),                                                               \
-	TYPES(PREFIX, OP_GREATER_EQUAL),                                                         \
-	TYPES(PREFIX, OP_ADD),                                                                   \
-	TYPES(PREFIX, OP_SUBTRACT),                                                              \
-	TYPES(PREFIX, OP_MULTIPLY),                                                              \
-	TYPES(PREFIX, OP_DIVIDE),                                                                \
-	TYPES(PREFIX, OP_NEGATE),                                                                \
-	TYPES(PREFIX, OP_POSITIVE),                                                              \
-	TYPES(PREFIX, OP_MODULE),                                                                \
-	TYPES(PREFIX, OP_STRING_CONCAT),                                                         \
-	TYPES(PREFIX, OP_SHIFT_LEFT),                                                            \
-	TYPES(PREFIX, OP_SHIFT_RIGHT),                                                           \
-	TYPES(PREFIX, OP_BIT_AND),                                                               \
-	TYPES(PREFIX, OP_BIT_OR),                                                                \
-	TYPES(PREFIX, OP_BIT_XOR),                                                               \
-	TYPES(PREFIX, OP_BIT_NEGATE),                                                            \
-	TYPES(PREFIX, OP_AND),                                                                   \
-	TYPES(PREFIX, OP_OR),                                                                    \
-	TYPES(PREFIX, OP_XOR),                                                                   \
-	TYPES(PREFIX, OP_NOT),                                                                   \
-	TYPES(PREFIX, OP_IN),                                                                    \
+#define CASES(PREFIX) static const void *switch_table_##PREFIX[Variant::OP_MAX][Variant::VARIANT_MAX] = { \
+	TYPES(PREFIX, OP_EQUAL),                                                                              \
+	TYPES(PREFIX, OP_NOT_EQUAL),                                                                          \
+	TYPES(PREFIX, OP_LESS),                                                                               \
+	TYPES(PREFIX, OP_LESS_EQUAL),                                                                         \
+	TYPES(PREFIX, OP_GREATER),                                                                            \
+	TYPES(PREFIX, OP_GREATER_EQUAL),                                                                      \
+	TYPES(PREFIX, OP_ADD),                                                                                \
+	TYPES(PREFIX, OP_SUBTRACT),                                                                           \
+	TYPES(PREFIX, OP_MULTIPLY),                                                                           \
+	TYPES(PREFIX, OP_DIVIDE),                                                                             \
+	TYPES(PREFIX, OP_NEGATE),                                                                             \
+	TYPES(PREFIX, OP_POSITIVE),                                                                           \
+	TYPES(PREFIX, OP_MODULE),                                                                             \
+	TYPES(PREFIX, OP_STRING_CONCAT),                                                                      \
+	TYPES(PREFIX, OP_SHIFT_LEFT),                                                                         \
+	TYPES(PREFIX, OP_SHIFT_RIGHT),                                                                        \
+	TYPES(PREFIX, OP_BIT_AND),                                                                            \
+	TYPES(PREFIX, OP_BIT_OR),                                                                             \
+	TYPES(PREFIX, OP_BIT_XOR),                                                                            \
+	TYPES(PREFIX, OP_BIT_NEGATE),                                                                         \
+	TYPES(PREFIX, OP_AND),                                                                                \
+	TYPES(PREFIX, OP_OR),                                                                                 \
+	TYPES(PREFIX, OP_XOR),                                                                                \
+	TYPES(PREFIX, OP_NOT),                                                                                \
+	TYPES(PREFIX, OP_IN),                                                                                 \
 }
 
 #define SWITCH(PREFIX, op, val) goto *switch_table_##PREFIX[op][val];
@@ -218,22 +218,22 @@ bool Variant::booleanize() const {
 		_RETURN(p_a._data.m_type);                              \
 	}
 
-#define DEFAULT_OP_NUM_VEC(m_prefix, m_op_name, m_name, m_op, m_type)                          \
-	CASE_TYPE(m_prefix, m_op_name, m_name) {                                                   \
-		if (p_b.type == INT)                                                                   \
-			_RETURN(p_a._data.m_type m_op p_b._data._int);                                     \
-		if (p_b.type == FLOAT)                                                                 \
-			_RETURN(p_a._data.m_type m_op p_b._data._float);                                   \
-		if (p_b.type == VECTOR2)                                                               \
-			_RETURN(p_a._data.m_type m_op *reinterpret_cast<const Vector2 *>(p_b._data._mem)); \
-		if (p_b.type == VECTOR3)                                                               \
-			_RETURN(p_a._data.m_type m_op *reinterpret_cast<const Vector3 *>(p_b._data._mem)); \
-		if (p_b.type == VECTOR2I)                                                              \
-			_RETURN(p_a._data.m_type m_op *reinterpret_cast<const Vector2 *>(p_b._data._mem)); \
-		if (p_b.type == VECTOR3I)                                                              \
-			_RETURN(p_a._data.m_type m_op *reinterpret_cast<const Vector3 *>(p_b._data._mem)); \
-                                                                                               \
-		_RETURN_FAIL                                                                           \
+#define DEFAULT_OP_NUM_VEC(m_prefix, m_op_name, m_name, m_op, m_type)                           \
+	CASE_TYPE(m_prefix, m_op_name, m_name) {                                                    \
+		if (p_b.type == INT)                                                                    \
+			_RETURN(p_a._data.m_type m_op p_b._data._int);                                      \
+		if (p_b.type == FLOAT)                                                                  \
+			_RETURN(p_a._data.m_type m_op p_b._data._float);                                    \
+		if (p_b.type == VECTOR2)                                                                \
+			_RETURN(p_a._data.m_type m_op *reinterpret_cast<const Vector2 *>(p_b._data._mem));  \
+		if (p_b.type == VECTOR3)                                                                \
+			_RETURN(p_a._data.m_type m_op *reinterpret_cast<const Vector3 *>(p_b._data._mem));  \
+		if (p_b.type == VECTOR2I)                                                               \
+			_RETURN(p_a._data.m_type m_op *reinterpret_cast<const Vector2i *>(p_b._data._mem)); \
+		if (p_b.type == VECTOR3I)                                                               \
+			_RETURN(p_a._data.m_type m_op *reinterpret_cast<const Vector3i *>(p_b._data._mem)); \
+                                                                                                \
+		_RETURN_FAIL                                                                            \
 	}
 
 #define DEFAULT_OP_STR_REV(m_prefix, m_op_name, m_name, m_op, m_type)                                                              \
@@ -4188,7 +4188,7 @@ void Variant::interpolate(const Variant &a, const Variant &b, float c, Variant &
 			int split = csize / 2;
 
 			for (int i = 0; i < csize; i++) {
-				CharType chr = ' ';
+				char32_t chr = ' ';
 
 				if (i < split) {
 					if (i < sa.length()) {

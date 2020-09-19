@@ -105,6 +105,9 @@ class DisplayServerX11 : public DisplayServer {
 
 		ObjectID instance_id;
 
+		bool menu_type = false;
+		bool no_focus = false;
+
 		//better to guess on the fly, given WM can change it
 		//WindowMode mode;
 		bool fullscreen = false; //OS can't exit from this mode
@@ -114,6 +117,8 @@ class DisplayServerX11 : public DisplayServer {
 		Vector2i last_position_before_fs;
 		bool focused = false;
 		bool minimized = false;
+
+		unsigned int focus_order = 0;
 	};
 
 	Map<WindowID, WindowData> windows;
@@ -250,6 +255,7 @@ public:
 	virtual Vector<DisplayServer::WindowID> get_window_list() const;
 
 	virtual WindowID create_sub_window(WindowMode p_mode, uint32_t p_flags, const Rect2i &p_rect = Rect2i());
+	virtual void show_window(WindowID p_id);
 	virtual void delete_sub_window(WindowID p_id);
 
 	virtual WindowID get_window_at_screen_position(const Point2i &p_position) const;
@@ -258,6 +264,8 @@ public:
 	virtual ObjectID window_get_attached_instance_id(WindowID p_window = MAIN_WINDOW_ID) const;
 
 	virtual void window_set_title(const String &p_title, WindowID p_window = MAIN_WINDOW_ID);
+	virtual void window_set_mouse_passthrough(const Vector<Vector2> &p_region, WindowID p_window = MAIN_WINDOW_ID);
+
 	virtual void window_set_rect_changed_callback(const Callable &p_callable, WindowID p_window = MAIN_WINDOW_ID);
 	virtual void window_set_window_event_callback(const Callable &p_callable, WindowID p_window = MAIN_WINDOW_ID);
 	virtual void window_set_input_event_callback(const Callable &p_callable, WindowID p_window = MAIN_WINDOW_ID);

@@ -1,10 +1,10 @@
 
 /*  file_access_zip.h                                                    */
 
-#ifdef MINIZIP_ENABLED
-
 #ifndef FILE_ACCESS_ZIP_H
 #define FILE_ACCESS_ZIP_H
+
+#ifdef MINIZIP_ENABLED
 
 #include "core/io/file_access_pack.h"
 #include "core/map.h"
@@ -42,7 +42,7 @@ public:
 
 	bool file_exists(String p_name) const;
 
-	virtual bool try_open_pack(const String &p_path, bool p_replace_files);
+	virtual bool try_open_pack(const String &p_path, bool p_replace_files, size_t p_offset);
 	FileAccess *get_file(const String &p_path, PackedData::PackedFile *p_file);
 
 	static ZipArchive *get_singleton();
@@ -86,6 +86,6 @@ public:
 	~FileAccessZip();
 };
 
-#endif // FILE_ACCESS_ZIP_H
-
 #endif // MINIZIP_ENABLED
+
+#endif // FILE_ACCESS_ZIP_H

@@ -1,6 +1,9 @@
 
 /*  texture_basisu.h                                                     */
 
+#ifndef BASIS_UNIVERSAL_TEXTURE_BASISU_H
+#define BASIS_UNIVERSAL_TEXTURE_BASISU_H
+
 #include "scene/resources/texture.h"
 
 #ifdef TOOLS_ENABLED
@@ -47,3 +50,5 @@ Error import(const Ref<Image> &p_img);
 };
 
 #endif
+
+#endif // BASIS_UNIVERSAL_TEXTURE_BASISU_H

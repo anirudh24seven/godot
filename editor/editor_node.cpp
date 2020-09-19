@@ -130,6 +130,7 @@
 #include "editor/plugins/sprite_frames_editor_plugin.h"
 #include "editor/plugins/style_box_editor_plugin.h"
 #include "editor/plugins/text_editor.h"
+#include "editor/plugins/texture_3d_editor_plugin.h"
 #include "editor/plugins/texture_editor_plugin.h"
 #include "editor/plugins/texture_layered_editor_plugin.h"
 #include "editor/plugins/texture_region_editor_plugin.h"
@@ -451,6 +452,8 @@ void EditorNode::_notification(int p_what) {
 				RS::get_singleton()->screen_space_roughness_limiter_set_active(GLOBAL_GET("rendering/quality/screen_filters/screen_space_roughness_limiter_enabled"), GLOBAL_GET("rendering/quality/screen_filters/screen_space_roughness_limiter_amount"), GLOBAL_GET("rendering/quality/screen_filters/screen_space_roughness_limiter_limit"));
 				bool glow_bicubic = int(GLOBAL_GET("rendering/quality/glow/upscale_mode")) > 0;
 				RS::get_singleton()->environment_glow_set_use_bicubic_upscale(glow_bicubic);
+				bool glow_high_quality = GLOBAL_GET("rendering/quality/glow/use_high_quality");
+				RS::get_singleton()->environment_glow_set_use_high_quality(glow_high_quality);
 				RS::EnvironmentSSRRoughnessQuality ssr_roughness_quality = RS::EnvironmentSSRRoughnessQuality(int(GLOBAL_GET("rendering/quality/screen_space_reflection/roughness_quality")));
 				RS::get_singleton()->environment_set_ssr_roughness_quality(ssr_roughness_quality);
 				RS::SubSurfaceScatteringQuality sss_quality = RS::SubSurfaceScatteringQuality(int(GLOBAL_GET("rendering/quality/subsurface_scattering/subsurface_scattering_quality")));
@@ -2596,6 +2599,7 @@ void EditorNode::_menu_option_confirm(int p_option, bool p_confirmed) {
 		case SETTINGS_TOGGLE_CONSOLE: {
 			bool was_visible = DisplayServer::get_singleton()->is_console_visible();
 			DisplayServer::get_singleton()->console_set_visible(!was_visible);
+			EditorSettings::get_singleton()->set_setting("interface/editor/hide_console_window", was_visible);
 		} break;
 		case EDITOR_SCREENSHOT: {
 			screenshot_timer->start();
@@ -2788,9 +2792,9 @@ void EditorNode::_discard_changes(const String &p_str) {
 }
 
 void EditorNode::_update_file_menu_opened() {
-	Ref<ShortCut> close_scene_sc = ED_GET_SHORTCUT("editor/close_scene");
+	Ref<Shortcut> close_scene_sc = ED_GET_SHORTCUT("editor/close_scene");
 	close_scene_sc->set_name(TTR("Close Scene"));
-	Ref<ShortCut> reopen_closed_scene_sc = ED_GET_SHORTCUT("editor/reopen_closed_scene");
+	Ref<Shortcut> reopen_closed_scene_sc = ED_GET_SHORTCUT("editor/reopen_closed_scene");
 	reopen_closed_scene_sc->set_name(TTR("Reopen Closed Scene"));
 	PopupMenu *pop = file_menu->get_popup();
 	pop->set_item_disabled(pop->get_item_index(FILE_OPEN_PREV), previous_scenes.empty());
@@ -4683,10 +4687,10 @@ void EditorNode::_scene_tab_input(const Ref<InputEvent> &p_input) {
 				scene_tabs_context_menu->add_item(TTR("Play This Scene"), RUN_PLAY_SCENE);
 
 				scene_tabs_context_menu->add_separator();
-				Ref<ShortCut> close_tab_sc = ED_GET_SHORTCUT("editor/close_scene");
+				Ref<Shortcut> close_tab_sc = ED_GET_SHORTCUT("editor/close_scene");
 				close_tab_sc->set_name(TTR("Close Tab"));
 				scene_tabs_context_menu->add_shortcut(close_tab_sc, FILE_CLOSE);
-				Ref<ShortCut> undo_close_tab_sc = ED_GET_SHORTCUT("editor/reopen_closed_scene");
+				Ref<Shortcut> undo_close_tab_sc = ED_GET_SHORTCUT("editor/reopen_closed_scene");
 				undo_close_tab_sc->set_name(TTR("Undo Close Tab"));
 				scene_tabs_context_menu->add_shortcut(undo_close_tab_sc, FILE_OPEN_PREV);
 				if (previous_scenes.empty()) {
@@ -5590,10 +5594,10 @@ EditorNode::EditorNode() {
 		import_cubemap_array->set_mode(ResourceImporterLayeredTexture::MODE_CUBEMAP_ARRAY);
 		ResourceFormatImporter::get_singleton()->add_importer(import_cubemap_array);
 
-		/*Ref<ResourceImporterLayeredTexture> import_3d;
+		Ref<ResourceImporterLayeredTexture> import_3d;
 		import_3d.instance();
 		import_3d->set_mode(ResourceImporterLayeredTexture::MODE_3D);
-		ResourceFormatImporter::get_singleton()->add_importer(import_3d);*/
+		ResourceFormatImporter::get_singleton()->add_importer(import_3d);
 
 		Ref<ResourceImporterImage> import_image;
 		import_image.instance();
@@ -6167,7 +6171,9 @@ EditorNode::EditorNode() {
 #else
 	p->add_shortcut(ED_SHORTCUT("editor/fullscreen_mode", TTR("Toggle Fullscreen"), KEY_MASK_SHIFT | KEY_F11), SETTINGS_TOGGLE_FULLSCREEN);
 #endif
-#ifdef WINDOWS_ENABLED
+#if defined(WINDOWS_ENABLED) && defined(WINDOWS_SUBSYSTEM_CONSOLE)
+	// The console can only be toggled if the application was built for the console subsystem,
+	// not the GUI subsystem.
 	p->add_item(TTR("Toggle System Console"), SETTINGS_TOGGLE_CONSOLE);
 #endif
 	p->add_separator();
@@ -6592,6 +6598,7 @@ EditorNode::EditorNode() {
 	add_editor_plugin(memnew(CurveEditorPlugin(this)));
 	add_editor_plugin(memnew(TextureEditorPlugin(this)));
 	add_editor_plugin(memnew(TextureLayeredEditorPlugin(this)));
+	add_editor_plugin(memnew(Texture3DEditorPlugin(this)));
 	add_editor_plugin(memnew(AudioStreamEditorPlugin(this)));
 	add_editor_plugin(memnew(AudioBusesEditorPlugin(audio_bus_editor)));
 	add_editor_plugin(memnew(Skeleton3DEditorPlugin(this)));

@@ -23,8 +23,68 @@ public:
 	virtual Control *create_editor(const Ref<Resource> &p_parent_resource, const Ref<VisualShaderNode> &p_node);
 };
 
+class VisualShaderGraphPlugin : public Reference {
+	GDCLASS(VisualShaderGraphPlugin, Reference);
+
+private:
+	struct InputPort {
+		Button *default_input_button;
+	};
+
+	struct Port {
+		TextureButton *preview_button;
+	};
+
+	struct Link {
+		VisualShader::Type type;
+		VisualShaderNode *visual_node;
+		GraphNode *graph_node;
+		bool preview_visible;
+		int preview_pos;
+		Map<int, InputPort> input_ports;
+		Map<int, Port> output_ports;
+		VBoxContainer *preview_box;
+	};
+
+	Ref<VisualShader> visual_shader;
+	Map<int, Link> links;
+	List<VisualShader::Connection> connections;
+	bool dirty = false;
+
+protected:
+	static void _bind_methods();
+
+public:
+	void register_shader(VisualShader *p_visual_shader);
+	void set_connections(List<VisualShader::Connection> &p_connections);
+	void register_link(VisualShader::Type p_type, int p_id, VisualShaderNode *p_visual_node, GraphNode *p_graph_node);
+	void register_output_port(int p_id, int p_port, TextureButton *p_button);
+	void clear_links();
+	void set_shader_type(VisualShader::Type p_type);
+	bool is_preview_visible(int p_id) const;
+	bool is_dirty() const;
+	void make_dirty(bool p_enabled);
+	void add_node(VisualShader::Type p_type, int p_id);
+	void remove_node(VisualShader::Type p_type, int p_id);
+	void connect_nodes(VisualShader::Type p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
+	void disconnect_nodes(VisualShader::Type p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
+	void show_port_preview(VisualShader::Type p_type, int p_node_id, int p_port_id);
+	void set_node_position(VisualShader::Type p_type, int p_id, const Vector2 &p_position);
+	void set_node_size(VisualShader::Type p_type, int p_id, const Vector2 &p_size);
+	void refresh_node_ports(VisualShader::Type p_type, int p_node);
+	void update_property_editor(VisualShader::Type p_type, int p_node_id);
+	void update_property_editor_deferred(VisualShader::Type p_type, int p_node_id);
+	void set_input_port_default_value(VisualShader::Type p_type, int p_node_id, int p_port_id, Variant p_value);
+	void register_default_input_button(int p_node_id, int p_port_id, Button *p_button);
+	VisualShader::Type get_shader_type() const;
+
+	VisualShaderGraphPlugin();
+	~VisualShaderGraphPlugin();
+};
+
 class VisualShaderEditor : public VBoxContainer {
 	GDCLASS(VisualShaderEditor, VBoxContainer);
+	friend class VisualShaderGraphPlugin;
 
 	CustomPropertyEditor *property_editor;
 	int editing_node;
@@ -36,7 +96,9 @@ class VisualShaderEditor : public VBoxContainer {
 	Button *add_node;
 	Button *preview_shader;
 
-	OptionButton *edit_type;
+	OptionButton *edit_type = nullptr;
+	OptionButton *edit_type_standart;
+	OptionButton *edit_type_particles;
 
 	PanelContainer *error_panel;
 	Label *error_label;
@@ -44,7 +106,7 @@ class VisualShaderEditor : public VBoxContainer {
 	bool pending_update_preview;
 	bool shader_error;
 	VBoxContainer *preview_vbox;
-	TextEdit *preview_text;
+	CodeEdit *preview_text;
 	Ref<CodeHighlighter> syntax_highlighter;
 	Label *error_text;
 
@@ -57,6 +119,19 @@ class VisualShaderEditor : public VBoxContainer {
 	MenuButton *tools;
 
 	bool preview_showed;
+	bool particles_mode;
+
+	enum TypeFlags {
+		TYPE_FLAGS_VERTEX = 1,
+		TYPE_FLAGS_FRAGMENT = 2,
+		TYPE_FLAGS_LIGHT = 4,
+	};
+
+	enum ParticlesTypeFlags {
+		TYPE_FLAGS_EMIT = 1,
+		TYPE_FLAGS_PROCESS = 2,
+		TYPE_FLAGS_END = 4
+	};
 
 	enum ToolsMenuOptions {
 		EXPAND_ALL,
@@ -145,6 +220,7 @@ class VisualShaderEditor : public VBoxContainer {
 	void _add_texture_node(const String &p_path);
 	VisualShaderNode *_add_node(int p_idx, int p_op_idx = -1);
 	void _update_options_menu();
+	void _set_mode(int p_which);
 
 	void _show_preview_text();
 	void _update_preview();
@@ -200,12 +276,15 @@ class VisualShaderEditor : public VBoxContainer {
 	void _paste_nodes(bool p_use_custom_position = false, const Vector2 &p_custom_position = Vector2());
 
 	Vector<Ref<VisualShaderNodePlugin>> plugins;
+	Ref<VisualShaderGraphPlugin> graph_plugin;
 
 	void _mode_selected(int p_id);
 	void _rebuild();
 
 	void _input_select_item(Ref<VisualShaderNodeInput> input, String name);
 	void _uniform_select_item(Ref<VisualShaderNodeUniformRef> p_uniform, String p_name);
+
+	VisualShader::Type get_current_shader_type() const;
 
 	void _add_input_port(int p_node, int p_port, int p_port_type, const String &p_name);
 	void _remove_input_port(int p_node, int p_port);
@@ -217,7 +296,7 @@ class VisualShaderEditor : public VBoxContainer {
 	void _change_output_port_type(int p_type, int p_node, int p_port);
 	void _change_output_port_name(const String &p_text, Object *line_edit, int p_node, int p_port);
 
-	void _expression_focus_out(Object *text_edit, int p_node);
+	void _expression_focus_out(Object *code_edit, int p_node);
 
 	void _set_node_size(int p_type, int p_node, const Size2 &p_size);
 	void _node_resized(const Vector2 &p_new_size, int p_type, int p_node);
@@ -241,6 +320,7 @@ class VisualShaderEditor : public VBoxContainer {
 
 	bool _is_available(int p_mode);
 	void _update_created_node(GraphNode *node);
+	void _update_uniforms();
 
 protected:
 	void _notification(int p_what);
@@ -252,6 +332,7 @@ public:
 	void remove_plugin(const Ref<VisualShaderNodePlugin> &p_plugin);
 
 	static VisualShaderEditor *get_singleton() { return singleton; }
+	VisualShaderGraphPlugin *get_graph_plugin() { return graph_plugin.ptr(); }
 
 	void clear_custom_types();
 	void add_custom_type(const String &p_name, const Ref<Script> &p_script, const String &p_description, int p_return_icon_type, const String &p_category, bool p_highend);

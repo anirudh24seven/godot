@@ -80,7 +80,7 @@ void GDMonoAssembly::assembly_load_hook(MonoAssembly *assembly, [[maybe_unused]]
 	GDMonoAssembly *gdassembly = memnew(GDMonoAssembly(name, image, assembly));
 
 #ifdef GD_MONO_HOT_RELOAD
-	const char *path = mono_image_get_filename(image);
+	String path = String::utf8(mono_image_get_filename(image));
 	if (FileAccess::exists(path)) {
 		gdassembly->modified_time = FileAccess::get_modified_time(path);
 	}
@@ -437,7 +437,9 @@ GDMonoAssembly *GDMonoAssembly::load(const String &p_name, MonoAssemblyName *p_a
 
 	if (!assembly) {
 		assembly = _load_assembly_search(p_name, p_aname, p_refonly, p_search_dirs);
-		ERR_FAIL_NULL_V(assembly, nullptr);
+		if (!assembly) {
+			return nullptr;
+		}
 	}
 
 	GDMonoAssembly *loaded_asm = GDMono::get_singleton()->get_loaded_assembly(p_name);
@@ -460,7 +462,9 @@ GDMonoAssembly *GDMonoAssembly::load_from(const String &p_name, const String &p_
 
 	if (!assembly) {
 		assembly = _real_load_assembly_from(p_path, p_refonly);
-		ERR_FAIL_NULL_V(assembly, nullptr);
+		if (!assembly) {
+			return nullptr;
+		}
 	}
 
 	GDMonoAssembly *loaded_asm = GDMono::get_singleton()->get_loaded_assembly(p_name);

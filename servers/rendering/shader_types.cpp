@@ -118,7 +118,8 @@ ShaderTypes::ShaderTypes() {
 	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["VIEW"] = constt(ShaderLanguage::TYPE_VEC3);
 	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["LIGHT"] = constt(ShaderLanguage::TYPE_VEC3);
 	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["LIGHT_COLOR"] = constt(ShaderLanguage::TYPE_VEC3);
-	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["ATTENUATION"] = constt(ShaderLanguage::TYPE_VEC3);
+	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["ATTENUATION"] = constt(ShaderLanguage::TYPE_FLOAT);
+	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["SHADOW_ATTENUATION"] = constt(ShaderLanguage::TYPE_VEC3);
 	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["ALBEDO"] = constt(ShaderLanguage::TYPE_VEC3);
 	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["BACKLIGHT"] = constt(ShaderLanguage::TYPE_VEC3);
 	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["ROUGHNESS"] = constt(ShaderLanguage::TYPE_FLOAT);
@@ -243,20 +244,41 @@ ShaderTypes::ShaderTypes() {
 	/************ PARTICLES **************************/
 
 	shader_modes[RS::SHADER_PARTICLES].functions["global"].built_ins["TIME"] = constt(ShaderLanguage::TYPE_FLOAT);
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["COLOR"] = ShaderLanguage::TYPE_VEC4;
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["VELOCITY"] = ShaderLanguage::TYPE_VEC3;
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["MASS"] = ShaderLanguage::TYPE_FLOAT;
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["ACTIVE"] = ShaderLanguage::TYPE_BOOL;
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["RESTART"] = constt(ShaderLanguage::TYPE_BOOL);
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["CUSTOM"] = ShaderLanguage::TYPE_VEC4;
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["TRANSFORM"] = ShaderLanguage::TYPE_MAT4;
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["LIFETIME"] = constt(ShaderLanguage::TYPE_FLOAT);
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["DELTA"] = constt(ShaderLanguage::TYPE_FLOAT);
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["NUMBER"] = constt(ShaderLanguage::TYPE_UINT);
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["INDEX"] = constt(ShaderLanguage::TYPE_INT);
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["EMISSION_TRANSFORM"] = constt(ShaderLanguage::TYPE_MAT4);
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].built_ins["RANDOM_SEED"] = constt(ShaderLanguage::TYPE_UINT);
-	shader_modes[RS::SHADER_PARTICLES].functions["vertex"].can_discard = false;
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["COLOR"] = ShaderLanguage::TYPE_VEC4;
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["VELOCITY"] = ShaderLanguage::TYPE_VEC3;
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["MASS"] = ShaderLanguage::TYPE_FLOAT;
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["ACTIVE"] = ShaderLanguage::TYPE_BOOL;
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["RESTART"] = constt(ShaderLanguage::TYPE_BOOL);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["CUSTOM"] = ShaderLanguage::TYPE_VEC4;
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["TRANSFORM"] = ShaderLanguage::TYPE_MAT4;
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["LIFETIME"] = constt(ShaderLanguage::TYPE_FLOAT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["DELTA"] = constt(ShaderLanguage::TYPE_FLOAT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["NUMBER"] = constt(ShaderLanguage::TYPE_UINT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["INDEX"] = constt(ShaderLanguage::TYPE_INT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["EMISSION_TRANSFORM"] = constt(ShaderLanguage::TYPE_MAT4);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["RANDOM_SEED"] = constt(ShaderLanguage::TYPE_UINT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["FLAG_EMIT_POSITION"] = constt(ShaderLanguage::TYPE_UINT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["FLAG_EMIT_ROT_SCALE"] = constt(ShaderLanguage::TYPE_UINT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["FLAG_EMIT_VELOCITY"] = constt(ShaderLanguage::TYPE_UINT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["FLAG_EMIT_COLOR"] = constt(ShaderLanguage::TYPE_UINT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["FLAG_EMIT_CUSTOM"] = constt(ShaderLanguage::TYPE_UINT);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["RESTART_POSITION"] = constt(ShaderLanguage::TYPE_BOOL);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["RESTART_ROT_SCALE"] = constt(ShaderLanguage::TYPE_BOOL);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["RESTART_VELOCITY"] = constt(ShaderLanguage::TYPE_BOOL);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["RESTART_COLOR"] = constt(ShaderLanguage::TYPE_BOOL);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].built_ins["RESTART_CUSTOM"] = constt(ShaderLanguage::TYPE_BOOL);
+	shader_modes[RS::SHADER_PARTICLES].functions["compute"].can_discard = false;
+
+	{
+		ShaderLanguage::StageFunctionInfo emit_vertex_func;
+		emit_vertex_func.arguments.push_back(ShaderLanguage::StageFunctionInfo::Argument("xform", ShaderLanguage::TYPE_MAT4));
+		emit_vertex_func.arguments.push_back(ShaderLanguage::StageFunctionInfo::Argument("velocity", ShaderLanguage::TYPE_VEC3));
+		emit_vertex_func.arguments.push_back(ShaderLanguage::StageFunctionInfo::Argument("color", ShaderLanguage::TYPE_VEC4));
+		emit_vertex_func.arguments.push_back(ShaderLanguage::StageFunctionInfo::Argument("custom", ShaderLanguage::TYPE_VEC4));
+		emit_vertex_func.arguments.push_back(ShaderLanguage::StageFunctionInfo::Argument("flags", ShaderLanguage::TYPE_UINT));
+		emit_vertex_func.return_type = ShaderLanguage::TYPE_BOOL; //whether it could emit
+		shader_modes[RS::SHADER_PARTICLES].functions["compute"].stage_functions["emit_particle"] = emit_vertex_func;
+	}
 
 	shader_modes[RS::SHADER_PARTICLES].modes.push_back("disable_force");
 	shader_modes[RS::SHADER_PARTICLES].modes.push_back("disable_velocity");

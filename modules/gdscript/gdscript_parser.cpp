@@ -300,7 +300,7 @@ Error GDScriptParser::parse(const String &p_source_code, const String &p_script_
 			bool found = false;
 			const String &line = lines[i];
 			for (int j = 0; j < line.size(); j++) {
-				if (line[j] == CharType(0xFFFF)) {
+				if (line[j] == char32_t(0xFFFF)) {
 					found = true;
 					break;
 				} else if (line[j] == '\t') {
@@ -557,6 +557,14 @@ GDScriptParser::ClassNode *GDScriptParser::parse_class() {
 	if (!consume(GDScriptTokenizer::Token::INDENT, R"(Expected indented block after class declaration.)")) {
 		current_class = previous_class;
 		return n_class;
+	}
+
+	if (match(GDScriptTokenizer::Token::EXTENDS)) {
+		if (n_class->extends_used) {
+			push_error(R"(Cannot use "extends" more than once in the same class.)");
+		}
+		parse_extends();
+		end_statement("superclass");
 	}
 
 	parse_class_body();
@@ -1007,7 +1015,7 @@ GDScriptParser::EnumNode *GDScriptParser::parse_enum() {
 		if (check(GDScriptTokenizer::Token::BRACE_CLOSE)) {
 			break; // Allow trailing comma.
 		}
-		if (consume(GDScriptTokenizer::Token::IDENTIFIER, R"(Expected identifer for enum key.)")) {
+		if (consume(GDScriptTokenizer::Token::IDENTIFIER, R"(Expected identifier for enum key.)")) {
 			EnumNode::Value item;
 			item.identifier = parse_identifier();
 			item.parent_enum = enum_node;
@@ -1441,7 +1449,9 @@ GDScriptParser::ContinueNode *GDScriptParser::parse_continue() {
 	}
 	current_suite->has_continue = true;
 	end_statement(R"("continue")");
-	return alloc_node<ContinueNode>();
+	ContinueNode *cont = alloc_node<ContinueNode>();
+	cont->is_for_match = is_continue_match;
+	return cont;
 }
 
 GDScriptParser::ForNode *GDScriptParser::parse_for() {
@@ -1460,10 +1470,12 @@ GDScriptParser::ForNode *GDScriptParser::parse_for() {
 	// Save break/continue state.
 	bool could_break = can_break;
 	bool could_continue = can_continue;
+	bool was_continue_match = is_continue_match;
 
 	// Allow break/continue.
 	can_break = true;
 	can_continue = true;
+	is_continue_match = false;
 
 	SuiteNode *suite = alloc_node<SuiteNode>();
 	if (n_for->variable) {
@@ -1476,6 +1488,7 @@ GDScriptParser::ForNode *GDScriptParser::parse_for() {
 	// Reset break/continue state.
 	can_break = could_break;
 	can_continue = could_continue;
+	is_continue_match = was_continue_match;
 
 	return n_for;
 }
@@ -1610,8 +1623,10 @@ GDScriptParser::MatchBranchNode *GDScriptParser::parse_match_branch() {
 
 	// Save continue state.
 	bool could_continue = can_continue;
+	bool was_continue_match = is_continue_match;
 	// Allow continue for match.
 	can_continue = true;
+	is_continue_match = true;
 
 	SuiteNode *suite = alloc_node<SuiteNode>();
 	if (branch->patterns.size() > 0) {
@@ -1628,6 +1643,7 @@ GDScriptParser::MatchBranchNode *GDScriptParser::parse_match_branch() {
 
 	// Restore continue state.
 	can_continue = could_continue;
+	is_continue_match = was_continue_match;
 
 	return branch;
 }
@@ -1785,16 +1801,19 @@ GDScriptParser::WhileNode *GDScriptParser::parse_while() {
 	// Save break/continue state.
 	bool could_break = can_break;
 	bool could_continue = can_continue;
+	bool was_continue_match = is_continue_match;
 
 	// Allow break/continue.
 	can_break = true;
 	can_continue = true;
+	is_continue_match = false;
 
 	n_while->loop = parse_suite(R"("while" block)");
 
 	// Reset break/continue state.
 	can_break = could_break;
 	can_continue = could_continue;
+	is_continue_match = was_continue_match;
 
 	return n_while;
 }
@@ -1914,8 +1933,8 @@ GDScriptParser::ExpressionNode *GDScriptParser::parse_literal(ExpressionNode *p_
 }
 
 GDScriptParser::ExpressionNode *GDScriptParser::parse_self(ExpressionNode *p_previous_operand, bool p_can_assign) {
-	if (!current_function || current_function->is_static) {
-		push_error(R"(Cannot use "self" outside a non-static function.)");
+	if (current_function && current_function->is_static) {
+		push_error(R"(Cannot use "self" inside a static function.)");
 	}
 	SelfNode *self = alloc_node<SelfNode>();
 	self->current_class = current_class;
@@ -2470,7 +2489,7 @@ GDScriptParser::ExpressionNode *GDScriptParser::parse_call(ExpressionNode *p_pre
 GDScriptParser::ExpressionNode *GDScriptParser::parse_get_node(ExpressionNode *p_previous_operand, bool p_can_assign) {
 	if (match(GDScriptTokenizer::Token::LITERAL)) {
 		if (previous.literal.get_type() != Variant::STRING) {
-			push_error(R"(Expect node path as string or identifer after "$".)");
+			push_error(R"(Expect node path as string or identifier after "$".)");
 			return nullptr;
 		}
 		GetNodeNode *get_node = alloc_node<GetNodeNode>();
@@ -2493,7 +2512,7 @@ GDScriptParser::ExpressionNode *GDScriptParser::parse_get_node(ExpressionNode *p
 		} while (match(GDScriptTokenizer::Token::SLASH));
 		return get_node;
 	} else {
-		push_error(R"(Expect node path as string or identifer after "$".)");
+		push_error(R"(Expect node path as string or identifier after "$".)");
 		return nullptr;
 	}
 }

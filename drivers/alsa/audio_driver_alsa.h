@@ -1,10 +1,10 @@
 
 /*  audio_driver_alsa.h                                                  */
 
-#ifdef ALSA_ENABLED
-
 #ifndef AUDIO_DRIVER_ALSA_H
 #define AUDIO_DRIVER_ALSA_H
+
+#ifdef ALSA_ENABLED
 
 #include "core/os/mutex.h"
 #include "core/os/thread.h"
@@ -61,6 +61,6 @@ public:
 	~AudioDriverALSA() {}
 };
 
-#endif // AUDIO_DRIVER_ALSA_H
-
 #endif // ALSA_ENABLED
+
+#endif // AUDIO_DRIVER_ALSA_H

@@ -13,7 +13,15 @@
 // Godot's packed file magic header ("GDPC" in ASCII).
 #define PACK_HEADER_MAGIC 0x43504447
 // The current packed file format version number.
-#define PACK_FORMAT_VERSION 1
+#define PACK_FORMAT_VERSION 2
+
+enum PackFlags {
+	PACK_DIR_ENCRYPTED = 1 << 0
+};
+
+enum PackFileFlags {
+	PACK_FILE_ENCRYPTED = 1 << 0
+};
 
 class PackSource;
 
@@ -29,6 +37,7 @@ public:
 		uint64_t size;
 		uint8_t md5[16];
 		PackSource *src;
+		bool encrypted;
 	};
 
 private:
@@ -75,13 +84,13 @@ private:
 
 public:
 	void add_pack_source(PackSource *p_source);
-	void add_path(const String &pkg_path, const String &path, uint64_t ofs, uint64_t size, const uint8_t *p_md5, PackSource *p_src, bool p_replace_files); // for PackSource
+	void add_path(const String &pkg_path, const String &path, uint64_t ofs, uint64_t size, const uint8_t *p_md5, PackSource *p_src, bool p_replace_files, bool p_encrypted = false); // for PackSource
 
 	void set_disabled(bool p_disabled) { disabled = p_disabled; }
 	_FORCE_INLINE_ bool is_disabled() const { return disabled; }
 
 	static PackedData *get_singleton() { return singleton; }
-	Error add_pack(const String &p_path, bool p_replace_files);
+	Error add_pack(const String &p_path, bool p_replace_files, size_t p_offset);
 
 	_FORCE_INLINE_ FileAccess *try_open_path(const String &p_path);
 	_FORCE_INLINE_ bool has_path(const String &p_path);
@@ -92,14 +101,14 @@ public:
 
 class PackSource {
 public:
-	virtual bool try_open_pack(const String &p_path, bool p_replace_files) = 0;
+	virtual bool try_open_pack(const String &p_path, bool p_replace_files, size_t p_offset) = 0;
 	virtual FileAccess *get_file(const String &p_path, PackedData::PackedFile *p_file) = 0;
 	virtual ~PackSource() {}
 };
 
 class PackedSourcePCK : public PackSource {
 public:
-	virtual bool try_open_pack(const String &p_path, bool p_replace_files);
+	virtual bool try_open_pack(const String &p_path, bool p_replace_files, size_t p_offset);
 	virtual FileAccess *get_file(const String &p_path, PackedData::PackedFile *p_file);
 };
 
@@ -108,6 +117,7 @@ class FileAccessPack : public FileAccess {
 
 	mutable size_t pos;
 	mutable bool eof;
+	uint64_t off;
 
 	FileAccess *f;
 	virtual Error _open(const String &p_path, int p_mode_flags);
